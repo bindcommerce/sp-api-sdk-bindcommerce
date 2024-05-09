@@ -1,10 +1,14 @@
 {
-    "name": "amazon-php/sp-api-sdk",
+    "name": "bindcommerce/sp-api-sdk-bindcommerce",
     "description": "Amazon Selling Partner API - PHP SDK",
     "keywords": ["amazon", "selling-partner-api", "php", "sdk", "rest", "api"],
     "homepage": "https://openapi-generator.tech",
     "license": "MIT",
     "authors": [
+        {
+            "name": "bindCommerce",
+            "homepage": "https://www.bindcommerce.com"
+        },
         {
             "name": "Norbert Orzechowicz",
             "homepage": "https://norbert.tech"
