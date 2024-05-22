@@ -122,6 +122,8 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -130,6 +132,8 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -139,6 +143,8 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -147,6 +153,8 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -155,6 +163,8 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -166,7 +176,7 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -231,7 +241,7 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets base_amount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $base_amount base_amount
+     * @param null|Currency $base_amount base_amount
      */
     public function setBaseAmount(?Currency $base_amount) : self
     {
@@ -251,7 +261,7 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets withheld_amount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $withheld_amount withheld_amount
+     * @param null|Currency $withheld_amount withheld_amount
      */
     public function setWithheldAmount(?Currency $withheld_amount) : self
     {
@@ -271,7 +281,7 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets tax_withholding_period.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\TaxWithholdingPeriod $tax_withholding_period tax_withholding_period
+     * @param null|TaxWithholdingPeriod $tax_withholding_period tax_withholding_period
      */
     public function setTaxWithholdingPeriod(?TaxWithholdingPeriod $tax_withholding_period) : self
     {

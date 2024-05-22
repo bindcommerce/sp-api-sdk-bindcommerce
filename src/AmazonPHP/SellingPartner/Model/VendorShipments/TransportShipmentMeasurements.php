@@ -128,6 +128,8 @@ class TransportShipmentMeasurements implements \ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -136,6 +138,8 @@ class TransportShipmentMeasurements implements \ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -145,6 +149,8 @@ class TransportShipmentMeasurements implements \ArrayAccess, \JsonSerializable, 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -153,6 +159,8 @@ class TransportShipmentMeasurements implements \ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -161,6 +169,8 @@ class TransportShipmentMeasurements implements \ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -172,7 +182,7 @@ class TransportShipmentMeasurements implements \ArrayAccess, \JsonSerializable, 
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -273,7 +283,7 @@ class TransportShipmentMeasurements implements \ArrayAccess, \JsonSerializable, 
     /**
      * Sets shipment_weight.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\Weight $shipment_weight shipment_weight
+     * @param null|Weight $shipment_weight shipment_weight
      */
     public function setShipmentWeight(?Weight $shipment_weight) : self
     {
@@ -293,7 +303,7 @@ class TransportShipmentMeasurements implements \ArrayAccess, \JsonSerializable, 
     /**
      * Sets shipment_volume.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\Volume $shipment_volume shipment_volume
+     * @param null|Volume $shipment_volume shipment_volume
      */
     public function setShipmentVolume(?Volume $shipment_volume) : self
     {

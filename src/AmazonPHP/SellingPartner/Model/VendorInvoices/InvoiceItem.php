@@ -164,6 +164,8 @@ class InvoiceItem implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -172,6 +174,8 @@ class InvoiceItem implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -181,6 +185,8 @@ class InvoiceItem implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -189,6 +195,8 @@ class InvoiceItem implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -197,6 +205,8 @@ class InvoiceItem implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -208,7 +218,7 @@ class InvoiceItem implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -321,7 +331,7 @@ class InvoiceItem implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets invoiced_quantity.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\ItemQuantity $invoiced_quantity invoiced_quantity
+     * @param ItemQuantity $invoiced_quantity invoiced_quantity
      */
     public function setInvoicedQuantity(ItemQuantity $invoiced_quantity) : self
     {
@@ -341,7 +351,7 @@ class InvoiceItem implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets net_cost.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\Money $net_cost net_cost
+     * @param Money $net_cost net_cost
      */
     public function setNetCost(Money $net_cost) : self
     {
@@ -401,7 +411,7 @@ class InvoiceItem implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets credit_note_details.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorInvoices\CreditNoteDetails $credit_note_details credit_note_details
+     * @param null|CreditNoteDetails $credit_note_details credit_note_details
      */
     public function setCreditNoteDetails(?CreditNoteDetails $credit_note_details) : self
     {

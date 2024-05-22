@@ -126,6 +126,8 @@ class EventFilter implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -134,6 +136,8 @@ class EventFilter implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -143,6 +147,8 @@ class EventFilter implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -151,6 +157,8 @@ class EventFilter implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -159,6 +167,8 @@ class EventFilter implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -170,7 +180,7 @@ class EventFilter implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -236,7 +246,7 @@ class EventFilter implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets aggregation_settings.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Notifications\AggregationSettings $aggregation_settings aggregation_settings
+     * @param null|AggregationSettings $aggregation_settings aggregation_settings
      */
     public function setAggregationSettings(?AggregationSettings $aggregation_settings) : self
     {
@@ -300,7 +310,7 @@ class EventFilter implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets event_filter_type.
      *
-     * @param string $event_filter_type An `eventFilterType` value that is supported by the specific `notificationType`. This is used by the subscription service to determine the type of event filter. Refer to the section of the [Notifications Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide) that describes the specific `notificationType` to determine if an `eventFilterType` is supported.
+     * @param string $event_filter_type An `eventFilterType` value that is supported by the specific `notificationType`. This is used by the subscription service to determine the type of event filter. Refer to [Notification Type Values](https://developer-docs.amazon.com/sp-api/docs/notification-type-values) to determine if an `eventFilterType` is supported.
      */
     public function setEventFilterType(string $event_filter_type) : self
     {

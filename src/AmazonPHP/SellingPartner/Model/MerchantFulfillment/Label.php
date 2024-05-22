@@ -128,6 +128,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -136,6 +138,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -145,6 +149,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -153,6 +159,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -161,6 +169,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -172,7 +182,7 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -241,7 +251,7 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets dimensions.
      *
-     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelDimensions $dimensions dimensions
+     * @param LabelDimensions $dimensions dimensions
      */
     public function setDimensions(LabelDimensions $dimensions) : self
     {
@@ -261,7 +271,7 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets file_contents.
      *
-     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\FileContents $file_contents file_contents
+     * @param FileContents $file_contents file_contents
      */
     public function setFileContents(FileContents $file_contents) : self
     {
@@ -281,7 +291,7 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets label_format.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormat $label_format label_format
+     * @param null|LabelFormat $label_format label_format
      */
     public function setLabelFormat(?LabelFormat $label_format) : self
     {
@@ -301,7 +311,7 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets standard_id_for_label.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\MerchantFulfillment\StandardIdForLabel $standard_id_for_label standard_id_for_label
+     * @param null|StandardIdForLabel $standard_id_for_label standard_id_for_label
      */
     public function setStandardIdForLabel(?StandardIdForLabel $standard_id_for_label) : self
     {

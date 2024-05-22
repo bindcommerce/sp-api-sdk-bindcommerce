@@ -146,6 +146,8 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -154,6 +156,8 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -163,6 +167,8 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -171,6 +177,8 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -179,6 +187,8 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -190,7 +200,7 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -319,7 +329,7 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets revenue.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $revenue revenue
+     * @param null|Currency $revenue revenue
      */
     public function setRevenue(?Currency $revenue) : self
     {
@@ -339,7 +349,7 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets fee_amount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $fee_amount fee_amount
+     * @param null|Currency $fee_amount fee_amount
      */
     public function setFeeAmount(?Currency $fee_amount) : self
     {
@@ -359,7 +369,7 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets tax_amount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $tax_amount tax_amount
+     * @param null|Currency $tax_amount tax_amount
      */
     public function setTaxAmount(?Currency $tax_amount) : self
     {
@@ -379,7 +389,7 @@ class RemovalShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets tax_withheld.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $tax_withheld tax_withheld
+     * @param null|Currency $tax_withheld tax_withheld
      */
     public function setTaxWithheld(?Currency $tax_withheld) : self
     {

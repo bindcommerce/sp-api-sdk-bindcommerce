@@ -140,6 +140,8 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -148,6 +150,8 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -157,6 +161,8 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -165,6 +171,8 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -173,6 +181,8 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -184,7 +194,7 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -309,7 +319,7 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
     /**
      * Sets reserved_quantity.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FBAInventory\ReservedQuantity $reserved_quantity reserved_quantity
+     * @param null|ReservedQuantity $reserved_quantity reserved_quantity
      */
     public function setReservedQuantity(?ReservedQuantity $reserved_quantity) : self
     {
@@ -329,7 +339,7 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
     /**
      * Sets researching_quantity.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FBAInventory\ResearchingQuantity $researching_quantity researching_quantity
+     * @param null|ResearchingQuantity $researching_quantity researching_quantity
      */
     public function setResearchingQuantity(?ResearchingQuantity $researching_quantity) : self
     {
@@ -349,7 +359,7 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
     /**
      * Sets unfulfillable_quantity.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FBAInventory\UnfulfillableQuantity $unfulfillable_quantity unfulfillable_quantity
+     * @param null|UnfulfillableQuantity $unfulfillable_quantity unfulfillable_quantity
      */
     public function setUnfulfillableQuantity(?UnfulfillableQuantity $unfulfillable_quantity) : self
     {

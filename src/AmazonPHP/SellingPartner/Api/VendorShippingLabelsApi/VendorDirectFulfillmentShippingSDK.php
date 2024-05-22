@@ -135,7 +135,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      * @param string $purchase_order_number The purchase order number for which you want to return the shipping labels. It should be the same purchaseOrderNumber as received in the order. (required)
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateShippingLabelsRequest $body (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function createShippingLabelsRequest(AccessToken $accessToken, string $region, string $purchase_order_number, \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateShippingLabelsRequest $body) : RequestInterface
     {
@@ -341,7 +341,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * @param string $purchase_order_number The purchase order number for which you want to return the shipping label. It should be the same purchaseOrderNumber as received in the order. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getShippingLabelRequest(AccessToken $accessToken, string $region, string $purchase_order_number) : RequestInterface
     {
@@ -542,7 +542,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      * @param string $sort_order Sort ASC or DESC by order creation date. (optional, default to 'ASC')
      * @param null|string $next_token Used for pagination when there are more ship labels than the specified result size limit. The token value is returned in the previous API call. (optional)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getShippingLabelsRequest(AccessToken $accessToken, string $region, \DateTimeInterface $created_after, \DateTimeInterface $created_before, ?string $ship_from_party_id = null, ?int $limit = null, string $sort_order = 'ASC', ?string $next_token = null) : RequestInterface
     {
@@ -552,6 +552,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
                 'Missing the required parameter $created_after when calling getShippingLabels'
             );
         }
+
         // verify the required parameter 'created_before' is set
         if ($created_before === null || (\is_array($created_before) && \count($created_before) === 0)) {
             throw new InvalidArgumentException(
@@ -582,6 +583,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
         if ($ship_from_party_id !== null) {
             $queryParams['shipFromPartyId'] = ObjectSerializer::toString($ship_from_party_id);
         }
+
         // query params
         if (\is_array($limit)) {
             $limit = ObjectSerializer::serializeCollection($limit, '', true);
@@ -590,6 +592,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
         if ($limit !== null) {
             $queryParams['limit'] = ObjectSerializer::toString($limit);
         }
+
         // query params
         if (\is_array($created_after)) {
             $created_after = ObjectSerializer::serializeCollection($created_after, '', true);
@@ -598,6 +601,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
         if ($created_after !== null) {
             $queryParams['createdAfter'] = ObjectSerializer::toString($created_after);
         }
+
         // query params
         if (\is_array($created_before)) {
             $created_before = ObjectSerializer::serializeCollection($created_before, '', true);
@@ -606,6 +610,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
         if ($created_before !== null) {
             $queryParams['createdBefore'] = ObjectSerializer::toString($created_before);
         }
+
         // query params
         if (\is_array($sort_order)) {
             $sort_order = ObjectSerializer::serializeCollection($sort_order, '', true);
@@ -614,6 +619,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
         if ($sort_order !== null) {
             $queryParams['sortOrder'] = ObjectSerializer::toString($sort_order);
         }
+
         // query params
         if (\is_array($next_token)) {
             $next_token = ObjectSerializer::serializeCollection($next_token, '', true);
@@ -783,7 +789,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\SubmitShippingLabelsRequest $body (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function submitShippingLabelRequestRequest(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\SubmitShippingLabelsRequest $body) : RequestInterface
     {

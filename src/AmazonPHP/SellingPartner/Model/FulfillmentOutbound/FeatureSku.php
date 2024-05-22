@@ -128,6 +128,8 @@ class FeatureSku implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -136,6 +138,8 @@ class FeatureSku implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -145,6 +149,8 @@ class FeatureSku implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -153,6 +159,8 @@ class FeatureSku implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -161,6 +169,8 @@ class FeatureSku implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -172,7 +182,7 @@ class FeatureSku implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -206,7 +216,7 @@ class FeatureSku implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
     /**
      * Sets seller_sku.
      *
-     * @param null|string $seller_sku Used to identify an item in the given marketplace. SellerSKU is qualified by the seller's SellerId, which is included with every operation that you submit.
+     * @param null|string $seller_sku Used to identify an item in the given marketplace. `SellerSKU` is qualified by the seller's SellerId, which is included with every operation that you submit.
      */
     public function setSellerSku(?string $seller_sku) : self
     {

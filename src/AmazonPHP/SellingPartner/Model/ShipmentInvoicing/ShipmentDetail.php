@@ -182,6 +182,8 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -190,6 +192,8 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -199,6 +203,8 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -207,6 +213,8 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -215,6 +223,8 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -226,7 +236,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -351,7 +361,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets shipping_address.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\Address $shipping_address shipping_address
+     * @param null|Address $shipping_address shipping_address
      */
     public function setShippingAddress(?Address $shipping_address) : self
     {
@@ -473,7 +483,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets buyer_tax_info.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\BuyerTaxInfo $buyer_tax_info buyer_tax_info
+     * @param null|BuyerTaxInfo $buyer_tax_info buyer_tax_info
      */
     public function setBuyerTaxInfo(?BuyerTaxInfo $buyer_tax_info) : self
     {
@@ -493,7 +503,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets marketplace_tax_info.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\MarketplaceTaxInfo $marketplace_tax_info marketplace_tax_info
+     * @param null|MarketplaceTaxInfo $marketplace_tax_info marketplace_tax_info
      */
     public function setMarketplaceTaxInfo(?MarketplaceTaxInfo $marketplace_tax_info) : self
     {

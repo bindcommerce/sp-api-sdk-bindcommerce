@@ -68,7 +68,7 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
         'shipment_confirmation_type' => 'string',
         'shipment_type' => 'string',
         'shipment_structure' => 'string',
-        'transportation_details' => '\AmazonPHP\SellingPartner\Model\VendorShipments\TransportationDetails',
+        'transportation_details' => '\AmazonPHP\SellingPartner\Model\VendorShipments\TransportationDetailsForShipmentConfirmation',
         'amazon_reference_number' => 'string',
         'shipment_confirmation_date' => '\DateTimeInterface',
         'shipped_date' => '\DateTimeInterface',
@@ -224,6 +224,8 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -232,6 +234,8 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -241,6 +245,8 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -249,6 +255,8 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -257,6 +265,8 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -268,7 +278,7 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -500,7 +510,7 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Gets transportation_details.
      */
-    public function getTransportationDetails() : ?TransportationDetails
+    public function getTransportationDetails() : ?TransportationDetailsForShipmentConfirmation
     {
         return $this->container['transportation_details'];
     }
@@ -508,9 +518,9 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets transportation_details.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\TransportationDetails $transportation_details transportation_details
+     * @param null|TransportationDetailsForShipmentConfirmation $transportation_details transportation_details
      */
-    public function setTransportationDetails(?TransportationDetails $transportation_details) : self
+    public function setTransportationDetails(?TransportationDetailsForShipmentConfirmation $transportation_details) : self
     {
         $this->container['transportation_details'] = $transportation_details;
 
@@ -608,7 +618,7 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets selling_party.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorShipments\PartyIdentification $selling_party selling_party
+     * @param PartyIdentification $selling_party selling_party
      */
     public function setSellingParty(PartyIdentification $selling_party) : self
     {
@@ -628,7 +638,7 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets ship_from_party.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorShipments\PartyIdentification $ship_from_party ship_from_party
+     * @param PartyIdentification $ship_from_party ship_from_party
      */
     public function setShipFromParty(PartyIdentification $ship_from_party) : self
     {
@@ -648,7 +658,7 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets ship_to_party.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorShipments\PartyIdentification $ship_to_party ship_to_party
+     * @param PartyIdentification $ship_to_party ship_to_party
      */
     public function setShipToParty(PartyIdentification $ship_to_party) : self
     {
@@ -668,7 +678,7 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets shipment_measurements.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\ShipmentMeasurements $shipment_measurements shipment_measurements
+     * @param null|ShipmentMeasurements $shipment_measurements shipment_measurements
      */
     public function setShipmentMeasurements(?ShipmentMeasurements $shipment_measurements) : self
     {
@@ -688,7 +698,7 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets import_details.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\ImportDetails $import_details import_details
+     * @param null|ImportDetails $import_details import_details
      */
     public function setImportDetails(?ImportDetails $import_details) : self
     {

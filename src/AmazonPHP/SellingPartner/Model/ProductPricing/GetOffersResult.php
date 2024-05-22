@@ -146,6 +146,8 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -154,6 +156,8 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -163,6 +167,8 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -171,6 +177,8 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -179,6 +187,8 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -190,7 +200,7 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -247,7 +257,7 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Gets marketplace_id.
      */
-    public function getMarketplaceId() : ?string
+    public function getMarketplaceId() : string
     {
         return $this->container['marketplace_id'];
     }
@@ -315,7 +325,7 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets item_condition.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ConditionType $item_condition item_condition
+     * @param ConditionType $item_condition item_condition
      */
     public function setItemCondition(ConditionType $item_condition) : self
     {
@@ -355,7 +365,7 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets identifier.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ItemIdentifier $identifier identifier
+     * @param ItemIdentifier $identifier identifier
      */
     public function setIdentifier(ItemIdentifier $identifier) : self
     {
@@ -375,7 +385,7 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets summary.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\Summary $summary summary
+     * @param Summary $summary summary
      */
     public function setSummary(Summary $summary) : self
     {

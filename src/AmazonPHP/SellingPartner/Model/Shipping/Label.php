@@ -110,6 +110,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -118,6 +120,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -127,6 +131,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -135,6 +141,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -143,6 +151,8 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -154,7 +164,7 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -211,7 +221,7 @@ class Label implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets label_specification.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Shipping\LabelSpecification $label_specification label_specification
+     * @param null|LabelSpecification $label_specification label_specification
      */
     public function setLabelSpecification(?LabelSpecification $label_specification) : self
     {

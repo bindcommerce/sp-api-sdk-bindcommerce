@@ -182,6 +182,8 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -190,6 +192,8 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -199,6 +203,8 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -207,6 +213,8 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -215,6 +223,8 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -226,7 +236,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -427,7 +437,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets ship_to_address.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\TrackingAddress $ship_to_address ship_to_address
+     * @param null|TrackingAddress $ship_to_address ship_to_address
      */
     public function setShipToAddress(?TrackingAddress $ship_to_address) : self
     {
@@ -447,7 +457,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets current_status.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CurrentStatus $current_status current_status
+     * @param null|CurrentStatus $current_status current_status
      */
     public function setCurrentStatus(?CurrentStatus $current_status) : self
     {
@@ -467,7 +477,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets current_status_description.
      *
-     * @param null|string $current_status_description description corresponding to the CurrentStatus value
+     * @param null|string $current_status_description description corresponding to the `CurrentStatus` value
      */
     public function setCurrentStatusDescription(?string $current_status_description) : self
     {
@@ -507,7 +517,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets additional_location_info.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\AdditionalLocationInfo $additional_location_info additional_location_info
+     * @param null|AdditionalLocationInfo $additional_location_info additional_location_info
      */
     public function setAdditionalLocationInfo(?AdditionalLocationInfo $additional_location_info) : self
     {

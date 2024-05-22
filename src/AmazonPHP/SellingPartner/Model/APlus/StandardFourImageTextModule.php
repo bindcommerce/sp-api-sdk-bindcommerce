@@ -128,6 +128,8 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -136,6 +138,8 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -145,6 +149,8 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -153,6 +159,8 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -161,6 +169,8 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -172,7 +182,7 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -225,7 +235,7 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets headline.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\TextComponent $headline headline
+     * @param null|TextComponent $headline headline
      */
     public function setHeadline(?TextComponent $headline) : self
     {
@@ -245,7 +255,7 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets block1.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock $block1 block1
+     * @param null|StandardImageTextBlock $block1 block1
      */
     public function setBlock1(?StandardImageTextBlock $block1) : self
     {
@@ -265,7 +275,7 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets block2.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock $block2 block2
+     * @param null|StandardImageTextBlock $block2 block2
      */
     public function setBlock2(?StandardImageTextBlock $block2) : self
     {
@@ -285,7 +295,7 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets block3.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock $block3 block3
+     * @param null|StandardImageTextBlock $block3 block3
      */
     public function setBlock3(?StandardImageTextBlock $block3) : self
     {
@@ -305,7 +315,7 @@ class StandardFourImageTextModule implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets block4.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock $block4 block4
+     * @param null|StandardImageTextBlock $block4 block4
      */
     public function setBlock4(?StandardImageTextBlock $block4) : self
     {

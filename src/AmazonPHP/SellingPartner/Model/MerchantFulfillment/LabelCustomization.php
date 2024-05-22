@@ -110,6 +110,8 @@ class LabelCustomization implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -118,6 +120,8 @@ class LabelCustomization implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -127,6 +131,8 @@ class LabelCustomization implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -135,6 +141,8 @@ class LabelCustomization implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -143,6 +151,8 @@ class LabelCustomization implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -154,7 +164,7 @@ class LabelCustomization implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -211,7 +221,7 @@ class LabelCustomization implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets standard_id_for_label.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\MerchantFulfillment\StandardIdForLabel $standard_id_for_label standard_id_for_label
+     * @param null|StandardIdForLabel $standard_id_for_label standard_id_for_label
      */
     public function setStandardIdForLabel(?StandardIdForLabel $standard_id_for_label) : self
     {

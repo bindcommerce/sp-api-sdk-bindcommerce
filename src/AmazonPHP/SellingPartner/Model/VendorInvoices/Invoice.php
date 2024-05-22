@@ -192,6 +192,8 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -200,6 +202,8 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -209,6 +213,8 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -217,6 +223,8 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -225,6 +233,8 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -236,7 +246,7 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -414,7 +424,7 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets remit_to_party.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification $remit_to_party remit_to_party
+     * @param PartyIdentification $remit_to_party remit_to_party
      */
     public function setRemitToParty(PartyIdentification $remit_to_party) : self
     {
@@ -434,7 +444,7 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets ship_to_party.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification $ship_to_party ship_to_party
+     * @param null|PartyIdentification $ship_to_party ship_to_party
      */
     public function setShipToParty(?PartyIdentification $ship_to_party) : self
     {
@@ -454,7 +464,7 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets ship_from_party.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification $ship_from_party ship_from_party
+     * @param null|PartyIdentification $ship_from_party ship_from_party
      */
     public function setShipFromParty(?PartyIdentification $ship_from_party) : self
     {
@@ -474,7 +484,7 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets bill_to_party.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification $bill_to_party bill_to_party
+     * @param null|PartyIdentification $bill_to_party bill_to_party
      */
     public function setBillToParty(?PartyIdentification $bill_to_party) : self
     {
@@ -494,7 +504,7 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets payment_terms.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorInvoices\PaymentTerms $payment_terms payment_terms
+     * @param null|PaymentTerms $payment_terms payment_terms
      */
     public function setPaymentTerms(?PaymentTerms $payment_terms) : self
     {
@@ -514,7 +524,7 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets invoice_total.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\Money $invoice_total invoice_total
+     * @param Money $invoice_total invoice_total
      */
     public function setInvoiceTotal(Money $invoice_total) : self
     {

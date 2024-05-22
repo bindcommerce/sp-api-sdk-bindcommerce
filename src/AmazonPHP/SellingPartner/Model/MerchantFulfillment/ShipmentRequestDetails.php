@@ -158,6 +158,8 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -166,6 +168,8 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -175,6 +179,8 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -183,6 +189,8 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -191,6 +199,8 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -202,7 +212,7 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -337,7 +347,7 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets ship_from_address.
      *
-     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Address $ship_from_address ship_from_address
+     * @param Address $ship_from_address ship_from_address
      */
     public function setShipFromAddress(Address $ship_from_address) : self
     {
@@ -357,7 +367,7 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets package_dimensions.
      *
-     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\PackageDimensions $package_dimensions package_dimensions
+     * @param PackageDimensions $package_dimensions package_dimensions
      */
     public function setPackageDimensions(PackageDimensions $package_dimensions) : self
     {
@@ -377,7 +387,7 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets weight.
      *
-     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Weight $weight weight
+     * @param Weight $weight weight
      */
     public function setWeight(Weight $weight) : self
     {
@@ -437,7 +447,7 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets shipping_service_options.
      *
-     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\ShippingServiceOptions $shipping_service_options shipping_service_options
+     * @param ShippingServiceOptions $shipping_service_options shipping_service_options
      */
     public function setShippingServiceOptions(ShippingServiceOptions $shipping_service_options) : self
     {
@@ -457,7 +467,7 @@ class ShipmentRequestDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets label_customization.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelCustomization $label_customization label_customization
+     * @param null|LabelCustomization $label_customization label_customization
      */
     public function setLabelCustomization(?LabelCustomization $label_customization) : self
     {

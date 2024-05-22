@@ -140,6 +140,8 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -148,6 +150,8 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -157,6 +161,8 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -165,6 +171,8 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -173,6 +181,8 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -184,7 +194,7 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -229,7 +239,7 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets contact.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\Contact $contact contact
+     * @param null|Contact $contact contact
      */
     public function setContact(?Contact $contact) : self
     {
@@ -249,7 +259,7 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets box_count.
      *
-     * @param null|int $box_count box_count
+     * @param null|int $box_count Contains an unsigned integer
      */
     public function setBoxCount(?int $box_count) : self
     {
@@ -269,7 +279,7 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets seller_freight_class.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\SellerFreightClass $seller_freight_class seller_freight_class
+     * @param null|SellerFreightClass $seller_freight_class seller_freight_class
      */
     public function setSellerFreightClass(?SellerFreightClass $seller_freight_class) : self
     {
@@ -289,7 +299,7 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets freight_ready_date.
      *
-     * @param null|\DateTimeInterface $freight_ready_date freight_ready_date
+     * @param null|\DateTimeInterface $freight_ready_date Type containing date in string format
      */
     public function setFreightReadyDate(?\DateTimeInterface $freight_ready_date) : self
     {
@@ -331,7 +341,7 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets total_weight.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\Weight $total_weight total_weight
+     * @param null|Weight $total_weight total_weight
      */
     public function setTotalWeight(?Weight $total_weight) : self
     {
@@ -351,7 +361,7 @@ class PartneredLtlDataInput implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets seller_declared_value.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\Amount $seller_declared_value seller_declared_value
+     * @param null|Amount $seller_declared_value seller_declared_value
      */
     public function setSellerDeclaredValue(?Amount $seller_declared_value) : self
     {

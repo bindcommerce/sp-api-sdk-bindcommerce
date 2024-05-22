@@ -134,6 +134,8 @@ class Carton implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -142,6 +144,8 @@ class Carton implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class Carton implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class Carton implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class Carton implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -178,7 +188,7 @@ class Carton implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -269,7 +279,7 @@ class Carton implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
     /**
      * Sets dimensions.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\Dimensions $dimensions dimensions
+     * @param null|Dimensions $dimensions dimensions
      */
     public function setDimensions(?Dimensions $dimensions) : self
     {
@@ -289,7 +299,7 @@ class Carton implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
     /**
      * Sets weight.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\Weight $weight weight
+     * @param null|Weight $weight weight
      */
     public function setWeight(?Weight $weight) : self
     {

@@ -126,6 +126,8 @@ class TaxRegistrationDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -134,6 +136,8 @@ class TaxRegistrationDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -143,6 +147,8 @@ class TaxRegistrationDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -151,6 +157,8 @@ class TaxRegistrationDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -159,6 +167,8 @@ class TaxRegistrationDetails implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -170,7 +180,7 @@ class TaxRegistrationDetails implements \ArrayAccess, \JsonSerializable, \String
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -276,7 +286,7 @@ class TaxRegistrationDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets tax_registration_address.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\Address $tax_registration_address tax_registration_address
+     * @param null|Address $tax_registration_address tax_registration_address
      */
     public function setTaxRegistrationAddress(?Address $tax_registration_address) : self
     {

@@ -140,6 +140,8 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -148,6 +150,8 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -157,6 +161,8 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -165,6 +171,8 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -173,6 +181,8 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -184,7 +194,7 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -271,7 +281,7 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
     /**
      * Sets ship_to.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_to ship_to
+     * @param Address $ship_to ship_to
      */
     public function setShipTo(Address $ship_to) : self
     {
@@ -291,7 +301,7 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
     /**
      * Sets ship_from.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_from ship_from
+     * @param Address $ship_from ship_from
      */
     public function setShipFrom(Address $ship_from) : self
     {
@@ -331,7 +341,7 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
     /**
      * Sets service_type.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\ServiceType $service_type service_type
+     * @param ServiceType $service_type service_type
      */
     public function setServiceType(ServiceType $service_type) : self
     {
@@ -373,7 +383,7 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
     /**
      * Sets label_specification.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\LabelSpecification $label_specification label_specification
+     * @param LabelSpecification $label_specification label_specification
      */
     public function setLabelSpecification(LabelSpecification $label_specification) : self
     {

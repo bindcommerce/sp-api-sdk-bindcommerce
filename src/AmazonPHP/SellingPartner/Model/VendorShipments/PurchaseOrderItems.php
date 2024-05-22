@@ -128,6 +128,8 @@ class PurchaseOrderItems implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -136,6 +138,8 @@ class PurchaseOrderItems implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -145,6 +149,8 @@ class PurchaseOrderItems implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -153,6 +159,8 @@ class PurchaseOrderItems implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -161,6 +169,8 @@ class PurchaseOrderItems implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -172,7 +182,7 @@ class PurchaseOrderItems implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -279,7 +289,7 @@ class PurchaseOrderItems implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets shipped_quantity.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorShipments\ItemQuantity $shipped_quantity shipped_quantity
+     * @param ItemQuantity $shipped_quantity shipped_quantity
      */
     public function setShippedQuantity(ItemQuantity $shipped_quantity) : self
     {
@@ -299,7 +309,7 @@ class PurchaseOrderItems implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets maximum_retail_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\Money $maximum_retail_price maximum_retail_price
+     * @param null|Money $maximum_retail_price maximum_retail_price
      */
     public function setMaximumRetailPrice(?Money $maximum_retail_price) : self
     {

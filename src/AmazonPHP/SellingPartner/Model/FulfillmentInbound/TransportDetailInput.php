@@ -122,6 +122,8 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -130,6 +132,8 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -139,6 +143,8 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -147,6 +153,8 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -155,6 +163,8 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -166,7 +176,7 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -215,7 +225,7 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets partnered_small_parcel_data.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\PartneredSmallParcelDataInput $partnered_small_parcel_data partnered_small_parcel_data
+     * @param null|PartneredSmallParcelDataInput $partnered_small_parcel_data partnered_small_parcel_data
      */
     public function setPartneredSmallParcelData(?PartneredSmallParcelDataInput $partnered_small_parcel_data) : self
     {
@@ -235,7 +245,7 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets non_partnered_small_parcel_data.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\NonPartneredSmallParcelDataInput $non_partnered_small_parcel_data non_partnered_small_parcel_data
+     * @param null|NonPartneredSmallParcelDataInput $non_partnered_small_parcel_data non_partnered_small_parcel_data
      */
     public function setNonPartneredSmallParcelData(?NonPartneredSmallParcelDataInput $non_partnered_small_parcel_data) : self
     {
@@ -255,7 +265,7 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets partnered_ltl_data.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\PartneredLtlDataInput $partnered_ltl_data partnered_ltl_data
+     * @param null|PartneredLtlDataInput $partnered_ltl_data partnered_ltl_data
      */
     public function setPartneredLtlData(?PartneredLtlDataInput $partnered_ltl_data) : self
     {
@@ -275,7 +285,7 @@ class TransportDetailInput implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets non_partnered_ltl_data.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\NonPartneredLtlDataInput $non_partnered_ltl_data non_partnered_ltl_data
+     * @param null|NonPartneredLtlDataInput $non_partnered_ltl_data non_partnered_ltl_data
      */
     public function setNonPartneredLtlData(?NonPartneredLtlDataInput $non_partnered_ltl_data) : self
     {

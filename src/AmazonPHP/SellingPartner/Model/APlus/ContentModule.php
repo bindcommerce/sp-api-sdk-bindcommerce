@@ -194,6 +194,8 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -202,6 +204,8 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -211,6 +215,8 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -219,6 +225,8 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -227,6 +235,8 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -238,7 +248,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -335,7 +345,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets content_module_type.
      *
-     * @param \AmazonPHP\SellingPartner\Model\APlus\ContentModuleType $content_module_type content_module_type
+     * @param ContentModuleType $content_module_type content_module_type
      */
     public function setContentModuleType(ContentModuleType $content_module_type) : self
     {
@@ -355,7 +365,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_company_logo.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardCompanyLogoModule $standard_company_logo standard_company_logo
+     * @param null|StandardCompanyLogoModule $standard_company_logo standard_company_logo
      */
     public function setStandardCompanyLogo(?StandardCompanyLogoModule $standard_company_logo) : self
     {
@@ -375,7 +385,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_comparison_table.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardComparisonTableModule $standard_comparison_table standard_comparison_table
+     * @param null|StandardComparisonTableModule $standard_comparison_table standard_comparison_table
      */
     public function setStandardComparisonTable(?StandardComparisonTableModule $standard_comparison_table) : self
     {
@@ -395,7 +405,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_four_image_text.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardFourImageTextModule $standard_four_image_text standard_four_image_text
+     * @param null|StandardFourImageTextModule $standard_four_image_text standard_four_image_text
      */
     public function setStandardFourImageText(?StandardFourImageTextModule $standard_four_image_text) : self
     {
@@ -415,7 +425,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_four_image_text_quadrant.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardFourImageTextQuadrantModule $standard_four_image_text_quadrant standard_four_image_text_quadrant
+     * @param null|StandardFourImageTextQuadrantModule $standard_four_image_text_quadrant standard_four_image_text_quadrant
      */
     public function setStandardFourImageTextQuadrant(?StandardFourImageTextQuadrantModule $standard_four_image_text_quadrant) : self
     {
@@ -435,7 +445,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_header_image_text.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardHeaderImageTextModule $standard_header_image_text standard_header_image_text
+     * @param null|StandardHeaderImageTextModule $standard_header_image_text standard_header_image_text
      */
     public function setStandardHeaderImageText(?StandardHeaderImageTextModule $standard_header_image_text) : self
     {
@@ -455,7 +465,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_image_sidebar.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardImageSidebarModule $standard_image_sidebar standard_image_sidebar
+     * @param null|StandardImageSidebarModule $standard_image_sidebar standard_image_sidebar
      */
     public function setStandardImageSidebar(?StandardImageSidebarModule $standard_image_sidebar) : self
     {
@@ -475,7 +485,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_image_text_overlay.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardImageTextOverlayModule $standard_image_text_overlay standard_image_text_overlay
+     * @param null|StandardImageTextOverlayModule $standard_image_text_overlay standard_image_text_overlay
      */
     public function setStandardImageTextOverlay(?StandardImageTextOverlayModule $standard_image_text_overlay) : self
     {
@@ -495,7 +505,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_multiple_image_text.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardMultipleImageTextModule $standard_multiple_image_text standard_multiple_image_text
+     * @param null|StandardMultipleImageTextModule $standard_multiple_image_text standard_multiple_image_text
      */
     public function setStandardMultipleImageText(?StandardMultipleImageTextModule $standard_multiple_image_text) : self
     {
@@ -515,7 +525,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_product_description.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardProductDescriptionModule $standard_product_description standard_product_description
+     * @param null|StandardProductDescriptionModule $standard_product_description standard_product_description
      */
     public function setStandardProductDescription(?StandardProductDescriptionModule $standard_product_description) : self
     {
@@ -535,7 +545,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_single_image_highlights.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardSingleImageHighlightsModule $standard_single_image_highlights standard_single_image_highlights
+     * @param null|StandardSingleImageHighlightsModule $standard_single_image_highlights standard_single_image_highlights
      */
     public function setStandardSingleImageHighlights(?StandardSingleImageHighlightsModule $standard_single_image_highlights) : self
     {
@@ -555,7 +565,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_single_image_specs_detail.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardSingleImageSpecsDetailModule $standard_single_image_specs_detail standard_single_image_specs_detail
+     * @param null|StandardSingleImageSpecsDetailModule $standard_single_image_specs_detail standard_single_image_specs_detail
      */
     public function setStandardSingleImageSpecsDetail(?StandardSingleImageSpecsDetailModule $standard_single_image_specs_detail) : self
     {
@@ -575,7 +585,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_single_side_image.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardSingleSideImageModule $standard_single_side_image standard_single_side_image
+     * @param null|StandardSingleSideImageModule $standard_single_side_image standard_single_side_image
      */
     public function setStandardSingleSideImage(?StandardSingleSideImageModule $standard_single_side_image) : self
     {
@@ -595,7 +605,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_tech_specs.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardTechSpecsModule $standard_tech_specs standard_tech_specs
+     * @param null|StandardTechSpecsModule $standard_tech_specs standard_tech_specs
      */
     public function setStandardTechSpecs(?StandardTechSpecsModule $standard_tech_specs) : self
     {
@@ -615,7 +625,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_text.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardTextModule $standard_text standard_text
+     * @param null|StandardTextModule $standard_text standard_text
      */
     public function setStandardText(?StandardTextModule $standard_text) : self
     {
@@ -635,7 +645,7 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets standard_three_image_text.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardThreeImageTextModule $standard_three_image_text standard_three_image_text
+     * @param null|StandardThreeImageTextModule $standard_three_image_text standard_three_image_text
      */
     public function setStandardThreeImageText(?StandardThreeImageTextModule $standard_three_image_text) : self
     {

@@ -110,6 +110,8 @@ class StandardSingleSideImageModule implements \ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -118,6 +120,8 @@ class StandardSingleSideImageModule implements \ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -127,6 +131,8 @@ class StandardSingleSideImageModule implements \ArrayAccess, \JsonSerializable, 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -135,6 +141,8 @@ class StandardSingleSideImageModule implements \ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -143,6 +151,8 @@ class StandardSingleSideImageModule implements \ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -154,7 +164,7 @@ class StandardSingleSideImageModule implements \ArrayAccess, \JsonSerializable, 
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -195,7 +205,7 @@ class StandardSingleSideImageModule implements \ArrayAccess, \JsonSerializable, 
     /**
      * Sets image_position_type.
      *
-     * @param \AmazonPHP\SellingPartner\Model\APlus\PositionType $image_position_type image_position_type
+     * @param PositionType $image_position_type image_position_type
      */
     public function setImagePositionType(PositionType $image_position_type) : self
     {
@@ -215,7 +225,7 @@ class StandardSingleSideImageModule implements \ArrayAccess, \JsonSerializable, 
     /**
      * Sets block.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock $block block
+     * @param null|StandardImageTextBlock $block block
      */
     public function setBlock(?StandardImageTextBlock $block) : self
     {

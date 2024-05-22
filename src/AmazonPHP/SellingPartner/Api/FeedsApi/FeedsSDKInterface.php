@@ -57,20 +57,24 @@ interface FeedsSDKInterface
     /**
      * Operation createFeed.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body Information required to create the feed. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedResponse
      */
     public function createFeed(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body) : \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedResponse;
 
     /**
      * Operation createFeedDocument.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body Specifies the content type for the createFeedDocument operation. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentResponse
      */
     public function createFeedDocument(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body) : \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentResponse;
 
@@ -81,6 +85,8 @@ interface FeedsSDKInterface
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Feeds\Feed
      */
     public function getFeed(AccessToken $accessToken, string $region, string $feed_id) : \AmazonPHP\SellingPartner\Model\Feeds\Feed;
 
@@ -91,6 +97,8 @@ interface FeedsSDKInterface
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Feeds\FeedDocument
      */
     public function getFeedDocument(AccessToken $accessToken, string $region, string $feed_document_id) : \AmazonPHP\SellingPartner\Model\Feeds\FeedDocument;
 
@@ -107,6 +115,8 @@ interface FeedsSDKInterface
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Feeds\GetFeedsResponse
      */
     public function getFeeds(AccessToken $accessToken, string $region, ?array $feed_types = null, ?array $marketplace_ids = null, int $page_size = 10, ?array $processing_statuses = null, ?\DateTimeInterface $created_since = null, ?\DateTimeInterface $created_until = null, ?string $next_token = null) : \AmazonPHP\SellingPartner\Model\Feeds\GetFeedsResponse;
 }

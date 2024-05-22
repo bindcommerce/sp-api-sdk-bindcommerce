@@ -134,6 +134,8 @@ class StatusUpdateDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -142,6 +144,8 @@ class StatusUpdateDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class StatusUpdateDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class StatusUpdateDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class StatusUpdateDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -178,7 +188,7 @@ class StatusUpdateDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -317,7 +327,7 @@ class StatusUpdateDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets status_location_address.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\Address $status_location_address status_location_address
+     * @param Address $status_location_address status_location_address
      */
     public function setStatusLocationAddress(Address $status_location_address) : self
     {
@@ -337,7 +347,7 @@ class StatusUpdateDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets shipment_schedule.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\ShipmentSchedule $shipment_schedule shipment_schedule
+     * @param null|ShipmentSchedule $shipment_schedule shipment_schedule
      */
     public function setShipmentSchedule(?ShipmentSchedule $shipment_schedule) : self
     {

@@ -146,6 +146,8 @@ class NetworkComminglingTransactionEvent implements \ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -154,6 +156,8 @@ class NetworkComminglingTransactionEvent implements \ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -163,6 +167,8 @@ class NetworkComminglingTransactionEvent implements \ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -171,6 +177,8 @@ class NetworkComminglingTransactionEvent implements \ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -179,6 +187,8 @@ class NetworkComminglingTransactionEvent implements \ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -190,7 +200,7 @@ class NetworkComminglingTransactionEvent implements \ArrayAccess, \JsonSerializa
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -351,7 +361,7 @@ class NetworkComminglingTransactionEvent implements \ArrayAccess, \JsonSerializa
     /**
      * Sets tax_exclusive_amount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $tax_exclusive_amount tax_exclusive_amount
+     * @param null|Currency $tax_exclusive_amount tax_exclusive_amount
      */
     public function setTaxExclusiveAmount(?Currency $tax_exclusive_amount) : self
     {
@@ -371,7 +381,7 @@ class NetworkComminglingTransactionEvent implements \ArrayAccess, \JsonSerializa
     /**
      * Sets tax_amount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $tax_amount tax_amount
+     * @param null|Currency $tax_amount tax_amount
      */
     public function setTaxAmount(?Currency $tax_amount) : self
     {

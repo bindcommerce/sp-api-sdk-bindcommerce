@@ -140,6 +140,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -148,6 +150,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -157,6 +161,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -165,6 +171,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -173,6 +181,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -184,7 +194,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -299,7 +309,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets ordered_quantity.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity $ordered_quantity ordered_quantity
+     * @param ItemQuantity $ordered_quantity ordered_quantity
      */
     public function setOrderedQuantity(ItemQuantity $ordered_quantity) : self
     {
@@ -339,7 +349,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets net_cost.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\Money $net_cost net_cost
+     * @param null|Money $net_cost net_cost
      */
     public function setNetCost(?Money $net_cost) : self
     {
@@ -359,7 +369,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets list_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\Money $list_price list_price
+     * @param null|Money $list_price list_price
      */
     public function setListPrice(?Money $list_price) : self
     {

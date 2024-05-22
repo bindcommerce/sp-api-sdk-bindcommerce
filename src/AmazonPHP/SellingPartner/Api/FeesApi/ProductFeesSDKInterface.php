@@ -40,6 +40,8 @@ interface ProductFeesSDKInterface
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateResponse
      */
     public function getMyFeesEstimateForASIN(AccessToken $accessToken, string $region, string $asin, \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateRequest $body) : \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateResponse;
 
@@ -51,6 +53,8 @@ interface ProductFeesSDKInterface
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateResponse
      */
     public function getMyFeesEstimateForSKU(AccessToken $accessToken, string $region, string $seller_sku, \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateRequest $body) : \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateResponse;
 

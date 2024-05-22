@@ -128,6 +128,8 @@ class PackedItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -136,6 +138,8 @@ class PackedItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -145,6 +149,8 @@ class PackedItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -153,6 +159,8 @@ class PackedItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -161,6 +169,8 @@ class PackedItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -172,7 +182,7 @@ class PackedItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -295,7 +305,7 @@ class PackedItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
     /**
      * Sets packed_quantity.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\ItemQuantity $packed_quantity packed_quantity
+     * @param ItemQuantity $packed_quantity packed_quantity
      */
     public function setPackedQuantity(ItemQuantity $packed_quantity) : self
     {

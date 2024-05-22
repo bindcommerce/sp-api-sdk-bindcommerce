@@ -116,6 +116,8 @@ class TDSReimbursementEvent implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -124,6 +126,8 @@ class TDSReimbursementEvent implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -133,6 +137,8 @@ class TDSReimbursementEvent implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -141,6 +147,8 @@ class TDSReimbursementEvent implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -149,6 +157,8 @@ class TDSReimbursementEvent implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -160,7 +170,7 @@ class TDSReimbursementEvent implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -237,7 +247,7 @@ class TDSReimbursementEvent implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets reimbursed_amount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $reimbursed_amount reimbursed_amount
+     * @param null|Currency $reimbursed_amount reimbursed_amount
      */
     public function setReimbursedAmount(?Currency $reimbursed_amount) : self
     {

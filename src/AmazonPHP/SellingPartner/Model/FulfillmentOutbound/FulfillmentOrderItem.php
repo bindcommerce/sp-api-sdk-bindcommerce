@@ -182,6 +182,8 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -190,6 +192,8 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -199,6 +203,8 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -207,6 +213,8 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -215,6 +223,8 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -226,7 +236,7 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -311,7 +321,7 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets seller_fulfillment_order_item_id.
      *
-     * @param string $seller_fulfillment_order_item_id a fulfillment order item identifier submitted with a call to the createFulfillmentOrder operation
+     * @param string $seller_fulfillment_order_item_id a fulfillment order item identifier submitted with a call to the `createFulfillmentOrder` operation
      */
     public function setSellerFulfillmentOrderItemId(string $seller_fulfillment_order_item_id) : self
     {
@@ -511,7 +521,7 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets per_unit_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money $per_unit_price per_unit_price
+     * @param null|Money $per_unit_price per_unit_price
      */
     public function setPerUnitPrice(?Money $per_unit_price) : self
     {
@@ -531,7 +541,7 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets per_unit_tax.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money $per_unit_tax per_unit_tax
+     * @param null|Money $per_unit_tax per_unit_tax
      */
     public function setPerUnitTax(?Money $per_unit_tax) : self
     {
@@ -551,7 +561,7 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets per_unit_declared_value.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money $per_unit_declared_value per_unit_declared_value
+     * @param null|Money $per_unit_declared_value per_unit_declared_value
      */
     public function setPerUnitDeclaredValue(?Money $per_unit_declared_value) : self
     {

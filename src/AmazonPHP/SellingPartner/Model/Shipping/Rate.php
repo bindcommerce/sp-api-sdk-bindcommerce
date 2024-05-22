@@ -134,6 +134,8 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -142,6 +144,8 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -178,7 +188,7 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -243,7 +253,7 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets total_charge.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Shipping\Currency $total_charge total_charge
+     * @param null|Currency $total_charge total_charge
      */
     public function setTotalCharge(?Currency $total_charge) : self
     {
@@ -263,7 +273,7 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets billed_weight.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Shipping\Weight $billed_weight billed_weight
+     * @param null|Weight $billed_weight billed_weight
      */
     public function setBilledWeight(?Weight $billed_weight) : self
     {
@@ -303,7 +313,7 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets service_type.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Shipping\ServiceType $service_type service_type
+     * @param null|ServiceType $service_type service_type
      */
     public function setServiceType(?ServiceType $service_type) : self
     {
@@ -323,7 +333,7 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets promise.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Shipping\ShippingPromiseSet $promise promise
+     * @param null|ShippingPromiseSet $promise promise
      */
     public function setPromise(?ShippingPromiseSet $promise) : self
     {

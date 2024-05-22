@@ -150,6 +150,8 @@ class TaxDetail implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -158,6 +160,8 @@ class TaxDetail implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -167,6 +171,8 @@ class TaxDetail implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -175,6 +181,8 @@ class TaxDetail implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -183,6 +191,8 @@ class TaxDetail implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -194,7 +204,7 @@ class TaxDetail implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -318,7 +328,7 @@ class TaxDetail implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets tax_amount.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\Money $tax_amount tax_amount
+     * @param Money $tax_amount tax_amount
      */
     public function setTaxAmount(Money $tax_amount) : self
     {
@@ -338,7 +348,7 @@ class TaxDetail implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets taxable_amount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\Money $taxable_amount taxable_amount
+     * @param null|Money $taxable_amount taxable_amount
      */
     public function setTaxableAmount(?Money $taxable_amount) : self
     {

@@ -38,7 +38,7 @@ final class ApiException extends Exception
      *
      * @return null|\stdClass|string HTTP body of the server response either as \stdClass or string
      */
-    public function getResponseBody()
+    public function getResponseBody() : \stdClass|string|null
     {
         return $this->responseBody;
     }
@@ -58,7 +58,7 @@ final class ApiException extends Exception
      *
      * @return null|\stdClass|string the deserialized response object
      */
-    public function getResponseObject()
+    public function getResponseObject() : \stdClass|string|null
     {
         return $this->responseObject;
     }

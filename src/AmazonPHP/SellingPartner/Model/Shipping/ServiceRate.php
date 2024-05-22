@@ -122,6 +122,8 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -130,6 +132,8 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -139,6 +143,8 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -147,6 +153,8 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -155,6 +163,8 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -166,7 +176,7 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -221,7 +231,7 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets total_charge.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\Currency $total_charge total_charge
+     * @param Currency $total_charge total_charge
      */
     public function setTotalCharge(Currency $total_charge) : self
     {
@@ -241,7 +251,7 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets billable_weight.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\Weight $billable_weight billable_weight
+     * @param Weight $billable_weight billable_weight
      */
     public function setBillableWeight(Weight $billable_weight) : self
     {
@@ -261,7 +271,7 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets service_type.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\ServiceType $service_type service_type
+     * @param ServiceType $service_type service_type
      */
     public function setServiceType(ServiceType $service_type) : self
     {
@@ -281,7 +291,7 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets promise.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\ShippingPromiseSet $promise promise
+     * @param ShippingPromiseSet $promise promise
      */
     public function setPromise(ShippingPromiseSet $promise) : self
     {

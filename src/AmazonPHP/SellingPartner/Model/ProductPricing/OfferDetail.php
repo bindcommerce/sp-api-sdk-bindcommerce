@@ -194,6 +194,8 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -202,6 +204,8 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -211,6 +215,8 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -219,6 +225,8 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -227,6 +235,8 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -238,7 +248,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -333,7 +343,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets offer_type.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\OfferCustomerType $offer_type offer_type
+     * @param null|OfferCustomerType $offer_type offer_type
      */
     public function setOfferType(?OfferCustomerType $offer_type) : self
     {
@@ -413,7 +423,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets seller_feedback_rating.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\SellerFeedbackType $seller_feedback_rating seller_feedback_rating
+     * @param null|SellerFeedbackType $seller_feedback_rating seller_feedback_rating
      */
     public function setSellerFeedbackRating(?SellerFeedbackType $seller_feedback_rating) : self
     {
@@ -433,7 +443,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets shipping_time.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\DetailedShippingTimeType $shipping_time shipping_time
+     * @param DetailedShippingTimeType $shipping_time shipping_time
      */
     public function setShippingTime(DetailedShippingTimeType $shipping_time) : self
     {
@@ -453,7 +463,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets listing_price.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $listing_price listing_price
+     * @param MoneyType $listing_price listing_price
      */
     public function setListingPrice(MoneyType $listing_price) : self
     {
@@ -495,7 +505,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets points.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\Points $points points
+     * @param null|Points $points points
      */
     public function setPoints(?Points $points) : self
     {
@@ -515,7 +525,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets shipping.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $shipping shipping
+     * @param MoneyType $shipping shipping
      */
     public function setShipping(MoneyType $shipping) : self
     {
@@ -535,7 +545,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets ships_from.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\ShipsFromType $ships_from ships_from
+     * @param null|ShipsFromType $ships_from ships_from
      */
     public function setShipsFrom(?ShipsFromType $ships_from) : self
     {
@@ -575,7 +585,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets prime_information.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\PrimeInformationType $prime_information prime_information
+     * @param null|PrimeInformationType $prime_information prime_information
      */
     public function setPrimeInformation(?PrimeInformationType $prime_information) : self
     {

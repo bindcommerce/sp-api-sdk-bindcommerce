@@ -164,6 +164,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -172,6 +174,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -181,6 +185,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -189,6 +195,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -197,6 +205,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -208,7 +218,7 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -361,7 +371,7 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets item_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\Money $item_price item_price
+     * @param null|Money $item_price item_price
      */
     public function setItemPrice(?Money $item_price) : self
     {
@@ -381,7 +391,7 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets shipping_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\Money $shipping_price shipping_price
+     * @param null|Money $shipping_price shipping_price
      */
     public function setShippingPrice(?Money $shipping_price) : self
     {
@@ -401,7 +411,7 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets gift_wrap_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\Money $gift_wrap_price gift_wrap_price
+     * @param null|Money $gift_wrap_price gift_wrap_price
      */
     public function setGiftWrapPrice(?Money $gift_wrap_price) : self
     {
@@ -421,7 +431,7 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets shipping_discount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\Money $shipping_discount shipping_discount
+     * @param null|Money $shipping_discount shipping_discount
      */
     public function setShippingDiscount(?Money $shipping_discount) : self
     {
@@ -441,7 +451,7 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets promotion_discount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\Money $promotion_discount promotion_discount
+     * @param null|Money $promotion_discount promotion_discount
      */
     public function setPromotionDiscount(?Money $promotion_discount) : self
     {

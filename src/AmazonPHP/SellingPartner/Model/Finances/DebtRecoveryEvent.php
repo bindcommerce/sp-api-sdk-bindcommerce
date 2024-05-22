@@ -128,6 +128,8 @@ class DebtRecoveryEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -136,6 +138,8 @@ class DebtRecoveryEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -145,6 +149,8 @@ class DebtRecoveryEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -153,6 +159,8 @@ class DebtRecoveryEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -161,6 +169,8 @@ class DebtRecoveryEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -172,7 +182,7 @@ class DebtRecoveryEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -233,7 +243,7 @@ class DebtRecoveryEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets recovery_amount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $recovery_amount recovery_amount
+     * @param null|Currency $recovery_amount recovery_amount
      */
     public function setRecoveryAmount(?Currency $recovery_amount) : self
     {
@@ -253,7 +263,7 @@ class DebtRecoveryEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets over_payment_credit.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $over_payment_credit over_payment_credit
+     * @param null|Currency $over_payment_credit over_payment_credit
      */
     public function setOverPaymentCredit(?Currency $over_payment_credit) : self
     {

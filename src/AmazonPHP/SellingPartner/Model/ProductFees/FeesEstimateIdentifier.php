@@ -146,6 +146,8 @@ class FeesEstimateIdentifier implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -154,6 +156,8 @@ class FeesEstimateIdentifier implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -163,6 +167,8 @@ class FeesEstimateIdentifier implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -171,6 +177,8 @@ class FeesEstimateIdentifier implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -179,6 +187,8 @@ class FeesEstimateIdentifier implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -190,7 +200,7 @@ class FeesEstimateIdentifier implements \ArrayAccess, \JsonSerializable, \String
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -267,7 +277,7 @@ class FeesEstimateIdentifier implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets id_type.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductFees\IdType $id_type id_type
+     * @param null|IdType $id_type id_type
      */
     public function setIdType(?IdType $id_type) : self
     {
@@ -327,7 +337,7 @@ class FeesEstimateIdentifier implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets price_to_estimate_fees.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductFees\PriceToEstimateFees $price_to_estimate_fees price_to_estimate_fees
+     * @param null|PriceToEstimateFees $price_to_estimate_fees price_to_estimate_fees
      */
     public function setPriceToEstimateFees(?PriceToEstimateFees $price_to_estimate_fees) : self
     {
@@ -367,7 +377,7 @@ class FeesEstimateIdentifier implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets optional_fulfillment_program.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductFees\OptionalFulfillmentProgram $optional_fulfillment_program optional_fulfillment_program
+     * @param null|OptionalFulfillmentProgram $optional_fulfillment_program optional_fulfillment_program
      */
     public function setOptionalFulfillmentProgram(?OptionalFulfillmentProgram $optional_fulfillment_program) : self
     {

@@ -198,6 +198,8 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -206,6 +208,8 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -215,6 +219,8 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -223,6 +229,8 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -231,6 +239,8 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -242,7 +252,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -441,7 +451,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets import_details.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\ImportDetails $import_details import_details
+     * @param null|ImportDetails $import_details import_details
      */
     public function setImportDetails(?ImportDetails $import_details) : self
     {
@@ -501,7 +511,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets buying_party.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification $buying_party buying_party
+     * @param null|PartyIdentification $buying_party buying_party
      */
     public function setBuyingParty(?PartyIdentification $buying_party) : self
     {
@@ -521,7 +531,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets selling_party.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification $selling_party selling_party
+     * @param null|PartyIdentification $selling_party selling_party
      */
     public function setSellingParty(?PartyIdentification $selling_party) : self
     {
@@ -541,7 +551,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets ship_to_party.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification $ship_to_party ship_to_party
+     * @param null|PartyIdentification $ship_to_party ship_to_party
      */
     public function setShipToParty(?PartyIdentification $ship_to_party) : self
     {
@@ -561,7 +571,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets bill_to_party.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification $bill_to_party bill_to_party
+     * @param null|PartyIdentification $bill_to_party bill_to_party
      */
     public function setBillToParty(?PartyIdentification $bill_to_party) : self
     {

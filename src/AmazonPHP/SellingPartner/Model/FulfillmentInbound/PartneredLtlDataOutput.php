@@ -188,6 +188,8 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -196,6 +198,8 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -205,6 +209,8 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -213,6 +219,8 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -221,6 +229,8 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -232,7 +242,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -325,7 +335,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets contact.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\Contact $contact contact
+     * @param Contact $contact contact
      */
     public function setContact(Contact $contact) : self
     {
@@ -345,7 +355,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets box_count.
      *
-     * @param int $box_count box_count
+     * @param int $box_count Contains an unsigned integer
      */
     public function setBoxCount(int $box_count) : self
     {
@@ -365,7 +375,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets seller_freight_class.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\SellerFreightClass $seller_freight_class seller_freight_class
+     * @param null|SellerFreightClass $seller_freight_class seller_freight_class
      */
     public function setSellerFreightClass(?SellerFreightClass $seller_freight_class) : self
     {
@@ -385,7 +395,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets freight_ready_date.
      *
-     * @param \DateTimeInterface $freight_ready_date freight_ready_date
+     * @param \DateTimeInterface $freight_ready_date Type containing date in string format
      */
     public function setFreightReadyDate(\DateTimeInterface $freight_ready_date) : self
     {
@@ -427,7 +437,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets total_weight.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\Weight $total_weight total_weight
+     * @param Weight $total_weight total_weight
      */
     public function setTotalWeight(Weight $total_weight) : self
     {
@@ -447,7 +457,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets seller_declared_value.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\Amount $seller_declared_value seller_declared_value
+     * @param null|Amount $seller_declared_value seller_declared_value
      */
     public function setSellerDeclaredValue(?Amount $seller_declared_value) : self
     {
@@ -467,7 +477,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets amazon_calculated_value.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\Amount $amazon_calculated_value amazon_calculated_value
+     * @param null|Amount $amazon_calculated_value amazon_calculated_value
      */
     public function setAmazonCalculatedValue(?Amount $amazon_calculated_value) : self
     {
@@ -487,7 +497,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets preview_pickup_date.
      *
-     * @param \DateTimeInterface $preview_pickup_date preview_pickup_date
+     * @param \DateTimeInterface $preview_pickup_date Type containing date in string format
      */
     public function setPreviewPickupDate(\DateTimeInterface $preview_pickup_date) : self
     {
@@ -507,7 +517,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets preview_delivery_date.
      *
-     * @param \DateTimeInterface $preview_delivery_date preview_delivery_date
+     * @param \DateTimeInterface $preview_delivery_date Type containing date in string format
      */
     public function setPreviewDeliveryDate(\DateTimeInterface $preview_delivery_date) : self
     {
@@ -527,7 +537,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets preview_freight_class.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\SellerFreightClass $preview_freight_class preview_freight_class
+     * @param SellerFreightClass $preview_freight_class preview_freight_class
      */
     public function setPreviewFreightClass(SellerFreightClass $preview_freight_class) : self
     {
@@ -587,7 +597,7 @@ class PartneredLtlDataOutput implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets partnered_estimate.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\PartneredEstimate $partnered_estimate partnered_estimate
+     * @param null|PartneredEstimate $partnered_estimate partnered_estimate
      */
     public function setPartneredEstimate(?PartneredEstimate $partnered_estimate) : self
     {

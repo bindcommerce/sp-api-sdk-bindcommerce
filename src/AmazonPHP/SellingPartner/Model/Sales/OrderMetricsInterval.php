@@ -134,6 +134,8 @@ class OrderMetricsInterval implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -142,6 +144,8 @@ class OrderMetricsInterval implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class OrderMetricsInterval implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class OrderMetricsInterval implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class OrderMetricsInterval implements \ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -178,7 +188,7 @@ class OrderMetricsInterval implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -319,7 +329,7 @@ class OrderMetricsInterval implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets average_unit_price.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Sales\Money $average_unit_price average_unit_price
+     * @param Money $average_unit_price average_unit_price
      */
     public function setAverageUnitPrice(Money $average_unit_price) : self
     {
@@ -339,7 +349,7 @@ class OrderMetricsInterval implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets total_sales.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Sales\Money $total_sales total_sales
+     * @param Money $total_sales total_sales
      */
     public function setTotalSales(Money $total_sales) : self
     {

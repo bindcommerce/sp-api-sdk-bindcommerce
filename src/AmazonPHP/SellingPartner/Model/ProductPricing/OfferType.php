@@ -152,6 +152,8 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -160,6 +162,8 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -169,6 +173,8 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -177,6 +183,8 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -185,6 +193,8 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -196,7 +206,7 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -261,7 +271,7 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets offer_type.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\OfferCustomerType $offer_type offer_type
+     * @param null|OfferCustomerType $offer_type offer_type
      */
     public function setOfferType(?OfferCustomerType $offer_type) : self
     {
@@ -281,7 +291,7 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets buying_price.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\PriceType $buying_price buying_price
+     * @param PriceType $buying_price buying_price
      */
     public function setBuyingPrice(PriceType $buying_price) : self
     {
@@ -301,7 +311,7 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets regular_price.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $regular_price regular_price
+     * @param MoneyType $regular_price regular_price
      */
     public function setRegularPrice(MoneyType $regular_price) : self
     {
@@ -321,7 +331,7 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets business_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $business_price business_price
+     * @param null|MoneyType $business_price business_price
      */
     public function setBusinessPrice(?MoneyType $business_price) : self
     {

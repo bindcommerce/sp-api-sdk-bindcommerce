@@ -136,6 +136,8 @@ class Container implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -144,6 +146,8 @@ class Container implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -153,6 +157,8 @@ class Container implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -161,6 +167,8 @@ class Container implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -169,6 +177,8 @@ class Container implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -180,7 +190,7 @@ class Container implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -307,7 +317,7 @@ class Container implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets value.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\Currency $value value
+     * @param Currency $value value
      */
     public function setValue(Currency $value) : self
     {
@@ -327,7 +337,7 @@ class Container implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets dimensions.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\Dimensions $dimensions dimensions
+     * @param Dimensions $dimensions dimensions
      */
     public function setDimensions(Dimensions $dimensions) : self
     {
@@ -369,7 +379,7 @@ class Container implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets weight.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\Weight $weight weight
+     * @param Weight $weight weight
      */
     public function setWeight(Weight $weight) : self
     {

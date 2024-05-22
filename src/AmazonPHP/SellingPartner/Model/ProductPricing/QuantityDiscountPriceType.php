@@ -116,6 +116,8 @@ class QuantityDiscountPriceType implements \ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -124,6 +126,8 @@ class QuantityDiscountPriceType implements \ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -133,6 +137,8 @@ class QuantityDiscountPriceType implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -141,6 +147,8 @@ class QuantityDiscountPriceType implements \ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -149,6 +157,8 @@ class QuantityDiscountPriceType implements \ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -160,7 +170,7 @@ class QuantityDiscountPriceType implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -227,7 +237,7 @@ class QuantityDiscountPriceType implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets quantity_discount_type.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\QuantityDiscountType $quantity_discount_type quantity_discount_type
+     * @param QuantityDiscountType $quantity_discount_type quantity_discount_type
      */
     public function setQuantityDiscountType(QuantityDiscountType $quantity_discount_type) : self
     {
@@ -247,7 +257,7 @@ class QuantityDiscountPriceType implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets listing_price.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $listing_price listing_price
+     * @param MoneyType $listing_price listing_price
      */
     public function setListingPrice(MoneyType $listing_price) : self
     {

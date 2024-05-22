@@ -134,6 +134,8 @@ class ReportSchedule implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -142,6 +144,8 @@ class ReportSchedule implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class ReportSchedule implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class ReportSchedule implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class ReportSchedule implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -178,7 +188,7 @@ class ReportSchedule implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -307,7 +317,7 @@ class ReportSchedule implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets period.
      *
-     * @param string $period an ISO 8601 period value that indicates how often a report should be created
+     * @param string $period An <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> period value that indicates how often a report should be created.
      */
     public function setPeriod(string $period) : self
     {
@@ -327,7 +337,7 @@ class ReportSchedule implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets next_report_creation_time.
      *
-     * @param null|\DateTimeInterface $next_report_creation_time the date and time when the schedule will create its next report, in ISO 8601 date time format
+     * @param null|\DateTimeInterface $next_report_creation_time The date and time when the schedule will create its next report, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format.
      */
     public function setNextReportCreationTime(?\DateTimeInterface $next_report_creation_time) : self
     {

@@ -129,7 +129,7 @@ final class SellersSDK implements SellersSDKInterface
     /**
      * Create request for operation 'getMarketplaceParticipations'.
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getMarketplaceParticipationsRequest(AccessToken $accessToken, string $region) : RequestInterface
     {

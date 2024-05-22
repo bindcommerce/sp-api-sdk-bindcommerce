@@ -160,6 +160,8 @@ class ImportDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -168,6 +170,8 @@ class ImportDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -177,6 +181,8 @@ class ImportDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -185,6 +191,8 @@ class ImportDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -193,6 +201,8 @@ class ImportDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -204,7 +214,7 @@ class ImportDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -345,7 +355,7 @@ class ImportDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets route.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\Route $route route
+     * @param null|Route $route route
      */
     public function setRoute(?Route $route) : self
     {
@@ -385,7 +395,7 @@ class ImportDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets billable_weight.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\Weight $billable_weight billable_weight
+     * @param null|Weight $billable_weight billable_weight
      */
     public function setBillableWeight(?Weight $billable_weight) : self
     {

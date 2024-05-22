@@ -164,6 +164,8 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -172,6 +174,8 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -181,6 +185,8 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -189,6 +195,8 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -197,6 +205,8 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -208,7 +218,7 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -265,7 +275,7 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets shipping_speed_category.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ShippingSpeedCategory $shipping_speed_category shipping_speed_category
+     * @param ShippingSpeedCategory $shipping_speed_category shipping_speed_category
      */
     public function setShippingSpeedCategory(ShippingSpeedCategory $shipping_speed_category) : self
     {
@@ -285,7 +295,7 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets scheduled_delivery_info.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ScheduledDeliveryInfo $scheduled_delivery_info scheduled_delivery_info
+     * @param null|ScheduledDeliveryInfo $scheduled_delivery_info scheduled_delivery_info
      */
     public function setScheduledDeliveryInfo(?ScheduledDeliveryInfo $scheduled_delivery_info) : self
     {
@@ -345,7 +355,7 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets estimated_shipping_weight.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Weight $estimated_shipping_weight estimated_shipping_weight
+     * @param null|Weight $estimated_shipping_weight estimated_shipping_weight
      */
     public function setEstimatedShippingWeight(?Weight $estimated_shipping_weight) : self
     {

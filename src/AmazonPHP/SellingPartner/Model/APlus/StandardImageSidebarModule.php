@@ -134,6 +134,8 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -142,6 +144,8 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -178,7 +188,7 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -235,7 +245,7 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Sets headline.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\TextComponent $headline headline
+     * @param null|TextComponent $headline headline
      */
     public function setHeadline(?TextComponent $headline) : self
     {
@@ -255,7 +265,7 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Sets image_caption_block.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardImageCaptionBlock $image_caption_block image_caption_block
+     * @param null|StandardImageCaptionBlock $image_caption_block image_caption_block
      */
     public function setImageCaptionBlock(?StandardImageCaptionBlock $image_caption_block) : self
     {
@@ -275,7 +285,7 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Sets description_text_block.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock $description_text_block description_text_block
+     * @param null|StandardTextBlock $description_text_block description_text_block
      */
     public function setDescriptionTextBlock(?StandardTextBlock $description_text_block) : self
     {
@@ -295,7 +305,7 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Sets description_list_block.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardTextListBlock $description_list_block description_list_block
+     * @param null|StandardTextListBlock $description_list_block description_list_block
      */
     public function setDescriptionListBlock(?StandardTextListBlock $description_list_block) : self
     {
@@ -315,7 +325,7 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Sets sidebar_image_text_block.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock $sidebar_image_text_block sidebar_image_text_block
+     * @param null|StandardImageTextBlock $sidebar_image_text_block sidebar_image_text_block
      */
     public function setSidebarImageTextBlock(?StandardImageTextBlock $sidebar_image_text_block) : self
     {
@@ -335,7 +345,7 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Sets sidebar_list_block.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardTextListBlock $sidebar_list_block sidebar_list_block
+     * @param null|StandardTextListBlock $sidebar_list_block sidebar_list_block
      */
     public function setSidebarListBlock(?StandardTextListBlock $sidebar_list_block) : self
     {

@@ -38,7 +38,7 @@ final class ObjectSerializer
      *
      * @return null|array|object|scalar serialized form of $data
      */
-    public static function sanitizeForSerialization(mixed $data, string $type = null, string $format = null)
+    public static function sanitizeForSerialization(mixed $data, string $type = null, string $format = null) : array|object|scalar|null
     {
         if (\is_scalar($data) || null === $data) {
             return $data;
@@ -108,7 +108,7 @@ final class ObjectSerializer
      *
      * @return mixed|string the sanitized filename
      */
-    public static function sanitizeFilename(string $filename)
+    public static function sanitizeFilename(string $filename) : mixed|string|null
     {
         if (\preg_match("/.*[\/\\\\](.*)$/", $filename, $match)) {
             return $match[1];
@@ -158,7 +158,7 @@ final class ObjectSerializer
      *
      * @return mixed|string the header string
      */
-    public static function toHeaderValue(string $value)
+    public static function toHeaderValue(string $value) : mixed|string|null
     {
         $callable = [$value, 'toHeaderValue'];
 
@@ -440,7 +440,7 @@ final class ObjectSerializer
      *
      * @return null|array|string parsed object property
      */
-    private static function castEmptyStringToNull($value, string $type)
+    private static function castEmptyStringToNull(array|string|null $value, string $type) : array|string|null
     {
         if ('' === $value && \is_a(LabelFormat::class, $type, true)) {
             $value = null;
@@ -457,7 +457,7 @@ final class ObjectSerializer
      *
      * @return null|array|string parsed object property
      */
-    private static function filterEmptyCollectionElement($value, string $type)
+    private static function filterEmptyCollectionElement(array|string|null $value, string $type) : array|string|null
     {
         if (!\str_ends_with($type, '[]')) {
             return $value;

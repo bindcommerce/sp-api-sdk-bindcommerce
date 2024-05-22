@@ -122,6 +122,8 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -130,6 +132,8 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -139,6 +143,8 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -147,6 +153,8 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -155,6 +163,8 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -166,7 +176,7 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -237,7 +247,7 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets event_address.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\TrackingAddress $event_address event_address
+     * @param TrackingAddress $event_address event_address
      */
     public function setEventAddress(TrackingAddress $event_address) : self
     {
@@ -257,7 +267,7 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets event_code.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\EventCode $event_code event_code
+     * @param EventCode $event_code event_code
      */
     public function setEventCode(EventCode $event_code) : self
     {

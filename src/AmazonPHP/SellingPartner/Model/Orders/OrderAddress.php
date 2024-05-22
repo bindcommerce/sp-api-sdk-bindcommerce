@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Orders.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  _Note:_ The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
  *
  * The version of the OpenAPI document: v0
  *
@@ -122,6 +122,8 @@ class OrderAddress implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -130,6 +132,8 @@ class OrderAddress implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -139,6 +143,8 @@ class OrderAddress implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -147,6 +153,8 @@ class OrderAddress implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -155,6 +163,8 @@ class OrderAddress implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -166,7 +176,7 @@ class OrderAddress implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -231,7 +241,7 @@ class OrderAddress implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets buyer_company_name.
      *
-     * @param null|string $buyer_company_name company Name of the Buyer
+     * @param null|string $buyer_company_name The company name of the contact buyer. For Invoice By Amazon (IBA) orders, the buyer company should be Amazon entities.
      */
     public function setBuyerCompanyName(?string $buyer_company_name) : self
     {
@@ -251,7 +261,7 @@ class OrderAddress implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets shipping_address.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Address $shipping_address shipping_address
+     * @param null|Address $shipping_address shipping_address
      */
     public function setShippingAddress(?Address $shipping_address) : self
     {
@@ -271,7 +281,7 @@ class OrderAddress implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets delivery_preferences.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\DeliveryPreferences $delivery_preferences delivery_preferences
+     * @param null|DeliveryPreferences $delivery_preferences delivery_preferences
      */
     public function setDeliveryPreferences(?DeliveryPreferences $delivery_preferences) : self
     {

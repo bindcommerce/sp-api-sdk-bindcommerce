@@ -116,6 +116,8 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -124,6 +126,8 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -133,6 +137,8 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -141,6 +147,8 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -149,6 +157,8 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -160,7 +170,7 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -205,7 +215,7 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets image.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\ImageComponent $image image
+     * @param null|ImageComponent $image image
      */
     public function setImage(?ImageComponent $image) : self
     {
@@ -225,7 +235,7 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets headline.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\TextComponent $headline headline
+     * @param null|TextComponent $headline headline
      */
     public function setHeadline(?TextComponent $headline) : self
     {
@@ -245,7 +255,7 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets body.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\ParagraphComponent $body body
+     * @param null|ParagraphComponent $body body
      */
     public function setBody(?ParagraphComponent $body) : self
     {

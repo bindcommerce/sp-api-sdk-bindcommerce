@@ -130,6 +130,8 @@ class ChargeDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -138,6 +140,8 @@ class ChargeDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -147,6 +151,8 @@ class ChargeDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -155,6 +161,8 @@ class ChargeDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -163,6 +171,8 @@ class ChargeDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -174,7 +184,7 @@ class ChargeDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -267,7 +277,7 @@ class ChargeDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets charge_amount.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\Money $charge_amount charge_amount
+     * @param Money $charge_amount charge_amount
      */
     public function setChargeAmount(Money $charge_amount) : self
     {

@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Orders.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  _Note:_ The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
  *
  * The version of the OpenAPI document: v0
  *
@@ -122,6 +122,8 @@ class OrderRegulatedInfo implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -130,6 +132,8 @@ class OrderRegulatedInfo implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -139,6 +143,8 @@ class OrderRegulatedInfo implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -147,6 +153,8 @@ class OrderRegulatedInfo implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -155,6 +163,8 @@ class OrderRegulatedInfo implements \ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -166,7 +176,7 @@ class OrderRegulatedInfo implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -239,7 +249,7 @@ class OrderRegulatedInfo implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets regulated_information.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Orders\RegulatedInformation $regulated_information regulated_information
+     * @param RegulatedInformation $regulated_information regulated_information
      */
     public function setRegulatedInformation(RegulatedInformation $regulated_information) : self
     {
@@ -279,7 +289,7 @@ class OrderRegulatedInfo implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets regulated_order_verification_status.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Orders\RegulatedOrderVerificationStatus $regulated_order_verification_status regulated_order_verification_status
+     * @param RegulatedOrderVerificationStatus $regulated_order_verification_status regulated_order_verification_status
      */
     public function setRegulatedOrderVerificationStatus(RegulatedOrderVerificationStatus $regulated_order_verification_status) : self
     {

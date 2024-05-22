@@ -31,6 +31,8 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
 
     final public const STATUS_INVALID = 'INVALID';
 
+    final public const STATUS_VALID = 'VALID';
+
     /**
      * The original name of the model.
      *
@@ -48,6 +50,7 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
         'status' => 'string',
         'submission_id' => 'string',
         'issues' => '\AmazonPHP\SellingPartner\Model\ListingsItems\Issue[]',
+        'identifiers' => '\AmazonPHP\SellingPartner\Model\ListingsItems\ItemIdentifiersByMarketplace[]',
     ];
 
     /**
@@ -64,6 +67,7 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
         'status' => null,
         'submission_id' => null,
         'issues' => null,
+        'identifiers' => null,
     ];
 
     /**
@@ -77,6 +81,7 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
         'status' => 'status',
         'submission_id' => 'submissionId',
         'issues' => 'issues',
+        'identifiers' => 'identifiers',
     ];
 
     /**
@@ -89,6 +94,7 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
         'status' => 'setStatus',
         'submission_id' => 'setSubmissionId',
         'issues' => 'setIssues',
+        'identifiers' => 'setIdentifiers',
     ];
 
     /**
@@ -101,6 +107,7 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
         'status' => 'getStatus',
         'submission_id' => 'getSubmissionId',
         'issues' => 'getIssues',
+        'identifiers' => 'getIdentifiers',
     ];
 
     /**
@@ -122,10 +129,13 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
         $this->container['status'] = $data['status'] ?? null;
         $this->container['submission_id'] = $data['submission_id'] ?? null;
         $this->container['issues'] = $data['issues'] ?? null;
+        $this->container['identifiers'] = $data['identifiers'] ?? null;
     }
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -134,6 +144,8 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -143,6 +155,8 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -151,6 +165,8 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -159,6 +175,8 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -170,7 +188,7 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -194,6 +212,7 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
         return [
             self::STATUS_ACCEPTED,
             self::STATUS_INVALID,
+            self::STATUS_VALID,
         ];
     }
 
@@ -307,6 +326,28 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
     public function setIssues(?array $issues) : self
     {
         $this->container['issues'] = $issues;
+
+        return $this;
+    }
+
+    /**
+     * Gets identifiers.
+     *
+     * @return null|\AmazonPHP\SellingPartner\Model\ListingsItems\ItemIdentifiersByMarketplace[]
+     */
+    public function getIdentifiers() : ?array
+    {
+        return $this->container['identifiers'];
+    }
+
+    /**
+     * Sets identifiers.
+     *
+     * @param null|\AmazonPHP\SellingPartner\Model\ListingsItems\ItemIdentifiersByMarketplace[] $identifiers identity attributes associated with the item in the Amazon catalog, such as the ASIN
+     */
+    public function setIdentifiers(?array $identifiers) : self
+    {
+        $this->container['identifiers'] = $identifiers;
 
         return $this;
     }

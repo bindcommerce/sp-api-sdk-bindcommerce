@@ -176,6 +176,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -184,6 +186,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -193,6 +197,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -201,6 +207,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -209,6 +217,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -220,7 +230,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -433,7 +443,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets rate.
      *
-     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount $rate rate
+     * @param CurrencyAmount $rate rate
      */
     public function setRate(CurrencyAmount $rate) : self
     {
@@ -453,7 +463,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets shipping_service_options.
      *
-     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\ShippingServiceOptions $shipping_service_options shipping_service_options
+     * @param ShippingServiceOptions $shipping_service_options shipping_service_options
      */
     public function setShippingServiceOptions(ShippingServiceOptions $shipping_service_options) : self
     {
@@ -473,7 +483,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets available_shipping_service_options.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\MerchantFulfillment\AvailableShippingServiceOptions $available_shipping_service_options available_shipping_service_options
+     * @param null|AvailableShippingServiceOptions $available_shipping_service_options available_shipping_service_options
      */
     public function setAvailableShippingServiceOptions(?AvailableShippingServiceOptions $available_shipping_service_options) : self
     {

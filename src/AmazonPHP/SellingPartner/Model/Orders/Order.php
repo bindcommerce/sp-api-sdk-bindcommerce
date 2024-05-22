@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Orders.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  _Note:_ The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
  *
  * The version of the OpenAPI document: v0
  *
@@ -420,6 +420,8 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -428,6 +430,8 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -437,6 +441,8 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -445,6 +451,8 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -453,6 +461,8 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -464,7 +474,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -740,7 +750,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets last_update_date.
      *
-     * @param string $last_update_date The date when the order was last updated.  __Note__: LastUpdateDate is returned with an incorrect date for orders that were last updated before 2009-04-01.
+     * @param string $last_update_date The date when the order was last updated.  **Note**: `LastUpdateDate` is returned with an incorrect date for orders that were last updated before 2009-04-01.
      */
     public function setLastUpdateDate(string $last_update_date) : self
     {
@@ -860,7 +870,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets order_total.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $order_total order_total
+     * @param null|Money $order_total order_total
      */
     public function setOrderTotal(?Money $order_total) : self
     {
@@ -942,7 +952,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets payment_method.
      *
-     * @param null|string $payment_method The payment method for the order. This property is limited to Cash On Delivery (COD) and Convenience Store (CVS) payment methods. Unless you need the specific COD payment information provided by the PaymentExecutionDetailItem object, we recommend using the PaymentMethodDetails property to get payment method information.
+     * @param null|string $payment_method The payment method for the order. This property is limited to Cash On Delivery (COD) and Convenience Store (CVS) payment methods. Unless you need the specific COD payment information provided by the `PaymentExecutionDetailItem` object, we recommend using the `PaymentMethodDetails` property to get payment method information.
      */
     public function setPaymentMethod(?string $payment_method) : self
     {
@@ -1004,7 +1014,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets shipment_service_level_category.
      *
-     * @param null|string $shipment_service_level_category The shipment service level category of the order.  Possible values: Expedited, FreeEconomy, NextDay, Priority, SameDay, SecondDay, Scheduled, Standard.
+     * @param null|string $shipment_service_level_category The shipment service level category of the order.  **Possible values**: `Expedited`, `FreeEconomy`, `NextDay`, `Priority`, `SameDay`, `SecondDay`, `Scheduled`, `Standard`.
      */
     public function setShipmentServiceLevelCategory(?string $shipment_service_level_category) : self
     {
@@ -1024,7 +1034,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets easy_ship_shipment_status.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\EasyShipShipmentStatus $easy_ship_shipment_status easy_ship_shipment_status
+     * @param null|EasyShipShipmentStatus $easy_ship_shipment_status easy_ship_shipment_status
      */
     public function setEasyShipShipmentStatus(?EasyShipShipmentStatus $easy_ship_shipment_status) : self
     {
@@ -1084,7 +1094,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets earliest_ship_date.
      *
-     * @param null|string $earliest_ship_date The start of the time period within which you have committed to ship the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders.  __Note__: EarliestShipDate might not be returned for orders placed before February 1, 2013.
+     * @param null|string $earliest_ship_date The start of the time period within which you have committed to ship the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders.  **Note**: `EarliestShipDate` might not be returned for orders placed before February 1, 2013.
      */
     public function setEarliestShipDate(?string $earliest_ship_date) : self
     {
@@ -1104,7 +1114,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets latest_ship_date.
      *
-     * @param null|string $latest_ship_date The end of the time period within which you have committed to ship the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders.  __Note__: LatestShipDate might not be returned for orders placed before February 1, 2013.
+     * @param null|string $latest_ship_date The end of the time period within which you have committed to ship the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders.  **Note**: `LatestShipDate` might not be returned for orders placed before February 1, 2013.
      */
     public function setLatestShipDate(?string $latest_ship_date) : self
     {
@@ -1144,7 +1154,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets latest_delivery_date.
      *
-     * @param null|string $latest_delivery_date The end of the time period within which you have committed to fulfill the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders that do not have a PendingAvailability, Pending, or Canceled status.
+     * @param null|string $latest_delivery_date The end of the time period within which you have committed to fulfill the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders that do not have a `PendingAvailability`, Pending, or Canceled status.
      */
     public function setLatestDeliveryDate(?string $latest_delivery_date) : self
     {
@@ -1244,7 +1254,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets replaced_order_id.
      *
-     * @param null|string $replaced_order_id The order ID value for the order that is being replaced. Returned only if IsReplacementOrder = true.
+     * @param null|string $replaced_order_id The order ID value for the order that is being replaced. Returned only if `IsReplacementOrder` = true.
      */
     public function setReplacedOrderId(?string $replaced_order_id) : self
     {
@@ -1304,7 +1314,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets is_estimated_ship_date_set.
      *
-     * @param null|bool $is_estimated_ship_date_set When true, the estimated ship date is set for the order. Returned only for Sourcing on Demand orders.
+     * @param null|bool $is_estimated_ship_date_set When true, the estimated ship date is specified for the order. Returned only for Sourcing on Demand orders.
      */
     public function setIsEstimatedShipDateSet(?bool $is_estimated_ship_date_set) : self
     {
@@ -1364,7 +1374,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets default_ship_from_location_address.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Address $default_ship_from_location_address default_ship_from_location_address
+     * @param null|Address $default_ship_from_location_address default_ship_from_location_address
      */
     public function setDefaultShipFromLocationAddress(?Address $default_ship_from_location_address) : self
     {
@@ -1384,7 +1394,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets buyer_invoice_preference.
      *
-     * @param null|string $buyer_invoice_preference The buyer's invoicing preference. Available only in the TR marketplace.
+     * @param null|string $buyer_invoice_preference The buyer's invoicing preference. Sellers can use this data to issue electronic invoices for orders in Turkey.  **Note**: This attribute is only available in the Turkey marketplace.
      */
     public function setBuyerInvoicePreference(?string $buyer_invoice_preference) : self
     {
@@ -1404,7 +1414,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets buyer_tax_information.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\BuyerTaxInformation $buyer_tax_information buyer_tax_information
+     * @param null|BuyerTaxInformation $buyer_tax_information buyer_tax_information
      */
     public function setBuyerTaxInformation(?BuyerTaxInformation $buyer_tax_information) : self
     {
@@ -1424,7 +1434,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets fulfillment_instruction.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\FulfillmentInstruction $fulfillment_instruction fulfillment_instruction
+     * @param null|FulfillmentInstruction $fulfillment_instruction fulfillment_instruction
      */
     public function setFulfillmentInstruction(?FulfillmentInstruction $fulfillment_instruction) : self
     {
@@ -1484,7 +1494,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets marketplace_tax_info.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\MarketplaceTaxInfo $marketplace_tax_info marketplace_tax_info
+     * @param null|MarketplaceTaxInfo $marketplace_tax_info marketplace_tax_info
      */
     public function setMarketplaceTaxInfo(?MarketplaceTaxInfo $marketplace_tax_info) : self
     {
@@ -1504,7 +1514,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets seller_display_name.
      *
-     * @param null|string $seller_display_name the seller’s friendly name registered in the marketplace
+     * @param null|string $seller_display_name The seller’s friendly name registered in the marketplace where the sale took place. Sellers can use this data to issue electronic invoices for orders in Brazil.  **Note**: This attribute is only available in the Brazil marketplace for the orders with `Pending` or `Unshipped` status.
      */
     public function setSellerDisplayName(?string $seller_display_name) : self
     {
@@ -1524,7 +1534,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets shipping_address.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Address $shipping_address shipping_address
+     * @param null|Address $shipping_address shipping_address
      */
     public function setShippingAddress(?Address $shipping_address) : self
     {
@@ -1544,7 +1554,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets buyer_info.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\BuyerInfo $buyer_info buyer_info
+     * @param null|BuyerInfo $buyer_info buyer_info
      */
     public function setBuyerInfo(?BuyerInfo $buyer_info) : self
     {
@@ -1564,7 +1574,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets automated_shipping_settings.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\AutomatedShippingSettings $automated_shipping_settings automated_shipping_settings
+     * @param null|AutomatedShippingSettings $automated_shipping_settings automated_shipping_settings
      */
     public function setAutomatedShippingSettings(?AutomatedShippingSettings $automated_shipping_settings) : self
     {
@@ -1604,7 +1614,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets electronic_invoice_status.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\ElectronicInvoiceStatus $electronic_invoice_status electronic_invoice_status
+     * @param null|ElectronicInvoiceStatus $electronic_invoice_status electronic_invoice_status
      */
     public function setElectronicInvoiceStatus(?ElectronicInvoiceStatus $electronic_invoice_status) : self
     {

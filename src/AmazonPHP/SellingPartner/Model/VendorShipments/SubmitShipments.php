@@ -104,6 +104,8 @@ class SubmitShipments implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -112,6 +114,8 @@ class SubmitShipments implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class SubmitShipments implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class SubmitShipments implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class SubmitShipments implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -148,7 +158,7 @@ class SubmitShipments implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -184,7 +194,7 @@ class SubmitShipments implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets shipments.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\Shipment[] $shipments shipments
+     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\Shipment[] $shipments a list of one or more shipments with underlying details
      */
     public function setShipments(?array $shipments) : self
     {

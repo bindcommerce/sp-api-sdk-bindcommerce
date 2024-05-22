@@ -128,7 +128,7 @@ final class FeedsSDK implements FeedsSDKInterface
      *
      * @param string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function cancelFeedRequest(AccessToken $accessToken, string $region, string $feed_id) : RequestInterface
     {
@@ -217,7 +217,7 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation createFeed.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body Information required to create the feed. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -313,9 +313,9 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Create request for operation 'createFeed'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body Information required to create the feed. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function createFeedRequest(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body) : RequestInterface
     {
@@ -403,7 +403,7 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation createFeedDocument.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body Specifies the content type for the createFeedDocument operation. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -499,9 +499,9 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Create request for operation 'createFeedDocument'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body Specifies the content type for the createFeedDocument operation. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function createFeedDocumentRequest(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body) : RequestInterface
     {
@@ -687,7 +687,7 @@ final class FeedsSDK implements FeedsSDKInterface
      *
      * @param string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getFeedRequest(AccessToken $accessToken, string $region, string $feed_id) : RequestInterface
     {
@@ -874,7 +874,7 @@ final class FeedsSDK implements FeedsSDKInterface
      *
      * @param string $feed_document_id The identifier of the feed document. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getFeedDocumentRequest(AccessToken $accessToken, string $region, string $feed_document_id) : RequestInterface
     {
@@ -1073,7 +1073,7 @@ final class FeedsSDK implements FeedsSDKInterface
      * @param null|\DateTimeInterface $created_until The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
      * @param null|string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getFeedsRequest(AccessToken $accessToken, string $region, ?array $feed_types = null, ?array $marketplace_ids = null, int $page_size = 10, ?array $processing_statuses = null, ?\DateTimeInterface $created_since = null, ?\DateTimeInterface $created_until = null, ?string $next_token = null) : RequestInterface
     {
@@ -1120,6 +1120,7 @@ final class FeedsSDK implements FeedsSDKInterface
         if ($feed_types !== null) {
             $queryParams['feedTypes'] = ObjectSerializer::toString($feed_types);
         }
+
         // query params
         if (\is_array($marketplace_ids)) {
             $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'form', true);
@@ -1128,6 +1129,7 @@ final class FeedsSDK implements FeedsSDKInterface
         if ($marketplace_ids !== null) {
             $queryParams['marketplaceIds'] = ObjectSerializer::toString($marketplace_ids);
         }
+
         // query params
         if (\is_array($page_size)) {
             $page_size = ObjectSerializer::serializeCollection($page_size, '', true);
@@ -1136,6 +1138,7 @@ final class FeedsSDK implements FeedsSDKInterface
         if ($page_size !== null) {
             $queryParams['pageSize'] = ObjectSerializer::toString($page_size);
         }
+
         // query params
         if (\is_array($processing_statuses)) {
             $processing_statuses = ObjectSerializer::serializeCollection($processing_statuses, 'form', true);
@@ -1144,6 +1147,7 @@ final class FeedsSDK implements FeedsSDKInterface
         if ($processing_statuses !== null) {
             $queryParams['processingStatuses'] = ObjectSerializer::toString($processing_statuses);
         }
+
         // query params
         if (\is_array($created_since)) {
             $created_since = ObjectSerializer::serializeCollection($created_since, '', true);
@@ -1152,6 +1156,7 @@ final class FeedsSDK implements FeedsSDKInterface
         if ($created_since !== null) {
             $queryParams['createdSince'] = ObjectSerializer::toString($created_since);
         }
+
         // query params
         if (\is_array($created_until)) {
             $created_until = ObjectSerializer::serializeCollection($created_until, '', true);
@@ -1160,6 +1165,7 @@ final class FeedsSDK implements FeedsSDKInterface
         if ($created_until !== null) {
             $queryParams['createdUntil'] = ObjectSerializer::toString($created_until);
         }
+
         // query params
         if (\is_array($next_token)) {
             $next_token = ObjectSerializer::serializeCollection($next_token, '', true);

@@ -47,6 +47,8 @@ class PrepInstruction
 
     final public const BLANK_STICKERING = 'BlankStickering';
 
+    final public const SHIPS_IN_PRODUCT_PACKAGING = 'ShipsInProductPackaging';
+
     final public const NO_PREP = 'NoPrep';
 
     public function __construct(private readonly string $value)
@@ -75,6 +77,7 @@ class PrepInstruction
             self::CAP_SEALING,
             self::SET_STICKERING,
             self::BLANK_STICKERING,
+            self::SHIPS_IN_PRODUCT_PACKAGING,
             self::NO_PREP,
         ];
     }

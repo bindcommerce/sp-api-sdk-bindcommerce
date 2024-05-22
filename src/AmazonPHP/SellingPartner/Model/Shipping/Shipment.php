@@ -140,6 +140,8 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -148,6 +150,8 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -157,6 +161,8 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -165,6 +171,8 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -173,6 +181,8 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -184,7 +194,7 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -293,7 +303,7 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
     /**
      * Sets ship_from.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_from ship_from
+     * @param Address $ship_from ship_from
      */
     public function setShipFrom(Address $ship_from) : self
     {
@@ -313,7 +323,7 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
     /**
      * Sets ship_to.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_to ship_to
+     * @param Address $ship_to ship_to
      */
     public function setShipTo(Address $ship_to) : self
     {
@@ -333,7 +343,7 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
     /**
      * Sets accepted_rate.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Shipping\AcceptedRate $accepted_rate accepted_rate
+     * @param null|AcceptedRate $accepted_rate accepted_rate
      */
     public function setAcceptedRate(?AcceptedRate $accepted_rate) : self
     {
@@ -353,7 +363,7 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
     /**
      * Sets shipper.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Shipping\Party $shipper shipper
+     * @param null|Party $shipper shipper
      */
     public function setShipper(?Party $shipper) : self
     {

@@ -152,6 +152,8 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -160,6 +162,8 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -169,6 +173,8 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -177,6 +183,8 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -185,6 +193,8 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -196,7 +206,7 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -275,7 +285,7 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets offer_type.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\OfferCustomerType $offer_type offer_type
+     * @param null|OfferCustomerType $offer_type offer_type
      */
     public function setOfferType(?OfferCustomerType $offer_type) : self
     {
@@ -315,7 +325,7 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets quantity_discount_type.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\QuantityDiscountType $quantity_discount_type quantity_discount_type
+     * @param null|QuantityDiscountType $quantity_discount_type quantity_discount_type
      */
     public function setQuantityDiscountType(?QuantityDiscountType $quantity_discount_type) : self
     {
@@ -335,7 +345,7 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets landed_price.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $landed_price landed_price
+     * @param MoneyType $landed_price landed_price
      */
     public function setLandedPrice(MoneyType $landed_price) : self
     {
@@ -355,7 +365,7 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets listing_price.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $listing_price listing_price
+     * @param MoneyType $listing_price listing_price
      */
     public function setListingPrice(MoneyType $listing_price) : self
     {
@@ -375,7 +385,7 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets shipping.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $shipping shipping
+     * @param MoneyType $shipping shipping
      */
     public function setShipping(MoneyType $shipping) : self
     {
@@ -395,7 +405,7 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets points.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\Points $points points
+     * @param null|Points $points points
      */
     public function setPoints(?Points $points) : self
     {

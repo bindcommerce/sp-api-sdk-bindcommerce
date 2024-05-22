@@ -140,6 +140,8 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -148,6 +150,8 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -157,6 +161,8 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -165,6 +171,8 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -173,6 +181,8 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -184,7 +194,7 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -247,7 +257,7 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
     /**
      * Sets address.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Address $address address
+     * @param Address $address address
      */
     public function setAddress(Address $address) : self
     {
@@ -331,7 +341,7 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
     /**
      * Sets include_delivery_windows.
      *
-     * @param null|bool $include_delivery_windows When true, returns the ScheduledDeliveryInfo response object, which contains the available delivery windows for a Scheduled Delivery. The ScheduledDeliveryInfo response object can only be returned for fulfillment order previews with ShippingSpeedCategories = ScheduledDelivery.
+     * @param null|bool $include_delivery_windows When true, returns the `ScheduledDeliveryInfo` response object, which contains the available delivery windows for a Scheduled Delivery. The `ScheduledDeliveryInfo` response object can only be returned for fulfillment order previews with `ShippingSpeedCategories` = `ScheduledDelivery`.
      */
     public function setIncludeDeliveryWindows(?bool $include_delivery_windows) : self
     {

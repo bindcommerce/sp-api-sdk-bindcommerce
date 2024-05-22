@@ -134,6 +134,8 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -142,6 +144,8 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -178,7 +188,7 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -235,7 +245,7 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
     /**
      * Sets image.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\ImageComponent $image image
+     * @param null|ImageComponent $image image
      */
     public function setImage(?ImageComponent $image) : self
     {
@@ -255,7 +265,7 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
     /**
      * Sets headline.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\TextComponent $headline headline
+     * @param null|TextComponent $headline headline
      */
     public function setHeadline(?TextComponent $headline) : self
     {
@@ -275,7 +285,7 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
     /**
      * Sets text_block1.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock $text_block1 text_block1
+     * @param null|StandardTextBlock $text_block1 text_block1
      */
     public function setTextBlock1(?StandardTextBlock $text_block1) : self
     {
@@ -295,7 +305,7 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
     /**
      * Sets text_block2.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock $text_block2 text_block2
+     * @param null|StandardTextBlock $text_block2 text_block2
      */
     public function setTextBlock2(?StandardTextBlock $text_block2) : self
     {
@@ -315,7 +325,7 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
     /**
      * Sets text_block3.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock $text_block3 text_block3
+     * @param null|StandardTextBlock $text_block3 text_block3
      */
     public function setTextBlock3(?StandardTextBlock $text_block3) : self
     {
@@ -335,7 +345,7 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
     /**
      * Sets bulleted_list_block.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\StandardHeaderTextListBlock $bulleted_list_block bulleted_list_block
+     * @param null|StandardHeaderTextListBlock $bulleted_list_block bulleted_list_block
      */
     public function setBulletedListBlock(?StandardHeaderTextListBlock $bulleted_list_block) : self
     {

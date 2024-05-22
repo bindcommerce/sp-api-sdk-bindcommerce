@@ -158,6 +158,8 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -166,6 +168,8 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -175,6 +179,8 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -183,6 +189,8 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -191,6 +199,8 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -202,7 +212,7 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -289,7 +299,7 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets ship_from_address.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\Address $ship_from_address ship_from_address
+     * @param Address $ship_from_address ship_from_address
      */
     public function setShipFromAddress(Address $ship_from_address) : self
     {
@@ -329,7 +339,7 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets shipment_status.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\ShipmentStatus $shipment_status shipment_status
+     * @param null|ShipmentStatus $shipment_status shipment_status
      */
     public function setShipmentStatus(?ShipmentStatus $shipment_status) : self
     {
@@ -349,7 +359,7 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets label_prep_type.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\LabelPrepType $label_prep_type label_prep_type
+     * @param null|LabelPrepType $label_prep_type label_prep_type
      */
     public function setLabelPrepType(?LabelPrepType $label_prep_type) : self
     {
@@ -389,7 +399,7 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets confirmed_need_by_date.
      *
-     * @param null|\DateTimeInterface $confirmed_need_by_date confirmed_need_by_date
+     * @param null|\DateTimeInterface $confirmed_need_by_date Type containing date in string format
      */
     public function setConfirmedNeedByDate(?\DateTimeInterface $confirmed_need_by_date) : self
     {
@@ -409,7 +419,7 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets box_contents_source.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\BoxContentsSource $box_contents_source box_contents_source
+     * @param null|BoxContentsSource $box_contents_source box_contents_source
      */
     public function setBoxContentsSource(?BoxContentsSource $box_contents_source) : self
     {
@@ -429,7 +439,7 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets estimated_box_contents_fee.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentInbound\BoxContentsFeeDetails $estimated_box_contents_fee estimated_box_contents_fee
+     * @param null|BoxContentsFeeDetails $estimated_box_contents_fee estimated_box_contents_fee
      */
     public function setEstimatedBoxContentsFee(?BoxContentsFeeDetails $estimated_box_contents_fee) : self
     {

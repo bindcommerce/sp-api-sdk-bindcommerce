@@ -122,6 +122,8 @@ class ListingOffersRequestParams implements \ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -130,6 +132,8 @@ class ListingOffersRequestParams implements \ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -139,6 +143,8 @@ class ListingOffersRequestParams implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -147,6 +153,8 @@ class ListingOffersRequestParams implements \ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -155,6 +163,8 @@ class ListingOffersRequestParams implements \ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -166,7 +176,7 @@ class ListingOffersRequestParams implements \ArrayAccess, \JsonSerializable, \St
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -231,7 +241,7 @@ class ListingOffersRequestParams implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Sets item_condition.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ItemCondition $item_condition item_condition
+     * @param ItemCondition $item_condition item_condition
      */
     public function setItemCondition(ItemCondition $item_condition) : self
     {
@@ -251,7 +261,7 @@ class ListingOffersRequestParams implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Sets customer_type.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\CustomerType $customer_type customer_type
+     * @param null|CustomerType $customer_type customer_type
      */
     public function setCustomerType(?CustomerType $customer_type) : self
     {

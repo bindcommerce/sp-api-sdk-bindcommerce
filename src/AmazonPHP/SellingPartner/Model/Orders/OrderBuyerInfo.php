@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Orders.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  _Note:_ The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
  *
  * The version of the OpenAPI document: v0
  *
@@ -134,6 +134,8 @@ class OrderBuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -142,6 +144,8 @@ class OrderBuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class OrderBuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class OrderBuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class OrderBuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -178,7 +188,7 @@ class OrderBuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -279,7 +289,7 @@ class OrderBuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets buyer_county.
      *
-     * @param null|string $buyer_county the county of the buyer
+     * @param null|string $buyer_county The county of the buyer.  **Note**: This attribute is only available in the Brazil marketplace.
      */
     public function setBuyerCounty(?string $buyer_county) : self
     {
@@ -299,7 +309,7 @@ class OrderBuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets buyer_tax_info.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\BuyerTaxInfo $buyer_tax_info buyer_tax_info
+     * @param null|BuyerTaxInfo $buyer_tax_info buyer_tax_info
      */
     public function setBuyerTaxInfo(?BuyerTaxInfo $buyer_tax_info) : self
     {

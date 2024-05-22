@@ -122,6 +122,8 @@ class ShippingOfferingFilter implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -130,6 +132,8 @@ class ShippingOfferingFilter implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -139,6 +143,8 @@ class ShippingOfferingFilter implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -147,6 +153,8 @@ class ShippingOfferingFilter implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -155,6 +163,8 @@ class ShippingOfferingFilter implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -166,7 +176,7 @@ class ShippingOfferingFilter implements \ArrayAccess, \JsonSerializable, \String
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -240,7 +250,7 @@ class ShippingOfferingFilter implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets carrier_will_pick_up.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\MerchantFulfillment\CarrierWillPickUpOption $carrier_will_pick_up carrier_will_pick_up
+     * @param null|CarrierWillPickUpOption $carrier_will_pick_up carrier_will_pick_up
      */
     public function setCarrierWillPickUp(?CarrierWillPickUpOption $carrier_will_pick_up) : self
     {
@@ -260,7 +270,7 @@ class ShippingOfferingFilter implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets delivery_experience.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\MerchantFulfillment\DeliveryExperienceOption $delivery_experience delivery_experience
+     * @param null|DeliveryExperienceOption $delivery_experience delivery_experience
      */
     public function setDeliveryExperience(?DeliveryExperienceOption $delivery_experience) : self
     {

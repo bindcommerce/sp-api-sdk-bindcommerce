@@ -152,6 +152,8 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -160,6 +162,8 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -169,6 +173,8 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -177,6 +183,8 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -185,6 +193,8 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -196,7 +206,7 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -335,7 +345,7 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets base_expense.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $base_expense base_expense
+     * @param null|Currency $base_expense base_expense
      */
     public function setBaseExpense(?Currency $base_expense) : self
     {
@@ -355,7 +365,7 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets tax_type_cgst.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Finances\Currency $tax_type_cgst tax_type_cgst
+     * @param Currency $tax_type_cgst tax_type_cgst
      */
     public function setTaxTypeCgst(Currency $tax_type_cgst) : self
     {
@@ -375,7 +385,7 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets tax_type_sgst.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Finances\Currency $tax_type_sgst tax_type_sgst
+     * @param Currency $tax_type_sgst tax_type_sgst
      */
     public function setTaxTypeSgst(Currency $tax_type_sgst) : self
     {
@@ -395,7 +405,7 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets tax_type_igst.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Finances\Currency $tax_type_igst tax_type_igst
+     * @param Currency $tax_type_igst tax_type_igst
      */
     public function setTaxTypeIgst(Currency $tax_type_igst) : self
     {
@@ -415,7 +425,7 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets total_expense.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $total_expense total_expense
+     * @param null|Currency $total_expense total_expense
      */
     public function setTotalExpense(?Currency $total_expense) : self
     {

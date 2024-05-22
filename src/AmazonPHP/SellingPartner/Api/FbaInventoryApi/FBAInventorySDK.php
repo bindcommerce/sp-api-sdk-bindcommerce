@@ -147,7 +147,7 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
      * @param null|string $seller_sku A single seller SKU used for querying the specified seller SKU inventory summaries. (optional)
      * @param null|string $next_token String token returned in the response of your previous request. The string token will expire 30 seconds after being created. (optional)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getInventorySummariesRequest(AccessToken $accessToken, string $region, string $granularity_type, string $granularity_id, array $marketplace_ids, bool $details = false, ?\DateTimeInterface $start_date_time = null, ?array $seller_skus = null, ?string $seller_sku = null, ?string $next_token = null) : RequestInterface
     {
@@ -157,12 +157,14 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
                 'Missing the required parameter $granularity_type when calling getInventorySummaries'
             );
         }
+
         // verify the required parameter 'granularity_id' is set
         if ($granularity_id === null || (\is_array($granularity_id) && \count($granularity_id) === 0)) {
             throw new InvalidArgumentException(
                 'Missing the required parameter $granularity_id when calling getInventorySummaries'
             );
         }
+
         // verify the required parameter 'marketplace_ids' is set
         if ($marketplace_ids === null || (\is_array($marketplace_ids) && \count($marketplace_ids) === 0)) {
             throw new InvalidArgumentException(
@@ -193,6 +195,7 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
         if ($details !== null) {
             $queryParams['details'] = ObjectSerializer::toString($details);
         }
+
         // query params
         if (\is_array($granularity_type)) {
             $granularity_type = ObjectSerializer::serializeCollection($granularity_type, '', true);
@@ -201,6 +204,7 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
         if ($granularity_type !== null) {
             $queryParams['granularityType'] = ObjectSerializer::toString($granularity_type);
         }
+
         // query params
         if (\is_array($granularity_id)) {
             $granularity_id = ObjectSerializer::serializeCollection($granularity_id, '', true);
@@ -209,6 +213,7 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
         if ($granularity_id !== null) {
             $queryParams['granularityId'] = ObjectSerializer::toString($granularity_id);
         }
+
         // query params
         if (\is_array($start_date_time)) {
             $start_date_time = ObjectSerializer::serializeCollection($start_date_time, '', true);
@@ -217,6 +222,7 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
         if ($start_date_time !== null) {
             $queryParams['startDateTime'] = ObjectSerializer::toString($start_date_time);
         }
+
         // query params
         if (\is_array($seller_skus)) {
             $seller_skus = ObjectSerializer::serializeCollection($seller_skus, 'form', true);
@@ -225,6 +231,7 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
         if ($seller_skus !== null) {
             $queryParams['sellerSkus'] = ObjectSerializer::toString($seller_skus);
         }
+
         // query params
         if (\is_array($seller_sku)) {
             $seller_sku = ObjectSerializer::serializeCollection($seller_sku, '', true);
@@ -233,6 +240,7 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
         if ($seller_sku !== null) {
             $queryParams['sellerSku'] = ObjectSerializer::toString($seller_sku);
         }
+
         // query params
         if (\is_array($next_token)) {
             $next_token = ObjectSerializer::serializeCollection($next_token, '', true);
@@ -241,6 +249,7 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
         if ($next_token !== null) {
             $queryParams['nextToken'] = ObjectSerializer::toString($next_token);
         }
+
         // query params
         if (\is_array($marketplace_ids)) {
             $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'form', true);

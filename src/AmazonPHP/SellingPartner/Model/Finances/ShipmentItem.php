@@ -176,6 +176,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -184,6 +186,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -193,6 +197,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -201,6 +207,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -209,6 +217,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -220,7 +230,7 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -495,7 +505,7 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets cost_of_points_granted.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $cost_of_points_granted cost_of_points_granted
+     * @param null|Currency $cost_of_points_granted cost_of_points_granted
      */
     public function setCostOfPointsGranted(?Currency $cost_of_points_granted) : self
     {
@@ -515,7 +525,7 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     /**
      * Sets cost_of_points_returned.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $cost_of_points_returned cost_of_points_returned
+     * @param null|Currency $cost_of_points_returned cost_of_points_returned
      */
     public function setCostOfPointsReturned(?Currency $cost_of_points_returned) : self
     {

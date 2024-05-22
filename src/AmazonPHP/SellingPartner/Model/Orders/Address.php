@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Orders.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  _Note:_ The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
  *
  * The version of the OpenAPI document: v0
  *
@@ -45,6 +45,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     protected static array $openAPITypes = [
         'name' => 'string',
+        'company_name' => 'string',
         'address_line1' => 'string',
         'address_line2' => 'string',
         'address_line3' => 'string',
@@ -56,6 +57,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
         'postal_code' => 'string',
         'country_code' => 'string',
         'phone' => 'string',
+        'extended_fields' => '\AmazonPHP\SellingPartner\Model\Orders\AddressExtendedFields',
         'address_type' => 'string',
     ];
 
@@ -70,6 +72,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     protected static array $openAPIFormats = [
         'name' => null,
+        'company_name' => null,
         'address_line1' => null,
         'address_line2' => null,
         'address_line3' => null,
@@ -81,6 +84,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
         'postal_code' => null,
         'country_code' => null,
         'phone' => null,
+        'extended_fields' => null,
         'address_type' => null,
     ];
 
@@ -92,6 +96,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     protected static array $attributeMap = [
         'name' => 'Name',
+        'company_name' => 'CompanyName',
         'address_line1' => 'AddressLine1',
         'address_line2' => 'AddressLine2',
         'address_line3' => 'AddressLine3',
@@ -103,6 +108,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
         'postal_code' => 'PostalCode',
         'country_code' => 'CountryCode',
         'phone' => 'Phone',
+        'extended_fields' => 'ExtendedFields',
         'address_type' => 'AddressType',
     ];
 
@@ -113,6 +119,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     protected static array $setters = [
         'name' => 'setName',
+        'company_name' => 'setCompanyName',
         'address_line1' => 'setAddressLine1',
         'address_line2' => 'setAddressLine2',
         'address_line3' => 'setAddressLine3',
@@ -124,6 +131,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
         'postal_code' => 'setPostalCode',
         'country_code' => 'setCountryCode',
         'phone' => 'setPhone',
+        'extended_fields' => 'setExtendedFields',
         'address_type' => 'setAddressType',
     ];
 
@@ -134,6 +142,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     protected static array $getters = [
         'name' => 'getName',
+        'company_name' => 'getCompanyName',
         'address_line1' => 'getAddressLine1',
         'address_line2' => 'getAddressLine2',
         'address_line3' => 'getAddressLine3',
@@ -145,6 +154,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
         'postal_code' => 'getPostalCode',
         'country_code' => 'getCountryCode',
         'phone' => 'getPhone',
+        'extended_fields' => 'getExtendedFields',
         'address_type' => 'getAddressType',
     ];
 
@@ -164,6 +174,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     public function __construct(array $data = null)
     {
         $this->container['name'] = $data['name'] ?? null;
+        $this->container['company_name'] = $data['company_name'] ?? null;
         $this->container['address_line1'] = $data['address_line1'] ?? null;
         $this->container['address_line2'] = $data['address_line2'] ?? null;
         $this->container['address_line3'] = $data['address_line3'] ?? null;
@@ -175,11 +186,14 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
         $this->container['postal_code'] = $data['postal_code'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
         $this->container['phone'] = $data['phone'] ?? null;
+        $this->container['extended_fields'] = $data['extended_fields'] ?? null;
         $this->container['address_type'] = $data['address_type'] ?? null;
     }
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -188,6 +202,8 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -197,6 +213,8 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -205,6 +223,8 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -213,6 +233,8 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -224,7 +246,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -262,6 +284,10 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
             throw new AssertionException("'name' can't be null");
         }
 
+        if ($this->container['extended_fields'] !== null) {
+            $this->container['extended_fields']->validate();
+        }
+
         $allowedValues = $this->getAddressTypeAllowableValues();
 
         if (null !== $this->container['address_type'] && !\in_array($this->container['address_type'], $allowedValues, true)) {
@@ -278,7 +304,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Gets name.
      */
-    public function getName() : ?string
+    public function getName() : string
     {
         return $this->container['name'];
     }
@@ -291,6 +317,26 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     public function setName(string $name) : self
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_name.
+     */
+    public function getCompanyName() : ?string
+    {
+        return $this->container['company_name'];
+    }
+
+    /**
+     * Sets company_name.
+     *
+     * @param null|string $company_name The company name of the recipient.  **Note**: This attribute is only available for shipping address.
+     */
+    public function setCompanyName(?string $company_name) : self
+    {
+        $this->container['company_name'] = $company_name;
 
         return $this;
     }
@@ -366,7 +412,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets city.
      *
-     * @param null|string $city The city
+     * @param null|string $city the city
      */
     public function setCity(?string $city) : self
     {
@@ -506,11 +552,31 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets phone.
      *
-     * @param null|string $phone The phone number. Not returned for Fulfillment by Amazon (FBA) orders.
+     * @param null|string $phone The phone number of the buyer.  **Note**:  1. This attribute is only available for shipping address. 2. The buyer `Phone` number is suppressed in some cases, including but not limited to  a. `Phone` is suppressed for all Fulfillment by Amazon (FBA) orders. b. `Phone` is suppressed for the shipped MFN(Fulfilled by the seller) order when current date is past Latest Delivery Date.
      */
     public function setPhone(?string $phone) : self
     {
         $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets extended_fields.
+     */
+    public function getExtendedFields() : ?AddressExtendedFields
+    {
+        return $this->container['extended_fields'];
+    }
+
+    /**
+     * Sets extended_fields.
+     *
+     * @param null|AddressExtendedFields $extended_fields extended_fields
+     */
+    public function setExtendedFields(?AddressExtendedFields $extended_fields) : self
+    {
+        $this->container['extended_fields'] = $extended_fields;
 
         return $this;
     }

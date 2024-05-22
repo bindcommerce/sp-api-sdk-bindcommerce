@@ -116,6 +116,8 @@ class ItemDimensionsByMarketplace implements \ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -124,6 +126,8 @@ class ItemDimensionsByMarketplace implements \ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -133,6 +137,8 @@ class ItemDimensionsByMarketplace implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -141,6 +147,8 @@ class ItemDimensionsByMarketplace implements \ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -149,6 +157,8 @@ class ItemDimensionsByMarketplace implements \ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -160,7 +170,7 @@ class ItemDimensionsByMarketplace implements \ArrayAccess, \JsonSerializable, \S
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -225,7 +235,7 @@ class ItemDimensionsByMarketplace implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets item.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\Dimensions $item item
+     * @param null|Dimensions $item item
      */
     public function setItem(?Dimensions $item) : self
     {
@@ -245,7 +255,7 @@ class ItemDimensionsByMarketplace implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets package.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\Dimensions $package package
+     * @param null|Dimensions $package package
      */
     public function setPackage(?Dimensions $package) : self
     {

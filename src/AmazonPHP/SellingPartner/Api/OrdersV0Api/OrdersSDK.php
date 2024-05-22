@@ -19,7 +19,7 @@ use Psr\Log\LoggerInterface;
 /**
  * Selling Partner API for Orders.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  _Note:_ The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
  *
  * The version of the OpenAPI document: v0
  *
@@ -36,7 +36,7 @@ final class OrdersSDK implements OrdersSDKInterface
      * Operation confirmShipment.
      *
      * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Orders\ConfirmShipmentRequest $payload Request body of confirmShipment. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Orders\ConfirmShipmentRequest $payload The request body of the &#x60;confirmShipment&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -128,9 +128,9 @@ final class OrdersSDK implements OrdersSDKInterface
      * Create request for operation 'confirmShipment'.
      *
      * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Orders\ConfirmShipmentRequest $payload Request body of confirmShipment. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Orders\ConfirmShipmentRequest $payload The request body of the &#x60;confirmShipment&#x60; operation. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function confirmShipmentRequest(AccessToken $accessToken, string $region, string $order_id, \AmazonPHP\SellingPartner\Model\Orders\ConfirmShipmentRequest $payload) : RequestInterface
     {
@@ -140,6 +140,7 @@ final class OrdersSDK implements OrdersSDKInterface
                 'Missing the required parameter $order_id when calling confirmShipment'
             );
         }
+
         // verify the required parameter 'payload' is set
         if ($payload === null || (\is_array($payload) && \count($payload) === 0)) {
             throw new InvalidArgumentException(
@@ -331,7 +332,7 @@ final class OrdersSDK implements OrdersSDKInterface
      *
      * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getOrderRequest(AccessToken $accessToken, string $region, string $order_id) : RequestInterface
     {
@@ -420,7 +421,7 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrderAddress.
      *
-     * @param string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param string $order_id An &#x60;orderId&#x60; is an Amazon-defined order identifier, in 3-7-7 format. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -516,9 +517,9 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrderAddress'.
      *
-     * @param string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param string $order_id An &#x60;orderId&#x60; is an Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getOrderAddressRequest(AccessToken $accessToken, string $region, string $order_id) : RequestInterface
     {
@@ -607,7 +608,7 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrderBuyerInfo.
      *
-     * @param string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param string $order_id An &#x60;orderId&#x60; is an Amazon-defined order identifier, in 3-7-7 format. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -703,9 +704,9 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrderBuyerInfo'.
      *
-     * @param string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param string $order_id An &#x60;orderId&#x60; is an Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getOrderBuyerInfoRequest(AccessToken $accessToken, string $region, string $order_id) : RequestInterface
     {
@@ -894,7 +895,7 @@ final class OrdersSDK implements OrdersSDKInterface
      * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param null|string $next_token A string token returned in the response of your previous request. (optional)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getOrderItemsRequest(AccessToken $accessToken, string $region, string $order_id, ?string $next_token = null) : RequestInterface
     {
@@ -1092,7 +1093,7 @@ final class OrdersSDK implements OrdersSDKInterface
      * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param null|string $next_token A string token returned in the response of your previous request. (optional)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getOrderItemsBuyerInfoRequest(AccessToken $accessToken, string $region, string $order_id, ?string $next_token = null) : RequestInterface
     {
@@ -1190,7 +1191,7 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrderRegulatedInfo.
      *
-     * @param string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -1286,9 +1287,9 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrderRegulatedInfo'.
      *
-     * @param string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getOrderRegulatedInfoRequest(AccessToken $accessToken, string $region, string $order_id) : RequestInterface
     {
@@ -1377,14 +1378,14 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrders.
      *
-     * @param string[] $marketplace_ids A list of MarketplaceId values. Used to select orders that were placed in the specified marketplaces.  Refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids) for a complete list of marketplaceId values. (required)
-     * @param null|string $created_after A date used for selecting orders created after (or at) a specified time. Only orders placed after the specified time are returned. Either the CreatedAfter parameter or the LastUpdatedAfter parameter is required. Both cannot be empty. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
-     * @param null|string $created_before A date used for selecting orders created before (or at) a specified time. Only orders placed before the specified time are returned. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
-     * @param null|string $last_updated_after A date used for selecting orders that were last updated after (or at) a specified time. An update is defined as any change in order status, including the creation of a new order. Includes updates made by Amazon and by the seller. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
-     * @param null|string $last_updated_before A date used for selecting orders that were last updated before (or at) a specified time. An update is defined as any change in order status, including the creation of a new order. Includes updates made by Amazon and by the seller. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
+     * @param string[] $marketplace_ids A list of &#x60;MarketplaceId&#x60; values. Used to select orders that were placed in the specified marketplaces.  Refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids) for a complete list of &#x60;MarketplaceId&#x60; values. (required)
+     * @param null|string $created_after A date used for selecting orders created after (or at) a specified time. Only orders placed after the specified time are returned. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format.  **Note**: Either the &#x60;CreatedAfter&#x60; parameter or the &#x60;LastUpdatedAfter&#x60; parameter is required. You could specify &#x60;CreatedBefore&#x60; but not provide &#x60;LastUpdatedAfter&#x60; or &#x60;LastUpdatedBefore&#x60; when &#x60;CreatedAfter&#x60; is specified. (optional)
+     * @param null|string $created_before A date used for selecting orders created before (or at) a specified time. Only orders placed before the specified time are returned. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format.  **Note**: &#x60;CreatedBefore&#x60; is optional when &#x60;CreatedAfter&#x60; is specified. But if specified, &#x60;CreatedBefore&#x60; should be equal to or after the &#x60;CreatedAfter&#x60; date and at least 2 minutes before the current time. (optional)
+     * @param null|string $last_updated_after A date used for selecting orders that were last updated before (or at) a specified time. An update is defined as any change in order status, including the creation of a new order. Includes updates made by Amazon and by the seller. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format.  **Note**: &#x60;LastUpdatedBefore&#x60; is optional when &#x60;LastUpdatedAfter&#x60; is specified. But if specified, &#x60;LastUpdatedBefore&#x60; should be equal to or after the &#x60;LastUpdatedAfter&#x60; date and at least 2 minutes before current time. (optional)
+     * @param null|string $last_updated_before A date used for selecting orders that were last updated before (or at) a specified time. An update is defined as any change in order status, including the creation of a new order. Includes updates made by Amazon and by the seller. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format.  **Note**: LastUpdatedBefore is optional when LastUpdatedAfter is set. But if specified, LastUpdatedBefore should be equal to or after the LastUpdatedAfter date and at least 2 minutes before current time. (optional)
      * @param null|string[] $order_statuses A list of &#x60;OrderStatus&#x60; values used to filter the results.  **Possible values:** - &#x60;PendingAvailability&#x60; (This status is available for pre-orders only. The order has been placed, payment has not been authorized, and the release date of the item is in the future.) - &#x60;Pending&#x60; (The order has been placed but payment has not been authorized.) - &#x60;Unshipped&#x60; (Payment has been authorized and the order is ready for shipment, but no items in the order have been shipped.) - &#x60;PartiallyShipped&#x60; (One or more, but not all, items in the order have been shipped.) - &#x60;Shipped&#x60; (All items in the order have been shipped.) - &#x60;InvoiceUnconfirmed&#x60; (All items in the order have been shipped. The seller has not yet given confirmation to Amazon that the invoice has been shipped to the buyer.) - &#x60;Canceled&#x60; (The order has been canceled.) - &#x60;Unfulfillable&#x60; (The order cannot be fulfilled. This state applies only to Multi-Channel Fulfillment orders.) (optional)
-     * @param null|string[] $fulfillment_channels A list that indicates how an order was fulfilled. Filters the results by fulfillment channel. Possible values: AFN (Fulfillment by Amazon); MFN (Fulfilled by the seller). (optional)
-     * @param null|string[] $payment_methods A list of payment method values. Used to select orders paid using the specified payment methods. Possible values: COD (Cash on delivery); CVS (Convenience store payment); Other (Any payment method other than COD or CVS). (optional)
+     * @param null|string[] $fulfillment_channels A list that indicates how an order was fulfilled. Filters the results by fulfillment channel.   **Possible values**: &#x60;AFN&#x60; (Fulfillment by Amazon); &#x60;MFN&#x60; (Fulfilled by the seller). (optional)
+     * @param null|string[] $payment_methods A list of payment method values. Used to select orders paid using the specified payment methods.  **Possible values**: &#x60;COD&#x60; (Cash on delivery); &#x60;CVS&#x60; (Convenience store payment); &#x60;Other&#x60; (Any payment method other than &#x60;COD&#x60; or &#x60;CVS&#x60;). (optional)
      * @param null|string $buyer_email The email address of a buyer. Used to select orders that contain the specified email address. (optional)
      * @param null|string $seller_order_id An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If SellerOrderId is specified, then FulfillmentChannels, OrderStatuses, PaymentMethod, LastUpdatedAfter, LastUpdatedBefore, and BuyerEmail cannot be specified. (optional)
      * @param null|int $max_results_per_page A number that indicates the maximum number of orders that can be returned per page. Value must be 1 - 100. Default 100. (optional)
@@ -1494,14 +1495,14 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrders'.
      *
-     * @param string[] $marketplace_ids A list of MarketplaceId values. Used to select orders that were placed in the specified marketplaces.  Refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids) for a complete list of marketplaceId values. (required)
-     * @param null|string $created_after A date used for selecting orders created after (or at) a specified time. Only orders placed after the specified time are returned. Either the CreatedAfter parameter or the LastUpdatedAfter parameter is required. Both cannot be empty. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
-     * @param null|string $created_before A date used for selecting orders created before (or at) a specified time. Only orders placed before the specified time are returned. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
-     * @param null|string $last_updated_after A date used for selecting orders that were last updated after (or at) a specified time. An update is defined as any change in order status, including the creation of a new order. Includes updates made by Amazon and by the seller. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
-     * @param null|string $last_updated_before A date used for selecting orders that were last updated before (or at) a specified time. An update is defined as any change in order status, including the creation of a new order. Includes updates made by Amazon and by the seller. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
+     * @param string[] $marketplace_ids A list of &#x60;MarketplaceId&#x60; values. Used to select orders that were placed in the specified marketplaces.  Refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids) for a complete list of &#x60;MarketplaceId&#x60; values. (required)
+     * @param null|string $created_after A date used for selecting orders created after (or at) a specified time. Only orders placed after the specified time are returned. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format.  **Note**: Either the &#x60;CreatedAfter&#x60; parameter or the &#x60;LastUpdatedAfter&#x60; parameter is required. You could specify &#x60;CreatedBefore&#x60; but not provide &#x60;LastUpdatedAfter&#x60; or &#x60;LastUpdatedBefore&#x60; when &#x60;CreatedAfter&#x60; is specified. (optional)
+     * @param null|string $created_before A date used for selecting orders created before (or at) a specified time. Only orders placed before the specified time are returned. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format.  **Note**: &#x60;CreatedBefore&#x60; is optional when &#x60;CreatedAfter&#x60; is specified. But if specified, &#x60;CreatedBefore&#x60; should be equal to or after the &#x60;CreatedAfter&#x60; date and at least 2 minutes before the current time. (optional)
+     * @param null|string $last_updated_after A date used for selecting orders that were last updated before (or at) a specified time. An update is defined as any change in order status, including the creation of a new order. Includes updates made by Amazon and by the seller. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format.  **Note**: &#x60;LastUpdatedBefore&#x60; is optional when &#x60;LastUpdatedAfter&#x60; is specified. But if specified, &#x60;LastUpdatedBefore&#x60; should be equal to or after the &#x60;LastUpdatedAfter&#x60; date and at least 2 minutes before current time. (optional)
+     * @param null|string $last_updated_before A date used for selecting orders that were last updated before (or at) a specified time. An update is defined as any change in order status, including the creation of a new order. Includes updates made by Amazon and by the seller. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format.  **Note**: LastUpdatedBefore is optional when LastUpdatedAfter is set. But if specified, LastUpdatedBefore should be equal to or after the LastUpdatedAfter date and at least 2 minutes before current time. (optional)
      * @param null|string[] $order_statuses A list of &#x60;OrderStatus&#x60; values used to filter the results.  **Possible values:** - &#x60;PendingAvailability&#x60; (This status is available for pre-orders only. The order has been placed, payment has not been authorized, and the release date of the item is in the future.) - &#x60;Pending&#x60; (The order has been placed but payment has not been authorized.) - &#x60;Unshipped&#x60; (Payment has been authorized and the order is ready for shipment, but no items in the order have been shipped.) - &#x60;PartiallyShipped&#x60; (One or more, but not all, items in the order have been shipped.) - &#x60;Shipped&#x60; (All items in the order have been shipped.) - &#x60;InvoiceUnconfirmed&#x60; (All items in the order have been shipped. The seller has not yet given confirmation to Amazon that the invoice has been shipped to the buyer.) - &#x60;Canceled&#x60; (The order has been canceled.) - &#x60;Unfulfillable&#x60; (The order cannot be fulfilled. This state applies only to Multi-Channel Fulfillment orders.) (optional)
-     * @param null|string[] $fulfillment_channels A list that indicates how an order was fulfilled. Filters the results by fulfillment channel. Possible values: AFN (Fulfillment by Amazon); MFN (Fulfilled by the seller). (optional)
-     * @param null|string[] $payment_methods A list of payment method values. Used to select orders paid using the specified payment methods. Possible values: COD (Cash on delivery); CVS (Convenience store payment); Other (Any payment method other than COD or CVS). (optional)
+     * @param null|string[] $fulfillment_channels A list that indicates how an order was fulfilled. Filters the results by fulfillment channel.   **Possible values**: &#x60;AFN&#x60; (Fulfillment by Amazon); &#x60;MFN&#x60; (Fulfilled by the seller). (optional)
+     * @param null|string[] $payment_methods A list of payment method values. Used to select orders paid using the specified payment methods.  **Possible values**: &#x60;COD&#x60; (Cash on delivery); &#x60;CVS&#x60; (Convenience store payment); &#x60;Other&#x60; (Any payment method other than &#x60;COD&#x60; or &#x60;CVS&#x60;). (optional)
      * @param null|string $buyer_email The email address of a buyer. Used to select orders that contain the specified email address. (optional)
      * @param null|string $seller_order_id An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If SellerOrderId is specified, then FulfillmentChannels, OrderStatuses, PaymentMethod, LastUpdatedAfter, LastUpdatedBefore, and BuyerEmail cannot be specified. (optional)
      * @param null|int $max_results_per_page A number that indicates the maximum number of orders that can be returned per page. Value must be 1 - 100. Default 100. (optional)
@@ -1517,7 +1518,7 @@ final class OrdersSDK implements OrdersSDKInterface
      * @param null|string $latest_delivery_date_before A date used for selecting orders with a latest delivery date before (or at) a specified time. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
      * @param null|string $latest_delivery_date_after A date used for selecting orders with a latest delivery date after (or at) a specified time. The date must be in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; format. (optional)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getOrdersRequest(AccessToken $accessToken, string $region, array $marketplace_ids, ?string $created_after = null, ?string $created_before = null, ?string $last_updated_after = null, ?string $last_updated_before = null, ?array $order_statuses = null, ?array $fulfillment_channels = null, ?array $payment_methods = null, ?string $buyer_email = null, ?string $seller_order_id = null, ?int $max_results_per_page = null, ?array $easy_ship_shipment_statuses = null, ?array $electronic_invoice_statuses = null, ?string $next_token = null, ?array $amazon_order_ids = null, ?string $actual_fulfillment_supply_source_id = null, ?bool $is_ispu = null, ?string $store_chain_store_id = null, ?string $earliest_delivery_date_before = null, ?string $earliest_delivery_date_after = null, ?string $latest_delivery_date_before = null, ?string $latest_delivery_date_after = null) : RequestInterface
     {
@@ -1551,6 +1552,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($created_after !== null) {
             $queryParams['CreatedAfter'] = ObjectSerializer::toString($created_after);
         }
+
         // query params
         if (\is_array($created_before)) {
             $created_before = ObjectSerializer::serializeCollection($created_before, '', true);
@@ -1559,6 +1561,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($created_before !== null) {
             $queryParams['CreatedBefore'] = ObjectSerializer::toString($created_before);
         }
+
         // query params
         if (\is_array($last_updated_after)) {
             $last_updated_after = ObjectSerializer::serializeCollection($last_updated_after, '', true);
@@ -1567,6 +1570,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($last_updated_after !== null) {
             $queryParams['LastUpdatedAfter'] = ObjectSerializer::toString($last_updated_after);
         }
+
         // query params
         if (\is_array($last_updated_before)) {
             $last_updated_before = ObjectSerializer::serializeCollection($last_updated_before, '', true);
@@ -1575,6 +1579,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($last_updated_before !== null) {
             $queryParams['LastUpdatedBefore'] = ObjectSerializer::toString($last_updated_before);
         }
+
         // query params
         if (\is_array($order_statuses)) {
             $order_statuses = ObjectSerializer::serializeCollection($order_statuses, 'form', true);
@@ -1583,6 +1588,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($order_statuses !== null) {
             $queryParams['OrderStatuses'] = ObjectSerializer::toString($order_statuses);
         }
+
         // query params
         if (\is_array($marketplace_ids)) {
             $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'form', true);
@@ -1591,6 +1597,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($marketplace_ids !== null) {
             $queryParams['MarketplaceIds'] = ObjectSerializer::toString($marketplace_ids);
         }
+
         // query params
         if (\is_array($fulfillment_channels)) {
             $fulfillment_channels = ObjectSerializer::serializeCollection($fulfillment_channels, 'form', true);
@@ -1599,6 +1606,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($fulfillment_channels !== null) {
             $queryParams['FulfillmentChannels'] = ObjectSerializer::toString($fulfillment_channels);
         }
+
         // query params
         if (\is_array($payment_methods)) {
             $payment_methods = ObjectSerializer::serializeCollection($payment_methods, 'form', true);
@@ -1607,6 +1615,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($payment_methods !== null) {
             $queryParams['PaymentMethods'] = ObjectSerializer::toString($payment_methods);
         }
+
         // query params
         if (\is_array($buyer_email)) {
             $buyer_email = ObjectSerializer::serializeCollection($buyer_email, '', true);
@@ -1615,6 +1624,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($buyer_email !== null) {
             $queryParams['BuyerEmail'] = ObjectSerializer::toString($buyer_email);
         }
+
         // query params
         if (\is_array($seller_order_id)) {
             $seller_order_id = ObjectSerializer::serializeCollection($seller_order_id, '', true);
@@ -1623,6 +1633,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($seller_order_id !== null) {
             $queryParams['SellerOrderId'] = ObjectSerializer::toString($seller_order_id);
         }
+
         // query params
         if (\is_array($max_results_per_page)) {
             $max_results_per_page = ObjectSerializer::serializeCollection($max_results_per_page, '', true);
@@ -1631,6 +1642,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($max_results_per_page !== null) {
             $queryParams['MaxResultsPerPage'] = ObjectSerializer::toString($max_results_per_page);
         }
+
         // query params
         if (\is_array($easy_ship_shipment_statuses)) {
             $easy_ship_shipment_statuses = ObjectSerializer::serializeCollection($easy_ship_shipment_statuses, 'form', true);
@@ -1639,6 +1651,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($easy_ship_shipment_statuses !== null) {
             $queryParams['EasyShipShipmentStatuses'] = ObjectSerializer::toString($easy_ship_shipment_statuses);
         }
+
         // query params
         if (\is_array($electronic_invoice_statuses)) {
             $electronic_invoice_statuses = ObjectSerializer::serializeCollection($electronic_invoice_statuses, 'form', true);
@@ -1647,6 +1660,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($electronic_invoice_statuses !== null) {
             $queryParams['ElectronicInvoiceStatuses'] = ObjectSerializer::toString($electronic_invoice_statuses);
         }
+
         // query params
         if (\is_array($next_token)) {
             $next_token = ObjectSerializer::serializeCollection($next_token, '', true);
@@ -1655,6 +1669,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($next_token !== null) {
             $queryParams['NextToken'] = ObjectSerializer::toString($next_token);
         }
+
         // query params
         if (\is_array($amazon_order_ids)) {
             $amazon_order_ids = ObjectSerializer::serializeCollection($amazon_order_ids, 'form', true);
@@ -1663,6 +1678,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($amazon_order_ids !== null) {
             $queryParams['AmazonOrderIds'] = ObjectSerializer::toString($amazon_order_ids);
         }
+
         // query params
         if (\is_array($actual_fulfillment_supply_source_id)) {
             $actual_fulfillment_supply_source_id = ObjectSerializer::serializeCollection($actual_fulfillment_supply_source_id, '', true);
@@ -1671,6 +1687,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($actual_fulfillment_supply_source_id !== null) {
             $queryParams['ActualFulfillmentSupplySourceId'] = ObjectSerializer::toString($actual_fulfillment_supply_source_id);
         }
+
         // query params
         if (\is_array($is_ispu)) {
             $is_ispu = ObjectSerializer::serializeCollection($is_ispu, '', true);
@@ -1679,6 +1696,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($is_ispu !== null) {
             $queryParams['IsISPU'] = ObjectSerializer::toString($is_ispu);
         }
+
         // query params
         if (\is_array($store_chain_store_id)) {
             $store_chain_store_id = ObjectSerializer::serializeCollection($store_chain_store_id, '', true);
@@ -1687,6 +1705,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($store_chain_store_id !== null) {
             $queryParams['StoreChainStoreId'] = ObjectSerializer::toString($store_chain_store_id);
         }
+
         // query params
         if (\is_array($earliest_delivery_date_before)) {
             $earliest_delivery_date_before = ObjectSerializer::serializeCollection($earliest_delivery_date_before, '', true);
@@ -1695,6 +1714,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($earliest_delivery_date_before !== null) {
             $queryParams['EarliestDeliveryDateBefore'] = ObjectSerializer::toString($earliest_delivery_date_before);
         }
+
         // query params
         if (\is_array($earliest_delivery_date_after)) {
             $earliest_delivery_date_after = ObjectSerializer::serializeCollection($earliest_delivery_date_after, '', true);
@@ -1703,6 +1723,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($earliest_delivery_date_after !== null) {
             $queryParams['EarliestDeliveryDateAfter'] = ObjectSerializer::toString($earliest_delivery_date_after);
         }
+
         // query params
         if (\is_array($latest_delivery_date_before)) {
             $latest_delivery_date_before = ObjectSerializer::serializeCollection($latest_delivery_date_before, '', true);
@@ -1711,6 +1732,7 @@ final class OrdersSDK implements OrdersSDKInterface
         if ($latest_delivery_date_before !== null) {
             $queryParams['LatestDeliveryDateBefore'] = ObjectSerializer::toString($latest_delivery_date_before);
         }
+
         // query params
         if (\is_array($latest_delivery_date_after)) {
             $latest_delivery_date_after = ObjectSerializer::serializeCollection($latest_delivery_date_after, '', true);
@@ -1782,8 +1804,8 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation updateVerificationStatus.
      *
-     * @param string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateVerificationStatusRequest $payload The request body for the updateVerificationStatus operation. (required)
+     * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateVerificationStatusRequest $payload The request body for the &#x60;updateVerificationStatus&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -1874,10 +1896,10 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'updateVerificationStatus'.
      *
-     * @param string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateVerificationStatusRequest $payload The request body for the updateVerificationStatus operation. (required)
+     * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateVerificationStatusRequest $payload The request body for the &#x60;updateVerificationStatus&#x60; operation. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function updateVerificationStatusRequest(AccessToken $accessToken, string $region, string $order_id, \AmazonPHP\SellingPartner\Model\Orders\UpdateVerificationStatusRequest $payload) : RequestInterface
     {
@@ -1887,6 +1909,7 @@ final class OrdersSDK implements OrdersSDKInterface
                 'Missing the required parameter $order_id when calling updateVerificationStatus'
             );
         }
+
         // verify the required parameter 'payload' is set
         if ($payload === null || (\is_array($payload) && \count($payload) === 0)) {
             throw new InvalidArgumentException(

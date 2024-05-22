@@ -116,6 +116,8 @@ class AcknowledgementStatusDetails implements \ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -124,6 +126,8 @@ class AcknowledgementStatusDetails implements \ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -133,6 +137,8 @@ class AcknowledgementStatusDetails implements \ArrayAccess, \JsonSerializable, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -141,6 +147,8 @@ class AcknowledgementStatusDetails implements \ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -149,6 +157,8 @@ class AcknowledgementStatusDetails implements \ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -160,7 +170,7 @@ class AcknowledgementStatusDetails implements \ArrayAccess, \JsonSerializable, \
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -221,7 +231,7 @@ class AcknowledgementStatusDetails implements \ArrayAccess, \JsonSerializable, \
     /**
      * Sets accepted_quantity.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity $accepted_quantity accepted_quantity
+     * @param null|ItemQuantity $accepted_quantity accepted_quantity
      */
     public function setAcceptedQuantity(?ItemQuantity $accepted_quantity) : self
     {
@@ -241,7 +251,7 @@ class AcknowledgementStatusDetails implements \ArrayAccess, \JsonSerializable, \
     /**
      * Sets rejected_quantity.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity $rejected_quantity rejected_quantity
+     * @param null|ItemQuantity $rejected_quantity rejected_quantity
      */
     public function setRejectedQuantity(?ItemQuantity $rejected_quantity) : self
     {

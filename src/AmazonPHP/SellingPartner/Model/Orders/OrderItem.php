@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Orders.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  _Note:_ The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
  *
  * The version of the OpenAPI document: v0
  *
@@ -64,7 +64,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'promotion_ids' => 'string[]',
         'cod_fee' => '\AmazonPHP\SellingPartner\Model\Orders\Money',
         'cod_fee_discount' => '\AmazonPHP\SellingPartner\Model\Orders\Money',
-        'is_gift' => 'bool',
+        'is_gift' => 'string',
         'condition_note' => 'string',
         'condition_id' => 'string',
         'condition_subtype_id' => 'string',
@@ -82,6 +82,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'serial_numbers' => 'string[]',
         'substitution_preferences' => '\AmazonPHP\SellingPartner\Model\Orders\SubstitutionPreferences',
         'measurement' => '\AmazonPHP\SellingPartner\Model\Orders\Measurement',
+        'shipping_constraints' => '\AmazonPHP\SellingPartner\Model\Orders\ShippingConstraints',
     ];
 
     /**
@@ -132,6 +133,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'serial_numbers' => null,
         'substitution_preferences' => null,
         'measurement' => null,
+        'shipping_constraints' => null,
     ];
 
     /**
@@ -179,6 +181,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'serial_numbers' => 'SerialNumbers',
         'substitution_preferences' => 'SubstitutionPreferences',
         'measurement' => 'Measurement',
+        'shipping_constraints' => 'ShippingConstraints',
     ];
 
     /**
@@ -225,6 +228,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'serial_numbers' => 'setSerialNumbers',
         'substitution_preferences' => 'setSubstitutionPreferences',
         'measurement' => 'setMeasurement',
+        'shipping_constraints' => 'setShippingConstraints',
     ];
 
     /**
@@ -271,6 +275,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'serial_numbers' => 'getSerialNumbers',
         'substitution_preferences' => 'getSubstitutionPreferences',
         'measurement' => 'getMeasurement',
+        'shipping_constraints' => 'getShippingConstraints',
     ];
 
     /**
@@ -326,10 +331,13 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         $this->container['serial_numbers'] = $data['serial_numbers'] ?? null;
         $this->container['substitution_preferences'] = $data['substitution_preferences'] ?? null;
         $this->container['measurement'] = $data['measurement'] ?? null;
+        $this->container['shipping_constraints'] = $data['shipping_constraints'] ?? null;
     }
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -338,6 +346,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -347,6 +357,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -355,6 +367,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -363,6 +377,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -374,7 +390,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -498,6 +514,10 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
         if ($this->container['measurement'] !== null) {
             $this->container['measurement']->validate();
+        }
+
+        if ($this->container['shipping_constraints'] !== null) {
+            $this->container['shipping_constraints']->validate();
         }
     }
 
@@ -654,7 +674,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets product_info.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\ProductInfoDetail $product_info product_info
+     * @param null|ProductInfoDetail $product_info product_info
      */
     public function setProductInfo(?ProductInfoDetail $product_info) : self
     {
@@ -674,7 +694,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets points_granted.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\PointsGrantedDetail $points_granted points_granted
+     * @param null|PointsGrantedDetail $points_granted points_granted
      */
     public function setPointsGranted(?PointsGrantedDetail $points_granted) : self
     {
@@ -694,7 +714,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets item_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $item_price item_price
+     * @param null|Money $item_price item_price
      */
     public function setItemPrice(?Money $item_price) : self
     {
@@ -714,7 +734,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets shipping_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $shipping_price shipping_price
+     * @param null|Money $shipping_price shipping_price
      */
     public function setShippingPrice(?Money $shipping_price) : self
     {
@@ -734,7 +754,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets item_tax.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $item_tax item_tax
+     * @param null|Money $item_tax item_tax
      */
     public function setItemTax(?Money $item_tax) : self
     {
@@ -754,7 +774,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets shipping_tax.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $shipping_tax shipping_tax
+     * @param null|Money $shipping_tax shipping_tax
      */
     public function setShippingTax(?Money $shipping_tax) : self
     {
@@ -774,7 +794,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets shipping_discount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $shipping_discount shipping_discount
+     * @param null|Money $shipping_discount shipping_discount
      */
     public function setShippingDiscount(?Money $shipping_discount) : self
     {
@@ -794,7 +814,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets shipping_discount_tax.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $shipping_discount_tax shipping_discount_tax
+     * @param null|Money $shipping_discount_tax shipping_discount_tax
      */
     public function setShippingDiscountTax(?Money $shipping_discount_tax) : self
     {
@@ -814,7 +834,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets promotion_discount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $promotion_discount promotion_discount
+     * @param null|Money $promotion_discount promotion_discount
      */
     public function setPromotionDiscount(?Money $promotion_discount) : self
     {
@@ -834,7 +854,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets promotion_discount_tax.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $promotion_discount_tax promotion_discount_tax
+     * @param null|Money $promotion_discount_tax promotion_discount_tax
      */
     public function setPromotionDiscountTax(?Money $promotion_discount_tax) : self
     {
@@ -876,7 +896,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets cod_fee.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $cod_fee cod_fee
+     * @param null|Money $cod_fee cod_fee
      */
     public function setCodFee(?Money $cod_fee) : self
     {
@@ -896,7 +916,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets cod_fee_discount.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Money $cod_fee_discount cod_fee_discount
+     * @param null|Money $cod_fee_discount cod_fee_discount
      */
     public function setCodFeeDiscount(?Money $cod_fee_discount) : self
     {
@@ -908,7 +928,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Gets is_gift.
      */
-    public function getIsGift() : ?bool
+    public function getIsGift() : ?string
     {
         return $this->container['is_gift'];
     }
@@ -916,9 +936,9 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets is_gift.
      *
-     * @param null|bool $is_gift when true, the item is a gift
+     * @param null|string $is_gift Indicates whether the item is a gift.  **Possible values**: `true`, `false`.
      */
-    public function setIsGift(?bool $is_gift) : self
+    public function setIsGift(?string $is_gift) : self
     {
         $this->container['is_gift'] = $is_gift;
 
@@ -956,7 +976,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets condition_id.
      *
-     * @param null|string $condition_id The condition of the item.  Possible values: New, Used, Collectible, Refurbished, Preorder, Club.
+     * @param null|string $condition_id The condition of the item.  **Possible values**: `New`, `Used`, `Collectible`, `Refurbished`, `Preorder`, `Club`.
      */
     public function setConditionId(?string $condition_id) : self
     {
@@ -976,7 +996,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets condition_subtype_id.
      *
-     * @param null|string $condition_subtype_id The subcondition of the item.  Possible values: New, Mint, Very Good, Good, Acceptable, Poor, Club, OEM, Warranty, Refurbished Warranty, Refurbished, Open Box, Any, Other.
+     * @param null|string $condition_subtype_id The subcondition of the item.  **Possible values**: `New`, `Mint`, `Very Good`, `Good`, `Acceptable`, `Poor`, `Club`, `OEM`, `Warranty`, `Refurbished Warranty`, `Refurbished`, `Open Box`, `Any`, `Other`.
      */
     public function setConditionSubtypeId(?string $condition_subtype_id) : self
     {
@@ -1036,7 +1056,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets price_designation.
      *
-     * @param null|string $price_designation Indicates that the selling price is a special price that is available only for Amazon Business orders. For more information about the Amazon Business Seller Program, see the [Amazon Business website](https://www.amazon.com/b2b/info/amazon-business).   Possible values: BusinessPrice - A special price that is available only for Amazon Business orders.
+     * @param null|string $price_designation Indicates that the selling price is a special price that is available only for Amazon Business orders. For more information about the Amazon Business Seller Program, refer to [Amazon Business](https://business.amazon.com).   **Possible values**: `BusinessPrice` - A special price that is available only for Amazon Business orders.
      */
     public function setPriceDesignation(?string $price_designation) : self
     {
@@ -1056,7 +1076,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets tax_collection.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\TaxCollection $tax_collection tax_collection
+     * @param null|TaxCollection $tax_collection tax_collection
      */
     public function setTaxCollection(?TaxCollection $tax_collection) : self
     {
@@ -1176,7 +1196,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets buyer_info.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\ItemBuyerInfo $buyer_info buyer_info
+     * @param null|ItemBuyerInfo $buyer_info buyer_info
      */
     public function setBuyerInfo(?ItemBuyerInfo $buyer_info) : self
     {
@@ -1196,7 +1216,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets buyer_requested_cancel.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\BuyerRequestedCancel $buyer_requested_cancel buyer_requested_cancel
+     * @param null|BuyerRequestedCancel $buyer_requested_cancel buyer_requested_cancel
      */
     public function setBuyerRequestedCancel(?BuyerRequestedCancel $buyer_requested_cancel) : self
     {
@@ -1238,7 +1258,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets substitution_preferences.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\SubstitutionPreferences $substitution_preferences substitution_preferences
+     * @param null|SubstitutionPreferences $substitution_preferences substitution_preferences
      */
     public function setSubstitutionPreferences(?SubstitutionPreferences $substitution_preferences) : self
     {
@@ -1258,11 +1278,31 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets measurement.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Orders\Measurement $measurement measurement
+     * @param null|Measurement $measurement measurement
      */
     public function setMeasurement(?Measurement $measurement) : self
     {
         $this->container['measurement'] = $measurement;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_constraints.
+     */
+    public function getShippingConstraints() : ?ShippingConstraints
+    {
+        return $this->container['shipping_constraints'];
+    }
+
+    /**
+     * Sets shipping_constraints.
+     *
+     * @param null|ShippingConstraints $shipping_constraints shipping_constraints
+     */
+    public function setShippingConstraints(?ShippingConstraints $shipping_constraints) : self
+    {
+        $this->container['shipping_constraints'] = $shipping_constraints;
 
         return $this;
     }

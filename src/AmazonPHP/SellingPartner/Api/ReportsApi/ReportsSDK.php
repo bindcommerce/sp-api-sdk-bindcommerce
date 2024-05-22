@@ -128,7 +128,7 @@ final class ReportsSDK implements ReportsSDKInterface
      *
      * @param string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function cancelReportRequest(AccessToken $accessToken, string $region, string $report_id) : RequestInterface
     {
@@ -310,7 +310,7 @@ final class ReportsSDK implements ReportsSDKInterface
      *
      * @param string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function cancelReportScheduleRequest(AccessToken $accessToken, string $region, string $report_schedule_id) : RequestInterface
     {
@@ -399,7 +399,7 @@ final class ReportsSDK implements ReportsSDKInterface
     /**
      * Operation createReport.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportSpecification $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportSpecification $body Information required to create the report. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -495,9 +495,9 @@ final class ReportsSDK implements ReportsSDKInterface
     /**
      * Create request for operation 'createReport'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportSpecification $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportSpecification $body Information required to create the report. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function createReportRequest(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\Reports\CreateReportSpecification $body) : RequestInterface
     {
@@ -585,7 +585,7 @@ final class ReportsSDK implements ReportsSDKInterface
     /**
      * Operation createReportSchedule.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportScheduleSpecification $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportScheduleSpecification $body Information required to create the report schedule. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -681,9 +681,9 @@ final class ReportsSDK implements ReportsSDKInterface
     /**
      * Create request for operation 'createReportSchedule'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportScheduleSpecification $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportScheduleSpecification $body Information required to create the report schedule. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function createReportScheduleRequest(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\Reports\CreateReportScheduleSpecification $body) : RequestInterface
     {
@@ -869,7 +869,7 @@ final class ReportsSDK implements ReportsSDKInterface
      *
      * @param string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getReportRequest(AccessToken $accessToken, string $region, string $report_id) : RequestInterface
     {
@@ -1056,7 +1056,7 @@ final class ReportsSDK implements ReportsSDKInterface
      *
      * @param string $report_document_id The identifier for the report document. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getReportDocumentRequest(AccessToken $accessToken, string $region, string $report_document_id) : RequestInterface
     {
@@ -1243,7 +1243,7 @@ final class ReportsSDK implements ReportsSDKInterface
      *
      * @param string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getReportScheduleRequest(AccessToken $accessToken, string $region, string $report_schedule_id) : RequestInterface
     {
@@ -1430,7 +1430,7 @@ final class ReportsSDK implements ReportsSDKInterface
      *
      * @param string[] $report_types A list of report types used to filter report schedules. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information. (required)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getReportSchedulesRequest(AccessToken $accessToken, string $region, array $report_types) : RequestInterface
     {
@@ -1531,9 +1531,9 @@ final class ReportsSDK implements ReportsSDKInterface
      * @param null|string[] $processing_statuses A list of processing statuses used to filter reports. (optional)
      * @param null|string[] $marketplace_ids A list of marketplace identifiers used to filter reports. The reports returned will match at least one of the marketplaces that you specify. (optional)
      * @param null|int $page_size The maximum number of reports to return in a single call. (optional, default to 10)
-     * @param null|\DateTimeInterface $created_since The earliest report creation date and time for reports to include in the response, in ISO 8601 date time format. The default is 90 days ago. Reports are retained for a maximum of 90 days. (optional)
-     * @param null|\DateTimeInterface $created_until The latest report creation date and time for reports to include in the response, in ISO 8601 date time format. The default is now. (optional)
-     * @param null|string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getReports operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
+     * @param null|\DateTimeInterface $created_since The earliest report creation date and time for reports to include in the response, in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; date time format. The default is 90 days ago. Reports are retained for a maximum of 90 days. (optional)
+     * @param null|\DateTimeInterface $created_until The latest report creation date and time for reports to include in the response, in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; date time format. The default is now. (optional)
+     * @param null|string $next_token A string token returned in the response to your previous request. &#x60;nextToken&#x60; is returned when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the &#x60;getReports&#x60; operation and include this token as the only parameter. Specifying &#x60;nextToken&#x60; with any other parameters will cause the request to fail. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -1633,11 +1633,11 @@ final class ReportsSDK implements ReportsSDKInterface
      * @param null|string[] $processing_statuses A list of processing statuses used to filter reports. (optional)
      * @param null|string[] $marketplace_ids A list of marketplace identifiers used to filter reports. The reports returned will match at least one of the marketplaces that you specify. (optional)
      * @param int $page_size The maximum number of reports to return in a single call. (optional, default to 10)
-     * @param null|\DateTimeInterface $created_since The earliest report creation date and time for reports to include in the response, in ISO 8601 date time format. The default is 90 days ago. Reports are retained for a maximum of 90 days. (optional)
-     * @param null|\DateTimeInterface $created_until The latest report creation date and time for reports to include in the response, in ISO 8601 date time format. The default is now. (optional)
-     * @param null|string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getReports operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
+     * @param null|\DateTimeInterface $created_since The earliest report creation date and time for reports to include in the response, in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; date time format. The default is 90 days ago. Reports are retained for a maximum of 90 days. (optional)
+     * @param null|\DateTimeInterface $created_until The latest report creation date and time for reports to include in the response, in &lt;a href&#x3D;&#39;https://developer-docs.amazon.com/sp-api/docs/iso-8601&#39;&gt;ISO 8601&lt;/a&gt; date time format. The default is now. (optional)
+     * @param null|string $next_token A string token returned in the response to your previous request. &#x60;nextToken&#x60; is returned when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the &#x60;getReports&#x60; operation and include this token as the only parameter. Specifying &#x60;nextToken&#x60; with any other parameters will cause the request to fail. (optional)
      *
-     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getReportsRequest(AccessToken $accessToken, string $region, ?array $report_types = null, ?array $processing_statuses = null, ?array $marketplace_ids = null, int $page_size = 10, ?\DateTimeInterface $created_since = null, ?\DateTimeInterface $created_until = null, ?string $next_token = null) : RequestInterface
     {
@@ -1684,6 +1684,7 @@ final class ReportsSDK implements ReportsSDKInterface
         if ($report_types !== null) {
             $queryParams['reportTypes'] = ObjectSerializer::toString($report_types);
         }
+
         // query params
         if (\is_array($processing_statuses)) {
             $processing_statuses = ObjectSerializer::serializeCollection($processing_statuses, 'form', true);
@@ -1692,6 +1693,7 @@ final class ReportsSDK implements ReportsSDKInterface
         if ($processing_statuses !== null) {
             $queryParams['processingStatuses'] = ObjectSerializer::toString($processing_statuses);
         }
+
         // query params
         if (\is_array($marketplace_ids)) {
             $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'form', true);
@@ -1700,6 +1702,7 @@ final class ReportsSDK implements ReportsSDKInterface
         if ($marketplace_ids !== null) {
             $queryParams['marketplaceIds'] = ObjectSerializer::toString($marketplace_ids);
         }
+
         // query params
         if (\is_array($page_size)) {
             $page_size = ObjectSerializer::serializeCollection($page_size, '', true);
@@ -1708,6 +1711,7 @@ final class ReportsSDK implements ReportsSDKInterface
         if ($page_size !== null) {
             $queryParams['pageSize'] = ObjectSerializer::toString($page_size);
         }
+
         // query params
         if (\is_array($created_since)) {
             $created_since = ObjectSerializer::serializeCollection($created_since, '', true);
@@ -1716,6 +1720,7 @@ final class ReportsSDK implements ReportsSDKInterface
         if ($created_since !== null) {
             $queryParams['createdSince'] = ObjectSerializer::toString($created_since);
         }
+
         // query params
         if (\is_array($created_until)) {
             $created_until = ObjectSerializer::serializeCollection($created_until, '', true);
@@ -1724,6 +1729,7 @@ final class ReportsSDK implements ReportsSDKInterface
         if ($created_until !== null) {
             $queryParams['createdUntil'] = ObjectSerializer::toString($created_until);
         }
+
         // query params
         if (\is_array($next_token)) {
             $next_token = ObjectSerializer::serializeCollection($next_token, '', true);

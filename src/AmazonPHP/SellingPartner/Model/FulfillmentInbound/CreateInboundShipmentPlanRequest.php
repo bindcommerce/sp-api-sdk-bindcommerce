@@ -128,6 +128,8 @@ class CreateInboundShipmentPlanRequest implements \ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -136,6 +138,8 @@ class CreateInboundShipmentPlanRequest implements \ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -145,6 +149,8 @@ class CreateInboundShipmentPlanRequest implements \ArrayAccess, \JsonSerializabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -153,6 +159,8 @@ class CreateInboundShipmentPlanRequest implements \ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -161,6 +169,8 @@ class CreateInboundShipmentPlanRequest implements \ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -172,7 +182,7 @@ class CreateInboundShipmentPlanRequest implements \ArrayAccess, \JsonSerializabl
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -219,7 +229,7 @@ class CreateInboundShipmentPlanRequest implements \ArrayAccess, \JsonSerializabl
     /**
      * Sets ship_from_address.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\Address $ship_from_address ship_from_address
+     * @param Address $ship_from_address ship_from_address
      */
     public function setShipFromAddress(Address $ship_from_address) : self
     {
@@ -239,7 +249,7 @@ class CreateInboundShipmentPlanRequest implements \ArrayAccess, \JsonSerializabl
     /**
      * Sets label_prep_preference.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\LabelPrepPreference $label_prep_preference label_prep_preference
+     * @param LabelPrepPreference $label_prep_preference label_prep_preference
      */
     public function setLabelPrepPreference(LabelPrepPreference $label_prep_preference) : self
     {
@@ -301,7 +311,7 @@ class CreateInboundShipmentPlanRequest implements \ArrayAccess, \JsonSerializabl
     /**
      * Sets inbound_shipment_plan_request_items.
      *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentPlanRequestItem[] $inbound_shipment_plan_request_items inbound_shipment_plan_request_items
+     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentPlanRequestItem[] $inbound_shipment_plan_request_items List of inbound shipment plan requests
      */
     public function setInboundShipmentPlanRequestItems(array $inbound_shipment_plan_request_items) : self
     {

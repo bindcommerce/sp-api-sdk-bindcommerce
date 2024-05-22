@@ -122,6 +122,8 @@ class ChargeRefundEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -130,6 +132,8 @@ class ChargeRefundEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -139,6 +143,8 @@ class ChargeRefundEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -147,6 +153,8 @@ class ChargeRefundEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -155,6 +163,8 @@ class ChargeRefundEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -166,7 +176,7 @@ class ChargeRefundEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -262,7 +272,7 @@ class ChargeRefundEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets charge_refund_transactions.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\ChargeRefundTransaction[] $charge_refund_transactions a list of `ChargeRefund` transactions
+     * @param null|\AmazonPHP\SellingPartner\Model\Finances\ChargeRefundTransaction[] $charge_refund_transactions A list of `ChargeRefund` transactions
      */
     public function setChargeRefundTransactions(?array $charge_refund_transactions) : self
     {

@@ -164,6 +164,8 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -172,6 +174,8 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -181,6 +185,8 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -189,6 +195,8 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -197,6 +205,8 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -208,7 +218,7 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -313,7 +323,7 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets original_total.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $original_total original_total
+     * @param null|Currency $original_total original_total
      */
     public function setOriginalTotal(?Currency $original_total) : self
     {
@@ -333,7 +343,7 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets converted_total.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $converted_total converted_total
+     * @param null|Currency $converted_total converted_total
      */
     public function setConvertedTotal(?Currency $converted_total) : self
     {
@@ -413,7 +423,7 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets beginning_balance.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\Currency $beginning_balance beginning_balance
+     * @param null|Currency $beginning_balance beginning_balance
      */
     public function setBeginningBalance(?Currency $beginning_balance) : self
     {

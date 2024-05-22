@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Orders.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  _Note:_ The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
  *
  * The version of the OpenAPI document: v0
  *
@@ -40,7 +40,7 @@ class ProductInfoDetail implements \ArrayAccess, \JsonSerializable, \Stringable,
      * @var string[]
      */
     protected static array $openAPITypes = [
-        'number_of_items' => 'int',
+        'number_of_items' => 'string',
     ];
 
     /**
@@ -104,6 +104,8 @@ class ProductInfoDetail implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -112,6 +114,8 @@ class ProductInfoDetail implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class ProductInfoDetail implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class ProductInfoDetail implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class ProductInfoDetail implements \ArrayAccess, \JsonSerializable, \Stringable,
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -148,7 +158,7 @@ class ProductInfoDetail implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -174,7 +184,7 @@ class ProductInfoDetail implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Gets number_of_items.
      */
-    public function getNumberOfItems() : ?int
+    public function getNumberOfItems() : ?string
     {
         return $this->container['number_of_items'];
     }
@@ -182,9 +192,9 @@ class ProductInfoDetail implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets number_of_items.
      *
-     * @param null|int $number_of_items the total number of items that are included in the ASIN
+     * @param null|string $number_of_items the total number of items that are included in the ASIN
      */
-    public function setNumberOfItems(?int $number_of_items) : self
+    public function setNumberOfItems(?string $number_of_items) : self
     {
         $this->container['number_of_items'] = $number_of_items;
 

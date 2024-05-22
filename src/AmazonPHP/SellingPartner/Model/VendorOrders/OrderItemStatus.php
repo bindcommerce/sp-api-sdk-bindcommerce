@@ -146,6 +146,8 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -154,6 +156,8 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -163,6 +167,8 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -171,6 +177,8 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -179,6 +187,8 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -190,7 +200,7 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -307,7 +317,7 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets net_cost.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\Money $net_cost net_cost
+     * @param null|Money $net_cost net_cost
      */
     public function setNetCost(?Money $net_cost) : self
     {
@@ -327,7 +337,7 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets list_price.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\Money $list_price list_price
+     * @param null|Money $list_price list_price
      */
     public function setListPrice(?Money $list_price) : self
     {
@@ -347,7 +357,7 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets ordered_quantity.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\OrderItemStatusOrderedQuantity $ordered_quantity ordered_quantity
+     * @param null|OrderItemStatusOrderedQuantity $ordered_quantity ordered_quantity
      */
     public function setOrderedQuantity(?OrderItemStatusOrderedQuantity $ordered_quantity) : self
     {
@@ -367,7 +377,7 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets acknowledgement_status.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\OrderItemStatusAcknowledgementStatus $acknowledgement_status acknowledgement_status
+     * @param null|OrderItemStatusAcknowledgementStatus $acknowledgement_status acknowledgement_status
      */
     public function setAcknowledgementStatus(?OrderItemStatusAcknowledgementStatus $acknowledgement_status) : self
     {
@@ -387,7 +397,7 @@ class OrderItemStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets receiving_status.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorOrders\OrderItemStatusReceivingStatus $receiving_status receiving_status
+     * @param null|OrderItemStatusReceivingStatus $receiving_status receiving_status
      */
     public function setReceivingStatus(?OrderItemStatusReceivingStatus $receiving_status) : self
     {

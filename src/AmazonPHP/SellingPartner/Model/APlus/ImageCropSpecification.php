@@ -110,6 +110,8 @@ class ImageCropSpecification implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -118,6 +120,8 @@ class ImageCropSpecification implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -127,6 +131,8 @@ class ImageCropSpecification implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -135,6 +141,8 @@ class ImageCropSpecification implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -143,6 +151,8 @@ class ImageCropSpecification implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -154,7 +164,7 @@ class ImageCropSpecification implements \ArrayAccess, \JsonSerializable, \String
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -197,7 +207,7 @@ class ImageCropSpecification implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets size.
      *
-     * @param \AmazonPHP\SellingPartner\Model\APlus\ImageDimensions $size size
+     * @param ImageDimensions $size size
      */
     public function setSize(ImageDimensions $size) : self
     {
@@ -217,7 +227,7 @@ class ImageCropSpecification implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets offset.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\APlus\ImageOffsets $offset offset
+     * @param null|ImageOffsets $offset offset
      */
     public function setOffset(?ImageOffsets $offset) : self
     {

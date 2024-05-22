@@ -132,6 +132,8 @@ class FulfillmentPreviewItem implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -140,6 +142,8 @@ class FulfillmentPreviewItem implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -149,6 +153,8 @@ class FulfillmentPreviewItem implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -157,6 +163,8 @@ class FulfillmentPreviewItem implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -165,6 +173,8 @@ class FulfillmentPreviewItem implements \ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -176,7 +186,7 @@ class FulfillmentPreviewItem implements \ArrayAccess, \JsonSerializable, \String
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -290,7 +300,7 @@ class FulfillmentPreviewItem implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets seller_fulfillment_order_item_id.
      *
-     * @param string $seller_fulfillment_order_item_id a fulfillment order item identifier that the seller created with a call to the createFulfillmentOrder operation
+     * @param string $seller_fulfillment_order_item_id a fulfillment order item identifier that the seller created with a call to the `createFulfillmentOrder` operation
      */
     public function setSellerFulfillmentOrderItemId(string $seller_fulfillment_order_item_id) : self
     {
@@ -310,7 +320,7 @@ class FulfillmentPreviewItem implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets estimated_shipping_weight.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Weight $estimated_shipping_weight estimated_shipping_weight
+     * @param null|Weight $estimated_shipping_weight estimated_shipping_weight
      */
     public function setEstimatedShippingWeight(?Weight $estimated_shipping_weight) : self
     {

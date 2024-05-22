@@ -152,6 +152,8 @@ class TransportationDetails implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -160,6 +162,8 @@ class TransportationDetails implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -169,6 +173,8 @@ class TransportationDetails implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -177,6 +183,8 @@ class TransportationDetails implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -185,6 +193,8 @@ class TransportationDetails implements \ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -196,7 +206,7 @@ class TransportationDetails implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -385,7 +395,7 @@ class TransportationDetails implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets carrier_details.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorShipments\CarrierDetails $carrier_details carrier_details
+     * @param null|CarrierDetails $carrier_details carrier_details
      */
     public function setCarrierDetails(?CarrierDetails $carrier_details) : self
     {
@@ -405,7 +415,7 @@ class TransportationDetails implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets bill_of_lading_number.
      *
-     * @param null|string $bill_of_lading_number Bill Of Lading (BOL) number is the unique number assigned by the vendor. The BOL present in the Shipment Confirmation message ideally matches the paper BOL provided with the shipment, but that is no must. Instead of BOL, an alternative reference number (like Delivery Note Number) for the shipment can also be sent in this field.
+     * @param null|string $bill_of_lading_number The Bill of Lading (BOL) number is a unique number assigned to each shipment of goods by the vendor or shipper during the creation of the Bill of Lading. This number must be unique for every shipment and cannot be a date/time or single character. The BOL numer is mandatory in Shipment Confirmation message for FTL and LTL shipments, and must match the paper BOL provided with the shipment. Instead of BOL, an alternative reference number (like Delivery Note Number) for the shipment can also be sent in this field.
      */
     public function setBillOfLadingNumber(?string $bill_of_lading_number) : self
     {

@@ -128,6 +128,8 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
+     *
+     * @return string[]
      */
     public static function openAPITypes() : array
     {
@@ -136,6 +138,8 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
+     *
+     * @return null[]|string[]
      */
     public static function openAPIFormats() : array
     {
@@ -145,6 +149,8 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name.
+     *
+     * @return string[]
      */
     public static function attributeMap() : array
     {
@@ -153,6 +159,8 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
+     *
+     * @return string[]
      */
     public static function setters() : array
     {
@@ -161,6 +169,8 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
+     *
+     * @return string[]
      */
     public static function getters() : array
     {
@@ -172,7 +182,7 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function __toString() : string
     {
-        return (string) \json_encode(
+        return \json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -245,7 +255,7 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets cod_charge.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money $cod_charge cod_charge
+     * @param null|Money $cod_charge cod_charge
      */
     public function setCodCharge(?Money $cod_charge) : self
     {
@@ -265,7 +275,7 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets cod_charge_tax.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money $cod_charge_tax cod_charge_tax
+     * @param null|Money $cod_charge_tax cod_charge_tax
      */
     public function setCodChargeTax(?Money $cod_charge_tax) : self
     {
@@ -285,7 +295,7 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets shipping_charge.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money $shipping_charge shipping_charge
+     * @param null|Money $shipping_charge shipping_charge
      */
     public function setShippingCharge(?Money $shipping_charge) : self
     {
@@ -305,7 +315,7 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets shipping_charge_tax.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money $shipping_charge_tax shipping_charge_tax
+     * @param null|Money $shipping_charge_tax shipping_charge_tax
      */
     public function setShippingChargeTax(?Money $shipping_charge_tax) : self
     {
