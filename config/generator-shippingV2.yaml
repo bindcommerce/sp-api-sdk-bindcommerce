@@ -1,0 +1,16 @@
+generatorName: php
+templateDir: sp-api/resources/php-amazon-selling-partner-api
+additionalProperties:
+  invokerPackage: AmazonPHP\SellingPartner
+  srcBasePath: src/AmazonPHP/SellingPartner
+  modelPackage: Model\ShippingV2
+  packageName: ShippingV2
+  useTags: false
+  className: ShippingV2
+files:
+  api.mustache:
+    templateType: API
+    destinationFilename: /ShippingV2SDK.php
+  api_interface.mustache:
+    templateType: API
+    destinationFilename: /ShippingV2SDKInterface.php
