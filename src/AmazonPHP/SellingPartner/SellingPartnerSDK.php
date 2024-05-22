@@ -4,63 +4,65 @@ declare(strict_types=1);
 
 namespace AmazonPHP\SellingPartner;
 
+use Psr\Log\LoggerInterface;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use AmazonPHP\SellingPartner\Api\OrdersV0Api;
+use AmazonPHP\SellingPartner\Api\ShipmentApi;
+use Psr\Http\Message\RequestFactoryInterface;
+use AmazonPHP\SellingPartner\Api\FeedsApi\FeedsSDK;
+use AmazonPHP\SellingPartner\Api\SalesApi\SalesSDK;
+use AmazonPHP\SellingPartner\Api\TokensApi\TokensSDK;
+use AmazonPHP\SellingPartner\Api\ReportsApi\ReportsSDK;
+use AmazonPHP\SellingPartner\Api\SellersApi\SellersSDK;
+use AmazonPHP\SellingPartner\Api\UploadsApi\UploadsSDK;
+use AmazonPHP\SellingPartner\Api\DefaultApi\FinancesSDK;
+use AmazonPHP\SellingPartner\Api\FeesApi\ProductFeesSDK;
+use AmazonPHP\SellingPartner\Api\ServiceApi\ServicesSDK;
+use AmazonPHP\SellingPartner\Api\ShippingApi\ShippingSDK;
 use AmazonPHP\SellingPartner\Api\AplusContentApi\APlusSDK;
+use AmazonPHP\SellingPartner\Api\CatalogApi\CatalogItemSDK;
+use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDK;
+use AmazonPHP\SellingPartner\Api\ShippingApi\ShippingV2SDK;
+use AmazonPHP\SellingPartner\Api\FeedsApi\FeedsSDKInterface;
+use AmazonPHP\SellingPartner\Api\SalesApi\SalesSDKInterface;
+use AmazonPHP\SellingPartner\Api\FbaInboundApi\FBAInboundSDK;
+use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsItemsSDK;
+use AmazonPHP\SellingPartner\Api\TokensApi\TokensSDKInterface;
+use AmazonPHP\SellingPartner\Api\ReportsApi\ReportsSDKInterface;
+use AmazonPHP\SellingPartner\Api\SellersApi\SellersSDKInterface;
+use AmazonPHP\SellingPartner\Api\UploadsApi\UploadsSDKInterface;
+use AmazonPHP\SellingPartner\Api\DefaultApi\FinancesSDKInterface;
+use AmazonPHP\SellingPartner\Api\FbaInventoryApi\FBAInventorySDK;
+use AmazonPHP\SellingPartner\Api\FeesApi\ProductFeesSDKInterface;
+use AmazonPHP\SellingPartner\Api\ServiceApi\ServicesSDKInterface;
+use AmazonPHP\SellingPartner\Api\ShippingApi\ShippingSDKInterface;
 use AmazonPHP\SellingPartner\Api\AplusContentApi\APlusSDKInterface;
 use AmazonPHP\SellingPartner\Api\AuthorizationApi\AuthorizationSDK;
-use AmazonPHP\SellingPartner\Api\AuthorizationApi\AuthorizationSDKInterface;
-use AmazonPHP\SellingPartner\Api\CatalogApi\CatalogItemSDK;
-use AmazonPHP\SellingPartner\Api\CatalogApi\CatalogItemSDKInterface;
-use AmazonPHP\SellingPartner\Api\DefaultApi\FinancesSDK;
-use AmazonPHP\SellingPartner\Api\DefaultApi\FinancesSDKInterface;
-use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDK;
-use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDKInterface;
-use AmazonPHP\SellingPartner\Api\FbaInboundApi\FBAInboundSDK;
-use AmazonPHP\SellingPartner\Api\FbaInboundApi\FBAInboundSDKInterface;
-use AmazonPHP\SellingPartner\Api\FbaInboundApi\FulfillmentInboundSDK;
-use AmazonPHP\SellingPartner\Api\FbaInboundApi\FulfillmentInboundSDKInterface;
-use AmazonPHP\SellingPartner\Api\FbaInventoryApi\FBAInventorySDK;
-use AmazonPHP\SellingPartner\Api\FbaInventoryApi\FBAInventorySDKInterface;
-use AmazonPHP\SellingPartner\Api\FbaOutboundApi\FulfillmentOutboundSDK;
-use AmazonPHP\SellingPartner\Api\FbaOutboundApi\FulfillmentOutboundSDKInterface;
-use AmazonPHP\SellingPartner\Api\FeedsApi\FeedsSDK;
-use AmazonPHP\SellingPartner\Api\FeedsApi\FeedsSDKInterface;
-use AmazonPHP\SellingPartner\Api\FeesApi\ProductFeesSDK;
-use AmazonPHP\SellingPartner\Api\FeesApi\ProductFeesSDKInterface;
-use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsItemsSDK;
-use AmazonPHP\SellingPartner\Api\MerchantFulfillmentApi\MerchantFulfillmentSDK;
-use AmazonPHP\SellingPartner\Api\MerchantFulfillmentApi\MerchantFulfillmentSDKInterface;
-use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDK;
-use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDKInterface;
 use AmazonPHP\SellingPartner\Api\NotificationsApi\NotificationsSDK;
-use AmazonPHP\SellingPartner\Api\NotificationsApi\NotificationsSDKInterface;
-use AmazonPHP\SellingPartner\Api\OrdersV0Api;
-use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDK;
-use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDKInterface;
-use AmazonPHP\SellingPartner\Api\ReportsApi\ReportsSDK;
-use AmazonPHP\SellingPartner\Api\ReportsApi\ReportsSDKInterface;
-use AmazonPHP\SellingPartner\Api\SalesApi\SalesSDK;
-use AmazonPHP\SellingPartner\Api\SalesApi\SalesSDKInterface;
-use AmazonPHP\SellingPartner\Api\SellersApi\SellersSDK;
-use AmazonPHP\SellingPartner\Api\SellersApi\SellersSDKInterface;
-use AmazonPHP\SellingPartner\Api\ServiceApi\ServicesSDK;
-use AmazonPHP\SellingPartner\Api\ServiceApi\ServicesSDKInterface;
-use AmazonPHP\SellingPartner\Api\ShipmentApi;
-use AmazonPHP\SellingPartner\Api\ShipmentInvoiceApi\ShipmentInvoicingSDK;
-use AmazonPHP\SellingPartner\Api\ShipmentInvoiceApi\ShipmentInvoicingSDKInterface;
-use AmazonPHP\SellingPartner\Api\ShippingApi\ShippingSDK;
-use AmazonPHP\SellingPartner\Api\ShippingApi\ShippingSDKInterface;
-use AmazonPHP\SellingPartner\Api\SmallAndLightApi\FBASmallAndLightSDK;
-use AmazonPHP\SellingPartner\Api\SmallAndLightApi\FBASmallAndLightSDKInterface;
 use AmazonPHP\SellingPartner\Api\SolicitationsApi\SolicitationsSDK;
+use AmazonPHP\SellingPartner\Api\CatalogApi\CatalogItemSDKInterface;
+use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDKInterface;
+use AmazonPHP\SellingPartner\Api\ShippingApi\ShippingV2SDKInterface;
+use AmazonPHP\SellingPartner\Api\FbaInboundApi\FulfillmentInboundSDK;
+use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDK;
+use AmazonPHP\SellingPartner\Api\FbaInboundApi\FBAInboundSDKInterface;
+use AmazonPHP\SellingPartner\Api\SmallAndLightApi\FBASmallAndLightSDK;
+use AmazonPHP\SellingPartner\Api\FbaOutboundApi\FulfillmentOutboundSDK;
+use AmazonPHP\SellingPartner\Api\ShipmentInvoiceApi\ShipmentInvoicingSDK;
+use AmazonPHP\SellingPartner\Api\FbaInventoryApi\FBAInventorySDKInterface;
+use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDK;
+use AmazonPHP\SellingPartner\Api\AuthorizationApi\AuthorizationSDKInterface;
+use AmazonPHP\SellingPartner\Api\NotificationsApi\NotificationsSDKInterface;
 use AmazonPHP\SellingPartner\Api\SolicitationsApi\SolicitationsSDKInterface;
-use AmazonPHP\SellingPartner\Api\TokensApi\TokensSDK;
-use AmazonPHP\SellingPartner\Api\TokensApi\TokensSDKInterface;
-use AmazonPHP\SellingPartner\Api\UploadsApi\UploadsSDK;
-use AmazonPHP\SellingPartner\Api\UploadsApi\UploadsSDKInterface;
-use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\StreamFactoryInterface;
-use Psr\Log\LoggerInterface;
+use AmazonPHP\SellingPartner\Api\FbaInboundApi\FulfillmentInboundSDKInterface;
+use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDKInterface;
+use AmazonPHP\SellingPartner\Api\MerchantFulfillmentApi\MerchantFulfillmentSDK;
+use AmazonPHP\SellingPartner\Api\SmallAndLightApi\FBASmallAndLightSDKInterface;
+use AmazonPHP\SellingPartner\Api\FbaOutboundApi\FulfillmentOutboundSDKInterface;
+use AmazonPHP\SellingPartner\Api\ShipmentInvoiceApi\ShipmentInvoicingSDKInterface;
+use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDKInterface;
+use AmazonPHP\SellingPartner\Api\MerchantFulfillmentApi\MerchantFulfillmentSDKInterface;
 
 final class SellingPartnerSDK
 {
@@ -226,6 +228,11 @@ final class SellingPartnerSDK
     public function shipping() : ShippingSDKInterface
     {
         return $this->instantiateSDK(ShippingSDK::class);
+    }
+
+    public function shippingV2() : ShippingV2SDKInterface
+    {
+        return $this->instantiateSDK(ShippingV2SDK::class);
     }
 
     public function solicitations() : SolicitationsSDKInterface
