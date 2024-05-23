@@ -3,6 +3,7 @@
 $finder = PhpCsFixer\Finder::create()
     ->files()
     ->notName('ObjectSerializer.php')
+    ->notName('VendorSDK.php')
     //->notPath([
     //__DIR__ . '/src/AmazonPHP/SellingPartner/ObjectSerializer.php'
     //])
