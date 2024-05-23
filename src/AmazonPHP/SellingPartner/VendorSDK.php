@@ -4,26 +4,27 @@ declare(strict_types=1);
 
 namespace AmazonPHP\SellingPartner;
 
-use AmazonPHP\SellingPartner\Api\UpdateInventoryApi\VendorDirectFulfillmentInventorySDK;
-use AmazonPHP\SellingPartner\Api\UpdateInventoryApi\VendorDirectFulfillmentInventorySDKInterface;
-use AmazonPHP\SellingPartner\Api\VendorInvoiceApi\VendorDirectFulfillmentPaymentsSDK;
-use AmazonPHP\SellingPartner\Api\VendorInvoiceApi\VendorDirectFulfillmentPaymentsSDKInterface;
-use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorDirectFulfillmentOrdersSDK;
-use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorDirectFulfillmentOrdersSDKInterface;
-use AmazonPHP\SellingPartner\Api\VendorPaymentsApi\VendorInvoicesSDK;
-use AmazonPHP\SellingPartner\Api\VendorPaymentsApi\VendorInvoicesSDKInterface;
-use AmazonPHP\SellingPartner\Api\VendorShippingApi\VendorShipmentsSDK;
-use AmazonPHP\SellingPartner\Api\VendorShippingApi\VendorShipmentsSDKInterface;
-use AmazonPHP\SellingPartner\Api\VendorShippingLabelsApi\VendorDirectFulfillmentShippingSDK;
-use AmazonPHP\SellingPartner\Api\VendorShippingLabelsApi\VendorDirectFulfillmentShippingSDKInterface;
-use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorDirectFulfillmentTransactionsSDK;
-use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorDirectFulfillmentTransactionsSDKInterface;
-use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorTransactionStatusSDK;
-use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorTransactionStatusSDKInterface;
-use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Log\LoggerInterface;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use AmazonPHP\SellingPartner\Api\VendorPaymentsApi\VendorInvoicesSDK;
+use AmazonPHP\SellingPartner\Api\VendorShippingApi\VendorShipmentsSDK;
+use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorOrdersSDKInterface;
+use AmazonPHP\SellingPartner\Api\VendorPaymentsApi\VendorInvoicesSDKInterface;
+use AmazonPHP\SellingPartner\Api\VendorShippingApi\VendorShipmentsSDKInterface;
+use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorTransactionStatusSDK;
+use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorDirectFulfillmentOrdersSDK;
+use AmazonPHP\SellingPartner\Api\VendorInvoiceApi\VendorDirectFulfillmentPaymentsSDK;
+use AmazonPHP\SellingPartner\Api\UpdateInventoryApi\VendorDirectFulfillmentInventorySDK;
+use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorTransactionStatusSDKInterface;
+use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorDirectFulfillmentOrdersSDKInterface;
+use AmazonPHP\SellingPartner\Api\VendorShippingLabelsApi\VendorDirectFulfillmentShippingSDK;
+use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorDirectFulfillmentTransactionsSDK;
+use AmazonPHP\SellingPartner\Api\VendorInvoiceApi\VendorDirectFulfillmentPaymentsSDKInterface;
+use AmazonPHP\SellingPartner\Api\UpdateInventoryApi\VendorDirectFulfillmentInventorySDKInterface;
+use AmazonPHP\SellingPartner\Api\VendorShippingLabelsApi\VendorDirectFulfillmentShippingSDKInterface;
+use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorDirectFulfillmentTransactionsSDKInterface;
 
 final class VendorSDK
 {
@@ -56,9 +57,9 @@ final class VendorSDK
         return new self($httpClient, $requestFactory, $streamFactory, $configuration, $logger);
     }
 
-    public function ordersSDK() : VendorDirectFulfillmentOrdersSDKInterface
+    public function ordersSDK() : VendorOrdersSDKInterface
     {
-        return $this->instantiateSDK(VendorDirectFulfillmentOrdersSDK::class);
+        return $this->instantiateSDK(VendorOrdersSDK::class);
     }
 
     public function invoicesSDK() : VendorInvoicesSDKInterface
