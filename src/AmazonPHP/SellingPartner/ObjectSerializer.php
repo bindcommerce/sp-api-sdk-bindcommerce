@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace AmazonPHP\SellingPartner;
 
@@ -24,7 +26,7 @@ final class ObjectSerializer
      *
      * @param string $format the new date format to use
      */
-    public static function setDateTimeFormat(string $format) : void
+    public static function setDateTimeFormat(string $format): void
     {
         self::$dateTimeFormat = $format;
     }
@@ -38,7 +40,7 @@ final class ObjectSerializer
      *
      * @return null|array|object|scalar serialized form of $data
      */
-    public static function sanitizeForSerialization(mixed $data, string $type = null, string $format = null) : array|object|scalar|null
+    public static function sanitizeForSerialization(mixed $data, string $type = null, string $format = null)
     {
         if (\is_scalar($data) || null === $data) {
             return $data;
@@ -73,8 +75,10 @@ final class ObjectSerializer
                             /** array $callable */
                             $allowedEnumTypes = $callable();
 
-                            if (!\in_array($value->toString(), $allowedEnumTypes, true) &&
-                                !\in_array(\ltrim((string) $openAPIType, '\\'), self::getBrokenModelDefinitions(), true)) {
+                            if (
+                                !\in_array($value->toString(), $allowedEnumTypes, true) &&
+                                !\in_array(\ltrim((string) $openAPIType, '\\'), self::getBrokenModelDefinitions(), true)
+                            ) {
                                 $imploded = \implode("', '", $allowedEnumTypes);
 
                                 throw new \InvalidArgumentException("Invalid value for enum '{$openAPIType}', must be one of: '{$imploded}'");
@@ -108,7 +112,7 @@ final class ObjectSerializer
      *
      * @return mixed|string the sanitized filename
      */
-    public static function sanitizeFilename(string $filename) : mixed|string|null
+    public static function sanitizeFilename(string $filename)
     {
         if (\preg_match("/.*[\/\\\\](.*)$/", $filename, $match)) {
             return $match[1];
@@ -125,7 +129,7 @@ final class ObjectSerializer
      *
      * @return string the serialized object
      */
-    public static function toPathValue(string $value) : string
+    public static function toPathValue(string $value): string
     {
         return \rawurlencode(self::toString($value));
     }
@@ -140,7 +144,7 @@ final class ObjectSerializer
      *
      * @return string the serialized object
      */
-    public static function toQueryValue(\DateTime|string|array $object) : string
+    public static function toQueryValue(\DateTime|string|array $object): string
     {
         if (\is_array($object)) {
             return \implode(',', $object);
@@ -158,7 +162,7 @@ final class ObjectSerializer
      *
      * @return mixed|string the header string
      */
-    public static function toHeaderValue(string $value) : mixed|string|null
+    public static function toHeaderValue(string $value)
     {
         $callable = [$value, 'toHeaderValue'];
 
@@ -178,7 +182,7 @@ final class ObjectSerializer
      *
      * @return bool|string the form string
      */
-    public static function toFormValue(\SplFileObject|string $value) : bool|string
+    public static function toFormValue(\SplFileObject|string $value): bool|string
     {
         if ($value instanceof \SplFileObject) {
             return $value->getRealPath();
@@ -197,7 +201,7 @@ final class ObjectSerializer
      *
      * @return string the header string
      */
-    public static function toString(mixed $value) : string
+    public static function toString(mixed $value): string
     {
         if ($value instanceof \DateTimeInterface) { // datetime in ISO8601 zulu format
             return $value->setTimezone(new \DateTimeZone('UTC'))->format(self::$dateTimeFormat);
@@ -220,7 +224,7 @@ final class ObjectSerializer
      *
      * @return null|string|void
      */
-    public static function serializeCollection(array $collection, string $style, bool $allowCollectionFormatMulti = false) : ?string
+    public static function serializeCollection(array $collection, string $style, bool $allowCollectionFormatMulti = false): ?string
     {
         if ($allowCollectionFormatMulti && ('multi' === $style)) {
             // http_build_query() almost does the job for us. We just
@@ -334,8 +338,10 @@ final class ObjectSerializer
 
         if ($class === '\SplFileObject') {
             // determine file name
-            if (\array_key_exists('Content-Disposition', $httpHeaders) &&
-                \preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)) {
+            if (
+                \array_key_exists('Content-Disposition', $httpHeaders) &&
+                \preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)
+            ) {
                 $filename = $configuration->tmpFolderPath() . DIRECTORY_SEPARATOR . self::sanitizeFilename($match[1]);
             } else {
                 $filename = \tempnam($configuration->tmpFolderPath(), '');
@@ -416,7 +422,7 @@ final class ObjectSerializer
      *
      * @return array<class-string<ModelInterface>> enum value class name
      */
-    private static function getBrokenModelDefinitions() : array
+    private static function getBrokenModelDefinitions(): array
     {
         return [
             \ltrim(EventCode::class, '\\'),
@@ -440,7 +446,7 @@ final class ObjectSerializer
      *
      * @return null|array|string parsed object property
      */
-    private static function castEmptyStringToNull(array|string|null $value, string $type) : array|string|null
+    private static function castEmptyStringToNull(array|string|null $value, string $type): array|string|null
     {
         if ('' === $value && \is_a(LabelFormat::class, $type, true)) {
             $value = null;
@@ -457,7 +463,7 @@ final class ObjectSerializer
      *
      * @return null|array|string parsed object property
      */
-    private static function filterEmptyCollectionElement(array|string|null $value, string $type) : array|string|null
+    private static function filterEmptyCollectionElement(array|string|null $value, string $type): array|string|null
     {
         if (!\str_ends_with($type, '[]')) {
             return $value;
@@ -468,7 +474,7 @@ final class ObjectSerializer
         }
 
         if (\is_a(PrepDetails::class, \substr($type, 0, -2), true)) {
-            $value = \array_filter($value, fn ($prepDetails) : bool => \count((array) $prepDetails) > 0);
+            $value = \array_filter($value, fn ($prepDetails): bool => \count((array) $prepDetails) > 0);
 
             return \count($value) > 0 ? $value : null;
         }
