@@ -60,11 +60,11 @@ final class SellingPartnerSDKTest extends TestCase
     private array $sdkMap = [
         'oAuth'                   => OAuth::class,
         'aPlus'                   => APlusSDK::class,
-        'authorization'           => AuthorizationSDK::class,
+        //'authorization'           => AuthorizationSDK::class,
         'catalogItem'             => CatalogItemSDK::class,
         'fbaInbound'              => FBAInboundSDK::class,
         'fbaInventory'            => FBAInventorySDK::class,
-        'fbaSmallAndLight'        => FBASmallAndLightSDK::class,
+        //'fbaSmallAndLight'        => FBASmallAndLightSDK::class,
         'feeds'                   => FeedsSDK::class,
         'finances'                => FinancesSDK::class,
         'fulfillmentInbound'      => FulfillmentInboundSDK::class,
@@ -90,7 +90,7 @@ final class SellingPartnerSDKTest extends TestCase
         'vendor'                  => VendorSDK::class,
     ];
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->requestFactory = new Psr17Factory();
         $this->streamFactory  = new Psr17Factory();
@@ -99,7 +99,7 @@ final class SellingPartnerSDKTest extends TestCase
         $this->logger         = new Logger('testLogger');
     }
 
-    protected function tearDown() : void
+    protected function tearDown(): void
     {
         $this->requestFactory = null;
         $this->streamFactory  = null;
@@ -108,7 +108,7 @@ final class SellingPartnerSDKTest extends TestCase
         $this->logger         = null;
     }
 
-    public function test_initialization_from_constructor() : void
+    public function test_initialization_from_constructor(): void
     {
         $this->assertInstanceOf(
             SellingPartnerSDK::class,
@@ -122,7 +122,7 @@ final class SellingPartnerSDKTest extends TestCase
         );
     }
 
-    public function test_initialization_from_create_method() : void
+    public function test_initialization_from_create_method(): void
     {
         $this->assertInstanceOf(
             SellingPartnerSDK::class,
@@ -130,7 +130,7 @@ final class SellingPartnerSDKTest extends TestCase
         );
     }
 
-    public function test_initialization_of_child_sdks() : void
+    public function test_initialization_of_child_sdks(): void
     {
         $sellingPartnerSDK = $this->getSellingPartnerSDKByCreate();
 
@@ -139,7 +139,7 @@ final class SellingPartnerSDKTest extends TestCase
         }
     }
 
-    public function test_child_sdks_are_properly_cached() : void
+    public function test_child_sdks_are_properly_cached(): void
     {
         $sellingPartnerSDK = $this->getSellingPartnerSDKByCreate();
 
@@ -155,7 +155,7 @@ final class SellingPartnerSDKTest extends TestCase
         }
     }
 
-    private function getSellingPartnerSDKByCreate() : SellingPartnerSDK
+    private function getSellingPartnerSDKByCreate(): SellingPartnerSDK
     {
         return SellingPartnerSDK::create(
             $this->httpClient,

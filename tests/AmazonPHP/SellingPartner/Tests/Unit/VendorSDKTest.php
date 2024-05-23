@@ -4,24 +4,25 @@ declare(strict_types=1);
 
 namespace AmazonPHP\Test\AmazonPHP\SellingPartner\Tests\Unit;
 
-use AmazonPHP\SellingPartner\Api\UpdateInventoryApi\VendorDirectFulfillmentInventorySDK;
-use AmazonPHP\SellingPartner\Api\VendorInvoiceApi\VendorDirectFulfillmentPaymentsSDK;
-use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorDirectFulfillmentOrdersSDK;
-use AmazonPHP\SellingPartner\Api\VendorPaymentsApi\VendorInvoicesSDK;
-use AmazonPHP\SellingPartner\Api\VendorShippingApi\VendorShipmentsSDK;
-use AmazonPHP\SellingPartner\Api\VendorShippingLabelsApi\VendorDirectFulfillmentShippingSDK;
-use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorDirectFulfillmentTransactionsSDK;
-use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorTransactionStatusSDK;
-use AmazonPHP\SellingPartner\Configuration;
-use AmazonPHP\SellingPartner\VendorSDK;
-use Buzz\Client\Curl;
 use Monolog\Logger;
-use Nyholm\Psr7\Factory\Psr17Factory;
+use Buzz\Client\Curl;
+use Psr\Log\LoggerInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\RequestFactoryInterface;
+use Nyholm\Psr7\Factory\Psr17Factory;
+use AmazonPHP\SellingPartner\VendorSDK;
+use AmazonPHP\SellingPartner\Configuration;
 use Psr\Http\Message\StreamFactoryInterface;
-use Psr\Log\LoggerInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorOrdersSDK;
+use AmazonPHP\SellingPartner\Api\VendorPaymentsApi\VendorInvoicesSDK;
+use AmazonPHP\SellingPartner\Api\VendorShippingApi\VendorShipmentsSDK;
+use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorTransactionStatusSDK;
+use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorDirectFulfillmentOrdersSDK;
+use AmazonPHP\SellingPartner\Api\VendorInvoiceApi\VendorDirectFulfillmentPaymentsSDK;
+use AmazonPHP\SellingPartner\Api\UpdateInventoryApi\VendorDirectFulfillmentInventorySDK;
+use AmazonPHP\SellingPartner\Api\VendorShippingLabelsApi\VendorDirectFulfillmentShippingSDK;
+use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorDirectFulfillmentTransactionsSDK;
 
 final class VendorSDKTest extends TestCase
 {
@@ -36,7 +37,7 @@ final class VendorSDKTest extends TestCase
     private ?LoggerInterface $logger;
 
     private array $sdkMap = [
-        'ordersSDK'                          => VendorDirectFulfillmentOrdersSDK::class,
+        'ordersSDK'                          => VendorOrdersSDK::class,
         'invoicesSDK'                        => VendorInvoicesSDK::class,
         'shipmentsSDK'                       => VendorShipmentsSDK::class,
         'transactionStatusSDK'               => VendorTransactionStatusSDK::class,
@@ -47,7 +48,7 @@ final class VendorSDKTest extends TestCase
         'directFulfillmentInventorySDK'      => VendorDirectFulfillmentInventorySDK::class
     ];
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->requestFactory = new Psr17Factory();
         $this->streamFactory  = new Psr17Factory();
@@ -56,7 +57,7 @@ final class VendorSDKTest extends TestCase
         $this->logger         = new Logger('testLogger');
     }
 
-    protected function tearDown() : void
+    protected function tearDown(): void
     {
         $this->requestFactory = null;
         $this->streamFactory  = null;
@@ -65,7 +66,7 @@ final class VendorSDKTest extends TestCase
         $this->logger         = null;
     }
 
-    public function test_initialization_from_constructor() : void
+    public function test_initialization_from_constructor(): void
     {
         $this->assertInstanceOf(
             VendorSDK::class,
@@ -79,7 +80,7 @@ final class VendorSDKTest extends TestCase
         );
     }
 
-    public function test_initialization_from_create_method() : void
+    public function test_initialization_from_create_method(): void
     {
         $this->assertInstanceOf(
             VendorSDK::class,
@@ -87,7 +88,7 @@ final class VendorSDKTest extends TestCase
         );
     }
 
-    public function test_initialization_of_child_sdks() : void
+    public function test_initialization_of_child_sdks(): void
     {
         $vendorSDK = $this->getVendorSDKByCreate();
 
@@ -96,7 +97,7 @@ final class VendorSDKTest extends TestCase
         }
     }
 
-    public function test_child_sdks_are_properly_cached() : void
+    public function test_child_sdks_are_properly_cached(): void
     {
         $vendorSDK = $this->getVendorSDKByCreate();
 
@@ -112,7 +113,7 @@ final class VendorSDKTest extends TestCase
         }
     }
 
-    private function getVendorSDKByCreate() : VendorSDK
+    private function getVendorSDKByCreate(): VendorSDK
     {
         return VendorSDK::create(
             $this->httpClient,

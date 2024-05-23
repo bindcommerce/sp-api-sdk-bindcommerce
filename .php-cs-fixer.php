@@ -2,9 +2,10 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->files()
-    ->notPath([
-        __DIR__ . '/src/AmazonPHP/SellingPartner/ObjectSerializer.php'
-    ])
+    ->notName('ObjectSerializer.php')
+    //->notPath([
+    //__DIR__ . '/src/AmazonPHP/SellingPartner/ObjectSerializer.php'
+    //])
     ->in([
         __DIR__ . '/src',
         __DIR__ . '/tools/src',
@@ -49,7 +50,7 @@ return $config
         ],
         'braces' => true,
         'cast_spaces' => true,
-        'class_attributes_separation' => ['elements' => ['const'=>'one', 'method'=>'one', 'property'=>'one']],
+        'class_attributes_separation' => ['elements' => ['const' => 'one', 'method' => 'one', 'property' => 'one']],
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
         'compact_nullable_typehint' => true,
@@ -91,7 +92,7 @@ return $config
         'multiline_whitespace_before_semicolons' => true,
         'native_constant_invocation' => false,
         'native_function_casing' => false,
-        'native_function_invocation' => ['include'=>['@all']],
+        'native_function_invocation' => ['include' => ['@all']],
         'native_function_type_declaration_casing' => true,
         'new_with_braces' => false,
         'no_alias_functions' => true,

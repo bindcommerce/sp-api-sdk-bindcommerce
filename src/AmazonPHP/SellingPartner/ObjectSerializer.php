@@ -446,7 +446,7 @@ final class ObjectSerializer
      *
      * @return null|array|string parsed object property
      */
-    private static function castEmptyStringToNull(array|string|null $value, string $type): array|string|null
+    private static function castEmptyStringToNull($value, string $type)
     {
         if ('' === $value && \is_a(LabelFormat::class, $type, true)) {
             $value = null;
@@ -463,7 +463,7 @@ final class ObjectSerializer
      *
      * @return null|array|string parsed object property
      */
-    private static function filterEmptyCollectionElement(array|string|null $value, string $type): array|string|null
+    private static function filterEmptyCollectionElement($value, string $type)
     {
         if (!\str_ends_with($type, '[]')) {
             return $value;
