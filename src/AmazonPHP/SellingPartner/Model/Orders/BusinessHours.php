@@ -41,6 +41,8 @@ class BusinessHours implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
 
     final public const DAY_OF_WEEK_SAT = 'SAT';
 
+    final public const DAY_OF_WEEK_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * The original name of the model.
      *
@@ -207,6 +209,7 @@ class BusinessHours implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
             self::DAY_OF_WEEK_THU,
             self::DAY_OF_WEEK_FRI,
             self::DAY_OF_WEEK_SAT,
+            self::DAY_OF_WEEK_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

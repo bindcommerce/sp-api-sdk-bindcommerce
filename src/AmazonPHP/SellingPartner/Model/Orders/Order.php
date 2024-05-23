@@ -43,15 +43,21 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     final public const ORDER_STATUS_PENDING_AVAILABILITY = 'PendingAvailability';
 
+    final public const ORDER_STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     final public const FULFILLMENT_CHANNEL_MFN = 'MFN';
 
     final public const FULFILLMENT_CHANNEL_AFN = 'AFN';
+
+    final public const FULFILLMENT_CHANNEL_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     final public const PAYMENT_METHOD_COD = 'COD';
 
     final public const PAYMENT_METHOD_CVS = 'CVS';
 
     final public const PAYMENT_METHOD_OTHER = 'Other';
+
+    final public const PAYMENT_METHOD_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     final public const ORDER_TYPE_STANDARD_ORDER = 'StandardOrder';
 
@@ -63,9 +69,13 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     final public const ORDER_TYPE_SOURCING_ON_DEMAND_ORDER = 'SourcingOnDemandOrder';
 
+    final public const ORDER_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     final public const BUYER_INVOICE_PREFERENCE_INDIVIDUAL = 'INDIVIDUAL';
 
     final public const BUYER_INVOICE_PREFERENCE_BUSINESS = 'BUSINESS';
+
+    final public const BUYER_INVOICE_PREFERENCE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
      * The original name of the model.
@@ -504,6 +514,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
             self::ORDER_STATUS_UNFULFILLABLE,
             self::ORDER_STATUS_INVOICE_UNCONFIRMED,
             self::ORDER_STATUS_PENDING_AVAILABILITY,
+            self::ORDER_STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -517,6 +528,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         return [
             self::FULFILLMENT_CHANNEL_MFN,
             self::FULFILLMENT_CHANNEL_AFN,
+            self::FULFILLMENT_CHANNEL_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -531,6 +543,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
             self::PAYMENT_METHOD_COD,
             self::PAYMENT_METHOD_CVS,
             self::PAYMENT_METHOD_OTHER,
+            self::PAYMENT_METHOD_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -547,6 +560,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
             self::ORDER_TYPE_PREORDER,
             self::ORDER_TYPE_BACK_ORDER,
             self::ORDER_TYPE_SOURCING_ON_DEMAND_ORDER,
+            self::ORDER_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -560,6 +574,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         return [
             self::BUYER_INVOICE_PREFERENCE_INDIVIDUAL,
             self::BUYER_INVOICE_PREFERENCE_BUSINESS,
+            self::BUYER_INVOICE_PREFERENCE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

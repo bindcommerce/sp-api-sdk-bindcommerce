@@ -29,6 +29,8 @@ class ConfirmShipmentRequest implements \ArrayAccess, \JsonSerializable, \String
 
     final public const COD_COLLECTION_METHOD_DIRECT_PAYMENT = 'DirectPayment';
 
+    final public const COD_COLLECTION_METHOD_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * The original name of the model.
      *
@@ -195,6 +197,7 @@ class ConfirmShipmentRequest implements \ArrayAccess, \JsonSerializable, \String
     {
         return [
             self::COD_COLLECTION_METHOD_DIRECT_PAYMENT,
+            self::COD_COLLECTION_METHOD_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

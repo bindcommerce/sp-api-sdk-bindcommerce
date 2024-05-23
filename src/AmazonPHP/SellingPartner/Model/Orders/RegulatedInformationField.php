@@ -31,6 +31,8 @@ class RegulatedInformationField implements \ArrayAccess, \JsonSerializable, \Str
 
     final public const FIELD_TYPE_FILE_ATTACHMENT = 'FileAttachment';
 
+    final public const FIELD_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * The original name of the model.
      *
@@ -204,6 +206,7 @@ class RegulatedInformationField implements \ArrayAccess, \JsonSerializable, \Str
         return [
             self::FIELD_TYPE_TEXT,
             self::FIELD_TYPE_FILE_ATTACHMENT,
+            self::FIELD_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

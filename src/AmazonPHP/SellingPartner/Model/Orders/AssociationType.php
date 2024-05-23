@@ -21,6 +21,8 @@ class AssociationType
      */
     final public const VALUE_ADD_SERVICE = 'VALUE_ADD_SERVICE';
 
+    final public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -34,6 +36,7 @@ class AssociationType
     {
         return [
             self::VALUE_ADD_SERVICE,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

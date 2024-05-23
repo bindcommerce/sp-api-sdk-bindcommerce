@@ -29,6 +29,8 @@ class VerificationStatus
 
     final public const CANCELLED = 'Cancelled';
 
+    final public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -46,6 +48,7 @@ class VerificationStatus
             self::REJECTED,
             self::EXPIRED,
             self::CANCELLED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

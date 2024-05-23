@@ -21,6 +21,8 @@ class ConstraintType
      */
     final public const MANDATORY = 'MANDATORY';
 
+    final public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -34,6 +36,7 @@ class ConstraintType
     {
         return [
             self::MANDATORY,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

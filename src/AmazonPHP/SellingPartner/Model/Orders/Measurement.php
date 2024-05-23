@@ -75,6 +75,8 @@ class Measurement implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 
     final public const UNIT_COUNT = 'COUNT';
 
+    final public const UNIT_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * The original name of the model.
      *
@@ -258,6 +260,7 @@ class Measurement implements \ArrayAccess, \JsonSerializable, \Stringable, Model
             self::UNIT_CUBIC_INCHES,
             self::UNIT_CUBIC_CENTIMETERS,
             self::UNIT_COUNT,
+            self::UNIT_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

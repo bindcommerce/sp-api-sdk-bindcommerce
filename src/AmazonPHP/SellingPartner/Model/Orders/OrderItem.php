@@ -31,6 +31,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
 
     final public const DEEMED_RESELLER_CATEGORY_UOSS = 'UOSS';
 
+    final public const DEEMED_RESELLER_CATEGORY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * The original name of the model.
      *
@@ -414,6 +416,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         return [
             self::DEEMED_RESELLER_CATEGORY_IOSS,
             self::DEEMED_RESELLER_CATEGORY_UOSS,
+            self::DEEMED_RESELLER_CATEGORY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

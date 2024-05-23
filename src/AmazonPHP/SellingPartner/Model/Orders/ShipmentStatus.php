@@ -25,6 +25,8 @@ class ShipmentStatus
 
     final public const REFUSED_PICKUP = 'RefusedPickup';
 
+    final public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -40,6 +42,7 @@ class ShipmentStatus
             self::READY_FOR_PICKUP,
             self::PICKED_UP,
             self::REFUSED_PICKUP,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

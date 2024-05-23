@@ -29,6 +29,8 @@ class ElectronicInvoiceStatus
 
     final public const ACCEPTED = 'Accepted';
 
+    final public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -46,6 +48,7 @@ class ElectronicInvoiceStatus
             self::PROCESSING,
             self::ERRORED,
             self::ACCEPTED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

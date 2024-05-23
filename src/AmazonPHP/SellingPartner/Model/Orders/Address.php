@@ -31,6 +31,8 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
 
     final public const ADDRESS_TYPE_COMMERCIAL = 'Commercial';
 
+    final public const ADDRESS_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * The original name of the model.
      *
@@ -270,6 +272,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
         return [
             self::ADDRESS_TYPE_RESIDENTIAL,
             self::ADDRESS_TYPE_COMMERCIAL,
+            self::ADDRESS_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

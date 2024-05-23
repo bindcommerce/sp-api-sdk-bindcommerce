@@ -33,6 +33,8 @@ class SubstitutionPreferences implements \ArrayAccess, \JsonSerializable, \Strin
 
     final public const SUBSTITUTION_TYPE_DO_NOT_SUBSTITUTE = 'DO_NOT_SUBSTITUTE';
 
+    final public const SUBSTITUTION_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * The original name of the model.
      *
@@ -195,6 +197,7 @@ class SubstitutionPreferences implements \ArrayAccess, \JsonSerializable, \Strin
             self::SUBSTITUTION_TYPE_CUSTOMER_PREFERENCE,
             self::SUBSTITUTION_TYPE_AMAZON_RECOMMENDED,
             self::SUBSTITUTION_TYPE_DO_NOT_SUBSTITUTE,
+            self::SUBSTITUTION_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

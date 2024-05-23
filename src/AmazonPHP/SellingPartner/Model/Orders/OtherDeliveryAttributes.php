@@ -25,6 +25,8 @@ class OtherDeliveryAttributes
 
     final public const PALLET_DISABLED = 'PALLET_DISABLED';
 
+    final public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -40,6 +42,7 @@ class OtherDeliveryAttributes
             self::HAS_ACCESS_POINT,
             self::PALLET_ENABLED,
             self::PALLET_DISABLED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 

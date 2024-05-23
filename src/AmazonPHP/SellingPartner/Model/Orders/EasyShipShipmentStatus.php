@@ -51,6 +51,8 @@ class EasyShipShipmentStatus
 
     final public const DAMAGED = 'Damaged';
 
+    final public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -79,6 +81,7 @@ class EasyShipShipmentStatus
             self::LOST,
             self::OUT_FOR_DELIVERY,
             self::DAMAGED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
