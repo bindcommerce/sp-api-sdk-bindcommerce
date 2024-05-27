@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace AmazonPHP\SellingPartner;
 
+use AmazonPHP\SellingPartner\Model\Orders\OrderItem;
 use AmazonPHP\SellingPartner\Model\CatalogItem\ItemImage;
-use AmazonPHP\SellingPartner\Model\FulfillmentInbound\CurrencyCode;
-use AmazonPHP\SellingPartner\Model\FulfillmentInbound\PrepDetails;
-use AmazonPHP\SellingPartner\Model\FulfillmentInbound\PrepInstruction;
-use AmazonPHP\SellingPartner\Model\FulfillmentInbound\SellerFreightClass;
-use AmazonPHP\SellingPartner\Model\FulfillmentInbound\ShipmentStatus;
-use AmazonPHP\SellingPartner\Model\FulfillmentInbound\UnitOfMeasurement;
-use AmazonPHP\SellingPartner\Model\FulfillmentOutbound\AdditionalLocationInfo;
-use AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CurrentStatus;
-use AmazonPHP\SellingPartner\Model\FulfillmentOutbound\EventCode;
 use AmazonPHP\SellingPartner\Model\MerchantFulfillment\FileType;
+use AmazonPHP\SellingPartner\Model\FulfillmentOutbound\EventCode;
+use AmazonPHP\SellingPartner\Model\FulfillmentInbound\PrepDetails;
+use AmazonPHP\SellingPartner\Model\FulfillmentInbound\CurrencyCode;
 use AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormat;
+use AmazonPHP\SellingPartner\Model\FulfillmentInbound\ShipmentStatus;
+use AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CurrentStatus;
+use AmazonPHP\SellingPartner\Model\FulfillmentInbound\PrepInstruction;
+use AmazonPHP\SellingPartner\Model\FulfillmentInbound\UnitOfMeasurement;
+use AmazonPHP\SellingPartner\Model\FulfillmentInbound\SellerFreightClass;
+use AmazonPHP\SellingPartner\Model\FulfillmentOutbound\AdditionalLocationInfo;
 
 final class ObjectSerializer
 {
@@ -435,6 +436,7 @@ final class ObjectSerializer
             \ltrim(UnitOfMeasurement::class, '\\'),
             \ltrim(PrepInstruction::class, '\\'),
             \ltrim(SellerFreightClass::class, '\\'),
+            \ltrim(OrderItem::class, '\\'),
         ];
     }
 

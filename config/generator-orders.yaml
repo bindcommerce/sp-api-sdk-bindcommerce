@@ -7,7 +7,6 @@ additionalProperties:
   packageName: Orders
   useTags: false
   className: Orders
-  enumUnknownDefaultCase: true
 files:
   api.mustache:
     templateType: API
