@@ -1,3 +1,5 @@
+29/05/2024 RINOMINATO BRANCH 5.0 IN master
+
 # Amazon Selling Partner API - PHP SDK
 
 This repository is not an official Amazon PHP library for their SP API.
