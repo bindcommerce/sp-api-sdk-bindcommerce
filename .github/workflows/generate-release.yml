@@ -1,0 +1,75 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+  
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Changelog
+        uses: Bullrich/generate-release-changelog@master
+        id: Changelog
+        env:
+          REPO: ${{ github.repository }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ${{ steps.Changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
+      - name: Get latest release
+        id: latest_release
+        uses: cardinalby/git-get-release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}  # or your personal access token
+        with:
+          latest: true
+      - name: Update tag version
+        uses: jossef/action-set-json-field@v2.1
+        with:
+          file: version.json
+          field: tag
+          value: ${{ steps.latest_release.outputs.tag_name }}      
+      - id: commit
+        uses: prompt/actions-commit-hash@v3
+      - name: Update hash version
+        uses: jossef/action-set-json-field@v2.1
+        with:
+          file: version.json
+          field: hash
+          value: ${{ steps.commit.outputs.short }}          
+      - name: Update date version
+        uses: jossef/action-set-json-field@v2.1
+        with:
+          file: version.json
+          field: date
+          value: ${{ steps.latest_release.outputs.published_at }}          
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "docs(): bumping release ${{ steps.latest_release.outputs.tag_name }} "
+        
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ github.token }}
+          force: true
+          tags: true                  
