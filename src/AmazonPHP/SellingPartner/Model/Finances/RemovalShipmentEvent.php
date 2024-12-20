@@ -44,6 +44,7 @@ class RemovalShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringab
         'merchant_order_id' => 'string',
         'order_id' => 'string',
         'transaction_type' => 'string',
+        'store_name' => 'string',
         'removal_shipment_item_list' => '\AmazonPHP\SellingPartner\Model\Finances\RemovalShipmentItem[]',
     ];
 
@@ -61,6 +62,7 @@ class RemovalShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringab
         'merchant_order_id' => null,
         'order_id' => null,
         'transaction_type' => null,
+        'store_name' => null,
         'removal_shipment_item_list' => null,
     ];
 
@@ -75,6 +77,7 @@ class RemovalShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringab
         'merchant_order_id' => 'MerchantOrderId',
         'order_id' => 'OrderId',
         'transaction_type' => 'TransactionType',
+        'store_name' => 'StoreName',
         'removal_shipment_item_list' => 'RemovalShipmentItemList',
     ];
 
@@ -88,6 +91,7 @@ class RemovalShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringab
         'merchant_order_id' => 'setMerchantOrderId',
         'order_id' => 'setOrderId',
         'transaction_type' => 'setTransactionType',
+        'store_name' => 'setStoreName',
         'removal_shipment_item_list' => 'setRemovalShipmentItemList',
     ];
 
@@ -101,6 +105,7 @@ class RemovalShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringab
         'merchant_order_id' => 'getMerchantOrderId',
         'order_id' => 'getOrderId',
         'transaction_type' => 'getTransactionType',
+        'store_name' => 'getStoreName',
         'removal_shipment_item_list' => 'getRemovalShipmentItemList',
     ];
 
@@ -123,6 +128,7 @@ class RemovalShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringab
         $this->container['merchant_order_id'] = $data['merchant_order_id'] ?? null;
         $this->container['order_id'] = $data['order_id'] ?? null;
         $this->container['transaction_type'] = $data['transaction_type'] ?? null;
+        $this->container['store_name'] = $data['store_name'] ?? null;
         $this->container['removal_shipment_item_list'] = $data['removal_shipment_item_list'] ?? null;
     }
 
@@ -216,7 +222,7 @@ class RemovalShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets posted_date.
      *
-     * @param null|\DateTimeInterface $posted_date posted_date
+     * @param null|\DateTimeInterface $posted_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setPostedDate(?\DateTimeInterface $posted_date) : self
     {
@@ -281,6 +287,26 @@ class RemovalShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringab
     public function setTransactionType(?string $transaction_type) : self
     {
         $this->container['transaction_type'] = $transaction_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name.
+     */
+    public function getStoreName() : ?string
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name.
+     *
+     * @param null|string $store_name the name of the store where the event occurred
+     */
+    public function setStoreName(?string $store_name) : self
+    {
+        $this->container['store_name'] = $store_name;
 
         return $this;
     }

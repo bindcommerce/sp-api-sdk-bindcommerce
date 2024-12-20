@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Merchant Fulfillment.
  *
- * The Selling Partner API for Merchant Fulfillment helps you build applications that let sellers purchase shipping for non-Prime and Prime orders using Amazon’s Buy Shipping Services.
+ * With the Selling Partner API for Merchant Fulfillment, you can build applications that sellers can use to purchase shipping for non-Prime and Prime orders using Amazon's Buy Shipping Services.
  *
  * The version of the OpenAPI document: v0
  *
@@ -216,7 +216,7 @@ class PackageDimensions implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets length.
      *
-     * @param null|float $length length
+     * @param null|float $length a number that represents the given package dimension
      */
     public function setLength(?float $length) : self
     {
@@ -236,7 +236,7 @@ class PackageDimensions implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets width.
      *
-     * @param null|float $width width
+     * @param null|float $width a number that represents the given package dimension
      */
     public function setWidth(?float $width) : self
     {
@@ -256,7 +256,7 @@ class PackageDimensions implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets height.
      *
-     * @param null|float $height height
+     * @param null|float $height a number that represents the given package dimension
      */
     public function setHeight(?float $height) : self
     {

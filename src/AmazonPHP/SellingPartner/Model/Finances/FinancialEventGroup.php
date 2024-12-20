@@ -363,7 +363,7 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets fund_transfer_date.
      *
-     * @param null|\DateTimeInterface $fund_transfer_date fund_transfer_date
+     * @param null|\DateTimeInterface $fund_transfer_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setFundTransferDate(?\DateTimeInterface $fund_transfer_date) : self
     {
@@ -443,7 +443,7 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets financial_event_group_start.
      *
-     * @param null|\DateTimeInterface $financial_event_group_start financial_event_group_start
+     * @param null|\DateTimeInterface $financial_event_group_start fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setFinancialEventGroupStart(?\DateTimeInterface $financial_event_group_start) : self
     {
@@ -463,7 +463,7 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets financial_event_group_end.
      *
-     * @param null|\DateTimeInterface $financial_event_group_end financial_event_group_end
+     * @param null|\DateTimeInterface $financial_event_group_end fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setFinancialEventGroupEnd(?\DateTimeInterface $financial_event_group_end) : self
     {

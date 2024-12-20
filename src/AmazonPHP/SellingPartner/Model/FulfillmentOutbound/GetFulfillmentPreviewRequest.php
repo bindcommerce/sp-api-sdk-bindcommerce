@@ -301,7 +301,7 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
     /**
      * Sets shipping_speed_categories.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ShippingSpeedCategory[] $shipping_speed_categories shipping_speed_categories
+     * @param null|\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ShippingSpeedCategory[] $shipping_speed_categories ShippingSpeedCategory List
      */
     public function setShippingSpeedCategories(?array $shipping_speed_categories) : self
     {

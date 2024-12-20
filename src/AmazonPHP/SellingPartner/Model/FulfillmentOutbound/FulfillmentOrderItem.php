@@ -481,7 +481,7 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets estimated_ship_date.
      *
-     * @param null|\DateTimeInterface $estimated_ship_date estimated_ship_date
+     * @param null|\DateTimeInterface $estimated_ship_date Date timestamp
      */
     public function setEstimatedShipDate(?\DateTimeInterface $estimated_ship_date) : self
     {
@@ -501,7 +501,7 @@ class FulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets estimated_arrival_date.
      *
-     * @param null|\DateTimeInterface $estimated_arrival_date estimated_arrival_date
+     * @param null|\DateTimeInterface $estimated_arrival_date Date timestamp
      */
     public function setEstimatedArrivalDate(?\DateTimeInterface $estimated_arrival_date) : self
     {

@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Selling Partner API for Orders.
+ * Orders v0.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * The version of the OpenAPI document: v0
  *
@@ -43,21 +43,15 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     final public const ORDER_STATUS_PENDING_AVAILABILITY = 'PendingAvailability';
 
-    final public const ORDER_STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
-
     final public const FULFILLMENT_CHANNEL_MFN = 'MFN';
 
     final public const FULFILLMENT_CHANNEL_AFN = 'AFN';
-
-    final public const FULFILLMENT_CHANNEL_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     final public const PAYMENT_METHOD_COD = 'COD';
 
     final public const PAYMENT_METHOD_CVS = 'CVS';
 
     final public const PAYMENT_METHOD_OTHER = 'Other';
-
-    final public const PAYMENT_METHOD_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     final public const ORDER_TYPE_STANDARD_ORDER = 'StandardOrder';
 
@@ -69,13 +63,9 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
 
     final public const ORDER_TYPE_SOURCING_ON_DEMAND_ORDER = 'SourcingOnDemandOrder';
 
-    final public const ORDER_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
-
     final public const BUYER_INVOICE_PREFERENCE_INDIVIDUAL = 'INDIVIDUAL';
 
     final public const BUYER_INVOICE_PREFERENCE_BUSINESS = 'BUSINESS';
-
-    final public const BUYER_INVOICE_PREFERENCE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
      * The original name of the model.
@@ -514,7 +504,6 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
             self::ORDER_STATUS_UNFULFILLABLE,
             self::ORDER_STATUS_INVOICE_UNCONFIRMED,
             self::ORDER_STATUS_PENDING_AVAILABILITY,
-            self::ORDER_STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -528,7 +517,6 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         return [
             self::FULFILLMENT_CHANNEL_MFN,
             self::FULFILLMENT_CHANNEL_AFN,
-            self::FULFILLMENT_CHANNEL_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -543,7 +531,6 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
             self::PAYMENT_METHOD_COD,
             self::PAYMENT_METHOD_CVS,
             self::PAYMENT_METHOD_OTHER,
-            self::PAYMENT_METHOD_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -560,7 +547,6 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
             self::ORDER_TYPE_PREORDER,
             self::ORDER_TYPE_BACK_ORDER,
             self::ORDER_TYPE_SOURCING_ON_DEMAND_ORDER,
-            self::ORDER_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -574,7 +560,6 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         return [
             self::BUYER_INVOICE_PREFERENCE_INDIVIDUAL,
             self::BUYER_INVOICE_PREFERENCE_BUSINESS,
-            self::BUYER_INVOICE_PREFERENCE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -765,7 +750,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets last_update_date.
      *
-     * @param string $last_update_date The date when the order was last updated.  **Note**: `LastUpdateDate` is returned with an incorrect date for orders that were last updated before 2009-04-01.
+     * @param string $last_update_date The date when the order was last updated.  __Note__: `LastUpdateDate` is returned with an incorrect date for orders that were last updated before 2009-04-01.
      */
     public function setLastUpdateDate(string $last_update_date) : self
     {
@@ -805,7 +790,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets fulfillment_channel.
      *
-     * @param null|string $fulfillment_channel whether the order was fulfilled by Amazon (AFN) or by the seller (MFN)
+     * @param null|string $fulfillment_channel whether the order was fulfilled by Amazon (`AFN`) or by the seller (`MFN`)
      */
     public function setFulfillmentChannel(?string $fulfillment_channel) : self
     {
@@ -825,7 +810,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets sales_channel.
      *
-     * @param null|string $sales_channel the sales channel of the first item in the order
+     * @param null|string $sales_channel the sales channel for the first item in the order
      */
     public function setSalesChannel(?string $sales_channel) : self
     {
@@ -845,7 +830,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets order_channel.
      *
-     * @param null|string $order_channel the order channel of the first item in the order
+     * @param null|string $order_channel the order channel for the first item in the order
      */
     public function setOrderChannel(?string $order_channel) : self
     {
@@ -865,7 +850,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets ship_service_level.
      *
-     * @param null|string $ship_service_level the shipment service level of the order
+     * @param null|string $ship_service_level the order's shipment service level
      */
     public function setShipServiceLevel(?string $ship_service_level) : self
     {
@@ -967,7 +952,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets payment_method.
      *
-     * @param null|string $payment_method The payment method for the order. This property is limited to Cash On Delivery (COD) and Convenience Store (CVS) payment methods. Unless you need the specific COD payment information provided by the `PaymentExecutionDetailItem` object, we recommend using the `PaymentMethodDetails` property to get payment method information.
+     * @param null|string $payment_method The payment method for the order. This property is limited to COD and CVS payment methods. Unless you need the specific COD payment information provided by the `PaymentExecutionDetailItem` object, we recommend using the `PaymentMethodDetails` property to get payment method information.
      */
     public function setPaymentMethod(?string $payment_method) : self
     {
@@ -1029,7 +1014,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets shipment_service_level_category.
      *
-     * @param null|string $shipment_service_level_category The shipment service level category of the order.  **Possible values**: `Expedited`, `FreeEconomy`, `NextDay`, `Priority`, `SameDay`, `SecondDay`, `Scheduled`, `Standard`.
+     * @param null|string $shipment_service_level_category The shipment service level category for the order.  **Possible values**: `Expedited`, `FreeEconomy`, `NextDay`, `Priority`, `SameDay`, `SecondDay`, `Scheduled`, and `Standard`.
      */
     public function setShipmentServiceLevelCategory(?string $shipment_service_level_category) : self
     {
@@ -1089,7 +1074,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets order_type.
      *
-     * @param null|string $order_type the type of the order
+     * @param null|string $order_type the order's type
      */
     public function setOrderType(?string $order_type) : self
     {
@@ -1109,7 +1094,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets earliest_ship_date.
      *
-     * @param null|string $earliest_ship_date The start of the time period within which you have committed to ship the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders.  **Note**: `EarliestShipDate` might not be returned for orders placed before February 1, 2013.
+     * @param null|string $earliest_ship_date The start of the time period within which you have committed to ship the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. Only returned for seller-fulfilled orders.  __Note__: `EarliestShipDate` might not be returned for orders placed before February 1, 2013.
      */
     public function setEarliestShipDate(?string $earliest_ship_date) : self
     {
@@ -1129,7 +1114,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets latest_ship_date.
      *
-     * @param null|string $latest_ship_date The end of the time period within which you have committed to ship the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders.  **Note**: `LatestShipDate` might not be returned for orders placed before February 1, 2013.
+     * @param null|string $latest_ship_date The end of the time period within which you have committed to ship the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. Only returned for seller-fulfilled orders.  __Note__: `LatestShipDate` might not be returned for orders placed before February 1, 2013.
      */
     public function setLatestShipDate(?string $latest_ship_date) : self
     {
@@ -1149,7 +1134,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets earliest_delivery_date.
      *
-     * @param null|string $earliest_delivery_date The start of the time period within which you have committed to fulfill the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders.
+     * @param null|string $earliest_delivery_date The start of the time period within which you have committed to fulfill the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. Only returned for seller-fulfilled orders.
      */
     public function setEarliestDeliveryDate(?string $earliest_delivery_date) : self
     {
@@ -1169,7 +1154,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets latest_delivery_date.
      *
-     * @param null|string $latest_delivery_date The end of the time period within which you have committed to fulfill the order. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format. Returned only for seller-fulfilled orders that do not have a `PendingAvailability`, Pending, or Canceled status.
+     * @param null|string $latest_delivery_date The end of the time period within which you have committed to fulfill the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. Only returned for seller-fulfilled orders that do not have a `PendingAvailability`, `Pending`, or `Canceled` status.
      */
     public function setLatestDeliveryDate(?string $latest_delivery_date) : self
     {
@@ -1229,7 +1214,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets is_premium_order.
      *
-     * @param null|bool $is_premium_order When true, the order has a Premium Shipping Service Level Agreement. For more information about Premium Shipping orders, see \"Premium Shipping Options\" in the Seller Central Help for your marketplace.
+     * @param null|bool $is_premium_order When true, the order has a Premium Shipping Service Level Agreement. For more information about Premium Shipping orders, refer to \"Premium Shipping Options\" in the Seller Central Help for your marketplace.
      */
     public function setIsPremiumOrder(?bool $is_premium_order) : self
     {
@@ -1249,7 +1234,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets is_global_express_enabled.
      *
-     * @param null|bool $is_global_express_enabled when true, the order is a GlobalExpress order
+     * @param null|bool $is_global_express_enabled when true, the order is a `GlobalExpress` order
      */
     public function setIsGlobalExpressEnabled(?bool $is_global_express_enabled) : self
     {
@@ -1269,7 +1254,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets replaced_order_id.
      *
-     * @param null|string $replaced_order_id The order ID value for the order that is being replaced. Returned only if `IsReplacementOrder` = true.
+     * @param null|string $replaced_order_id The order ID value for the order that is being replaced. Returned only if IsReplacementOrder = true.
      */
     public function setReplacedOrderId(?string $replaced_order_id) : self
     {
@@ -1309,7 +1294,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets promise_response_due_date.
      *
-     * @param null|string $promise_response_due_date Indicates the date by which the seller must respond to the buyer with an estimated ship date. Returned only for Sourcing on Demand orders.
+     * @param null|string $promise_response_due_date Indicates the date by which the seller must respond to the buyer with an estimated ship date. Only returned for Sourcing on Demand orders.
      */
     public function setPromiseResponseDueDate(?string $promise_response_due_date) : self
     {
@@ -1329,7 +1314,7 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets is_estimated_ship_date_set.
      *
-     * @param null|bool $is_estimated_ship_date_set When true, the estimated ship date is specified for the order. Returned only for Sourcing on Demand orders.
+     * @param null|bool $is_estimated_ship_date_set When true, the estimated ship date is set for the order. Only returned for Sourcing on Demand orders.
      */
     public function setIsEstimatedShipDateSet(?bool $is_estimated_ship_date_set) : self
     {

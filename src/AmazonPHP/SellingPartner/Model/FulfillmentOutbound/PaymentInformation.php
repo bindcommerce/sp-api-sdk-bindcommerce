@@ -255,7 +255,7 @@ class PaymentInformation implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets payment_date.
      *
-     * @param \DateTimeInterface $payment_date payment_date
+     * @param \DateTimeInterface $payment_date Date timestamp
      */
     public function setPaymentDate(\DateTimeInterface $payment_date) : self
     {

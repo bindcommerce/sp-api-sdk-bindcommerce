@@ -851,7 +851,7 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
     /**
      * Operation submitAcknowledgement.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorOrders\SubmitAcknowledgementRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\VendorOrders\SubmitAcknowledgementRequest $body Submits acknowledgements for one or more purchase orders from a vendor. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -947,7 +947,7 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
     /**
      * Create request for operation 'submitAcknowledgement'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorOrders\SubmitAcknowledgementRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\VendorOrders\SubmitAcknowledgementRequest $body Submits acknowledgements for one or more purchase orders from a vendor. (required)
      *
      * @throws InvalidArgumentException
      */

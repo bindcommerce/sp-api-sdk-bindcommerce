@@ -223,7 +223,7 @@ class DebtRecoveryEvent implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets debt_recovery_type.
      *
-     * @param null|string $debt_recovery_type The debt recovery type.  Possible values:  * DebtPayment  * DebtPaymentFailure  *DebtAdjustment
+     * @param null|string $debt_recovery_type The debt recovery type.  Possible values:  * DebtPayment  * DebtPaymentFailure  * DebtAdjustment
      */
     public function setDebtRecoveryType(?string $debt_recovery_type) : self
     {

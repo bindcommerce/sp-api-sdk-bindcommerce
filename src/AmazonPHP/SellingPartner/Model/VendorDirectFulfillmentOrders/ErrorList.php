@@ -197,7 +197,7 @@ class ErrorList implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets errors.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\Error[] $errors errors
+     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\Error[] $errors an array of Error objects representing individual errors encountered during the request
      */
     public function setErrors(array $errors) : self
     {

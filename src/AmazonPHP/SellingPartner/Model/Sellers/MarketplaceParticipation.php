@@ -9,7 +9,7 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Selling Partner API for Sellers.
+ * The Selling Partner API for Sellers.
  *
  * The Selling Partner API for Sellers lets you retrieve information on behalf of sellers about their seller account, such as the marketplaces they participate in. Along with listing the marketplaces that a seller can sell in, the API also provides additional information about the marketplace such as the default language and the default currency. The API also provides seller-specific information such as whether the seller has suspended listings in that marketplace.
  *
@@ -42,6 +42,7 @@ class MarketplaceParticipation implements \ArrayAccess, \JsonSerializable, \Stri
     protected static array $openAPITypes = [
         'marketplace' => '\AmazonPHP\SellingPartner\Model\Sellers\Marketplace',
         'participation' => '\AmazonPHP\SellingPartner\Model\Sellers\Participation',
+        'store_name' => 'string',
     ];
 
     /**
@@ -56,6 +57,7 @@ class MarketplaceParticipation implements \ArrayAccess, \JsonSerializable, \Stri
     protected static array $openAPIFormats = [
         'marketplace' => null,
         'participation' => null,
+        'store_name' => null,
     ];
 
     /**
@@ -67,6 +69,7 @@ class MarketplaceParticipation implements \ArrayAccess, \JsonSerializable, \Stri
     protected static array $attributeMap = [
         'marketplace' => 'marketplace',
         'participation' => 'participation',
+        'store_name' => 'storeName',
     ];
 
     /**
@@ -77,6 +80,7 @@ class MarketplaceParticipation implements \ArrayAccess, \JsonSerializable, \Stri
     protected static array $setters = [
         'marketplace' => 'setMarketplace',
         'participation' => 'setParticipation',
+        'store_name' => 'setStoreName',
     ];
 
     /**
@@ -87,6 +91,7 @@ class MarketplaceParticipation implements \ArrayAccess, \JsonSerializable, \Stri
     protected static array $getters = [
         'marketplace' => 'getMarketplace',
         'participation' => 'getParticipation',
+        'store_name' => 'getStoreName',
     ];
 
     /**
@@ -106,6 +111,7 @@ class MarketplaceParticipation implements \ArrayAccess, \JsonSerializable, \Stri
     {
         $this->container['marketplace'] = $data['marketplace'] ?? null;
         $this->container['participation'] = $data['participation'] ?? null;
+        $this->container['store_name'] = $data['store_name'] ?? null;
     }
 
     /**
@@ -196,6 +202,10 @@ class MarketplaceParticipation implements \ArrayAccess, \JsonSerializable, \Stri
         }
 
         $this->container['participation']->validate();
+
+        if ($this->container['store_name'] === null) {
+            throw new AssertionException("'store_name' can't be null");
+        }
     }
 
     /**
@@ -234,6 +244,26 @@ class MarketplaceParticipation implements \ArrayAccess, \JsonSerializable, \Stri
     public function setParticipation(Participation $participation) : self
     {
         $this->container['participation'] = $participation;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name.
+     */
+    public function getStoreName() : string
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name.
+     *
+     * @param string $store_name the name of the seller's store as displayed in the marketplace
+     */
+    public function setStoreName(string $store_name) : self
+    {
+        $this->container['store_name'] = $store_name;
 
         return $this;
     }

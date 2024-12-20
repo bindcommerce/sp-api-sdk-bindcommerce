@@ -397,7 +397,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets ship_date.
      *
-     * @param null|\DateTimeInterface $ship_date ship_date
+     * @param null|\DateTimeInterface $ship_date Date timestamp
      */
     public function setShipDate(?\DateTimeInterface $ship_date) : self
     {
@@ -417,7 +417,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets estimated_arrival_date.
      *
-     * @param null|\DateTimeInterface $estimated_arrival_date estimated_arrival_date
+     * @param null|\DateTimeInterface $estimated_arrival_date Date timestamp
      */
     public function setEstimatedArrivalDate(?\DateTimeInterface $estimated_arrival_date) : self
     {

@@ -194,7 +194,7 @@ class SubmitInvoiceRequest implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets invoices.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\InvoiceDetail[] $invoices invoices
+     * @param null|\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\InvoiceDetail[] $invoices an array of invoice details to be submitted
      */
     public function setInvoices(?array $invoices) : self
     {

@@ -36,6 +36,10 @@ interface ListingsItemsSDKInterface
 
     public const OPERATION_PUTLISTINGSITEM_PATH = '/listings/2021-08-01/items/{sellerId}/{sku}';
 
+    public const OPERATION_SEARCHLISTINGSITEMS = 'searchListingsItems';
+
+    public const OPERATION_SEARCHLISTINGSITEMS_PATH = '/listings/2021-08-01/items/{sellerId}';
+
     /**
      * Operation deleteListingsItem.
      *
@@ -102,4 +106,34 @@ interface ListingsItemsSDKInterface
      * @return \AmazonPHP\SellingPartner\Model\ListingsItems\ListingsItemSubmissionResponse
      */
     public function putListingsItem(AccessToken $accessToken, string $region, string $seller_id, string $sku, array $marketplace_ids, \AmazonPHP\SellingPartner\Model\ListingsItems\ListingsItemPutRequest $body, ?array $included_data = null, ?string $mode = null, ?string $issue_locale = null) : \AmazonPHP\SellingPartner\Model\ListingsItems\ListingsItemSubmissionResponse;
+
+    /**
+     * Operation searchListingsItems.
+     *
+     * @param string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param null|string $issue_locale A locale that is used to localize issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. When a localization is not available in the specified locale, localized messages default to \&quot;en_US\&quot;. (optional)
+     * @param null|string[] $included_data A comma-delimited list of datasets that you want to include in the response. Default: &#x60;summaries&#x60;. (optional)
+     * @param null|string[] $identifiers A comma-delimited list of product identifiers that you can use to search for listings items.   **Note**:  1. This is required when you specify &#x60;identifiersType&#x60;. 2. You cannot use &#39;identifiers&#39; if you specify &#x60;variationParentSku&#x60; or &#x60;packageHierarchySku&#x60;. (optional)
+     * @param null|string $identifiers_type A type of product identifiers that you can use to search for listings items.   **Note**:  This is required when &#x60;identifiers&#x60; is provided. (optional)
+     * @param null|string $variation_parent_sku Filters results to include listing items that are variation children of the specified SKU.   **Note**: You cannot use &#x60;variationParentSku&#x60; if you include &#x60;identifiers&#x60; or &#x60;packageHierarchySku&#x60; in your request. (optional)
+     * @param null|string $package_hierarchy_sku Filter results to include listing items that contain or are contained by the specified SKU.   **Note**: You cannot use &#x60;packageHierarchySku&#x60; if you include &#x60;identifiers&#x60; or &#x60;variationParentSku&#x60; in your request. (optional)
+     * @param null|\DateTimeInterface $created_after A date-time that is used to filter listing items. The response includes listings items that were created at or after this time. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (optional)
+     * @param null|\DateTimeInterface $created_before A date-time that is used to filter listing items. The response includes listings items that were created at or before this time. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (optional)
+     * @param null|\DateTimeInterface $last_updated_after A date-time that is used to filter listing items. The response includes listings items that were last updated at or after this time. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (optional)
+     * @param null|\DateTimeInterface $last_updated_before A date-time that is used to filter listing items. The response includes listings items that were last updated at or before this time. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (optional)
+     * @param null|string[] $with_issue_severity Filter results to include only listing items that have issues that match one or more of the specified severity levels. (optional)
+     * @param null|string[] $with_status Filter results to include only listing items that have the specified status. (optional)
+     * @param null|string[] $without_status Filter results to include only listing items that don&#39;t contain the specified statuses. (optional)
+     * @param string $sort_by An attribute by which to sort the returned listing items. (optional, default to 'lastUpdatedDate')
+     * @param string $sort_order The order in which to sort the result items. (optional, default to 'DESC')
+     * @param int $page_size The number of results that you want to include on each page. (optional, default to 10)
+     * @param null|string $page_token A token that you can use to fetch a specific page when there are multiple pages of results. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\ListingsItems\ItemSearchResults
+     */
+    public function searchListingsItems(AccessToken $accessToken, string $region, string $seller_id, array $marketplace_ids, ?string $issue_locale = null, ?array $included_data = null, ?array $identifiers = null, ?string $identifiers_type = null, ?string $variation_parent_sku = null, ?string $package_hierarchy_sku = null, ?\DateTimeInterface $created_after = null, ?\DateTimeInterface $created_before = null, ?\DateTimeInterface $last_updated_after = null, ?\DateTimeInterface $last_updated_before = null, ?array $with_issue_severity = null, ?array $with_status = null, ?array $without_status = null, string $sort_by = 'lastUpdatedDate', string $sort_order = 'DESC', int $page_size = 10, ?string $page_token = null) : \AmazonPHP\SellingPartner\Model\ListingsItems\ItemSearchResults;
 }

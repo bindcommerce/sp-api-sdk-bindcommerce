@@ -285,7 +285,7 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets posted_date.
      *
-     * @param null|\DateTimeInterface $posted_date posted_date
+     * @param null|\DateTimeInterface $posted_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setPostedDate(?\DateTimeInterface $posted_date) : self
     {

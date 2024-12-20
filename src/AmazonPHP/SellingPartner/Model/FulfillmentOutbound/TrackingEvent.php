@@ -227,7 +227,7 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets event_date.
      *
-     * @param \DateTimeInterface $event_date event_date
+     * @param \DateTimeInterface $event_date Date timestamp
      */
     public function setEventDate(\DateTimeInterface $event_date) : self
     {

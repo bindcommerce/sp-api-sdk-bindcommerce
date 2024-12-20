@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AmazonPHP\SellingPartner\Api\CatalogApi;
+namespace AmazonPHP\SellingPartner\Api\CatalogItemsApi;
 
 use AmazonPHP\SellingPartner\AccessToken;
 use AmazonPHP\SellingPartner\Configuration;
@@ -17,7 +17,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Log\LoggerInterface;
 
 /**
- * Selling Partner API for Catalog Items.
+ * Catalog Items v2022-04-01.
  *
  * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
  *
@@ -35,6 +35,10 @@ final class CatalogItemSDK implements CatalogItemSDKInterface
     /**
      * Operation getCatalogItem.
      *
+     * getCatalogItem
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers. Data sets in the response contain data only for the specified marketplaces. (required)
      * @param null|string[] $included_data A comma-delimited list of data sets to include in the response. Default: &#x60;summaries&#x60;. (optional)
@@ -262,6 +266,10 @@ final class CatalogItemSDK implements CatalogItemSDKInterface
     /**
      * Operation searchCatalogItems.
      *
+     * searchCatalogItems
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param null|string[] $identifiers A comma-delimited list of product identifiers to search the Amazon catalog for. **Note:** Cannot be used with &#x60;keywords&#x60;. (optional)
      * @param null|string $identifiers_type Type of product identifiers to search the Amazon catalog for. **Note:** Required when &#x60;identifiers&#x60; are provided. (optional)
@@ -394,19 +402,19 @@ final class CatalogItemSDK implements CatalogItemSDKInterface
         }
 
         if (\count($marketplace_ids) > 1) {
-            throw new InvalidArgumentException('invalid value for "$marketplace_ids" when calling CatalogApi.searchCatalogItems, number of items must be less than or equal to 1.');
+            throw new InvalidArgumentException('invalid value for "$marketplace_ids" when calling CatalogItemsApi.searchCatalogItems, number of items must be less than or equal to 1.');
         }
 
         if ($identifiers !== null && \count($identifiers) > 20) {
-            throw new InvalidArgumentException('invalid value for "$identifiers" when calling CatalogApi.searchCatalogItems, number of items must be less than or equal to 20.');
+            throw new InvalidArgumentException('invalid value for "$identifiers" when calling CatalogItemsApi.searchCatalogItems, number of items must be less than or equal to 20.');
         }
 
         if ($keywords !== null && \count($keywords) > 20) {
-            throw new InvalidArgumentException('invalid value for "$keywords" when calling CatalogApi.searchCatalogItems, number of items must be less than or equal to 20.');
+            throw new InvalidArgumentException('invalid value for "$keywords" when calling CatalogItemsApi.searchCatalogItems, number of items must be less than or equal to 20.');
         }
 
         if ($page_size !== null && $page_size > 20) {
-            throw new InvalidArgumentException('invalid value for "$page_size" when calling CatalogApi.searchCatalogItems, must be smaller than or equal to 20.');
+            throw new InvalidArgumentException('invalid value for "$page_size" when calling CatalogItemsApi.searchCatalogItems, must be smaller than or equal to 20.');
         }
 
         $resourcePath = '/catalog/2022-04-01/items';

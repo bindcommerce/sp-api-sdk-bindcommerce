@@ -429,7 +429,7 @@ class SolutionProviderCreditEvent implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets transaction_creation_date.
      *
-     * @param null|\DateTimeInterface $transaction_creation_date transaction_creation_date
+     * @param null|\DateTimeInterface $transaction_creation_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setTransactionCreationDate(?\DateTimeInterface $transaction_creation_date) : self
     {

@@ -48,6 +48,7 @@ class ItemOfferByMarketplace implements \ArrayAccess, \JsonSerializable, \String
         'offer_type' => 'string',
         'price' => '\AmazonPHP\SellingPartner\Model\ListingsItems\Money',
         'points' => '\AmazonPHP\SellingPartner\Model\ListingsItems\Points',
+        'audience' => '\AmazonPHP\SellingPartner\Model\ListingsItems\Audience',
     ];
 
     /**
@@ -64,6 +65,7 @@ class ItemOfferByMarketplace implements \ArrayAccess, \JsonSerializable, \String
         'offer_type' => null,
         'price' => null,
         'points' => null,
+        'audience' => null,
     ];
 
     /**
@@ -77,6 +79,7 @@ class ItemOfferByMarketplace implements \ArrayAccess, \JsonSerializable, \String
         'offer_type' => 'offerType',
         'price' => 'price',
         'points' => 'points',
+        'audience' => 'audience',
     ];
 
     /**
@@ -89,6 +92,7 @@ class ItemOfferByMarketplace implements \ArrayAccess, \JsonSerializable, \String
         'offer_type' => 'setOfferType',
         'price' => 'setPrice',
         'points' => 'setPoints',
+        'audience' => 'setAudience',
     ];
 
     /**
@@ -101,6 +105,7 @@ class ItemOfferByMarketplace implements \ArrayAccess, \JsonSerializable, \String
         'offer_type' => 'getOfferType',
         'price' => 'getPrice',
         'points' => 'getPoints',
+        'audience' => 'getAudience',
     ];
 
     /**
@@ -122,6 +127,7 @@ class ItemOfferByMarketplace implements \ArrayAccess, \JsonSerializable, \String
         $this->container['offer_type'] = $data['offer_type'] ?? null;
         $this->container['price'] = $data['price'] ?? null;
         $this->container['points'] = $data['points'] ?? null;
+        $this->container['audience'] = $data['audience'] ?? null;
     }
 
     /**
@@ -243,6 +249,10 @@ class ItemOfferByMarketplace implements \ArrayAccess, \JsonSerializable, \String
         if ($this->container['points'] !== null) {
             $this->container['points']->validate();
         }
+
+        if ($this->container['audience'] !== null) {
+            $this->container['audience']->validate();
+        }
     }
 
     /**
@@ -321,6 +331,26 @@ class ItemOfferByMarketplace implements \ArrayAccess, \JsonSerializable, \String
     public function setPoints(?Points $points) : self
     {
         $this->container['points'] = $points;
+
+        return $this;
+    }
+
+    /**
+     * Gets audience.
+     */
+    public function getAudience() : ?Audience
+    {
+        return $this->container['audience'];
+    }
+
+    /**
+     * Sets audience.
+     *
+     * @param null|Audience $audience audience
+     */
+    public function setAudience(?Audience $audience) : self
+    {
+        $this->container['audience'] = $audience;
 
         return $this;
     }

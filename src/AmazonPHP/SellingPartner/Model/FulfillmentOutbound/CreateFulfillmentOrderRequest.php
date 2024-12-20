@@ -48,6 +48,7 @@ class CreateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
         'shipping_speed_category' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ShippingSpeedCategory',
         'delivery_window' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\DeliveryWindow',
         'destination_address' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Address',
+        'delivery_preferences' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\DeliveryPreferences',
         'fulfillment_action' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentAction',
         'fulfillment_policy' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentPolicy',
         'cod_settings' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CODSettings',
@@ -76,6 +77,7 @@ class CreateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
         'shipping_speed_category' => null,
         'delivery_window' => null,
         'destination_address' => null,
+        'delivery_preferences' => null,
         'fulfillment_action' => null,
         'fulfillment_policy' => null,
         'cod_settings' => null,
@@ -101,6 +103,7 @@ class CreateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
         'shipping_speed_category' => 'shippingSpeedCategory',
         'delivery_window' => 'deliveryWindow',
         'destination_address' => 'destinationAddress',
+        'delivery_preferences' => 'deliveryPreferences',
         'fulfillment_action' => 'fulfillmentAction',
         'fulfillment_policy' => 'fulfillmentPolicy',
         'cod_settings' => 'codSettings',
@@ -125,6 +128,7 @@ class CreateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
         'shipping_speed_category' => 'setShippingSpeedCategory',
         'delivery_window' => 'setDeliveryWindow',
         'destination_address' => 'setDestinationAddress',
+        'delivery_preferences' => 'setDeliveryPreferences',
         'fulfillment_action' => 'setFulfillmentAction',
         'fulfillment_policy' => 'setFulfillmentPolicy',
         'cod_settings' => 'setCodSettings',
@@ -149,6 +153,7 @@ class CreateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
         'shipping_speed_category' => 'getShippingSpeedCategory',
         'delivery_window' => 'getDeliveryWindow',
         'destination_address' => 'getDestinationAddress',
+        'delivery_preferences' => 'getDeliveryPreferences',
         'fulfillment_action' => 'getFulfillmentAction',
         'fulfillment_policy' => 'getFulfillmentPolicy',
         'cod_settings' => 'getCodSettings',
@@ -182,6 +187,7 @@ class CreateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
         $this->container['shipping_speed_category'] = $data['shipping_speed_category'] ?? null;
         $this->container['delivery_window'] = $data['delivery_window'] ?? null;
         $this->container['destination_address'] = $data['destination_address'] ?? null;
+        $this->container['delivery_preferences'] = $data['delivery_preferences'] ?? null;
         $this->container['fulfillment_action'] = $data['fulfillment_action'] ?? null;
         $this->container['fulfillment_policy'] = $data['fulfillment_policy'] ?? null;
         $this->container['cod_settings'] = $data['cod_settings'] ?? null;
@@ -311,6 +317,10 @@ class CreateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
 
         $this->container['destination_address']->validate();
 
+        if ($this->container['delivery_preferences'] !== null) {
+            $this->container['delivery_preferences']->validate();
+        }
+
         if ($this->container['cod_settings'] !== null) {
             $this->container['cod_settings']->validate();
         }
@@ -391,7 +401,7 @@ class CreateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
     /**
      * Sets displayable_order_date.
      *
-     * @param \DateTimeInterface $displayable_order_date displayable_order_date
+     * @param \DateTimeInterface $displayable_order_date Date timestamp
      */
     public function setDisplayableOrderDate(\DateTimeInterface $displayable_order_date) : self
     {
@@ -476,6 +486,26 @@ class CreateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
     public function setDestinationAddress(Address $destination_address) : self
     {
         $this->container['destination_address'] = $destination_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_preferences.
+     */
+    public function getDeliveryPreferences() : ?DeliveryPreferences
+    {
+        return $this->container['delivery_preferences'];
+    }
+
+    /**
+     * Sets delivery_preferences.
+     *
+     * @param null|DeliveryPreferences $delivery_preferences delivery_preferences
+     */
+    public function setDeliveryPreferences(?DeliveryPreferences $delivery_preferences) : self
+    {
+        $this->container['delivery_preferences'] = $delivery_preferences;
 
         return $this;
     }

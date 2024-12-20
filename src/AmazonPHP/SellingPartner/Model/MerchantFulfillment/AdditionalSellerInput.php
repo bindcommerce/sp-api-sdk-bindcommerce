@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Merchant Fulfillment.
  *
- * The Selling Partner API for Merchant Fulfillment helps you build applications that let sellers purchase shipping for non-Prime and Prime orders using Amazon’s Buy Shipping Services.
+ * With the Selling Partner API for Merchant Fulfillment, you can build applications that sellers can use to purchase shipping for non-Prime and Prime orders using Amazon's Buy Shipping Services.
  *
  * The version of the OpenAPI document: v0
  *
@@ -335,7 +335,7 @@ class AdditionalSellerInput implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets value_as_timestamp.
      *
-     * @param null|\DateTimeInterface $value_as_timestamp value_as_timestamp
+     * @param null|\DateTimeInterface $value_as_timestamp date-time formatted timestamp
      */
     public function setValueAsTimestamp(?\DateTimeInterface $value_as_timestamp) : self
     {

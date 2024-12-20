@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Selling Partner API for Orders.
+ * Orders v0.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * The version of the OpenAPI document: v0
  *
@@ -30,8 +30,6 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     final public const DEEMED_RESELLER_CATEGORY_IOSS = 'IOSS';
 
     final public const DEEMED_RESELLER_CATEGORY_UOSS = 'UOSS';
-
-    final public const DEEMED_RESELLER_CATEGORY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
      * The original name of the model.
@@ -85,6 +83,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'substitution_preferences' => '\AmazonPHP\SellingPartner\Model\Orders\SubstitutionPreferences',
         'measurement' => '\AmazonPHP\SellingPartner\Model\Orders\Measurement',
         'shipping_constraints' => '\AmazonPHP\SellingPartner\Model\Orders\ShippingConstraints',
+        'amazon_programs' => '\AmazonPHP\SellingPartner\Model\Orders\AmazonPrograms',
     ];
 
     /**
@@ -136,6 +135,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'substitution_preferences' => null,
         'measurement' => null,
         'shipping_constraints' => null,
+        'amazon_programs' => null,
     ];
 
     /**
@@ -184,6 +184,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'substitution_preferences' => 'SubstitutionPreferences',
         'measurement' => 'Measurement',
         'shipping_constraints' => 'ShippingConstraints',
+        'amazon_programs' => 'AmazonPrograms',
     ];
 
     /**
@@ -231,6 +232,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'substitution_preferences' => 'setSubstitutionPreferences',
         'measurement' => 'setMeasurement',
         'shipping_constraints' => 'setShippingConstraints',
+        'amazon_programs' => 'setAmazonPrograms',
     ];
 
     /**
@@ -278,6 +280,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         'substitution_preferences' => 'getSubstitutionPreferences',
         'measurement' => 'getMeasurement',
         'shipping_constraints' => 'getShippingConstraints',
+        'amazon_programs' => 'getAmazonPrograms',
     ];
 
     /**
@@ -334,6 +337,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         $this->container['substitution_preferences'] = $data['substitution_preferences'] ?? null;
         $this->container['measurement'] = $data['measurement'] ?? null;
         $this->container['shipping_constraints'] = $data['shipping_constraints'] ?? null;
+        $this->container['amazon_programs'] = $data['amazon_programs'] ?? null;
     }
 
     /**
@@ -416,7 +420,6 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         return [
             self::DEEMED_RESELLER_CATEGORY_IOSS,
             self::DEEMED_RESELLER_CATEGORY_UOSS,
-            self::DEEMED_RESELLER_CATEGORY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -522,6 +525,10 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         if ($this->container['shipping_constraints'] !== null) {
             $this->container['shipping_constraints']->validate();
         }
+
+        if ($this->container['amazon_programs'] !== null) {
+            $this->container['amazon_programs']->validate();
+        }
     }
 
     /**
@@ -535,7 +542,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets asin.
      *
-     * @param string $asin the Amazon Standard Identification Number (ASIN) of the item
+     * @param string $asin the item's Amazon Standard Identification Number (ASIN)
      */
     public function setAsin(string $asin) : self
     {
@@ -555,7 +562,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets seller_sku.
      *
-     * @param null|string $seller_sku the seller stock keeping unit (SKU) of the item
+     * @param null|string $seller_sku the item's seller stock keeping unit (SKU)
      */
     public function setSellerSku(?string $seller_sku) : self
     {
@@ -617,7 +624,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets title.
      *
-     * @param null|string $title the name of the item
+     * @param null|string $title the item's name
      */
     public function setTitle(?string $title) : self
     {
@@ -939,7 +946,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets is_gift.
      *
-     * @param null|string $is_gift Indicates whether the item is a gift.  **Possible values**: `true`, `false`.
+     * @param null|string $is_gift Indicates whether the item is a gift.  **Possible values**: `true` and `false`.
      */
     public function setIsGift(?string $is_gift) : self
     {
@@ -959,7 +966,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets condition_note.
      *
-     * @param null|string $condition_note the condition of the item as described by the seller
+     * @param null|string $condition_note the condition of the item, as described by the seller
      */
     public function setConditionNote(?string $condition_note) : self
     {
@@ -979,7 +986,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets condition_id.
      *
-     * @param null|string $condition_id The condition of the item.  **Possible values**: `New`, `Used`, `Collectible`, `Refurbished`, `Preorder`, `Club`.
+     * @param null|string $condition_id The condition of the item.  **Possible values**: `New`, `Used`, `Collectible`, `Refurbished`, `Preorder`, and `Club`.
      */
     public function setConditionId(?string $condition_id) : self
     {
@@ -999,7 +1006,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets condition_subtype_id.
      *
-     * @param null|string $condition_subtype_id The subcondition of the item.  **Possible values**: `New`, `Mint`, `Very Good`, `Good`, `Acceptable`, `Poor`, `Club`, `OEM`, `Warranty`, `Refurbished Warranty`, `Refurbished`, `Open Box`, `Any`, `Other`.
+     * @param null|string $condition_subtype_id The subcondition of the item.  **Possible values**: `New`, `Mint`, `Very Good`, `Good`, `Acceptable`, `Poor`, `Club`, `OEM`, `Warranty`, `Refurbished Warranty`, `Refurbished`, `Open Box`, `Any`, and `Other`.
      */
     public function setConditionSubtypeId(?string $condition_subtype_id) : self
     {
@@ -1019,7 +1026,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets scheduled_delivery_start_date.
      *
-     * @param null|string $scheduled_delivery_start_date The start date of the scheduled delivery window in the time zone of the order destination. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format.
+     * @param null|string $scheduled_delivery_start_date The start date of the scheduled delivery window in the time zone for the order destination. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.
      */
     public function setScheduledDeliveryStartDate(?string $scheduled_delivery_start_date) : self
     {
@@ -1039,7 +1046,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets scheduled_delivery_end_date.
      *
-     * @param null|string $scheduled_delivery_end_date The end date of the scheduled delivery window in the time zone of the order destination. In <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format.
+     * @param null|string $scheduled_delivery_end_date The end date of the scheduled delivery window in the time zone for the order destination. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.
      */
     public function setScheduledDeliveryEndDate(?string $scheduled_delivery_end_date) : self
     {
@@ -1059,7 +1066,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets price_designation.
      *
-     * @param null|string $price_designation Indicates that the selling price is a special price that is available only for Amazon Business orders. For more information about the Amazon Business Seller Program, refer to [Amazon Business](https://business.amazon.com).   **Possible values**: `BusinessPrice` - A special price that is available only for Amazon Business orders.
+     * @param null|string $price_designation Indicates that the selling price is a special price that is only available for Amazon Business orders. For more information about the Amazon Business Seller Program, refer to the [Amazon Business website](https://www.amazon.com/b2b/info/amazon-business).   **Possible values**: `BusinessPrice`
      */
     public function setPriceDesignation(?string $price_designation) : self
     {
@@ -1099,7 +1106,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets serial_number_required.
      *
-     * @param null|bool $serial_number_required When true, the product type for this item has a serial number.  Returned only for Amazon Easy Ship orders.
+     * @param null|bool $serial_number_required When true, the product type for this item has a serial number.   Only returned for Amazon Easy Ship orders.
      */
     public function setSerialNumberRequired(?bool $serial_number_required) : self
     {
@@ -1119,7 +1126,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets is_transparency.
      *
-     * @param null|bool $is_transparency When true, the ASIN is enrolled in Transparency and the Transparency serial number that needs to be submitted can be determined by the following:  **1D or 2D Barcode:** This has a **T** logo. Submit either the 29-character alpha-numeric identifier beginning with **AZ** or **ZA**, or the 38-character Serialized Global Trade Item Number (SGTIN). **2D Barcode SN:** Submit the 7- to 20-character serial number barcode, which likely has the prefix **SN**. The serial number will be applied to the same side of the packaging as the GTIN (UPC/EAN/ISBN) barcode. **QR code SN:** Submit the URL that the QR code generates.
+     * @param null|bool $is_transparency When true, the ASIN is enrolled in Transparency. The Transparency serial number that you must submit is determined by:  **1D or 2D Barcode:** This has a **T** logo. Submit either the 29-character alpha-numeric identifier beginning with **AZ** or **ZA**, or the 38-character Serialized Global Trade Item Number (SGTIN). **2D Barcode SN:** Submit the 7- to 20-character serial number barcode, which likely has the prefix **SN**. The serial number is applied to the same side of the packaging as the GTIN (UPC/EAN/ISBN) barcode. **QR code SN:** Submit the URL that the QR code generates.
      */
     public function setIsTransparency(?bool $is_transparency) : self
     {
@@ -1139,7 +1146,7 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets ioss_number.
      *
-     * @param null|string $ioss_number The IOSS number for the marketplace. Sellers shipping to the European Union (EU) from outside of the EU must provide this IOSS number to their carrier when Amazon has collected the VAT on the sale.
+     * @param null|string $ioss_number The IOSS number of the marketplace. Sellers shipping to the EU from outside the EU must provide this IOSS number to their carrier when Amazon has collected the VAT on the sale.
      */
     public function setIossNumber(?string $ioss_number) : self
     {
@@ -1306,6 +1313,26 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     public function setShippingConstraints(?ShippingConstraints $shipping_constraints) : self
     {
         $this->container['shipping_constraints'] = $shipping_constraints;
+
+        return $this;
+    }
+
+    /**
+     * Gets amazon_programs.
+     */
+    public function getAmazonPrograms() : ?AmazonPrograms
+    {
+        return $this->container['amazon_programs'];
+    }
+
+    /**
+     * Sets amazon_programs.
+     *
+     * @param null|AmazonPrograms $amazon_programs amazon_programs
+     */
+    public function setAmazonPrograms(?AmazonPrograms $amazon_programs) : self
+    {
+        $this->container['amazon_programs'] = $amazon_programs;
 
         return $this;
     }

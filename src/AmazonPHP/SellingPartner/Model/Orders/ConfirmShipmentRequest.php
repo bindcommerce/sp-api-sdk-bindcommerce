@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Selling Partner API for Orders.
+ * Orders v0.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * The version of the OpenAPI document: v0
  *
@@ -28,8 +28,6 @@ class ConfirmShipmentRequest implements \ArrayAccess, \JsonSerializable, \String
     final public const DISCRIMINATOR = null;
 
     final public const COD_COLLECTION_METHOD_DIRECT_PAYMENT = 'DirectPayment';
-
-    final public const COD_COLLECTION_METHOD_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
      * The original name of the model.
@@ -197,7 +195,6 @@ class ConfirmShipmentRequest implements \ArrayAccess, \JsonSerializable, \String
     {
         return [
             self::COD_COLLECTION_METHOD_DIRECT_PAYMENT,
-            self::COD_COLLECTION_METHOD_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -262,7 +259,7 @@ class ConfirmShipmentRequest implements \ArrayAccess, \JsonSerializable, \String
     /**
      * Sets cod_collection_method.
      *
-     * @param null|string $cod_collection_method the cod collection method, support in JP only
+     * @param null|string $cod_collection_method the COD collection method (only supported in the JP marketplace)
      */
     public function setCodCollectionMethod(?string $cod_collection_method) : self
     {

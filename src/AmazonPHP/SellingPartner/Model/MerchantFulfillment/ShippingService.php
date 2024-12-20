@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Merchant Fulfillment.
  *
- * The Selling Partner API for Merchant Fulfillment helps you build applications that let sellers purchase shipping for non-Prime and Prime orders using Amazon’s Buy Shipping Services.
+ * With the Selling Partner API for Merchant Fulfillment, you can build applications that sellers can use to purchase shipping for non-Prime and Prime orders using Amazon's Buy Shipping Services.
  *
  * The version of the OpenAPI document: v0
  *
@@ -53,6 +53,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'available_label_formats' => '\AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormat[]',
         'available_format_options_for_label' => '\AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormatOption[]',
         'requires_additional_seller_inputs' => 'bool',
+        'benefits' => '\AmazonPHP\SellingPartner\Model\MerchantFulfillment\Benefits',
     ];
 
     /**
@@ -78,6 +79,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'available_label_formats' => null,
         'available_format_options_for_label' => null,
         'requires_additional_seller_inputs' => null,
+        'benefits' => null,
     ];
 
     /**
@@ -100,6 +102,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'available_label_formats' => 'AvailableLabelFormats',
         'available_format_options_for_label' => 'AvailableFormatOptionsForLabel',
         'requires_additional_seller_inputs' => 'RequiresAdditionalSellerInputs',
+        'benefits' => 'Benefits',
     ];
 
     /**
@@ -121,6 +124,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'available_label_formats' => 'setAvailableLabelFormats',
         'available_format_options_for_label' => 'setAvailableFormatOptionsForLabel',
         'requires_additional_seller_inputs' => 'setRequiresAdditionalSellerInputs',
+        'benefits' => 'setBenefits',
     ];
 
     /**
@@ -142,6 +146,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'available_label_formats' => 'getAvailableLabelFormats',
         'available_format_options_for_label' => 'getAvailableFormatOptionsForLabel',
         'requires_additional_seller_inputs' => 'getRequiresAdditionalSellerInputs',
+        'benefits' => 'getBenefits',
     ];
 
     /**
@@ -172,6 +177,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         $this->container['available_label_formats'] = $data['available_label_formats'] ?? null;
         $this->container['available_format_options_for_label'] = $data['available_format_options_for_label'] ?? null;
         $this->container['requires_additional_seller_inputs'] = $data['requires_additional_seller_inputs'] ?? null;
+        $this->container['benefits'] = $data['benefits'] ?? null;
     }
 
     /**
@@ -290,6 +296,10 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         if ($this->container['requires_additional_seller_inputs'] === null) {
             throw new AssertionException("'requires_additional_seller_inputs' can't be null");
         }
+
+        if ($this->container['benefits'] !== null) {
+            $this->container['benefits']->validate();
+        }
     }
 
     /**
@@ -383,7 +393,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets ship_date.
      *
-     * @param \DateTimeInterface $ship_date ship_date
+     * @param \DateTimeInterface $ship_date date-time formatted timestamp
      */
     public function setShipDate(\DateTimeInterface $ship_date) : self
     {
@@ -403,7 +413,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets earliest_estimated_delivery_date.
      *
-     * @param null|\DateTimeInterface $earliest_estimated_delivery_date earliest_estimated_delivery_date
+     * @param null|\DateTimeInterface $earliest_estimated_delivery_date date-time formatted timestamp
      */
     public function setEarliestEstimatedDeliveryDate(?\DateTimeInterface $earliest_estimated_delivery_date) : self
     {
@@ -423,7 +433,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets latest_estimated_delivery_date.
      *
-     * @param null|\DateTimeInterface $latest_estimated_delivery_date latest_estimated_delivery_date
+     * @param null|\DateTimeInterface $latest_estimated_delivery_date date-time formatted timestamp
      */
     public function setLatestEstimatedDeliveryDate(?\DateTimeInterface $latest_estimated_delivery_date) : self
     {
@@ -552,6 +562,26 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     public function setRequiresAdditionalSellerInputs(bool $requires_additional_seller_inputs) : self
     {
         $this->container['requires_additional_seller_inputs'] = $requires_additional_seller_inputs;
+
+        return $this;
+    }
+
+    /**
+     * Gets benefits.
+     */
+    public function getBenefits() : ?Benefits
+    {
+        return $this->container['benefits'];
+    }
+
+    /**
+     * Sets benefits.
+     *
+     * @param null|Benefits $benefits benefits
+     */
+    public function setBenefits(?Benefits $benefits) : self
+    {
+        $this->container['benefits'] = $benefits;
 
         return $this;
     }

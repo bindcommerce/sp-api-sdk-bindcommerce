@@ -17,7 +17,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Log\LoggerInterface;
 
 /**
- * Selling Partner API for Feeds.
+ * Feeds v2021-06-30.
  *
  * The Selling Partner API for Feeds lets you upload data to Amazon on behalf of a selling partner.
  *
@@ -35,6 +35,10 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation cancelFeed.
      *
+     * cancelFeed
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws ApiException on non-2xx response
@@ -217,6 +221,10 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation createFeed.
      *
+     * createFeed
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body Information required to create the feed. (required)
      *
      * @throws ApiException on non-2xx response
@@ -403,6 +411,10 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation createFeedDocument.
      *
+     * createFeedDocument
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body Specifies the content type for the createFeedDocument operation. (required)
      *
      * @throws ApiException on non-2xx response
@@ -589,6 +601,10 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation getFeed.
      *
+     * getFeed
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws ApiException on non-2xx response
@@ -776,6 +792,10 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation getFeedDocument.
      *
+     * getFeedDocument
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $feed_document_id The identifier of the feed document. (required)
      *
      * @throws ApiException on non-2xx response
@@ -963,6 +983,10 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation getFeeds.
      *
+     * getFeeds
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param null|string[] $feed_types A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
      * @param null|string[] $marketplace_ids A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
      * @param null|int $page_size The maximum number of feeds to return in a single call. (optional, default to 10)

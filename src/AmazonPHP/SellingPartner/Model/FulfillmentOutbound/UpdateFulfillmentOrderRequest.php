@@ -309,7 +309,7 @@ class UpdateFulfillmentOrderRequest implements \ArrayAccess, \JsonSerializable, 
     /**
      * Sets displayable_order_date.
      *
-     * @param null|\DateTimeInterface $displayable_order_date displayable_order_date
+     * @param null|\DateTimeInterface $displayable_order_date Date timestamp
      */
     public function setDisplayableOrderDate(?\DateTimeInterface $displayable_order_date) : self
     {

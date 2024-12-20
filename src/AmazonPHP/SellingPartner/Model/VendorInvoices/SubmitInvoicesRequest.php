@@ -9,7 +9,7 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Selling Partner API for Retail Procurement Payments.
+ * Vendor Invoices v1.
  *
  * The Selling Partner API for Retail Procurement Payments provides programmatic access to vendors payments data.
  *
@@ -194,7 +194,7 @@ class SubmitInvoicesRequest implements \ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Sets invoices.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\VendorInvoices\Invoice[] $invoices invoices
+     * @param null|\AmazonPHP\SellingPartner\Model\VendorInvoices\Invoice[] $invoices an array of Invoice objects representing the invoices or credit notes to be submitted
      */
     public function setInvoices(?array $invoices) : self
     {

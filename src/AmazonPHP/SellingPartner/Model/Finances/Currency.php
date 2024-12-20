@@ -218,7 +218,7 @@ class Currency implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
     /**
      * Sets currency_amount.
      *
-     * @param null|float $currency_amount currency_amount
+     * @param null|float $currency_amount fields with a schema type of BigDecimal are a signed decimal number (for example CurrencyAmount)
      */
     public function setCurrencyAmount(?float $currency_amount) : self
     {

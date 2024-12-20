@@ -75,9 +75,9 @@ interface MessagingSDKInterface
     /**
      * Operation confirmCustomizationDetails.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmCustomizationDetailsRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmCustomizationDetailsRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -89,9 +89,9 @@ interface MessagingSDKInterface
     /**
      * Operation createAmazonMotors.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateAmazonMotorsRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateAmazonMotorsRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -103,9 +103,9 @@ interface MessagingSDKInterface
     /**
      * Operation createConfirmDeliveryDetails.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmDeliveryDetailsRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmDeliveryDetailsRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -117,9 +117,9 @@ interface MessagingSDKInterface
     /**
      * Operation createConfirmOrderDetails.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmOrderDetailsRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmOrderDetailsRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -131,9 +131,9 @@ interface MessagingSDKInterface
     /**
      * Operation createConfirmServiceDetails.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmServiceDetailsRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmServiceDetailsRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -145,9 +145,9 @@ interface MessagingSDKInterface
     /**
      * Operation createDigitalAccessKey.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateDigitalAccessKeyRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateDigitalAccessKeyRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -159,9 +159,9 @@ interface MessagingSDKInterface
     /**
      * Operation createLegalDisclosure.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateLegalDisclosureRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateLegalDisclosureRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -173,8 +173,8 @@ interface MessagingSDKInterface
     /**
      * Operation createNegativeFeedbackRemoval.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -186,9 +186,9 @@ interface MessagingSDKInterface
     /**
      * Operation createUnexpectedProblem.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateUnexpectedProblemRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateUnexpectedProblemRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -200,9 +200,9 @@ interface MessagingSDKInterface
     /**
      * Operation createWarranty.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateWarrantyRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateWarrantyRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -214,8 +214,8 @@ interface MessagingSDKInterface
     /**
      * Operation getAttributes.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -228,7 +228,7 @@ interface MessagingSDKInterface
      * Operation getMessagingActionsForOrder.
      *
      * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which you want a list of available message types. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -240,9 +240,9 @@ interface MessagingSDKInterface
     /**
      * Operation sendInvoice.
      *
-     * @param string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\InvoiceRequest $body body (required)
+     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
+     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Messaging\InvoiceRequest $body This contains the message body for a message. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException

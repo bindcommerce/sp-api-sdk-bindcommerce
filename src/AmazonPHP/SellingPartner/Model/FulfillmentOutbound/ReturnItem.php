@@ -415,7 +415,7 @@ class ReturnItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
     /**
      * Sets status_changed_date.
      *
-     * @param \DateTimeInterface $status_changed_date status_changed_date
+     * @param \DateTimeInterface $status_changed_date Date timestamp
      */
     public function setStatusChangedDate(\DateTimeInterface $status_changed_date) : self
     {

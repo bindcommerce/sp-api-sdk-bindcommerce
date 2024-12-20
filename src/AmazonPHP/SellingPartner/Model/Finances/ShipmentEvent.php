@@ -43,6 +43,7 @@ class ShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
         'amazon_order_id' => 'string',
         'seller_order_id' => 'string',
         'marketplace_name' => 'string',
+        'store_name' => 'string',
         'order_charge_list' => '\AmazonPHP\SellingPartner\Model\Finances\ChargeComponent[]',
         'order_charge_adjustment_list' => '\AmazonPHP\SellingPartner\Model\Finances\ChargeComponent[]',
         'shipment_fee_list' => '\AmazonPHP\SellingPartner\Model\Finances\FeeComponent[]',
@@ -68,6 +69,7 @@ class ShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
         'amazon_order_id' => null,
         'seller_order_id' => null,
         'marketplace_name' => null,
+        'store_name' => null,
         'order_charge_list' => null,
         'order_charge_adjustment_list' => null,
         'shipment_fee_list' => null,
@@ -90,6 +92,7 @@ class ShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
         'amazon_order_id' => 'AmazonOrderId',
         'seller_order_id' => 'SellerOrderId',
         'marketplace_name' => 'MarketplaceName',
+        'store_name' => 'StoreName',
         'order_charge_list' => 'OrderChargeList',
         'order_charge_adjustment_list' => 'OrderChargeAdjustmentList',
         'shipment_fee_list' => 'ShipmentFeeList',
@@ -111,6 +114,7 @@ class ShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
         'amazon_order_id' => 'setAmazonOrderId',
         'seller_order_id' => 'setSellerOrderId',
         'marketplace_name' => 'setMarketplaceName',
+        'store_name' => 'setStoreName',
         'order_charge_list' => 'setOrderChargeList',
         'order_charge_adjustment_list' => 'setOrderChargeAdjustmentList',
         'shipment_fee_list' => 'setShipmentFeeList',
@@ -132,6 +136,7 @@ class ShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
         'amazon_order_id' => 'getAmazonOrderId',
         'seller_order_id' => 'getSellerOrderId',
         'marketplace_name' => 'getMarketplaceName',
+        'store_name' => 'getStoreName',
         'order_charge_list' => 'getOrderChargeList',
         'order_charge_adjustment_list' => 'getOrderChargeAdjustmentList',
         'shipment_fee_list' => 'getShipmentFeeList',
@@ -162,6 +167,7 @@ class ShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
         $this->container['amazon_order_id'] = $data['amazon_order_id'] ?? null;
         $this->container['seller_order_id'] = $data['seller_order_id'] ?? null;
         $this->container['marketplace_name'] = $data['marketplace_name'] ?? null;
+        $this->container['store_name'] = $data['store_name'] ?? null;
         $this->container['order_charge_list'] = $data['order_charge_list'] ?? null;
         $this->container['order_charge_adjustment_list'] = $data['order_charge_adjustment_list'] ?? null;
         $this->container['shipment_fee_list'] = $data['shipment_fee_list'] ?? null;
@@ -309,6 +315,26 @@ class ShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     public function setMarketplaceName(?string $marketplace_name) : self
     {
         $this->container['marketplace_name'] = $marketplace_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name.
+     */
+    public function getStoreName() : ?string
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name.
+     *
+     * @param null|string $store_name the name of the store where the event occurred
+     */
+    public function setStoreName(?string $store_name) : self
+    {
+        $this->container['store_name'] = $store_name;
 
         return $this;
     }
@@ -478,7 +504,7 @@ class ShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets posted_date.
      *
-     * @param null|\DateTimeInterface $posted_date posted_date
+     * @param null|\DateTimeInterface $posted_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setPostedDate(?\DateTimeInterface $posted_date) : self
     {

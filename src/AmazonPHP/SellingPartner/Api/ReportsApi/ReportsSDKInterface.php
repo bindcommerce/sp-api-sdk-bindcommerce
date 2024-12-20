@@ -7,7 +7,7 @@ use AmazonPHP\SellingPartner\Exception\ApiException;
 use AmazonPHP\SellingPartner\Exception\InvalidArgumentException;
 
 /**
- * Selling Partner API for Reports.
+ * Report v2021-06-30.
  *
  * The Selling Partner API for Reports lets you retrieve and manage a variety of reports that can help selling partners manage their businesses.
  *
@@ -59,6 +59,10 @@ interface ReportsSDKInterface
     /**
      * Operation cancelReport.
      *
+     * cancelReport
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws ApiException on non-2xx response
@@ -69,6 +73,10 @@ interface ReportsSDKInterface
     /**
      * Operation cancelReportSchedule.
      *
+     * cancelReportSchedule
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws ApiException on non-2xx response
@@ -79,6 +87,10 @@ interface ReportsSDKInterface
     /**
      * Operation createReport.
      *
+     * createReport
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportSpecification $body Information required to create the report. (required)
      *
      * @throws ApiException on non-2xx response
@@ -91,6 +103,10 @@ interface ReportsSDKInterface
     /**
      * Operation createReportSchedule.
      *
+     * createReportSchedule
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Reports\CreateReportScheduleSpecification $body Information required to create the report schedule. (required)
      *
      * @throws ApiException on non-2xx response
@@ -103,6 +119,10 @@ interface ReportsSDKInterface
     /**
      * Operation getReport.
      *
+     * getReport
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws ApiException on non-2xx response
@@ -115,6 +135,10 @@ interface ReportsSDKInterface
     /**
      * Operation getReportDocument.
      *
+     * getReportDocument
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $report_document_id The identifier for the report document. (required)
      *
      * @throws ApiException on non-2xx response
@@ -127,6 +151,10 @@ interface ReportsSDKInterface
     /**
      * Operation getReportSchedule.
      *
+     * getReportSchedule
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws ApiException on non-2xx response
@@ -139,6 +167,10 @@ interface ReportsSDKInterface
     /**
      * Operation getReportSchedules.
      *
+     * getReportSchedules
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string[] $report_types A list of report types used to filter report schedules. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information. (required)
      *
      * @throws ApiException on non-2xx response
@@ -151,6 +183,10 @@ interface ReportsSDKInterface
     /**
      * Operation getReports.
      *
+     * getReports
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param null|string[] $report_types A list of report types used to filter reports. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information. When reportTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either reportTypes or nextToken is required. (optional)
      * @param null|string[] $processing_statuses A list of processing statuses used to filter reports. (optional)
      * @param null|string[] $marketplace_ids A list of marketplace identifiers used to filter reports. The reports returned will match at least one of the marketplaces that you specify. (optional)

@@ -443,7 +443,7 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets order_unfulfillable_reasons.
      *
-     * @param null|string[] $order_unfulfillable_reasons order_unfulfillable_reasons
+     * @param null|string[] $order_unfulfillable_reasons String list
      */
     public function setOrderUnfulfillableReasons(?array $order_unfulfillable_reasons) : self
     {

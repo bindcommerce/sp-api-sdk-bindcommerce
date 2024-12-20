@@ -304,10 +304,6 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
             throw new AssertionException("'marketplace_id' can't be null");
         }
 
-        if ($this->container['asin'] === null) {
-            throw new AssertionException("'asin' can't be null");
-        }
-
         if ($this->container['product_type'] === null) {
             throw new AssertionException("'product_type' can't be null");
         }
@@ -326,10 +322,6 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
 
         if ($this->container['status'] === null) {
             throw new AssertionException("'status' can't be null");
-        }
-
-        if ($this->container['item_name'] === null) {
-            throw new AssertionException("'item_name' can't be null");
         }
 
         if ($this->container['created_date'] === null) {
@@ -368,7 +360,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Gets asin.
      */
-    public function getAsin() : string
+    public function getAsin() : ?string
     {
         return $this->container['asin'];
     }
@@ -376,9 +368,9 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets asin.
      *
-     * @param string $asin amazon Standard Identification Number (ASIN) of the listings item
+     * @param null|string $asin amazon Standard Identification Number (ASIN) of the listings item
      */
-    public function setAsin(string $asin) : self
+    public function setAsin(?string $asin) : self
     {
         $this->container['asin'] = $asin;
 
@@ -470,7 +462,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Gets item_name.
      */
-    public function getItemName() : string
+    public function getItemName() : ?string
     {
         return $this->container['item_name'];
     }
@@ -478,9 +470,9 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets item_name.
      *
-     * @param string $item_name the name or title associated with an Amazon catalog item
+     * @param null|string $item_name the name or title associated with an Amazon catalog item
      */
-    public function setItemName(string $item_name) : self
+    public function setItemName(?string $item_name) : self
     {
         $this->container['item_name'] = $item_name;
 

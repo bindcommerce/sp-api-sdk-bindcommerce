@@ -291,7 +291,7 @@ class UnfulfillablePreviewItem implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets item_unfulfillable_reasons.
      *
-     * @param null|string[] $item_unfulfillable_reasons item_unfulfillable_reasons
+     * @param null|string[] $item_unfulfillable_reasons String list
      */
     public function setItemUnfulfillableReasons(?array $item_unfulfillable_reasons) : self
     {

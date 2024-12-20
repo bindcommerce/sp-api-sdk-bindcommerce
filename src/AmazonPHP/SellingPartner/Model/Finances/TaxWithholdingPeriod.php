@@ -198,7 +198,7 @@ class TaxWithholdingPeriod implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets start_date.
      *
-     * @param null|\DateTimeInterface $start_date start_date
+     * @param null|\DateTimeInterface $start_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setStartDate(?\DateTimeInterface $start_date) : self
     {
@@ -218,7 +218,7 @@ class TaxWithholdingPeriod implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets end_date.
      *
-     * @param null|\DateTimeInterface $end_date end_date
+     * @param null|\DateTimeInterface $end_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setEndDate(?\DateTimeInterface $end_date) : self
     {

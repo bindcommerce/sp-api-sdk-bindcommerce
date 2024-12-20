@@ -44,6 +44,8 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'carrier_code' => 'string',
         'tracking_number' => 'string',
         'estimated_arrival_date' => '\DateTimeInterface',
+        'locker_details' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\LockerDetails',
+        'delivery_information' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\DeliveryInformation',
     ];
 
     /**
@@ -60,6 +62,8 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'carrier_code' => null,
         'tracking_number' => null,
         'estimated_arrival_date' => 'date-time',
+        'locker_details' => null,
+        'delivery_information' => null,
     ];
 
     /**
@@ -73,6 +77,8 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'carrier_code' => 'carrierCode',
         'tracking_number' => 'trackingNumber',
         'estimated_arrival_date' => 'estimatedArrivalDate',
+        'locker_details' => 'lockerDetails',
+        'delivery_information' => 'deliveryInformation',
     ];
 
     /**
@@ -85,6 +91,8 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'carrier_code' => 'setCarrierCode',
         'tracking_number' => 'setTrackingNumber',
         'estimated_arrival_date' => 'setEstimatedArrivalDate',
+        'locker_details' => 'setLockerDetails',
+        'delivery_information' => 'setDeliveryInformation',
     ];
 
     /**
@@ -97,6 +105,8 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'carrier_code' => 'getCarrierCode',
         'tracking_number' => 'getTrackingNumber',
         'estimated_arrival_date' => 'getEstimatedArrivalDate',
+        'locker_details' => 'getLockerDetails',
+        'delivery_information' => 'getDeliveryInformation',
     ];
 
     /**
@@ -118,6 +128,8 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         $this->container['carrier_code'] = $data['carrier_code'] ?? null;
         $this->container['tracking_number'] = $data['tracking_number'] ?? null;
         $this->container['estimated_arrival_date'] = $data['estimated_arrival_date'] ?? null;
+        $this->container['locker_details'] = $data['locker_details'] ?? null;
+        $this->container['delivery_information'] = $data['delivery_information'] ?? null;
     }
 
     /**
@@ -204,6 +216,14 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         if ($this->container['carrier_code'] === null) {
             throw new AssertionException("'carrier_code' can't be null");
         }
+
+        if ($this->container['locker_details'] !== null) {
+            $this->container['locker_details']->validate();
+        }
+
+        if ($this->container['delivery_information'] !== null) {
+            $this->container['delivery_information']->validate();
+        }
     }
 
     /**
@@ -277,11 +297,51 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
     /**
      * Sets estimated_arrival_date.
      *
-     * @param null|\DateTimeInterface $estimated_arrival_date estimated_arrival_date
+     * @param null|\DateTimeInterface $estimated_arrival_date Date timestamp
      */
     public function setEstimatedArrivalDate(?\DateTimeInterface $estimated_arrival_date) : self
     {
         $this->container['estimated_arrival_date'] = $estimated_arrival_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets locker_details.
+     */
+    public function getLockerDetails() : ?LockerDetails
+    {
+        return $this->container['locker_details'];
+    }
+
+    /**
+     * Sets locker_details.
+     *
+     * @param null|LockerDetails $locker_details locker_details
+     */
+    public function setLockerDetails(?LockerDetails $locker_details) : self
+    {
+        $this->container['locker_details'] = $locker_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_information.
+     */
+    public function getDeliveryInformation() : ?DeliveryInformation
+    {
+        return $this->container['delivery_information'];
+    }
+
+    /**
+     * Sets delivery_information.
+     *
+     * @param null|DeliveryInformation $delivery_information delivery_information
+     */
+    public function setDeliveryInformation(?DeliveryInformation $delivery_information) : self
+    {
+        $this->container['delivery_information'] = $delivery_information;
 
         return $this;
     }

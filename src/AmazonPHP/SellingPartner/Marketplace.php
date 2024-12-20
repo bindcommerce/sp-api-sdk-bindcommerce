@@ -37,147 +37,147 @@ final class Marketplace
             'id'     => 'A2EUQ1WTGCTBG2',
             'region' => Regions::NORTH_AMERICA,
             'sellercentral' => 'https://sellercentral.amazon.ca',
-            'vendorcentral' => 'https://vendorcentral.amazon.ca'
+            'vendorcentral' => 'https://vendorcentral.amazon.ca',
         ],
         'US' => [
             'name'   => 'United States of America',
             'id'     => 'ATVPDKIKX0DER',
             'region' => Regions::NORTH_AMERICA,
             'sellercentral' => 'https://sellercentral.amazon.com',
-            'vendorcentral' => 'https://vendorcentral.amazon.com'
+            'vendorcentral' => 'https://vendorcentral.amazon.com',
         ],
         'MX' => [
             'name'   => 'Mexico',
             'id'     => 'A1AM78C64UM0Y8',
             'region' => Regions::NORTH_AMERICA,
             'sellercentral' => 'https://sellercentral.amazon.com.mx',
-            'vendorcentral' => 'https://vendorcentral.amazon.com.mx'
+            'vendorcentral' => 'https://vendorcentral.amazon.com.mx',
         ],
         'BR' => [
             'name'   => 'Brazil',
             'id'     => 'A2Q3Y263D00KWC',
             'region' => Regions::NORTH_AMERICA,
             'sellercentral' => 'https://sellercentral.amazon.com.br',
-            'vendorcentral' => 'https://vendorcentral.amazon.com.br'
+            'vendorcentral' => 'https://vendorcentral.amazon.com.br',
         ],
         'ES' => [
             'name'   => 'Spain',
             'id'     => 'A1RKKUPIHCS9HS',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral-europe.amazon.com',
-            'vendorcentral' => 'https://vendorcentral.amazon.es'
+            'vendorcentral' => 'https://vendorcentral.amazon.es',
         ],
         'GB' => [
             'name'   => 'United Kingdom',
             'id'     => 'A1F83G8C2ARO7P',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral-europe.amazon.com',
-            'vendorcentral' => 'https://vendorcentral.amazon.co.uk'
+            'vendorcentral' => 'https://vendorcentral.amazon.co.uk',
         ],
         'FR' => [
             'name'   => 'France',
             'id'     => 'A13V1IB3VIYZZH',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral-europe.amazon.com',
-            'vendorcentral' => 'https://vendorcentral.amazon.fr'
+            'vendorcentral' => 'https://vendorcentral.amazon.fr',
         ],
         'BE' => [
             'name'   => 'Belgium',
             'id'     => 'AMEN7PMS3EDWL',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral.amazon.com.be',
-            'vendorcentral' => 'https://vendorcentral.amazon.com.be'
+            'vendorcentral' => 'https://vendorcentral.amazon.com.be',
         ],
         'NL' => [
             'name'   => 'Netherlands',
             'id'     => 'A1805IZSGTT6HS',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral.amazon.nl',
-            'vendorcentral' => 'https://vendorcentral.amazon.nl'
+            'vendorcentral' => 'https://vendorcentral.amazon.nl',
         ],
         'DE' => [
             'name'   => 'Germany',
             'id'     => 'A1PA6795UKMFR9',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral-europe.amazon.com',
-            'vendorcentral' => 'https://vendorcentral.amazon.de'
+            'vendorcentral' => 'https://vendorcentral.amazon.de',
         ],
         'IT' => [
             'name'   => 'Italy',
             'id'     => 'APJ6JRA9NG5V4',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral-europe.amazon.com',
-            'vendorcentral' => 'https://vendorcentral.amazon.it'
+            'vendorcentral' => 'https://vendorcentral.amazon.it',
         ],
         'SE' => [
             'name'   => 'Sweden',
             'id'     => 'A2NODRKZP88ZB9',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral.amazon.se',
-            'vendorcentral' => 'https://vendorcentral.amazon.se'
+            'vendorcentral' => 'https://vendorcentral.amazon.se',
         ],
         'PL' => [
             'name'   => 'Poland',
             'id'     => 'A1C3SOZRARQ6R3',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral.amazon.pl',
-            'vendorcentral' => 'https://vendorcentral.amazon.pl'
+            'vendorcentral' => 'https://vendorcentral.amazon.pl',
         ],
         'EG' => [
             'name'   => 'Egypt',
             'id'     => 'ARBP9OOSHTCHU',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral.amazon.eg',
-            'vendorcentral' => 'https://vendorcentral.amazon.me'
+            'vendorcentral' => 'https://vendorcentral.amazon.me',
         ],
         'TR' => [
             'name'   => 'Turkey',
             'id'     => 'A33AVAJ2PDY3EV',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral.amazon.com.tr',
-            'vendorcentral' => 'https://vendorcentral.amazon.tr'
+            'vendorcentral' => 'https://vendorcentral.amazon.tr',
         ],
         'SA' => [
             'name'   => 'Saudi Arabia',
             'id'     => 'A17E79C6D8DWNP',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral.amazon.sa',
-            'vendorcentral' => 'https://vendorcentral.amazon.me'
+            'vendorcentral' => 'https://vendorcentral.amazon.me',
         ],
         'AE' => [
             'name'   => 'United Arab Emirates',
             'id'     => 'A2VIGQ35RCS4UG',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral.amazon.ae',
-            'vendorcentral' => 'https://vendorcentral.amazon.me'
+            'vendorcentral' => 'https://vendorcentral.amazon.me',
         ],
         'IN' => [
             'name'   => 'India',
             'id'     => 'A21TJRUUN4KGV',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral.amazon.in',
-            'vendorcentral' => 'https://www.vendorcentral.in'
+            'vendorcentral' => 'https://www.vendorcentral.in',
         ],
         'SG' => [
             'name'   => 'Singapore',
             'id'     => 'A19VAU5U5O7RUS',
             'region' => Regions::FAR_EAST,
             'sellercentral' => 'https://sellercentral.amazon.sg',
-            'vendorcentral' => 'https://vendorcentral.amazon.com.sg'
+            'vendorcentral' => 'https://vendorcentral.amazon.com.sg',
         ],
         'AU' => [
             'name'   => 'Australia',
             'id'     => 'A39IBJ37TRP1C6',
             'region' => Regions::FAR_EAST,
             'sellercentral' => 'https://sellercentral.amazon.com.au',
-            'vendorcentral' => 'https://vendorcentral.amazon.com.au'
+            'vendorcentral' => 'https://vendorcentral.amazon.com.au',
         ],
         'JP' => [
             'name'   => 'Japan',
             'id'     => 'A1VC38T7YXB528',
             'region' => Regions::FAR_EAST,
             'sellercentral' => 'https://sellercentral.amazon.co.jp',
-            'vendorcentral' => 'https://vendorcentral.amazon.co.jp'
+            'vendorcentral' => 'https://vendorcentral.amazon.co.jp',
         ],
     ];
 
@@ -190,7 +190,7 @@ final class Marketplace
     private string $region;
 
     private string $sellerCentralUrl;
-    
+
     private string $vendorCentralUrl;
 
     private function __construct(string $name, string $id, string $countryCode, string $region, string $sellerCentralUrl, string $vendorCentralUrl)

@@ -344,7 +344,7 @@ class FulfillmentShipment implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets shipping_date.
      *
-     * @param null|\DateTimeInterface $shipping_date shipping_date
+     * @param null|\DateTimeInterface $shipping_date Date timestamp
      */
     public function setShippingDate(?\DateTimeInterface $shipping_date) : self
     {
@@ -364,7 +364,7 @@ class FulfillmentShipment implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets estimated_arrival_date.
      *
-     * @param null|\DateTimeInterface $estimated_arrival_date estimated_arrival_date
+     * @param null|\DateTimeInterface $estimated_arrival_date Date timestamp
      */
     public function setEstimatedArrivalDate(?\DateTimeInterface $estimated_arrival_date) : self
     {

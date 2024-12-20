@@ -47,6 +47,7 @@ class ServiceFeeEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'fn_sku' => 'string',
         'fee_description' => 'string',
         'asin' => 'string',
+        'store_name' => 'string',
     ];
 
     /**
@@ -66,6 +67,7 @@ class ServiceFeeEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'fn_sku' => null,
         'fee_description' => null,
         'asin' => null,
+        'store_name' => null,
     ];
 
     /**
@@ -82,6 +84,7 @@ class ServiceFeeEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'fn_sku' => 'FnSKU',
         'fee_description' => 'FeeDescription',
         'asin' => 'ASIN',
+        'store_name' => 'StoreName',
     ];
 
     /**
@@ -97,6 +100,7 @@ class ServiceFeeEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'fn_sku' => 'setFnSku',
         'fee_description' => 'setFeeDescription',
         'asin' => 'setAsin',
+        'store_name' => 'setStoreName',
     ];
 
     /**
@@ -112,6 +116,7 @@ class ServiceFeeEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'fn_sku' => 'getFnSku',
         'fee_description' => 'getFeeDescription',
         'asin' => 'getAsin',
+        'store_name' => 'getStoreName',
     ];
 
     /**
@@ -136,6 +141,7 @@ class ServiceFeeEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
         $this->container['fn_sku'] = $data['fn_sku'] ?? null;
         $this->container['fee_description'] = $data['fee_description'] ?? null;
         $this->container['asin'] = $data['asin'] ?? null;
+        $this->container['store_name'] = $data['store_name'] ?? null;
     }
 
     /**
@@ -355,6 +361,26 @@ class ServiceFeeEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
     public function setAsin(?string $asin) : self
     {
         $this->container['asin'] = $asin;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name.
+     */
+    public function getStoreName() : ?string
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name.
+     *
+     * @param null|string $store_name the name of the store where the event occurred
+     */
+    public function setStoreName(?string $store_name) : self
+    {
+        $this->container['store_name'] = $store_name;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Merchant Fulfillment.
  *
- * The Selling Partner API for Merchant Fulfillment helps you build applications that let sellers purchase shipping for non-Prime and Prime orders using Amazon’s Buy Shipping Services.
+ * With the Selling Partner API for Merchant Fulfillment, you can build applications that sellers can use to purchase shipping for non-Prime and Prime orders using Amazon's Buy Shipping Services.
  *
  * The version of the OpenAPI document: v0
  *
@@ -403,7 +403,7 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
     /**
      * Sets item_list.
      *
-     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Item[] $item_list the list of items to be included in a shipment
+     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Item[] $item_list the list of items you want to include in a shipment
      */
     public function setItemList(array $item_list) : self
     {
@@ -603,7 +603,7 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
     /**
      * Sets created_date.
      *
-     * @param \DateTimeInterface $created_date created_date
+     * @param \DateTimeInterface $created_date date-time formatted timestamp
      */
     public function setCreatedDate(\DateTimeInterface $created_date) : self
     {
@@ -623,7 +623,7 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
     /**
      * Sets last_updated_date.
      *
-     * @param null|\DateTimeInterface $last_updated_date last_updated_date
+     * @param null|\DateTimeInterface $last_updated_date date-time formatted timestamp
      */
     public function setLastUpdatedDate(?\DateTimeInterface $last_updated_date) : self
     {

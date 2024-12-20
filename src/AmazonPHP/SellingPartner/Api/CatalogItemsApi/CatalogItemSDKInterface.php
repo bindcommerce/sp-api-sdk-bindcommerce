@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace AmazonPHP\SellingPartner\Api\CatalogApi;
+namespace AmazonPHP\SellingPartner\Api\CatalogItemsApi;
 
 use AmazonPHP\SellingPartner\AccessToken;
 use AmazonPHP\SellingPartner\Exception\ApiException;
 use AmazonPHP\SellingPartner\Exception\InvalidArgumentException;
 
 /**
- * Selling Partner API for Catalog Items.
+ * Catalog Items v2022-04-01.
  *
  * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
  *
@@ -31,6 +31,10 @@ interface CatalogItemSDKInterface
     /**
      * Operation getCatalogItem.
      *
+     * getCatalogItem
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers. Data sets in the response contain data only for the specified marketplaces. (required)
      * @param null|string[] $included_data A comma-delimited list of data sets to include in the response. Default: &#x60;summaries&#x60;. (optional)
@@ -46,6 +50,10 @@ interface CatalogItemSDKInterface
     /**
      * Operation searchCatalogItems.
      *
+     * searchCatalogItems
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param null|string[] $identifiers A comma-delimited list of product identifiers to search the Amazon catalog for. **Note:** Cannot be used with &#x60;keywords&#x60;. (optional)
      * @param null|string $identifiers_type Type of product identifiers to search the Amazon catalog for. **Note:** Required when &#x60;identifiers&#x60; are provided. (optional)

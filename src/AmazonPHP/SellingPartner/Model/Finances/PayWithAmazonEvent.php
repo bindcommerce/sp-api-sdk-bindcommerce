@@ -269,7 +269,7 @@ class PayWithAmazonEvent implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets transaction_posted_date.
      *
-     * @param null|\DateTimeInterface $transaction_posted_date transaction_posted_date
+     * @param null|\DateTimeInterface $transaction_posted_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setTransactionPostedDate(?\DateTimeInterface $transaction_posted_date) : self
     {

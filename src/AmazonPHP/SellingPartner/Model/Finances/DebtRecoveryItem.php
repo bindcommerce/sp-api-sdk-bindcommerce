@@ -257,7 +257,7 @@ class DebtRecoveryItem implements \ArrayAccess, \JsonSerializable, \Stringable, 
     /**
      * Sets group_begin_date.
      *
-     * @param null|\DateTimeInterface $group_begin_date group_begin_date
+     * @param null|\DateTimeInterface $group_begin_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setGroupBeginDate(?\DateTimeInterface $group_begin_date) : self
     {
@@ -277,7 +277,7 @@ class DebtRecoveryItem implements \ArrayAccess, \JsonSerializable, \Stringable, 
     /**
      * Sets group_end_date.
      *
-     * @param null|\DateTimeInterface $group_end_date group_end_date
+     * @param null|\DateTimeInterface $group_end_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
      */
     public function setGroupEndDate(?\DateTimeInterface $group_end_date) : self
     {

@@ -47,6 +47,7 @@ class AdjustmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'fn_sku' => 'string',
         'product_description' => 'string',
         'asin' => 'string',
+        'transaction_number' => 'string',
     ];
 
     /**
@@ -66,6 +67,7 @@ class AdjustmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'fn_sku' => null,
         'product_description' => null,
         'asin' => null,
+        'transaction_number' => null,
     ];
 
     /**
@@ -82,6 +84,7 @@ class AdjustmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'fn_sku' => 'FnSKU',
         'product_description' => 'ProductDescription',
         'asin' => 'ASIN',
+        'transaction_number' => 'TransactionNumber',
     ];
 
     /**
@@ -97,6 +100,7 @@ class AdjustmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'fn_sku' => 'setFnSku',
         'product_description' => 'setProductDescription',
         'asin' => 'setAsin',
+        'transaction_number' => 'setTransactionNumber',
     ];
 
     /**
@@ -112,6 +116,7 @@ class AdjustmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'fn_sku' => 'getFnSku',
         'product_description' => 'getProductDescription',
         'asin' => 'getAsin',
+        'transaction_number' => 'getTransactionNumber',
     ];
 
     /**
@@ -136,6 +141,7 @@ class AdjustmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         $this->container['fn_sku'] = $data['fn_sku'] ?? null;
         $this->container['product_description'] = $data['product_description'] ?? null;
         $this->container['asin'] = $data['asin'] ?? null;
+        $this->container['transaction_number'] = $data['transaction_number'] ?? null;
     }
 
     /**
@@ -360,6 +366,26 @@ class AdjustmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     public function setAsin(?string $asin) : self
     {
         $this->container['asin'] = $asin;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_number.
+     */
+    public function getTransactionNumber() : ?string
+    {
+        return $this->container['transaction_number'];
+    }
+
+    /**
+     * Sets transaction_number.
+     *
+     * @param null|string $transaction_number the transaction number that is related to the adjustment
+     */
+    public function setTransactionNumber(?string $transaction_number) : self
+    {
+        $this->container['transaction_number'] = $transaction_number;
 
         return $this;
     }

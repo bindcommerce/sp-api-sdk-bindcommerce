@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace AmazonPHP\SellingPartner\Api\VendorPaymentsApi;
+namespace AmazonPHP\SellingPartner\Api\VendorInvoicesApi;
 
 use AmazonPHP\SellingPartner\AccessToken;
 use AmazonPHP\SellingPartner\Exception\ApiException;
 use AmazonPHP\SellingPartner\Exception\InvalidArgumentException;
 
 /**
- * Selling Partner API for Retail Procurement Payments.
+ * Vendor Invoices v1.
  *
  * The Selling Partner API for Retail Procurement Payments provides programmatic access to vendors payments data.
  *
@@ -27,7 +27,11 @@ interface VendorInvoicesSDKInterface
     /**
      * Operation submitInvoices.
      *
-     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\SubmitInvoicesRequest $body body (required)
+     * submitInvoices
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\SubmitInvoicesRequest $body The request body containing the invoice data to submit. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException

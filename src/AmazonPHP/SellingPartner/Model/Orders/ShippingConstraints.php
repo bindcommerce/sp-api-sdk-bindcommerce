@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Selling Partner API for Orders.
+ * Orders v0.
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API supports orders that are two years old or less. Orders more than two years old will not show in the API response.  **Note:** The Orders API supports orders from 2016 and after for the JP, AU, and SG marketplaces.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * The version of the OpenAPI document: v0
  *
@@ -41,6 +41,9 @@ class ShippingConstraints implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     protected static array $openAPITypes = [
         'pallet_delivery' => '\AmazonPHP\SellingPartner\Model\Orders\ConstraintType',
+        'signature_confirmation' => '\AmazonPHP\SellingPartner\Model\Orders\ConstraintType',
+        'recipient_identity_verification' => '\AmazonPHP\SellingPartner\Model\Orders\ConstraintType',
+        'recipient_age_verification' => '\AmazonPHP\SellingPartner\Model\Orders\ConstraintType',
     ];
 
     /**
@@ -54,6 +57,9 @@ class ShippingConstraints implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     protected static array $openAPIFormats = [
         'pallet_delivery' => null,
+        'signature_confirmation' => null,
+        'recipient_identity_verification' => null,
+        'recipient_age_verification' => null,
     ];
 
     /**
@@ -64,6 +70,9 @@ class ShippingConstraints implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     protected static array $attributeMap = [
         'pallet_delivery' => 'PalletDelivery',
+        'signature_confirmation' => 'SignatureConfirmation',
+        'recipient_identity_verification' => 'RecipientIdentityVerification',
+        'recipient_age_verification' => 'RecipientAgeVerification',
     ];
 
     /**
@@ -73,6 +82,9 @@ class ShippingConstraints implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     protected static array $setters = [
         'pallet_delivery' => 'setPalletDelivery',
+        'signature_confirmation' => 'setSignatureConfirmation',
+        'recipient_identity_verification' => 'setRecipientIdentityVerification',
+        'recipient_age_verification' => 'setRecipientAgeVerification',
     ];
 
     /**
@@ -82,6 +94,9 @@ class ShippingConstraints implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     protected static array $getters = [
         'pallet_delivery' => 'getPalletDelivery',
+        'signature_confirmation' => 'getSignatureConfirmation',
+        'recipient_identity_verification' => 'getRecipientIdentityVerification',
+        'recipient_age_verification' => 'getRecipientAgeVerification',
     ];
 
     /**
@@ -100,6 +115,9 @@ class ShippingConstraints implements \ArrayAccess, \JsonSerializable, \Stringabl
     public function __construct(array $data = null)
     {
         $this->container['pallet_delivery'] = $data['pallet_delivery'] ?? null;
+        $this->container['signature_confirmation'] = $data['signature_confirmation'] ?? null;
+        $this->container['recipient_identity_verification'] = $data['recipient_identity_verification'] ?? null;
+        $this->container['recipient_age_verification'] = $data['recipient_age_verification'] ?? null;
     }
 
     /**
@@ -197,6 +215,66 @@ class ShippingConstraints implements \ArrayAccess, \JsonSerializable, \Stringabl
     public function setPalletDelivery(?ConstraintType $pallet_delivery) : self
     {
         $this->container['pallet_delivery'] = $pallet_delivery;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature_confirmation.
+     */
+    public function getSignatureConfirmation() : ?ConstraintType
+    {
+        return $this->container['signature_confirmation'];
+    }
+
+    /**
+     * Sets signature_confirmation.
+     *
+     * @param null|ConstraintType $signature_confirmation signature_confirmation
+     */
+    public function setSignatureConfirmation(?ConstraintType $signature_confirmation) : self
+    {
+        $this->container['signature_confirmation'] = $signature_confirmation;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_identity_verification.
+     */
+    public function getRecipientIdentityVerification() : ?ConstraintType
+    {
+        return $this->container['recipient_identity_verification'];
+    }
+
+    /**
+     * Sets recipient_identity_verification.
+     *
+     * @param null|ConstraintType $recipient_identity_verification recipient_identity_verification
+     */
+    public function setRecipientIdentityVerification(?ConstraintType $recipient_identity_verification) : self
+    {
+        $this->container['recipient_identity_verification'] = $recipient_identity_verification;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipient_age_verification.
+     */
+    public function getRecipientAgeVerification() : ?ConstraintType
+    {
+        return $this->container['recipient_age_verification'];
+    }
+
+    /**
+     * Sets recipient_age_verification.
+     *
+     * @param null|ConstraintType $recipient_age_verification recipient_age_verification
+     */
+    public function setRecipientAgeVerification(?ConstraintType $recipient_age_verification) : self
+    {
+        $this->container['recipient_age_verification'] = $recipient_age_verification;
 
         return $this;
     }
