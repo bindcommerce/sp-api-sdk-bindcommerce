@@ -27,6 +27,8 @@ use AmazonPHP\SellingPartner\Api\FeedsApi\FeedsSDKInterface;
 use AmazonPHP\SellingPartner\Api\FeesApi\ProductFeesSDK;
 use AmazonPHP\SellingPartner\Api\FeesApi\ProductFeesSDKInterface;
 use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsItemsSDK;
+use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsRestrictionsSDK;
+use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsRestrictionsSDKInterface;
 use AmazonPHP\SellingPartner\Api\MerchantFulfillmentApi\MerchantFulfillmentSDK;
 use AmazonPHP\SellingPartner\Api\MerchantFulfillmentApi\MerchantFulfillmentSDKInterface;
 use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDK;
@@ -158,6 +160,11 @@ final class SellingPartnerSDK
     public function listingsItems() : ListingsItemsSDK
     {
         return $this->instantiateSDK(ListingsItemsSDK::class);
+    }
+
+    public function listingsRestrictions() : ListingsRestrictionsSDKInterface
+    {
+        return $this->instantiateSDK(ListingsRestrictionsSDK::class);
     }
 
     public function merchantFulfillment() : MerchantFulfillmentSDKInterface
