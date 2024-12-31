@@ -207,10 +207,6 @@ class GetTrackingResult implements \ArrayAccess, \JsonSerializable, \Stringable,
             throw new AssertionException("'tracking_id' can't be null");
         }
 
-        if ($this->container['alternate_leg_tracking_id'] === null) {
-            throw new AssertionException("'alternate_leg_tracking_id' can't be null");
-        }
-
         if ($this->container['event_history'] === null) {
             throw new AssertionException("'event_history' can't be null");
         }
@@ -249,7 +245,7 @@ class GetTrackingResult implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Gets alternate_leg_tracking_id.
      */
-    public function getAlternateLegTrackingId() : string
+    public function getAlternateLegTrackingId() : ?string
     {
         return $this->container['alternate_leg_tracking_id'];
     }
@@ -257,9 +253,9 @@ class GetTrackingResult implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets alternate_leg_tracking_id.
      *
-     * @param string $alternate_leg_tracking_id the carrier generated reverse identifier for a returned package in a purchased shipment
+     * @param null|string $alternate_leg_tracking_id the carrier generated reverse identifier for a returned package in a purchased shipment
      */
-    public function setAlternateLegTrackingId(string $alternate_leg_tracking_id) : self
+    public function setAlternateLegTrackingId(?string $alternate_leg_tracking_id) : self
     {
         $this->container['alternate_leg_tracking_id'] = $alternate_leg_tracking_id;
 
