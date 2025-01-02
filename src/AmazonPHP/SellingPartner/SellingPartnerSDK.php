@@ -35,7 +35,8 @@ use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDK;
 use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDKInterface;
 use AmazonPHP\SellingPartner\Api\NotificationsApi\NotificationsSDK;
 use AmazonPHP\SellingPartner\Api\NotificationsApi\NotificationsSDKInterface;
-use AmazonPHP\SellingPartner\Api\OrdersV0Api;
+use AmazonPHP\SellingPartner\Api\OrdersApi\OrdersSDK;
+use AmazonPHP\SellingPartner\Api\OrdersApi\OrdersSDKInterface;
 use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDK;
 use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDKInterface;
 use AmazonPHP\SellingPartner\Api\ReportsApi\ReportsSDK;
@@ -182,9 +183,9 @@ final class SellingPartnerSDK
         return $this->instantiateSDK(NotificationsSDK::class);
     }
 
-    public function orders() : OrdersV0Api\OrdersSDKInterface
+    public function orders() : OrdersSDKInterface
     {
-        return $this->instantiateSDK(OrdersV0Api\OrdersSDK::class);
+        return $this->instantiateSDK(OrdersSDK::class);
     }
 
     public function orderShipment() : ShipmentApi\OrdersSDKInterface
