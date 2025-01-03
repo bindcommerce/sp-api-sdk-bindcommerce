@@ -38,7 +38,6 @@ use AmazonPHP\SellingPartner\Api\FeesApi\ProductFeesSDKInterface;
 use AmazonPHP\SellingPartner\Api\ServiceApi\ServicesSDKInterface;
 use AmazonPHP\SellingPartner\Api\ShippingApi\ShippingSDKInterface;
 use AmazonPHP\SellingPartner\Api\AplusContentApi\APlusSDKInterface;
-use AmazonPHP\SellingPartner\Api\AuthorizationApi\AuthorizationSDK;
 use AmazonPHP\SellingPartner\Api\NotificationsApi\NotificationsSDK;
 use AmazonPHP\SellingPartner\Api\SolicitationsApi\SolicitationsSDK;
 use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDKInterface;
@@ -47,20 +46,17 @@ use AmazonPHP\SellingPartner\Api\FbaInboundApi\FulfillmentInboundSDK;
 use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsRestrictionsSDK;
 use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDK;
 use AmazonPHP\SellingPartner\Api\FbaInboundApi\FBAInboundSDKInterface;
-use AmazonPHP\SellingPartner\Api\SmallAndLightApi\FBASmallAndLightSDK;
 use AmazonPHP\SellingPartner\Api\FbaOutboundApi\FulfillmentOutboundSDK;
 use AmazonPHP\SellingPartner\Api\CatalogItemsApi\CatalogItemSDKInterface;
 use AmazonPHP\SellingPartner\Api\ShipmentInvoiceApi\ShipmentInvoicingSDK;
 use AmazonPHP\SellingPartner\Api\FbaInventoryApi\FBAInventorySDKInterface;
 use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDK;
-use AmazonPHP\SellingPartner\Api\AuthorizationApi\AuthorizationSDKInterface;
 use AmazonPHP\SellingPartner\Api\NotificationsApi\NotificationsSDKInterface;
 use AmazonPHP\SellingPartner\Api\SolicitationsApi\SolicitationsSDKInterface;
 use AmazonPHP\SellingPartner\Api\FbaInboundApi\FulfillmentInboundSDKInterface;
 use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsRestrictionsSDKInterface;
 use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDKInterface;
 use AmazonPHP\SellingPartner\Api\MerchantFulfillmentApi\MerchantFulfillmentSDK;
-use AmazonPHP\SellingPartner\Api\SmallAndLightApi\FBASmallAndLightSDKInterface;
 use AmazonPHP\SellingPartner\Api\FbaOutboundApi\FulfillmentOutboundSDKInterface;
 use AmazonPHP\SellingPartner\Api\ShipmentInvoiceApi\ShipmentInvoicingSDKInterface;
 use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDKInterface;
@@ -114,11 +110,6 @@ final class SellingPartnerSDK
         return $this->instantiateSDK(APlusSDK::class);
     }
 
-    public function authorization() : AuthorizationSDKInterface
-    {
-        return $this->instantiateSDK(AuthorizationSDK::class);
-    }
-
     public function catalogItem() : CatalogItemSDKInterface
     {
         return $this->instantiateSDK(CatalogItemSDK::class);
@@ -132,11 +123,6 @@ final class SellingPartnerSDK
     public function fbaInventory() : FBAInventorySDKInterface
     {
         return $this->instantiateSDK(FBAInventorySDK::class);
-    }
-
-    public function fbaSmallAndLight() : FBASmallAndLightSDKInterface
-    {
-        return $this->instantiateSDK(FBASmallAndLightSDK::class);
     }
 
     public function feeds() : FeedsSDKInterface
