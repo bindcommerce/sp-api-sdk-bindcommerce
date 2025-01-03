@@ -15,7 +15,7 @@ use AmazonPHP\SellingPartner\Configuration;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorOrdersSDK;
-use AmazonPHP\SellingPartner\Api\VendorPaymentsApi\VendorInvoicesSDK;
+use AmazonPHP\SellingPartner\Api\VendorInvoicesApi\VendorInvoicesSDK;
 use AmazonPHP\SellingPartner\Api\VendorShippingApi\VendorShipmentsSDK;
 use AmazonPHP\SellingPartner\Api\VendorTransactionApi\VendorTransactionStatusSDK;
 use AmazonPHP\SellingPartner\Api\VendorOrdersApi\VendorDirectFulfillmentOrdersSDK;
@@ -93,7 +93,7 @@ final class VendorSDKTest extends TestCase
         $vendorSDK = $this->getVendorSDKByCreate();
 
         foreach ($this->sdkMap as $method => $class) {
-            $this->assertInstanceOf($class, $vendorSDK->{$method}());
+            $this->assertInstanceOf($class, $vendorSDK->{$method}(), "{$class}::{$method} instanceOf failed");
         }
     }
 

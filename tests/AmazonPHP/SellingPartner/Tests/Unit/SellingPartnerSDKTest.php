@@ -4,46 +4,47 @@ declare(strict_types=1);
 
 namespace AmazonPHP\Test\AmazonPHP\SellingPartner\Tests\Unit;
 
-use AmazonPHP\SellingPartner\Api\AplusContentApi\APlusSDK;
-use AmazonPHP\SellingPartner\Api\AuthorizationApi\AuthorizationSDK;
-use AmazonPHP\SellingPartner\Api\CatalogApi\CatalogItemSDK;
-use AmazonPHP\SellingPartner\Api\DefaultApi\FinancesSDK;
-use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDK;
-use AmazonPHP\SellingPartner\Api\FbaInboundApi\FBAInboundSDK;
-use AmazonPHP\SellingPartner\Api\FbaInboundApi\FulfillmentInboundSDK;
-use AmazonPHP\SellingPartner\Api\FbaInventoryApi\FBAInventorySDK;
-use AmazonPHP\SellingPartner\Api\FbaOutboundApi\FulfillmentOutboundSDK;
-use AmazonPHP\SellingPartner\Api\FeedsApi\FeedsSDK;
-use AmazonPHP\SellingPartner\Api\FeesApi\ProductFeesSDK;
-use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsItemsSDK;
-use AmazonPHP\SellingPartner\Api\MerchantFulfillmentApi\MerchantFulfillmentSDK;
-use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDK;
-use AmazonPHP\SellingPartner\Api\NotificationsApi\NotificationsSDK;
-use AmazonPHP\SellingPartner\Api\OrdersV0Api;
-use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDK;
-use AmazonPHP\SellingPartner\Api\ReportsApi\ReportsSDK;
-use AmazonPHP\SellingPartner\Api\SalesApi\SalesSDK;
-use AmazonPHP\SellingPartner\Api\SellersApi\SellersSDK;
-use AmazonPHP\SellingPartner\Api\ServiceApi\ServicesSDK;
-use AmazonPHP\SellingPartner\Api\ShipmentApi;
-use AmazonPHP\SellingPartner\Api\ShipmentInvoiceApi\ShipmentInvoicingSDK;
-use AmazonPHP\SellingPartner\Api\ShippingApi\ShippingSDK;
-use AmazonPHP\SellingPartner\Api\SmallAndLightApi\FBASmallAndLightSDK;
-use AmazonPHP\SellingPartner\Api\SolicitationsApi\SolicitationsSDK;
-use AmazonPHP\SellingPartner\Api\TokensApi\TokensSDK;
-use AmazonPHP\SellingPartner\Api\UploadsApi\UploadsSDK;
-use AmazonPHP\SellingPartner\Configuration;
-use AmazonPHP\SellingPartner\OAuth;
-use AmazonPHP\SellingPartner\SellingPartnerSDK;
-use AmazonPHP\SellingPartner\VendorSDK;
-use Buzz\Client\Curl;
 use Monolog\Logger;
-use Nyholm\Psr7\Factory\Psr17Factory;
-use PHPUnit\Framework\TestCase;
-use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\StreamFactoryInterface;
+use Buzz\Client\Curl;
 use Psr\Log\LoggerInterface;
+use PHPUnit\Framework\TestCase;
+use AmazonPHP\SellingPartner\OAuth;
+use Psr\Http\Client\ClientInterface;
+use Nyholm\Psr7\Factory\Psr17Factory;
+use AmazonPHP\SellingPartner\VendorSDK;
+use AmazonPHP\SellingPartner\Configuration;
+use Psr\Http\Message\StreamFactoryInterface;
+use AmazonPHP\SellingPartner\Api\OrdersV0Api;
+use AmazonPHP\SellingPartner\Api\ShipmentApi;
+use Psr\Http\Message\RequestFactoryInterface;
+use AmazonPHP\SellingPartner\SellingPartnerSDK;
+use AmazonPHP\SellingPartner\Api\FeedsApi\FeedsSDK;
+use AmazonPHP\SellingPartner\Api\SalesApi\SalesSDK;
+use AmazonPHP\SellingPartner\Api\OrdersApi\OrdersSDK;
+use AmazonPHP\SellingPartner\Api\TokensApi\TokensSDK;
+use AmazonPHP\SellingPartner\Api\ReportsApi\ReportsSDK;
+use AmazonPHP\SellingPartner\Api\SellersApi\SellersSDK;
+use AmazonPHP\SellingPartner\Api\UploadsApi\UploadsSDK;
+use AmazonPHP\SellingPartner\Api\DefaultApi\FinancesSDK;
+use AmazonPHP\SellingPartner\Api\FeesApi\ProductFeesSDK;
+use AmazonPHP\SellingPartner\Api\ServiceApi\ServicesSDK;
+use AmazonPHP\SellingPartner\Api\ShippingApi\ShippingSDK;
+use AmazonPHP\SellingPartner\Api\AplusContentApi\APlusSDK;
+use AmazonPHP\SellingPartner\Api\MessagingApi\MessagingSDK;
+use AmazonPHP\SellingPartner\Api\FbaInboundApi\FBAInboundSDK;
+use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsItemsSDK;
+use AmazonPHP\SellingPartner\Api\CatalogItemsApi\CatalogItemSDK;
+use AmazonPHP\SellingPartner\Api\FbaInventoryApi\FBAInventorySDK;
+use AmazonPHP\SellingPartner\Api\NotificationsApi\NotificationsSDK;
+use AmazonPHP\SellingPartner\Api\SolicitationsApi\SolicitationsSDK;
+use AmazonPHP\SellingPartner\Api\FbaInboundApi\FulfillmentInboundSDK;
+use AmazonPHP\SellingPartner\Api\ListingsApi\ListingsRestrictionsSDK;
+use AmazonPHP\SellingPartner\Api\ProductPricingApi\ProductPricingSDK;
+use AmazonPHP\SellingPartner\Api\FbaOutboundApi\FulfillmentOutboundSDK;
+use AmazonPHP\SellingPartner\Api\ShipmentInvoiceApi\ShipmentInvoicingSDK;
+use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDK;
+use AmazonPHP\SellingPartner\Api\MerchantFulfillmentApi\MerchantFulfillmentSDK;
+use AmazonPHP\SellingPartner\Api\CreateContainerLabelApi\VendorDirectFulfillmentShippingSDK;
 
 final class SellingPartnerSDKTest extends TestCase
 {
@@ -60,21 +61,20 @@ final class SellingPartnerSDKTest extends TestCase
     private array $sdkMap = [
         'oAuth'                   => OAuth::class,
         'aPlus'                   => APlusSDK::class,
-        //'authorization'           => AuthorizationSDK::class,
         'catalogItem'             => CatalogItemSDK::class,
         'fbaInbound'              => FBAInboundSDK::class,
         'fbaInventory'            => FBAInventorySDK::class,
-        //'fbaSmallAndLight'        => FBASmallAndLightSDK::class,
         'feeds'                   => FeedsSDK::class,
         'finances'                => FinancesSDK::class,
         'fulfillmentInbound'      => FulfillmentInboundSDK::class,
         'fulfillmentOutbound'     => FulfillmentOutboundSDK::class,
         'listingsItems'           => ListingsItemsSDK::class,
+        'listingsRestrictions'    => ListingsRestrictionsSDK::class,
         'merchantFulfillment'     => MerchantFulfillmentSDK::class,
         'messaging'               => MessagingSDK::class,
         'notifications'           => NotificationsSDK::class,
-        'orders'                  => OrdersV0Api\OrdersSDK::class,
-        'orderShipment'           => ShipmentApi\OrdersSDK::class,
+        'orders'                  => OrdersSDK::class,
+        'orderShipment'           => VendorDirectFulfillmentShippingSDK::class,
         'productFees'             => ProductFeesSDK::class,
         'productPricing'          => ProductPricingSDK::class,
         'productTypesDefinitions' => ProductTypesDefinitionsSDK::class,
