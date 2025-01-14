@@ -13,6 +13,7 @@ use AmazonPHP\SellingPartner\Exception\InvalidArgumentException;
  * @method static BR()
  * @method static ES()
  * @method static GB()
+ * @method static IE()
  * @method static FR()
  * @method static BE()
  * @method static NL()
@@ -28,6 +29,10 @@ use AmazonPHP\SellingPartner\Exception\InvalidArgumentException;
  * @method static SG()
  * @method static AU()
  * @method static JP()
+ * @method static BE()
+ * @method static NL()
+ * @method static SE()
+ * @method static PL()
  */
 final class Marketplace
 {
@@ -70,6 +75,13 @@ final class Marketplace
         'GB' => [
             'name'   => 'United Kingdom',
             'id'     => 'A1F83G8C2ARO7P',
+            'region' => Regions::EUROPE,
+            'sellercentral' => 'https://sellercentral-europe.amazon.com',
+            'vendorcentral' => 'https://vendorcentral.amazon.co.uk',
+        ],
+        'IE' => [
+            'name'   => 'Ireland',
+            'id'     => 'A28R8C7NBKEWEA',
             'region' => Regions::EUROPE,
             'sellercentral' => 'https://sellercentral-europe.amazon.com',
             'vendorcentral' => 'https://vendorcentral.amazon.co.uk',
