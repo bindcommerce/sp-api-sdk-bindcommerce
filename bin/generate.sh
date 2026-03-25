@@ -38,11 +38,14 @@ run_step "download-ordersV2026" \
     /usr/bin/curl -s -f https://raw.githubusercontent.com/amzn/selling-partner-api-models/refs/heads/main/models/orders-api-model/orders_2026-01-01.json -o "${PWD}/json_specs/orders_2026-01-01.raw.json"
 
 if [[ -f "${PWD}/json_specs/orders_2026-01-01.raw.json" ]]; then
-    run_step "patch-ordersV2026" \
-        jq '(.paths[][].tags) = ["ordersV2026"]' \
-        "${PWD}/json_specs/orders_2026-01-01.raw.json" > "${PWD}/json_specs/orders_2026-01-01.json" || true
+    echo ":::: Running: patch-ordersV2026 ..."
+    jq '(.paths[][].tags) = ["ordersV2026"]' \
+        "${PWD}/json_specs/orders_2026-01-01.raw.json" > "${PWD}/json_specs/orders_2026-01-01.json" 2>"${LOGDIR}/patch-ordersV2026.log"
     if [[ ! -s "${PWD}/json_specs/orders_2026-01-01.json" ]]; then
-        FAILURES+=("patch-ordersV2026: output file is empty")
+        echo ":::: FAILED: patch-ordersV2026"
+        FAILURES+=("patch-ordersV2026: output file is empty - $(cat "${LOGDIR}/patch-ordersV2026.log")")
+    else
+        echo ":::: OK: patch-ordersV2026"
     fi
 fi
 
@@ -399,14 +402,14 @@ run_step "listings-restrictions" \
     --language-specific-primitives \\DateTimeInterface \
     --type-mappings date=\\DateTimeInterface,Date=\\DateTimeInterface,DateTime=\\DateTimeInterface
 
-# run_step "ordersV2026" \
-#     docker run --user "$(id -u)":"$(id -g)" --rm -v "${PWD}:/sp-api" openapitools/openapi-generator-cli generate \
-#     -i /sp-api/json_specs/orders_2026-01-01.json \
-#     -c /sp-api/config/generator-ordersV2026.yaml \
-#     --global-property models,apis,apiDocs=false,modelDocs=false,modelTests=false,apiTests=false,supportingFiles=false \
-#     -o /sp-api \
-#     --language-specific-primitives \\DateTimeInterface \
-#     --type-mappings date=\\DateTimeInterface,Date=\\DateTimeInterface,DateTime=\\DateTimeInterface
+run_step "ordersV2026" \
+    docker run --user "$(id -u)":"$(id -g)" --rm -v "${PWD}:/sp-api" openapitools/openapi-generator-cli generate \
+    -i /sp-api/json_specs/orders_2026-01-01.json \
+    -c /sp-api/config/generator-ordersV2026.yaml \
+    --global-property models,apis,apiDocs=false,modelDocs=false,modelTests=false,apiTests=false,supportingFiles=false \
+    -o /sp-api \
+    --language-specific-primitives \\DateTimeInterface \
+    --type-mappings date=\\DateTimeInterface,Date=\\DateTimeInterface,DateTime=\\DateTimeInterface
 
 # --- Summary ---
 
