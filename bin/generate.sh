@@ -320,8 +320,10 @@ docker run --user "$(id -u)":"$(id -g)" --rm -v "${PWD}:/sp-api" openapitools/op
     --language-specific-primitives \\DateTimeInterface \
     --type-mappings date=\\DateTimeInterface,Date=\\DateTimeInterface,DateTime=\\DateTimeInterface
 
+/usr/bin/curl -s https://raw.githubusercontent.com/amzn/selling-partner-api-models/refs/heads/main/models/orders-api-model/orders_2026-01-01.json | jq '(.paths[][].tags) = ["ordersV2026"]' > "${PWD}/json_specs/orders_2026-01-01.json"
+
 docker run --user "$(id -u)":"$(id -g)" --rm -v "${PWD}:/sp-api" openapitools/openapi-generator-cli generate \
-    -i https://raw.githubusercontent.com/amzn/selling-partner-api-models/refs/heads/main/models/orders-api-model/orders_2026-01-01.json \
+    -i /sp-api/json_specs/orders_2026-01-01.json \
     -c /sp-api/config/generator-ordersV2026.yaml \
     --global-property models,apis,apiDocs=false,modelDocs=false,modelTests=false,apiTests=false,supportingFiles=false \
     -o /sp-api \

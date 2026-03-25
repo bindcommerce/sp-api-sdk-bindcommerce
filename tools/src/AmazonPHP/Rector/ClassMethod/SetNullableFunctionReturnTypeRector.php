@@ -6,12 +6,13 @@ namespace AmazonPHP\Rector\ClassMethod;
 
 use AmazonPHP\Rector\ValueObject\NullableReturnTypeDeclaration;
 use PhpParser\Node;
+use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\Type\NullType;
 use PHPStan\Type\UnionType;
-use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
-use Rector\Core\Rector\AbstractRector;
+use Rector\Contract\Rector\ConfigurableRectorInterface;
 use Rector\PHPStanStaticTypeMapper\Enum\TypeKind;
+use Rector\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\ConfiguredCodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 use Webmozart\Assert\Assert;
@@ -50,10 +51,16 @@ class SetNullableFunctionReturnTypeRector extends AbstractRector implements Conf
      */
     public function refactor(Node $node) : ?Node
     {
+        $classNode = $node->getAttribute('parent');
+
+        if (!$classNode instanceof Class_) {
+            return null;
+        }
+
         foreach ($this->methodReturnTypes as $methodReturnType) {
             $objectType = $methodReturnType->getObjectType();
 
-            if (!$this->isObjectType($node, $objectType)) {
+            if (!$this->isObjectType($classNode, $objectType)) {
                 continue;
             }
 

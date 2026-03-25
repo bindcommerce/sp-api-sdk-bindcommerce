@@ -28,7 +28,6 @@ use PHPStan\Type\MixedType;
 use PHPStan\Type\NullType;
 use PHPStan\Type\StringType;
 use PHPStan\Type\UnionType;
-use Rector\Caching\ValueObject\Storage\MemoryCacheStorage;
 use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUselessParamTagRector;
 use Rector\DeadCode\Rector\ClassMethod\RemoveUselessReturnTagRector;
@@ -40,7 +39,7 @@ use Rector\TypeDeclaration\ValueObject\AddReturnTypeDeclaration;
 
 return static function (RectorConfig $config): void {
 
-    $config->parallel(seconds: 1200);
+    $config->parallel(1200);
 
     $config->autoloadPaths([
         __DIR__ ,
@@ -49,8 +48,6 @@ return static function (RectorConfig $config): void {
         __DIR__ . '/src/AmazonPHP/SellingPartner/Api',
         __DIR__ . '/src/AmazonPHP/SellingPartner/Model',
     ]);
-    $config->cacheClass(MemoryCacheStorage::class);
-
     $config->rules([
         FixArgumentDefaultValuesNotMatchingTypeRector::class,
         RemoveUselessParamTagRector::class,
