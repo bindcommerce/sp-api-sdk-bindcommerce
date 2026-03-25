@@ -252,21 +252,23 @@ final class ListingsItemsSDK implements ListingsItemsSDKInterface
         // for model (json/xml)
         if (count($formParams) > 0) {
             if ($multipart) {
-                $multipartContents = [];
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
                     }
                 }
-                $request = $request->withParsedBody($multipartContents);
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
             } elseif ($headers['content-type'] === ['application/json']) {
                 $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
             } else {
-                $request = $request->withParsedBody($formParams);
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
             }
         }
 
@@ -500,21 +502,23 @@ final class ListingsItemsSDK implements ListingsItemsSDKInterface
         // for model (json/xml)
         if (count($formParams) > 0) {
             if ($multipart) {
-                $multipartContents = [];
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
                     }
                 }
-                $request = $request->withParsedBody($multipartContents);
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
             } elseif ($headers['content-type'] === ['application/json']) {
                 $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
             } else {
-                $request = $request->withParsedBody($formParams);
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
             }
         }
 
@@ -773,21 +777,23 @@ final class ListingsItemsSDK implements ListingsItemsSDKInterface
             $request = $request->withBody($this->httpFactory->createStreamFromString($httpBody));
         } elseif (count($formParams) > 0) {
             if ($multipart) {
-                $multipartContents = [];
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
                     }
                 }
-                $request = $request->withParsedBody($multipartContents);
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
             } elseif ($headers['content-type'] === ['application/json']) {
                 $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
             } else {
-                $request = $request->withParsedBody($formParams);
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
             }
         }
 
@@ -1046,21 +1052,23 @@ final class ListingsItemsSDK implements ListingsItemsSDKInterface
             $request = $request->withBody($this->httpFactory->createStreamFromString($httpBody));
         } elseif (count($formParams) > 0) {
             if ($multipart) {
-                $multipartContents = [];
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
                     }
                 }
-                $request = $request->withParsedBody($multipartContents);
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
             } elseif ($headers['content-type'] === ['application/json']) {
                 $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
             } else {
-                $request = $request->withParsedBody($formParams);
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
             }
         }
 
@@ -1421,21 +1429,23 @@ final class ListingsItemsSDK implements ListingsItemsSDKInterface
         // for model (json/xml)
         if (count($formParams) > 0) {
             if ($multipart) {
-                $multipartContents = [];
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
                     foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
                     }
                 }
-                $request = $request->withParsedBody($multipartContents);
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
             } elseif ($headers['content-type'] === ['application/json']) {
                 $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
             } else {
-                $request = $request->withParsedBody($formParams);
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
             }
         }
 
