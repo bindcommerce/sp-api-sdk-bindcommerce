@@ -1,0 +1,16 @@
+generatorName: php
+templateDir: sp-api/resources/php-amazon-selling-partner-api
+additionalProperties:
+  invokerPackage: AmazonPHP\SellingPartner
+  srcBasePath: src/AmazonPHP/SellingPartner
+  modelPackage: Model\OrdersV2026
+  packageName: OrdersV2026
+  useTags: false
+  className: OrdersV2026
+files:
+  api.mustache:
+    templateType: API
+    destinationFilename: /OrdersV2026SDK.php
+  api_interface.mustache:
+    templateType: API
+    destinationFilename: /OrdersV2026SDKInterface.php
