@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Finances.
  *
- * The Selling Partner API for Finances helps you obtain financial information relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.
+ * The Selling Partner API for Finances provides financial information that is relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.
  *
  * The version of the OpenAPI document: v0
  *
@@ -44,6 +44,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'shipment_settle_event_list' => '\AmazonPHP\SellingPartner\Model\Finances\ShipmentEvent[]',
         'refund_event_list' => '\AmazonPHP\SellingPartner\Model\Finances\ShipmentEvent[]',
         'guarantee_claim_event_list' => '\AmazonPHP\SellingPartner\Model\Finances\ShipmentEvent[]',
+        'ebt_refund_reimbursement_only_event_list' => '\AmazonPHP\SellingPartner\Model\Finances\EBTRefundReimbursementOnlyEvent[]',
         'chargeback_event_list' => '\AmazonPHP\SellingPartner\Model\Finances\ShipmentEvent[]',
         'pay_with_amazon_event_list' => '\AmazonPHP\SellingPartner\Model\Finances\PayWithAmazonEvent[]',
         'service_provider_credit_event_list' => '\AmazonPHP\SellingPartner\Model\Finances\SolutionProviderCreditEvent[]',
@@ -89,6 +90,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'shipment_settle_event_list' => null,
         'refund_event_list' => null,
         'guarantee_claim_event_list' => null,
+        'ebt_refund_reimbursement_only_event_list' => null,
         'chargeback_event_list' => null,
         'pay_with_amazon_event_list' => null,
         'service_provider_credit_event_list' => null,
@@ -131,6 +133,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'shipment_settle_event_list' => 'ShipmentSettleEventList',
         'refund_event_list' => 'RefundEventList',
         'guarantee_claim_event_list' => 'GuaranteeClaimEventList',
+        'ebt_refund_reimbursement_only_event_list' => 'EBTRefundReimbursementOnlyEventList',
         'chargeback_event_list' => 'ChargebackEventList',
         'pay_with_amazon_event_list' => 'PayWithAmazonEventList',
         'service_provider_credit_event_list' => 'ServiceProviderCreditEventList',
@@ -172,6 +175,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'shipment_settle_event_list' => 'setShipmentSettleEventList',
         'refund_event_list' => 'setRefundEventList',
         'guarantee_claim_event_list' => 'setGuaranteeClaimEventList',
+        'ebt_refund_reimbursement_only_event_list' => 'setEbtRefundReimbursementOnlyEventList',
         'chargeback_event_list' => 'setChargebackEventList',
         'pay_with_amazon_event_list' => 'setPayWithAmazonEventList',
         'service_provider_credit_event_list' => 'setServiceProviderCreditEventList',
@@ -213,6 +217,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'shipment_settle_event_list' => 'getShipmentSettleEventList',
         'refund_event_list' => 'getRefundEventList',
         'guarantee_claim_event_list' => 'getGuaranteeClaimEventList',
+        'ebt_refund_reimbursement_only_event_list' => 'getEbtRefundReimbursementOnlyEventList',
         'chargeback_event_list' => 'getChargebackEventList',
         'pay_with_amazon_event_list' => 'getPayWithAmazonEventList',
         'service_provider_credit_event_list' => 'getServiceProviderCreditEventList',
@@ -263,6 +268,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
         $this->container['shipment_settle_event_list'] = $data['shipment_settle_event_list'] ?? null;
         $this->container['refund_event_list'] = $data['refund_event_list'] ?? null;
         $this->container['guarantee_claim_event_list'] = $data['guarantee_claim_event_list'] ?? null;
+        $this->container['ebt_refund_reimbursement_only_event_list'] = $data['ebt_refund_reimbursement_only_event_list'] ?? null;
         $this->container['chargeback_event_list'] = $data['chargeback_event_list'] ?? null;
         $this->container['pay_with_amazon_event_list'] = $data['pay_with_amazon_event_list'] ?? null;
         $this->container['service_provider_credit_event_list'] = $data['service_provider_credit_event_list'] ?? null;
@@ -462,6 +468,28 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
     }
 
     /**
+     * Gets ebt_refund_reimbursement_only_event_list.
+     *
+     * @return null|\AmazonPHP\SellingPartner\Model\Finances\EBTRefundReimbursementOnlyEvent[]
+     */
+    public function getEbtRefundReimbursementOnlyEventList() : ?array
+    {
+        return $this->container['ebt_refund_reimbursement_only_event_list'];
+    }
+
+    /**
+     * Sets ebt_refund_reimbursement_only_event_list.
+     *
+     * @param null|\AmazonPHP\SellingPartner\Model\Finances\EBTRefundReimbursementOnlyEvent[] $ebt_refund_reimbursement_only_event_list a list of EBT refund reimbursement events
+     */
+    public function setEbtRefundReimbursementOnlyEventList(?array $ebt_refund_reimbursement_only_event_list) : self
+    {
+        $this->container['ebt_refund_reimbursement_only_event_list'] = $ebt_refund_reimbursement_only_event_list;
+
+        return $this;
+    }
+
+    /**
      * Gets chargeback_event_list.
      *
      * @return null|\AmazonPHP\SellingPartner\Model\Finances\ShipmentEvent[]
@@ -518,7 +546,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets service_provider_credit_event_list.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\SolutionProviderCreditEvent[] $service_provider_credit_event_list a list of information about solution provider credits
+     * @param null|\AmazonPHP\SellingPartner\Model\Finances\SolutionProviderCreditEvent[] $service_provider_credit_event_list a list of `SolutionProviderCreditEvent`
      */
     public function setServiceProviderCreditEventList(?array $service_provider_credit_event_list) : self
     {
@@ -540,7 +568,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets retrocharge_event_list.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\RetrochargeEvent[] $retrocharge_event_list a list of information about Retrocharge or RetrochargeReversal events
+     * @param null|\AmazonPHP\SellingPartner\Model\Finances\RetrochargeEvent[] $retrocharge_event_list a list of information about `Retrocharge` or `RetrochargeReversal` events
      */
     public function setRetrochargeEventList(?array $retrocharge_event_list) : self
     {
@@ -716,7 +744,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets safet_reimbursement_event_list.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\SAFETReimbursementEvent[] $safet_reimbursement_event_list a list of SAFETReimbursementEvents
+     * @param null|\AmazonPHP\SellingPartner\Model\Finances\SAFETReimbursementEvent[] $safet_reimbursement_event_list a list of `SAFETReimbursementEvent`
      */
     public function setSafetReimbursementEventList(?array $safet_reimbursement_event_list) : self
     {
@@ -914,7 +942,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets removal_shipment_adjustment_event_list.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\RemovalShipmentAdjustmentEvent[] $removal_shipment_adjustment_event_list a comma-delimited list of Removal shipmentAdjustment details for FBA inventory
+     * @param null|\AmazonPHP\SellingPartner\Model\Finances\RemovalShipmentAdjustmentEvent[] $removal_shipment_adjustment_event_list a comma-delimited list of `RemovalShipmentAdjustment` details for FBA inventory
      */
     public function setRemovalShipmentAdjustmentEventList(?array $removal_shipment_adjustment_event_list) : self
     {
@@ -1002,7 +1030,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets tax_withholding_event_list.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\TaxWithholdingEvent[] $tax_withholding_event_list a list of `TaxWithholding` events
+     * @param null|\AmazonPHP\SellingPartner\Model\Finances\TaxWithholdingEvent[] $tax_withholding_event_list a list of tax withholding events
      */
     public function setTaxWithholdingEventList(?array $tax_withholding_event_list) : self
     {
@@ -1046,7 +1074,7 @@ class FinancialEvents implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets failed_adhoc_disbursement_event_list.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\Finances\FailedAdhocDisbursementEvent[] $failed_adhoc_disbursement_event_list a list of `FailedAdhocDisbursementEvent`s
+     * @param null|\AmazonPHP\SellingPartner\Model\Finances\FailedAdhocDisbursementEvent[] $failed_adhoc_disbursement_event_list a list of `FailedAdhocDisbursementEvent`
      */
     public function setFailedAdhocDisbursementEventList(?array $failed_adhoc_disbursement_event_list) : self
     {

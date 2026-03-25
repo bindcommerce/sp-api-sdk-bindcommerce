@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -348,7 +348,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets marketplace_id.
      *
-     * @param string $marketplace_id amazon marketplace identifier
+     * @param string $marketplace_id Amazon marketplace identifier. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
      */
     public function setMarketplaceId(string $marketplace_id) : self
     {
@@ -368,7 +368,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets adult_product.
      *
-     * @param null|bool $adult_product identifies an Amazon catalog item is intended for an adult audience or is sexual in nature
+     * @param null|bool $adult_product when `true`, the Amazon catalog item is intended for an adult audience or is sexual in nature
      */
     public function setAdultProduct(?bool $adult_product) : self
     {
@@ -388,7 +388,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets autographed.
      *
-     * @param null|bool $autographed identifies an Amazon catalog item is autographed by a player or celebrity
+     * @param null|bool $autographed when `true`, the Amazon catalog item is autographed
      */
     public function setAutographed(?bool $autographed) : self
     {
@@ -408,7 +408,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets brand.
      *
-     * @param null|string $brand name of the brand associated with an Amazon catalog item
+     * @param null|string $brand name of the brand that is associated with the Amazon catalog item
      */
     public function setBrand(?string $brand) : self
     {
@@ -448,7 +448,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets color.
      *
-     * @param null|string $color name of the color associated with an Amazon catalog item
+     * @param null|string $color the color that is associated with the Amazon catalog item
      */
     public function setColor(?string $color) : self
     {
@@ -470,7 +470,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets contributors.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemContributor[] $contributors individual contributors to the creation of an item, such as the authors or actors
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemContributor[] $contributors individual contributors to the creation of the item, such as the authors or actors
      */
     public function setContributors(?array $contributors) : self
     {
@@ -490,7 +490,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets item_classification.
      *
-     * @param null|string $item_classification classification type associated with the Amazon catalog item
+     * @param null|string $item_classification classification type that is associated with the Amazon catalog item
      */
     public function setItemClassification(?string $item_classification) : self
     {
@@ -510,7 +510,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets item_name.
      *
-     * @param null|string $item_name name, or title, associated with an Amazon catalog item
+     * @param null|string $item_name the name that is associated with the Amazon catalog item
      */
     public function setItemName(?string $item_name) : self
     {
@@ -530,7 +530,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets manufacturer.
      *
-     * @param null|string $manufacturer name of the manufacturer associated with an Amazon catalog item
+     * @param null|string $manufacturer the name of the manufacturer that is associated with the Amazon catalog item
      */
     public function setManufacturer(?string $manufacturer) : self
     {
@@ -550,7 +550,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets memorabilia.
      *
-     * @param null|bool $memorabilia identifies an Amazon catalog item is memorabilia valued for its connection with historical events, culture, or entertainment
+     * @param null|bool $memorabilia when true, the item is classified as memorabilia
      */
     public function setMemorabilia(?bool $memorabilia) : self
     {
@@ -570,7 +570,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets model_number.
      *
-     * @param null|string $model_number model number associated with an Amazon catalog item
+     * @param null|string $model_number the model number that is associated with the Amazon catalog item
      */
     public function setModelNumber(?string $model_number) : self
     {
@@ -590,7 +590,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets package_quantity.
      *
-     * @param null|int $package_quantity quantity of an Amazon catalog item in one package
+     * @param null|int $package_quantity the quantity of the Amazon catalog item within one package
      */
     public function setPackageQuantity(?int $package_quantity) : self
     {
@@ -610,7 +610,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets part_number.
      *
-     * @param null|string $part_number part number associated with an Amazon catalog item
+     * @param null|string $part_number the part number that is associated with the Amazon catalog item
      */
     public function setPartNumber(?string $part_number) : self
     {
@@ -630,7 +630,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets release_date.
      *
-     * @param null|\DateTimeInterface $release_date first date on which an Amazon catalog item is shippable to customers
+     * @param null|\DateTimeInterface $release_date the earliest date on which the Amazon catalog item can be shipped to customers
      */
     public function setReleaseDate(?\DateTimeInterface $release_date) : self
     {
@@ -650,7 +650,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets size.
      *
-     * @param null|string $size name of the size associated with an Amazon catalog item
+     * @param null|string $size the name of the size of the Amazon catalog item
      */
     public function setSize(?string $size) : self
     {
@@ -670,7 +670,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets style.
      *
-     * @param null|string $style name of the style associated with an Amazon catalog item
+     * @param null|string $style the name of the style that is associated with the Amazon catalog item
      */
     public function setStyle(?string $style) : self
     {
@@ -690,7 +690,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets trade_in_eligible.
      *
-     * @param null|bool $trade_in_eligible identifies an Amazon catalog item is eligible for trade-in
+     * @param null|bool $trade_in_eligible when true, the Amazon catalog item is eligible for trade-in
      */
     public function setTradeInEligible(?bool $trade_in_eligible) : self
     {
@@ -710,7 +710,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets website_display_group.
      *
-     * @param null|string $website_display_group identifier of the website display group associated with an Amazon catalog item
+     * @param null|string $website_display_group the identifier of the website display group that is associated with the Amazon catalog item
      */
     public function setWebsiteDisplayGroup(?string $website_display_group) : self
     {
@@ -730,7 +730,7 @@ class ItemSummaryByMarketplace implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets website_display_group_name.
      *
-     * @param null|string $website_display_group_name display name of the website display group associated with an Amazon catalog item
+     * @param null|string $website_display_group_name the display name of the website display group that is associated with the Amazon catalog item
      */
     public function setWebsiteDisplayGroupName(?string $website_display_group_name) : self
     {

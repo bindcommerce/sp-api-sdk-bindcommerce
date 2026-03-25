@@ -9,7 +9,7 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Orders v0.
+ * Selling Partner API for Orders.
  *
  * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
@@ -280,10 +280,6 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
-        if ($this->container['name'] === null) {
-            throw new AssertionException("'name' can't be null");
-        }
-
         if ($this->container['extended_fields'] !== null) {
             $this->container['extended_fields']->validate();
         }
@@ -304,7 +300,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Gets name.
      */
-    public function getName() : string
+    public function getName() : ?string
     {
         return $this->container['name'];
     }
@@ -312,9 +308,9 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets name.
      *
-     * @param string $name the name
+     * @param null|string $name the name
      */
-    public function setName(string $name) : self
+    public function setName(?string $name) : self
     {
         $this->container['name'] = $name;
 

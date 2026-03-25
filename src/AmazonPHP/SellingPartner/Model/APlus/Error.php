@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for A+ Content Management.
  *
- * With the A+ Content API, you can build applications that help selling partners add rich marketing content to their Amazon product detail pages. A+ content helps selling partners share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners assemble content by choosing from content modules and adding images and text.
+ * Use the A+ Content API to build applications that help selling partners add rich marketing content to their Amazon product detail pages. Selling partners can use A+ content to share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners use content modules to add images and text.
  *
  * The version of the OpenAPI document: 2020-11-01
  *
@@ -223,7 +223,7 @@ class Error implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets code.
      *
-     * @param string $code the code that identifies the type of error condition
+     * @param string $code an error code that identifies the type of error that occurred
      */
     public function setCode(string $code) : self
     {
@@ -243,7 +243,7 @@ class Error implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets message.
      *
-     * @param string $message a human readable description of the error condition
+     * @param string $message a message that describes the error condition
      */
     public function setMessage(string $message) : self
     {
@@ -263,7 +263,7 @@ class Error implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets details.
      *
-     * @param null|string $details additional information, if available, to clarify the error condition
+     * @param null|string $details additional details that can help the caller understand or fix the issue
      */
     public function setDetails(?string $details) : self
     {

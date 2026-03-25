@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Finances.
  *
- * The Selling Partner API for Finances helps you obtain financial information relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.
+ * The Selling Partner API for Finances provides financial information that is relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.
  *
  * The version of the OpenAPI document: v0
  *
@@ -198,7 +198,7 @@ class TaxWithholdingPeriod implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets start_date.
      *
-     * @param null|\DateTimeInterface $start_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
+     * @param null|\DateTimeInterface $start_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
      */
     public function setStartDate(?\DateTimeInterface $start_date) : self
     {
@@ -218,7 +218,7 @@ class TaxWithholdingPeriod implements \ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets end_date.
      *
-     * @param null|\DateTimeInterface $end_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
+     * @param null|\DateTimeInterface $end_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
      */
     public function setEndDate(?\DateTimeInterface $end_date) : self
     {

@@ -257,7 +257,7 @@ class ReturnAuthorization implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets fulfillment_center_id.
      *
-     * @param string $fulfillment_center_id an identifier for the Amazon fulfillment center that the return items should be sent to
+     * @param string $fulfillment_center_id an identifier for the Amazon fulfillment center to which the return items should be sent
      */
     public function setFulfillmentCenterId(string $fulfillment_center_id) : self
     {

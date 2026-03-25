@@ -261,7 +261,7 @@ class PackingSlip implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets content.
      *
-     * @param string $content a Base64encoded string of the packing slip PDF
+     * @param string $content a Base64 string of the packing slip PDF
      */
     public function setContent(string $content) : self
     {

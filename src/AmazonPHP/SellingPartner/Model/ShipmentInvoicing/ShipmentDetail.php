@@ -46,6 +46,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'purchase_date' => '\DateTimeInterface',
         'shipping_address' => '\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\Address',
         'payment_method_details' => 'string[]',
+        'payments' => '\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\PaymentInformation[]',
         'marketplace_id' => 'string',
         'seller_id' => 'string',
         'buyer_name' => 'string',
@@ -72,6 +73,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'purchase_date' => 'date-time',
         'shipping_address' => null,
         'payment_method_details' => null,
+        'payments' => null,
         'marketplace_id' => null,
         'seller_id' => null,
         'buyer_name' => null,
@@ -95,6 +97,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'purchase_date' => 'PurchaseDate',
         'shipping_address' => 'ShippingAddress',
         'payment_method_details' => 'PaymentMethodDetails',
+        'payments' => 'Payments',
         'marketplace_id' => 'MarketplaceId',
         'seller_id' => 'SellerId',
         'buyer_name' => 'BuyerName',
@@ -117,6 +120,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'purchase_date' => 'setPurchaseDate',
         'shipping_address' => 'setShippingAddress',
         'payment_method_details' => 'setPaymentMethodDetails',
+        'payments' => 'setPayments',
         'marketplace_id' => 'setMarketplaceId',
         'seller_id' => 'setSellerId',
         'buyer_name' => 'setBuyerName',
@@ -139,6 +143,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         'purchase_date' => 'getPurchaseDate',
         'shipping_address' => 'getShippingAddress',
         'payment_method_details' => 'getPaymentMethodDetails',
+        'payments' => 'getPayments',
         'marketplace_id' => 'getMarketplaceId',
         'seller_id' => 'getSellerId',
         'buyer_name' => 'getBuyerName',
@@ -170,6 +175,7 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         $this->container['purchase_date'] = $data['purchase_date'] ?? null;
         $this->container['shipping_address'] = $data['shipping_address'] ?? null;
         $this->container['payment_method_details'] = $data['payment_method_details'] ?? null;
+        $this->container['payments'] = $data['payments'] ?? null;
         $this->container['marketplace_id'] = $data['marketplace_id'] ?? null;
         $this->container['seller_id'] = $data['seller_id'] ?? null;
         $this->container['buyer_name'] = $data['buyer_name'] ?? null;
@@ -388,6 +394,28 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     public function setPaymentMethodDetails(?array $payment_method_details) : self
     {
         $this->container['payment_method_details'] = $payment_method_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets payments.
+     *
+     * @return null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\PaymentInformation[]
+     */
+    public function getPayments() : ?array
+    {
+        return $this->container['payments'];
+    }
+
+    /**
+     * Sets payments.
+     *
+     * @param null|\AmazonPHP\SellingPartner\Model\ShipmentInvoicing\PaymentInformation[] $payments a list of payment transactions
+     */
+    public function setPayments(?array $payments) : self
+    {
+        $this->container['payments'] = $payments;
 
         return $this;
     }

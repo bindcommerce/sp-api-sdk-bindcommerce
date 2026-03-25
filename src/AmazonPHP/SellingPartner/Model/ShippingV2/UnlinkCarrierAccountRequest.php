@@ -41,6 +41,7 @@ class UnlinkCarrierAccountRequest implements \ArrayAccess, \JsonSerializable, \S
      */
     protected static array $openAPITypes = [
         'client_reference_details' => '\AmazonPHP\SellingPartner\Model\ShippingV2\ClientReferenceDetail[]',
+        'account_id' => 'string',
     ];
 
     /**
@@ -54,6 +55,7 @@ class UnlinkCarrierAccountRequest implements \ArrayAccess, \JsonSerializable, \S
      */
     protected static array $openAPIFormats = [
         'client_reference_details' => null,
+        'account_id' => null,
     ];
 
     /**
@@ -64,6 +66,7 @@ class UnlinkCarrierAccountRequest implements \ArrayAccess, \JsonSerializable, \S
      */
     protected static array $attributeMap = [
         'client_reference_details' => 'clientReferenceDetails',
+        'account_id' => 'accountId',
     ];
 
     /**
@@ -73,6 +76,7 @@ class UnlinkCarrierAccountRequest implements \ArrayAccess, \JsonSerializable, \S
      */
     protected static array $setters = [
         'client_reference_details' => 'setClientReferenceDetails',
+        'account_id' => 'setAccountId',
     ];
 
     /**
@@ -82,6 +86,7 @@ class UnlinkCarrierAccountRequest implements \ArrayAccess, \JsonSerializable, \S
      */
     protected static array $getters = [
         'client_reference_details' => 'getClientReferenceDetails',
+        'account_id' => 'getAccountId',
     ];
 
     /**
@@ -100,6 +105,7 @@ class UnlinkCarrierAccountRequest implements \ArrayAccess, \JsonSerializable, \S
     public function __construct(array $data = null)
     {
         $this->container['client_reference_details'] = $data['client_reference_details'] ?? null;
+        $this->container['account_id'] = $data['account_id'] ?? null;
     }
 
     /**
@@ -199,6 +205,26 @@ class UnlinkCarrierAccountRequest implements \ArrayAccess, \JsonSerializable, \S
     public function setClientReferenceDetails(?array $client_reference_details) : self
     {
         $this->container['client_reference_details'] = $client_reference_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_id.
+     */
+    public function getAccountId() : ?string
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id.
+     *
+     * @param null|string $account_id identifier for the seller's carrier account
+     */
+    public function setAccountId(?string $account_id) : self
+    {
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }

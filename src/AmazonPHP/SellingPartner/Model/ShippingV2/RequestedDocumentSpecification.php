@@ -46,6 +46,7 @@ class RequestedDocumentSpecification implements \ArrayAccess, \JsonSerializable,
         'page_layout' => 'string',
         'need_file_joining' => 'bool',
         'requested_document_types' => '\AmazonPHP\SellingPartner\Model\ShippingV2\DocumentType[]',
+        'requested_label_customization' => '\AmazonPHP\SellingPartner\Model\ShippingV2\RequestedLabelCustomization',
     ];
 
     /**
@@ -64,6 +65,7 @@ class RequestedDocumentSpecification implements \ArrayAccess, \JsonSerializable,
         'page_layout' => null,
         'need_file_joining' => null,
         'requested_document_types' => null,
+        'requested_label_customization' => null,
     ];
 
     /**
@@ -79,6 +81,7 @@ class RequestedDocumentSpecification implements \ArrayAccess, \JsonSerializable,
         'page_layout' => 'pageLayout',
         'need_file_joining' => 'needFileJoining',
         'requested_document_types' => 'requestedDocumentTypes',
+        'requested_label_customization' => 'requestedLabelCustomization',
     ];
 
     /**
@@ -93,6 +96,7 @@ class RequestedDocumentSpecification implements \ArrayAccess, \JsonSerializable,
         'page_layout' => 'setPageLayout',
         'need_file_joining' => 'setNeedFileJoining',
         'requested_document_types' => 'setRequestedDocumentTypes',
+        'requested_label_customization' => 'setRequestedLabelCustomization',
     ];
 
     /**
@@ -107,6 +111,7 @@ class RequestedDocumentSpecification implements \ArrayAccess, \JsonSerializable,
         'page_layout' => 'getPageLayout',
         'need_file_joining' => 'getNeedFileJoining',
         'requested_document_types' => 'getRequestedDocumentTypes',
+        'requested_label_customization' => 'getRequestedLabelCustomization',
     ];
 
     /**
@@ -130,6 +135,7 @@ class RequestedDocumentSpecification implements \ArrayAccess, \JsonSerializable,
         $this->container['page_layout'] = $data['page_layout'] ?? null;
         $this->container['need_file_joining'] = $data['need_file_joining'] ?? null;
         $this->container['requested_document_types'] = $data['requested_document_types'] ?? null;
+        $this->container['requested_label_customization'] = $data['requested_label_customization'] ?? null;
     }
 
     /**
@@ -225,6 +231,10 @@ class RequestedDocumentSpecification implements \ArrayAccess, \JsonSerializable,
 
         if ($this->container['requested_document_types'] === null) {
             throw new AssertionException("'requested_document_types' can't be null");
+        }
+
+        if ($this->container['requested_label_customization'] !== null) {
+            $this->container['requested_label_customization']->validate();
         }
     }
 
@@ -346,6 +356,26 @@ class RequestedDocumentSpecification implements \ArrayAccess, \JsonSerializable,
     public function setRequestedDocumentTypes(array $requested_document_types) : self
     {
         $this->container['requested_document_types'] = $requested_document_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets requested_label_customization.
+     */
+    public function getRequestedLabelCustomization() : ?RequestedLabelCustomization
+    {
+        return $this->container['requested_label_customization'];
+    }
+
+    /**
+     * Sets requested_label_customization.
+     *
+     * @param null|RequestedLabelCustomization $requested_label_customization requested_label_customization
+     */
+    public function setRequestedLabelCustomization(?RequestedLabelCustomization $requested_label_customization) : self
+    {
+        $this->container['requested_label_customization'] = $requested_label_customization;
 
         return $this;
     }

@@ -24,10 +24,6 @@ interface MessagingSDKInterface
 
     public const OPERATION_CONFIRMCUSTOMIZATIONDETAILS_PATH = '/messaging/v1/orders/{amazonOrderId}/messages/confirmCustomizationDetails';
 
-    public const OPERATION_CREATEAMAZONMOTORS = 'createAmazonMotors';
-
-    public const OPERATION_CREATEAMAZONMOTORS_PATH = '/messaging/v1/orders/{amazonOrderId}/messages/amazonMotors';
-
     public const OPERATION_CREATECONFIRMDELIVERYDETAILS = 'createConfirmDeliveryDetails';
 
     public const OPERATION_CREATECONFIRMDELIVERYDETAILS_PATH = '/messaging/v1/orders/{amazonOrderId}/messages/confirmDeliveryDetails';
@@ -47,10 +43,6 @@ interface MessagingSDKInterface
     public const OPERATION_CREATELEGALDISCLOSURE = 'createLegalDisclosure';
 
     public const OPERATION_CREATELEGALDISCLOSURE_PATH = '/messaging/v1/orders/{amazonOrderId}/messages/legalDisclosure';
-
-    public const OPERATION_CREATENEGATIVEFEEDBACKREMOVAL = 'createNegativeFeedbackRemoval';
-
-    public const OPERATION_CREATENEGATIVEFEEDBACKREMOVAL_PATH = '/messaging/v1/orders/{amazonOrderId}/messages/negativeFeedbackRemoval';
 
     public const OPERATION_CREATEUNEXPECTEDPROBLEM = 'createUnexpectedProblem';
 
@@ -85,20 +77,6 @@ interface MessagingSDKInterface
      * @return \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmCustomizationDetailsResponse
      */
     public function confirmCustomizationDetails(AccessToken $accessToken, string $region, string $amazon_order_id, array $marketplace_ids, \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmCustomizationDetailsRequest $body) : \AmazonPHP\SellingPartner\Model\Messaging\CreateConfirmCustomizationDetailsResponse;
-
-    /**
-     * Operation createAmazonMotors.
-     *
-     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Messaging\CreateAmazonMotorsRequest $body This contains the message body for a message. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\Messaging\CreateAmazonMotorsResponse
-     */
-    public function createAmazonMotors(AccessToken $accessToken, string $region, string $amazon_order_id, array $marketplace_ids, \AmazonPHP\SellingPartner\Model\Messaging\CreateAmazonMotorsRequest $body) : \AmazonPHP\SellingPartner\Model\Messaging\CreateAmazonMotorsResponse;
 
     /**
      * Operation createConfirmDeliveryDetails.
@@ -169,19 +147,6 @@ interface MessagingSDKInterface
      * @return \AmazonPHP\SellingPartner\Model\Messaging\CreateLegalDisclosureResponse
      */
     public function createLegalDisclosure(AccessToken $accessToken, string $region, string $amazon_order_id, array $marketplace_ids, \AmazonPHP\SellingPartner\Model\Messaging\CreateLegalDisclosureRequest $body) : \AmazonPHP\SellingPartner\Model\Messaging\CreateLegalDisclosureResponse;
-
-    /**
-     * Operation createNegativeFeedbackRemoval.
-     *
-     * @param string $amazon_order_id An Amazon order identifier. This identifies the order for which a message is sent. (required)
-     * @param string[] $marketplace_ids A marketplace identifier. This identifies the marketplace in which the order was placed. You can only specify one marketplace. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\Messaging\CreateNegativeFeedbackRemovalResponse
-     */
-    public function createNegativeFeedbackRemoval(AccessToken $accessToken, string $region, string $amazon_order_id, array $marketplace_ids) : \AmazonPHP\SellingPartner\Model\Messaging\CreateNegativeFeedbackRemovalResponse;
 
     /**
      * Operation createUnexpectedProblem.

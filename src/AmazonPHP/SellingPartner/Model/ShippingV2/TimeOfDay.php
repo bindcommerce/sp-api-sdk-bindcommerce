@@ -204,7 +204,7 @@ class TimeOfDay implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets hour_of_day.
      *
-     * @param null|int $hour_of_day hour_of_day
+     * @param null|int $hour_of_day Denotes hour of the day, used for defining opening or closing time of access points
      */
     public function setHourOfDay(?int $hour_of_day) : self
     {
@@ -224,7 +224,7 @@ class TimeOfDay implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets minute_of_hour.
      *
-     * @param null|int $minute_of_hour minute_of_hour
+     * @param null|int $minute_of_hour Denotes minute of the hour, used for defining opening or closing time of access points
      */
     public function setMinuteOfHour(?int $minute_of_hour) : self
     {
@@ -244,7 +244,7 @@ class TimeOfDay implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets second_of_minute.
      *
-     * @param null|int $second_of_minute second_of_minute
+     * @param null|int $second_of_minute Denotes second of the minute, used for defining opening or closing time of access points
      */
     public function setSecondOfMinute(?int $second_of_minute) : self
     {

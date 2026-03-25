@@ -205,7 +205,7 @@ class FulfillmentAvailability implements \ArrayAccess, \JsonSerializable, \Strin
     /**
      * Sets fulfillment_channel_code.
      *
-     * @param string $fulfillment_channel_code the code of the fulfillment network that will be used
+     * @param string $fulfillment_channel_code designates which fulfillment network is used
      */
     public function setFulfillmentChannelCode(string $fulfillment_channel_code) : self
     {

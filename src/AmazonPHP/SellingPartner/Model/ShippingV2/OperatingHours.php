@@ -253,7 +253,7 @@ class OperatingHours implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets mid_day_closures.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShippingV2\TimeOfDay[] $mid_day_closures mid_day_closures
+     * @param null|\AmazonPHP\SellingPartner\Model\ShippingV2\TimeOfDay[] $mid_day_closures midDayClosures operating hours array
      */
     public function setMidDayClosures(?array $mid_day_closures) : self
     {

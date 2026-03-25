@@ -198,7 +198,7 @@ class ActiveAccount implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets account_id.
      *
-     * @param null|string $account_id account Id associated with this account
+     * @param null|string $account_id identifier for the seller's carrier account
      */
     public function setAccountId(?string $account_id) : self
     {

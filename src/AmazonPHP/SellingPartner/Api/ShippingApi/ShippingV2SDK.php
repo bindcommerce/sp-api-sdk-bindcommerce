@@ -227,9 +227,202 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     }
 
     /**
+     * Operation createClaim.
+     *
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimRequest $body Request body for the createClaim operation (required)
+     * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     */
+    public function createClaim(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimRequest $body, ?string $x_amzn_shipping_business_id = null) : \AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimResponse
+    {
+        $request = $this->createClaimRequest($accessToken, $region, $body, $x_amzn_shipping_business_id);
+
+        $this->configuration->extensions()->preRequest('ShippingV2', 'createClaim', $request);
+
+        try {
+            $correlationId = $this->configuration->idGenerator()->generate();
+            $sanitizedRequest = $request;
+
+            foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                $sanitizedRequest = $sanitizedRequest->withoutHeader($sensitiveHeader);
+            }
+
+            if ($this->configuration->loggingEnabled('ShippingV2', 'createClaim')) {
+                $this->logger->log(
+                    $this->configuration->logLevel('ShippingV2', 'createClaim'),
+                    'Amazon Selling Partner API pre request',
+                    [
+                        'api' => 'ShippingV2',
+                        'operation' => 'createClaim',
+                        'request_correlation_id' => $correlationId,
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                        'request_headers' => $sanitizedRequest->getHeaders(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                    ]
+                );
+            }
+
+            $response = $this->client->sendRequest($request);
+
+            $this->configuration->extensions()->postRequest('ShippingV2', 'createClaim', $request, $response);
+
+            if ($this->configuration->loggingEnabled('ShippingV2', 'createClaim')) {
+                $sanitizedResponse = $response;
+
+                foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                    $sanitizedResponse = $sanitizedResponse->withoutHeader($sensitiveHeader);
+                }
+
+                $this->logger->log(
+                    $this->configuration->logLevel('ShippingV2', 'createClaim'),
+                    'Amazon Selling Partner API post request',
+                    [
+                        'api' => 'ShippingV2',
+                        'operation' => 'createClaim',
+                        'response_correlation_id' => $correlationId,
+                        'response_body' => (string) $sanitizedResponse->getBody(),
+                        'response_headers' => $sanitizedResponse->getHeaders(),
+                        'response_status_code' => $sanitizedResponse->getStatusCode(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                    ]
+                );
+            }
+        } catch (ClientExceptionInterface $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                (int) $e->getCode(),
+                null,
+                null,
+                $e
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                \sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    (string) $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                (string) $response->getBody()
+            );
+        }
+
+        return ObjectSerializer::deserialize(
+            $this->configuration,
+            (string) $response->getBody(),
+            '\AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimResponse',
+            []
+        );
+    }
+
+    /**
+     * Create request for operation 'createClaim'.
+     *
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimRequest $body Request body for the createClaim operation (required)
+     * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+     *
+     * @throws InvalidArgumentException
+     */
+    public function createClaimRequest(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimRequest $body, ?string $x_amzn_shipping_business_id = null) : RequestInterface
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (\is_array($body) && \count($body) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $body when calling createClaim'
+            );
+        }
+
+        $resourcePath = '/shipping/v2/claims';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $multipart = false;
+        $query = '';
+
+        if (\count($queryParams)) {
+            $query = \http_build_query($queryParams);
+        }
+
+        // header params
+        if ($x_amzn_shipping_business_id !== null) {
+            $headerParams['x-amzn-shipping-business-id'] = ObjectSerializer::toHeaderValue($x_amzn_shipping_business_id);
+        }
+
+        if ($multipart) {
+            $headers = [
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        } else {
+            $headers = [
+                'content-type' => ['application/json'],
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        }
+
+        $request = $this->httpFactory->createRequest(
+            'POST',
+            $this->configuration->apiURL($region) . $resourcePath . '?' . $query
+        );
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if ($headers['content-type'] === ['application/json']) {
+                $httpBody = \json_encode(ObjectSerializer::sanitizeForSerialization($body), JSON_THROW_ON_ERROR);
+            } else {
+                $httpBody = $body;
+            }
+
+            $request = $request->withBody($this->httpFactory->createStreamFromString($httpBody));
+        } elseif (\count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = \is_array($formParamValue) ? $formParamValue : [$formParamValue];
+
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                $request = $request->withParsedBody($multipartContents);
+            } elseif ($headers['content-type'] === ['application/json']) {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams, JSON_THROW_ON_ERROR)));
+            } else {
+                $request = $request->withParsedBody($formParams);
+            }
+        }
+
+        foreach (\array_merge($headerParams, $headers) as $name => $header) {
+            $request = $request->withHeader($name, $header);
+        }
+
+        return HttpSignatureHeaders::forConfig(
+            $this->configuration,
+            $accessToken,
+            $region,
+            $request
+        );
+    }
+
+    /**
      * Operation directPurchaseShipment.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DirectPurchaseRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DirectPurchaseRequest $body DirectPurchaseRequest body (required)
      * @param null|string $x_amzn_idempotency_key A unique value which the server uses to recognize subsequent retries of the same request. (optional)
      * @param null|string $locale The IETF Language Tag. Note that this only supports the primary language subtag with one secondary language subtag (i.e. en-US, fr-CA). The secondary language subtag is almost always a regional designation. This does not support additional subtags beyond the primary and secondary language subtags. (optional)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
@@ -328,7 +521,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'directPurchaseShipment'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DirectPurchaseRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DirectPurchaseRequest $body DirectPurchaseRequest body (required)
      * @param null|string $x_amzn_idempotency_key A unique value which the server uses to recognize subsequent retries of the same request. (optional)
      * @param null|string $locale The IETF Language Tag. Note that this only supports the primary language subtag with one secondary language subtag (i.e. en-US, fr-CA). The secondary language subtag is almost always a regional designation. This does not support additional subtags beyond the primary and secondary language subtags. (optional)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
@@ -436,7 +629,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Operation generateCollectionForm.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GenerateCollectionFormRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GenerateCollectionFormRequest $body GenerateCollectionFormRequest body (required)
      * @param null|string $x_amzn_idempotency_key A unique value which the server uses to recognize subsequent retries of the same request. (optional)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
@@ -534,7 +727,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'generateCollectionForm'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GenerateCollectionFormRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GenerateCollectionFormRequest $body GenerateCollectionFormRequest body (required)
      * @param null|string $x_amzn_idempotency_key A unique value which the server uses to recognize subsequent retries of the same request. (optional)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
@@ -636,9 +829,9 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Operation getAccessPoints.
      *
-     * @param string[] $access_point_types access_point_types (required)
-     * @param string $country_code country_code (required)
-     * @param string $postal_code postal_code (required)
+     * @param string[] $access_point_types Access point types (required)
+     * @param string $country_code Country code for access point (required)
+     * @param string $postal_code postal code for access point (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -735,9 +928,9 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'getAccessPoints'.
      *
-     * @param string[] $access_point_types (required)
-     * @param string $country_code (required)
-     * @param string $postal_code (required)
+     * @param string[] $access_point_types Access point types (required)
+     * @param string $country_code Country code for access point (required)
+     * @param string $postal_code postal code for access point (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws InvalidArgumentException
@@ -1254,7 +1447,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Operation getCarrierAccounts.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCarrierAccountsRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCarrierAccountsRequest $body GetCarrierAccountsRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -1351,7 +1544,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'getCarrierAccounts'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCarrierAccountsRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCarrierAccountsRequest $body GetCarrierAccountsRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws InvalidArgumentException
@@ -1641,7 +1834,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Operation getCollectionFormHistory.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCollectionFormHistoryRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCollectionFormHistoryRequest $body GetCollectionFormHistoryRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -1738,7 +1931,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'getCollectionFormHistory'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCollectionFormHistoryRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCollectionFormHistoryRequest $body GetCollectionFormHistoryRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws InvalidArgumentException
@@ -1834,7 +2027,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Operation getRates.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetRatesRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetRatesRequest $body GetRatesRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -1931,7 +2124,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'getRates'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetRatesRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetRatesRequest $body GetRatesRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws InvalidArgumentException
@@ -2473,7 +2666,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Operation getUnmanifestedShipments.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetUnmanifestedShipmentsRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetUnmanifestedShipmentsRequest $body GetUmanifestedShipmentsRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -2570,7 +2763,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'getUnmanifestedShipments'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetUnmanifestedShipmentsRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetUnmanifestedShipmentsRequest $body GetUmanifestedShipmentsRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws InvalidArgumentException
@@ -2666,8 +2859,8 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Operation linkCarrierAccount.
      *
-     * @param string $carrier_id The unique identifier associated with the carrier account. (required)
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body body (required)
+     * @param string $carrier_id An identifier for the carrier with which the seller&#39;s account is being linked. (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body LinkCarrierAccountRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -2764,8 +2957,8 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'linkCarrierAccount'.
      *
-     * @param string $carrier_id The unique identifier associated with the carrier account. (required)
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body (required)
+     * @param string $carrier_id An identifier for the carrier with which the seller&#39;s account is being linked. (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body LinkCarrierAccountRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws InvalidArgumentException
@@ -2875,9 +3068,220 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     }
 
     /**
+     * Operation linkCarrierAccount_0.
+     *
+     * @param string $carrier_id An identifier for the carrier with which the seller&#39;s account is being linked. (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body LinkCarrierAccountRequest body (required)
+     * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     */
+    public function linkCarrierAccount_0(AccessToken $accessToken, string $region, string $carrier_id, \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body, ?string $x_amzn_shipping_business_id = null) : \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountResponse
+    {
+        $request = $this->linkCarrierAccount_0Request($accessToken, $region, $carrier_id, $body, $x_amzn_shipping_business_id);
+
+        $this->configuration->extensions()->preRequest('ShippingV2', 'linkCarrierAccount_0', $request);
+
+        try {
+            $correlationId = $this->configuration->idGenerator()->generate();
+            $sanitizedRequest = $request;
+
+            foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                $sanitizedRequest = $sanitizedRequest->withoutHeader($sensitiveHeader);
+            }
+
+            if ($this->configuration->loggingEnabled('ShippingV2', 'linkCarrierAccount_0')) {
+                $this->logger->log(
+                    $this->configuration->logLevel('ShippingV2', 'linkCarrierAccount_0'),
+                    'Amazon Selling Partner API pre request',
+                    [
+                        'api' => 'ShippingV2',
+                        'operation' => 'linkCarrierAccount_0',
+                        'request_correlation_id' => $correlationId,
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                        'request_headers' => $sanitizedRequest->getHeaders(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                    ]
+                );
+            }
+
+            $response = $this->client->sendRequest($request);
+
+            $this->configuration->extensions()->postRequest('ShippingV2', 'linkCarrierAccount_0', $request, $response);
+
+            if ($this->configuration->loggingEnabled('ShippingV2', 'linkCarrierAccount_0')) {
+                $sanitizedResponse = $response;
+
+                foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                    $sanitizedResponse = $sanitizedResponse->withoutHeader($sensitiveHeader);
+                }
+
+                $this->logger->log(
+                    $this->configuration->logLevel('ShippingV2', 'linkCarrierAccount_0'),
+                    'Amazon Selling Partner API post request',
+                    [
+                        'api' => 'ShippingV2',
+                        'operation' => 'linkCarrierAccount_0',
+                        'response_correlation_id' => $correlationId,
+                        'response_body' => (string) $sanitizedResponse->getBody(),
+                        'response_headers' => $sanitizedResponse->getHeaders(),
+                        'response_status_code' => $sanitizedResponse->getStatusCode(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                    ]
+                );
+            }
+        } catch (ClientExceptionInterface $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                (int) $e->getCode(),
+                null,
+                null,
+                $e
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                \sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    (string) $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                (string) $response->getBody()
+            );
+        }
+
+        return ObjectSerializer::deserialize(
+            $this->configuration,
+            (string) $response->getBody(),
+            '\AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountResponse',
+            []
+        );
+    }
+
+    /**
+     * Create request for operation 'linkCarrierAccount_0'.
+     *
+     * @param string $carrier_id An identifier for the carrier with which the seller&#39;s account is being linked. (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body LinkCarrierAccountRequest body (required)
+     * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+     *
+     * @throws InvalidArgumentException
+     */
+    public function linkCarrierAccount_0Request(AccessToken $accessToken, string $region, string $carrier_id, \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body, ?string $x_amzn_shipping_business_id = null) : RequestInterface
+    {
+        // verify the required parameter 'carrier_id' is set
+        if ($carrier_id === null || (\is_array($carrier_id) && \count($carrier_id) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $carrier_id when calling linkCarrierAccount_0'
+            );
+        }
+
+        // verify the required parameter 'body' is set
+        if ($body === null || (\is_array($body) && \count($body) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $body when calling linkCarrierAccount_0'
+            );
+        }
+
+        $resourcePath = '/shipping/v2/carrierAccounts/{carrierId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $multipart = false;
+        $query = '';
+
+        if (\count($queryParams)) {
+            $query = \http_build_query($queryParams);
+        }
+
+        // header params
+        if ($x_amzn_shipping_business_id !== null) {
+            $headerParams['x-amzn-shipping-business-id'] = ObjectSerializer::toHeaderValue($x_amzn_shipping_business_id);
+        }
+
+        // path params
+        if ($carrier_id !== null) {
+            $resourcePath = \str_replace(
+                '{' . 'carrierId' . '}',
+                ObjectSerializer::toPathValue($carrier_id),
+                $resourcePath
+            );
+        }
+
+        if ($multipart) {
+            $headers = [
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        } else {
+            $headers = [
+                'content-type' => ['application/json'],
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        }
+
+        $request = $this->httpFactory->createRequest(
+            'POST',
+            $this->configuration->apiURL($region) . $resourcePath . '?' . $query
+        );
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if ($headers['content-type'] === ['application/json']) {
+                $httpBody = \json_encode(ObjectSerializer::sanitizeForSerialization($body), JSON_THROW_ON_ERROR);
+            } else {
+                $httpBody = $body;
+            }
+
+            $request = $request->withBody($this->httpFactory->createStreamFromString($httpBody));
+        } elseif (\count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = \is_array($formParamValue) ? $formParamValue : [$formParamValue];
+
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                $request = $request->withParsedBody($multipartContents);
+            } elseif ($headers['content-type'] === ['application/json']) {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams, JSON_THROW_ON_ERROR)));
+            } else {
+                $request = $request->withParsedBody($formParams);
+            }
+        }
+
+        foreach (\array_merge($headerParams, $headers) as $name => $header) {
+            $request = $request->withHeader($name, $header);
+        }
+
+        return HttpSignatureHeaders::forConfig(
+            $this->configuration,
+            $accessToken,
+            $region,
+            $request
+        );
+    }
+
+    /**
      * Operation oneClickShipment.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\OneClickShipmentRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\OneClickShipmentRequest $body OneClickShipmentRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -2974,7 +3378,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'oneClickShipment'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\OneClickShipmentRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\OneClickShipmentRequest $body OneClickShipmentRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws InvalidArgumentException
@@ -3070,7 +3474,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Operation purchaseShipment.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\PurchaseShipmentRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\PurchaseShipmentRequest $body PurchaseShipmentRequest body (required)
      * @param null|string $x_amzn_idempotency_key A unique value which the server uses to recognize subsequent retries of the same request. (optional)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
@@ -3168,7 +3572,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     /**
      * Create request for operation 'purchaseShipment'.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\PurchaseShipmentRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\PurchaseShipmentRequest $body PurchaseShipmentRequest body (required)
      * @param null|string $x_amzn_idempotency_key A unique value which the server uses to recognize subsequent retries of the same request. (optional)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
@@ -3268,10 +3672,198 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
     }
 
     /**
+     * Operation submitNdrFeedback.
+     *
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\SubmitNdrFeedbackRequest $body Request body for ndrFeedback operation (required)
+     * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     */
+    public function submitNdrFeedback(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\ShippingV2\SubmitNdrFeedbackRequest $body, ?string $x_amzn_shipping_business_id = null)
+    {
+        $request = $this->submitNdrFeedbackRequest($accessToken, $region, $body, $x_amzn_shipping_business_id);
+
+        $this->configuration->extensions()->preRequest('ShippingV2', 'submitNdrFeedback', $request);
+
+        try {
+            $correlationId = $this->configuration->idGenerator()->generate();
+            $sanitizedRequest = $request;
+
+            foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                $sanitizedRequest = $sanitizedRequest->withoutHeader($sensitiveHeader);
+            }
+
+            if ($this->configuration->loggingEnabled('ShippingV2', 'submitNdrFeedback')) {
+                $this->logger->log(
+                    $this->configuration->logLevel('ShippingV2', 'submitNdrFeedback'),
+                    'Amazon Selling Partner API pre request',
+                    [
+                        'api' => 'ShippingV2',
+                        'operation' => 'submitNdrFeedback',
+                        'request_correlation_id' => $correlationId,
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                        'request_headers' => $sanitizedRequest->getHeaders(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                    ]
+                );
+            }
+
+            $response = $this->client->sendRequest($request);
+
+            $this->configuration->extensions()->postRequest('ShippingV2', 'submitNdrFeedback', $request, $response);
+
+            if ($this->configuration->loggingEnabled('ShippingV2', 'submitNdrFeedback')) {
+                $sanitizedResponse = $response;
+
+                foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                    $sanitizedResponse = $sanitizedResponse->withoutHeader($sensitiveHeader);
+                }
+
+                $this->logger->log(
+                    $this->configuration->logLevel('ShippingV2', 'submitNdrFeedback'),
+                    'Amazon Selling Partner API post request',
+                    [
+                        'api' => 'ShippingV2',
+                        'operation' => 'submitNdrFeedback',
+                        'response_correlation_id' => $correlationId,
+                        'response_body' => (string) $sanitizedResponse->getBody(),
+                        'response_headers' => $sanitizedResponse->getHeaders(),
+                        'response_status_code' => $sanitizedResponse->getStatusCode(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                    ]
+                );
+            }
+        } catch (ClientExceptionInterface $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                (int) $e->getCode(),
+                null,
+                null,
+                $e
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                \sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    (string) $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                (string) $response->getBody()
+            );
+        }
+
+        return null;
+    }
+
+    /**
+     * Create request for operation 'submitNdrFeedback'.
+     *
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\SubmitNdrFeedbackRequest $body Request body for ndrFeedback operation (required)
+     * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+     *
+     * @throws InvalidArgumentException
+     */
+    public function submitNdrFeedbackRequest(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\ShippingV2\SubmitNdrFeedbackRequest $body, ?string $x_amzn_shipping_business_id = null) : RequestInterface
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (\is_array($body) && \count($body) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $body when calling submitNdrFeedback'
+            );
+        }
+
+        $resourcePath = '/shipping/v2/ndrFeedback';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $multipart = false;
+        $query = '';
+
+        if (\count($queryParams)) {
+            $query = \http_build_query($queryParams);
+        }
+
+        // header params
+        if ($x_amzn_shipping_business_id !== null) {
+            $headerParams['x-amzn-shipping-business-id'] = ObjectSerializer::toHeaderValue($x_amzn_shipping_business_id);
+        }
+
+        if ($multipart) {
+            $headers = [
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        } else {
+            $headers = [
+                'content-type' => ['application/json'],
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        }
+
+        $request = $this->httpFactory->createRequest(
+            'POST',
+            $this->configuration->apiURL($region) . $resourcePath . '?' . $query
+        );
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if ($headers['content-type'] === ['application/json']) {
+                $httpBody = \json_encode(ObjectSerializer::sanitizeForSerialization($body), JSON_THROW_ON_ERROR);
+            } else {
+                $httpBody = $body;
+            }
+
+            $request = $request->withBody($this->httpFactory->createStreamFromString($httpBody));
+        } elseif (\count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = \is_array($formParamValue) ? $formParamValue : [$formParamValue];
+
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                $request = $request->withParsedBody($multipartContents);
+            } elseif ($headers['content-type'] === ['application/json']) {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams, JSON_THROW_ON_ERROR)));
+            } else {
+                $request = $request->withParsedBody($formParams);
+            }
+        }
+
+        foreach (\array_merge($headerParams, $headers) as $name => $header) {
+            $request = $request->withHeader($name, $header);
+        }
+
+        return HttpSignatureHeaders::forConfig(
+            $this->configuration,
+            $accessToken,
+            $region,
+            $request
+        );
+    }
+
+    /**
      * Operation unlinkCarrierAccount.
      *
      * @param string $carrier_id carrier Id to unlink with merchant. (required)
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\UnlinkCarrierAccountRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\UnlinkCarrierAccountRequest $body UnlinkCarrierAccountRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -3369,7 +3961,7 @@ final class ShippingV2SDK implements ShippingV2SDKInterface
      * Create request for operation 'unlinkCarrierAccount'.
      *
      * @param string $carrier_id carrier Id to unlink with merchant. (required)
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\UnlinkCarrierAccountRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\UnlinkCarrierAccountRequest $body UnlinkCarrierAccountRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws InvalidArgumentException

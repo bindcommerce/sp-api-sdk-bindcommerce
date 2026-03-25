@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -207,7 +207,7 @@ class ItemSalesRanksByMarketplace implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets marketplace_id.
      *
-     * @param string $marketplace_id amazon marketplace identifier
+     * @param string $marketplace_id Amazon marketplace identifier. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
      */
     public function setMarketplaceId(string $marketplace_id) : self
     {
@@ -229,7 +229,7 @@ class ItemSalesRanksByMarketplace implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets classification_ranks.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemClassificationSalesRank[] $classification_ranks sales ranks of an Amazon catalog item for an Amazon marketplace by classification
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemClassificationSalesRank[] $classification_ranks sales ranks of an Amazon catalog item for a `marketplaceId`, grouped by classification
      */
     public function setClassificationRanks(?array $classification_ranks) : self
     {
@@ -251,7 +251,7 @@ class ItemSalesRanksByMarketplace implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets display_group_ranks.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemDisplayGroupSalesRank[] $display_group_ranks sales ranks of an Amazon catalog item for an Amazon marketplace by website display group
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemDisplayGroupSalesRank[] $display_group_ranks sales ranks of an Amazon catalog item for a `marketplaceId`, grouped by website display group
      */
     public function setDisplayGroupRanks(?array $display_group_ranks) : self
     {

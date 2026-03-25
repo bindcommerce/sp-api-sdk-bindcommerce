@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -298,7 +298,7 @@ class ItemVendorDetailsByMarketplace implements \ArrayAccess, \JsonSerializable,
     /**
      * Sets marketplace_id.
      *
-     * @param string $marketplace_id amazon marketplace identifier
+     * @param string $marketplace_id Amazon marketplace identifier. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
      */
     public function setMarketplaceId(string $marketplace_id) : self
     {
@@ -318,7 +318,7 @@ class ItemVendorDetailsByMarketplace implements \ArrayAccess, \JsonSerializable,
     /**
      * Sets brand_code.
      *
-     * @param null|string $brand_code brand code associated with an Amazon catalog item
+     * @param null|string $brand_code the brand code that is associated with an Amazon catalog item
      */
     public function setBrandCode(?string $brand_code) : self
     {
@@ -338,7 +338,7 @@ class ItemVendorDetailsByMarketplace implements \ArrayAccess, \JsonSerializable,
     /**
      * Sets manufacturer_code.
      *
-     * @param null|string $manufacturer_code manufacturer code associated with an Amazon catalog item
+     * @param null|string $manufacturer_code the manufacturer code that is associated with an Amazon catalog item
      */
     public function setManufacturerCode(?string $manufacturer_code) : self
     {
@@ -358,7 +358,7 @@ class ItemVendorDetailsByMarketplace implements \ArrayAccess, \JsonSerializable,
     /**
      * Sets manufacturer_code_parent.
      *
-     * @param null|string $manufacturer_code_parent parent vendor code of the manufacturer code
+     * @param null|string $manufacturer_code_parent the parent vendor code of the manufacturer code
      */
     public function setManufacturerCodeParent(?string $manufacturer_code_parent) : self
     {
@@ -398,7 +398,7 @@ class ItemVendorDetailsByMarketplace implements \ArrayAccess, \JsonSerializable,
     /**
      * Sets product_group.
      *
-     * @param null|string $product_group product group associated with an Amazon catalog item
+     * @param null|string $product_group the product group that is associated with an Amazon catalog item
      */
     public function setProductGroup(?string $product_group) : self
     {
@@ -438,7 +438,7 @@ class ItemVendorDetailsByMarketplace implements \ArrayAccess, \JsonSerializable,
     /**
      * Sets replenishment_category.
      *
-     * @param null|string $replenishment_category replenishment category associated with an Amazon catalog item
+     * @param null|string $replenishment_category the replenishment category that is associated with an Amazon catalog item
      */
     public function setReplenishmentCategory(?string $replenishment_category) : self
     {

@@ -253,7 +253,7 @@ class IssueExemption implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets expiry_date.
      *
-     * @param null|\DateTimeInterface $expiry_date this field represents the timestamp, following the ISO 8601 format, which specifies the date when temporary exemptions, if applicable, will expire, and Amazon will begin enforcing the listed actions
+     * @param null|\DateTimeInterface $expiry_date represents the timestamp, in ISO 8601 format, that specifies the date when the temporary exemptions expires, and Amazon begins enforcing the listed actions
      */
     public function setExpiryDate(?\DateTimeInterface $expiry_date) : self
     {

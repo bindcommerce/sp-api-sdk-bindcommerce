@@ -201,7 +201,7 @@ class Points implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
     /**
      * Sets points_number.
      *
-     * @param null|int $points_number points_number
+     * @param null|int $points_number The number of Amazon Points
      */
     public function setPointsNumber(?int $points_number) : self
     {

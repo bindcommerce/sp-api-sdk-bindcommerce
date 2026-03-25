@@ -43,6 +43,7 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'package_number' => 'int',
         'carrier_code' => 'string',
         'tracking_number' => 'string',
+        'amazon_fulfillment_tracking_number' => 'string',
         'estimated_arrival_date' => '\DateTimeInterface',
         'locker_details' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\LockerDetails',
         'delivery_information' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\DeliveryInformation',
@@ -61,6 +62,7 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'package_number' => 'int32',
         'carrier_code' => null,
         'tracking_number' => null,
+        'amazon_fulfillment_tracking_number' => null,
         'estimated_arrival_date' => 'date-time',
         'locker_details' => null,
         'delivery_information' => null,
@@ -76,6 +78,7 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'package_number' => 'packageNumber',
         'carrier_code' => 'carrierCode',
         'tracking_number' => 'trackingNumber',
+        'amazon_fulfillment_tracking_number' => 'amazonFulfillmentTrackingNumber',
         'estimated_arrival_date' => 'estimatedArrivalDate',
         'locker_details' => 'lockerDetails',
         'delivery_information' => 'deliveryInformation',
@@ -90,6 +93,7 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'package_number' => 'setPackageNumber',
         'carrier_code' => 'setCarrierCode',
         'tracking_number' => 'setTrackingNumber',
+        'amazon_fulfillment_tracking_number' => 'setAmazonFulfillmentTrackingNumber',
         'estimated_arrival_date' => 'setEstimatedArrivalDate',
         'locker_details' => 'setLockerDetails',
         'delivery_information' => 'setDeliveryInformation',
@@ -104,6 +108,7 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         'package_number' => 'getPackageNumber',
         'carrier_code' => 'getCarrierCode',
         'tracking_number' => 'getTrackingNumber',
+        'amazon_fulfillment_tracking_number' => 'getAmazonFulfillmentTrackingNumber',
         'estimated_arrival_date' => 'getEstimatedArrivalDate',
         'locker_details' => 'getLockerDetails',
         'delivery_information' => 'getDeliveryInformation',
@@ -127,6 +132,7 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
         $this->container['package_number'] = $data['package_number'] ?? null;
         $this->container['carrier_code'] = $data['carrier_code'] ?? null;
         $this->container['tracking_number'] = $data['tracking_number'] ?? null;
+        $this->container['amazon_fulfillment_tracking_number'] = $data['amazon_fulfillment_tracking_number'] ?? null;
         $this->container['estimated_arrival_date'] = $data['estimated_arrival_date'] ?? null;
         $this->container['locker_details'] = $data['locker_details'] ?? null;
         $this->container['delivery_information'] = $data['delivery_information'] ?? null;
@@ -282,6 +288,26 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
     public function setTrackingNumber(?string $tracking_number) : self
     {
         $this->container['tracking_number'] = $tracking_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets amazon_fulfillment_tracking_number.
+     */
+    public function getAmazonFulfillmentTrackingNumber() : ?string
+    {
+        return $this->container['amazon_fulfillment_tracking_number'];
+    }
+
+    /**
+     * Sets amazon_fulfillment_tracking_number.
+     *
+     * @param null|string $amazon_fulfillment_tracking_number the Amazon fulfillment tracking number, if provided, can be used to obtain tracking and delivery information
+     */
+    public function setAmazonFulfillmentTrackingNumber(?string $amazon_fulfillment_tracking_number) : self
+    {
+        $this->container['amazon_fulfillment_tracking_number'] = $amazon_fulfillment_tracking_number;
 
         return $this;
     }

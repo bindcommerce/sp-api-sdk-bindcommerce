@@ -57,6 +57,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
         'ship_from_party' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\PartyIdentification',
         'ship_to_party' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\Address',
         'bill_to_party' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\PartyIdentification',
+        'has_customizable_items' => 'bool',
         'items' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\OrderItem[]',
     ];
 
@@ -79,6 +80,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
         'ship_from_party' => null,
         'ship_to_party' => null,
         'bill_to_party' => null,
+        'has_customizable_items' => null,
         'items' => null,
     ];
 
@@ -98,6 +100,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
         'ship_from_party' => 'shipFromParty',
         'ship_to_party' => 'shipToParty',
         'bill_to_party' => 'billToParty',
+        'has_customizable_items' => 'hasCustomizableItems',
         'items' => 'items',
     ];
 
@@ -116,6 +119,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
         'ship_from_party' => 'setShipFromParty',
         'ship_to_party' => 'setShipToParty',
         'bill_to_party' => 'setBillToParty',
+        'has_customizable_items' => 'setHasCustomizableItems',
         'items' => 'setItems',
     ];
 
@@ -134,6 +138,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
         'ship_from_party' => 'getShipFromParty',
         'ship_to_party' => 'getShipToParty',
         'bill_to_party' => 'getBillToParty',
+        'has_customizable_items' => 'getHasCustomizableItems',
         'items' => 'getItems',
     ];
 
@@ -161,6 +166,7 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
         $this->container['ship_from_party'] = $data['ship_from_party'] ?? null;
         $this->container['ship_to_party'] = $data['ship_to_party'] ?? null;
         $this->container['bill_to_party'] = $data['bill_to_party'] ?? null;
+        $this->container['has_customizable_items'] = $data['has_customizable_items'] ?? null;
         $this->container['items'] = $data['items'] ?? null;
     }
 
@@ -491,6 +497,26 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
     public function setBillToParty(PartyIdentification $bill_to_party) : self
     {
         $this->container['bill_to_party'] = $bill_to_party;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_customizable_items.
+     */
+    public function getHasCustomizableItems() : ?bool
+    {
+        return $this->container['has_customizable_items'];
+    }
+
+    /**
+     * Sets has_customizable_items.
+     *
+     * @param null|bool $has_customizable_items when `true`, the order contains customizable items
+     */
+    public function setHasCustomizableItems(?bool $has_customizable_items) : self
+    {
+        $this->container['has_customizable_items'] = $has_customizable_items;
 
         return $this;
     }

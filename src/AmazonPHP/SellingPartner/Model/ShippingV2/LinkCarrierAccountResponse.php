@@ -41,6 +41,7 @@ class LinkCarrierAccountResponse implements \ArrayAccess, \JsonSerializable, \St
      */
     protected static array $openAPITypes = [
         'registration_status' => '\AmazonPHP\SellingPartner\Model\ShippingV2\AccountStatus',
+        'account_id' => 'string',
     ];
 
     /**
@@ -54,6 +55,7 @@ class LinkCarrierAccountResponse implements \ArrayAccess, \JsonSerializable, \St
      */
     protected static array $openAPIFormats = [
         'registration_status' => null,
+        'account_id' => null,
     ];
 
     /**
@@ -64,6 +66,7 @@ class LinkCarrierAccountResponse implements \ArrayAccess, \JsonSerializable, \St
      */
     protected static array $attributeMap = [
         'registration_status' => 'registrationStatus',
+        'account_id' => 'accountId',
     ];
 
     /**
@@ -73,6 +76,7 @@ class LinkCarrierAccountResponse implements \ArrayAccess, \JsonSerializable, \St
      */
     protected static array $setters = [
         'registration_status' => 'setRegistrationStatus',
+        'account_id' => 'setAccountId',
     ];
 
     /**
@@ -82,6 +86,7 @@ class LinkCarrierAccountResponse implements \ArrayAccess, \JsonSerializable, \St
      */
     protected static array $getters = [
         'registration_status' => 'getRegistrationStatus',
+        'account_id' => 'getAccountId',
     ];
 
     /**
@@ -100,6 +105,7 @@ class LinkCarrierAccountResponse implements \ArrayAccess, \JsonSerializable, \St
     public function __construct(array $data = null)
     {
         $this->container['registration_status'] = $data['registration_status'] ?? null;
+        $this->container['account_id'] = $data['account_id'] ?? null;
     }
 
     /**
@@ -197,6 +203,26 @@ class LinkCarrierAccountResponse implements \ArrayAccess, \JsonSerializable, \St
     public function setRegistrationStatus(?AccountStatus $registration_status) : self
     {
         $this->container['registration_status'] = $registration_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_id.
+     */
+    public function getAccountId() : ?string
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id.
+     *
+     * @param null|string $account_id identifier for the seller's carrier account
+     */
+    public function setAccountId(?string $account_id) : self
+    {
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }

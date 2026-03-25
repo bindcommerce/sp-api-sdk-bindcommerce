@@ -218,7 +218,7 @@ class HttpResponseHeaders implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets x_amzn_request_id.
      *
-     * @param null|string $x_amzn_request_id unique request reference ID
+     * @param null|string $x_amzn_request_id unique request reference identifier
      */
     public function setXAmznRequestId(?string $x_amzn_request_id) : self
     {

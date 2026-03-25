@@ -19,11 +19,11 @@ class OptionalFulfillmentProgram
     /**
      * Possible values of this enum.
      */
-    final public const CORE = 'FBA_CORE';
+    final public const FBA_CORE = 'FBA_CORE';
 
-    final public const SNL = 'FBA_SNL';
+    final public const FBA_SNL = 'FBA_SNL';
 
-    final public const EFN = 'FBA_EFN';
+    final public const FBA_EFN = 'FBA_EFN';
 
     public function __construct(private readonly string $value)
     {
@@ -37,9 +37,9 @@ class OptionalFulfillmentProgram
     public static function getAllowableEnumValues() : array
     {
         return [
-            self::CORE,
-            self::SNL,
-            self::EFN,
+            self::FBA_CORE,
+            self::FBA_SNL,
+            self::FBA_EFN,
         ];
     }
 

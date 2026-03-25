@@ -203,7 +203,7 @@ class GetPricingResponse implements \ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Sets payload.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\Price[] $payload payload
+     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\Price[] $payload the payload for the `getPricing` and `getCompetitivePricing` operations
      */
     public function setPayload(?array $payload) : self
     {

@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -198,7 +198,7 @@ class ItemVendorDetailsCategory implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets display_name.
      *
-     * @param null|string $display_name Display name of the product category or subcategory
+     * @param null|string $display_name the display name of the product category or subcategory
      */
     public function setDisplayName(?string $display_name) : self
     {
@@ -218,7 +218,7 @@ class ItemVendorDetailsCategory implements \ArrayAccess, \JsonSerializable, \Str
     /**
      * Sets value.
      *
-     * @param null|string $value value (code) of the product category or subcategory
+     * @param null|string $value the code that identifies the product category or subcategory
      */
     public function setValue(?string $value) : self
     {

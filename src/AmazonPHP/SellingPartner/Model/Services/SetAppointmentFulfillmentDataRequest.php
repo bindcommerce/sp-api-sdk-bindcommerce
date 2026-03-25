@@ -40,6 +40,7 @@ class SetAppointmentFulfillmentDataRequest implements \ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static array $openAPITypes = [
+        'estimated_arrival_time' => '\AmazonPHP\SellingPartner\Model\Services\DateTimeRange',
         'fulfillment_time' => '\AmazonPHP\SellingPartner\Model\Services\FulfillmentTime',
         'appointment_resources' => '\AmazonPHP\SellingPartner\Model\Services\AppointmentResource[]',
         'fulfillment_documents' => '\AmazonPHP\SellingPartner\Model\Services\FulfillmentDocument[]',
@@ -55,6 +56,7 @@ class SetAppointmentFulfillmentDataRequest implements \ArrayAccess, \JsonSeriali
      * @psalm-var array<string, string|null>
      */
     protected static array $openAPIFormats = [
+        'estimated_arrival_time' => null,
         'fulfillment_time' => null,
         'appointment_resources' => null,
         'fulfillment_documents' => null,
@@ -67,6 +69,7 @@ class SetAppointmentFulfillmentDataRequest implements \ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static array $attributeMap = [
+        'estimated_arrival_time' => 'estimatedArrivalTime',
         'fulfillment_time' => 'fulfillmentTime',
         'appointment_resources' => 'appointmentResources',
         'fulfillment_documents' => 'fulfillmentDocuments',
@@ -78,6 +81,7 @@ class SetAppointmentFulfillmentDataRequest implements \ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static array $setters = [
+        'estimated_arrival_time' => 'setEstimatedArrivalTime',
         'fulfillment_time' => 'setFulfillmentTime',
         'appointment_resources' => 'setAppointmentResources',
         'fulfillment_documents' => 'setFulfillmentDocuments',
@@ -89,6 +93,7 @@ class SetAppointmentFulfillmentDataRequest implements \ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static array $getters = [
+        'estimated_arrival_time' => 'getEstimatedArrivalTime',
         'fulfillment_time' => 'getFulfillmentTime',
         'appointment_resources' => 'getAppointmentResources',
         'fulfillment_documents' => 'getFulfillmentDocuments',
@@ -109,6 +114,7 @@ class SetAppointmentFulfillmentDataRequest implements \ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
+        $this->container['estimated_arrival_time'] = $data['estimated_arrival_time'] ?? null;
         $this->container['fulfillment_time'] = $data['fulfillment_time'] ?? null;
         $this->container['appointment_resources'] = $data['appointment_resources'] ?? null;
         $this->container['fulfillment_documents'] = $data['fulfillment_documents'] ?? null;
@@ -191,9 +197,33 @@ class SetAppointmentFulfillmentDataRequest implements \ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        if ($this->container['estimated_arrival_time'] !== null) {
+            $this->container['estimated_arrival_time']->validate();
+        }
+
         if ($this->container['fulfillment_time'] !== null) {
             $this->container['fulfillment_time']->validate();
         }
+    }
+
+    /**
+     * Gets estimated_arrival_time.
+     */
+    public function getEstimatedArrivalTime() : ?DateTimeRange
+    {
+        return $this->container['estimated_arrival_time'];
+    }
+
+    /**
+     * Sets estimated_arrival_time.
+     *
+     * @param null|DateTimeRange $estimated_arrival_time estimated_arrival_time
+     */
+    public function setEstimatedArrivalTime(?DateTimeRange $estimated_arrival_time) : self
+    {
+        $this->container['estimated_arrival_time'] = $estimated_arrival_time;
+
+        return $this;
     }
 
     /**

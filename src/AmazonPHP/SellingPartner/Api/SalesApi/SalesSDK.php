@@ -44,13 +44,14 @@ final class SalesSDK implements SalesSDKInterface
      * @param null|string $first_day_of_week Specifies the day that the week starts on when granularity&#x3D;Week, either Monday or Sunday. Default: Monday. Example: Sunday, if you want the week to start on a Sunday. (optional, default to 'Monday')
      * @param null|string $asin Filters the results by the ASIN that you specify. Specifying both ASIN and SKU returns an error. Do not include this filter if you want the response to include order metrics for all ASINs. Example: B0792R1RSN, if you want the response to include order metrics for only ASIN B0792R1RSN. (optional)
      * @param null|string $sku Filters the results by the SKU that you specify. Specifying both ASIN and SKU returns an error. Do not include this filter if you want the response to include order metrics for all SKUs. Example: TestSKU, if you want the response to include order metrics for only SKU TestSKU. (optional)
+     * @param null|string $amazon_program Filters the results by the Amazon program that you specify. Do not include this filter if you want the response to include order metrics for all programs. **Example:** &#x60;AmazonHaul&#x60; returns order metrics for the Amazon Haul program only. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      */
-    public function getOrderMetrics(AccessToken $accessToken, string $region, array $marketplace_ids, string $interval, string $granularity, ?string $granularity_time_zone = null, ?string $buyer_type = 'All', ?string $fulfillment_network = null, ?string $first_day_of_week = 'Monday', ?string $asin = null, ?string $sku = null) : \AmazonPHP\SellingPartner\Model\Sales\GetOrderMetricsResponse
+    public function getOrderMetrics(AccessToken $accessToken, string $region, array $marketplace_ids, string $interval, string $granularity, ?string $granularity_time_zone = null, ?string $buyer_type = 'All', ?string $fulfillment_network = null, ?string $first_day_of_week = 'Monday', ?string $asin = null, ?string $sku = null, ?string $amazon_program = null) : \AmazonPHP\SellingPartner\Model\Sales\GetOrderMetricsResponse
     {
-        $request = $this->getOrderMetricsRequest($accessToken, $region, $marketplace_ids, $interval, $granularity, $granularity_time_zone, $buyer_type, $fulfillment_network, $first_day_of_week, $asin, $sku);
+        $request = $this->getOrderMetricsRequest($accessToken, $region, $marketplace_ids, $interval, $granularity, $granularity_time_zone, $buyer_type, $fulfillment_network, $first_day_of_week, $asin, $sku, $amazon_program);
 
         $this->configuration->extensions()->preRequest('Sales', 'getOrderMetrics', $request);
 
@@ -148,10 +149,11 @@ final class SalesSDK implements SalesSDKInterface
      * @param string $first_day_of_week Specifies the day that the week starts on when granularity&#x3D;Week, either Monday or Sunday. Default: Monday. Example: Sunday, if you want the week to start on a Sunday. (optional, default to 'Monday')
      * @param null|string $asin Filters the results by the ASIN that you specify. Specifying both ASIN and SKU returns an error. Do not include this filter if you want the response to include order metrics for all ASINs. Example: B0792R1RSN, if you want the response to include order metrics for only ASIN B0792R1RSN. (optional)
      * @param null|string $sku Filters the results by the SKU that you specify. Specifying both ASIN and SKU returns an error. Do not include this filter if you want the response to include order metrics for all SKUs. Example: TestSKU, if you want the response to include order metrics for only SKU TestSKU. (optional)
+     * @param null|string $amazon_program Filters the results by the Amazon program that you specify. Do not include this filter if you want the response to include order metrics for all programs. **Example:** &#x60;AmazonHaul&#x60; returns order metrics for the Amazon Haul program only. (optional)
      *
      * @throws InvalidArgumentException
      */
-    public function getOrderMetricsRequest(AccessToken $accessToken, string $region, array $marketplace_ids, string $interval, string $granularity, ?string $granularity_time_zone = null, string $buyer_type = 'All', ?string $fulfillment_network = null, string $first_day_of_week = 'Monday', ?string $asin = null, ?string $sku = null) : RequestInterface
+    public function getOrderMetricsRequest(AccessToken $accessToken, string $region, array $marketplace_ids, string $interval, string $granularity, ?string $granularity_time_zone = null, string $buyer_type = 'All', ?string $fulfillment_network = null, string $first_day_of_week = 'Monday', ?string $asin = null, ?string $sku = null, ?string $amazon_program = null) : RequestInterface
     {
         // verify the required parameter 'marketplace_ids' is set
         if ($marketplace_ids === null || (\is_array($marketplace_ids) && \count($marketplace_ids) === 0)) {
@@ -260,6 +262,15 @@ final class SalesSDK implements SalesSDKInterface
 
         if ($sku !== null) {
             $queryParams['sku'] = ObjectSerializer::toString($sku);
+        }
+
+        // query params
+        if (\is_array($amazon_program)) {
+            $amazon_program = ObjectSerializer::serializeCollection($amazon_program, '', true);
+        }
+
+        if ($amazon_program !== null) {
+            $queryParams['amazonProgram'] = ObjectSerializer::toString($amazon_program);
         }
 
         if (\count($queryParams)) {

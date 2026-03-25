@@ -77,7 +77,7 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
      * @var string[]
      */
     protected static array $attributeMap = [
-        'marketplace_id' => 'MarketplaceID',
+        'marketplace_id' => 'marketplaceId',
         'asin' => 'ASIN',
         'sku' => 'SKU',
         'item_condition' => 'ItemCondition',
@@ -407,7 +407,7 @@ class GetOffersResult implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets offers.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\OfferDetail[] $offers offers
+     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\OfferDetail[] $offers A list of offer details. The list is the same length as the TotalOfferCount in the Summary or 20, whichever is less.
      */
     public function setOffers(array $offers) : self
     {

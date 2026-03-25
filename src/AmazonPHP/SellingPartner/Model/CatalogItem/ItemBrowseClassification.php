@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -215,7 +215,7 @@ class ItemBrowseClassification implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets display_name.
      *
-     * @param string $display_name display name for the classification (browse node)
+     * @param string $display_name display name for the classification
      */
     public function setDisplayName(string $display_name) : self
     {
@@ -235,7 +235,7 @@ class ItemBrowseClassification implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets classification_id.
      *
-     * @param string $classification_id identifier of the classification (browse node identifier)
+     * @param string $classification_id identifier of the classification
      */
     public function setClassificationId(string $classification_id) : self
     {

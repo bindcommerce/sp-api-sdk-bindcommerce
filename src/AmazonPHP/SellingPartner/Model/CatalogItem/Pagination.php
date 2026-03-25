@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -198,7 +198,7 @@ class Pagination implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
     /**
      * Sets next_token.
      *
-     * @param null|string $next_token a token that can be used to fetch the next page
+     * @param null|string $next_token a token that you can use to retrieve the next page
      */
     public function setNextToken(?string $next_token) : self
     {
@@ -218,7 +218,7 @@ class Pagination implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
     /**
      * Sets previous_token.
      *
-     * @param null|string $previous_token a token that can be used to fetch the previous page
+     * @param null|string $previous_token a token that you can use to retrieve the previous page
      */
     public function setPreviousToken(?string $previous_token) : self
     {

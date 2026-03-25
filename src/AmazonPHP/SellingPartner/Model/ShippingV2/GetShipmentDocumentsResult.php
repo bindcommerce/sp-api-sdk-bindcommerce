@@ -42,6 +42,7 @@ class GetShipmentDocumentsResult implements \ArrayAccess, \JsonSerializable, \St
     protected static array $openAPITypes = [
         'shipment_id' => 'string',
         'package_document_detail' => '\AmazonPHP\SellingPartner\Model\ShippingV2\PackageDocumentDetail',
+        'benefits' => '\AmazonPHP\SellingPartner\Model\ShippingV2\Benefits',
     ];
 
     /**
@@ -56,6 +57,7 @@ class GetShipmentDocumentsResult implements \ArrayAccess, \JsonSerializable, \St
     protected static array $openAPIFormats = [
         'shipment_id' => null,
         'package_document_detail' => null,
+        'benefits' => null,
     ];
 
     /**
@@ -67,6 +69,7 @@ class GetShipmentDocumentsResult implements \ArrayAccess, \JsonSerializable, \St
     protected static array $attributeMap = [
         'shipment_id' => 'shipmentId',
         'package_document_detail' => 'packageDocumentDetail',
+        'benefits' => 'benefits',
     ];
 
     /**
@@ -77,6 +80,7 @@ class GetShipmentDocumentsResult implements \ArrayAccess, \JsonSerializable, \St
     protected static array $setters = [
         'shipment_id' => 'setShipmentId',
         'package_document_detail' => 'setPackageDocumentDetail',
+        'benefits' => 'setBenefits',
     ];
 
     /**
@@ -87,6 +91,7 @@ class GetShipmentDocumentsResult implements \ArrayAccess, \JsonSerializable, \St
     protected static array $getters = [
         'shipment_id' => 'getShipmentId',
         'package_document_detail' => 'getPackageDocumentDetail',
+        'benefits' => 'getBenefits',
     ];
 
     /**
@@ -106,6 +111,7 @@ class GetShipmentDocumentsResult implements \ArrayAccess, \JsonSerializable, \St
     {
         $this->container['shipment_id'] = $data['shipment_id'] ?? null;
         $this->container['package_document_detail'] = $data['package_document_detail'] ?? null;
+        $this->container['benefits'] = $data['benefits'] ?? null;
     }
 
     /**
@@ -194,6 +200,10 @@ class GetShipmentDocumentsResult implements \ArrayAccess, \JsonSerializable, \St
         }
 
         $this->container['package_document_detail']->validate();
+
+        if ($this->container['benefits'] !== null) {
+            $this->container['benefits']->validate();
+        }
     }
 
     /**
@@ -232,6 +242,26 @@ class GetShipmentDocumentsResult implements \ArrayAccess, \JsonSerializable, \St
     public function setPackageDocumentDetail(PackageDocumentDetail $package_document_detail) : self
     {
         $this->container['package_document_detail'] = $package_document_detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets benefits.
+     */
+    public function getBenefits() : ?Benefits
+    {
+        return $this->container['benefits'];
+    }
+
+    /**
+     * Sets benefits.
+     *
+     * @param null|Benefits $benefits benefits
+     */
+    public function setBenefits(?Benefits $benefits) : self
+    {
+        $this->container['benefits'] = $benefits;
 
         return $this;
     }

@@ -41,6 +41,12 @@ class EventCode
 
     final public const PICKUP_CANCELLED = 'PickupCancelled';
 
+    final public const RETURN_INITIATED = 'ReturnInitiated';
+
+    final public const AVAILABLE_FOR_PICKUP = 'AvailableForPickup';
+
+    final public const RECIPIENT_REQUESTED_ALTERNATE_DELIVERY_TIMING = 'RecipientRequestedAlternateDeliveryTiming';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -64,6 +70,9 @@ class EventCode
             self::REJECTED,
             self::UNDELIVERABLE,
             self::PICKUP_CANCELLED,
+            self::RETURN_INITIATED,
+            self::AVAILABLE_FOR_PICKUP,
+            self::RECIPIENT_REQUESTED_ALTERNATE_DELIVERY_TIMING,
         ];
     }
 

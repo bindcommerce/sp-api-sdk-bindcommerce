@@ -44,7 +44,10 @@ class GetFeatureSkuResult implements \ArrayAccess, \JsonSerializable, \Stringabl
         'feature_name' => 'string',
         'is_eligible' => 'bool',
         'ineligible_reasons' => 'string[]',
-        'sku_info' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FeatureSku',
+        'seller_sku' => 'string',
+        'fn_sku' => 'string',
+        'asin' => 'string',
+        'sku_count' => 'float',
     ];
 
     /**
@@ -61,7 +64,10 @@ class GetFeatureSkuResult implements \ArrayAccess, \JsonSerializable, \Stringabl
         'feature_name' => null,
         'is_eligible' => null,
         'ineligible_reasons' => null,
-        'sku_info' => null,
+        'seller_sku' => null,
+        'fn_sku' => null,
+        'asin' => null,
+        'sku_count' => null,
     ];
 
     /**
@@ -75,7 +81,10 @@ class GetFeatureSkuResult implements \ArrayAccess, \JsonSerializable, \Stringabl
         'feature_name' => 'featureName',
         'is_eligible' => 'isEligible',
         'ineligible_reasons' => 'ineligibleReasons',
-        'sku_info' => 'skuInfo',
+        'seller_sku' => 'sellerSku',
+        'fn_sku' => 'fnSku',
+        'asin' => 'asin',
+        'sku_count' => 'skuCount',
     ];
 
     /**
@@ -88,7 +97,10 @@ class GetFeatureSkuResult implements \ArrayAccess, \JsonSerializable, \Stringabl
         'feature_name' => 'setFeatureName',
         'is_eligible' => 'setIsEligible',
         'ineligible_reasons' => 'setIneligibleReasons',
-        'sku_info' => 'setSkuInfo',
+        'seller_sku' => 'setSellerSku',
+        'fn_sku' => 'setFnSku',
+        'asin' => 'setAsin',
+        'sku_count' => 'setSkuCount',
     ];
 
     /**
@@ -101,7 +113,10 @@ class GetFeatureSkuResult implements \ArrayAccess, \JsonSerializable, \Stringabl
         'feature_name' => 'getFeatureName',
         'is_eligible' => 'getIsEligible',
         'ineligible_reasons' => 'getIneligibleReasons',
-        'sku_info' => 'getSkuInfo',
+        'seller_sku' => 'getSellerSku',
+        'fn_sku' => 'getFnSku',
+        'asin' => 'getAsin',
+        'sku_count' => 'getSkuCount',
     ];
 
     /**
@@ -123,7 +138,10 @@ class GetFeatureSkuResult implements \ArrayAccess, \JsonSerializable, \Stringabl
         $this->container['feature_name'] = $data['feature_name'] ?? null;
         $this->container['is_eligible'] = $data['is_eligible'] ?? null;
         $this->container['ineligible_reasons'] = $data['ineligible_reasons'] ?? null;
-        $this->container['sku_info'] = $data['sku_info'] ?? null;
+        $this->container['seller_sku'] = $data['seller_sku'] ?? null;
+        $this->container['fn_sku'] = $data['fn_sku'] ?? null;
+        $this->container['asin'] = $data['asin'] ?? null;
+        $this->container['sku_count'] = $data['sku_count'] ?? null;
     }
 
     /**
@@ -214,10 +232,6 @@ class GetFeatureSkuResult implements \ArrayAccess, \JsonSerializable, \Stringabl
         if ($this->container['is_eligible'] === null) {
             throw new AssertionException("'is_eligible' can't be null");
         }
-
-        if ($this->container['sku_info'] !== null) {
-            $this->container['sku_info']->validate();
-        }
     }
 
     /**
@@ -293,7 +307,7 @@ class GetFeatureSkuResult implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets ineligible_reasons.
      *
-     * @param null|string[] $ineligible_reasons A list of one or more reasons that the seller SKU is ineligibile for the feature.  Possible values: * `MERCHANT_NOT_ENROLLED` - The merchant isn't enrolled for the feature. * `SKU_NOT_ELIGIBLE` - The SKU doesn't reside in a warehouse that supports the feature. * `INVALID_SKU` - There is an issue with the SKU provided.
+     * @param null|string[] $ineligible_reasons A list of one or more reasons that the seller SKU is ineligible for the feature.  Possible values: * `MERCHANT_NOT_ENROLLED`: The merchant isn't enrolled for the feature. * `SKU_NOT_ELIGIBLE`: The SKU doesn't reside in a warehouse that supports the feature. * `INVALID_SKU`: There is an issue with the SKU provided.
      */
     public function setIneligibleReasons(?array $ineligible_reasons) : self
     {
@@ -303,21 +317,81 @@ class GetFeatureSkuResult implements \ArrayAccess, \JsonSerializable, \Stringabl
     }
 
     /**
-     * Gets sku_info.
+     * Gets seller_sku.
      */
-    public function getSkuInfo() : ?FeatureSku
+    public function getSellerSku() : ?string
     {
-        return $this->container['sku_info'];
+        return $this->container['seller_sku'];
     }
 
     /**
-     * Sets sku_info.
+     * Sets seller_sku.
      *
-     * @param null|FeatureSku $sku_info sku_info
+     * @param null|string $seller_sku Used to identify an item in the given marketplace. SellerSKU is qualified by the seller's SellerId, which is included with every operation that you submit.
      */
-    public function setSkuInfo(?FeatureSku $sku_info) : self
+    public function setSellerSku(?string $seller_sku) : self
     {
-        $this->container['sku_info'] = $sku_info;
+        $this->container['seller_sku'] = $seller_sku;
+
+        return $this;
+    }
+
+    /**
+     * Gets fn_sku.
+     */
+    public function getFnSku() : ?string
+    {
+        return $this->container['fn_sku'];
+    }
+
+    /**
+     * Sets fn_sku.
+     *
+     * @param null|string $fn_sku the unique SKU used by Amazon's fulfillment network
+     */
+    public function setFnSku(?string $fn_sku) : self
+    {
+        $this->container['fn_sku'] = $fn_sku;
+
+        return $this;
+    }
+
+    /**
+     * Gets asin.
+     */
+    public function getAsin() : ?string
+    {
+        return $this->container['asin'];
+    }
+
+    /**
+     * Sets asin.
+     *
+     * @param null|string $asin the Amazon Standard Identification Number (ASIN) of the item
+     */
+    public function setAsin(?string $asin) : self
+    {
+        $this->container['asin'] = $asin;
+
+        return $this;
+    }
+
+    /**
+     * Gets sku_count.
+     */
+    public function getSkuCount() : ?float
+    {
+        return $this->container['sku_count'];
+    }
+
+    /**
+     * Sets sku_count.
+     *
+     * @param null|float $sku_count the number of SKUs available for this service
+     */
+    public function setSkuCount(?float $sku_count) : self
+    {
+        $this->container['sku_count'] = $sku_count;
 
         return $this;
     }

@@ -241,10 +241,6 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
             throw new AssertionException("'address_line1' can't be null");
         }
 
-        if ($this->container['state_or_region'] === null) {
-            throw new AssertionException("'state_or_region' can't be null");
-        }
-
         if ($this->container['postal_code'] === null) {
             throw new AssertionException("'postal_code' can't be null");
         }
@@ -377,7 +373,7 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Gets state_or_region.
      */
-    public function getStateOrRegion() : string
+    public function getStateOrRegion() : ?string
     {
         return $this->container['state_or_region'];
     }
@@ -385,9 +381,9 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets state_or_region.
      *
-     * @param string $state_or_region the state or region where the person, business or institution is located
+     * @param null|string $state_or_region the state or region where the person, business or institution is located
      */
-    public function setStateOrRegion(string $state_or_region) : self
+    public function setStateOrRegion(?string $state_or_region) : self
     {
         $this->container['state_or_region'] = $state_or_region;
 

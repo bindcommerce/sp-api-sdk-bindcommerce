@@ -44,6 +44,7 @@ class OneClickShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
         'ship_from' => '\AmazonPHP\SellingPartner\Model\ShippingV2\Address',
         'return_to' => '\AmazonPHP\SellingPartner\Model\ShippingV2\Address',
         'ship_date' => '\DateTimeInterface',
+        'goods_owner' => '\AmazonPHP\SellingPartner\Model\ShippingV2\GoodsOwner',
         'packages' => '\AmazonPHP\SellingPartner\Model\ShippingV2\Package[]',
         'value_added_services_details' => '\AmazonPHP\SellingPartner\Model\ShippingV2\OneClickShipmentValueAddedService[]',
         'tax_details' => '\AmazonPHP\SellingPartner\Model\ShippingV2\TaxDetail[]',
@@ -68,6 +69,7 @@ class OneClickShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
         'ship_from' => null,
         'return_to' => null,
         'ship_date' => 'date-time',
+        'goods_owner' => null,
         'packages' => null,
         'value_added_services_details' => null,
         'tax_details' => null,
@@ -89,6 +91,7 @@ class OneClickShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
         'ship_from' => 'shipFrom',
         'return_to' => 'returnTo',
         'ship_date' => 'shipDate',
+        'goods_owner' => 'goodsOwner',
         'packages' => 'packages',
         'value_added_services_details' => 'valueAddedServicesDetails',
         'tax_details' => 'taxDetails',
@@ -109,6 +112,7 @@ class OneClickShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
         'ship_from' => 'setShipFrom',
         'return_to' => 'setReturnTo',
         'ship_date' => 'setShipDate',
+        'goods_owner' => 'setGoodsOwner',
         'packages' => 'setPackages',
         'value_added_services_details' => 'setValueAddedServicesDetails',
         'tax_details' => 'setTaxDetails',
@@ -129,6 +133,7 @@ class OneClickShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
         'ship_from' => 'getShipFrom',
         'return_to' => 'getReturnTo',
         'ship_date' => 'getShipDate',
+        'goods_owner' => 'getGoodsOwner',
         'packages' => 'getPackages',
         'value_added_services_details' => 'getValueAddedServicesDetails',
         'tax_details' => 'getTaxDetails',
@@ -158,6 +163,7 @@ class OneClickShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
         $this->container['ship_from'] = $data['ship_from'] ?? null;
         $this->container['return_to'] = $data['return_to'] ?? null;
         $this->container['ship_date'] = $data['ship_date'] ?? null;
+        $this->container['goods_owner'] = $data['goods_owner'] ?? null;
         $this->container['packages'] = $data['packages'] ?? null;
         $this->container['value_added_services_details'] = $data['value_added_services_details'] ?? null;
         $this->container['tax_details'] = $data['tax_details'] ?? null;
@@ -257,6 +263,10 @@ class OneClickShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
 
         if ($this->container['return_to'] !== null) {
             $this->container['return_to']->validate();
+        }
+
+        if ($this->container['goods_owner'] !== null) {
+            $this->container['goods_owner']->validate();
         }
 
         if ($this->container['packages'] === null) {
@@ -366,6 +376,26 @@ class OneClickShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
     public function setShipDate(?\DateTimeInterface $ship_date) : self
     {
         $this->container['ship_date'] = $ship_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets goods_owner.
+     */
+    public function getGoodsOwner() : ?GoodsOwner
+    {
+        return $this->container['goods_owner'];
+    }
+
+    /**
+     * Sets goods_owner.
+     *
+     * @param null|GoodsOwner $goods_owner goods_owner
+     */
+    public function setGoodsOwner(?GoodsOwner $goods_owner) : self
+    {
+        $this->container['goods_owner'] = $goods_owner;
 
         return $this;
     }

@@ -211,7 +211,7 @@ class Error implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets code.
      *
-     * @param string $code an error code that identifies the type of error that occured
+     * @param string $code an error code that identifies the type of error that occurred
      */
     public function setCode(string $code) : self
     {
@@ -231,7 +231,7 @@ class Error implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     /**
      * Sets message.
      *
-     * @param string $message a message that describes the error condition in a human-readable form
+     * @param string $message a message that describes the error condition
      */
     public function setMessage(string $message) : self
     {

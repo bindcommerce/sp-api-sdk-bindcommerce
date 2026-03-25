@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -248,7 +248,7 @@ class ItemRelationship implements \ArrayAccess, \JsonSerializable, \Stringable, 
     /**
      * Sets child_asins.
      *
-     * @param null|string[] $child_asins identifiers (ASINs) of the related items that are children of this item
+     * @param null|string[] $child_asins ASINs of the related items that are children of this item
      */
     public function setChildAsins(?array $child_asins) : self
     {
@@ -270,7 +270,7 @@ class ItemRelationship implements \ArrayAccess, \JsonSerializable, \Stringable, 
     /**
      * Sets parent_asins.
      *
-     * @param null|string[] $parent_asins identifiers (ASINs) of the related items that are parents of this item
+     * @param null|string[] $parent_asins ASINs of the related items that are parents of this item
      */
     public function setParentAsins(?array $parent_asins) : self
     {

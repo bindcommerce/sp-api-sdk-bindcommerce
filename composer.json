@@ -56,28 +56,28 @@
             "@static:analyze"
         ],
         "static:analyze": [
-            "tools/vendor/bin/php-cs-fixer fix --dry-run",
-            "tools/vendor/bin/psalm"
+            "php8.1 tools/vendor/bin/php-cs-fixer fix --dry-run",
+            "php8.1 tools/vendor/bin/psalm"
         ],
         "test": [
             "@test:unit"
         ],
         "test:unit": [
-            "tools/vendor/bin/phpunit --testsuite unit"
+            "php8.1 tools/vendor/bin/phpunit --testsuite unit"
         ],
         "test:functional": [
-            "tools/vendor/bin/phpunit --testsuite functional"
+            "php8.1 tools/vendor/bin/phpunit --testsuite functional"
         ],
         "rector:process:php": [
             "Composer\\Config::disableProcessTimeout",
-            "tools/vendor/bin/rector process --config=rector-php.php --dry-run"
+            "php8.1 tools/vendor/bin/rector process --config=rector-php.php --dry-run"
         ],
         "rector:process:force:php": [
             "Composer\\Config::disableProcessTimeout",
-            "tools/vendor/bin/rector process --no-diffs --no-progress-bar --config=rector-php.php"
+            "php8.1 tools/vendor/bin/rector process --no-diffs --no-progress-bar --config=rector-php.php"
         ],
-        "cs:php:fix": "tools/vendor/bin/php-cs-fixer fix",
-        "tools:install": "composer install --working-dir=./tools",
+        "cs:php:fix": "php8.1 tools/vendor/bin/php-cs-fixer fix",
+        "tools:install": "composer81-x64 install --working-dir=./tools",
         "post-install-cmd": [
             "@tools:install"
         ],

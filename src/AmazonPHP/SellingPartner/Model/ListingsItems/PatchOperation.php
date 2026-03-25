@@ -31,6 +31,8 @@ class PatchOperation implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
 
     final public const OP_REPLACE = 'replace';
 
+    final public const OP_MERGE = 'merge';
+
     final public const OP_DELETE = 'delete';
 
     /**
@@ -200,6 +202,7 @@ class PatchOperation implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
         return [
             self::OP_ADD,
             self::OP_REPLACE,
+            self::OP_MERGE,
             self::OP_DELETE,
         ];
     }
@@ -243,7 +246,7 @@ class PatchOperation implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets op.
      *
-     * @param string $op Type of JSON Patch operation. Supported JSON Patch operations include add, replace, and delete. Refer to [JavaScript Object Notation (JSON) Patch](https://tools.ietf.org/html/rfc6902) for more information.
+     * @param string $op Type of JSON Patch operation. Supported JSON Patch operations include `add`, `replace`, `merge` and `delete`. Refer to <https://tools.ietf.org/html/rfc6902>.
      */
     public function setOp(string $op) : self
     {
@@ -285,7 +288,7 @@ class PatchOperation implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets value.
      *
-     * @param null|array<string,mixed>[] $value JSON value to add, replace, or delete
+     * @param null|array<string,mixed>[] $value JSON value to `add`, `replace`, `merge` or `delete`
      */
     public function setValue(?array $value) : self
     {

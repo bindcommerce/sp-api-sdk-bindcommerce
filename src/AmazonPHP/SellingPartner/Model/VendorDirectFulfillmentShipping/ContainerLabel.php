@@ -231,7 +231,7 @@ class ContainerLabel implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
     /**
      * Sets content.
      *
-     * @param string $content the `Base64encoded` string of the container label content
+     * @param string $content the container label content encoded into a Base64 string
      */
     public function setContent(string $content) : self
     {

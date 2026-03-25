@@ -24,6 +24,10 @@ interface ShippingV2SDKInterface
 
     public const OPERATION_CANCELSHIPMENT_PATH = '/shipping/v2/shipments/{shipmentId}/cancel';
 
+    public const OPERATION_CREATECLAIM = 'createClaim';
+
+    public const OPERATION_CREATECLAIM_PATH = '/shipping/v2/claims';
+
     public const OPERATION_DIRECTPURCHASESHIPMENT = 'directPurchaseShipment';
 
     public const OPERATION_DIRECTPURCHASESHIPMENT_PATH = '/shipping/v2/shipments/directPurchase';
@@ -76,6 +80,10 @@ interface ShippingV2SDKInterface
 
     public const OPERATION_LINKCARRIERACCOUNT_PATH = '/shipping/v2/carrierAccounts/{carrierId}';
 
+    public const OPERATION_LINKCARRIERACCOUNT_0 = 'linkCarrierAccount_0';
+
+    public const OPERATION_LINKCARRIERACCOUNT_0_PATH = '/shipping/v2/carrierAccounts/{carrierId}';
+
     public const OPERATION_ONECLICKSHIPMENT = 'oneClickShipment';
 
     public const OPERATION_ONECLICKSHIPMENT_PATH = '/shipping/v2/oneClickShipment';
@@ -83,6 +91,10 @@ interface ShippingV2SDKInterface
     public const OPERATION_PURCHASESHIPMENT = 'purchaseShipment';
 
     public const OPERATION_PURCHASESHIPMENT_PATH = '/shipping/v2/shipments';
+
+    public const OPERATION_SUBMITNDRFEEDBACK = 'submitNdrFeedback';
+
+    public const OPERATION_SUBMITNDRFEEDBACK_PATH = '/shipping/v2/ndrFeedback';
 
     public const OPERATION_UNLINKCARRIERACCOUNT = 'unlinkCarrierAccount';
 
@@ -102,9 +114,22 @@ interface ShippingV2SDKInterface
     public function cancelShipment(AccessToken $accessToken, string $region, string $shipment_id, ?string $x_amzn_shipping_business_id = null) : \AmazonPHP\SellingPartner\Model\ShippingV2\CancelShipmentResponse;
 
     /**
+     * Operation createClaim.
+     *
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimRequest $body Request body for the createClaim operation (required)
+     * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimResponse
+     */
+    public function createClaim(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimRequest $body, ?string $x_amzn_shipping_business_id = null) : \AmazonPHP\SellingPartner\Model\ShippingV2\CreateClaimResponse;
+
+    /**
      * Operation directPurchaseShipment.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DirectPurchaseRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DirectPurchaseRequest $body DirectPurchaseRequest body (required)
      * @param null|string $x_amzn_idempotency_key A unique value which the server uses to recognize subsequent retries of the same request. (optional)
      * @param null|string $locale The IETF Language Tag. Note that this only supports the primary language subtag with one secondary language subtag (i.e. en-US, fr-CA). The secondary language subtag is almost always a regional designation. This does not support additional subtags beyond the primary and secondary language subtags. (optional)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
@@ -119,7 +144,7 @@ interface ShippingV2SDKInterface
     /**
      * Operation generateCollectionForm.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GenerateCollectionFormRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GenerateCollectionFormRequest $body GenerateCollectionFormRequest body (required)
      * @param null|string $x_amzn_idempotency_key A unique value which the server uses to recognize subsequent retries of the same request. (optional)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
@@ -133,9 +158,9 @@ interface ShippingV2SDKInterface
     /**
      * Operation getAccessPoints.
      *
-     * @param string[] $access_point_types access_point_types (required)
-     * @param string $country_code country_code (required)
-     * @param string $postal_code postal_code (required)
+     * @param string[] $access_point_types Access point types (required)
+     * @param string $country_code Country code for access point (required)
+     * @param string $postal_code postal code for access point (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -174,7 +199,7 @@ interface ShippingV2SDKInterface
     /**
      * Operation getCarrierAccounts.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCarrierAccountsRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCarrierAccountsRequest $body GetCarrierAccountsRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -200,7 +225,7 @@ interface ShippingV2SDKInterface
     /**
      * Operation getCollectionFormHistory.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCollectionFormHistoryRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetCollectionFormHistoryRequest $body GetCollectionFormHistoryRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -213,7 +238,7 @@ interface ShippingV2SDKInterface
     /**
      * Operation getRates.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetRatesRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetRatesRequest $body GetRatesRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -256,7 +281,7 @@ interface ShippingV2SDKInterface
     /**
      * Operation getUnmanifestedShipments.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetUnmanifestedShipmentsRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GetUnmanifestedShipmentsRequest $body GetUmanifestedShipmentsRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -269,8 +294,8 @@ interface ShippingV2SDKInterface
     /**
      * Operation linkCarrierAccount.
      *
-     * @param string $carrier_id The unique identifier associated with the carrier account. (required)
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body body (required)
+     * @param string $carrier_id An identifier for the carrier with which the seller&#39;s account is being linked. (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body LinkCarrierAccountRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -281,9 +306,23 @@ interface ShippingV2SDKInterface
     public function linkCarrierAccount(AccessToken $accessToken, string $region, string $carrier_id, \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body, ?string $x_amzn_shipping_business_id = null) : \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountResponse;
 
     /**
+     * Operation linkCarrierAccount_0.
+     *
+     * @param string $carrier_id An identifier for the carrier with which the seller&#39;s account is being linked. (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body LinkCarrierAccountRequest body (required)
+     * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     *
+     * @return \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountResponse
+     */
+    public function linkCarrierAccount_0(AccessToken $accessToken, string $region, string $carrier_id, \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountRequest $body, ?string $x_amzn_shipping_business_id = null) : \AmazonPHP\SellingPartner\Model\ShippingV2\LinkCarrierAccountResponse;
+
+    /**
      * Operation oneClickShipment.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\OneClickShipmentRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\OneClickShipmentRequest $body OneClickShipmentRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -296,7 +335,7 @@ interface ShippingV2SDKInterface
     /**
      * Operation purchaseShipment.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\PurchaseShipmentRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\PurchaseShipmentRequest $body PurchaseShipmentRequest body (required)
      * @param null|string $x_amzn_idempotency_key A unique value which the server uses to recognize subsequent retries of the same request. (optional)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
@@ -308,10 +347,21 @@ interface ShippingV2SDKInterface
     public function purchaseShipment(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\ShippingV2\PurchaseShipmentRequest $body, ?string $x_amzn_idempotency_key = null, ?string $x_amzn_shipping_business_id = null) : \AmazonPHP\SellingPartner\Model\ShippingV2\PurchaseShipmentResponse;
 
     /**
+     * Operation submitNdrFeedback.
+     *
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\SubmitNdrFeedbackRequest $body Request body for ndrFeedback operation (required)
+     * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     */
+    public function submitNdrFeedback(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\ShippingV2\SubmitNdrFeedbackRequest $body, ?string $x_amzn_shipping_business_id = null);
+
+    /**
      * Operation unlinkCarrierAccount.
      *
      * @param string $carrier_id carrier Id to unlink with merchant. (required)
-     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\UnlinkCarrierAccountRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShippingV2\UnlinkCarrierAccountRequest $body UnlinkCarrierAccountRequest body (required)
      * @param null|string $x_amzn_shipping_business_id Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
      *
      * @throws ApiException on non-2xx response

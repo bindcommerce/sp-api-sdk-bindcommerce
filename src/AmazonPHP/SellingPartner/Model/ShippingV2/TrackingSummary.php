@@ -41,6 +41,7 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $openAPITypes = [
         'status' => '\AmazonPHP\SellingPartner\Model\ShippingV2\Status',
+        'tracking_detail_codes' => '\AmazonPHP\SellingPartner\Model\ShippingV2\TrackingDetailCodes',
     ];
 
     /**
@@ -54,6 +55,7 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $openAPIFormats = [
         'status' => null,
+        'tracking_detail_codes' => null,
     ];
 
     /**
@@ -64,6 +66,7 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $attributeMap = [
         'status' => 'status',
+        'tracking_detail_codes' => 'trackingDetailCodes',
     ];
 
     /**
@@ -73,6 +76,7 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $setters = [
         'status' => 'setStatus',
+        'tracking_detail_codes' => 'setTrackingDetailCodes',
     ];
 
     /**
@@ -82,6 +86,7 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $getters = [
         'status' => 'getStatus',
+        'tracking_detail_codes' => 'getTrackingDetailCodes',
     ];
 
     /**
@@ -100,6 +105,7 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
     public function __construct(array $data = null)
     {
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['tracking_detail_codes'] = $data['tracking_detail_codes'] ?? null;
     }
 
     /**
@@ -179,6 +185,9 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        if ($this->container['tracking_detail_codes'] !== null) {
+            $this->container['tracking_detail_codes']->validate();
+        }
     }
 
     /**
@@ -197,6 +206,26 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
     public function setStatus(?Status $status) : self
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_detail_codes.
+     */
+    public function getTrackingDetailCodes() : ?TrackingDetailCodes
+    {
+        return $this->container['tracking_detail_codes'];
+    }
+
+    /**
+     * Sets tracking_detail_codes.
+     *
+     * @param null|TrackingDetailCodes $tracking_detail_codes tracking_detail_codes
+     */
+    public function setTrackingDetailCodes(?TrackingDetailCodes $tracking_detail_codes) : self
+    {
+        $this->container['tracking_detail_codes'] = $tracking_detail_codes;
 
         return $this;
     }

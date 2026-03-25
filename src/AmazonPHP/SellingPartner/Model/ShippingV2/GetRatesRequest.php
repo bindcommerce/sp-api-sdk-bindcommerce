@@ -52,6 +52,7 @@ class GetRatesRequest implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'client_reference_details' => '\AmazonPHP\SellingPartner\Model\ShippingV2\ClientReferenceDetail[]',
         'shipment_type' => '\AmazonPHP\SellingPartner\Model\ShippingV2\ShipmentType',
         'destination_access_point_details' => '\AmazonPHP\SellingPartner\Model\ShippingV2\AccessPointDetails',
+        'carrier_accounts' => '\AmazonPHP\SellingPartner\Model\ShippingV2\CarrierAccount[]',
     ];
 
     /**
@@ -76,6 +77,7 @@ class GetRatesRequest implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'client_reference_details' => null,
         'shipment_type' => null,
         'destination_access_point_details' => null,
+        'carrier_accounts' => null,
     ];
 
     /**
@@ -97,6 +99,7 @@ class GetRatesRequest implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'client_reference_details' => 'clientReferenceDetails',
         'shipment_type' => 'shipmentType',
         'destination_access_point_details' => 'destinationAccessPointDetails',
+        'carrier_accounts' => 'carrierAccounts',
     ];
 
     /**
@@ -117,6 +120,7 @@ class GetRatesRequest implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'client_reference_details' => 'setClientReferenceDetails',
         'shipment_type' => 'setShipmentType',
         'destination_access_point_details' => 'setDestinationAccessPointDetails',
+        'carrier_accounts' => 'setCarrierAccounts',
     ];
 
     /**
@@ -137,6 +141,7 @@ class GetRatesRequest implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'client_reference_details' => 'getClientReferenceDetails',
         'shipment_type' => 'getShipmentType',
         'destination_access_point_details' => 'getDestinationAccessPointDetails',
+        'carrier_accounts' => 'getCarrierAccounts',
     ];
 
     /**
@@ -166,6 +171,7 @@ class GetRatesRequest implements \ArrayAccess, \JsonSerializable, \Stringable, M
         $this->container['client_reference_details'] = $data['client_reference_details'] ?? null;
         $this->container['shipment_type'] = $data['shipment_type'] ?? null;
         $this->container['destination_access_point_details'] = $data['destination_access_point_details'] ?? null;
+        $this->container['carrier_accounts'] = $data['carrier_accounts'] ?? null;
     }
 
     /**
@@ -524,6 +530,28 @@ class GetRatesRequest implements \ArrayAccess, \JsonSerializable, \Stringable, M
     public function setDestinationAccessPointDetails(?AccessPointDetails $destination_access_point_details) : self
     {
         $this->container['destination_access_point_details'] = $destination_access_point_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets carrier_accounts.
+     *
+     * @return null|\AmazonPHP\SellingPartner\Model\ShippingV2\CarrierAccount[]
+     */
+    public function getCarrierAccounts() : ?array
+    {
+        return $this->container['carrier_accounts'];
+    }
+
+    /**
+     * Sets carrier_accounts.
+     *
+     * @param null|\AmazonPHP\SellingPartner\Model\ShippingV2\CarrierAccount[] $carrier_accounts A list of CarrierAccounts
+     */
+    public function setCarrierAccounts(?array $carrier_accounts) : self
+    {
+        $this->container['carrier_accounts'] = $carrier_accounts;
 
         return $this;
     }

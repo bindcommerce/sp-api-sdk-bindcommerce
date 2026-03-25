@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -207,7 +207,7 @@ class Refinements implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets brands.
      *
-     * @param \AmazonPHP\SellingPartner\Model\CatalogItem\BrandRefinement[] $brands brand search refinements
+     * @param \AmazonPHP\SellingPartner\Model\CatalogItem\BrandRefinement[] $brands a list of brands you can use to refine your search
      */
     public function setBrands(array $brands) : self
     {
@@ -229,7 +229,7 @@ class Refinements implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets classifications.
      *
-     * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ClassificationRefinement[] $classifications classification search refinements
+     * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ClassificationRefinement[] $classifications a list of classifications you can use to refine your search
      */
     public function setClassifications(array $classifications) : self
     {

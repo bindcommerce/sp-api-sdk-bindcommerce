@@ -75,6 +75,16 @@ class RateItemID
 
     final public const REBATE = 'REBATE';
 
+    final public const HIGH_CUBE_SURCHARGE = 'HIGH_CUBE_SURCHARGE';
+
+    final public const HIGH_LENGTH_SURCHARGE = 'HIGH_LENGTH_SURCHARGE';
+
+    final public const HIGH_WIDTH_SURCHARGE = 'HIGH_WIDTH_SURCHARGE';
+
+    final public const DEMAND_SURCHARGE = 'DEMAND_SURCHARGE';
+
+    final public const NONSTANDARD_FEE = 'NONSTANDARD_FEE';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -115,6 +125,11 @@ class RateItemID
             self::ADDITIONAL_SURCHARGE,
             self::SURCHARGE,
             self::REBATE,
+            self::HIGH_CUBE_SURCHARGE,
+            self::HIGH_LENGTH_SURCHARGE,
+            self::HIGH_WIDTH_SURCHARGE,
+            self::DEMAND_SURCHARGE,
+            self::NONSTANDARD_FEE,
         ];
     }
 

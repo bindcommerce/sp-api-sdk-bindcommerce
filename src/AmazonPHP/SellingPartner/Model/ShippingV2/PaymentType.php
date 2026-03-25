@@ -19,9 +19,9 @@ class PaymentType
     /**
      * Possible values of this enum.
      */
-    final public const THROUGH_AMAZON = 'PAY_THROUGH_AMAZON';
+    final public const PAY_THROUGH_AMAZON = 'PAY_THROUGH_AMAZON';
 
-    final public const DIRECT_TO_CARRIER = 'PAY_DIRECT_TO_CARRIER';
+    final public const PAY_DIRECT_TO_CARRIER = 'PAY_DIRECT_TO_CARRIER';
 
     public function __construct(private readonly string $value)
     {
@@ -35,8 +35,8 @@ class PaymentType
     public static function getAllowableEnumValues() : array
     {
         return [
-            self::THROUGH_AMAZON,
-            self::DIRECT_TO_CARRIER,
+            self::PAY_THROUGH_AMAZON,
+            self::PAY_DIRECT_TO_CARRIER,
         ];
     }
 

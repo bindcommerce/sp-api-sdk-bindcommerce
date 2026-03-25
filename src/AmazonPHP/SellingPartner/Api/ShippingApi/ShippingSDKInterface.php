@@ -59,7 +59,7 @@ interface ShippingSDKInterface
     /**
      * Operation cancelShipment.
      *
-     * @param string $shipment_id shipment_id (required)
+     * @param string $shipment_id Shipment Id to cancel a shipment (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -71,7 +71,7 @@ interface ShippingSDKInterface
     /**
      * Operation createShipment.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\CreateShipmentRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\CreateShipmentRequest $body CreateShipmentRequest Body (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -93,7 +93,7 @@ interface ShippingSDKInterface
     /**
      * Operation getRates.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\GetRatesRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\GetRatesRequest $body GetRatesRequest body (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -105,7 +105,7 @@ interface ShippingSDKInterface
     /**
      * Operation getShipment.
      *
-     * @param string $shipment_id shipment_id (required)
+     * @param string $shipment_id Shipment id to return the entire shipment object (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -117,7 +117,7 @@ interface ShippingSDKInterface
     /**
      * Operation getTrackingInformation.
      *
-     * @param string $tracking_id tracking_id (required)
+     * @param string $tracking_id Tracking Id (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -129,8 +129,8 @@ interface ShippingSDKInterface
     /**
      * Operation purchaseLabels.
      *
-     * @param string $shipment_id shipment_id (required)
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\PurchaseLabelsRequest $body body (required)
+     * @param string $shipment_id Shipment id for purchase shipping label (required)
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\PurchaseLabelsRequest $body PurchaseShippingLabelRequest body (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -142,7 +142,7 @@ interface ShippingSDKInterface
     /**
      * Operation purchaseShipment.
      *
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\PurchaseShipmentRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\PurchaseShipmentRequest $body PurchaseShipmentRequest body (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -154,9 +154,9 @@ interface ShippingSDKInterface
     /**
      * Operation retrieveShippingLabel.
      *
-     * @param string $shipment_id shipment_id (required)
-     * @param string $tracking_id tracking_id (required)
-     * @param \AmazonPHP\SellingPartner\Model\Shipping\RetrieveShippingLabelRequest $body body (required)
+     * @param string $shipment_id Shipment Id to retreive label (required)
+     * @param string $tracking_id Tracking Id (required)
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\RetrieveShippingLabelRequest $body RetrieveShippingLabelRequest body (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException

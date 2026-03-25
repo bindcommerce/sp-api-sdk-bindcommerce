@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -221,7 +221,7 @@ class ItemClassificationSalesRank implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets classification_id.
      *
-     * @param string $classification_id identifier of the classification associated with the sales rank
+     * @param string $classification_id identifier of the classification that is associated with the sales rank
      */
     public function setClassificationId(string $classification_id) : self
     {
@@ -241,7 +241,7 @@ class ItemClassificationSalesRank implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets title.
      *
-     * @param string $title title, or name, of the sales rank
+     * @param string $title name of the sales rank
      */
     public function setTitle(string $title) : self
     {
@@ -261,7 +261,7 @@ class ItemClassificationSalesRank implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets link.
      *
-     * @param null|string $link corresponding Amazon retail website link, or URL, for the sales rank
+     * @param null|string $link corresponding Amazon retail website URL for the sales category
      */
     public function setLink(?string $link) : self
     {
@@ -281,7 +281,7 @@ class ItemClassificationSalesRank implements \ArrayAccess, \JsonSerializable, \S
     /**
      * Sets rank.
      *
-     * @param int $rank sales rank value
+     * @param int $rank sales rank
      */
     public function setRank(int $rank) : self
     {

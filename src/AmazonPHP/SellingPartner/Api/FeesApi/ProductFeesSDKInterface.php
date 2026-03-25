@@ -36,7 +36,7 @@ interface ProductFeesSDKInterface
      * Operation getMyFeesEstimateForASIN.
      *
      * @param string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
-     * @param \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateRequest $body The request body schema for the getMyFeesEstimates operation (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -49,7 +49,7 @@ interface ProductFeesSDKInterface
      * Operation getMyFeesEstimateForSKU.
      *
      * @param string $seller_sku Used to identify an item in the given marketplace. SellerSKU is qualified by the seller&#39;s SellerId, which is included with every operation that you submit. (required)
-     * @param \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ProductFees\GetMyFeesEstimateRequest $body The request body schema for the getMyFeesEstimates operation (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -61,7 +61,7 @@ interface ProductFeesSDKInterface
     /**
      * Operation getMyFeesEstimates.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductFees\FeesEstimateByIdRequest[] $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ProductFees\FeesEstimateByIdRequest[] $body The request body schema for the getMyFeesEstimates operation (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException

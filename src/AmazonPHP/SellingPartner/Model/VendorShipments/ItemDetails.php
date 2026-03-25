@@ -27,6 +27,14 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
 {
     final public const DISCRIMINATOR = null;
 
+    final public const LOT_NUMBER_SOURCE_TYPE_GLN = 'GLN';
+
+    final public const LOT_NUMBER_SOURCE_TYPE_FFRN = 'FFRN';
+
+    final public const LOT_NUMBER_SOURCE_TYPE_USDA_E = 'USDA_E';
+
+    final public const LOT_NUMBER_SOURCE_TYPE_URL = 'URL';
+
     final public const HANDLING_CODE_OVERSIZED = 'Oversized';
 
     final public const HANDLING_CODE_FRAGILE = 'Fragile';
@@ -50,6 +58,10 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     protected static array $openAPITypes = [
         'purchase_order_number' => 'string',
         'lot_number' => 'string',
+        'lot_number_source_reference' => 'string',
+        'lot_number_source_type' => 'string',
+        'country_of_origin' => 'string',
+        'regulation_references' => '\AmazonPHP\SellingPartner\Model\VendorShipments\RegulationReferences',
         'expiry' => '\AmazonPHP\SellingPartner\Model\VendorShipments\Expiry',
         'maximum_retail_price' => '\AmazonPHP\SellingPartner\Model\VendorShipments\Money',
         'handling_code' => 'string',
@@ -67,6 +79,10 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     protected static array $openAPIFormats = [
         'purchase_order_number' => null,
         'lot_number' => null,
+        'lot_number_source_reference' => null,
+        'lot_number_source_type' => null,
+        'country_of_origin' => null,
+        'regulation_references' => null,
         'expiry' => null,
         'maximum_retail_price' => null,
         'handling_code' => null,
@@ -81,6 +97,10 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     protected static array $attributeMap = [
         'purchase_order_number' => 'purchaseOrderNumber',
         'lot_number' => 'lotNumber',
+        'lot_number_source_reference' => 'lotNumberSourceReference',
+        'lot_number_source_type' => 'lotNumberSourceType',
+        'country_of_origin' => 'countryOfOrigin',
+        'regulation_references' => 'regulationReferences',
         'expiry' => 'expiry',
         'maximum_retail_price' => 'maximumRetailPrice',
         'handling_code' => 'handlingCode',
@@ -94,6 +114,10 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     protected static array $setters = [
         'purchase_order_number' => 'setPurchaseOrderNumber',
         'lot_number' => 'setLotNumber',
+        'lot_number_source_reference' => 'setLotNumberSourceReference',
+        'lot_number_source_type' => 'setLotNumberSourceType',
+        'country_of_origin' => 'setCountryOfOrigin',
+        'regulation_references' => 'setRegulationReferences',
         'expiry' => 'setExpiry',
         'maximum_retail_price' => 'setMaximumRetailPrice',
         'handling_code' => 'setHandlingCode',
@@ -107,6 +131,10 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     protected static array $getters = [
         'purchase_order_number' => 'getPurchaseOrderNumber',
         'lot_number' => 'getLotNumber',
+        'lot_number_source_reference' => 'getLotNumberSourceReference',
+        'lot_number_source_type' => 'getLotNumberSourceType',
+        'country_of_origin' => 'getCountryOfOrigin',
+        'regulation_references' => 'getRegulationReferences',
         'expiry' => 'getExpiry',
         'maximum_retail_price' => 'getMaximumRetailPrice',
         'handling_code' => 'getHandlingCode',
@@ -129,6 +157,10 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     {
         $this->container['purchase_order_number'] = $data['purchase_order_number'] ?? null;
         $this->container['lot_number'] = $data['lot_number'] ?? null;
+        $this->container['lot_number_source_reference'] = $data['lot_number_source_reference'] ?? null;
+        $this->container['lot_number_source_type'] = $data['lot_number_source_type'] ?? null;
+        $this->container['country_of_origin'] = $data['country_of_origin'] ?? null;
+        $this->container['regulation_references'] = $data['regulation_references'] ?? null;
         $this->container['expiry'] = $data['expiry'] ?? null;
         $this->container['maximum_retail_price'] = $data['maximum_retail_price'] ?? null;
         $this->container['handling_code'] = $data['handling_code'] ?? null;
@@ -209,6 +241,21 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      *
      * @return string[]
      */
+    public function getLotNumberSourceTypeAllowableValues() : array
+    {
+        return [
+            self::LOT_NUMBER_SOURCE_TYPE_GLN,
+            self::LOT_NUMBER_SOURCE_TYPE_FFRN,
+            self::LOT_NUMBER_SOURCE_TYPE_USDA_E,
+            self::LOT_NUMBER_SOURCE_TYPE_URL,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum.
+     *
+     * @return string[]
+     */
     public function getHandlingCodeAllowableValues() : array
     {
         return [
@@ -226,6 +273,26 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        $allowedValues = $this->getLotNumberSourceTypeAllowableValues();
+
+        if (null !== $this->container['lot_number_source_type'] && !\in_array($this->container['lot_number_source_type'], $allowedValues, true)) {
+            throw new AssertionException(
+                \sprintf(
+                    "invalid value '%s' for 'lot_number_source_type', must be one of '%s'",
+                    $this->container['lot_number_source_type'],
+                    \implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        if (null !== $this->container['country_of_origin'] && !\preg_match('/^[A-Z]{2}$/', (string) $this->container['country_of_origin'])) {
+            throw new AssertionException("invalid value for 'country_of_origin', must be conform to the pattern /^[A-Z]{2}$/.");
+        }
+
+        if ($this->container['regulation_references'] !== null) {
+            $this->container['regulation_references']->validate();
+        }
+
         if ($this->container['expiry'] !== null) {
             $this->container['expiry']->validate();
         }
@@ -283,6 +350,86 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     public function setLotNumber(?string $lot_number) : self
     {
         $this->container['lot_number'] = $lot_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets lot_number_source_reference.
+     */
+    public function getLotNumberSourceReference() : ?string
+    {
+        return $this->container['lot_number_source_reference'];
+    }
+
+    /**
+     * Sets lot_number_source_reference.
+     *
+     * @param null|string $lot_number_source_reference The location identifier where the product receives a traceability lot number. Provide this field for products subject to the FDA Food Safety Modernization Act (FSMA) Section 204. When you provide `lotNumberSourceReference`, you must also specify the corresponding `lotNumberSourceType` field.
+     */
+    public function setLotNumberSourceReference(?string $lot_number_source_reference) : self
+    {
+        $this->container['lot_number_source_reference'] = $lot_number_source_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets lot_number_source_type.
+     */
+    public function getLotNumberSourceType() : ?string
+    {
+        return $this->container['lot_number_source_type'];
+    }
+
+    /**
+     * Sets lot_number_source_type.
+     *
+     * @param null|string $lot_number_source_type The identifier type used for the lot number source. Provide this field when you specify `lotNumberSourceReference`.
+     */
+    public function setLotNumberSourceType(?string $lot_number_source_type) : self
+    {
+        $this->container['lot_number_source_type'] = $lot_number_source_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_of_origin.
+     */
+    public function getCountryOfOrigin() : ?string
+    {
+        return $this->container['country_of_origin'];
+    }
+
+    /**
+     * Sets country_of_origin.
+     *
+     * @param null|string $country_of_origin The two-character country code for the country where the product was manufactured or originates. Use ISO 3166-1 alpha-2 format.
+     */
+    public function setCountryOfOrigin(?string $country_of_origin) : self
+    {
+        $this->container['country_of_origin'] = $country_of_origin;
+
+        return $this;
+    }
+
+    /**
+     * Gets regulation_references.
+     */
+    public function getRegulationReferences() : ?RegulationReferences
+    {
+        return $this->container['regulation_references'];
+    }
+
+    /**
+     * Sets regulation_references.
+     *
+     * @param null|RegulationReferences $regulation_references regulation_references
+     */
+    public function setRegulationReferences(?RegulationReferences $regulation_references) : self
+    {
+        $this->container['regulation_references'] = $regulation_references;
 
         return $this;
     }

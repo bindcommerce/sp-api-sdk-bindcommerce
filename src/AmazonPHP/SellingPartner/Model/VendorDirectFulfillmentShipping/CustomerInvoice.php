@@ -229,7 +229,7 @@ class CustomerInvoice implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets content.
      *
-     * @param string $content the Base64encoded customer invoice
+     * @param string $content the Base64 customer invoice
      */
     public function setContent(string $content) : self
     {

@@ -41,7 +41,7 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $openAPITypes = [
         'benefit' => 'string',
-        'reason_code' => 'string',
+        'reason_codes' => 'string[]',
     ];
 
     /**
@@ -55,7 +55,7 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $openAPIFormats = [
         'benefit' => null,
-        'reason_code' => null,
+        'reason_codes' => null,
     ];
 
     /**
@@ -66,7 +66,7 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $attributeMap = [
         'benefit' => 'benefit',
-        'reason_code' => 'reasonCode',
+        'reason_codes' => 'reasonCodes',
     ];
 
     /**
@@ -76,7 +76,7 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $setters = [
         'benefit' => 'setBenefit',
-        'reason_code' => 'setReasonCode',
+        'reason_codes' => 'setReasonCodes',
     ];
 
     /**
@@ -86,7 +86,7 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     protected static array $getters = [
         'benefit' => 'getBenefit',
-        'reason_code' => 'getReasonCode',
+        'reason_codes' => 'getReasonCodes',
     ];
 
     /**
@@ -105,7 +105,7 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
     public function __construct(array $data = null)
     {
         $this->container['benefit'] = $data['benefit'] ?? null;
-        $this->container['reason_code'] = $data['reason_code'] ?? null;
+        $this->container['reason_codes'] = $data['reason_codes'] ?? null;
     }
 
     /**
@@ -189,8 +189,8 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
             throw new AssertionException("'benefit' can't be null");
         }
 
-        if ($this->container['reason_code'] === null) {
-            throw new AssertionException("'reason_code' can't be null");
+        if (null !== $this->container['reason_codes'] && (\count($this->container['reason_codes']) < 1)) {
+            throw new AssertionException("invalid value for 'reason_codes', number of items must be greater than or equal to 1.");
         }
     }
 
@@ -215,21 +215,23 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
     }
 
     /**
-     * Gets reason_code.
+     * Gets reason_codes.
+     *
+     * @return null|string[]
      */
-    public function getReasonCode() : string
+    public function getReasonCodes() : ?array
     {
-        return $this->container['reason_code'];
+        return $this->container['reason_codes'];
     }
 
     /**
-     * Sets reason_code.
+     * Sets reason_codes.
      *
-     * @param string $reason_code reason_code
+     * @param null|string[] $reason_codes List of reasons (eg. LATE_DELIVERY_RISK, etc.) indicating why a benefit is excluded for a shipping offer.
      */
-    public function setReasonCode(string $reason_code) : self
+    public function setReasonCodes(?array $reason_codes) : self
     {
-        $this->container['reason_code'] = $reason_code;
+        $this->container['reason_codes'] = $reason_codes;
 
         return $this;
     }

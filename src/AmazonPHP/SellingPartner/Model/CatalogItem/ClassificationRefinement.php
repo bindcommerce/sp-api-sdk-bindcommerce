@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -215,7 +215,7 @@ class ClassificationRefinement implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets number_of_results.
      *
-     * @param int $number_of_results the estimated number of results that would still be returned if refinement key applied
+     * @param int $number_of_results the estimated number of results that would be returned if you refine your search by the specified `classificationId`
      */
     public function setNumberOfResults(int $number_of_results) : self
     {
@@ -255,7 +255,7 @@ class ClassificationRefinement implements \ArrayAccess, \JsonSerializable, \Stri
     /**
      * Sets classification_id.
      *
-     * @param string $classification_id identifier for the classification that can be used for search refinement purposes
+     * @param string $classification_id the identifier of the classification that you can use to refine your search
      */
     public function setClassificationId(string $classification_id) : self
     {

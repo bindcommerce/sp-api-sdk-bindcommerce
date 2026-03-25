@@ -283,7 +283,7 @@ class Summary implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets number_of_offers.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\OfferCountType[] $number_of_offers number_of_offers
+     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\OfferCountType[] $number_of_offers a list that contains the total number of offers information for given conditions and fulfillment channels
      */
     public function setNumberOfOffers(?array $number_of_offers) : self
     {
@@ -305,7 +305,7 @@ class Summary implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets lowest_prices.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\LowestPriceType[] $lowest_prices lowest_prices
+     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\LowestPriceType[] $lowest_prices a list of the lowest prices
      */
     public function setLowestPrices(?array $lowest_prices) : self
     {
@@ -327,7 +327,7 @@ class Summary implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets buy_box_prices.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\BuyBoxPriceType[] $buy_box_prices buy_box_prices
+     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\BuyBoxPriceType[] $buy_box_prices a list of the Buy Box prices
      */
     public function setBuyBoxPrices(?array $buy_box_prices) : self
     {
@@ -431,7 +431,7 @@ class Summary implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
     /**
      * Sets buy_box_eligible_offers.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\OfferCountType[] $buy_box_eligible_offers buy_box_eligible_offers
+     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\OfferCountType[] $buy_box_eligible_offers a list that contains the total number of offers that are eligible for the Buy Box for the given conditions and fulfillment channels
      */
     public function setBuyBoxEligibleOffers(?array $buy_box_eligible_offers) : self
     {

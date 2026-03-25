@@ -103,8 +103,8 @@ interface FulfillmentOutboundSDKInterface
     /**
      * Operation createFulfillmentReturn.
      *
-     * @param string $seller_fulfillment_order_id An identifier assigned by the seller to the fulfillment order at the time it was created. The seller uses their own records to find the correct &#x60;SellerFulfillmentOrderId&#x60; value based on the buyer&#39;s request to return items. (required)
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CreateFulfillmentReturnRequest $body CreateFulfillmentReturnRequest parameter (required)
+     * @param string $seller_fulfillment_order_id An identifier the seller assigns to the fulfillment order at the time it was created. The seller uses their own records to find the correct &#x60;sellerFulfillmentOrderId&#x60; value based on the buyer&#39;s request to return items. (required)
+     * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CreateFulfillmentReturnRequest $body The request body of the &#x60;createFulfillmentReturn&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -130,8 +130,8 @@ interface FulfillmentOutboundSDKInterface
      *
      * @param string $marketplace_id The marketplace for which to return a list of the inventory that is eligible for the specified feature. (required)
      * @param string $feature_name The name of the feature for which to return a list of eligible inventory. (required)
-     * @param null|string $next_token A string token returned in the response to your previous request that is used to return the next response page. A value of null will return the first page. (optional)
-     * @param null|\DateTimeInterface $query_start_date A date that you can use to select inventory that has been updated since a specified date. An update is defined as any change in feature-enabled inventory availability. The date must be in the format yyyy-MM-ddTHH:mm:ss.sssZ (optional)
+     * @param null|string $next_token A string token returned in the response to your previous request that is used to return the next response page. A value of &#x60;null&#x60; will return the first page. (optional)
+     * @param null|\DateTimeInterface $query_start_date A date that you can use to select inventory that has been updated since a specified date. An update is defined as any change in feature-enabled inventory availability. The date must be in the format &#x60;yyyy-MM-ddTHH:mm:ss.sssZ&#x60; (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -145,7 +145,7 @@ interface FulfillmentOutboundSDKInterface
      *
      * @param string $marketplace_id The marketplace for which to return the count. (required)
      * @param string $feature_name The name of the feature. (required)
-     * @param string $seller_sku Used to identify an item in the given marketplace. &#x60;SellerSKU&#x60; is qualified by the seller&#39;s &#x60;SellerId&#x60;, which is included with every operation that you submit. (required)
+     * @param string $seller_sku Used to identify an item in the given marketplace. &#x60;sellerSku&#x60; is qualified by the seller&#39;s &#x60;sellerId&#x60;, which is included with every operation that you submit. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -193,7 +193,7 @@ interface FulfillmentOutboundSDKInterface
     /**
      * Operation getPackageTrackingDetails.
      *
-     * @param int $package_number The unencrypted package identifier returned by the &#x60;getFulfillmentOrder&#x60; operation. (required)
+     * @param int $package_number The unencrypted package identifier. You can obtain this value from the &#x60;getFulfillmentOrder&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -247,7 +247,7 @@ interface FulfillmentOutboundSDKInterface
      * Operation updateFulfillmentOrder.
      *
      * @param string $seller_fulfillment_order_id The identifier assigned to the item by the seller when the fulfillment order was created. (required)
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\UpdateFulfillmentOrderRequest $body UpdateFulfillmentOrderRequest parameter (required)
+     * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\UpdateFulfillmentOrderRequest $body The request body of the &#x60;updateFulfillmentOrder&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException

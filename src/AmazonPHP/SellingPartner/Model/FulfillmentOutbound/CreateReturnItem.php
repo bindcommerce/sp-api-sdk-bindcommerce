@@ -239,7 +239,7 @@ class CreateReturnItem implements \ArrayAccess, \JsonSerializable, \Stringable, 
     /**
      * Sets seller_return_item_id.
      *
-     * @param string $seller_return_item_id an identifier assigned by the seller to the return item
+     * @param string $seller_return_item_id an identifier the seller assigns to the return item
      */
     public function setSellerReturnItemId(string $seller_return_item_id) : self
     {

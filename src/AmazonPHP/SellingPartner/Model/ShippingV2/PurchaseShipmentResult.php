@@ -43,6 +43,7 @@ class PurchaseShipmentResult implements \ArrayAccess, \JsonSerializable, \String
         'shipment_id' => 'string',
         'package_document_details' => '\AmazonPHP\SellingPartner\Model\ShippingV2\PackageDocumentDetail[]',
         'promise' => '\AmazonPHP\SellingPartner\Model\ShippingV2\Promise',
+        'benefits' => '\AmazonPHP\SellingPartner\Model\ShippingV2\Benefits',
     ];
 
     /**
@@ -58,6 +59,7 @@ class PurchaseShipmentResult implements \ArrayAccess, \JsonSerializable, \String
         'shipment_id' => null,
         'package_document_details' => null,
         'promise' => null,
+        'benefits' => null,
     ];
 
     /**
@@ -70,6 +72,7 @@ class PurchaseShipmentResult implements \ArrayAccess, \JsonSerializable, \String
         'shipment_id' => 'shipmentId',
         'package_document_details' => 'packageDocumentDetails',
         'promise' => 'promise',
+        'benefits' => 'benefits',
     ];
 
     /**
@@ -81,6 +84,7 @@ class PurchaseShipmentResult implements \ArrayAccess, \JsonSerializable, \String
         'shipment_id' => 'setShipmentId',
         'package_document_details' => 'setPackageDocumentDetails',
         'promise' => 'setPromise',
+        'benefits' => 'setBenefits',
     ];
 
     /**
@@ -92,6 +96,7 @@ class PurchaseShipmentResult implements \ArrayAccess, \JsonSerializable, \String
         'shipment_id' => 'getShipmentId',
         'package_document_details' => 'getPackageDocumentDetails',
         'promise' => 'getPromise',
+        'benefits' => 'getBenefits',
     ];
 
     /**
@@ -112,6 +117,7 @@ class PurchaseShipmentResult implements \ArrayAccess, \JsonSerializable, \String
         $this->container['shipment_id'] = $data['shipment_id'] ?? null;
         $this->container['package_document_details'] = $data['package_document_details'] ?? null;
         $this->container['promise'] = $data['promise'] ?? null;
+        $this->container['benefits'] = $data['benefits'] ?? null;
     }
 
     /**
@@ -204,6 +210,10 @@ class PurchaseShipmentResult implements \ArrayAccess, \JsonSerializable, \String
         }
 
         $this->container['promise']->validate();
+
+        if ($this->container['benefits'] !== null) {
+            $this->container['benefits']->validate();
+        }
     }
 
     /**
@@ -264,6 +274,26 @@ class PurchaseShipmentResult implements \ArrayAccess, \JsonSerializable, \String
     public function setPromise(Promise $promise) : self
     {
         $this->container['promise'] = $promise;
+
+        return $this;
+    }
+
+    /**
+     * Gets benefits.
+     */
+    public function getBenefits() : ?Benefits
+    {
+        return $this->container['benefits'];
+    }
+
+    /**
+     * Sets benefits.
+     *
+     * @param null|Benefits $benefits benefits
+     */
+    public function setBenefits(?Benefits $benefits) : self
+    {
+        $this->container['benefits'] = $benefits;
 
         return $this;
     }

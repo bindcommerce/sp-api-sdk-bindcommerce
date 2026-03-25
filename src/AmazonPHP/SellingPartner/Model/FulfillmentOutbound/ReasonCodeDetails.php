@@ -251,7 +251,7 @@ class ReasonCodeDetails implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets translated_description.
      *
-     * @param null|string $translated_description A translation of the description. The translation is in the language specified in the Language request parameter.
+     * @param null|string $translated_description A translation of the description. The translation is in the language specified in the `language` request parameter.
      */
     public function setTranslatedDescription(?string $translated_description) : self
     {

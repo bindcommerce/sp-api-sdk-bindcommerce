@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -198,7 +198,7 @@ class ItemProductTypeByMarketplace implements \ArrayAccess, \JsonSerializable, \
     /**
      * Sets marketplace_id.
      *
-     * @param null|string $marketplace_id amazon marketplace identifier
+     * @param null|string $marketplace_id Amazon marketplace identifier. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
      */
     public function setMarketplaceId(?string $marketplace_id) : self
     {
@@ -218,7 +218,7 @@ class ItemProductTypeByMarketplace implements \ArrayAccess, \JsonSerializable, \
     /**
      * Sets product_type.
      *
-     * @param null|string $product_type name of the product type associated with the Amazon catalog item
+     * @param null|string $product_type name of the product type that is associated with the Amazon catalog item
      */
     public function setProductType(?string $product_type) : self
     {

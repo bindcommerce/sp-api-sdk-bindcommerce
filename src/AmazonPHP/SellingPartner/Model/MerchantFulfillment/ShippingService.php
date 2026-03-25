@@ -48,6 +48,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'earliest_estimated_delivery_date' => '\DateTimeInterface',
         'latest_estimated_delivery_date' => '\DateTimeInterface',
         'rate' => '\AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount',
+        'rate_with_adjustments' => '\AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount',
+        'adjustment_item_list' => '\AmazonPHP\SellingPartner\Model\MerchantFulfillment\RateItem[]',
         'shipping_service_options' => '\AmazonPHP\SellingPartner\Model\MerchantFulfillment\ShippingServiceOptions',
         'available_shipping_service_options' => '\AmazonPHP\SellingPartner\Model\MerchantFulfillment\AvailableShippingServiceOptions',
         'available_label_formats' => '\AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormat[]',
@@ -74,6 +76,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'earliest_estimated_delivery_date' => 'date-time',
         'latest_estimated_delivery_date' => 'date-time',
         'rate' => null,
+        'rate_with_adjustments' => null,
+        'adjustment_item_list' => null,
         'shipping_service_options' => null,
         'available_shipping_service_options' => null,
         'available_label_formats' => null,
@@ -97,6 +101,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'earliest_estimated_delivery_date' => 'EarliestEstimatedDeliveryDate',
         'latest_estimated_delivery_date' => 'LatestEstimatedDeliveryDate',
         'rate' => 'Rate',
+        'rate_with_adjustments' => 'RateWithAdjustments',
+        'adjustment_item_list' => 'AdjustmentItemList',
         'shipping_service_options' => 'ShippingServiceOptions',
         'available_shipping_service_options' => 'AvailableShippingServiceOptions',
         'available_label_formats' => 'AvailableLabelFormats',
@@ -119,6 +125,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'earliest_estimated_delivery_date' => 'setEarliestEstimatedDeliveryDate',
         'latest_estimated_delivery_date' => 'setLatestEstimatedDeliveryDate',
         'rate' => 'setRate',
+        'rate_with_adjustments' => 'setRateWithAdjustments',
+        'adjustment_item_list' => 'setAdjustmentItemList',
         'shipping_service_options' => 'setShippingServiceOptions',
         'available_shipping_service_options' => 'setAvailableShippingServiceOptions',
         'available_label_formats' => 'setAvailableLabelFormats',
@@ -141,6 +149,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         'earliest_estimated_delivery_date' => 'getEarliestEstimatedDeliveryDate',
         'latest_estimated_delivery_date' => 'getLatestEstimatedDeliveryDate',
         'rate' => 'getRate',
+        'rate_with_adjustments' => 'getRateWithAdjustments',
+        'adjustment_item_list' => 'getAdjustmentItemList',
         'shipping_service_options' => 'getShippingServiceOptions',
         'available_shipping_service_options' => 'getAvailableShippingServiceOptions',
         'available_label_formats' => 'getAvailableLabelFormats',
@@ -172,6 +182,8 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
         $this->container['earliest_estimated_delivery_date'] = $data['earliest_estimated_delivery_date'] ?? null;
         $this->container['latest_estimated_delivery_date'] = $data['latest_estimated_delivery_date'] ?? null;
         $this->container['rate'] = $data['rate'] ?? null;
+        $this->container['rate_with_adjustments'] = $data['rate_with_adjustments'] ?? null;
+        $this->container['adjustment_item_list'] = $data['adjustment_item_list'] ?? null;
         $this->container['shipping_service_options'] = $data['shipping_service_options'] ?? null;
         $this->container['available_shipping_service_options'] = $data['available_shipping_service_options'] ?? null;
         $this->container['available_label_formats'] = $data['available_label_formats'] ?? null;
@@ -283,6 +295,12 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
         $this->container['rate']->validate();
 
+        if ($this->container['rate_with_adjustments'] === null) {
+            throw new AssertionException("'rate_with_adjustments' can't be null");
+        }
+
+        $this->container['rate_with_adjustments']->validate();
+
         if ($this->container['shipping_service_options'] === null) {
             throw new AssertionException("'shipping_service_options' can't be null");
         }
@@ -291,10 +309,6 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
 
         if ($this->container['available_shipping_service_options'] !== null) {
             $this->container['available_shipping_service_options']->validate();
-        }
-
-        if ($this->container['requires_additional_seller_inputs'] === null) {
-            throw new AssertionException("'requires_additional_seller_inputs' can't be null");
         }
 
         if ($this->container['benefits'] !== null) {
@@ -463,6 +477,48 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     }
 
     /**
+     * Gets rate_with_adjustments.
+     */
+    public function getRateWithAdjustments() : CurrencyAmount
+    {
+        return $this->container['rate_with_adjustments'];
+    }
+
+    /**
+     * Sets rate_with_adjustments.
+     *
+     * @param CurrencyAmount $rate_with_adjustments rate_with_adjustments
+     */
+    public function setRateWithAdjustments(CurrencyAmount $rate_with_adjustments) : self
+    {
+        $this->container['rate_with_adjustments'] = $rate_with_adjustments;
+
+        return $this;
+    }
+
+    /**
+     * Gets adjustment_item_list.
+     *
+     * @return null|\AmazonPHP\SellingPartner\Model\MerchantFulfillment\RateItem[]
+     */
+    public function getAdjustmentItemList() : ?array
+    {
+        return $this->container['adjustment_item_list'];
+    }
+
+    /**
+     * Sets adjustment_item_list.
+     *
+     * @param null|\AmazonPHP\SellingPartner\Model\MerchantFulfillment\RateItem[] $adjustment_item_list list of adjustments
+     */
+    public function setAdjustmentItemList(?array $adjustment_item_list) : self
+    {
+        $this->container['adjustment_item_list'] = $adjustment_item_list;
+
+        return $this;
+    }
+
+    /**
      * Gets shipping_service_options.
      */
     public function getShippingServiceOptions() : ShippingServiceOptions
@@ -549,7 +605,7 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Gets requires_additional_seller_inputs.
      */
-    public function getRequiresAdditionalSellerInputs() : bool
+    public function getRequiresAdditionalSellerInputs() : ?bool
     {
         return $this->container['requires_additional_seller_inputs'];
     }
@@ -557,9 +613,9 @@ class ShippingService implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets requires_additional_seller_inputs.
      *
-     * @param bool $requires_additional_seller_inputs when true, additional seller inputs are required
+     * @param null|bool $requires_additional_seller_inputs when true, additional seller inputs are required
      */
-    public function setRequiresAdditionalSellerInputs(bool $requires_additional_seller_inputs) : self
+    public function setRequiresAdditionalSellerInputs(?bool $requires_additional_seller_inputs) : self
     {
         $this->container['requires_additional_seller_inputs'] = $requires_additional_seller_inputs;
 

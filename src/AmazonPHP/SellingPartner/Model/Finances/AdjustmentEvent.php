@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for Finances.
  *
- * The Selling Partner API for Finances helps you obtain financial information relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.
+ * The Selling Partner API for Finances provides financial information that is relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.
  *
  * The version of the OpenAPI document: v0
  *
@@ -42,6 +42,7 @@ class AdjustmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
     protected static array $openAPITypes = [
         'adjustment_type' => 'string',
         'posted_date' => '\DateTimeInterface',
+        'store_name' => 'string',
         'adjustment_amount' => '\AmazonPHP\SellingPartner\Model\Finances\Currency',
         'adjustment_item_list' => '\AmazonPHP\SellingPartner\Model\Finances\AdjustmentItem[]',
     ];
@@ -58,6 +59,7 @@ class AdjustmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
     protected static array $openAPIFormats = [
         'adjustment_type' => null,
         'posted_date' => 'date-time',
+        'store_name' => null,
         'adjustment_amount' => null,
         'adjustment_item_list' => null,
     ];
@@ -71,6 +73,7 @@ class AdjustmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
     protected static array $attributeMap = [
         'adjustment_type' => 'AdjustmentType',
         'posted_date' => 'PostedDate',
+        'store_name' => 'StoreName',
         'adjustment_amount' => 'AdjustmentAmount',
         'adjustment_item_list' => 'AdjustmentItemList',
     ];
@@ -83,6 +86,7 @@ class AdjustmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
     protected static array $setters = [
         'adjustment_type' => 'setAdjustmentType',
         'posted_date' => 'setPostedDate',
+        'store_name' => 'setStoreName',
         'adjustment_amount' => 'setAdjustmentAmount',
         'adjustment_item_list' => 'setAdjustmentItemList',
     ];
@@ -95,6 +99,7 @@ class AdjustmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
     protected static array $getters = [
         'adjustment_type' => 'getAdjustmentType',
         'posted_date' => 'getPostedDate',
+        'store_name' => 'getStoreName',
         'adjustment_amount' => 'getAdjustmentAmount',
         'adjustment_item_list' => 'getAdjustmentItemList',
     ];
@@ -116,6 +121,7 @@ class AdjustmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
     {
         $this->container['adjustment_type'] = $data['adjustment_type'] ?? null;
         $this->container['posted_date'] = $data['posted_date'] ?? null;
+        $this->container['store_name'] = $data['store_name'] ?? null;
         $this->container['adjustment_amount'] = $data['adjustment_amount'] ?? null;
         $this->container['adjustment_item_list'] = $data['adjustment_item_list'] ?? null;
     }
@@ -213,7 +219,7 @@ class AdjustmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets adjustment_type.
      *
-     * @param null|string $adjustment_type The type of adjustment.  Possible values:  * FBAInventoryReimbursement - An FBA inventory reimbursement to a seller's account. This occurs if a seller's inventory is damaged.  * ReserveEvent - A reserve event that is generated at the time of a settlement period closing. This occurs when some money from a seller's account is held back.  * PostageBilling - The amount paid by a seller for shipping labels.  * PostageRefund - The reimbursement of shipping labels purchased for orders that were canceled or refunded.  * LostOrDamagedReimbursement - An Amazon Easy Ship reimbursement to a seller's account for a package that we lost or damaged.  * CanceledButPickedUpReimbursement - An Amazon Easy Ship reimbursement to a seller's account. This occurs when a package is picked up and the order is subsequently canceled. This value is used only in the India marketplace.  * ReimbursementClawback - An Amazon Easy Ship reimbursement clawback from a seller's account. This occurs when a prior reimbursement is reversed. This value is used only in the India marketplace.  * SellerRewards - An award credited to a seller's account for their participation in an offer in the Seller Rewards program. Applies only to the India marketplace.
+     * @param null|string $adjustment_type The type of adjustment.  Possible values:  * `FBAInventoryReimbursement`: An FBA inventory reimbursement to a seller's account. This occurs if a seller's inventory is damaged. * `ReserveEvent`: A reserve event that is generated at the time a settlement period closes. This occurs when some money from a seller's account is held back. * `PostageBilling`: The amount paid by a seller for shipping labels. * `PostageRefund`: The reimbursement of shipping labels purchased for orders that were canceled or refunded. * `LostOrDamagedReimbursement`: An Amazon Easy Ship reimbursement to a seller's account for a package that we lost or damaged. * `CanceledButPickedUpReimbursement`: An Amazon Easy Ship reimbursement to a seller's account. This occurs when a package is picked up and the order is subsequently canceled. This value is used only in the India marketplace. * `ReimbursementClawback`: An Amazon Easy Ship reimbursement clawback from a seller's account. This occurs when a prior reimbursement is reversed. This value is used only in the India marketplace. * `SellerRewards`: An award credited to a seller's account for their participation in an offer in the Seller Rewards program. Applies only to the India marketplace.
      */
     public function setAdjustmentType(?string $adjustment_type) : self
     {
@@ -233,11 +239,31 @@ class AdjustmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
     /**
      * Sets posted_date.
      *
-     * @param null|\DateTimeInterface $posted_date fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)
+     * @param null|\DateTimeInterface $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
      */
     public function setPostedDate(?\DateTimeInterface $posted_date) : self
     {
         $this->container['posted_date'] = $posted_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_name.
+     */
+    public function getStoreName() : ?string
+    {
+        return $this->container['store_name'];
+    }
+
+    /**
+     * Sets store_name.
+     *
+     * @param null|string $store_name the name of the store where the event occurred
+     */
+    public function setStoreName(?string $store_name) : self
+    {
+        $this->container['store_name'] = $store_name;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use AmazonPHP\SellingPartner\ObjectSerializer;
 /**
  * Selling Partner API for A+ Content Management.
  *
- * With the A+ Content API, you can build applications that help selling partners add rich marketing content to their Amazon product detail pages. A+ content helps selling partners share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners assemble content by choosing from content modules and adding images and text.
+ * Use the A+ Content API to build applications that help selling partners add rich marketing content to their Amazon product detail pages. Selling partners can use A+ content to share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners use content modules to add images and text.
  *
  * The version of the OpenAPI document: 2020-11-01
  *
@@ -197,7 +197,7 @@ class ErrorList implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets errors.
      *
-     * @param \AmazonPHP\SellingPartner\Model\APlus\Error[] $errors a list of error responses returned when a request is unsuccessful
+     * @param \AmazonPHP\SellingPartner\Model\APlus\Error[] $errors a list of error responses that are returned when a request is unsuccessful
      */
     public function setErrors(array $errors) : self
     {

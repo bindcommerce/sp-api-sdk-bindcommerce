@@ -9,7 +9,7 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Vendor Invoices v1.
+ * Selling Partner API for Retail Procurement Payments.
  *
  * The Selling Partner API for Retail Procurement Payments provides programmatic access to vendors payments data.
  *

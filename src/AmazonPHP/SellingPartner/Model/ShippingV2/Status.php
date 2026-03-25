@@ -37,6 +37,8 @@ class Status
 
     final public const PICKUP_CANCELLED = 'PickupCancelled';
 
+    final public const AWAITING_CUSTOMER_PICKUP = 'AwaitingCustomerPickup';
+
     public function __construct(private readonly string $value)
     {
     }
@@ -58,6 +60,7 @@ class Status
             self::UNDELIVERABLE,
             self::DELIVERY_ATTEMPTED,
             self::PICKUP_CANCELLED,
+            self::AWAITING_CUSTOMER_PICKUP,
         ];
     }
 

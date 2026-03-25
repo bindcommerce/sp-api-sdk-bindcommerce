@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -201,17 +201,13 @@ class ItemSearchResults implements \ArrayAccess, \JsonSerializable, \Stringable,
             throw new AssertionException("'number_of_results' can't be null");
         }
 
-        if ($this->container['pagination'] === null) {
-            throw new AssertionException("'pagination' can't be null");
+        if ($this->container['pagination'] !== null) {
+            $this->container['pagination']->validate();
         }
 
-        $this->container['pagination']->validate();
-
-        if ($this->container['refinements'] === null) {
-            throw new AssertionException("'refinements' can't be null");
+        if ($this->container['refinements'] !== null) {
+            $this->container['refinements']->validate();
         }
-
-        $this->container['refinements']->validate();
 
         if ($this->container['items'] === null) {
             throw new AssertionException("'items' can't be null");
@@ -229,7 +225,7 @@ class ItemSearchResults implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets number_of_results.
      *
-     * @param int $number_of_results For `identifiers`-based searches, the total number of Amazon catalog items found. For `keywords`-based searches, the estimated total number of Amazon catalog items matched by the search query (only results up to the page count limit will be returned per request regardless of the number found).  Note: The maximum number of items (ASINs) that can be returned and paged through is 1000.
+     * @param int $number_of_results For searches that are based on `identifiers`, `numberOfResults` is the total number of Amazon catalog items found. For searches that are based on `keywords`, `numberOfResults` is the estimated total number of Amazon catalog items that are matched by the search query. Only results up to the page count limit are returned per request regardless of the number found.  **Note:** The maximum number of items (ASINs) that can be returned and paged through is 1,000.
      */
     public function setNumberOfResults(int $number_of_results) : self
     {
@@ -249,9 +245,9 @@ class ItemSearchResults implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets pagination.
      *
-     * @param Pagination $pagination pagination
+     * @param null|Pagination $pagination pagination
      */
-    public function setPagination(Pagination $pagination) : self
+    public function setPagination(?Pagination $pagination) : self
     {
         $this->container['pagination'] = $pagination;
 
@@ -269,9 +265,9 @@ class ItemSearchResults implements \ArrayAccess, \JsonSerializable, \Stringable,
     /**
      * Sets refinements.
      *
-     * @param Refinements $refinements refinements
+     * @param null|Refinements $refinements refinements
      */
-    public function setRefinements(Refinements $refinements) : self
+    public function setRefinements(?Refinements $refinements) : self
     {
         $this->container['refinements'] = $refinements;
 

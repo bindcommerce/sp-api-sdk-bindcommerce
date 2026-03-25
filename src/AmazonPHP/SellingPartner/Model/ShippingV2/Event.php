@@ -43,6 +43,7 @@ class Event implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         'event_code' => '\AmazonPHP\SellingPartner\Model\ShippingV2\EventCode',
         'location' => '\AmazonPHP\SellingPartner\Model\ShippingV2\Location',
         'event_time' => '\DateTimeInterface',
+        'shipment_type' => '\AmazonPHP\SellingPartner\Model\ShippingV2\ShipmentType',
     ];
 
     /**
@@ -58,6 +59,7 @@ class Event implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         'event_code' => null,
         'location' => null,
         'event_time' => 'date-time',
+        'shipment_type' => null,
     ];
 
     /**
@@ -70,6 +72,7 @@ class Event implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         'event_code' => 'eventCode',
         'location' => 'location',
         'event_time' => 'eventTime',
+        'shipment_type' => 'shipmentType',
     ];
 
     /**
@@ -81,6 +84,7 @@ class Event implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         'event_code' => 'setEventCode',
         'location' => 'setLocation',
         'event_time' => 'setEventTime',
+        'shipment_type' => 'setShipmentType',
     ];
 
     /**
@@ -92,6 +96,7 @@ class Event implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         'event_code' => 'getEventCode',
         'location' => 'getLocation',
         'event_time' => 'getEventTime',
+        'shipment_type' => 'getShipmentType',
     ];
 
     /**
@@ -112,6 +117,7 @@ class Event implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
         $this->container['event_code'] = $data['event_code'] ?? null;
         $this->container['location'] = $data['location'] ?? null;
         $this->container['event_time'] = $data['event_time'] ?? null;
+        $this->container['shipment_type'] = $data['shipment_type'] ?? null;
     }
 
     /**
@@ -260,6 +266,26 @@ class Event implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
     public function setEventTime(\DateTimeInterface $event_time) : self
     {
         $this->container['event_time'] = $event_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipment_type.
+     */
+    public function getShipmentType() : ?ShipmentType
+    {
+        return $this->container['shipment_type'];
+    }
+
+    /**
+     * Sets shipment_type.
+     *
+     * @param null|ShipmentType $shipment_type shipment_type
+     */
+    public function setShipmentType(?ShipmentType $shipment_type) : self
+    {
+        $this->container['shipment_type'] = $shipment_type;
 
         return $this;
     }

@@ -299,7 +299,7 @@ class LabelData implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets content.
      *
-     * @param string $content this field will contain the Base64encoded string of the shipment label content
+     * @param string $content this field will contain the Base64 string of the shipment label content
      */
     public function setContent(string $content) : self
     {

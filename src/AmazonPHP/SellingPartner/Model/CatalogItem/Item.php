@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -255,7 +255,7 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets asin.
      *
-     * @param string $asin amazon Standard Identification Number (ASIN) is the unique identifier for an item in the Amazon catalog
+     * @param string $asin the unique identifier of an item in the Amazon catalog
      */
     public function setAsin(string $asin) : self
     {
@@ -277,7 +277,7 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets attributes.
      *
-     * @param null|array<string,mixed> $attributes A JSON object that contains structured item attribute data keyed by attribute name. Catalog item attributes conform to the related product type definitions available in the Selling Partner API for Product Type Definitions.
+     * @param null|array<string,mixed> $attributes A JSON object containing structured item attribute data that is keyed by attribute name. Catalog item attributes conform to the related Amazon product type definitions that you can get from the [Product Type Definitions API](https://developer-docs.amazon.com/sp-api/reference/product-type-definitions-v2020-09-01).
      */
     public function setAttributes(?array $attributes) : self
     {
@@ -299,7 +299,7 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets classifications.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemBrowseClassificationsByMarketplace[] $classifications array of classifications (browse nodes) associated with the item in the Amazon catalog by Amazon marketplace
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemBrowseClassificationsByMarketplace[] $classifications an array of classifications (browse nodes) that is associated with the item in the Amazon catalog, grouped by `marketplaceId`
      */
     public function setClassifications(?array $classifications) : self
     {
@@ -321,7 +321,7 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets dimensions.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemDimensionsByMarketplace[] $dimensions array of dimensions associated with the item in the Amazon catalog by Amazon marketplace
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemDimensionsByMarketplace[] $dimensions an array of dimensions that are associated with the item in the Amazon catalog, grouped by `marketplaceId`
      */
     public function setDimensions(?array $dimensions) : self
     {
@@ -365,7 +365,7 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets images.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemImagesByMarketplace[] $images images for an item in the Amazon catalog
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemImagesByMarketplace[] $images the images for an item in the Amazon catalog
      */
     public function setImages(?array $images) : self
     {
@@ -387,7 +387,7 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets product_types.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemProductTypeByMarketplace[] $product_types product types associated with the Amazon catalog item
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemProductTypeByMarketplace[] $product_types product types that are associated with the Amazon catalog item
      */
     public function setProductTypes(?array $product_types) : self
     {
@@ -409,7 +409,7 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets relationships.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemRelationshipsByMarketplace[] $relationships relationships by marketplace for an Amazon catalog item (for example, variations)
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemRelationshipsByMarketplace[] $relationships relationships grouped by `marketplaceId` for an Amazon catalog item (for example, variations)
      */
     public function setRelationships(?array $relationships) : self
     {
@@ -453,7 +453,7 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets summaries.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemSummaryByMarketplace[] $summaries summary details of an Amazon catalog item
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemSummaryByMarketplace[] $summaries summaries of Amazon catalog items
      */
     public function setSummaries(?array $summaries) : self
     {
@@ -475,7 +475,7 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
     /**
      * Sets vendor_details.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemVendorDetailsByMarketplace[] $vendor_details Vendor details associated with an Amazon catalog item. Vendor details are available to vendors only.
+     * @param null|\AmazonPHP\SellingPartner\Model\CatalogItem\ItemVendorDetailsByMarketplace[] $vendor_details The vendor details that are associated with an Amazon catalog item. Vendor details are only available to vendors.
      */
     public function setVendorDetails(?array $vendor_details) : self
     {

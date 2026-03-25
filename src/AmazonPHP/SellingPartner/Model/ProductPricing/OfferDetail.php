@@ -485,7 +485,7 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets quantity_discount_prices.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\QuantityDiscountPriceType[] $quantity_discount_prices quantity_discount_prices
+     * @param null|\AmazonPHP\SellingPartner\Model\ProductPricing\QuantityDiscountPriceType[] $quantity_discount_prices list of `QuantityDiscountPrice` that contains item's pricing information when buy in bulk
      */
     public function setQuantityDiscountPrices(?array $quantity_discount_prices) : self
     {

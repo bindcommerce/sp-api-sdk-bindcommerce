@@ -9,7 +9,7 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Orders v0.
+ * Selling Partner API for Orders.
  *
  * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
@@ -293,7 +293,7 @@ class PackageDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
     /**
      * Sets carrier_name.
      *
-     * @param null|string $carrier_name Carrier Name that will deliver the package. Required when `carrierCode` is \"Others\"
+     * @param null|string $carrier_name Carrier name that will deliver the package. Required when `carrierCode` is \"Other\"
      */
     public function setCarrierName(?string $carrier_name) : self
     {

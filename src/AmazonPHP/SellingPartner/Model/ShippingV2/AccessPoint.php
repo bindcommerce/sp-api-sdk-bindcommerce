@@ -404,7 +404,7 @@ class AccessPoint implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets exception_operating_hours.
      *
-     * @param null|\AmazonPHP\SellingPartner\Model\ShippingV2\ExceptionOperatingHours[] $exception_operating_hours exception_operating_hours
+     * @param null|\AmazonPHP\SellingPartner\Model\ShippingV2\ExceptionOperatingHours[] $exception_operating_hours Exception operating hours for Access Point
      */
     public function setExceptionOperatingHours(?array $exception_operating_hours) : self
     {
@@ -424,7 +424,7 @@ class AccessPoint implements \ArrayAccess, \JsonSerializable, \Stringable, Model
     /**
      * Sets assistance_type.
      *
-     * @param null|string $assistance_type assistance_type
+     * @param null|string $assistance_type Assistance type enum for Access point i.e. STAFF_ASSISTED or SELF_ASSISTED
      */
     public function setAssistanceType(?string $assistance_type) : self
     {

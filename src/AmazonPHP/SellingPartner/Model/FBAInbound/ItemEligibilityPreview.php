@@ -107,6 +107,8 @@ class ItemEligibilityPreview implements \ArrayAccess, \JsonSerializable, \String
 
     final public const INELIGIBILITY_REASON_LIST_FBA_INB_0197 = 'FBA_INB_0197';
 
+    final public const INELIGIBILITY_REASON_LIST_FBA_INB_0342 = 'FBA_INB_0342';
+
     final public const INELIGIBILITY_REASON_LIST_UNKNOWN_INB_ERROR_CODE = 'UNKNOWN_INB_ERROR_CODE';
 
     /**
@@ -337,6 +339,7 @@ class ItemEligibilityPreview implements \ArrayAccess, \JsonSerializable, \String
             self::INELIGIBILITY_REASON_LIST_FBA_INB_0103,
             self::INELIGIBILITY_REASON_LIST_FBA_INB_0104,
             self::INELIGIBILITY_REASON_LIST_FBA_INB_0197,
+            self::INELIGIBILITY_REASON_LIST_FBA_INB_0342,
             self::INELIGIBILITY_REASON_LIST_UNKNOWN_INB_ERROR_CODE,
         ];
     }

@@ -78,7 +78,7 @@ interface ProductPricingSDKInterface
     /**
      * Operation getItemOffersBatch.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\GetItemOffersBatchRequest $get_item_offers_batch_request_body get_item_offers_batch_request_body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\GetItemOffersBatchRequest $get_item_offers_batch_request_body The request associated with the &#x60;getItemOffersBatch&#x60; API call. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -105,7 +105,7 @@ interface ProductPricingSDKInterface
     /**
      * Operation getListingOffersBatch.
      *
-     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\GetListingOffersBatchRequest $get_listing_offers_batch_request_body get_listing_offers_batch_request_body (required)
+     * @param \AmazonPHP\SellingPartner\Model\ProductPricing\GetListingOffersBatchRequest $get_listing_offers_batch_request_body The request associated with the &#x60;getListingOffersBatch&#x60; API call. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException

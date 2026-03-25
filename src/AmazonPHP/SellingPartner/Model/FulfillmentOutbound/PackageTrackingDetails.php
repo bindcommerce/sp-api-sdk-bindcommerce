@@ -51,6 +51,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
         'ship_to_address' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\TrackingAddress',
         'current_status' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CurrentStatus',
         'current_status_description' => 'string',
+        'delivery_window' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\DateRange',
         'signed_for_by' => 'string',
         'additional_location_info' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\AdditionalLocationInfo',
         'tracking_events' => '\AmazonPHP\SellingPartner\Model\FulfillmentOutbound\TrackingEvent[]',
@@ -77,6 +78,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
         'ship_to_address' => null,
         'current_status' => null,
         'current_status_description' => null,
+        'delivery_window' => null,
         'signed_for_by' => null,
         'additional_location_info' => null,
         'tracking_events' => null,
@@ -100,6 +102,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
         'ship_to_address' => 'shipToAddress',
         'current_status' => 'currentStatus',
         'current_status_description' => 'currentStatusDescription',
+        'delivery_window' => 'deliveryWindow',
         'signed_for_by' => 'signedForBy',
         'additional_location_info' => 'additionalLocationInfo',
         'tracking_events' => 'trackingEvents',
@@ -122,6 +125,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
         'ship_to_address' => 'setShipToAddress',
         'current_status' => 'setCurrentStatus',
         'current_status_description' => 'setCurrentStatusDescription',
+        'delivery_window' => 'setDeliveryWindow',
         'signed_for_by' => 'setSignedForBy',
         'additional_location_info' => 'setAdditionalLocationInfo',
         'tracking_events' => 'setTrackingEvents',
@@ -144,6 +148,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
         'ship_to_address' => 'getShipToAddress',
         'current_status' => 'getCurrentStatus',
         'current_status_description' => 'getCurrentStatusDescription',
+        'delivery_window' => 'getDeliveryWindow',
         'signed_for_by' => 'getSignedForBy',
         'additional_location_info' => 'getAdditionalLocationInfo',
         'tracking_events' => 'getTrackingEvents',
@@ -175,6 +180,7 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
         $this->container['ship_to_address'] = $data['ship_to_address'] ?? null;
         $this->container['current_status'] = $data['current_status'] ?? null;
         $this->container['current_status_description'] = $data['current_status_description'] ?? null;
+        $this->container['delivery_window'] = $data['delivery_window'] ?? null;
         $this->container['signed_for_by'] = $data['signed_for_by'] ?? null;
         $this->container['additional_location_info'] = $data['additional_location_info'] ?? null;
         $this->container['tracking_events'] = $data['tracking_events'] ?? null;
@@ -263,6 +269,10 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
 
         if ($this->container['ship_to_address'] !== null) {
             $this->container['ship_to_address']->validate();
+        }
+
+        if ($this->container['delivery_window'] !== null) {
+            $this->container['delivery_window']->validate();
         }
     }
 
@@ -482,6 +492,26 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
     public function setCurrentStatusDescription(?string $current_status_description) : self
     {
         $this->container['current_status_description'] = $current_status_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_window.
+     */
+    public function getDeliveryWindow() : ?DateRange
+    {
+        return $this->container['delivery_window'];
+    }
+
+    /**
+     * Sets delivery_window.
+     *
+     * @param null|DateRange $delivery_window delivery_window
+     */
+    public function setDeliveryWindow(?DateRange $delivery_window) : self
+    {
+        $this->container['delivery_window'] = $delivery_window;
 
         return $this;
     }

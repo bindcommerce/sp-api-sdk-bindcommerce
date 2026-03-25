@@ -9,7 +9,7 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Orders v0.
+ * Selling Partner API for Orders.
  *
  * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
@@ -40,7 +40,6 @@ class BuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      * @var string[]
      */
     protected static array $openAPITypes = [
-        'buyer_email' => 'string',
         'buyer_name' => 'string',
         'buyer_county' => 'string',
         'buyer_tax_info' => '\AmazonPHP\SellingPartner\Model\Orders\BuyerTaxInfo',
@@ -57,7 +56,6 @@ class BuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      * @psalm-var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'buyer_email' => null,
         'buyer_name' => null,
         'buyer_county' => null,
         'buyer_tax_info' => null,
@@ -71,7 +69,6 @@ class BuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      * @var string[]
      */
     protected static array $attributeMap = [
-        'buyer_email' => 'BuyerEmail',
         'buyer_name' => 'BuyerName',
         'buyer_county' => 'BuyerCounty',
         'buyer_tax_info' => 'BuyerTaxInfo',
@@ -84,7 +81,6 @@ class BuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      * @var string[]
      */
     protected static array $setters = [
-        'buyer_email' => 'setBuyerEmail',
         'buyer_name' => 'setBuyerName',
         'buyer_county' => 'setBuyerCounty',
         'buyer_tax_info' => 'setBuyerTaxInfo',
@@ -97,7 +93,6 @@ class BuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      * @var string[]
      */
     protected static array $getters = [
-        'buyer_email' => 'getBuyerEmail',
         'buyer_name' => 'getBuyerName',
         'buyer_county' => 'getBuyerCounty',
         'buyer_tax_info' => 'getBuyerTaxInfo',
@@ -119,7 +114,6 @@ class BuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function __construct(array $data = null)
     {
-        $this->container['buyer_email'] = $data['buyer_email'] ?? null;
         $this->container['buyer_name'] = $data['buyer_name'] ?? null;
         $this->container['buyer_county'] = $data['buyer_county'] ?? null;
         $this->container['buyer_tax_info'] = $data['buyer_tax_info'] ?? null;
@@ -206,26 +200,6 @@ class BuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
         if ($this->container['buyer_tax_info'] !== null) {
             $this->container['buyer_tax_info']->validate();
         }
-    }
-
-    /**
-     * Gets buyer_email.
-     */
-    public function getBuyerEmail() : ?string
-    {
-        return $this->container['buyer_email'];
-    }
-
-    /**
-     * Sets buyer_email.
-     *
-     * @param null|string $buyer_email the anonymized email address of the buyer
-     */
-    public function setBuyerEmail(?string $buyer_email) : self
-    {
-        $this->container['buyer_email'] = $buyer_email;
-
-        return $this;
     }
 
     /**

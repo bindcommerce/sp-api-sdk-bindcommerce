@@ -20,26 +20,6 @@ interface FulfillmentInboundSDKInterface
 {
     public const API_NAME = 'FulfillmentInbound';
 
-    public const OPERATION_CONFIRMPREORDER = 'confirmPreorder';
-
-    public const OPERATION_CONFIRMPREORDER_PATH = '/fba/inbound/v0/shipments/{shipmentId}/preorder/confirm';
-
-    public const OPERATION_CONFIRMTRANSPORT = 'confirmTransport';
-
-    public const OPERATION_CONFIRMTRANSPORT_PATH = '/fba/inbound/v0/shipments/{shipmentId}/transport/confirm';
-
-    public const OPERATION_CREATEINBOUNDSHIPMENT = 'createInboundShipment';
-
-    public const OPERATION_CREATEINBOUNDSHIPMENT_PATH = '/fba/inbound/v0/shipments/{shipmentId}';
-
-    public const OPERATION_CREATEINBOUNDSHIPMENTPLAN = 'createInboundShipmentPlan';
-
-    public const OPERATION_CREATEINBOUNDSHIPMENTPLAN_PATH = '/fba/inbound/v0/plans';
-
-    public const OPERATION_ESTIMATETRANSPORT = 'estimateTransport';
-
-    public const OPERATION_ESTIMATETRANSPORT_PATH = '/fba/inbound/v0/shipments/{shipmentId}/transport/estimate';
-
     public const OPERATION_GETBILLOFLADING = 'getBillOfLading';
 
     public const OPERATION_GETBILLOFLADING_PATH = '/fba/inbound/v0/shipments/{shipmentId}/billOfLading';
@@ -47,10 +27,6 @@ interface FulfillmentInboundSDKInterface
     public const OPERATION_GETLABELS = 'getLabels';
 
     public const OPERATION_GETLABELS_PATH = '/fba/inbound/v0/shipments/{shipmentId}/labels';
-
-    public const OPERATION_GETPREORDERINFO = 'getPreorderInfo';
-
-    public const OPERATION_GETPREORDERINFO_PATH = '/fba/inbound/v0/shipments/{shipmentId}/preorder';
 
     public const OPERATION_GETPREPINSTRUCTIONS = 'getPrepInstructions';
 
@@ -67,85 +43,6 @@ interface FulfillmentInboundSDKInterface
     public const OPERATION_GETSHIPMENTS = 'getShipments';
 
     public const OPERATION_GETSHIPMENTS_PATH = '/fba/inbound/v0/shipments';
-
-    public const OPERATION_GETTRANSPORTDETAILS = 'getTransportDetails';
-
-    public const OPERATION_GETTRANSPORTDETAILS_PATH = '/fba/inbound/v0/shipments/{shipmentId}/transport';
-
-    public const OPERATION_PUTTRANSPORTDETAILS = 'putTransportDetails';
-
-    public const OPERATION_PUTTRANSPORTDETAILS_PATH = '/fba/inbound/v0/shipments/{shipmentId}/transport';
-
-    public const OPERATION_UPDATEINBOUNDSHIPMENT = 'updateInboundShipment';
-
-    public const OPERATION_UPDATEINBOUNDSHIPMENT_PATH = '/fba/inbound/v0/shipments/{shipmentId}';
-
-    public const OPERATION_VOIDTRANSPORT = 'voidTransport';
-
-    public const OPERATION_VOIDTRANSPORT_PATH = '/fba/inbound/v0/shipments/{shipmentId}/transport/void';
-
-    /**
-     * Operation confirmPreorder.
-     *
-     * @param string $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation. (required)
-     * @param \DateTimeInterface $need_by_date Date that the shipment must arrive at the Amazon fulfillment center to avoid delivery promise breaks for pre-ordered items. Must be in YYYY-MM-DD format. The response to the getPreorderInfo operation returns this value. (required)
-     * @param string $marketplace_id A marketplace identifier. Specifies the marketplace the shipment is tied to. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\ConfirmPreorderResponse
-     */
-    public function confirmPreorder(AccessToken $accessToken, string $region, string $shipment_id, \DateTimeInterface $need_by_date, string $marketplace_id) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\ConfirmPreorderResponse;
-
-    /**
-     * Operation confirmTransport.
-     *
-     * @param string $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\ConfirmTransportResponse
-     */
-    public function confirmTransport(AccessToken $accessToken, string $region, string $shipment_id) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\ConfirmTransportResponse;
-
-    /**
-     * Operation createInboundShipment.
-     *
-     * @param string $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation. (required)
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentRequest $body The request schema for the InboundShipmentRequest operation. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentResponse
-     */
-    public function createInboundShipment(AccessToken $accessToken, string $region, string $shipment_id, \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentRequest $body) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentResponse;
-
-    /**
-     * Operation createInboundShipmentPlan.
-     *
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\CreateInboundShipmentPlanRequest $body The request schema for the CreateInboundShipmentPlanRequest operation. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\CreateInboundShipmentPlanResponse
-     */
-    public function createInboundShipmentPlan(AccessToken $accessToken, string $region, \AmazonPHP\SellingPartner\Model\FulfillmentInbound\CreateInboundShipmentPlanRequest $body) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\CreateInboundShipmentPlanResponse;
-
-    /**
-     * Operation estimateTransport.
-     *
-     * @param string $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\EstimateTransportResponse
-     */
-    public function estimateTransport(AccessToken $accessToken, string $region, string $shipment_id) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\EstimateTransportResponse;
 
     /**
      * Operation getBillOfLading.
@@ -166,7 +63,7 @@ interface FulfillmentInboundSDKInterface
      * @param string $page_type The page type to use to print the labels. Submitting a PageType value that is not supported in your marketplace returns an error. (required)
      * @param string $label_type The type of labels requested. (required)
      * @param null|int $number_of_packages The number of packages in the shipment. (optional)
-     * @param null|string[] $package_labels_to_print A list of identifiers that specify packages for which you want package labels printed.  If you provide box content information with the [FBA Inbound Shipment Carton Information Feed](https://developer-docs.amazon.com/sp-api/docs/fulfillment-by-amazon-feed-type-values#fba-inbound-shipment-carton-information-feed), then &#x60;PackageLabelsToPrint&#x60; must match the &#x60;CartonId&#x60; values you provide through that feed. If you provide box content information with the Fulfillment Inbound API v2024-03-20, then &#x60;PackageLabelsToPrint&#x60; must match the &#x60;boxID&#x60; values from the [&#x60;listShipmentBoxes&#x60;](https://developer-docs.amazon.com/sp-api/docs/fulfillment-inbound-api-v2024-03-20-reference#listshipmentboxes) response. If these values do not match as required, the operation returns the &#x60;IncorrectPackageIdentifier&#x60; error code. (optional)
+     * @param null|string[] $package_labels_to_print A list of identifiers that specify packages for which you want package labels printed.  If you provide box content information with the [FBA Inbound Shipment Carton Information Feed](https://developer-docs.amazon.com/sp-api/docs/fulfillment-by-amazon-feed-type-values#fba-inbound-shipment-carton-information-feed), then &#x60;PackageLabelsToPrint&#x60; must match the &#x60;CartonId&#x60; values you provide through that feed. If you provide box content information with the Fulfillment Inbound API v2024-03-20, then &#x60;PackageLabelsToPrint&#x60; must match the &#x60;boxID&#x60; values from the [&#x60;listShipmentBoxes&#x60;](https://developer-docs.amazon.com/sp-api/reference/listshipmentboxes) response. If these values do not match as required, the operation returns the &#x60;IncorrectPackageIdentifier&#x60; error code. (optional)
      * @param null|int $number_of_pallets The number of pallets in the shipment. This returns four identical labels for each pallet. (optional)
      * @param null|int $page_size The page size for paginating through the total packages&#39; labels. This is a required parameter for Non-Partnered LTL Shipments. Max value:1000. (optional)
      * @param null|int $page_start_index The page start index for paginating through the total packages&#39; labels. This is a required parameter for Non-Partnered LTL Shipments. (optional)
@@ -177,19 +74,6 @@ interface FulfillmentInboundSDKInterface
      * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetLabelsResponse
      */
     public function getLabels(AccessToken $accessToken, string $region, string $shipment_id, string $page_type, string $label_type, ?int $number_of_packages = null, ?array $package_labels_to_print = null, ?int $number_of_pallets = null, ?int $page_size = null, ?int $page_start_index = null) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetLabelsResponse;
-
-    /**
-     * Operation getPreorderInfo.
-     *
-     * @param string $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation. (required)
-     * @param string $marketplace_id A marketplace identifier. Specifies the marketplace the shipment is tied to. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetPreorderInfoResponse
-     */
-    public function getPreorderInfo(AccessToken $accessToken, string $region, string $shipment_id, string $marketplace_id) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetPreorderInfoResponse;
 
     /**
      * Operation getPrepInstructions.
@@ -225,14 +109,14 @@ interface FulfillmentInboundSDKInterface
      * Operation getShipmentItemsByShipmentId.
      *
      * @param string $shipment_id A shipment identifier used for selecting items in a specific inbound shipment. (required)
-     * @param string $marketplace_id A marketplace identifier. Specifies the marketplace where the product would be stored. (required)
+     * @param null|string $marketplace_id Deprecated. Do not use. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      *
      * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetShipmentItemsResponse
      */
-    public function getShipmentItemsByShipmentId(AccessToken $accessToken, string $region, string $shipment_id, string $marketplace_id) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetShipmentItemsResponse;
+    public function getShipmentItemsByShipmentId(AccessToken $accessToken, string $region, string $shipment_id, ?string $marketplace_id = null) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetShipmentItemsResponse;
 
     /**
      * Operation getShipments.
@@ -251,54 +135,4 @@ interface FulfillmentInboundSDKInterface
      * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetShipmentsResponse
      */
     public function getShipments(AccessToken $accessToken, string $region, string $query_type, string $marketplace_id, ?array $shipment_status_list = null, ?array $shipment_id_list = null, ?\DateTimeInterface $last_updated_after = null, ?\DateTimeInterface $last_updated_before = null, ?string $next_token = null) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetShipmentsResponse;
-
-    /**
-     * Operation getTransportDetails.
-     *
-     * @param string $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetTransportDetailsResponse
-     */
-    public function getTransportDetails(AccessToken $accessToken, string $region, string $shipment_id) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\GetTransportDetailsResponse;
-
-    /**
-     * Operation putTransportDetails.
-     *
-     * @param string $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation. (required)
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\PutTransportDetailsRequest $body The request schema for the PutTransportDetailsRequest operation. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\PutTransportDetailsResponse
-     */
-    public function putTransportDetails(AccessToken $accessToken, string $region, string $shipment_id, \AmazonPHP\SellingPartner\Model\FulfillmentInbound\PutTransportDetailsRequest $body) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\PutTransportDetailsResponse;
-
-    /**
-     * Operation updateInboundShipment.
-     *
-     * @param string $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation. (required)
-     * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentRequest $body The request schema for the InboundShipmentRequest operation. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentResponse
-     */
-    public function updateInboundShipment(AccessToken $accessToken, string $region, string $shipment_id, \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentRequest $body) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InboundShipmentResponse;
-
-    /**
-     * Operation voidTransport.
-     *
-     * @param string $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation. (required)
-     *
-     * @throws ApiException on non-2xx response
-     * @throws InvalidArgumentException
-     *
-     * @return \AmazonPHP\SellingPartner\Model\FulfillmentInbound\VoidTransportResponse
-     */
-    public function voidTransport(AccessToken $accessToken, string $region, string $shipment_id) : \AmazonPHP\SellingPartner\Model\FulfillmentInbound\VoidTransportResponse;
 }

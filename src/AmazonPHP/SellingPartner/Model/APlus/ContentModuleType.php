@@ -7,7 +7,7 @@ namespace AmazonPHP\SellingPartner\Model\APlus;
 /**
  * Selling Partner API for A+ Content Management.
  *
- * With the A+ Content API, you can build applications that help selling partners add rich marketing content to their Amazon product detail pages. A+ content helps selling partners share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners assemble content by choosing from content modules and adding images and text.
+ * Use the A+ Content API to build applications that help selling partners add rich marketing content to their Amazon product detail pages. Selling partners can use A+ content to share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners use content modules to add images and text.
  *
  * The version of the OpenAPI document: 2020-11-01
  *
@@ -19,35 +19,35 @@ class ContentModuleType
     /**
      * Possible values of this enum.
      */
-    final public const COMPANY_LOGO = 'STANDARD_COMPANY_LOGO';
+    final public const STANDARD_COMPANY_LOGO = 'STANDARD_COMPANY_LOGO';
 
-    final public const COMPARISON_TABLE = 'STANDARD_COMPARISON_TABLE';
+    final public const STANDARD_COMPARISON_TABLE = 'STANDARD_COMPARISON_TABLE';
 
-    final public const FOUR_IMAGE_TEXT = 'STANDARD_FOUR_IMAGE_TEXT';
+    final public const STANDARD_FOUR_IMAGE_TEXT = 'STANDARD_FOUR_IMAGE_TEXT';
 
-    final public const FOUR_IMAGE_TEXT_QUADRANT = 'STANDARD_FOUR_IMAGE_TEXT_QUADRANT';
+    final public const STANDARD_FOUR_IMAGE_TEXT_QUADRANT = 'STANDARD_FOUR_IMAGE_TEXT_QUADRANT';
 
-    final public const HEADER_IMAGE_TEXT = 'STANDARD_HEADER_IMAGE_TEXT';
+    final public const STANDARD_HEADER_IMAGE_TEXT = 'STANDARD_HEADER_IMAGE_TEXT';
 
-    final public const IMAGE_SIDEBAR = 'STANDARD_IMAGE_SIDEBAR';
+    final public const STANDARD_IMAGE_SIDEBAR = 'STANDARD_IMAGE_SIDEBAR';
 
-    final public const IMAGE_TEXT_OVERLAY = 'STANDARD_IMAGE_TEXT_OVERLAY';
+    final public const STANDARD_IMAGE_TEXT_OVERLAY = 'STANDARD_IMAGE_TEXT_OVERLAY';
 
-    final public const MULTIPLE_IMAGE_TEXT = 'STANDARD_MULTIPLE_IMAGE_TEXT';
+    final public const STANDARD_MULTIPLE_IMAGE_TEXT = 'STANDARD_MULTIPLE_IMAGE_TEXT';
 
-    final public const PRODUCT_DESCRIPTION = 'STANDARD_PRODUCT_DESCRIPTION';
+    final public const STANDARD_PRODUCT_DESCRIPTION = 'STANDARD_PRODUCT_DESCRIPTION';
 
-    final public const SINGLE_IMAGE_HIGHLIGHTS = 'STANDARD_SINGLE_IMAGE_HIGHLIGHTS';
+    final public const STANDARD_SINGLE_IMAGE_HIGHLIGHTS = 'STANDARD_SINGLE_IMAGE_HIGHLIGHTS';
 
-    final public const SINGLE_IMAGE_SPECS_DETAIL = 'STANDARD_SINGLE_IMAGE_SPECS_DETAIL';
+    final public const STANDARD_SINGLE_IMAGE_SPECS_DETAIL = 'STANDARD_SINGLE_IMAGE_SPECS_DETAIL';
 
-    final public const SINGLE_SIDE_IMAGE = 'STANDARD_SINGLE_SIDE_IMAGE';
+    final public const STANDARD_SINGLE_SIDE_IMAGE = 'STANDARD_SINGLE_SIDE_IMAGE';
 
-    final public const TECH_SPECS = 'STANDARD_TECH_SPECS';
+    final public const STANDARD_TECH_SPECS = 'STANDARD_TECH_SPECS';
 
-    final public const TEXT = 'STANDARD_TEXT';
+    final public const STANDARD_TEXT = 'STANDARD_TEXT';
 
-    final public const THREE_IMAGE_TEXT = 'STANDARD_THREE_IMAGE_TEXT';
+    final public const STANDARD_THREE_IMAGE_TEXT = 'STANDARD_THREE_IMAGE_TEXT';
 
     public function __construct(private readonly string $value)
     {
@@ -61,21 +61,21 @@ class ContentModuleType
     public static function getAllowableEnumValues() : array
     {
         return [
-            self::COMPANY_LOGO,
-            self::COMPARISON_TABLE,
-            self::FOUR_IMAGE_TEXT,
-            self::FOUR_IMAGE_TEXT_QUADRANT,
-            self::HEADER_IMAGE_TEXT,
-            self::IMAGE_SIDEBAR,
-            self::IMAGE_TEXT_OVERLAY,
-            self::MULTIPLE_IMAGE_TEXT,
-            self::PRODUCT_DESCRIPTION,
-            self::SINGLE_IMAGE_HIGHLIGHTS,
-            self::SINGLE_IMAGE_SPECS_DETAIL,
-            self::SINGLE_SIDE_IMAGE,
-            self::TECH_SPECS,
-            self::TEXT,
-            self::THREE_IMAGE_TEXT,
+            self::STANDARD_COMPANY_LOGO,
+            self::STANDARD_COMPARISON_TABLE,
+            self::STANDARD_FOUR_IMAGE_TEXT,
+            self::STANDARD_FOUR_IMAGE_TEXT_QUADRANT,
+            self::STANDARD_HEADER_IMAGE_TEXT,
+            self::STANDARD_IMAGE_SIDEBAR,
+            self::STANDARD_IMAGE_TEXT_OVERLAY,
+            self::STANDARD_MULTIPLE_IMAGE_TEXT,
+            self::STANDARD_PRODUCT_DESCRIPTION,
+            self::STANDARD_SINGLE_IMAGE_HIGHLIGHTS,
+            self::STANDARD_SINGLE_IMAGE_SPECS_DETAIL,
+            self::STANDARD_SINGLE_SIDE_IMAGE,
+            self::STANDARD_TECH_SPECS,
+            self::STANDARD_TEXT,
+            self::STANDARD_THREE_IMAGE_TEXT,
         ];
     }
 

@@ -19,11 +19,11 @@ class ServiceType
     /**
      * Possible values of this enum.
      */
-    final public const GROUND = 'Amazon Shipping Ground';
+    final public const AMAZON_SHIPPING_GROUND = 'Amazon Shipping Ground';
 
-    final public const STANDARD = 'Amazon Shipping Standard';
+    final public const AMAZON_SHIPPING_STANDARD = 'Amazon Shipping Standard';
 
-    final public const PREMIUM = 'Amazon Shipping Premium';
+    final public const AMAZON_SHIPPING_PREMIUM = 'Amazon Shipping Premium';
 
     public function __construct(private readonly string $value)
     {
@@ -37,9 +37,9 @@ class ServiceType
     public static function getAllowableEnumValues() : array
     {
         return [
-            self::GROUND,
-            self::STANDARD,
-            self::PREMIUM,
+            self::AMAZON_SHIPPING_GROUND,
+            self::AMAZON_SHIPPING_STANDARD,
+            self::AMAZON_SHIPPING_PREMIUM,
         ];
     }
 

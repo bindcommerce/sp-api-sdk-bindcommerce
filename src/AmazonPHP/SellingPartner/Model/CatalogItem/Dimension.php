@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -198,7 +198,7 @@ class Dimension implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets unit.
      *
-     * @param null|string $unit measurement unit of the dimension value
+     * @param null|string $unit unit of measurement for the dimension value
      */
     public function setUnit(?string $unit) : self
     {
@@ -218,7 +218,7 @@ class Dimension implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
     /**
      * Sets value.
      *
-     * @param null|float $value numeric dimension value
+     * @param null|float $value numeric value of the dimension
      */
     public function setValue(?float $value) : self
     {

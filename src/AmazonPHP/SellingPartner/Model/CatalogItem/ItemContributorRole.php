@@ -9,9 +9,9 @@ use AmazonPHP\SellingPartner\ModelInterface;
 use AmazonPHP\SellingPartner\ObjectSerializer;
 
 /**
- * Catalog Items v2022-04-01.
+ * Selling Partner API for Catalog Items.
  *
- * The Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2022-04-01-use-case-guide).
+ * Use the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.  For more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).
  *
  * The version of the OpenAPI document: 2022-04-01
  *
@@ -201,7 +201,7 @@ class ItemContributorRole implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets display_name.
      *
-     * @param null|string $display_name display name of the role in the requested locale, such as Author or Actor
+     * @param null|string $display_name display name of the role in the requested locale, such as `Author` or `Actor`
      */
     public function setDisplayName(?string $display_name) : self
     {
@@ -221,7 +221,7 @@ class ItemContributorRole implements \ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Sets value.
      *
-     * @param string $value role value for the Amazon catalog item, such as author or actor
+     * @param string $value role value for the Amazon catalog item, such as `author` or `actor`
      */
     public function setValue(string $value) : self
     {
