@@ -7,7 +7,6 @@ additionalProperties:
   packageName: Orders
   useTags: false
   className: Orders
-  apiClassName: OrdersApi
 files:
   api.mustache:
     templateType: API
