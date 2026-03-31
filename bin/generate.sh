@@ -285,7 +285,6 @@ step_ordersV2026() {
 # --- Step registry (name -> function) ---
 
 ALL_STEPS=(
-    download-ordersV2026
     aplus
     catalog-item
     fba-inbound
