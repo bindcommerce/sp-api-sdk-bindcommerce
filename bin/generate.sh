@@ -41,7 +41,7 @@ run_generator() {
         "$@"
 }
 
-}
+
 
 # --- Code generation steps ---
 
@@ -182,6 +182,8 @@ step_shipping() {
 }
 
 step_shippingV2() {
+    /usr/bin/curl https://raw.githubusercontent.com/amzn/selling-partner-api-models/main/models/shipping-api-model/shippingV2.json | jq '(.definitions.GetTrackingResult.required) |= map(select(. != "alternateLegTrackingId"))' > "${PWD}/json_specs/shippingV2.json"
+
     run_generator "shippingV2" \
         -i /sp-api/json_specs/shippingV2.json \
         --skip-validate-spec \
