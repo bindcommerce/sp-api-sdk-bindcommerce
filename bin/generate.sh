@@ -6,6 +6,8 @@
 # ./generate.sh --list                   # mostra step disponibili
 # ./generate.sh --help                   # help
 
+# In GENERATOR.md ci sono le istruzioni di personalizzazione del file yaml
+
 FAILURES=()
 LOGDIR=$(mktemp -d)
 
@@ -43,19 +45,7 @@ run_generator() {
 
 step_download_ordersV2026() {
     run_step "download-ordersV2026" \
-        /usr/bin/curl -s -f https://raw.githubusercontent.com/amzn/selling-partner-api-models/refs/heads/main/models/orders-api-model/orders_2026-01-01.json -o "${PWD}/json_specs/orders_2026-01-01.raw.json"
-
-    if [[ -f "${PWD}/json_specs/orders_2026-01-01.raw.json" ]]; then
-        echo ":::: Running: patch-ordersV2026 ..."
-        jq '(.paths[][].tags) = ["ordersV2026"]' \
-            "${PWD}/json_specs/orders_2026-01-01.raw.json" > "${PWD}/json_specs/orders_2026-01-01.json" 2>"${LOGDIR}/patch-ordersV2026.log"
-        if [[ ! -s "${PWD}/json_specs/orders_2026-01-01.json" ]]; then
-            echo ":::: FAILED: patch-ordersV2026"
-            FAILURES+=("patch-ordersV2026: output file is empty - $(cat "${LOGDIR}/patch-ordersV2026.log")")
-        else
-            echo ":::: OK: patch-ordersV2026"
-        fi
-    fi
+        /usr/bin/curl -s -f https://raw.githubusercontent.com/amzn/selling-partner-api-models/refs/heads/main/models/orders-api-model/orders_2026-01-01.json -o "${PWD}/json_specs/orders_2026-01-01.json"
 }
 
 # --- Code generation steps ---

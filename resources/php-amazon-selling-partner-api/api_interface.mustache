@@ -1,6 +1,6 @@
 <?php
 
-namespace {{invokerPackage}}\Api\{{classname}};
+namespace {{invokerPackage}}\Api\{{#apiClassName}}{{apiClassName}}{{/apiClassName}}{{^apiClassName}}{{classname}}{{/apiClassName}};
 
 use {{invokerPackage}}\AccessToken;
 use {{invokerPackage}}\Exception\ApiException;
