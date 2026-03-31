@@ -41,11 +41,6 @@ run_generator() {
         "$@"
 }
 
-# --- Pre-processing steps ---
-
-step_download_ordersV2026() {
-    run_step "download-ordersV2026" \
-        /usr/bin/curl -s -f https://raw.githubusercontent.com/amzn/selling-partner-api-models/refs/heads/main/models/orders-api-model/orders_2026-01-01.json -o "${PWD}/json_specs/orders_2026-01-01.json"
 }
 
 # --- Code generation steps ---
