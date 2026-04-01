@@ -273,10 +273,6 @@ step_listings_restrictions() {
 }
 
 step_ordersV2026() {
-    # Auto-download and patch the spec if the JSON file is missing
-    if [[ ! -s "${PWD}/json_specs/orders_2026-01-01.json" ]]; then
-        step_download_ordersV2026
-    fi
     run_generator "ordersV2026" \
         -i https://raw.githubusercontent.com/amzn/selling-partner-api-models/refs/heads/main/models/orders-api-model/orders_2026-01-01.json \
         -c /sp-api/config/generator-ordersV2026.yaml
