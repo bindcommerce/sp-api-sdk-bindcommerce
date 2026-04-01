@@ -12,7 +12,8 @@ additionalProperties:
   srcBasePath: src/AmazonPHP/SellingPartner
   modelPackage: Model\<NomeModello>
   packageName: <NomePackage>
-  apiClassName: <NomeNamespace>       # opzionale
+  useTags: false                      # opzionale
+  className: <NomeNamespace>          # opzionale (richiede useTags: false)
 files:
   api.mustache:
     templateType: API
@@ -42,27 +43,30 @@ Sotto-namespace per i modelli generati. Si riflette nel path dei file modello.
 | `Model\Orders` | `AmazonPHP\SellingPartner\Model\Orders` |
 | `Model\OrdersV2026` | `AmazonPHP\SellingPartner\Model\OrdersV2026` |
 
-### `apiClassName` (opzionale — fallback su tag della spec)
+### `useTags` (opzionale — default: `true`)
 
-Controlla il **namespace** della classe API generata. Se non è impostato, il namespace viene derivato automaticamente dal tag definito nella specifica OpenAPI.
+Controlla se il generatore deve derivare il nome della classe API (`{{classname}}`) dal tag definito nella specifica OpenAPI.
+
+- Se **non impostato** (o `true`): il namespace della classe viene derivato dal tag della spec.
+- Se `false`: il tag viene ignorato e il namespace viene preso dalla proprietà `className`.
+
+Va usato in combinazione con `className` quando si vuole forzare un namespace diverso dal tag.
+
+> **Nota:** il **path del file** generato su disco (la directory sotto `Api/`) è **sempre** determinato dal tag della spec OpenAPI e **non è modificabile** tramite il file YAML. `useTags` e `className` influenzano esclusivamente il valore di `{{classname}}` usato nei template (namespace PHP), non la posizione del file sul filesystem.
+
+### `className` (opzionale — richiede `useTags: false`)
+
+Imposta esplicitamente il valore di `{{classname}}` usato nei template Mustache, che determina il **namespace** della classe API generata.
 
 Questo è utile quando il tag della spec non corrisponde al namespace desiderato.
 
-**Nei template Mustache** la logica è:
-
-```mustache
-{{#apiClassName}}{{apiClassName}}{{/apiClassName}}{{^apiClassName}}{{classname}}{{/apiClassName}}
-```
-
-Se `apiClassName` è definito → usa quel valore. Altrimenti → usa `{{classname}}` (derivato dal tag).
-
-#### Esempio: senza `apiClassName`
+#### Esempio: senza `useTags` / `className`
 
 Config (`generator-aplus.yaml`):
 ```yaml
 additionalProperties:
   packageName: APlus
-  # apiClassName non definito
+  # useTags e className non definiti
 ```
 
 Se il tag nella spec OpenAPI è `aplusContent`, il file generato avrà:
@@ -73,16 +77,17 @@ namespace AmazonPHP\SellingPartner\Api\AplusContent;
 
 Il namespace è controllato dal tag della spec.
 
-#### Esempio: con `apiClassName`
+#### Esempio: con `useTags: false` e `className`
 
 Config (`generator-ordersV2026.yaml`):
 ```yaml
 additionalProperties:
   packageName: OrdersV2026
-  apiClassName: OrdersV2026
+  useTags: false
+  className: OrdersV2026
 ```
 
-Anche se il tag nella spec OpenAPI è `orders`, il file generato avrà:
+Anche se il tag nella spec OpenAPI è `getOrder`, il file generato avrà:
 
 ```php
 namespace AmazonPHP\SellingPartner\Api\OrdersV2026;
@@ -90,10 +95,12 @@ namespace AmazonPHP\SellingPartner\Api\OrdersV2026;
 
 Il namespace è controllato dal YAML, indipendentemente dal tag.
 
-## Quando usare `apiClassName`
+Tuttavia il file resterà nella directory `Api/GetOrderApi/` (determinata dal tag), quindi il path su disco **non** corrisponderà al namespace.
 
-- **Non serve** se il tag della spec produce già il namespace corretto (la maggior parte dei casi).
-- **Serve** quando si genera da una spec il cui tag non corrisponde al namespace voluto (es. una nuova versione di un'API che condivide lo stesso tag della versione precedente).
+## Quando usare `useTags: false` e `className`
+
+- **Non servono** se il tag della spec produce già il namespace corretto (la maggior parte dei casi).
+- **Servono** quando si genera da una spec il cui tag non corrisponde al namespace voluto (es. una nuova versione di un'API che condivide lo stesso tag della versione precedente).
 
 ## Aggiungere una nuova API
 
