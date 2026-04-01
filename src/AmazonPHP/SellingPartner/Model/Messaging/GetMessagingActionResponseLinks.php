@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -204,8 +192,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
      * Sets self
      *
      * @param \AmazonPHP\SellingPartner\Model\Messaging\LinkObject $self self
-     *
-     * @return self
      */
     public function setSelf($self) : self
     {
@@ -228,8 +214,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
      * Sets schema
      *
      * @param \AmazonPHP\SellingPartner\Model\Messaging\LinkObject $schema schema
-     *
-     * @return self
      */
     public function setSchema($schema) : self
     {
@@ -239,8 +223,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -260,8 +242,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -274,8 +254,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -297,12 +275,10 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -310,8 +286,6 @@ class GetMessagingActionResponseLinks implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

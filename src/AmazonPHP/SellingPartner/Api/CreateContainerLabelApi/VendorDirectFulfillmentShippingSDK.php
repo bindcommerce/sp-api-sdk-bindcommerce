@@ -27,20 +27,8 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmentShippingSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
@@ -48,8 +36,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * createContainerLabel
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateContainerLabelRequest $body  Request body containing the container label data. (required)
      *
      * @throws ApiException on non-2xx response
@@ -148,12 +134,9 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'createContainerLabel'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateContainerLabelRequest $body  Request body containing the container label data. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function createContainerLabelRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {

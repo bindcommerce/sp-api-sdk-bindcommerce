@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -191,7 +179,7 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
             throw new AssertionException("'seller_sku' can't be null");
         }
 
-        if ((mb_strlen($this->container['seller_sku']) > 50)) {
+        if ((mb_strlen((string) $this->container['seller_sku']) > 50)) {
             throw new AssertionException("invalid value for 'seller_sku', the character length must be smaller than or equal to 50.");
         }
 
@@ -207,7 +195,7 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
             throw new AssertionException("'seller_fulfillment_order_item_id' can't be null");
         }
 
-        if ((mb_strlen($this->container['seller_fulfillment_order_item_id']) > 50)) {
+        if ((mb_strlen((string) $this->container['seller_fulfillment_order_item_id']) > 50)) {
             throw new AssertionException("invalid value for 'seller_fulfillment_order_item_id', the character length must be smaller than or equal to 50.");
         }
 
@@ -228,8 +216,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
      * Sets seller_sku
      *
      * @param string $seller_sku The seller SKU of the item.
-     *
-     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -252,8 +238,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
      * Sets quantity
      *
      * @param int $quantity The item quantity.
-     *
-     * @return self
      */
     public function setQuantity($quantity) : self
     {
@@ -276,8 +260,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
      * Sets per_unit_declared_value
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money|null $per_unit_declared_value per_unit_declared_value
-     *
-     * @return self
      */
     public function setPerUnitDeclaredValue($per_unit_declared_value) : self
     {
@@ -300,8 +282,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
      * Sets seller_fulfillment_order_item_id
      *
      * @param string $seller_fulfillment_order_item_id A fulfillment order item identifier that the seller creates to track items in the fulfillment preview.
-     *
-     * @return self
      */
     public function setSellerFulfillmentOrderItemId($seller_fulfillment_order_item_id) : self
     {
@@ -311,8 +291,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -332,8 +310,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -346,8 +322,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -369,12 +343,10 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -382,8 +354,6 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

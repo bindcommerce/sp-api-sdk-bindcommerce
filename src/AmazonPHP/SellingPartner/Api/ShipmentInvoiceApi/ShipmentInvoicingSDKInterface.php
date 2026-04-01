@@ -31,40 +31,34 @@ interface ShipmentInvoicingSDKInterface
     public const OPERATION_SUBMITINVOICE_PATH = '/fba/outbound/brazil/v0/shipments/{shipmentId}/invoice';
 
     /**
-    * Operation getInvoiceStatus
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $shipment_id  The shipment identifier for the shipment. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\GetInvoiceStatusResponse
-    */
+     * Operation getInvoiceStatus
+     *
+     * @param string $shipment_id  The shipment identifier for the shipment. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\GetInvoiceStatusResponse
+     */
     public function getInvoiceStatus(AccessToken $accessToken, string $region, $shipment_id);
     /**
-    * Operation getShipmentDetails
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $shipment_id  The identifier for the shipment. Get this value from the FBAOutboundShipmentStatus notification. For information about subscribing to notifications, see the [Notifications API Use Case Guide](doc:notifications-api-v1-use-case-guide). (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\GetShipmentDetailsResponse
-    */
+     * Operation getShipmentDetails
+     *
+     * @param string $shipment_id  The identifier for the shipment. Get this value from the FBAOutboundShipmentStatus notification. For information about subscribing to notifications, see the [Notifications API Use Case Guide](doc:notifications-api-v1-use-case-guide). (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\GetShipmentDetailsResponse
+     */
     public function getShipmentDetails(AccessToken $accessToken, string $region, $shipment_id);
     /**
-    * Operation submitInvoice
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $shipment_id  The identifier for the shipment. (required)
-    * @param \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\SubmitInvoiceRequest $body  body (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\SubmitInvoiceResponse
-    */
+     * Operation submitInvoice
+     *
+     * @param string $shipment_id  The identifier for the shipment. (required)
+     * @param \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\SubmitInvoiceRequest $body  body (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\SubmitInvoiceResponse
+     */
     public function submitInvoice(AccessToken $accessToken, string $region, $shipment_id, $body);
 }

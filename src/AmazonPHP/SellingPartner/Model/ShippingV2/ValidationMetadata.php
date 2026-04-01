@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
+class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -198,8 +186,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets error_message
      *
      * @param string|null $error_message errorMessage for the error.
-     *
-     * @return self
      */
     public function setErrorMessage($error_message) : self
     {
@@ -222,8 +208,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets validation_strategy
      *
      * @param string|null $validation_strategy validationStrategy for the error.
-     *
-     * @return self
      */
     public function setValidationStrategy($validation_strategy) : self
     {
@@ -246,8 +230,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets value
      *
      * @param string|null $value Value.
-     *
-     * @return self
      */
     public function setValue($value) : self
     {
@@ -257,8 +239,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -278,8 +258,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -292,8 +270,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -315,12 +291,10 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -328,8 +302,6 @@ class ValidationMetadata implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

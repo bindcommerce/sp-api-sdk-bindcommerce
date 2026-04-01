@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -250,8 +238,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
      * Sets sku
      *
      * @param string $sku A selling partner provided identifier for an Amazon listing.
-     *
-     * @return self
      */
     public function setSku($sku) : self
     {
@@ -274,8 +260,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
      * Sets status
      *
      * @param string $status The status of the listings item submission.
-     *
-     * @return self
      */
     public function setStatus($status) : self
     {
@@ -298,8 +282,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
      * Sets submission_id
      *
      * @param string $submission_id The unique identifier of the listings item submission.
-     *
-     * @return self
      */
     public function setSubmissionId($submission_id) : self
     {
@@ -322,8 +304,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
      * Sets issues
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\Issue[]|null $issues Listings item issues related to the listings item submission.
-     *
-     * @return self
      */
     public function setIssues($issues) : self
     {
@@ -346,8 +326,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
      * Sets identifiers
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemIdentifiersByMarketplace[]|null $identifiers Identity attributes associated with the item in the Amazon catalog, such as the ASIN.
-     *
-     * @return self
      */
     public function setIdentifiers($identifiers) : self
     {
@@ -357,8 +335,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -378,8 +354,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -392,8 +366,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -415,12 +387,10 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -428,8 +398,6 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

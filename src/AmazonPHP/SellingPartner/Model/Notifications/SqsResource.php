@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
+class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,8 +56,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,8 +64,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -105,8 +101,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -115,8 +109,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -125,8 +117,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -135,8 +125,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -173,11 +161,11 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'arn' can't be null");
         }
 
-        if ((mb_strlen($this->container['arn']) > 1000)) {
+        if ((mb_strlen((string) $this->container['arn']) > 1000)) {
             throw new AssertionException("invalid value for 'arn', the character length must be smaller than or equal to 1000.");
         }
 
-        if (!preg_match("/^arn:aws:sqs:\\S+:\\S+:\\S+/", $this->container['arn'])) {
+        if (!preg_match("/^arn:aws:sqs:\\S+:\\S+:\\S+/", (string) $this->container['arn'])) {
             throw new AssertionException("invalid value for 'arn', must be conform to the pattern /^arn:aws:sqs:\\S+:\\S+:\\S+/.");
         }
 
@@ -198,8 +186,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets arn
      *
      * @param string $arn The Amazon Resource Name (ARN) associated with the SQS queue.
-     *
-     * @return self
      */
     public function setArn($arn) : self
     {
@@ -209,8 +195,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -230,8 +214,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -244,8 +226,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -267,12 +247,10 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -280,8 +258,6 @@ class SqsResource implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

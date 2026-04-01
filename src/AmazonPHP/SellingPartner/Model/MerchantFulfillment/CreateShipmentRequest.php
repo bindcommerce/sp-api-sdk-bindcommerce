@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -230,8 +218,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets shipment_request_details
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\ShipmentRequestDetails $shipment_request_details shipment_request_details
-     *
-     * @return self
      */
     public function setShipmentRequestDetails($shipment_request_details) : self
     {
@@ -254,8 +240,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets shipping_service_id
      *
      * @param string $shipping_service_id An Amazon-defined shipping service identifier.
-     *
-     * @return self
      */
     public function setShippingServiceId($shipping_service_id) : self
     {
@@ -278,8 +262,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets shipping_service_offer_id
      *
      * @param string|null $shipping_service_offer_id Identifies a shipping service order made by a carrier.
-     *
-     * @return self
      */
     public function setShippingServiceOfferId($shipping_service_offer_id) : self
     {
@@ -302,8 +284,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets hazmat_type
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\HazmatType|null $hazmat_type hazmat_type
-     *
-     * @return self
      */
     public function setHazmatType($hazmat_type) : self
     {
@@ -326,8 +306,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets label_format_option
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormatOptionRequest|null $label_format_option label_format_option
-     *
-     * @return self
      */
     public function setLabelFormatOption($label_format_option) : self
     {
@@ -350,8 +328,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets shipment_level_seller_inputs_list
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\AdditionalSellerInputs[]|null $shipment_level_seller_inputs_list A list of additional seller input pairs required to purchase shipping.
-     *
-     * @return self
      */
     public function setShipmentLevelSellerInputsList($shipment_level_seller_inputs_list) : self
     {
@@ -361,8 +337,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -382,8 +356,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -396,8 +368,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -419,12 +389,10 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -432,8 +400,6 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

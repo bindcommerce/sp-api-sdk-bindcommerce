@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -80,8 +80,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -90,8 +88,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -165,8 +161,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -175,8 +169,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -185,8 +177,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -195,8 +185,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -294,8 +282,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_to
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Address|null $ship_to ship_to
-     *
-     * @return self
      */
     public function setShipTo($ship_to) : self
     {
@@ -318,8 +304,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_from
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Address $ship_from ship_from
-     *
-     * @return self
      */
     public function setShipFrom($ship_from) : self
     {
@@ -342,8 +326,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets return_to
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Address|null $return_to return_to
-     *
-     * @return self
      */
     public function setReturnTo($return_to) : self
     {
@@ -366,8 +348,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_date
      *
      * @param \DateTimeInterface|null $ship_date The ship date and time (the requested pickup). This defaults to the current date and time.
-     *
-     * @return self
      */
     public function setShipDate($ship_date) : self
     {
@@ -390,8 +370,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipper_instruction
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ShipperInstruction|null $shipper_instruction shipper_instruction
-     *
-     * @return self
      */
     public function setShipperInstruction($shipper_instruction) : self
     {
@@ -414,8 +392,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets packages
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Package[] $packages A list of packages to be shipped through a shipping service offering.
-     *
-     * @return self
      */
     public function setPackages($packages) : self
     {
@@ -438,8 +414,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets value_added_services
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ValueAddedServiceDetails|null $value_added_services value_added_services
-     *
-     * @return self
      */
     public function setValueAddedServices($value_added_services) : self
     {
@@ -462,8 +436,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets tax_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\TaxDetail[]|null $tax_details A list of tax detail information.
-     *
-     * @return self
      */
     public function setTaxDetails($tax_details) : self
     {
@@ -486,8 +458,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets channel_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ChannelDetails $channel_details channel_details
-     *
-     * @return self
      */
     public function setChannelDetails($channel_details) : self
     {
@@ -510,8 +480,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets client_reference_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ClientReferenceDetail[]|null $client_reference_details Object to pass additional information about the MCI Integrator shipperType: List of ClientReferenceDetail
-     *
-     * @return self
      */
     public function setClientReferenceDetails($client_reference_details) : self
     {
@@ -534,8 +502,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipment_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ShipmentType|null $shipment_type shipment_type
-     *
-     * @return self
      */
     public function setShipmentType($shipment_type) : self
     {
@@ -558,8 +524,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets destination_access_point_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\AccessPointDetails|null $destination_access_point_details destination_access_point_details
-     *
-     * @return self
      */
     public function setDestinationAccessPointDetails($destination_access_point_details) : self
     {
@@ -582,8 +546,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets carrier_accounts
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\CarrierAccount[]|null $carrier_accounts A list of CarrierAccounts
-     *
-     * @return self
      */
     public function setCarrierAccounts($carrier_accounts) : self
     {
@@ -593,8 +555,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -614,8 +574,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -628,8 +586,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -651,12 +607,10 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -664,8 +618,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

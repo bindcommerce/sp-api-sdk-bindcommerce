@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -242,8 +230,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
      * Sets confirmation_status
      *
      * @param string|null $confirmation_status Confirmation status of line item.
-     *
-     * @return self
      */
     public function setConfirmationStatus($confirmation_status) : self
     {
@@ -266,8 +252,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
      * Sets accepted_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity|null $accepted_quantity accepted_quantity
-     *
-     * @return self
      */
     public function setAcceptedQuantity($accepted_quantity) : self
     {
@@ -290,8 +274,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
      * Sets rejected_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity|null $rejected_quantity rejected_quantity
-     *
-     * @return self
      */
     public function setRejectedQuantity($rejected_quantity) : self
     {
@@ -314,8 +296,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
      * Sets acknowledgement_status_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\AcknowledgementStatusDetails[]|null $acknowledgement_status_details Details of item quantity confirmed.
-     *
-     * @return self
      */
     public function setAcknowledgementStatusDetails($acknowledgement_status_details) : self
     {
@@ -325,8 +305,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -346,8 +324,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -360,8 +336,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -383,12 +357,10 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -396,8 +368,6 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

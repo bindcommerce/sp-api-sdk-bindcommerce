@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -196,8 +184,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets shipment_id
      *
      * @param string $shipment_id The unique shipment identifier provided by a shipping service.
-     *
-     * @return self
      */
     public function setShipmentId($shipment_id) : self
     {
@@ -220,8 +206,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets package_document_detail_list
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\PackageDocumentDetail[]|null $package_document_detail_list A list of post-purchase details about a package that will be shipped using a shipping service.
-     *
-     * @return self
      */
     public function setPackageDocumentDetailList($package_document_detail_list) : self
     {
@@ -231,8 +215,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -252,8 +234,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -266,8 +246,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -289,12 +267,10 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -302,8 +278,6 @@ class DirectPurchaseResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

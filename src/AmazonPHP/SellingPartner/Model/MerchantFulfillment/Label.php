@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Label implements ModelInterface, ArrayAccess, \JsonSerializable
+class Label implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -193,7 +181,7 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
-        if (!is_null($this->container['custom_text_for_label']) && (mb_strlen($this->container['custom_text_for_label']) > 14)) {
+        if (!is_null($this->container['custom_text_for_label']) && (mb_strlen((string) $this->container['custom_text_for_label']) > 14)) {
             throw new AssertionException("invalid value for 'custom_text_for_label', the character length must be smaller than or equal to 14.");
         }
 
@@ -226,8 +214,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets custom_text_for_label
      *
      * @param string|null $custom_text_for_label Custom text to print on the label. Note: Custom text is only included on labels that are in ZPL format (ZPL203). FedEx does not support `CustomTextForLabel`.
-     *
-     * @return self
      */
     public function setCustomTextForLabel($custom_text_for_label) : self
     {
@@ -250,8 +236,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets dimensions
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelDimensions $dimensions dimensions
-     *
-     * @return self
      */
     public function setDimensions($dimensions) : self
     {
@@ -274,8 +258,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets file_contents
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\FileContents $file_contents file_contents
-     *
-     * @return self
      */
     public function setFileContents($file_contents) : self
     {
@@ -298,8 +280,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets label_format
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormat|null $label_format label_format
-     *
-     * @return self
      */
     public function setLabelFormat($label_format) : self
     {
@@ -322,8 +302,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_id_for_label
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\StandardIdForLabel|null $standard_id_for_label standard_id_for_label
-     *
-     * @return self
      */
     public function setStandardIdForLabel($standard_id_for_label) : self
     {
@@ -333,8 +311,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -354,8 +330,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -368,8 +342,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -391,12 +363,10 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -404,8 +374,6 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \JsonSerializable
+class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -234,8 +222,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
      * Sets removal_shipment_item_id
      *
      * @param string|null $removal_shipment_item_id An identifier for an item in a removal shipment.
-     *
-     * @return self
      */
     public function setRemovalShipmentItemId($removal_shipment_item_id) : self
     {
@@ -258,8 +244,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
      * Sets tax_collection_model
      *
      * @param string|null $tax_collection_model The tax collection model that is applied to the item.  Possible values:  * `MarketplaceFacilitator`: Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller. * `Standard`: Tax is paid to the seller and not remitted to the taxing authority by Amazon.
-     *
-     * @return self
      */
     public function setTaxCollectionModel($tax_collection_model) : self
     {
@@ -282,8 +266,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
      * Sets fulfillment_network_sku
      *
      * @param string|null $fulfillment_network_sku The Amazon fulfillment network SKU for the item.
-     *
-     * @return self
      */
     public function setFulfillmentNetworkSku($fulfillment_network_sku) : self
     {
@@ -306,8 +288,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
      * Sets adjusted_quantity
      *
      * @param int|null $adjusted_quantity Adjusted quantity of `RemovalShipmentItemAdjustment` items.
-     *
-     * @return self
      */
     public function setAdjustedQuantity($adjusted_quantity) : self
     {
@@ -330,8 +310,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
      * Sets revenue_adjustment
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $revenue_adjustment revenue_adjustment
-     *
-     * @return self
      */
     public function setRevenueAdjustment($revenue_adjustment) : self
     {
@@ -354,8 +332,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
      * Sets tax_amount_adjustment
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $tax_amount_adjustment tax_amount_adjustment
-     *
-     * @return self
      */
     public function setTaxAmountAdjustment($tax_amount_adjustment) : self
     {
@@ -378,8 +354,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
      * Sets tax_withheld_adjustment
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $tax_withheld_adjustment tax_withheld_adjustment
-     *
-     * @return self
      */
     public function setTaxWithheldAdjustment($tax_withheld_adjustment) : self
     {
@@ -389,8 +363,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -410,8 +382,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -424,8 +394,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -447,12 +415,10 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -460,8 +426,6 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

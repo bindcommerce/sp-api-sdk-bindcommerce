@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSerializable
+class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -191,7 +179,7 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
             throw new AssertionException("'seller_sku' can't be null");
         }
 
-        if ((mb_strlen($this->container['seller_sku']) > 50)) {
+        if ((mb_strlen((string) $this->container['seller_sku']) > 50)) {
             throw new AssertionException("invalid value for 'seller_sku', the character length must be smaller than or equal to 50.");
         }
 
@@ -203,7 +191,7 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
             throw new AssertionException("'seller_fulfillment_order_item_id' can't be null");
         }
 
-        if ((mb_strlen($this->container['seller_fulfillment_order_item_id']) > 50)) {
+        if ((mb_strlen((string) $this->container['seller_fulfillment_order_item_id']) > 50)) {
             throw new AssertionException("invalid value for 'seller_fulfillment_order_item_id', the character length must be smaller than or equal to 50.");
         }
 
@@ -224,8 +212,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets seller_sku
      *
      * @param string $seller_sku The seller SKU of the item.
-     *
-     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -248,8 +234,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets quantity
      *
      * @param int $quantity The item quantity.
-     *
-     * @return self
      */
     public function setQuantity($quantity) : self
     {
@@ -272,8 +256,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets seller_fulfillment_order_item_id
      *
      * @param string $seller_fulfillment_order_item_id A fulfillment order item identifier created with a call to the `getFulfillmentPreview` operation.
-     *
-     * @return self
      */
     public function setSellerFulfillmentOrderItemId($seller_fulfillment_order_item_id) : self
     {
@@ -296,8 +278,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets item_unfulfillable_reasons
      *
      * @param string[]|null $item_unfulfillable_reasons String list
-     *
-     * @return self
      */
     public function setItemUnfulfillableReasons($item_unfulfillable_reasons) : self
     {
@@ -307,8 +287,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -328,8 +306,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -342,8 +318,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -365,12 +339,10 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -378,8 +350,6 @@ class UnfulfillablePreviewItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

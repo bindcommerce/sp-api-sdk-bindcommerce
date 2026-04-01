@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
+class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -212,8 +200,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_reference
      *
      * @param string $item_reference The reference number for the item. Please provide the itemSequenceNumber from the 'items' segment to refer to that item's details here.
-     *
-     * @return self
      */
     public function setItemReference($item_reference) : self
     {
@@ -236,8 +222,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipped_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\ItemQuantity $shipped_quantity shipped_quantity
-     *
-     * @return self
      */
     public function setShippedQuantity($shipped_quantity) : self
     {
@@ -260,8 +244,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\ItemDetails|null $item_details item_details
-     *
-     * @return self
      */
     public function setItemDetails($item_details) : self
     {
@@ -271,8 +253,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -292,8 +272,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -306,8 +284,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -329,12 +305,10 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -342,8 +316,6 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

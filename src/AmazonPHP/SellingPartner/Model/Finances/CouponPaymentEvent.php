@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,8 +70,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,8 +78,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -140,8 +136,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -150,8 +144,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -160,8 +152,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -170,8 +160,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -240,8 +228,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -264,8 +250,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets coupon_id
      *
      * @param string|null $coupon_id A coupon identifier.
-     *
-     * @return self
      */
     public function setCouponId($coupon_id) : self
     {
@@ -288,8 +272,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets seller_coupon_description
      *
      * @param string|null $seller_coupon_description The description provided by the seller when they created the coupon.
-     *
-     * @return self
      */
     public function setSellerCouponDescription($seller_coupon_description) : self
     {
@@ -312,8 +294,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets clip_or_redemption_count
      *
      * @param int|null $clip_or_redemption_count The number of coupon clips or redemptions.
-     *
-     * @return self
      */
     public function setClipOrRedemptionCount($clip_or_redemption_count) : self
     {
@@ -336,8 +316,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets payment_event_id
      *
      * @param string|null $payment_event_id A payment event identifier.
-     *
-     * @return self
      */
     public function setPaymentEventId($payment_event_id) : self
     {
@@ -360,8 +338,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets fee_component
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\FeeComponent|null $fee_component fee_component
-     *
-     * @return self
      */
     public function setFeeComponent($fee_component) : self
     {
@@ -384,8 +360,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets charge_component
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\ChargeComponent|null $charge_component charge_component
-     *
-     * @return self
      */
     public function setChargeComponent($charge_component) : self
     {
@@ -408,8 +382,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets total_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $total_amount total_amount
-     *
-     * @return self
      */
     public function setTotalAmount($total_amount) : self
     {
@@ -419,8 +391,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -440,8 +410,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -454,8 +422,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -477,12 +443,10 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -490,8 +454,6 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

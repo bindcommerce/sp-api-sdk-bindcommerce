@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -206,8 +194,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
      * Sets acknowledgement_date
      *
      * @param \DateTimeInterface|null $acknowledgement_date The date when the line item was confirmed by vendor. Must be in ISO-8601 date/time format.
-     *
-     * @return self
      */
     public function setAcknowledgementDate($acknowledgement_date) : self
     {
@@ -230,8 +216,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
      * Sets accepted_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity|null $accepted_quantity accepted_quantity
-     *
-     * @return self
      */
     public function setAcceptedQuantity($accepted_quantity) : self
     {
@@ -254,8 +238,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
      * Sets rejected_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity|null $rejected_quantity rejected_quantity
-     *
-     * @return self
      */
     public function setRejectedQuantity($rejected_quantity) : self
     {
@@ -265,8 +247,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,8 +266,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -300,8 +278,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,12 +299,10 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -336,8 +310,6 @@ class AcknowledgementStatusDetails implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

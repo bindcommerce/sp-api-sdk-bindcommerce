@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -212,8 +200,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets gross_shipment_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Weight|null $gross_shipment_weight gross_shipment_weight
-     *
-     * @return self
      */
     public function setGrossShipmentWeight($gross_shipment_weight) : self
     {
@@ -236,8 +222,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets shipment_volume
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Volume|null $shipment_volume shipment_volume
-     *
-     * @return self
      */
     public function setShipmentVolume($shipment_volume) : self
     {
@@ -260,8 +244,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets carton_count
      *
      * @param int|null $carton_count Number of cartons present in the shipment. Provide the cartonCount only for non-palletized shipments.
-     *
-     * @return self
      */
     public function setCartonCount($carton_count) : self
     {
@@ -284,8 +266,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets pallet_count
      *
      * @param int|null $pallet_count Number of pallets present in the shipment. Provide the palletCount only for palletized shipments.
-     *
-     * @return self
      */
     public function setPalletCount($pallet_count) : self
     {
@@ -295,8 +275,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -316,8 +294,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -330,8 +306,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -353,12 +327,10 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -366,8 +338,6 @@ class ShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

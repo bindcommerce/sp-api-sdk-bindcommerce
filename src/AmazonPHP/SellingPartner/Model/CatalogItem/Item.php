@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Item implements ModelInterface, ArrayAccess, \JsonSerializable
+class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -76,8 +76,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -86,8 +84,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -155,8 +151,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -165,8 +159,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -175,8 +167,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -185,8 +175,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -250,8 +238,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets asin
      *
      * @param string $asin The unique identifier of an item in the Amazon catalog.
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -265,7 +251,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array<string,mixed>|null
      */
-    public function getAttributes()
+    public function getAttributes(): ?array
     {
         return $this->container['attributes'];
     }
@@ -274,10 +260,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets attributes
      *
      * @param array<string,mixed>|null $attributes A JSON object containing structured item attribute data that is keyed by attribute name. Catalog item attributes conform to the related Amazon product type definitions that you can get from the [Product Type Definitions API](https://developer-docs.amazon.com/sp-api/reference/product-type-definitions-v2020-09-01).
-     *
-     * @return self
      */
-    public function setAttributes($attributes) : self
+    public function setAttributes(?array $attributes) : self
     {
         $this->container['attributes'] = $attributes;
 
@@ -298,8 +282,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets classifications
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemBrowseClassificationsByMarketplace[]|null $classifications An array of classifications (browse nodes) that is associated with the item in the Amazon catalog, grouped by `marketplaceId`.
-     *
-     * @return self
      */
     public function setClassifications($classifications) : self
     {
@@ -322,8 +304,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets dimensions
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemDimensionsByMarketplace[]|null $dimensions An array of dimensions that are associated with the item in the Amazon catalog, grouped by `marketplaceId`.
-     *
-     * @return self
      */
     public function setDimensions($dimensions) : self
     {
@@ -346,8 +326,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets identifiers
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemIdentifiersByMarketplace[]|null $identifiers Identifiers associated with the item in the Amazon catalog, such as UPC and EAN identifiers.
-     *
-     * @return self
      */
     public function setIdentifiers($identifiers) : self
     {
@@ -370,8 +348,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets images
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemImagesByMarketplace[]|null $images The images for an item in the Amazon catalog.
-     *
-     * @return self
      */
     public function setImages($images) : self
     {
@@ -394,8 +370,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets product_types
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemProductTypeByMarketplace[]|null $product_types Product types that are associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setProductTypes($product_types) : self
     {
@@ -418,8 +392,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets relationships
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemRelationshipsByMarketplace[]|null $relationships Relationships grouped by `marketplaceId` for an Amazon catalog item (for example, variations).
-     *
-     * @return self
      */
     public function setRelationships($relationships) : self
     {
@@ -442,8 +414,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets sales_ranks
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemSalesRanksByMarketplace[]|null $sales_ranks Sales ranks of an Amazon catalog item.
-     *
-     * @return self
      */
     public function setSalesRanks($sales_ranks) : self
     {
@@ -466,8 +436,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets summaries
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemSummaryByMarketplace[]|null $summaries Summaries of Amazon catalog items.
-     *
-     * @return self
      */
     public function setSummaries($summaries) : self
     {
@@ -490,8 +458,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets vendor_details
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemVendorDetailsByMarketplace[]|null $vendor_details The vendor details that are associated with an Amazon catalog item. Vendor details are only available to vendors.
-     *
-     * @return self
      */
     public function setVendorDetails($vendor_details) : self
     {
@@ -501,8 +467,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -522,8 +486,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -536,8 +498,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -559,12 +519,10 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -572,8 +530,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

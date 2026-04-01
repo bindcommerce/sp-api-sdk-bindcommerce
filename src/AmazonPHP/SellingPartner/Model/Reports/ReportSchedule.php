@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -228,8 +216,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets report_schedule_id
      *
      * @param string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID.
-     *
-     * @return self
      */
     public function setReportScheduleId($report_schedule_id) : self
     {
@@ -252,8 +238,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets report_type
      *
      * @param string $report_type The report type. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information.
-     *
-     * @return self
      */
     public function setReportType($report_type) : self
     {
@@ -276,8 +260,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets marketplace_ids
      *
      * @param string[]|null $marketplace_ids A list of marketplace identifiers. The report document's contents will contain data for all of the specified marketplaces, unless the report type indicates otherwise.
-     *
-     * @return self
      */
     public function setMarketplaceIds($marketplace_ids) : self
     {
@@ -300,8 +282,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets report_options
      *
      * @param array<string,string>|null $report_options Additional information passed to reports. This varies by report type.
-     *
-     * @return self
      */
     public function setReportOptions($report_options) : self
     {
@@ -324,8 +304,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets period
      *
      * @param string $period An <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> period value that indicates how often a report should be created.
-     *
-     * @return self
      */
     public function setPeriod($period) : self
     {
@@ -348,8 +326,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets next_report_creation_time
      *
      * @param \DateTimeInterface|null $next_report_creation_time The date and time when the schedule will create its next report, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format.
-     *
-     * @return self
      */
     public function setNextReportCreationTime($next_report_creation_time) : self
     {
@@ -359,8 +335,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -380,8 +354,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -394,8 +366,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -417,12 +387,10 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -430,8 +398,6 @@ class ReportSchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -27,20 +27,8 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
@@ -48,8 +36,6 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
      *
      * GetShipmentDetails
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int|null $limit  The limit to the number of records returned. Default value is 50 records. (optional)
      * @param string|null $sort_order  Sort in ascending or descending order by purchase order creation date. (optional)
      * @param string|null $next_token  Used for pagination when there are more shipments than the specified result size limit. (optional)
@@ -171,8 +157,6 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
     /**
      * Create request for operation 'getShipmentDetails'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int|null $limit  The limit to the number of records returned. Default value is 50 records. (optional)
      * @param string|null $sort_order  Sort in ascending or descending order by purchase order creation date. (optional)
      * @param string|null $next_token  Used for pagination when there are more shipments than the specified result size limit. (optional)
@@ -199,7 +183,6 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
      * @param string|null $seller_warehouse_code  Get Shipping Details based on vendor warehouse code. This value should be same as &#39;sellingParty.partyId&#39; in the Shipment. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getShipmentDetailsRequest(AccessToken $accessToken, string $region, $limit = null, $sort_order = null, $next_token = null, $created_after = null, $created_before = null, $shipment_confirmed_before = null, $shipment_confirmed_after = null, $package_label_created_before = null, $package_label_created_after = null, $shipped_before = null, $shipped_after = null, $estimated_delivery_before = null, $estimated_delivery_after = null, $shipment_delivery_before = null, $shipment_delivery_after = null, $requested_pick_up_before = null, $requested_pick_up_after = null, $scheduled_pick_up_before = null, $scheduled_pick_up_after = null, $current_shipment_status = null, $vendor_shipment_identifier = null, $buyer_reference_number = null, $buyer_warehouse_code = null, $seller_warehouse_code = null) : RequestInterface
     {
@@ -452,8 +435,6 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
     /**
      * Operation getShipmentLabels
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int|null $limit  The limit to the number of records returned. Default value is 50 records. (optional)
      * @param string|null $sort_order  Sort the list by shipment label creation date in ascending or descending order. (optional)
      * @param string|null $next_token  A token that you use to retrieve the next page of results. The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
@@ -559,8 +540,6 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
     /**
      * Create request for operation 'getShipmentLabels'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int|null $limit  The limit to the number of records returned. Default value is 50 records. (optional)
      * @param string|null $sort_order  Sort the list by shipment label creation date in ascending or descending order. (optional)
      * @param string|null $next_token  A token that you use to retrieve the next page of results. The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
@@ -571,7 +550,6 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
      * @param string|null $seller_warehouse_code  Get Shipping labels based on vendor warehouse code. This value must be same as the &#x60;sellingParty.partyId&#x60; in the shipment. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getShipmentLabelsRequest(AccessToken $accessToken, string $region, $limit = null, $sort_order = null, $next_token = null, $label_created_after = null, $label_created_before = null, $buyer_reference_number = null, $vendor_shipment_identifier = null, $seller_warehouse_code = null) : RequestInterface
     {
@@ -714,8 +692,6 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
      *
      * SubmitShipmentConfirmations
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\SubmitShipmentConfirmationsRequest $body  A request to submit shipment confirmation. (required)
      *
      * @throws ApiException on non-2xx response
@@ -814,12 +790,9 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
     /**
      * Create request for operation 'submitShipmentConfirmations'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\SubmitShipmentConfirmationsRequest $body  A request to submit shipment confirmation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function submitShipmentConfirmationsRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -913,8 +886,6 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
      *
      * SubmitShipments
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\SubmitShipments $body  A request to submit shipment request. (required)
      *
      * @throws ApiException on non-2xx response
@@ -1013,12 +984,9 @@ final class VendorShipmentsSDK implements VendorShipmentsSDKInterface
     /**
      * Create request for operation 'submitShipments'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\SubmitShipments $body  A request to submit shipment request. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function submitShipmentsRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {

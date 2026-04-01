@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorDirectFulfillmentPaymentsSDK implements VendorDirectFulfillmentPaymentsSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation submitInvoice
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\SubmitInvoiceRequest $body  The request body containing one or more invoices for vendor orders. (required)
      *
      * @throws ApiException on non-2xx response
@@ -146,12 +132,9 @@ final class VendorDirectFulfillmentPaymentsSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'submitInvoice'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\SubmitInvoiceRequest $body  The request body containing one or more invoices for vendor orders. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function submitInvoiceRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {

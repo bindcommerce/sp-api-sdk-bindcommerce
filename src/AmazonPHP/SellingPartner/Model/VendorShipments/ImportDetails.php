@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -262,7 +250,7 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
             $this->container['route']->validate();
             }
 
-        if (!is_null($this->container['import_containers']) && (mb_strlen($this->container['import_containers']) > 64)) {
+        if (!is_null($this->container['import_containers']) && (mb_strlen((string) $this->container['import_containers']) > 64)) {
             throw new AssertionException("invalid value for 'import_containers', the character length must be smaller than or equal to 64.");
         }
 
@@ -298,8 +286,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets method_of_payment
      *
      * @param string|null $method_of_payment This is used for import purchase orders only. If the recipient requests, this field will contain the shipment method of payment.
-     *
-     * @return self
      */
     public function setMethodOfPayment($method_of_payment) : self
     {
@@ -322,8 +308,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets seal_number
      *
      * @param string|null $seal_number The container's seal number.
-     *
-     * @return self
      */
     public function setSealNumber($seal_number) : self
     {
@@ -346,8 +330,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets route
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Route|null $route route
-     *
-     * @return self
      */
     public function setRoute($route) : self
     {
@@ -370,8 +352,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets import_containers
      *
      * @param string|null $import_containers Types and numbers of container(s) for import purchase orders. Can be a comma-separated list if shipment has multiple containers.
-     *
-     * @return self
      */
     public function setImportContainers($import_containers) : self
     {
@@ -394,8 +374,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets billable_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Weight|null $billable_weight billable_weight
-     *
-     * @return self
      */
     public function setBillableWeight($billable_weight) : self
     {
@@ -418,8 +396,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets estimated_ship_by_date
      *
      * @param \DateTimeInterface|null $estimated_ship_by_date Date on which the shipment is expected to be shipped. This value should not be in the past and not more than 60 days out in the future.
-     *
-     * @return self
      */
     public function setEstimatedShipByDate($estimated_ship_by_date) : self
     {
@@ -442,8 +418,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets handling_instructions
      *
      * @param string|null $handling_instructions Identification of the instructions on how specified item/carton/pallet should be handled.
-     *
-     * @return self
      */
     public function setHandlingInstructions($handling_instructions) : self
     {
@@ -453,8 +427,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -474,8 +446,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -488,8 +458,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -511,12 +479,10 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -524,8 +490,6 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

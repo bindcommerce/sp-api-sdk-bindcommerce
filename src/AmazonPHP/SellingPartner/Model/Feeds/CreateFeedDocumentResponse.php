@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -200,8 +188,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
      * Sets feed_document_id
      *
      * @param string $feed_document_id The identifier of the feed document.
-     *
-     * @return self
      */
     public function setFeedDocumentId($feed_document_id) : self
     {
@@ -224,8 +210,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
      * Sets url
      *
      * @param string $url The presigned URL for uploading the feed contents. This URL expires after 5 minutes.
-     *
-     * @return self
      */
     public function setUrl($url) : self
     {
@@ -235,8 +219,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -256,8 +238,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -270,8 +250,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -293,12 +271,10 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,8 +282,6 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

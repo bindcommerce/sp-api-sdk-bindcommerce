@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -216,8 +204,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -240,8 +226,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets base_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $base_amount base_amount
-     *
-     * @return self
      */
     public function setBaseAmount($base_amount) : self
     {
@@ -264,8 +248,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets withheld_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $withheld_amount withheld_amount
-     *
-     * @return self
      */
     public function setWithheldAmount($withheld_amount) : self
     {
@@ -288,8 +270,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets tax_withholding_period
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\TaxWithholdingPeriod|null $tax_withholding_period tax_withholding_period
-     *
-     * @return self
      */
     public function setTaxWithholdingPeriod($tax_withholding_period) : self
     {
@@ -299,8 +279,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -320,8 +298,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -334,8 +310,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -357,12 +331,10 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -370,8 +342,6 @@ class TaxWithholdingEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class SellersSDK implements SellersSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation getAccount
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -145,11 +131,8 @@ final class SellersSDK implements SellersSDKInterface
     /**
      * Create request for operation 'getAccount'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getAccountRequest(AccessToken $accessToken, string $region) : RequestInterface
     {
@@ -227,8 +210,6 @@ final class SellersSDK implements SellersSDKInterface
     /**
      * Operation getMarketplaceParticipations
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -326,11 +307,8 @@ final class SellersSDK implements SellersSDKInterface
     /**
      * Create request for operation 'getMarketplaceParticipations'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getMarketplaceParticipationsRequest(AccessToken $accessToken, string $region) : RequestInterface
     {

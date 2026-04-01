@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -222,8 +210,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets delivery_experience
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\DeliveryExperienceType $delivery_experience delivery_experience
-     *
-     * @return self
      */
     public function setDeliveryExperience($delivery_experience) : self
     {
@@ -246,8 +232,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets declared_value
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount|null $declared_value declared_value
-     *
-     * @return self
      */
     public function setDeclaredValue($declared_value) : self
     {
@@ -270,8 +254,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets carrier_will_pick_up
      *
      * @param bool $carrier_will_pick_up When true, the carrier will pick up the package. Note: Scheduled carrier pickup is available only using Dynamex (US), DPD (UK), and Royal Mail (UK).
-     *
-     * @return self
      */
     public function setCarrierWillPickUp($carrier_will_pick_up) : self
     {
@@ -294,8 +276,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets carrier_will_pick_up_option
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CarrierWillPickUpOption|null $carrier_will_pick_up_option carrier_will_pick_up_option
-     *
-     * @return self
      */
     public function setCarrierWillPickUpOption($carrier_will_pick_up_option) : self
     {
@@ -318,8 +298,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets label_format
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormat|null $label_format label_format
-     *
-     * @return self
      */
     public function setLabelFormat($label_format) : self
     {
@@ -329,8 +307,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -350,8 +326,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -364,8 +338,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -387,12 +359,10 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -400,8 +370,6 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

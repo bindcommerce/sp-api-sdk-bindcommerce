@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
+class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,8 +70,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,8 +78,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -140,8 +136,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -150,8 +144,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -160,8 +152,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -170,8 +160,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -248,8 +236,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets package_reference_id
      *
      * @param string $package_reference_id A seller-supplied identifier that uniquely identifies a package within the scope of an order. Only positive numeric values are supported.
-     *
-     * @return self
      */
     public function setPackageReferenceId($package_reference_id) : self
     {
@@ -272,8 +258,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets carrier_code
      *
      * @param string $carrier_code Identifies the carrier that will deliver the package. This field is required for all marketplaces. For more information, refer to the [`CarrierCode` announcement](https://developer-docs.amazon.com/sp-api/changelog/carriercode-value-required-in-shipment-confirmations-for-br-mx-ca-sg-au-in-jp-marketplaces).
-     *
-     * @return self
      */
     public function setCarrierCode($carrier_code) : self
     {
@@ -296,8 +280,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets carrier_name
      *
      * @param string|null $carrier_name Carrier name that will deliver the package. Required when `carrierCode` is \"Other\"
-     *
-     * @return self
      */
     public function setCarrierName($carrier_name) : self
     {
@@ -320,8 +302,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_method
      *
      * @param string|null $shipping_method Ship method to be used for shipping the order.
-     *
-     * @return self
      */
     public function setShippingMethod($shipping_method) : self
     {
@@ -344,8 +324,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets tracking_number
      *
      * @param string $tracking_number The tracking number used to obtain tracking and delivery information.
-     *
-     * @return self
      */
     public function setTrackingNumber($tracking_number) : self
     {
@@ -368,8 +346,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_date
      *
      * @param \DateTimeInterface $ship_date The shipping date for the package. Must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date/time format.
-     *
-     * @return self
      */
     public function setShipDate($ship_date) : self
     {
@@ -392,8 +368,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_from_supply_source_id
      *
      * @param string|null $ship_from_supply_source_id The unique identifier for the supply source.
-     *
-     * @return self
      */
     public function setShipFromSupplySourceId($ship_from_supply_source_id) : self
     {
@@ -416,8 +390,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets order_items
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\ConfirmShipmentOrderItem[] $order_items A list of order items.
-     *
-     * @return self
      */
     public function setOrderItems($order_items) : self
     {
@@ -427,8 +399,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -448,8 +418,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -462,8 +430,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -485,12 +451,10 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -498,8 +462,6 @@ class PackageDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

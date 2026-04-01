@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation getDefinitionsProductType
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $product_type  The Amazon product type name. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. Note: This parameter is limited to one marketplaceId at this time. (required)
      * @param string|null $seller_id  A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
@@ -152,8 +138,6 @@ final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInte
     /**
      * Create request for operation 'getDefinitionsProductType'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $product_type  The Amazon product type name. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. Note: This parameter is limited to one marketplaceId at this time. (required)
      * @param string|null $seller_id  A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
@@ -163,7 +147,6 @@ final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInte
      * @param string $locale  Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getDefinitionsProductTypeRequest(AccessToken $accessToken, string $region, $product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT') : RequestInterface
     {
@@ -303,8 +286,6 @@ final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInte
     /**
      * Operation searchDefinitionsProductTypes
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param string[]|null $keywords  A comma-delimited list of keywords to search product types. **Note:** Cannot be used with &#x60;itemName&#x60;. (optional)
      * @param string|null $item_name  The title of the ASIN to get the product type recommendation. **Note:** Cannot be used with &#x60;keywords&#x60;. (optional)
@@ -407,8 +388,6 @@ final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInte
     /**
      * Create request for operation 'searchDefinitionsProductTypes'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param string[]|null $keywords  A comma-delimited list of keywords to search product types. **Note:** Cannot be used with &#x60;itemName&#x60;. (optional)
      * @param string|null $item_name  The title of the ASIN to get the product type recommendation. **Note:** Cannot be used with &#x60;keywords&#x60;. (optional)
@@ -416,7 +395,6 @@ final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInte
      * @param string|null $search_locale  The locale used for the &#x60;keywords&#x60; and &#x60;itemName&#x60; parameters. Defaults to the primary locale of the marketplace. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function searchDefinitionsProductTypesRequest(AccessToken $accessToken, string $region, $marketplace_ids, $keywords = null, $item_name = null, $locale = null, $search_locale = null) : RequestInterface
     {

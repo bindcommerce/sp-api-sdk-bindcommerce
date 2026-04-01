@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -175,7 +163,7 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
-        if (!is_null($this->container['next_page_token']) && (mb_strlen($this->container['next_page_token']) < 1)) {
+        if (!is_null($this->container['next_page_token']) && (mb_strlen((string) $this->container['next_page_token']) < 1)) {
             throw new AssertionException("invalid value for 'next_page_token', the character length must be bigger than or equal to 1.");
         }
 
@@ -196,8 +184,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets warnings
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\Error[]|null $warnings A set of messages to the user, such as warnings or comments.
-     *
-     * @return self
      */
     public function setWarnings($warnings) : self
     {
@@ -220,8 +206,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets next_page_token
      *
      * @param string|null $next_page_token A token that you use to fetch a specific page when there are multiple pages of results.
-     *
-     * @return self
      */
     public function setNextPageToken($next_page_token) : self
     {
@@ -231,8 +215,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -252,8 +234,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -266,8 +246,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -289,12 +267,10 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -302,8 +278,6 @@ class AplusPaginatedResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

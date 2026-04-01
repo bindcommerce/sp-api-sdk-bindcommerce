@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class ListingsRestrictionsSDK implements ListingsRestrictionsSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation getListingsRestrictions
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $asin  The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param string $seller_id  A selling partner identifier, such as a merchant account. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. (required)
@@ -150,8 +136,6 @@ final class ListingsRestrictionsSDK implements ListingsRestrictionsSDKInterface
     /**
      * Create request for operation 'getListingsRestrictions'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $asin  The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param string $seller_id  A selling partner identifier, such as a merchant account. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. (required)
@@ -159,7 +143,6 @@ final class ListingsRestrictionsSDK implements ListingsRestrictionsSDKInterface
      * @param string|null $reason_locale  A locale for reason text localization. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getListingsRestrictionsRequest(AccessToken $accessToken, string $region, $asin, $seller_id, $marketplace_ids, $condition_type = null, $reason_locale = null) : RequestInterface
     {

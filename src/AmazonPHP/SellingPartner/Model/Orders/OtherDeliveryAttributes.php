@@ -28,13 +28,11 @@ class OtherDeliveryAttributes
 
     const PALLET_DISABLED = 'PALLET_DISABLED';
 
-    private string $value;
-
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
         return [
             self::HAS_ACCESS_POINT,
@@ -43,9 +41,8 @@ class OtherDeliveryAttributes
         ];
     }
 
-    public function __construct(string $value)
+    public function __construct(private readonly string $value)
     {
-        $this->value = $value;
     }
 
     public function toString(): string

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -244,8 +232,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets interval
      *
      * @param string $interval The interval of time based on requested granularity (ex. Hour, Day, etc.) If this is the first or the last interval from the list, it might contain incomplete data if the requested interval doesn't align with the requested granularity (ex. request interval 2018-09-01T02:00:00Z--2018-09-04T19:00:00Z and granularity day will result in Sept 1st UTC day and Sept 4th UTC days having partial data).
-     *
-     * @return self
      */
     public function setInterval($interval) : self
     {
@@ -268,8 +254,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets unit_count
      *
      * @param int $unit_count The number of units in orders based on the specified filters.
-     *
-     * @return self
      */
     public function setUnitCount($unit_count) : self
     {
@@ -292,8 +276,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets order_item_count
      *
      * @param int $order_item_count The number of order items based on the specified filters.
-     *
-     * @return self
      */
     public function setOrderItemCount($order_item_count) : self
     {
@@ -316,8 +298,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets order_count
      *
      * @param int $order_count The number of orders based on the specified filters.
-     *
-     * @return self
      */
     public function setOrderCount($order_count) : self
     {
@@ -340,8 +320,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets average_unit_price
      *
      * @param \AmazonPHP\SellingPartner\Model\Sales\Money $average_unit_price average_unit_price
-     *
-     * @return self
      */
     public function setAverageUnitPrice($average_unit_price) : self
     {
@@ -364,8 +342,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets total_sales
      *
      * @param \AmazonPHP\SellingPartner\Model\Sales\Money $total_sales total_sales
-     *
-     * @return self
      */
     public function setTotalSales($total_sales) : self
     {
@@ -375,8 +351,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -396,8 +370,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -410,8 +382,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -433,12 +403,10 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -446,8 +414,6 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

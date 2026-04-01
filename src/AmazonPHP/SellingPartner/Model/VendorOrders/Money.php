@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Money implements ModelInterface, ArrayAccess, \JsonSerializable
+class Money implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -200,7 +188,7 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
-        if (!is_null($this->container['currency_code']) && (mb_strlen($this->container['currency_code']) > 3)) {
+        if (!is_null($this->container['currency_code']) && (mb_strlen((string) $this->container['currency_code']) > 3)) {
             throw new AssertionException("invalid value for 'currency_code', the character length must be smaller than or equal to 3.");
         }
 
@@ -232,8 +220,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets currency_code
      *
      * @param string|null $currency_code Three digit currency code in ISO 4217 format. String of length 3.
-     *
-     * @return self
      */
     public function setCurrencyCode($currency_code) : self
     {
@@ -256,8 +242,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets amount
      *
      * @param string|null $amount A decimal number with no loss of precision. Useful when precision loss is unacceptable, as with currencies. Follows RFC7159 for number representation. <br>**Pattern** : `^-?(0|([1-9]\\d*))(\\.\\d+)?([eE][+-]?\\d+)?$`.
-     *
-     * @return self
      */
     public function setAmount($amount) : self
     {
@@ -280,8 +264,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets unit_of_measure
      *
      * @param string|null $unit_of_measure The unit of measure for prices of items sold by weight. If this field is absent, the item is sold by eaches.
-     *
-     * @return self
      */
     public function setUnitOfMeasure($unit_of_measure) : self
     {
@@ -291,8 +273,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -312,8 +292,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -326,8 +304,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -349,12 +325,10 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -362,8 +336,6 @@ class Money implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Business implements ModelInterface, ArrayAccess, \JsonSerializable
+class Business implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -220,8 +208,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets name
      *
      * @param string $name The registered business name.
-     *
-     * @return self
      */
     public function setName($name) : self
     {
@@ -244,8 +230,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets registered_business_address
      *
      * @param \AmazonPHP\SellingPartner\Model\Sellers\Address $registered_business_address registered_business_address
-     *
-     * @return self
      */
     public function setRegisteredBusinessAddress($registered_business_address) : self
     {
@@ -268,8 +252,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets company_registration_number
      *
      * @param string|null $company_registration_number The seller's company registration number, if applicable. This field will be absent for individual sellers and sole proprietorships.
-     *
-     * @return self
      */
     public function setCompanyRegistrationNumber($company_registration_number) : self
     {
@@ -292,8 +274,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets company_tax_identification_number
      *
      * @param string|null $company_tax_identification_number The seller's company tax identification number, if applicable. This field will be present for certain business types only, such as sole proprietorships.
-     *
-     * @return self
      */
     public function setCompanyTaxIdentificationNumber($company_tax_identification_number) : self
     {
@@ -316,8 +296,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets non_latin_name
      *
      * @param string|null $non_latin_name The non-Latin script version of the registered business name, if applicable.
-     *
-     * @return self
      */
     public function setNonLatinName($non_latin_name) : self
     {
@@ -327,8 +305,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -348,8 +324,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -362,8 +336,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -385,12 +357,10 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -398,8 +368,6 @@ class Business implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

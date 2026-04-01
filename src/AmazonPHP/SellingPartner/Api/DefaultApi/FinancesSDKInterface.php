@@ -34,63 +34,55 @@ interface FinancesSDKInterface
     public const OPERATION_LISTFINANCIALEVENTSBYORDERID_PATH = '/finances/v0/orders/{orderId}/financialEvents';
 
     /**
-    * Operation listFinancialEventGroups
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param int $max_results_per_page  The maximum number of results per page. If the response exceeds the maximum number of transactions or 10 MB, the response is &#x60;InvalidInput&#x60;. (optional, default to 10)
-    * @param \DateTimeInterface|null $financial_event_group_started_before  A date that selects financial event groups that opened before (but not at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be after &#x60;FinancialEventGroupStartedAfter&#x60; and more than two minutes before the time of request. If &#x60;FinancialEventGroupStartedAfter&#x60; and &#x60;FinancialEventGroupStartedBefore&#x60; are more than 180 days apart, no financial event groups are returned. (optional)
-    * @param \DateTimeInterface|null $financial_event_group_started_after  A date that selects financial event groups that opened after (or at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be more than two minutes before you submit the request. (optional)
-    * @param string|null $next_token  The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Finances\ListFinancialEventGroupsResponse
-    */
+     * Operation listFinancialEventGroups
+     *
+     * @param int $max_results_per_page  The maximum number of results per page. If the response exceeds the maximum number of transactions or 10 MB, the response is &#x60;InvalidInput&#x60;. (optional, default to 10)
+     * @param \DateTimeInterface|null $financial_event_group_started_before  A date that selects financial event groups that opened before (but not at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be after &#x60;FinancialEventGroupStartedAfter&#x60; and more than two minutes before the time of request. If &#x60;FinancialEventGroupStartedAfter&#x60; and &#x60;FinancialEventGroupStartedBefore&#x60; are more than 180 days apart, no financial event groups are returned. (optional)
+     * @param \DateTimeInterface|null $financial_event_group_started_after  A date that selects financial event groups that opened after (or at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be more than two minutes before you submit the request. (optional)
+     * @param string|null $next_token  The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Finances\ListFinancialEventGroupsResponse
+     */
     public function listFinancialEventGroups(AccessToken $accessToken, string $region, $max_results_per_page = 10, $financial_event_group_started_before = null, $financial_event_group_started_after = null, $next_token = null);
     /**
-    * Operation listFinancialEvents
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param int $max_results_per_page  The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is &#x60;InvalidInput&#x60;. (optional, default to 100)
-    * @param \DateTimeInterface|null $posted_after  The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request. (optional)
-    * @param \DateTimeInterface|null $posted_before  The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.  The date-time must be later than &#x60;PostedAfter&#x60; and more than two minutes before the request was submitted. If &#x60;PostedAfter&#x60; and &#x60;PostedBefore&#x60; are more than 180 days apart, the response is empty. If you include the &#x60;PostedBefore&#x60; parameter in your request, you must also specify the &#x60;PostedAfter&#x60; parameter.  **Default:** Two minutes before the time of the request. (optional)
-    * @param string|null $next_token  The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Finances\ListFinancialEventsResponse
-    */
+     * Operation listFinancialEvents
+     *
+     * @param int $max_results_per_page  The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is &#x60;InvalidInput&#x60;. (optional, default to 100)
+     * @param \DateTimeInterface|null $posted_after  The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request. (optional)
+     * @param \DateTimeInterface|null $posted_before  The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.  The date-time must be later than &#x60;PostedAfter&#x60; and more than two minutes before the request was submitted. If &#x60;PostedAfter&#x60; and &#x60;PostedBefore&#x60; are more than 180 days apart, the response is empty. If you include the &#x60;PostedBefore&#x60; parameter in your request, you must also specify the &#x60;PostedAfter&#x60; parameter.  **Default:** Two minutes before the time of the request. (optional)
+     * @param string|null $next_token  The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Finances\ListFinancialEventsResponse
+     */
     public function listFinancialEvents(AccessToken $accessToken, string $region, $max_results_per_page = 100, $posted_after = null, $posted_before = null, $next_token = null);
     /**
-    * Operation listFinancialEventsByGroupId
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $event_group_id  The identifier of the financial event group to which the events belong. (required)
-    * @param int $max_results_per_page  The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is &#x60;InvalidInput&#x60;. (optional, default to 100)
-    * @param \DateTimeInterface|null $posted_after  The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request. (optional)
-    * @param \DateTimeInterface|null $posted_before  The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.  The date-time must be later than &#x60;PostedAfter&#x60; and more than two minutes before the request was submitted. If &#x60;PostedAfter&#x60; and &#x60;PostedBefore&#x60; are more than 180 days apart, the response is empty. If you include the &#x60;PostedBefore&#x60; parameter in your request, you must also specify the &#x60;PostedAfter&#x60; parameter.  **Default:** Two minutes before the time of the request. (optional)
-    * @param string|null $next_token  The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Finances\ListFinancialEventsResponse
-    */
+     * Operation listFinancialEventsByGroupId
+     *
+     * @param string $event_group_id  The identifier of the financial event group to which the events belong. (required)
+     * @param int $max_results_per_page  The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is &#x60;InvalidInput&#x60;. (optional, default to 100)
+     * @param \DateTimeInterface|null $posted_after  The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request. (optional)
+     * @param \DateTimeInterface|null $posted_before  The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.  The date-time must be later than &#x60;PostedAfter&#x60; and more than two minutes before the request was submitted. If &#x60;PostedAfter&#x60; and &#x60;PostedBefore&#x60; are more than 180 days apart, the response is empty. If you include the &#x60;PostedBefore&#x60; parameter in your request, you must also specify the &#x60;PostedAfter&#x60; parameter.  **Default:** Two minutes before the time of the request. (optional)
+     * @param string|null $next_token  The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Finances\ListFinancialEventsResponse
+     */
     public function listFinancialEventsByGroupId(AccessToken $accessToken, string $region, $event_group_id, $max_results_per_page = 100, $posted_after = null, $posted_before = null, $next_token = null);
     /**
-    * Operation listFinancialEventsByOrderId
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
-    * @param int $max_results_per_page  The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is &#x60;InvalidInput&#x60;. (optional, default to 100)
-    * @param string|null $next_token  The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Finances\ListFinancialEventsResponse
-    */
+     * Operation listFinancialEventsByOrderId
+     *
+     * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param int $max_results_per_page  The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is &#x60;InvalidInput&#x60;. (optional, default to 100)
+     * @param string|null $next_token  The response includes &#x60;nextToken&#x60; when the number of results exceeds the specified &#x60;pageSize&#x60; value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until &#x60;nextToken&#x60; is null. Note that this operation can return empty pages. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Finances\ListFinancialEventsResponse
+     */
     public function listFinancialEventsByOrderId(AccessToken $accessToken, string $region, $order_id, $max_results_per_page = 100, $next_token = null);
 }

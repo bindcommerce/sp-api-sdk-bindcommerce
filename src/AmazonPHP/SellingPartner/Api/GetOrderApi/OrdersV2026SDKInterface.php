@@ -25,16 +25,14 @@ interface OrdersV2026SDKInterface
     public const OPERATION_GETORDER_PATH = '/orders/2026-01-01/orders/{orderId}';
 
     /**
-    * Operation getOrder
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $order_id  An Amazon-defined order identifier. (required)
-    * @param string[]|null $included_data  A list of datasets to include in the response. (optional)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\GetOrderResponse
-    */
+     * Operation getOrder
+     *
+     * @param string $order_id  An Amazon-defined order identifier. (required)
+     * @param string[]|null $included_data  A list of datasets to include in the response. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\GetOrderResponse
+     */
     public function getOrder(AccessToken $accessToken, string $region, $order_id, $included_data = null);
 }

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonSerializable
+class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -230,8 +218,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
      * Sets headline
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\TextComponent|null $headline headline
-     *
-     * @return self
      */
     public function setHeadline($headline) : self
     {
@@ -254,8 +240,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
      * Sets block1
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock|null $block1 block1
-     *
-     * @return self
      */
     public function setBlock1($block1) : self
     {
@@ -278,8 +262,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
      * Sets block2
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock|null $block2 block2
-     *
-     * @return self
      */
     public function setBlock2($block2) : self
     {
@@ -302,8 +284,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
      * Sets block3
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock|null $block3 block3
-     *
-     * @return self
      */
     public function setBlock3($block3) : self
     {
@@ -326,8 +306,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
      * Sets block4
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock|null $block4 block4
-     *
-     * @return self
      */
     public function setBlock4($block4) : self
     {
@@ -337,8 +315,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -358,8 +334,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -372,8 +346,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -395,12 +367,10 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -408,8 +378,6 @@ class StandardFourImageTextModule implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class APlusSDK implements APlusSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation createContentDocument
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      *
@@ -147,13 +133,10 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'createContentDocument'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function createContentDocumentRequest(AccessToken $accessToken, string $region, $marketplace_id, $post_content_document_request) : RequestInterface
     {
@@ -262,8 +245,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Operation getContentDocument
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string[] $included_data_set  The set of A+ Content data types to include in the response. (required)
@@ -364,14 +345,11 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'getContentDocument'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string[] $included_data_set  The set of A+ Content data types to include in the response. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getContentDocumentRequest(AccessToken $accessToken, string $region, $content_reference_key, $marketplace_id, $included_data_set) : RequestInterface
     {
@@ -501,8 +479,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Operation listContentDocumentAsinRelations
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string[]|null $included_data_set  The set of A+ Content data types to include in the response. If you don&#39;t include this parameter, the operation returns the related ASINs without metadata. (optional)
@@ -605,8 +581,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'listContentDocumentAsinRelations'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string[]|null $included_data_set  The set of A+ Content data types to include in the response. If you don&#39;t include this parameter, the operation returns the related ASINs without metadata. (optional)
@@ -614,7 +588,6 @@ final class APlusSDK implements APlusSDKInterface
      * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function listContentDocumentAsinRelationsRequest(AccessToken $accessToken, string $region, $content_reference_key, $marketplace_id, $included_data_set = null, $asin_set = null, $page_token = null) : RequestInterface
     {
@@ -757,8 +730,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Operation postContentDocumentApprovalSubmission
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      *
@@ -858,13 +829,10 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'postContentDocumentApprovalSubmission'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function postContentDocumentApprovalSubmissionRequest(AccessToken $accessToken, string $region, $content_reference_key, $marketplace_id) : RequestInterface
     {
@@ -977,8 +945,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Operation postContentDocumentAsinRelations
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentAsinRelationsRequest $post_content_document_asin_relations_request  The request details for the content document ASIN relations. (required)
@@ -1079,14 +1045,11 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'postContentDocumentAsinRelations'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentAsinRelationsRequest $post_content_document_asin_relations_request  The request details for the content document ASIN relations. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function postContentDocumentAsinRelationsRequest(AccessToken $accessToken, string $region, $content_reference_key, $marketplace_id, $post_content_document_asin_relations_request) : RequestInterface
     {
@@ -1213,8 +1176,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Operation postContentDocumentSuspendSubmission
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      *
@@ -1314,13 +1275,10 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'postContentDocumentSuspendSubmission'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function postContentDocumentSuspendSubmissionRequest(AccessToken $accessToken, string $region, $content_reference_key, $marketplace_id) : RequestInterface
     {
@@ -1433,8 +1391,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Operation searchContentDocuments
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
      *
@@ -1534,13 +1490,10 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'searchContentDocuments'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function searchContentDocumentsRequest(AccessToken $accessToken, string $region, $marketplace_id, $page_token = null) : RequestInterface
     {
@@ -1646,8 +1599,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Operation searchContentPublishRecords
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string $asin  The Amazon Standard Identification Number (ASIN) is the unique identifier of a product within a marketplace. (required)
      * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
@@ -1748,14 +1699,11 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'searchContentPublishRecords'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string $asin  The Amazon Standard Identification Number (ASIN) is the unique identifier of a product within a marketplace. (required)
      * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function searchContentPublishRecordsRequest(AccessToken $accessToken, string $region, $marketplace_id, $asin, $page_token = null) : RequestInterface
     {
@@ -1878,8 +1826,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Operation updateContentDocument
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
@@ -1980,14 +1926,11 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'updateContentDocument'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function updateContentDocumentRequest(AccessToken $accessToken, string $region, $content_reference_key, $marketplace_id, $post_content_document_request) : RequestInterface
     {
@@ -2114,8 +2057,6 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Operation validateContentDocumentAsinRelations
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      * @param string[]|null $asin_set  The set of ASINs. (optional)
@@ -2216,14 +2157,11 @@ final class APlusSDK implements APlusSDKInterface
     /**
      * Create request for operation 'validateContentDocumentAsinRelations'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      * @param string[]|null $asin_set  The set of ASINs. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function validateContentDocumentAsinRelationsRequest(AccessToken $accessToken, string $region, $marketplace_id, $post_content_document_request, $asin_set = null) : RequestInterface
     {

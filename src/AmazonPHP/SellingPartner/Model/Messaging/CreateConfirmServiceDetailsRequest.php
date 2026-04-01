@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,8 +56,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,8 +64,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -105,8 +101,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -115,8 +109,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -125,8 +117,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -135,8 +125,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -169,11 +157,11 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
      */
     public function validate() : void
     {
-        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) > 2000)) {
+        if (!is_null($this->container['text']) && (mb_strlen((string) $this->container['text']) > 2000)) {
             throw new AssertionException("invalid value for 'text', the character length must be smaller than or equal to 2000.");
         }
 
-        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) < 1)) {
+        if (!is_null($this->container['text']) && (mb_strlen((string) $this->container['text']) < 1)) {
             throw new AssertionException("invalid value for 'text', the character length must be bigger than or equal to 1.");
         }
 
@@ -194,8 +182,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
      * Sets text
      *
      * @param string|null $text The text to be sent to the buyer. Only links related to Home Service calls are allowed. Do not include HTML or email addresses. The text must be written in the buyer's language of preference, which can be retrieved from the GetAttributes operation.
-     *
-     * @return self
      */
     public function setText($text) : self
     {
@@ -205,8 +191,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -226,8 +210,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -240,8 +222,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -263,12 +243,10 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -276,8 +254,6 @@ class CreateConfirmServiceDetailsRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

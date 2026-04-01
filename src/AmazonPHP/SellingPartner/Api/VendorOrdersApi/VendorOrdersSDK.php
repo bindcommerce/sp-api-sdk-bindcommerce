@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorOrdersSDK implements VendorOrdersSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation getPurchaseOrder
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $purchase_order_number  The purchase order identifier for the order that you want. Formatting Notes: 8-character alpha-numeric code. (required)
      *
      * @throws ApiException on non-2xx response
@@ -146,12 +132,9 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
     /**
      * Create request for operation 'getPurchaseOrder'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $purchase_order_number  The purchase order identifier for the order that you want. Formatting Notes: 8-character alpha-numeric code. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getPurchaseOrderRequest(AccessToken $accessToken, string $region, $purchase_order_number) : RequestInterface
     {
@@ -243,8 +226,6 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
     /**
      * Operation getPurchaseOrders
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int|null $limit  The limit to the number of records returned. Default value is 100 records. (optional)
      * @param \DateTimeInterface|null $created_after  Purchase orders that became available after this time will be included in the result. Must be in ISO-8601 date/time format. (optional)
      * @param \DateTimeInterface|null $created_before  Purchase orders that became available before this time will be included in the result. Must be in ISO-8601 date/time format. (optional)
@@ -354,8 +335,6 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
     /**
      * Create request for operation 'getPurchaseOrders'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int|null $limit  The limit to the number of records returned. Default value is 100 records. (optional)
      * @param \DateTimeInterface|null $created_after  Purchase orders that became available after this time will be included in the result. Must be in ISO-8601 date/time format. (optional)
      * @param \DateTimeInterface|null $created_before  Purchase orders that became available before this time will be included in the result. Must be in ISO-8601 date/time format. (optional)
@@ -370,7 +349,6 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
      * @param string|null $ordering_vendor_code  Filters purchase orders based on the specified ordering vendor code. This value should be same as &#39;sellingParty.partyId&#39; in the purchase order. If not included in the filter, all purchase orders for all of the vendor codes that exist in the vendor group used to authorize the API client application are returned. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getPurchaseOrdersRequest(AccessToken $accessToken, string $region, $limit = null, $created_after = null, $created_before = null, $sort_order = null, $next_token = null, $include_details = null, $changed_after = null, $changed_before = null, $po_item_state = null, $is_po_changed = null, $purchase_order_state = null, $ordering_vendor_code = null) : RequestInterface
     {
@@ -539,8 +517,6 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
     /**
      * Operation getPurchaseOrdersStatus
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int|null $limit  The limit to the number of records returned. Default value is 100 records. (optional)
      * @param string|null $sort_order  Sort in ascending or descending order by purchase order creation date. (optional)
      * @param string|null $next_token  Used for pagination when there are more purchase orders than the specified result size limit. (optional)
@@ -651,8 +627,6 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
     /**
      * Create request for operation 'getPurchaseOrdersStatus'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int|null $limit  The limit to the number of records returned. Default value is 100 records. (optional)
      * @param string|null $sort_order  Sort in ascending or descending order by purchase order creation date. (optional)
      * @param string|null $next_token  Used for pagination when there are more purchase orders than the specified result size limit. (optional)
@@ -668,7 +642,6 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
      * @param string|null $ship_to_party_id  Filters purchase orders for a specific buyer&#39;s Fulfillment Center/warehouse by providing ship to location id here. This value should be same as &#39;shipToParty.partyId&#39; in the purchase order. If not included in filter, this will return purchase orders for all the buyer&#39;s warehouses used for vendor group purchase orders. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getPurchaseOrdersStatusRequest(AccessToken $accessToken, string $region, $limit = null, $sort_order = null, $next_token = null, $created_after = null, $created_before = null, $updated_after = null, $updated_before = null, $purchase_order_number = null, $purchase_order_status = null, $item_confirmation_status = null, $item_receive_status = null, $ordering_vendor_code = null, $ship_to_party_id = null) : RequestInterface
     {
@@ -844,8 +817,6 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
     /**
      * Operation submitAcknowledgement
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\SubmitAcknowledgementRequest $body  Submits acknowledgements for one or more purchase orders from a vendor. (required)
      *
      * @throws ApiException on non-2xx response
@@ -944,12 +915,9 @@ final class VendorOrdersSDK implements VendorOrdersSDKInterface
     /**
      * Create request for operation 'submitAcknowledgement'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\SubmitAcknowledgementRequest $body  Submits acknowledgements for one or more purchase orders from a vendor. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function submitAcknowledgementRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {

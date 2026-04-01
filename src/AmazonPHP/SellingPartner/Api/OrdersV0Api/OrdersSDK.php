@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class OrdersSDK implements OrdersSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation confirmShipment
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param \AmazonPHP\SellingPartner\Model\Orders\ConfirmShipmentRequest $payload  Request body of &#x60;confirmShipment&#x60;. (required)
      *
@@ -142,13 +128,10 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'confirmShipment'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param \AmazonPHP\SellingPartner\Model\Orders\ConfirmShipmentRequest $payload  Request body of &#x60;confirmShipment&#x60;. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function confirmShipmentRequest(AccessToken $accessToken, string $region, $order_id, $payload) : RequestInterface
     {
@@ -254,8 +237,6 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrder
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      *
      * @throws ApiException on non-2xx response
@@ -354,12 +335,9 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrder'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getOrderRequest(AccessToken $accessToken, string $region, $order_id) : RequestInterface
     {
@@ -451,8 +429,6 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrderAddress
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  The Amazon order identifier in 3-7-7 format. (required)
      *
      * @throws ApiException on non-2xx response
@@ -551,12 +527,9 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrderAddress'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  The Amazon order identifier in 3-7-7 format. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getOrderAddressRequest(AccessToken $accessToken, string $region, $order_id) : RequestInterface
     {
@@ -648,8 +621,6 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrderBuyerInfo
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  The Amazon order identifier in 3-7-7 format. (required)
      *
      * @throws ApiException on non-2xx response
@@ -748,12 +719,9 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrderBuyerInfo'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  The Amazon order identifier in 3-7-7 format. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getOrderBuyerInfoRequest(AccessToken $accessToken, string $region, $order_id) : RequestInterface
     {
@@ -845,8 +813,6 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrderItems
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param string|null $next_token  A string token returned in the response of your previous request. (optional)
      *
@@ -946,13 +912,10 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrderItems'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param string|null $next_token  A string token returned in the response of your previous request. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getOrderItemsRequest(AccessToken $accessToken, string $region, $order_id, $next_token = null) : RequestInterface
     {
@@ -1051,8 +1014,6 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrderItemsBuyerInfo
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param string|null $next_token  A string token returned in the response of your previous request. (optional)
      *
@@ -1152,13 +1113,10 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrderItemsBuyerInfo'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param string|null $next_token  A string token returned in the response of your previous request. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getOrderItemsBuyerInfoRequest(AccessToken $accessToken, string $region, $order_id, $next_token = null) : RequestInterface
     {
@@ -1257,8 +1215,6 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrderRegulatedInfo
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  The Amazon order identifier in 3-7-7 format. (required)
      *
      * @throws ApiException on non-2xx response
@@ -1357,12 +1313,9 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrderRegulatedInfo'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  The Amazon order identifier in 3-7-7 format. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getOrderRegulatedInfoRequest(AccessToken $accessToken, string $region, $order_id) : RequestInterface
     {
@@ -1454,8 +1407,6 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation getOrders
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string[] $marketplace_ids  A list of &#x60;MarketplaceId&#x60; values. Used to select orders that were placed in the specified marketplaces.  Refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids) for a complete list of &#x60;marketplaceId&#x60; values. (required)
      * @param string|null $created_after  Use this date to select orders created after (or at) a specified time. Only orders placed after the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.  **Note**: Either the &#x60;CreatedAfter&#x60; parameter or the &#x60;LastUpdatedAfter&#x60; parameter is required. Both cannot be empty. &#x60;LastUpdatedAfter&#x60; and &#x60;LastUpdatedBefore&#x60; cannot be set when &#x60;CreatedAfter&#x60; is set. (optional)
      * @param string|null $created_before  Use this date to select orders created before (or at) a specified time. Only orders placed before the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.  **Note**: &#x60;CreatedBefore&#x60; is optional when &#x60;CreatedAfter&#x60; is set. If specified, &#x60;CreatedBefore&#x60; must be equal to or after the &#x60;CreatedAfter&#x60; date and at least two minutes before current time. (optional)
@@ -1574,8 +1525,6 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'getOrders'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string[] $marketplace_ids  A list of &#x60;MarketplaceId&#x60; values. Used to select orders that were placed in the specified marketplaces.  Refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids) for a complete list of &#x60;marketplaceId&#x60; values. (required)
      * @param string|null $created_after  Use this date to select orders created after (or at) a specified time. Only orders placed after the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.  **Note**: Either the &#x60;CreatedAfter&#x60; parameter or the &#x60;LastUpdatedAfter&#x60; parameter is required. Both cannot be empty. &#x60;LastUpdatedAfter&#x60; and &#x60;LastUpdatedBefore&#x60; cannot be set when &#x60;CreatedAfter&#x60; is set. (optional)
      * @param string|null $created_before  Use this date to select orders created before (or at) a specified time. Only orders placed before the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.  **Note**: &#x60;CreatedBefore&#x60; is optional when &#x60;CreatedAfter&#x60; is set. If specified, &#x60;CreatedBefore&#x60; must be equal to or after the &#x60;CreatedAfter&#x60; date and at least two minutes before current time. (optional)
@@ -1599,7 +1548,6 @@ final class OrdersSDK implements OrdersSDKInterface
      * @param string|null $latest_delivery_date_after  Use this date to select orders with a latest delivery date after (or at) a specified time. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getOrdersRequest(AccessToken $accessToken, string $region, $marketplace_ids, $created_after = null, $created_before = null, $last_updated_after = null, $last_updated_before = null, $order_statuses = null, $fulfillment_channels = null, $payment_methods = null, $seller_order_id = null, $max_results_per_page = null, $easy_ship_shipment_statuses = null, $electronic_invoice_statuses = null, $next_token = null, $amazon_order_ids = null, $actual_fulfillment_supply_source_id = null, $is_ispu = null, $store_chain_store_id = null, $earliest_delivery_date_before = null, $earliest_delivery_date_after = null, $latest_delivery_date_before = null, $latest_delivery_date_after = null) : RequestInterface
     {
@@ -1838,8 +1786,6 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Operation updateVerificationStatus
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  The Amazon order identifier in 3-7-7 format. (required)
      * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateVerificationStatusRequest $payload  The request body for the &#x60;updateVerificationStatus&#x60; operation. (required)
      *
@@ -1934,13 +1880,10 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'updateVerificationStatus'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  The Amazon order identifier in 3-7-7 format. (required)
      * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateVerificationStatusRequest $payload  The request body for the &#x60;updateVerificationStatus&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function updateVerificationStatusRequest(AccessToken $accessToken, string $region, $order_id, $payload) : RequestInterface
     {

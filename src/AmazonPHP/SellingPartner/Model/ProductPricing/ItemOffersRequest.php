@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -232,8 +220,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets uri
      *
      * @param string $uri The resource path of the operation you are calling in batch without any query parameters.  If you are calling `getItemOffersBatch`, supply the path of `getItemOffers`.  **Example:** `/products/pricing/v0/items/B000P6Q7MY/offers`  If you are calling `getListingOffersBatch`, supply the path of `getListingOffers`.  **Example:** `/products/pricing/v0/listings/B000P6Q7MY/offers`
-     *
-     * @return self
      */
     public function setUri($uri) : self
     {
@@ -256,8 +242,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets method
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\HttpMethod $method method
-     *
-     * @return self
      */
     public function setMethod($method) : self
     {
@@ -280,8 +264,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets headers
      *
      * @param array<string,string>|null $headers A mapping of additional HTTP headers to send/receive for the individual batch request.
-     *
-     * @return self
      */
     public function setHeaders($headers) : self
     {
@@ -304,8 +286,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets marketplace_id
      *
      * @param string $marketplace_id A marketplace identifier. Specifies the marketplace for which prices are returned.
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -328,8 +308,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets item_condition
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ItemCondition $item_condition item_condition
-     *
-     * @return self
      */
     public function setItemCondition($item_condition) : self
     {
@@ -352,8 +330,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets customer_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\CustomerType|null $customer_type customer_type
-     *
-     * @return self
      */
     public function setCustomerType($customer_type) : self
     {
@@ -363,8 +339,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -384,8 +358,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -398,8 +370,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -421,12 +391,10 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -434,8 +402,6 @@ class ItemOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

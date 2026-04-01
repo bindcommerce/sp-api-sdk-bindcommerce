@@ -25,18 +25,16 @@ interface UploadsSDKInterface
     public const OPERATION_CREATEUPLOADDESTINATIONFORRESOURCE_PATH = '/uploads/2020-11-01/uploadDestinations/{resource}';
 
     /**
-    * Operation createUploadDestinationForResource
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string[] $marketplace_ids  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-    * @param string $content_md5  An MD5 hash of the content to be submitted to the upload destination. This value is used to determine if the data has been corrupted or tampered with during transit. (required)
-    * @param string $resource  The upload destination for your resource. For example, if you create an upload destination for the &#x60;createLegalDisclosure&#x60; operation of the Messaging API, the &#x60;{resource}&#x60; would be &#x60;/messaging/v1/orders/{amazonOrderId}/messages/legalDisclosure&#x60;, and the entire path would be &#x60;/uploads/2020-11-01/uploadDestinations/messaging/v1/orders/{amazonOrderId}/messages/legalDisclosure&#x60;. If you create an upload destination for an Aplus content document, the &#x60;{resource}&#x60; would be &#x60;aplus/2020-11-01/contentDocuments&#x60; and the path would be &#x60;/uploads/2020-11-01/uploadDestinations/aplus/2020-11-01/contentDocuments&#x60;. (required)
-    * @param string|null $content_type  The content type of the file you upload. (optional)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Uploads\CreateUploadDestinationResponse
-    */
+     * Operation createUploadDestinationForResource
+     *
+     * @param string[] $marketplace_ids  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $content_md5  An MD5 hash of the content to be submitted to the upload destination. This value is used to determine if the data has been corrupted or tampered with during transit. (required)
+     * @param string $resource  The upload destination for your resource. For example, if you create an upload destination for the &#x60;createLegalDisclosure&#x60; operation of the Messaging API, the &#x60;{resource}&#x60; would be &#x60;/messaging/v1/orders/{amazonOrderId}/messages/legalDisclosure&#x60;, and the entire path would be &#x60;/uploads/2020-11-01/uploadDestinations/messaging/v1/orders/{amazonOrderId}/messages/legalDisclosure&#x60;. If you create an upload destination for an Aplus content document, the &#x60;{resource}&#x60; would be &#x60;aplus/2020-11-01/contentDocuments&#x60; and the path would be &#x60;/uploads/2020-11-01/uploadDestinations/aplus/2020-11-01/contentDocuments&#x60;. (required)
+     * @param string|null $content_type  The content type of the file you upload. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Uploads\CreateUploadDestinationResponse
+     */
     public function createUploadDestinationForResource(AccessToken $accessToken, string $region, $marketplace_ids, $content_md5, $resource, $content_type = null);
 }

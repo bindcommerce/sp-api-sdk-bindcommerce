@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorTransactionStatusSDK implements VendorTransactionStatusSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation getTransaction
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $transaction_id  The GUID provided by Amazon in the &#39;transactionId&#39; field in response to the post request of a specific transaction. (required)
      *
      * @throws ApiException on non-2xx response
@@ -146,12 +132,9 @@ final class VendorTransactionStatusSDK implements VendorTransactionStatusSDKInte
     /**
      * Create request for operation 'getTransaction'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $transaction_id  The GUID provided by Amazon in the &#39;transactionId&#39; field in response to the post request of a specific transaction. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getTransactionRequest(AccessToken $accessToken, string $region, $transaction_id) : RequestInterface
     {

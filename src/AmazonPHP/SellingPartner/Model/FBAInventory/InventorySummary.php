@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
+class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -72,8 +72,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -82,8 +80,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -145,8 +141,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -155,8 +149,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -165,8 +157,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -175,8 +165,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -238,8 +226,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of an item.
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -262,8 +248,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fn_sku
      *
      * @param string|null $fn_sku Amazon's fulfillment network SKU identifier.
-     *
-     * @return self
      */
     public function setFnSku($fn_sku) : self
     {
@@ -286,8 +270,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets seller_sku
      *
      * @param string|null $seller_sku The seller SKU of the item.
-     *
-     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -310,8 +292,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets condition
      *
      * @param string|null $condition The condition of the item as described by the seller (for example, New Item).
-     *
-     * @return self
      */
     public function setCondition($condition) : self
     {
@@ -334,8 +314,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets inventory_details
      *
      * @param \AmazonPHP\SellingPartner\Model\FBAInventory\InventoryDetails|null $inventory_details inventory_details
-     *
-     * @return self
      */
     public function setInventoryDetails($inventory_details) : self
     {
@@ -358,8 +336,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets last_updated_time
      *
      * @param \DateTimeInterface|null $last_updated_time The date and time that any quantity was last updated.
-     *
-     * @return self
      */
     public function setLastUpdatedTime($last_updated_time) : self
     {
@@ -382,8 +358,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets product_name
      *
      * @param string|null $product_name The localized language product title of the item within the specific marketplace.
-     *
-     * @return self
      */
     public function setProductName($product_name) : self
     {
@@ -406,8 +380,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets total_quantity
      *
      * @param int|null $total_quantity The total number of units in an inbound shipment or in Amazon fulfillment centers.
-     *
-     * @return self
      */
     public function setTotalQuantity($total_quantity) : self
     {
@@ -430,8 +402,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets stores
      *
      * @param string[]|null $stores A list of seller-enrolled stores that apply to this seller SKU.
-     *
-     * @return self
      */
     public function setStores($stores) : self
     {
@@ -441,8 +411,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -462,8 +430,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -476,8 +442,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -499,12 +463,10 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -512,8 +474,6 @@ class InventorySummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
+class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -82,8 +82,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -92,8 +90,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -170,8 +166,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -180,8 +174,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -190,8 +182,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -200,8 +190,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -268,8 +256,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets name
      *
      * @param string|null $name The full name of the person who will receive the delivery at this address.
-     *
-     * @return self
      */
     public function setName($name) : self
     {
@@ -292,8 +278,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets company_name
      *
      * @param string|null $company_name The name of the business or organization at this address.
-     *
-     * @return self
      */
     public function setCompanyName($company_name) : self
     {
@@ -316,8 +300,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets address_line1
      *
      * @param string|null $address_line1 The primary street address.
-     *
-     * @return self
      */
     public function setAddressLine1($address_line1) : self
     {
@@ -340,8 +322,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets address_line2
      *
      * @param string|null $address_line2 Additional address information.
-     *
-     * @return self
      */
     public function setAddressLine2($address_line2) : self
     {
@@ -364,8 +344,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets address_line3
      *
      * @param string|null $address_line3 Additional address information.
-     *
-     * @return self
      */
     public function setAddressLine3($address_line3) : self
     {
@@ -388,8 +366,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets city
      *
      * @param string|null $city The city of the address.
-     *
-     * @return self
      */
     public function setCity($city) : self
     {
@@ -412,8 +388,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets district_or_county
      *
      * @param string|null $district_or_county The district or county of the address.
-     *
-     * @return self
      */
     public function setDistrictOrCounty($district_or_county) : self
     {
@@ -436,8 +410,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets state_or_region
      *
      * @param string|null $state_or_region The state, province, or region of the address.
-     *
-     * @return self
      */
     public function setStateOrRegion($state_or_region) : self
     {
@@ -460,8 +432,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets municipality
      *
      * @param string|null $municipality The municipality of the address.
-     *
-     * @return self
      */
     public function setMunicipality($municipality) : self
     {
@@ -484,8 +454,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets postal_code
      *
      * @param string|null $postal_code The postal code, ZIP code, or equivalent mailing code of the address.
-     *
-     * @return self
      */
     public function setPostalCode($postal_code) : self
     {
@@ -508,8 +476,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets country_code
      *
      * @param string|null $country_code The two-letter country code identifying the country of the address, in ISO 3166-1 format.
-     *
-     * @return self
      */
     public function setCountryCode($country_code) : self
     {
@@ -532,8 +498,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets phone
      *
      * @param string|null $phone The contact phone number for delivery coordination and customer communication.  **Note**: The buyer phone number will be suppressed in some cases, including but not limited to:  - All FBA (Fulfillment by Amazon) orders. - Shipped FBM (Fulfilled by the merchant) orders when current date is past the latest delivery date.
-     *
-     * @return self
      */
     public function setPhone($phone) : self
     {
@@ -556,8 +520,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets extended_fields
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\AddressExtendedFields|null $extended_fields extended_fields
-     *
-     * @return self
      */
     public function setExtendedFields($extended_fields) : self
     {
@@ -580,8 +542,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets address_type
      *
      * @param string|null $address_type The type of location.  **Possible values**: `RESIDENTIAL`, `COMMERCIAL`, `PICKUP_POINT`
-     *
-     * @return self
      */
     public function setAddressType($address_type) : self
     {
@@ -591,8 +551,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -612,8 +570,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -626,8 +582,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -649,12 +603,10 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -662,8 +614,6 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -25,15 +25,13 @@ interface VendorDirectFulfillmentPaymentsSDKInterface
     public const OPERATION_SUBMITINVOICE_PATH = '/vendor/directFulfillment/payments/v1/invoices';
 
     /**
-    * Operation submitInvoice
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\SubmitInvoiceRequest $body  The request body containing one or more invoices for vendor orders. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\SubmitInvoiceResponse
-    */
+     * Operation submitInvoice
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\SubmitInvoiceRequest $body  The request body containing one or more invoices for vendor orders. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\SubmitInvoiceResponse
+     */
     public function submitInvoice(AccessToken $accessToken, string $region, $body);
 }

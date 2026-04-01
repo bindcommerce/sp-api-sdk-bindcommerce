@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorDirectFulfillmentTransactionsSDK implements VendorDirectFulfillmentTransactionsSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation getTransactionStatus
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $transaction_id  Previously returned in the response to the POST request of a specific transaction. (required)
      *
      * @throws ApiException on non-2xx response
@@ -146,12 +132,9 @@ final class VendorDirectFulfillmentTransactionsSDK implements VendorDirectFulfil
     /**
      * Create request for operation 'getTransactionStatus'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $transaction_id  Previously returned in the response to the POST request of a specific transaction. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getTransactionStatusRequest(AccessToken $accessToken, string $region, $transaction_id) : RequestInterface
     {

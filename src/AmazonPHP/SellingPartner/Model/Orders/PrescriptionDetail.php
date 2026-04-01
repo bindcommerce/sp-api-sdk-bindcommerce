@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
+class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -262,8 +250,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets prescription_id
      *
      * @param string $prescription_id The identifier for the prescription used to verify the regulated product.
-     *
-     * @return self
      */
     public function setPrescriptionId($prescription_id) : self
     {
@@ -286,8 +272,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets expiration_date
      *
      * @param \DateTimeInterface $expiration_date The expiration date of the prescription used to verify the regulated product, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.
-     *
-     * @return self
      */
     public function setExpirationDate($expiration_date) : self
     {
@@ -310,8 +294,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets written_quantity
      *
      * @param int $written_quantity The number of units in each fill as provided in the prescription.
-     *
-     * @return self
      */
     public function setWrittenQuantity($written_quantity) : self
     {
@@ -334,8 +316,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets total_refills_authorized
      *
      * @param int $total_refills_authorized The total number of refills written in the original prescription used to verify the regulated product. If a prescription originally had no refills, this value must be 0.
-     *
-     * @return self
      */
     public function setTotalRefillsAuthorized($total_refills_authorized) : self
     {
@@ -358,8 +338,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets refills_remaining
      *
      * @param int $refills_remaining The number of refills remaining for the prescription used to verify the regulated product. If a prescription originally had 10 total refills, this value must be `10` for the first order, `9` for the second order, and `0` for the eleventh order. If a prescription originally had no refills, this value must be 0.
-     *
-     * @return self
      */
     public function setRefillsRemaining($refills_remaining) : self
     {
@@ -382,8 +360,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets clinic_id
      *
      * @param string $clinic_id The identifier for the clinic which provided the prescription used to verify the regulated product.
-     *
-     * @return self
      */
     public function setClinicId($clinic_id) : self
     {
@@ -406,8 +382,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets usage_instructions
      *
      * @param string $usage_instructions The instructions for the prescription as provided by the approver of the regulated product.
-     *
-     * @return self
      */
     public function setUsageInstructions($usage_instructions) : self
     {
@@ -417,8 +391,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -438,8 +410,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -452,8 +422,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -475,12 +443,10 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -488,8 +454,6 @@ class PrescriptionDetail implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

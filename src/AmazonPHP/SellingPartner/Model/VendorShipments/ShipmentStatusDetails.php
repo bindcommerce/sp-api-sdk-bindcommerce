@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -222,8 +210,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets shipment_status
      *
      * @param string|null $shipment_status Current status of the shipment on whether it is picked up or scheduled.
-     *
-     * @return self
      */
     public function setShipmentStatus($shipment_status) : self
     {
@@ -246,8 +232,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets shipment_status_date
      *
      * @param \DateTimeInterface|null $shipment_status_date Date and time on last status update received for the shipment
-     *
-     * @return self
      */
     public function setShipmentStatusDate($shipment_status_date) : self
     {
@@ -257,8 +241,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -278,8 +260,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -292,8 +272,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -315,12 +293,10 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -328,8 +304,6 @@ class ShipmentStatusDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

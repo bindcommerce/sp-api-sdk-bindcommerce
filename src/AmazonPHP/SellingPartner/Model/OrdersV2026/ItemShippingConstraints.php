@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -210,8 +198,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets pallet_delivery
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ConstraintType|null $pallet_delivery pallet_delivery
-     *
-     * @return self
      */
     public function setPalletDelivery($pallet_delivery) : self
     {
@@ -234,8 +220,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets cash_on_delivery
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ConstraintType|null $cash_on_delivery cash_on_delivery
-     *
-     * @return self
      */
     public function setCashOnDelivery($cash_on_delivery) : self
     {
@@ -258,8 +242,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets signature_confirmation
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ConstraintType|null $signature_confirmation signature_confirmation
-     *
-     * @return self
      */
     public function setSignatureConfirmation($signature_confirmation) : self
     {
@@ -282,8 +264,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets recipient_identity_verification
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ConstraintType|null $recipient_identity_verification recipient_identity_verification
-     *
-     * @return self
      */
     public function setRecipientIdentityVerification($recipient_identity_verification) : self
     {
@@ -306,8 +286,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets recipient_age_verification
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ConstraintType|null $recipient_age_verification recipient_age_verification
-     *
-     * @return self
      */
     public function setRecipientAgeVerification($recipient_age_verification) : self
     {
@@ -317,8 +295,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -338,8 +314,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -352,8 +326,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -375,12 +347,10 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -388,8 +358,6 @@ class ItemShippingConstraints implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

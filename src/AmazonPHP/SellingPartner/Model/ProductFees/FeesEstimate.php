@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
+class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -206,8 +194,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets time_of_fees_estimation
      *
      * @param \DateTimeInterface $time_of_fees_estimation The time at which the fees were estimated. This defaults to the time the request is made.
-     *
-     * @return self
      */
     public function setTimeOfFeesEstimation($time_of_fees_estimation) : self
     {
@@ -230,8 +216,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets total_fees_estimate
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\MoneyType|null $total_fees_estimate total_fees_estimate
-     *
-     * @return self
      */
     public function setTotalFeesEstimate($total_fees_estimate) : self
     {
@@ -254,8 +238,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fee_detail_list
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\FeeDetail[]|null $fee_detail_list A list of other fees that contribute to a given fee.
-     *
-     * @return self
      */
     public function setFeeDetailList($fee_detail_list) : self
     {
@@ -265,8 +247,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,8 +266,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -300,8 +278,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,12 +299,10 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -336,8 +310,6 @@ class FeesEstimate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSerializable
+class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -202,8 +190,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets reservation
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\Reservation|null $reservation reservation
-     *
-     * @return self
      */
     public function setReservation($reservation) : self
     {
@@ -226,8 +212,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets warnings
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\Warning[]|null $warnings A list of warnings returned in the sucessful execution response of an API request.
-     *
-     * @return self
      */
     public function setWarnings($warnings) : self
     {
@@ -250,8 +234,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets errors
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
-     *
-     * @return self
      */
     public function setErrors($errors) : self
     {
@@ -261,8 +243,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -282,8 +262,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -296,8 +274,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,12 +295,10 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -332,8 +306,6 @@ class UpdateReservationRecord implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

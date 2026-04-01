@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -200,8 +188,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets shipment_id
      *
      * @param string $shipment_id The unique shipment identifier.
-     *
-     * @return self
      */
     public function setShipmentId($shipment_id) : self
     {
@@ -224,8 +210,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets eligible_rates
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Rate[] $eligible_rates A list of all the available rates that can be used to send the shipment.
-     *
-     * @return self
      */
     public function setEligibleRates($eligible_rates) : self
     {
@@ -235,8 +219,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -256,8 +238,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -270,8 +250,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -293,12 +271,10 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,8 +282,6 @@ class CreateShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

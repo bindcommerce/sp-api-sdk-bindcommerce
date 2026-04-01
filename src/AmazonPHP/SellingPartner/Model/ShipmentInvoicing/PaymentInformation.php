@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -214,8 +202,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets payment_method
      *
      * @param \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\PaymentMethodEnum|null $payment_method payment_method
-     *
-     * @return self
      */
     public function setPaymentMethod($payment_method) : self
     {
@@ -238,8 +224,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets acquirer_id
      *
      * @param string|null $acquirer_id The government ID of the acquirer.
-     *
-     * @return self
      */
     public function setAcquirerId($acquirer_id) : self
     {
@@ -262,8 +246,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets card_brand
      *
      * @param string|null $card_brand The credit card brand if the payment method is `CreditCard`.
-     *
-     * @return self
      */
     public function setCardBrand($card_brand) : self
     {
@@ -286,8 +268,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets payment_value
      *
      * @param \AmazonPHP\SellingPartner\Model\ShipmentInvoicing\Money|null $payment_value payment_value
-     *
-     * @return self
      */
     public function setPaymentValue($payment_value) : self
     {
@@ -310,8 +290,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets authorization_code
      *
      * @param string|null $authorization_code The authorization code of this payment.
-     *
-     * @return self
      */
     public function setAuthorizationCode($authorization_code) : self
     {
@@ -321,8 +299,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -342,8 +318,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -356,8 +330,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -379,12 +351,10 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -392,8 +362,6 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

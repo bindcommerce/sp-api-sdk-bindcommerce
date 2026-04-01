@@ -25,15 +25,13 @@ interface VendorDirectFulfillmentTransactionsSDKInterface
     public const OPERATION_GETTRANSACTIONSTATUS_PATH = '/vendor/directFulfillment/transactions/2021-12-28/transactions/{transactionId}';
 
     /**
-    * Operation getTransactionStatus
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $transaction_id  Previously returned in the response to the POST request of a specific transaction. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentTransactions\TransactionStatus
-    */
+     * Operation getTransactionStatus
+     *
+     * @param string $transaction_id  Previously returned in the response to the POST request of a specific transaction. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentTransactions\TransactionStatus
+     */
     public function getTransactionStatus(AccessToken $accessToken, string $region, $transaction_id);
 }

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
+class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -226,8 +214,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets carrier_name
      *
      * @param string $carrier_name The rejected shipping carrier name. For example, USPS.
-     *
-     * @return self
      */
     public function setCarrierName($carrier_name) : self
     {
@@ -250,8 +236,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets shipping_service_name
      *
      * @param string $shipping_service_name The rejected shipping service localized name. For example, FedEx Standard Overnight.
-     *
-     * @return self
      */
     public function setShippingServiceName($shipping_service_name) : self
     {
@@ -274,8 +258,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets shipping_service_id
      *
      * @param string $shipping_service_id An Amazon-defined shipping service identifier.
-     *
-     * @return self
      */
     public function setShippingServiceId($shipping_service_id) : self
     {
@@ -298,8 +280,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets rejection_reason_code
      *
      * @param string $rejection_reason_code A reason code meant to be consumed programatically. For example, `CARRIER_CANNOT_SHIP_TO_POBOX`.
-     *
-     * @return self
      */
     public function setRejectionReasonCode($rejection_reason_code) : self
     {
@@ -322,8 +302,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets rejection_reason_message
      *
      * @param string|null $rejection_reason_message A localized human readable description of the rejected reason.
-     *
-     * @return self
      */
     public function setRejectionReasonMessage($rejection_reason_message) : self
     {
@@ -333,8 +311,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -354,8 +330,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -368,8 +342,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -391,12 +363,10 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -404,8 +374,6 @@ class RejectedShippingService implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

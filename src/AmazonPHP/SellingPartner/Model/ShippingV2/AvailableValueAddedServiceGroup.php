@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \JsonSerializable
+class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -216,8 +204,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
      * Sets group_id
      *
      * @param string $group_id The type of the value-added service group.
-     *
-     * @return self
      */
     public function setGroupId($group_id) : self
     {
@@ -240,8 +226,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
      * Sets group_description
      *
      * @param string $group_description The name of the value-added service group.
-     *
-     * @return self
      */
     public function setGroupDescription($group_description) : self
     {
@@ -264,8 +248,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
      * Sets is_required
      *
      * @param bool $is_required When true, one or more of the value-added services listed must be specified.
-     *
-     * @return self
      */
     public function setIsRequired($is_required) : self
     {
@@ -288,8 +270,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
      * Sets value_added_services
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ValueAddedService[]|null $value_added_services A list of optional value-added services available for purchase with a shipping service offering.
-     *
-     * @return self
      */
     public function setValueAddedServices($value_added_services) : self
     {
@@ -299,8 +279,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -320,8 +298,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -334,8 +310,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -357,12 +331,10 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -370,8 +342,6 @@ class AvailableValueAddedServiceGroup implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

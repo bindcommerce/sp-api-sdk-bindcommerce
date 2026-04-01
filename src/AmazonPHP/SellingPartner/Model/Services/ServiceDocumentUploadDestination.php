@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \JsonSerializable
+class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -218,8 +206,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
      * Sets upload_destination_id
      *
      * @param string $upload_destination_id The unique identifier to be used by APIs that reference the upload destination.
-     *
-     * @return self
      */
     public function setUploadDestinationId($upload_destination_id) : self
     {
@@ -242,8 +228,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
      * Sets url
      *
      * @param string $url The URL to which to upload the file.
-     *
-     * @return self
      */
     public function setUrl($url) : self
     {
@@ -266,8 +250,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
      * Sets encryption_details
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\EncryptionDetails $encryption_details encryption_details
-     *
-     * @return self
      */
     public function setEncryptionDetails($encryption_details) : self
     {
@@ -290,8 +272,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
      * Sets headers
      *
      * @param object|null $headers The headers to include in the upload request.
-     *
-     * @return self
      */
     public function setHeaders($headers) : self
     {
@@ -301,8 +281,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -322,8 +300,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -336,8 +312,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -359,12 +333,10 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -372,8 +344,6 @@ class ServiceDocumentUploadDestination implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

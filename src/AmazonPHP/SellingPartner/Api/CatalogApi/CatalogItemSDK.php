@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class CatalogItemSDK implements CatalogItemSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation getCatalogItem
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $asin  The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string[]|null $included_data  A comma-delimited list of datasets to include in the response. (optional)
@@ -149,15 +135,12 @@ final class CatalogItemSDK implements CatalogItemSDKInterface
     /**
      * Create request for operation 'getCatalogItem'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $asin  The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string[]|null $included_data  A comma-delimited list of datasets to include in the response. (optional)
      * @param string|null $locale  The locale for which you want to retrieve localized summaries. Defaults to the primary locale of the marketplace. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getCatalogItemRequest(AccessToken $accessToken, string $region, $asin, $marketplace_ids, $included_data = null, $locale = null) : RequestInterface
     {
@@ -276,8 +259,6 @@ final class CatalogItemSDK implements CatalogItemSDKInterface
     /**
      * Operation searchCatalogItems
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string[]|null $identifiers  A comma-delimited list of product identifiers that you can use to search the Amazon catalog. **Note:** You cannot include &#x60;identifiers&#x60; and &#x60;keywords&#x60; in the same request. (optional)
      * @param string|null $identifiers_type  The type of product identifiers that you can use to search the Amazon catalog. **Note:** &#x60;identifiersType&#x60; is required when &#x60;identifiers&#x60; is in the request. (optional)
@@ -387,8 +368,6 @@ final class CatalogItemSDK implements CatalogItemSDKInterface
     /**
      * Create request for operation 'searchCatalogItems'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
      * @param string[]|null $identifiers  A comma-delimited list of product identifiers that you can use to search the Amazon catalog. **Note:** You cannot include &#x60;identifiers&#x60; and &#x60;keywords&#x60; in the same request. (optional)
      * @param string|null $identifiers_type  The type of product identifiers that you can use to search the Amazon catalog. **Note:** &#x60;identifiersType&#x60; is required when &#x60;identifiers&#x60; is in the request. (optional)
@@ -403,7 +382,6 @@ final class CatalogItemSDK implements CatalogItemSDKInterface
      * @param string|null $keywords_locale  The language of the keywords that are included in queries based on &#x60;keywords&#x60;. Defaults to the primary locale of the marketplace. **Note:** Cannot be used with &#x60;identifiers&#x60;. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function searchCatalogItemsRequest(AccessToken $accessToken, string $region, $marketplace_ids, $identifiers = null, $identifiers_type = null, $included_data = null, $locale = null, $seller_id = null, $keywords = null, $brand_names = null, $classification_ids = null, $page_size = 10, $page_token = null, $keywords_locale = null) : RequestInterface
     {

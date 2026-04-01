@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -72,8 +72,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -82,8 +80,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -145,8 +141,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -155,8 +149,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -165,8 +157,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -175,8 +165,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -250,8 +238,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets data_type
      *
      * @param string|null $data_type The data type of the additional information.
-     *
-     * @return self
      */
     public function setDataType($data_type) : self
     {
@@ -274,8 +260,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets value_as_string
      *
      * @param string|null $value_as_string The value when the data type is string.
-     *
-     * @return self
      */
     public function setValueAsString($value_as_string) : self
     {
@@ -298,8 +282,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets value_as_boolean
      *
      * @param bool|null $value_as_boolean The value when the data type is boolean.
-     *
-     * @return self
      */
     public function setValueAsBoolean($value_as_boolean) : self
     {
@@ -322,8 +304,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets value_as_integer
      *
      * @param int|null $value_as_integer The value when the data type is integer.
-     *
-     * @return self
      */
     public function setValueAsInteger($value_as_integer) : self
     {
@@ -346,8 +326,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets value_as_timestamp
      *
      * @param \DateTimeInterface|null $value_as_timestamp Date-time formatted timestamp.
-     *
-     * @return self
      */
     public function setValueAsTimestamp($value_as_timestamp) : self
     {
@@ -370,8 +348,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets value_as_address
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Address|null $value_as_address value_as_address
-     *
-     * @return self
      */
     public function setValueAsAddress($value_as_address) : self
     {
@@ -394,8 +370,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets value_as_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Weight|null $value_as_weight value_as_weight
-     *
-     * @return self
      */
     public function setValueAsWeight($value_as_weight) : self
     {
@@ -418,8 +392,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets value_as_dimension
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Length|null $value_as_dimension value_as_dimension
-     *
-     * @return self
      */
     public function setValueAsDimension($value_as_dimension) : self
     {
@@ -442,8 +414,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets value_as_currency
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount|null $value_as_currency value_as_currency
-     *
-     * @return self
      */
     public function setValueAsCurrency($value_as_currency) : self
     {
@@ -453,8 +423,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -474,8 +442,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -488,8 +454,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -511,12 +475,10 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -524,8 +486,6 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
+class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -228,8 +216,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets seller_sku
      *
      * @param string $seller_sku The seller SKU of the item.
-     *
-     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -252,8 +238,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets seller_fulfillment_order_item_id
      *
      * @param string $seller_fulfillment_order_item_id The fulfillment order item identifier that the seller created and submitted with a call to the `createFulfillmentOrder` operation.
-     *
-     * @return self
      */
     public function setSellerFulfillmentOrderItemId($seller_fulfillment_order_item_id) : self
     {
@@ -276,8 +260,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets quantity
      *
      * @param int $quantity The item quantity.
-     *
-     * @return self
      */
     public function setQuantity($quantity) : self
     {
@@ -300,8 +282,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets package_number
      *
      * @param int|null $package_number An identifier for the package that contains the item quantity.
-     *
-     * @return self
      */
     public function setPackageNumber($package_number) : self
     {
@@ -324,8 +304,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets serial_number
      *
      * @param string|null $serial_number The serial number of the shipped item.
-     *
-     * @return self
      */
     public function setSerialNumber($serial_number) : self
     {
@@ -348,8 +326,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets manufacturer_lot_codes
      *
      * @param string[]|null $manufacturer_lot_codes String list
-     *
-     * @return self
      */
     public function setManufacturerLotCodes($manufacturer_lot_codes) : self
     {
@@ -359,8 +335,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -380,8 +354,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -394,8 +366,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -417,12 +387,10 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -430,8 +398,6 @@ class FulfillmentShipmentItem implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

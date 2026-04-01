@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -256,8 +244,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets purchase_order_number
      *
      * @param string $purchase_order_number The purchase order number for this order. Formatting Notes: alpha-numeric code.
-     *
-     * @return self
      */
     public function setPurchaseOrderNumber($purchase_order_number) : self
     {
@@ -280,8 +266,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets vendor_order_number
      *
      * @param string $vendor_order_number The vendor's order number for this order.
-     *
-     * @return self
      */
     public function setVendorOrderNumber($vendor_order_number) : self
     {
@@ -304,8 +288,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets acknowledgement_date
      *
      * @param \DateTimeInterface $acknowledgement_date The date and time when the order is acknowledged, in ISO-8601 date/time format. For example: 2018-07-16T23:00:00Z / 2018-07-16T23:00:00-05:00 / 2018-07-16T23:00:00-08:00.
-     *
-     * @return self
      */
     public function setAcknowledgementDate($acknowledgement_date) : self
     {
@@ -328,8 +310,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets acknowledgement_status
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\AcknowledgementStatus $acknowledgement_status acknowledgement_status
-     *
-     * @return self
      */
     public function setAcknowledgementStatus($acknowledgement_status) : self
     {
@@ -352,8 +332,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets selling_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\PartyIdentification $selling_party selling_party
-     *
-     * @return self
      */
     public function setSellingParty($selling_party) : self
     {
@@ -376,8 +354,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets ship_from_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\PartyIdentification $ship_from_party ship_from_party
-     *
-     * @return self
      */
     public function setShipFromParty($ship_from_party) : self
     {
@@ -400,8 +376,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets item_acknowledgements
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\OrderItemAcknowledgement[] $item_acknowledgements Item details including acknowledged quantity.
-     *
-     * @return self
      */
     public function setItemAcknowledgements($item_acknowledgements) : self
     {
@@ -411,8 +385,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -432,8 +404,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -446,8 +416,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -469,12 +437,10 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -482,8 +448,6 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

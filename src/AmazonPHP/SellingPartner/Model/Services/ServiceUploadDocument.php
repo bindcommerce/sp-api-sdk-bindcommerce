@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSerializable
+class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -231,7 +219,7 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new AssertionException("invalid value for 'content_length', must be bigger than or equal to 1.");
         }
 
-        if (!is_null($this->container['content_md5']) && !preg_match("/^[A-Za-z0-9\\\\+\/]{22}={2}$/", $this->container['content_md5'])) {
+        if (!is_null($this->container['content_md5']) && !preg_match("/^[A-Za-z0-9\\\\+\/]{22}={2}$/", (string) $this->container['content_md5'])) {
             throw new AssertionException("invalid value for 'content_md5', must be conform to the pattern /^[A-Za-z0-9\\\\+\/]{22}={2}$/.");
         }
 
@@ -252,8 +240,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets content_type
      *
      * @param string $content_type The content type of the to-be-uploaded file
-     *
-     * @return self
      */
     public function setContentType($content_type) : self
     {
@@ -276,8 +262,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets content_length
      *
      * @param float $content_length The content length of the to-be-uploaded file
-     *
-     * @return self
      */
     public function setContentLength($content_length) : self
     {
@@ -300,8 +284,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets content_md5
      *
      * @param string|null $content_md5 An MD5 hash of the content to be submitted to the upload destination. This value is used to determine if the data has been corrupted or tampered with during transit.
-     *
-     * @return self
      */
     public function setContentMd5($content_md5) : self
     {
@@ -311,8 +293,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -332,8 +312,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -346,8 +324,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -369,12 +345,10 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -382,8 +356,6 @@ class ServiceUploadDocument implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

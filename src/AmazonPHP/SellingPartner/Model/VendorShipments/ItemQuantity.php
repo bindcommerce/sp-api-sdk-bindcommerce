@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -242,8 +230,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets amount
      *
      * @param int $amount Amount of units shipped for a specific item at a shipment level. If the item is present only in certain cartons or pallets within the shipment, please provide this at the appropriate carton or pallet level.
-     *
-     * @return self
      */
     public function setAmount($amount) : self
     {
@@ -266,8 +252,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets unit_of_measure
      *
      * @param string $unit_of_measure Unit of measure for the shipped quantity.
-     *
-     * @return self
      */
     public function setUnitOfMeasure($unit_of_measure) : self
     {
@@ -290,8 +274,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets unit_size
      *
      * @param int|null $unit_size The case size, in the event that we ordered using cases. Otherwise, 1.
-     *
-     * @return self
      */
     public function setUnitSize($unit_size) : self
     {
@@ -314,8 +296,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets total_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\TotalWeight|null $total_weight total_weight
-     *
-     * @return self
      */
     public function setTotalWeight($total_weight) : self
     {
@@ -325,8 +305,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -346,8 +324,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -360,8 +336,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -383,12 +357,10 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -396,8 +368,6 @@ class ItemQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

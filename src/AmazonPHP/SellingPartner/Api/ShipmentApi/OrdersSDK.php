@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class OrdersSDK implements OrdersSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation updateShipmentStatus
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateShipmentStatusRequest $payload  The request body for the &#x60;updateShipmentStatus&#x60; operation. (required)
      *
@@ -142,13 +128,10 @@ final class OrdersSDK implements OrdersSDKInterface
     /**
      * Create request for operation 'updateShipmentStatus'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateShipmentStatusRequest $payload  The request body for the &#x60;updateShipmentStatus&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function updateShipmentStatusRequest(AccessToken $accessToken, string $region, $order_id, $payload) : RequestInterface
     {

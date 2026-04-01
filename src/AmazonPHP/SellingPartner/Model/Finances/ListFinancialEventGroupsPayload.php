@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \JsonSerializable
+class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -192,8 +180,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
      * Sets next_token
      *
      * @param string|null $next_token When present and not empty, pass this string token in the next request to return the next response page.
-     *
-     * @return self
      */
     public function setNextToken($next_token) : self
     {
@@ -216,8 +202,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
      * Sets financial_event_group_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\FinancialEventGroup[]|null $financial_event_group_list A list of financial event group information.
-     *
-     * @return self
      */
     public function setFinancialEventGroupList($financial_event_group_list) : self
     {
@@ -227,8 +211,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -248,8 +230,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -262,8 +242,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -285,12 +263,10 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -298,8 +274,6 @@ class ListFinancialEventGroupsPayload implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

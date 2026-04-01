@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
+class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -82,8 +82,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -92,8 +90,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -170,8 +166,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -180,8 +174,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -190,8 +182,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -200,8 +190,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -312,8 +300,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets rate_id
      *
      * @param string $rate_id An identifier for the rate (shipment offering) provided by a shipping service provider.
-     *
-     * @return self
      */
     public function setRateId($rate_id) : self
     {
@@ -336,8 +322,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets carrier_id
      *
      * @param string $carrier_id The carrier identifier for the offering, provided by the carrier.
-     *
-     * @return self
      */
     public function setCarrierId($carrier_id) : self
     {
@@ -360,8 +344,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets carrier_name
      *
      * @param string $carrier_name The carrier name for the offering.
-     *
-     * @return self
      */
     public function setCarrierName($carrier_name) : self
     {
@@ -384,8 +366,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets service_id
      *
      * @param string $service_id An identifier for the shipping service.
-     *
-     * @return self
      */
     public function setServiceId($service_id) : self
     {
@@ -408,8 +388,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets service_name
      *
      * @param string $service_name The name of the shipping service.
-     *
-     * @return self
      */
     public function setServiceName($service_name) : self
     {
@@ -432,8 +410,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets billed_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Weight|null $billed_weight billed_weight
-     *
-     * @return self
      */
     public function setBilledWeight($billed_weight) : self
     {
@@ -456,8 +432,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets total_charge
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Currency $total_charge total_charge
-     *
-     * @return self
      */
     public function setTotalCharge($total_charge) : self
     {
@@ -480,8 +454,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets promise
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Promise $promise promise
-     *
-     * @return self
      */
     public function setPromise($promise) : self
     {
@@ -504,8 +476,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets supported_document_specifications
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\SupportedDocumentSpecification[] $supported_document_specifications A list of the document specifications supported for a shipment service offering.
-     *
-     * @return self
      */
     public function setSupportedDocumentSpecifications($supported_document_specifications) : self
     {
@@ -528,8 +498,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets available_value_added_service_groups
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\AvailableValueAddedServiceGroup[]|null $available_value_added_service_groups A list of value-added services available for a shipping service offering.
-     *
-     * @return self
      */
     public function setAvailableValueAddedServiceGroups($available_value_added_service_groups) : self
     {
@@ -552,8 +520,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets requires_additional_inputs
      *
      * @param bool $requires_additional_inputs When true, indicates that additional inputs are required to purchase this shipment service. You must then call the getAdditionalInputs operation to return the JSON schema to use when providing the additional inputs to the purchaseShipment operation.
-     *
-     * @return self
      */
     public function setRequiresAdditionalInputs($requires_additional_inputs) : self
     {
@@ -576,8 +542,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets rate_item_list
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\RateItem[]|null $rate_item_list A list of RateItem
-     *
-     * @return self
      */
     public function setRateItemList($rate_item_list) : self
     {
@@ -600,8 +564,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets payment_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\PaymentType|null $payment_type payment_type
-     *
-     * @return self
      */
     public function setPaymentType($payment_type) : self
     {
@@ -624,8 +586,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets benefits
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Benefits|null $benefits benefits
-     *
-     * @return self
      */
     public function setBenefits($benefits) : self
     {
@@ -635,8 +595,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -656,8 +614,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -670,8 +626,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -693,12 +647,10 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -706,8 +658,6 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

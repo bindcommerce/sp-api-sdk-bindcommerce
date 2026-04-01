@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
+class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -250,8 +238,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets marketplace_id
      *
      * @param string $marketplace_id A marketplace identifier. Identifies the Amazon marketplace where the restriction is enforced.
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -274,8 +260,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets condition_type
      *
      * @param string|null $condition_type The condition that applies to the restriction.
-     *
-     * @return self
      */
     public function setConditionType($condition_type) : self
     {
@@ -298,8 +282,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets reasons
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsRestrictions\Reason[]|null $reasons A list of reasons for the restriction.
-     *
-     * @return self
      */
     public function setReasons($reasons) : self
     {
@@ -309,8 +291,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -330,8 +310,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -344,8 +322,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -367,12 +343,10 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -380,8 +354,6 @@ class Restriction implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

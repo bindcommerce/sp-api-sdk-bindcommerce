@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
+class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -72,8 +72,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -82,8 +80,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -145,8 +141,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -155,8 +149,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -165,8 +157,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -175,8 +165,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -260,8 +248,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets condition
      *
      * @param string $condition Indicates the condition of the item. For example: New, Used, Collectible, Refurbished, or Club.
-     *
-     * @return self
      */
     public function setCondition($condition) : self
     {
@@ -284,8 +270,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets offer_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\OfferCustomerType|null $offer_type offer_type
-     *
-     * @return self
      */
     public function setOfferType($offer_type) : self
     {
@@ -308,8 +292,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets quantity_tier
      *
      * @param int|null $quantity_tier Indicates at what quantity this price becomes active.
-     *
-     * @return self
      */
     public function setQuantityTier($quantity_tier) : self
     {
@@ -332,8 +314,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets quantity_discount_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\QuantityDiscountType|null $quantity_discount_type quantity_discount_type
-     *
-     * @return self
      */
     public function setQuantityDiscountType($quantity_discount_type) : self
     {
@@ -356,8 +336,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets landed_price
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $landed_price landed_price
-     *
-     * @return self
      */
     public function setLandedPrice($landed_price) : self
     {
@@ -380,8 +358,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets listing_price
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $listing_price listing_price
-     *
-     * @return self
      */
     public function setListingPrice($listing_price) : self
     {
@@ -404,8 +380,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $shipping shipping
-     *
-     * @return self
      */
     public function setShipping($shipping) : self
     {
@@ -428,8 +402,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets points
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\Points|null $points points
-     *
-     * @return self
      */
     public function setPoints($points) : self
     {
@@ -452,8 +424,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets seller_id
      *
      * @param string|null $seller_id The seller identifier for the offer.
-     *
-     * @return self
      */
     public function setSellerId($seller_id) : self
     {
@@ -463,8 +433,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -484,8 +452,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -498,8 +464,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -521,12 +485,10 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -534,8 +496,6 @@ class BuyBoxPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

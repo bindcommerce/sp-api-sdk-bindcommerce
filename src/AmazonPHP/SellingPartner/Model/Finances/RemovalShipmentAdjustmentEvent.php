@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -216,8 +204,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -240,8 +226,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
      * Sets adjustment_event_id
      *
      * @param string|null $adjustment_event_id The unique identifier for the adjustment event.
-     *
-     * @return self
      */
     public function setAdjustmentEventId($adjustment_event_id) : self
     {
@@ -264,8 +248,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
      * Sets merchant_order_id
      *
      * @param string|null $merchant_order_id The merchant removal orderId.
-     *
-     * @return self
      */
     public function setMerchantOrderId($merchant_order_id) : self
     {
@@ -288,8 +270,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
      * Sets order_id
      *
      * @param string|null $order_id The orderId for shipping inventory.
-     *
-     * @return self
      */
     public function setOrderId($order_id) : self
     {
@@ -312,8 +292,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
      * Sets transaction_type
      *
      * @param string|null $transaction_type The type of removal order.  Possible values:  * `WHOLESALE_LIQUIDATION`.
-     *
-     * @return self
      */
     public function setTransactionType($transaction_type) : self
     {
@@ -336,8 +314,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
      * Sets removal_shipment_item_adjustment_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\RemovalShipmentItemAdjustment[]|null $removal_shipment_item_adjustment_list A comma-delimited list of `RemovalShipmentItemAdjustment` details for FBA inventory.
-     *
-     * @return self
      */
     public function setRemovalShipmentItemAdjustmentList($removal_shipment_item_adjustment_list) : self
     {
@@ -347,8 +323,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -368,8 +342,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -382,8 +354,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -405,12 +375,10 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -418,8 +386,6 @@ class RemovalShipmentAdjustmentEvent implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

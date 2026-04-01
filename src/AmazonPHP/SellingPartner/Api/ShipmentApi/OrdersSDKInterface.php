@@ -25,16 +25,14 @@ interface OrdersSDKInterface
     public const OPERATION_UPDATESHIPMENTSTATUS_PATH = '/orders/v0/orders/{orderId}/shipment';
 
     /**
-    * Operation updateShipmentStatus
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
-    * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateShipmentStatusRequest $payload  The request body for the &#x60;updateShipmentStatus&#x60; operation. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return null
-    */
+     * Operation updateShipmentStatus
+     *
+     * @param string $order_id  An Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateShipmentStatusRequest $payload  The request body for the &#x60;updateShipmentStatus&#x60; operation. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return null
+     */
     public function updateShipmentStatus(AccessToken $accessToken, string $region, $order_id, $payload);
 }

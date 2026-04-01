@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -218,8 +206,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
      * Sets client_reference_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ClientReferenceDetail[]|null $client_reference_details Object to pass additional information about the MCI Integrator shipperType: List of ClientReferenceDetail
-     *
-     * @return self
      */
     public function setClientReferenceDetails($client_reference_details) : self
     {
@@ -242,8 +228,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
      * Sets max_results
      *
      * @param int|null $max_results max Number of Results for query .
-     *
-     * @return self
      */
     public function setMaxResults($max_results) : self
     {
@@ -266,8 +250,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
      * Sets carrier_id
      *
      * @param string|null $carrier_id The carrier identifier for the offering, provided by the carrier.
-     *
-     * @return self
      */
     public function setCarrierId($carrier_id) : self
     {
@@ -290,8 +272,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
      * Sets ship_from_address
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Address|null $ship_from_address ship_from_address
-     *
-     * @return self
      */
     public function setShipFromAddress($ship_from_address) : self
     {
@@ -314,8 +294,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
      * Sets date_range
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DateRange|null $date_range date_range
-     *
-     * @return self
      */
     public function setDateRange($date_range) : self
     {
@@ -325,8 +303,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -346,8 +322,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -360,8 +334,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -383,12 +355,10 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -396,8 +366,6 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -74,8 +74,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -84,8 +82,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -150,8 +146,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -160,8 +154,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -170,8 +162,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -180,8 +170,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -338,8 +326,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets meta_schema
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductTypesDefinitions\SchemaLink|null $meta_schema meta_schema
-     *
-     * @return self
      */
     public function setMetaSchema($meta_schema) : self
     {
@@ -362,8 +348,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets schema
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductTypesDefinitions\SchemaLink $schema schema
-     *
-     * @return self
      */
     public function setSchema($schema) : self
     {
@@ -386,8 +370,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets requirements
      *
      * @param string $requirements Name of the requirements set represented in this product type definition.
-     *
-     * @return self
      */
     public function setRequirements($requirements) : self
     {
@@ -410,8 +392,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets requirements_enforced
      *
      * @param string $requirements_enforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all of the required attributes being present (such as for partial updates).
-     *
-     * @return self
      */
     public function setRequirementsEnforced($requirements_enforced) : self
     {
@@ -434,8 +414,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets property_groups
      *
      * @param array<string,\AmazonPHP\SellingPartner\Model\ProductTypesDefinitions\PropertyGroup> $property_groups Mapping of property group names to property groups. Property groups represent logical groupings of schema properties that can be used for display or informational purposes.
-     *
-     * @return self
      */
     public function setPropertyGroups($property_groups) : self
     {
@@ -458,8 +436,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets locale
      *
      * @param string $locale Locale of the display elements contained in the product type definition.
-     *
-     * @return self
      */
     public function setLocale($locale) : self
     {
@@ -482,8 +458,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets marketplace_ids
      *
      * @param string[] $marketplace_ids Amazon marketplace identifiers for which the product type definition is applicable.
-     *
-     * @return self
      */
     public function setMarketplaceIds($marketplace_ids) : self
     {
@@ -506,8 +480,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets product_type
      *
      * @param string $product_type The name of the Amazon product type that this product type definition applies to.
-     *
-     * @return self
      */
     public function setProductType($product_type) : self
     {
@@ -530,8 +502,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets display_name
      *
      * @param string $display_name Human-readable and localized description of the Amazon product type.
-     *
-     * @return self
      */
     public function setDisplayName($display_name) : self
     {
@@ -554,8 +524,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets product_type_version
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductTypesDefinitions\ProductTypeVersion $product_type_version product_type_version
-     *
-     * @return self
      */
     public function setProductTypeVersion($product_type_version) : self
     {
@@ -565,8 +533,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -586,8 +552,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -600,8 +564,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -623,12 +585,10 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -636,8 +596,6 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -214,8 +202,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets asin
      *
      * @param string|null $asin Amazon Standard Identification Number of the substitute product.
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -238,8 +224,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets quantity_ordered
      *
      * @param int|null $quantity_ordered Number of units of the substitute item to be selected if substitution occurs.
-     *
-     * @return self
      */
     public function setQuantityOrdered($quantity_ordered) : self
     {
@@ -262,8 +246,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets seller_sku
      *
      * @param string|null $seller_sku The item's seller stock keeping unit (SKU).
-     *
-     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -286,8 +268,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets title
      *
      * @param string|null $title Product name or title of the substitute item as displayed to customers.
-     *
-     * @return self
      */
     public function setTitle($title) : self
     {
@@ -310,8 +290,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets measurement
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Measurement|null $measurement measurement
-     *
-     * @return self
      */
     public function setMeasurement($measurement) : self
     {
@@ -321,8 +299,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -342,8 +318,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -356,8 +330,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -379,12 +351,10 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -392,8 +362,6 @@ class ItemSubstitutionOption implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

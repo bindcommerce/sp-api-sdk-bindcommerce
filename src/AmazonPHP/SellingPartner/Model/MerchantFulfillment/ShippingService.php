@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
+class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -86,8 +86,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -96,8 +94,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -180,8 +176,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -190,8 +184,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -200,8 +192,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -210,8 +200,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -301,10 +289,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
             $this->container['available_shipping_service_options']->validate();
             }
 
-        if ($this->container['requires_additional_seller_inputs'] === null) {
-            throw new AssertionException("'requires_additional_seller_inputs' can't be null");
-        }
-
             if ($this->container['benefits'] !== null) {
             $this->container['benefits']->validate();
             }
@@ -326,8 +310,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_service_name
      *
      * @param string $shipping_service_name A plain text representation of a carrier's shipping service. For example, \"UPS Ground\" or \"FedEx Standard Overnight\".
-     *
-     * @return self
      */
     public function setShippingServiceName($shipping_service_name) : self
     {
@@ -350,8 +332,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets carrier_name
      *
      * @param string $carrier_name The name of the carrier.
-     *
-     * @return self
      */
     public function setCarrierName($carrier_name) : self
     {
@@ -374,8 +354,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_service_id
      *
      * @param string $shipping_service_id An Amazon-defined shipping service identifier.
-     *
-     * @return self
      */
     public function setShippingServiceId($shipping_service_id) : self
     {
@@ -398,8 +376,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_service_offer_id
      *
      * @param string $shipping_service_offer_id An Amazon-defined shipping service offer identifier.
-     *
-     * @return self
      */
     public function setShippingServiceOfferId($shipping_service_offer_id) : self
     {
@@ -422,8 +398,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_date
      *
      * @param \DateTimeInterface $ship_date Date-time formatted timestamp.
-     *
-     * @return self
      */
     public function setShipDate($ship_date) : self
     {
@@ -446,8 +420,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets earliest_estimated_delivery_date
      *
      * @param \DateTimeInterface|null $earliest_estimated_delivery_date Date-time formatted timestamp.
-     *
-     * @return self
      */
     public function setEarliestEstimatedDeliveryDate($earliest_estimated_delivery_date) : self
     {
@@ -470,8 +442,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets latest_estimated_delivery_date
      *
      * @param \DateTimeInterface|null $latest_estimated_delivery_date Date-time formatted timestamp.
-     *
-     * @return self
      */
     public function setLatestEstimatedDeliveryDate($latest_estimated_delivery_date) : self
     {
@@ -494,8 +464,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets rate
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount $rate rate
-     *
-     * @return self
      */
     public function setRate($rate) : self
     {
@@ -518,8 +486,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets rate_with_adjustments
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount $rate_with_adjustments rate_with_adjustments
-     *
-     * @return self
      */
     public function setRateWithAdjustments($rate_with_adjustments) : self
     {
@@ -542,8 +508,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets adjustment_item_list
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\RateItem[]|null $adjustment_item_list List of adjustments.
-     *
-     * @return self
      */
     public function setAdjustmentItemList($adjustment_item_list) : self
     {
@@ -566,8 +530,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_service_options
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\ShippingServiceOptions $shipping_service_options shipping_service_options
-     *
-     * @return self
      */
     public function setShippingServiceOptions($shipping_service_options) : self
     {
@@ -590,8 +552,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets available_shipping_service_options
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\AvailableShippingServiceOptions|null $available_shipping_service_options available_shipping_service_options
-     *
-     * @return self
      */
     public function setAvailableShippingServiceOptions($available_shipping_service_options) : self
     {
@@ -614,8 +574,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets available_label_formats
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormat[]|null $available_label_formats List of label formats.
-     *
-     * @return self
      */
     public function setAvailableLabelFormats($available_label_formats) : self
     {
@@ -638,8 +596,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets available_format_options_for_label
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\LabelFormatOption[]|null $available_format_options_for_label The available label formats.
-     *
-     * @return self
      */
     public function setAvailableFormatOptionsForLabel($available_format_options_for_label) : self
     {
@@ -651,7 +607,7 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets requires_additional_seller_inputs
      *
-     * @return bool
+     * @return bool|null
      */
     public function getRequiresAdditionalSellerInputs()
     {
@@ -661,9 +617,7 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets requires_additional_seller_inputs
      *
-     * @param bool $requires_additional_seller_inputs When true, additional seller inputs are required.
-     *
-     * @return self
+     * @param bool|null $requires_additional_seller_inputs When true, additional seller inputs are required.
      */
     public function setRequiresAdditionalSellerInputs($requires_additional_seller_inputs) : self
     {
@@ -686,8 +640,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets benefits
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Benefits|null $benefits benefits
-     *
-     * @return self
      */
     public function setBenefits($benefits) : self
     {
@@ -697,8 +649,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -718,8 +668,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -732,8 +680,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -755,12 +701,10 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -768,8 +712,6 @@ class ShippingService implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

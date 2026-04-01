@@ -24,22 +24,19 @@ class AssociationType
      */
     const VALUE_ADD_SERVICE = 'VALUE_ADD_SERVICE';
 
-    private string $value;
-
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
         return [
             self::VALUE_ADD_SERVICE
         ];
     }
 
-    public function __construct(string $value)
+    public function __construct(private readonly string $value)
     {
-        $this->value = $value;
     }
 
     public function toString(): string

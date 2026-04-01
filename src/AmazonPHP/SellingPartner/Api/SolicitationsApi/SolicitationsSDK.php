@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class SolicitationsSDK implements SolicitationsSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation createProductReviewAndSellerFeedbackSolicitation
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $amazon_order_id  An Amazon order identifier. This specifies the order for which a solicitation is sent. (required)
      * @param string[] $marketplace_ids  A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      *
@@ -147,13 +133,10 @@ final class SolicitationsSDK implements SolicitationsSDKInterface
     /**
      * Create request for operation 'createProductReviewAndSellerFeedbackSolicitation'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $amazon_order_id  An Amazon order identifier. This specifies the order for which a solicitation is sent. (required)
      * @param string[] $marketplace_ids  A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function createProductReviewAndSellerFeedbackSolicitationRequest(AccessToken $accessToken, string $region, $amazon_order_id, $marketplace_ids) : RequestInterface
     {
@@ -262,8 +245,6 @@ final class SolicitationsSDK implements SolicitationsSDKInterface
     /**
      * Operation getSolicitationActionsForOrder
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $amazon_order_id  An Amazon order identifier. This specifies the order for which you want a list of available solicitation types. (required)
      * @param string[] $marketplace_ids  A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      *
@@ -363,13 +344,10 @@ final class SolicitationsSDK implements SolicitationsSDKInterface
     /**
      * Create request for operation 'getSolicitationActionsForOrder'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $amazon_order_id  An Amazon order identifier. This specifies the order for which you want a list of available solicitation types. (required)
      * @param string[] $marketplace_ids  A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getSolicitationActionsForOrderRequest(AccessToken $accessToken, string $region, $amazon_order_id, $marketplace_ids) : RequestInterface
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -216,8 +204,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
      * Sets website_display_group
      *
      * @param string $website_display_group Name of the website display group that is associated with the sales rank
-     *
-     * @return self
      */
     public function setWebsiteDisplayGroup($website_display_group) : self
     {
@@ -240,8 +226,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
      * Sets title
      *
      * @param string $title Name of the sales rank.
-     *
-     * @return self
      */
     public function setTitle($title) : self
     {
@@ -264,8 +248,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
      * Sets link
      *
      * @param string|null $link Corresponding Amazon retail website URL for the sales rank.
-     *
-     * @return self
      */
     public function setLink($link) : self
     {
@@ -288,8 +270,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
      * Sets rank
      *
      * @param int $rank Sales rank.
-     *
-     * @return self
      */
     public function setRank($rank) : self
     {
@@ -299,8 +279,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -320,8 +298,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -334,8 +310,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -357,12 +331,10 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -370,8 +342,6 @@ class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

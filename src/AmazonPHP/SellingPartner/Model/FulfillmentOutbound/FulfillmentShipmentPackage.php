@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSerializable
+class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -238,8 +226,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
      * Sets package_number
      *
      * @param int $package_number Identifies a package in a shipment.
-     *
-     * @return self
      */
     public function setPackageNumber($package_number) : self
     {
@@ -262,8 +248,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
      * Sets carrier_code
      *
      * @param string $carrier_code Identifies the carrier who will deliver the shipment to the recipient.
-     *
-     * @return self
      */
     public function setCarrierCode($carrier_code) : self
     {
@@ -286,8 +270,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
      * Sets tracking_number
      *
      * @param string|null $tracking_number The tracking number, if provided, can be used to obtain tracking and delivery information.
-     *
-     * @return self
      */
     public function setTrackingNumber($tracking_number) : self
     {
@@ -310,8 +292,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
      * Sets amazon_fulfillment_tracking_number
      *
      * @param string|null $amazon_fulfillment_tracking_number The Amazon fulfillment tracking number, if provided, can be used to obtain tracking and delivery information.
-     *
-     * @return self
      */
     public function setAmazonFulfillmentTrackingNumber($amazon_fulfillment_tracking_number) : self
     {
@@ -334,8 +314,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
      * Sets estimated_arrival_date
      *
      * @param \DateTimeInterface|null $estimated_arrival_date Date timestamp
-     *
-     * @return self
      */
     public function setEstimatedArrivalDate($estimated_arrival_date) : self
     {
@@ -358,8 +336,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
      * Sets locker_details
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\LockerDetails|null $locker_details locker_details
-     *
-     * @return self
      */
     public function setLockerDetails($locker_details) : self
     {
@@ -382,8 +358,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
      * Sets delivery_information
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\DeliveryInformation|null $delivery_information delivery_information
-     *
-     * @return self
      */
     public function setDeliveryInformation($delivery_information) : self
     {
@@ -393,8 +367,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -414,8 +386,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -428,8 +398,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -451,12 +419,10 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -464,8 +430,6 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

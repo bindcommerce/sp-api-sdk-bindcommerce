@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -84,8 +84,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -94,8 +92,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -175,8 +171,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -185,8 +179,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -195,8 +187,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -205,8 +195,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -282,8 +270,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets package_number
      *
      * @param int $package_number The package identifier.
-     *
-     * @return self
      */
     public function setPackageNumber($package_number) : self
     {
@@ -306,8 +292,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets tracking_number
      *
      * @param string|null $tracking_number The tracking number for the package.
-     *
-     * @return self
      */
     public function setTrackingNumber($tracking_number) : self
     {
@@ -330,8 +314,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets customer_tracking_link
      *
      * @param string|null $customer_tracking_link Link on swiship.com that allows customers to track the package.
-     *
-     * @return self
      */
     public function setCustomerTrackingLink($customer_tracking_link) : self
     {
@@ -354,8 +336,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets carrier_code
      *
      * @param string|null $carrier_code The name of the carrier.
-     *
-     * @return self
      */
     public function setCarrierCode($carrier_code) : self
     {
@@ -378,8 +358,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets carrier_phone_number
      *
      * @param string|null $carrier_phone_number The phone number of the carrier.
-     *
-     * @return self
      */
     public function setCarrierPhoneNumber($carrier_phone_number) : self
     {
@@ -402,8 +380,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets carrier_url
      *
      * @param string|null $carrier_url The URL of the carrier's website.
-     *
-     * @return self
      */
     public function setCarrierUrl($carrier_url) : self
     {
@@ -426,8 +402,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets ship_date
      *
      * @param \DateTimeInterface|null $ship_date Date timestamp
-     *
-     * @return self
      */
     public function setShipDate($ship_date) : self
     {
@@ -450,8 +424,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets estimated_arrival_date
      *
      * @param \DateTimeInterface|null $estimated_arrival_date Date timestamp
-     *
-     * @return self
      */
     public function setEstimatedArrivalDate($estimated_arrival_date) : self
     {
@@ -474,8 +446,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets ship_to_address
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\TrackingAddress|null $ship_to_address ship_to_address
-     *
-     * @return self
      */
     public function setShipToAddress($ship_to_address) : self
     {
@@ -498,8 +468,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets current_status
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CurrentStatus|null $current_status current_status
-     *
-     * @return self
      */
     public function setCurrentStatus($current_status) : self
     {
@@ -522,8 +490,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets current_status_description
      *
      * @param string|null $current_status_description Description corresponding to the `CurrentStatus` value.
-     *
-     * @return self
      */
     public function setCurrentStatusDescription($current_status_description) : self
     {
@@ -546,8 +512,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets delivery_window
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\DateRange|null $delivery_window delivery_window
-     *
-     * @return self
      */
     public function setDeliveryWindow($delivery_window) : self
     {
@@ -570,8 +534,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets signed_for_by
      *
      * @param string|null $signed_for_by The name of the person who signed for the package.
-     *
-     * @return self
      */
     public function setSignedForBy($signed_for_by) : self
     {
@@ -594,8 +556,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets additional_location_info
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\AdditionalLocationInfo|null $additional_location_info additional_location_info
-     *
-     * @return self
      */
     public function setAdditionalLocationInfo($additional_location_info) : self
     {
@@ -618,8 +578,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets tracking_events
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\TrackingEvent[]|null $tracking_events An array of tracking event information.
-     *
-     * @return self
      */
     public function setTrackingEvents($tracking_events) : self
     {
@@ -629,8 +587,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -650,8 +606,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -664,8 +618,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -687,12 +639,10 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -700,8 +650,6 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

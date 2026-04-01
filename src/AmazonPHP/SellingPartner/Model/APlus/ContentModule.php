@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
+class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -86,8 +86,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -96,8 +94,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -180,8 +176,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -190,8 +184,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -200,8 +192,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -210,8 +200,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -340,8 +328,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets content_module_type
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ContentModuleType $content_module_type content_module_type
-     *
-     * @return self
      */
     public function setContentModuleType($content_module_type) : self
     {
@@ -364,8 +350,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_company_logo
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardCompanyLogoModule|null $standard_company_logo standard_company_logo
-     *
-     * @return self
      */
     public function setStandardCompanyLogo($standard_company_logo) : self
     {
@@ -388,8 +372,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_comparison_table
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardComparisonTableModule|null $standard_comparison_table standard_comparison_table
-     *
-     * @return self
      */
     public function setStandardComparisonTable($standard_comparison_table) : self
     {
@@ -412,8 +394,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_four_image_text
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardFourImageTextModule|null $standard_four_image_text standard_four_image_text
-     *
-     * @return self
      */
     public function setStandardFourImageText($standard_four_image_text) : self
     {
@@ -436,8 +416,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_four_image_text_quadrant
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardFourImageTextQuadrantModule|null $standard_four_image_text_quadrant standard_four_image_text_quadrant
-     *
-     * @return self
      */
     public function setStandardFourImageTextQuadrant($standard_four_image_text_quadrant) : self
     {
@@ -460,8 +438,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_header_image_text
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardHeaderImageTextModule|null $standard_header_image_text standard_header_image_text
-     *
-     * @return self
      */
     public function setStandardHeaderImageText($standard_header_image_text) : self
     {
@@ -484,8 +460,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_image_sidebar
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageSidebarModule|null $standard_image_sidebar standard_image_sidebar
-     *
-     * @return self
      */
     public function setStandardImageSidebar($standard_image_sidebar) : self
     {
@@ -508,8 +482,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_image_text_overlay
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageTextOverlayModule|null $standard_image_text_overlay standard_image_text_overlay
-     *
-     * @return self
      */
     public function setStandardImageTextOverlay($standard_image_text_overlay) : self
     {
@@ -532,8 +504,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_multiple_image_text
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardMultipleImageTextModule|null $standard_multiple_image_text standard_multiple_image_text
-     *
-     * @return self
      */
     public function setStandardMultipleImageText($standard_multiple_image_text) : self
     {
@@ -556,8 +526,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_product_description
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardProductDescriptionModule|null $standard_product_description standard_product_description
-     *
-     * @return self
      */
     public function setStandardProductDescription($standard_product_description) : self
     {
@@ -580,8 +548,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_single_image_highlights
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardSingleImageHighlightsModule|null $standard_single_image_highlights standard_single_image_highlights
-     *
-     * @return self
      */
     public function setStandardSingleImageHighlights($standard_single_image_highlights) : self
     {
@@ -604,8 +570,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_single_image_specs_detail
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardSingleImageSpecsDetailModule|null $standard_single_image_specs_detail standard_single_image_specs_detail
-     *
-     * @return self
      */
     public function setStandardSingleImageSpecsDetail($standard_single_image_specs_detail) : self
     {
@@ -628,8 +592,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_single_side_image
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardSingleSideImageModule|null $standard_single_side_image standard_single_side_image
-     *
-     * @return self
      */
     public function setStandardSingleSideImage($standard_single_side_image) : self
     {
@@ -652,8 +614,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_tech_specs
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTechSpecsModule|null $standard_tech_specs standard_tech_specs
-     *
-     * @return self
      */
     public function setStandardTechSpecs($standard_tech_specs) : self
     {
@@ -676,8 +636,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_text
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextModule|null $standard_text standard_text
-     *
-     * @return self
      */
     public function setStandardText($standard_text) : self
     {
@@ -700,8 +658,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_three_image_text
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardThreeImageTextModule|null $standard_three_image_text standard_three_image_text
-     *
-     * @return self
      */
     public function setStandardThreeImageText($standard_three_image_text) : self
     {
@@ -711,8 +667,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -732,8 +686,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -746,8 +698,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -769,12 +719,10 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -782,8 +730,6 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

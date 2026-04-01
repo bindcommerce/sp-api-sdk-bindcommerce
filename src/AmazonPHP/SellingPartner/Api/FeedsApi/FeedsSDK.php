@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class FeedsSDK implements FeedsSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation cancelFeed
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $feed_id  The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws ApiException on non-2xx response
@@ -141,12 +127,9 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Create request for operation 'cancelFeed'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $feed_id  The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function cancelFeedRequest(AccessToken $accessToken, string $region, $feed_id) : RequestInterface
     {
@@ -238,8 +221,6 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation createFeed
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body  Information required to create the feed. (required)
      *
      * @throws ApiException on non-2xx response
@@ -338,12 +319,9 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Create request for operation 'createFeed'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedSpecification $body  Information required to create the feed. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function createFeedRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -435,8 +413,6 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation createFeedDocument
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body  Specifies the content type for the createFeedDocument operation. (required)
      *
      * @throws ApiException on non-2xx response
@@ -535,12 +511,9 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Create request for operation 'createFeedDocument'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Feeds\CreateFeedDocumentSpecification $body  Specifies the content type for the createFeedDocument operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function createFeedDocumentRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -632,8 +605,6 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation getFeed
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $feed_id  The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws ApiException on non-2xx response
@@ -732,12 +703,9 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Create request for operation 'getFeed'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $feed_id  The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getFeedRequest(AccessToken $accessToken, string $region, $feed_id) : RequestInterface
     {
@@ -829,8 +797,6 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation getFeedDocument
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $feed_document_id  The identifier of the feed document. (required)
      *
      * @throws ApiException on non-2xx response
@@ -929,12 +895,9 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Create request for operation 'getFeedDocument'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $feed_document_id  The identifier of the feed document. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getFeedDocumentRequest(AccessToken $accessToken, string $region, $feed_document_id) : RequestInterface
     {
@@ -1026,8 +989,6 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Operation getFeeds
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string[]|null $feed_types  A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
      * @param string[]|null $marketplace_ids  A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
      * @param int|null $page_size  The maximum number of feeds to return in a single call. (optional, default to 10)
@@ -1132,8 +1093,6 @@ final class FeedsSDK implements FeedsSDKInterface
     /**
      * Create request for operation 'getFeeds'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string[]|null $feed_types  A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
      * @param string[]|null $marketplace_ids  A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
      * @param int $page_size  The maximum number of feeds to return in a single call. (optional, default to 10)
@@ -1143,7 +1102,6 @@ final class FeedsSDK implements FeedsSDKInterface
      * @param string|null $next_token  A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getFeedsRequest(AccessToken $accessToken, string $region, $feed_types = null, $marketplace_ids = null, $page_size = 10, $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null) : RequestInterface
     {

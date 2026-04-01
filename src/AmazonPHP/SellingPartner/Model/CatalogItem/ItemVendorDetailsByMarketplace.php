@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,8 +70,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,8 +78,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -140,8 +136,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -150,8 +144,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -160,8 +152,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -170,8 +160,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -282,8 +270,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
      * Sets marketplace_id
      *
      * @param string $marketplace_id Amazon marketplace identifier. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -306,8 +292,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
      * Sets brand_code
      *
      * @param string|null $brand_code The brand code that is associated with an Amazon catalog item.
-     *
-     * @return self
      */
     public function setBrandCode($brand_code) : self
     {
@@ -330,8 +314,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
      * Sets manufacturer_code
      *
      * @param string|null $manufacturer_code The manufacturer code that is associated with an Amazon catalog item.
-     *
-     * @return self
      */
     public function setManufacturerCode($manufacturer_code) : self
     {
@@ -354,8 +336,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
      * Sets manufacturer_code_parent
      *
      * @param string|null $manufacturer_code_parent The parent vendor code of the manufacturer code.
-     *
-     * @return self
      */
     public function setManufacturerCodeParent($manufacturer_code_parent) : self
     {
@@ -378,8 +358,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
      * Sets product_category
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemVendorDetailsCategory|null $product_category product_category
-     *
-     * @return self
      */
     public function setProductCategory($product_category) : self
     {
@@ -402,8 +380,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
      * Sets product_group
      *
      * @param string|null $product_group The product group that is associated with an Amazon catalog item.
-     *
-     * @return self
      */
     public function setProductGroup($product_group) : self
     {
@@ -426,8 +402,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
      * Sets product_subcategory
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemVendorDetailsCategory|null $product_subcategory product_subcategory
-     *
-     * @return self
      */
     public function setProductSubcategory($product_subcategory) : self
     {
@@ -450,8 +424,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
      * Sets replenishment_category
      *
      * @param string|null $replenishment_category The replenishment category that is associated with an Amazon catalog item.
-     *
-     * @return self
      */
     public function setReplenishmentCategory($replenishment_category) : self
     {
@@ -461,8 +433,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -482,8 +452,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -496,8 +464,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -519,12 +485,10 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -532,8 +496,6 @@ class ItemVendorDetailsByMarketplace implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

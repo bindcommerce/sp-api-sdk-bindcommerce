@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Item implements ModelInterface, ArrayAccess, \JsonSerializable
+class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -72,8 +72,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -82,8 +80,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -145,8 +141,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -155,8 +149,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -165,8 +157,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -175,8 +165,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -254,8 +242,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets order_item_id
      *
      * @param string $order_item_id An Amazon-defined identifier for an individual item in an order.
-     *
-     * @return self
      */
     public function setOrderItemId($order_item_id) : self
     {
@@ -278,8 +264,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets quantity
      *
      * @param int $quantity The number of items.
-     *
-     * @return self
      */
     public function setQuantity($quantity) : self
     {
@@ -302,8 +286,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Weight|null $item_weight item_weight
-     *
-     * @return self
      */
     public function setItemWeight($item_weight) : self
     {
@@ -326,8 +308,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_description
      *
      * @param string|null $item_description The description of the item.
-     *
-     * @return self
      */
     public function setItemDescription($item_description) : self
     {
@@ -350,8 +330,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets transparency_code_list
      *
      * @param string[]|null $transparency_code_list A list of transparency codes.
-     *
-     * @return self
      */
     public function setTransparencyCodeList($transparency_code_list) : self
     {
@@ -374,8 +352,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_level_seller_inputs_list
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\AdditionalSellerInputs[]|null $item_level_seller_inputs_list A list of additional seller input pairs required to purchase shipping.
-     *
-     * @return self
      */
     public function setItemLevelSellerInputsList($item_level_seller_inputs_list) : self
     {
@@ -398,8 +374,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets liquid_volume
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\LiquidVolume|null $liquid_volume liquid_volume
-     *
-     * @return self
      */
     public function setLiquidVolume($liquid_volume) : self
     {
@@ -422,8 +396,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets is_hazmat
      *
      * @param bool|null $is_hazmat When true, the item qualifies as hazardous materials (hazmat). Defaults to false.
-     *
-     * @return self
      */
     public function setIsHazmat($is_hazmat) : self
     {
@@ -446,8 +418,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets dangerous_goods_details
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\DangerousGoodsDetails|null $dangerous_goods_details dangerous_goods_details
-     *
-     * @return self
      */
     public function setDangerousGoodsDetails($dangerous_goods_details) : self
     {
@@ -457,8 +427,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -478,8 +446,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -492,8 +458,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -515,12 +479,10 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -528,8 +490,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

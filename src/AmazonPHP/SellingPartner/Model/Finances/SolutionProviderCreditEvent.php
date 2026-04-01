@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -74,8 +74,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -84,8 +82,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -150,8 +146,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -160,8 +154,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -170,8 +162,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -180,8 +170,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -244,8 +232,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets provider_transaction_type
      *
      * @param string|null $provider_transaction_type The transaction type.
-     *
-     * @return self
      */
     public function setProviderTransactionType($provider_transaction_type) : self
     {
@@ -268,8 +254,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets seller_order_id
      *
      * @param string|null $seller_order_id A seller-defined identifier for an order.
-     *
-     * @return self
      */
     public function setSellerOrderId($seller_order_id) : self
     {
@@ -292,8 +276,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets marketplace_id
      *
      * @param string|null $marketplace_id The identifier of the marketplace where the order was placed.
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -316,8 +298,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets marketplace_country_code
      *
      * @param string|null $marketplace_country_code The two-letter country code of the country associated with the marketplace where the order was placed.
-     *
-     * @return self
      */
     public function setMarketplaceCountryCode($marketplace_country_code) : self
     {
@@ -340,8 +320,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets seller_id
      *
      * @param string|null $seller_id The Amazon-defined identifier of the seller.
-     *
-     * @return self
      */
     public function setSellerId($seller_id) : self
     {
@@ -364,8 +342,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets seller_store_name
      *
      * @param string|null $seller_store_name The store name where the payment event occurred.
-     *
-     * @return self
      */
     public function setSellerStoreName($seller_store_name) : self
     {
@@ -388,8 +364,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets provider_id
      *
      * @param string|null $provider_id The Amazon-defined identifier of the solution provider.
-     *
-     * @return self
      */
     public function setProviderId($provider_id) : self
     {
@@ -412,8 +386,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets provider_store_name
      *
      * @param string|null $provider_store_name The store name where the payment event occurred.
-     *
-     * @return self
      */
     public function setProviderStoreName($provider_store_name) : self
     {
@@ -436,8 +408,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets transaction_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $transaction_amount transaction_amount
-     *
-     * @return self
      */
     public function setTransactionAmount($transaction_amount) : self
     {
@@ -460,8 +430,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      * Sets transaction_creation_date
      *
      * @param \DateTimeInterface|null $transaction_creation_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setTransactionCreationDate($transaction_creation_date) : self
     {
@@ -471,8 +439,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -492,8 +458,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -506,8 +470,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -529,12 +491,10 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -542,8 +502,6 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

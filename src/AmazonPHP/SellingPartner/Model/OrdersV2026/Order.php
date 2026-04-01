@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Order implements ModelInterface, ArrayAccess, \JsonSerializable
+class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -80,8 +80,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -90,8 +88,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -165,8 +161,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -175,8 +169,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -185,8 +177,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -195,8 +185,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -296,8 +284,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets order_id
      *
      * @param string $order_id An Amazon-defined order identifier.
-     *
-     * @return self
      */
     public function setOrderId($order_id) : self
     {
@@ -320,8 +306,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets order_aliases
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Alias[]|null $order_aliases Alternative identifiers that can be used to reference this order, such as seller-defined order numbers.
-     *
-     * @return self
      */
     public function setOrderAliases($order_aliases) : self
     {
@@ -344,8 +328,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets created_time
      *
      * @param \DateTimeInterface $created_time The time when the customer placed the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
-     *
-     * @return self
      */
     public function setCreatedTime($created_time) : self
     {
@@ -368,8 +350,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets last_updated_time
      *
      * @param \DateTimeInterface $last_updated_time The most recent time when any aspect of this order was modified by Amazon or the seller. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
-     *
-     * @return self
      */
     public function setLastUpdatedTime($last_updated_time) : self
     {
@@ -392,8 +372,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets programs
      *
      * @param string[]|null $programs Special programs associated with this order that may affect fulfillment or customer experience.   **Possible values**: `AMAZON_BAZAAR`, `AMAZON_BUSINESS`,  `AMAZON_EASY_SHIP`, `AMAZON_HAUL`, `DELIVERY_BY_AMAZON`, `FBM_SHIP_PLUS`, `IN_STORE_PICK_UP`, `PREMIUM`, `PREORDER`, `PRIME`
-     *
-     * @return self
      */
     public function setPrograms($programs) : self
     {
@@ -416,8 +394,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets associated_orders
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\AssociatedOrder[]|null $associated_orders Other orders that have a direct relationship to this order, such as replacement or exchange orders.
-     *
-     * @return self
      */
     public function setAssociatedOrders($associated_orders) : self
     {
@@ -440,8 +416,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets sales_channel
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\SalesChannel $sales_channel sales_channel
-     *
-     * @return self
      */
     public function setSalesChannel($sales_channel) : self
     {
@@ -464,8 +438,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets buyer
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Buyer|null $buyer buyer
-     *
-     * @return self
      */
     public function setBuyer($buyer) : self
     {
@@ -488,8 +460,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets recipient
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Recipient|null $recipient recipient
-     *
-     * @return self
      */
     public function setRecipient($recipient) : self
     {
@@ -512,8 +482,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets proceeds
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderProceeds|null $proceeds proceeds
-     *
-     * @return self
      */
     public function setProceeds($proceeds) : self
     {
@@ -536,8 +504,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fulfillment
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderFulfillment|null $fulfillment fulfillment
-     *
-     * @return self
      */
     public function setFulfillment($fulfillment) : self
     {
@@ -560,8 +526,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets order_items
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderItem[] $order_items The list of all order items included in this order.
-     *
-     * @return self
      */
     public function setOrderItems($order_items) : self
     {
@@ -584,8 +548,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets packages
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderPackage[]|null $packages Shipping packages created for this order, including tracking information. **Note:** Only available for merchant-fulfilled (FBM) orders.
-     *
-     * @return self
      */
     public function setPackages($packages) : self
     {
@@ -595,8 +557,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -616,8 +576,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -630,8 +588,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -653,12 +609,10 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -666,8 +620,6 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

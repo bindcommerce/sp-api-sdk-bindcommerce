@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -209,7 +197,7 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
             throw new AssertionException("'client_reference_id' can't be null");
         }
 
-        if ((mb_strlen($this->container['client_reference_id']) > 40)) {
+        if ((mb_strlen((string) $this->container['client_reference_id']) > 40)) {
             throw new AssertionException("invalid value for 'client_reference_id', the character length must be smaller than or equal to 40.");
         }
 
@@ -256,8 +244,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets client_reference_id
      *
      * @param string $client_reference_id Client reference id.
-     *
-     * @return self
      */
     public function setClientReferenceId($client_reference_id) : self
     {
@@ -280,8 +266,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets ship_to
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_to ship_to
-     *
-     * @return self
      */
     public function setShipTo($ship_to) : self
     {
@@ -304,8 +288,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets ship_from
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_from ship_from
-     *
-     * @return self
      */
     public function setShipFrom($ship_from) : self
     {
@@ -328,8 +310,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets ship_date
      *
      * @param \DateTimeInterface|null $ship_date The start date and time. This defaults to the current date and time.
-     *
-     * @return self
      */
     public function setShipDate($ship_date) : self
     {
@@ -352,8 +332,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets service_type
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\ServiceType $service_type service_type
-     *
-     * @return self
      */
     public function setServiceType($service_type) : self
     {
@@ -376,8 +354,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets containers
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Container[] $containers A list of container.
-     *
-     * @return self
      */
     public function setContainers($containers) : self
     {
@@ -400,8 +376,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets label_specification
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\LabelSpecification $label_specification label_specification
-     *
-     * @return self
      */
     public function setLabelSpecification($label_specification) : self
     {
@@ -411,8 +385,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -432,8 +404,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -446,8 +416,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -469,12 +437,10 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -482,8 +448,6 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

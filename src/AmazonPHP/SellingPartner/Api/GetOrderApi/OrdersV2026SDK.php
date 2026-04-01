@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class OrdersV2026SDK implements OrdersV2026SDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation getOrder
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier. (required)
      * @param string[]|null $included_data  A list of datasets to include in the response. (optional)
      *
@@ -147,13 +133,10 @@ final class OrdersV2026SDK implements OrdersV2026SDKInterface
     /**
      * Create request for operation 'getOrder'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $order_id  An Amazon-defined order identifier. (required)
      * @param string[]|null $included_data  A list of datasets to include in the response. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getOrderRequest(AccessToken $accessToken, string $region, $order_id, $included_data = null) : RequestInterface
     {

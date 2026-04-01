@@ -27,20 +27,8 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmentShippingSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
@@ -48,8 +36,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * getCustomerInvoice
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $purchase_order_number  Purchase order number of the shipment for which to return the invoice. (required)
      *
      * @throws ApiException on non-2xx response
@@ -148,12 +134,9 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'getCustomerInvoice'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $purchase_order_number  Purchase order number of the shipment for which to return the invoice. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getCustomerInvoiceRequest(AccessToken $accessToken, string $region, $purchase_order_number) : RequestInterface
     {
@@ -251,8 +234,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * getCustomerInvoices
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \DateTimeInterface $created_after  Orders that became available after this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param \DateTimeInterface $created_before  Orders that became available before this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param string|null $ship_from_party_id  The vendor warehouseId for order fulfillment. If not specified, the result will contain orders for all warehouses. (optional)
@@ -356,8 +337,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'getCustomerInvoices'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \DateTimeInterface $created_after  Orders that became available after this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param \DateTimeInterface $created_before  Orders that became available before this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param string|null $ship_from_party_id  The vendor warehouseId for order fulfillment. If not specified, the result will contain orders for all warehouses. (optional)
@@ -366,7 +345,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      * @param string|null $next_token  Used for pagination when there are more orders than the specified result size limit. The token value is returned in the previous API call. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getCustomerInvoicesRequest(AccessToken $accessToken, string $region, $created_after, $created_before, $ship_from_party_id = null, $limit = null, $sort_order = null, $next_token = null) : RequestInterface
     {

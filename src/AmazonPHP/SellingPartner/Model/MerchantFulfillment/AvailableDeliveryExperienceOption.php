@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, \JsonSerializable
+class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -202,8 +190,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
      * Sets delivery_experience_option
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\DeliveryExperienceOption $delivery_experience_option delivery_experience_option
-     *
-     * @return self
      */
     public function setDeliveryExperienceOption($delivery_experience_option) : self
     {
@@ -226,8 +212,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
      * Sets charge
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount $charge charge
-     *
-     * @return self
      */
     public function setCharge($charge) : self
     {
@@ -237,8 +221,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -258,8 +240,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -272,8 +252,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -295,12 +273,10 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -308,8 +284,6 @@ class AvailableDeliveryExperienceOption implements ModelInterface, ArrayAccess, 
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

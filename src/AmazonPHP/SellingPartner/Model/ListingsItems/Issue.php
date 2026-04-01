@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
+class Issue implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -264,8 +252,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets code
      *
      * @param string $code An issue code that identifies the type of issue.
-     *
-     * @return self
      */
     public function setCode($code) : self
     {
@@ -288,8 +274,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets message
      *
      * @param string $message A message that describes the issue.
-     *
-     * @return self
      */
     public function setMessage($message) : self
     {
@@ -312,8 +296,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets severity
      *
      * @param string $severity The severity of the issue.
-     *
-     * @return self
      */
     public function setSeverity($severity) : self
     {
@@ -336,8 +318,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets attribute_names
      *
      * @param string[]|null $attribute_names The names of the attributes associated with the issue, if applicable.
-     *
-     * @return self
      */
     public function setAttributeNames($attribute_names) : self
     {
@@ -360,8 +340,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets categories
      *
      * @param string[] $categories List of issue categories.   Possible values:   * 'INVALID_ATTRIBUTE' - Indicating an invalid attribute in the listing.   * 'MISSING_ATTRIBUTE' - Highlighting a missing attribute in the listing.   * 'INVALID_IMAGE' - Signifying an invalid image in the listing.   * 'MISSING_IMAGE' - Noting the absence of an image in the listing.   * 'INVALID_PRICE' - Pertaining to issues with the listing's price-related attributes.   * 'MISSING_PRICE' - Pointing out the absence of a price attribute in the listing.   * 'DUPLICATE' - Identifying listings with potential duplicate problems, such as this ASIN potentially being a duplicate of another ASIN.   * 'QUALIFICATION_REQUIRED' - Indicating that the listing requires qualification-related approval.
-     *
-     * @return self
      */
     public function setCategories($categories) : self
     {
@@ -384,8 +362,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets enforcements
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\IssueEnforcements|null $enforcements enforcements
-     *
-     * @return self
      */
     public function setEnforcements($enforcements) : self
     {
@@ -395,8 +371,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -416,8 +390,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -430,8 +402,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -453,12 +423,10 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -466,8 +434,6 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

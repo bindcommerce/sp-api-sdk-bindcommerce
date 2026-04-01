@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Error implements ModelInterface, ArrayAccess, \JsonSerializable
+class Error implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -185,7 +173,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'code' can't be null");
         }
 
-        if ((mb_strlen($this->container['code']) < 1)) {
+        if ((mb_strlen((string) $this->container['code']) < 1)) {
             throw new AssertionException("invalid value for 'code', the character length must be bigger than or equal to 1.");
         }
 
@@ -193,11 +181,11 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'message' can't be null");
         }
 
-        if ((mb_strlen($this->container['message']) < 1)) {
+        if ((mb_strlen((string) $this->container['message']) < 1)) {
             throw new AssertionException("invalid value for 'message', the character length must be bigger than or equal to 1.");
         }
 
-        if (!is_null($this->container['details']) && (mb_strlen($this->container['details']) < 1)) {
+        if (!is_null($this->container['details']) && (mb_strlen((string) $this->container['details']) < 1)) {
             throw new AssertionException("invalid value for 'details', the character length must be bigger than or equal to 1.");
         }
 
@@ -218,8 +206,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets code
      *
      * @param string $code An error code that identifies the type of error that occurred.
-     *
-     * @return self
      */
     public function setCode($code) : self
     {
@@ -242,8 +228,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets message
      *
      * @param string $message A message that describes the error condition.
-     *
-     * @return self
      */
     public function setMessage($message) : self
     {
@@ -266,8 +250,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets details
      *
      * @param string|null $details Additional details that can help the caller understand or fix the issue.
-     *
-     * @return self
      */
     public function setDetails($details) : self
     {
@@ -277,8 +259,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -298,8 +278,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -312,8 +290,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -335,12 +311,10 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -348,8 +322,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

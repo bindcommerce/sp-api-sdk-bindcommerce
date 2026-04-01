@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializable
+class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -212,8 +200,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets listing_price
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\MoneyType $listing_price listing_price
-     *
-     * @return self
      */
     public function setListingPrice($listing_price) : self
     {
@@ -236,8 +222,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets shipping
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\MoneyType|null $shipping shipping
-     *
-     * @return self
      */
     public function setShipping($shipping) : self
     {
@@ -260,8 +244,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets points
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\Points|null $points points
-     *
-     * @return self
      */
     public function setPoints($points) : self
     {
@@ -271,8 +253,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -292,8 +272,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -306,8 +284,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -329,12 +305,10 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -342,8 +316,6 @@ class PriceToEstimateFees implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

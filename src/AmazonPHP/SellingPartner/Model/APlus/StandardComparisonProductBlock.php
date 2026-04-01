@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \JsonSerializable
+class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -215,15 +203,15 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
             $this->container['image']->validate();
             }
 
-        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) > 80)) {
+        if (!is_null($this->container['title']) && (mb_strlen((string) $this->container['title']) > 80)) {
             throw new AssertionException("invalid value for 'title', the character length must be smaller than or equal to 80.");
         }
 
-        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) < 1)) {
+        if (!is_null($this->container['title']) && (mb_strlen((string) $this->container['title']) < 1)) {
             throw new AssertionException("invalid value for 'title', the character length must be bigger than or equal to 1.");
         }
 
-        if (!is_null($this->container['asin']) && (mb_strlen($this->container['asin']) < 10)) {
+        if (!is_null($this->container['asin']) && (mb_strlen((string) $this->container['asin']) < 10)) {
             throw new AssertionException("invalid value for 'asin', the character length must be bigger than or equal to 10.");
         }
 
@@ -252,8 +240,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
      * Sets position
      *
      * @param int $position The rank or index of this comparison product block within the module. Different blocks cannot occupy the same position within a single module.
-     *
-     * @return self
      */
     public function setPosition($position) : self
     {
@@ -276,8 +262,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
      * Sets image
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ImageComponent|null $image image
-     *
-     * @return self
      */
     public function setImage($image) : self
     {
@@ -300,8 +284,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
      * Sets title
      *
      * @param string|null $title The comparison product title.
-     *
-     * @return self
      */
     public function setTitle($title) : self
     {
@@ -324,8 +306,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN).
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -348,8 +328,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
      * Sets highlight
      *
      * @param bool|null $highlight When true, indicates that this content block is visually highlighted.
-     *
-     * @return self
      */
     public function setHighlight($highlight) : self
     {
@@ -372,8 +350,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
      * Sets metrics
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\PlainTextItem[]|null $metrics Comparison metrics for the product.
-     *
-     * @return self
      */
     public function setMetrics($metrics) : self
     {
@@ -383,8 +359,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -404,8 +378,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -418,8 +390,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -441,12 +411,10 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -454,8 +422,6 @@ class StandardComparisonProductBlock implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

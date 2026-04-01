@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -212,8 +200,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets marketplace_id
      *
      * @param string $marketplace_id The requested marketplace.
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -236,8 +222,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets feature_name
      *
      * @param string $feature_name The name of the feature.
-     *
-     * @return self
      */
     public function setFeatureName($feature_name) : self
     {
@@ -260,8 +244,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets next_token
      *
      * @param string|null $next_token When present and not empty, pass this string token in the next request to return the next response page.
-     *
-     * @return self
      */
     public function setNextToken($next_token) : self
     {
@@ -284,8 +266,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets feature_skus
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FeatureSku[]|null $feature_skus An array of SKUs eligible for this feature and the quantity available.
-     *
-     * @return self
      */
     public function setFeatureSkus($feature_skus) : self
     {
@@ -295,8 +275,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -316,8 +294,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -330,8 +306,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -353,12 +327,10 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -366,8 +338,6 @@ class GetFeatureInventoryResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

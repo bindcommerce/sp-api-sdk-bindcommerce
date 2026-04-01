@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -134,8 +134,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -144,8 +142,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -300,8 +296,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -310,8 +304,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -320,8 +312,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -330,8 +320,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -534,8 +522,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets asin
      *
      * @param string $asin The item's Amazon Standard Identification Number (ASIN).
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -558,8 +544,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets seller_sku
      *
      * @param string|null $seller_sku The item's seller stock keeping unit (SKU).
-     *
-     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -582,8 +566,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets order_item_id
      *
      * @param string $order_item_id An Amazon-defined order item identifier.
-     *
-     * @return self
      */
     public function setOrderItemId($order_item_id) : self
     {
@@ -606,8 +588,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets associated_items
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\AssociatedItem[]|null $associated_items A list of associated items that a customer has purchased with a product. For example, a tire installation service purchased with tires.
-     *
-     * @return self
      */
     public function setAssociatedItems($associated_items) : self
     {
@@ -630,8 +610,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets title
      *
      * @param string|null $title The item's name.
-     *
-     * @return self
      */
     public function setTitle($title) : self
     {
@@ -654,8 +632,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets quantity_ordered
      *
      * @param int $quantity_ordered The number of items in the order.
-     *
-     * @return self
      */
     public function setQuantityOrdered($quantity_ordered) : self
     {
@@ -678,8 +654,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets quantity_shipped
      *
      * @param int|null $quantity_shipped The number of items shipped.
-     *
-     * @return self
      */
     public function setQuantityShipped($quantity_shipped) : self
     {
@@ -702,8 +676,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets product_info
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\ProductInfoDetail|null $product_info product_info
-     *
-     * @return self
      */
     public function setProductInfo($product_info) : self
     {
@@ -726,8 +698,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets points_granted
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\PointsGrantedDetail|null $points_granted points_granted
-     *
-     * @return self
      */
     public function setPointsGranted($points_granted) : self
     {
@@ -750,8 +720,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_price
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $item_price item_price
-     *
-     * @return self
      */
     public function setItemPrice($item_price) : self
     {
@@ -774,8 +742,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_price
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $shipping_price shipping_price
-     *
-     * @return self
      */
     public function setShippingPrice($shipping_price) : self
     {
@@ -798,8 +764,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_tax
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $item_tax item_tax
-     *
-     * @return self
      */
     public function setItemTax($item_tax) : self
     {
@@ -822,8 +786,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_tax
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $shipping_tax shipping_tax
-     *
-     * @return self
      */
     public function setShippingTax($shipping_tax) : self
     {
@@ -846,8 +808,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_discount
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $shipping_discount shipping_discount
-     *
-     * @return self
      */
     public function setShippingDiscount($shipping_discount) : self
     {
@@ -870,8 +830,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_discount_tax
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $shipping_discount_tax shipping_discount_tax
-     *
-     * @return self
      */
     public function setShippingDiscountTax($shipping_discount_tax) : self
     {
@@ -894,8 +852,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets promotion_discount
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $promotion_discount promotion_discount
-     *
-     * @return self
      */
     public function setPromotionDiscount($promotion_discount) : self
     {
@@ -918,8 +874,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets promotion_discount_tax
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $promotion_discount_tax promotion_discount_tax
-     *
-     * @return self
      */
     public function setPromotionDiscountTax($promotion_discount_tax) : self
     {
@@ -942,8 +896,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets promotion_ids
      *
      * @param string[]|null $promotion_ids A list of promotion identifiers provided by the seller when the promotions were created.
-     *
-     * @return self
      */
     public function setPromotionIds($promotion_ids) : self
     {
@@ -966,8 +918,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets cod_fee
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $cod_fee cod_fee
-     *
-     * @return self
      */
     public function setCodFee($cod_fee) : self
     {
@@ -990,8 +940,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets cod_fee_discount
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money|null $cod_fee_discount cod_fee_discount
-     *
-     * @return self
      */
     public function setCodFeeDiscount($cod_fee_discount) : self
     {
@@ -1014,8 +962,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets is_gift
      *
      * @param string|null $is_gift Indicates whether the item is a gift.  **Possible values**: `true` and `false`.
-     *
-     * @return self
      */
     public function setIsGift($is_gift) : self
     {
@@ -1038,8 +984,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets condition_note
      *
      * @param string|null $condition_note The condition of the item, as described by the seller.
-     *
-     * @return self
      */
     public function setConditionNote($condition_note) : self
     {
@@ -1062,8 +1006,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets condition_id
      *
      * @param string|null $condition_id The condition of the item.  **Possible values**: `New`, `Used`, `Collectible`, `Refurbished`, `Preorder`, and `Club`.
-     *
-     * @return self
      */
     public function setConditionId($condition_id) : self
     {
@@ -1086,8 +1028,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets condition_subtype_id
      *
      * @param string|null $condition_subtype_id The subcondition of the item.  **Possible values**: `New`, `Mint`, `Very Good`, `Good`, `Acceptable`, `Poor`, `Club`, `OEM`, `Warranty`, `Refurbished Warranty`, `Refurbished`, `Open Box`, `Any`, and `Other`.
-     *
-     * @return self
      */
     public function setConditionSubtypeId($condition_subtype_id) : self
     {
@@ -1110,8 +1050,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets scheduled_delivery_start_date
      *
      * @param string|null $scheduled_delivery_start_date The start date of the scheduled delivery window in the time zone for the order destination. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.
-     *
-     * @return self
      */
     public function setScheduledDeliveryStartDate($scheduled_delivery_start_date) : self
     {
@@ -1134,8 +1072,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets scheduled_delivery_end_date
      *
      * @param string|null $scheduled_delivery_end_date The end date of the scheduled delivery window in the time zone for the order destination. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.
-     *
-     * @return self
      */
     public function setScheduledDeliveryEndDate($scheduled_delivery_end_date) : self
     {
@@ -1158,8 +1094,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets price_designation
      *
      * @param string|null $price_designation Indicates that the selling price is a special price that is only available for Amazon Business orders. For more information about the Amazon Business Seller Program, refer to the [Amazon Business website](https://www.amazon.com/b2b/info/amazon-business).   **Possible values**: `BusinessPrice`
-     *
-     * @return self
      */
     public function setPriceDesignation($price_designation) : self
     {
@@ -1182,8 +1116,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets tax_collection
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\TaxCollection|null $tax_collection tax_collection
-     *
-     * @return self
      */
     public function setTaxCollection($tax_collection) : self
     {
@@ -1206,8 +1138,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets serial_number_required
      *
      * @param bool|null $serial_number_required When true, the product type for this item has a serial number.   Only returned for Amazon Easy Ship orders.
-     *
-     * @return self
      */
     public function setSerialNumberRequired($serial_number_required) : self
     {
@@ -1230,8 +1160,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets is_transparency
      *
      * @param bool|null $is_transparency When true, the ASIN is enrolled in Transparency. The Transparency serial number that you must submit is determined by:  **1D or 2D Barcode:** This has a **T** logo. Submit either the 29-character alpha-numeric identifier beginning with **AZ** or **ZA**, or the 38-character Serialized Global Trade Item Number (SGTIN). **2D Barcode SN:** Submit the 7- to 20-character serial number barcode, which likely has the prefix **SN**. The serial number is applied to the same side of the packaging as the GTIN (UPC/EAN/ISBN) barcode. **QR code SN:** Submit the URL that the QR code generates.
-     *
-     * @return self
      */
     public function setIsTransparency($is_transparency) : self
     {
@@ -1254,8 +1182,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ioss_number
      *
      * @param string|null $ioss_number The IOSS number of the marketplace. Sellers shipping to the EU from outside the EU must provide this IOSS number to their carrier when Amazon has collected the VAT on the sale.
-     *
-     * @return self
      */
     public function setIossNumber($ioss_number) : self
     {
@@ -1278,8 +1204,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets store_chain_store_id
      *
      * @param string|null $store_chain_store_id The store chain store identifier. Linked to a specific store in a store chain.
-     *
-     * @return self
      */
     public function setStoreChainStoreId($store_chain_store_id) : self
     {
@@ -1302,8 +1226,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets deemed_reseller_category
      *
      * @param string|null $deemed_reseller_category The category of deemed reseller. This applies to selling partners that are not based in the EU and is used to help them meet the VAT Deemed Reseller tax laws in the EU and UK.
-     *
-     * @return self
      */
     public function setDeemedResellerCategory($deemed_reseller_category) : self
     {
@@ -1326,8 +1248,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets buyer_info
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\ItemBuyerInfo|null $buyer_info buyer_info
-     *
-     * @return self
      */
     public function setBuyerInfo($buyer_info) : self
     {
@@ -1350,8 +1270,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets buyer_requested_cancel
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\BuyerRequestedCancel|null $buyer_requested_cancel buyer_requested_cancel
-     *
-     * @return self
      */
     public function setBuyerRequestedCancel($buyer_requested_cancel) : self
     {
@@ -1374,8 +1292,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets serial_numbers
      *
      * @param string[]|null $serial_numbers A list of serial numbers for electronic products that are shipped to customers. Returned for FBA orders only.
-     *
-     * @return self
      */
     public function setSerialNumbers($serial_numbers) : self
     {
@@ -1398,8 +1314,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets substitution_preferences
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\SubstitutionPreferences|null $substitution_preferences substitution_preferences
-     *
-     * @return self
      */
     public function setSubstitutionPreferences($substitution_preferences) : self
     {
@@ -1422,8 +1336,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets measurement
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Measurement|null $measurement measurement
-     *
-     * @return self
      */
     public function setMeasurement($measurement) : self
     {
@@ -1446,8 +1358,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_constraints
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\ShippingConstraints|null $shipping_constraints shipping_constraints
-     *
-     * @return self
      */
     public function setShippingConstraints($shipping_constraints) : self
     {
@@ -1470,8 +1380,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets amazon_programs
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\AmazonPrograms|null $amazon_programs amazon_programs
-     *
-     * @return self
      */
     public function setAmazonPrograms($amazon_programs) : self
     {
@@ -1481,8 +1389,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -1502,8 +1408,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -1516,8 +1420,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -1539,12 +1441,10 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -1552,8 +1452,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

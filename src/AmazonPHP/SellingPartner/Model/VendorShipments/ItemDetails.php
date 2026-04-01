@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -72,8 +72,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -82,8 +80,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -145,8 +141,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -155,8 +149,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -165,8 +157,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -175,8 +165,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -266,7 +254,7 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if (!is_null($this->container['country_of_origin']) && !preg_match("/^[A-Z]{2}$/", $this->container['country_of_origin'])) {
+        if (!is_null($this->container['country_of_origin']) && !preg_match("/^[A-Z]{2}$/", (string) $this->container['country_of_origin'])) {
             throw new AssertionException("invalid value for 'country_of_origin', must be conform to the pattern /^[A-Z]{2}$/.");
         }
 
@@ -310,8 +298,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets purchase_order_number
      *
      * @param string|null $purchase_order_number The purchase order number for the shipment being confirmed. If the items in this shipment belong to multiple purchase order numbers that are in particular carton or pallet within the shipment, then provide the purchaseOrderNumber at the appropriate carton or pallet level. Formatting Notes: 8-character alpha-numeric code.
-     *
-     * @return self
      */
     public function setPurchaseOrderNumber($purchase_order_number) : self
     {
@@ -334,8 +320,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets lot_number
      *
      * @param string|null $lot_number The batch or lot number associates an item with information the manufacturer considers relevant for traceability of the trade item to which the Element String is applied. The data may refer to the trade item itself or to items contained. This field is mandatory for all perishable items.
-     *
-     * @return self
      */
     public function setLotNumber($lot_number) : self
     {
@@ -358,8 +342,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets lot_number_source_reference
      *
      * @param string|null $lot_number_source_reference The location identifier where the product receives a traceability lot number. Provide this field for products subject to the FDA Food Safety Modernization Act (FSMA) Section 204. When you provide `lotNumberSourceReference`, you must also specify the corresponding `lotNumberSourceType` field.
-     *
-     * @return self
      */
     public function setLotNumberSourceReference($lot_number_source_reference) : self
     {
@@ -382,8 +364,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets lot_number_source_type
      *
      * @param string|null $lot_number_source_type The identifier type used for the lot number source. Provide this field when you specify `lotNumberSourceReference`.
-     *
-     * @return self
      */
     public function setLotNumberSourceType($lot_number_source_type) : self
     {
@@ -406,8 +386,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets country_of_origin
      *
      * @param string|null $country_of_origin The two-character country code for the country where the product was manufactured or originates. Use ISO 3166-1 alpha-2 format.
-     *
-     * @return self
      */
     public function setCountryOfOrigin($country_of_origin) : self
     {
@@ -430,8 +408,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets regulation_references
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\RegulationReferences|null $regulation_references regulation_references
-     *
-     * @return self
      */
     public function setRegulationReferences($regulation_references) : self
     {
@@ -454,8 +430,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets expiry
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Expiry|null $expiry expiry
-     *
-     * @return self
      */
     public function setExpiry($expiry) : self
     {
@@ -478,8 +452,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets maximum_retail_price
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Money|null $maximum_retail_price maximum_retail_price
-     *
-     * @return self
      */
     public function setMaximumRetailPrice($maximum_retail_price) : self
     {
@@ -502,8 +474,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets handling_code
      *
      * @param string|null $handling_code Identification of the instructions on how specified item/carton/pallet should be handled.
-     *
-     * @return self
      */
     public function setHandlingCode($handling_code) : self
     {
@@ -513,8 +483,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -534,8 +502,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -548,8 +514,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -571,12 +535,10 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -584,8 +546,6 @@ class ItemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

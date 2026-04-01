@@ -37,63 +37,53 @@ interface MerchantFulfillmentSDKInterface
     public const OPERATION_GETSHIPMENT_PATH = '/mfn/v0/shipments/{shipmentId}';
 
     /**
-    * Operation cancelShipment
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $shipment_id  The Amazon-defined shipment identifier for the shipment to cancel. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CancelShipmentResponse
-    */
+     * Operation cancelShipment
+     *
+     * @param string $shipment_id  The Amazon-defined shipment identifier for the shipment to cancel. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CancelShipmentResponse
+     */
     public function cancelShipment(AccessToken $accessToken, string $region, $shipment_id);
     /**
-    * Operation createShipment
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CreateShipmentRequest $body  The request schema for the &#x60;CreateShipment&#x60; operation. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CreateShipmentResponse
-    */
+     * Operation createShipment
+     *
+     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CreateShipmentRequest $body  The request schema for the &#x60;CreateShipment&#x60; operation. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CreateShipmentResponse
+     */
     public function createShipment(AccessToken $accessToken, string $region, $body);
     /**
-    * Operation getAdditionalSellerInputs
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest $body  The request schema for the &#x60;GetAdditionalSellerInputs&#x60; operation. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetAdditionalSellerInputsResponse
-    */
+     * Operation getAdditionalSellerInputs
+     *
+     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest $body  The request schema for the &#x60;GetAdditionalSellerInputs&#x60; operation. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetAdditionalSellerInputsResponse
+     */
     public function getAdditionalSellerInputs(AccessToken $accessToken, string $region, $body);
     /**
-    * Operation getEligibleShipmentServices
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest $body  The request schema for the &#x60;GetEligibleShipmentServices&#x60; operation. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetEligibleShipmentServicesResponse
-    */
+     * Operation getEligibleShipmentServices
+     *
+     * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest $body  The request schema for the &#x60;GetEligibleShipmentServices&#x60; operation. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetEligibleShipmentServicesResponse
+     */
     public function getEligibleShipmentServices(AccessToken $accessToken, string $region, $body);
     /**
-    * Operation getShipment
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $shipment_id  The Amazon-defined shipment identifier for the shipment. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetShipmentResponse
-    */
+     * Operation getShipment
+     *
+     * @param string $shipment_id  The Amazon-defined shipment identifier for the shipment. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetShipmentResponse
+     */
     public function getShipment(AccessToken $accessToken, string $region, $shipment_id);
 }

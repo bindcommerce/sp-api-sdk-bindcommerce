@@ -28,41 +28,37 @@ interface CatalogItemSDKInterface
     public const OPERATION_SEARCHCATALOGITEMS_PATH = '/catalog/2022-04-01/items';
 
     /**
-    * Operation getCatalogItem
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $asin  The Amazon Standard Identification Number (ASIN) of the item. (required)
-    * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-    * @param string[]|null $included_data  A comma-delimited list of datasets to include in the response. (optional)
-    * @param string|null $locale  The locale for which you want to retrieve localized summaries. Defaults to the primary locale of the marketplace. (optional)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\CatalogItem\Item
-    */
+     * Operation getCatalogItem
+     *
+     * @param string $asin  The Amazon Standard Identification Number (ASIN) of the item. (required)
+     * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string[]|null $included_data  A comma-delimited list of datasets to include in the response. (optional)
+     * @param string|null $locale  The locale for which you want to retrieve localized summaries. Defaults to the primary locale of the marketplace. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\CatalogItem\Item
+     */
     public function getCatalogItem(AccessToken $accessToken, string $region, $asin, $marketplace_ids, $included_data = null, $locale = null);
     /**
-    * Operation searchCatalogItems
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-    * @param string[]|null $identifiers  A comma-delimited list of product identifiers that you can use to search the Amazon catalog. **Note:** You cannot include &#x60;identifiers&#x60; and &#x60;keywords&#x60; in the same request. (optional)
-    * @param string|null $identifiers_type  The type of product identifiers that you can use to search the Amazon catalog. **Note:** &#x60;identifiersType&#x60; is required when &#x60;identifiers&#x60; is in the request. (optional)
-    * @param string[]|null $included_data  A comma-delimited list of datasets to include in the response. (optional)
-    * @param string|null $locale  The locale for which you want to retrieve localized summaries. Defaults to the primary locale of the marketplace. (optional)
-    * @param string|null $seller_id  A selling partner identifier, such as a seller account or vendor code. **Note:** Required when &#x60;identifiersType&#x60; is &#x60;SKU&#x60;. (optional)
-    * @param string[]|null $keywords  A comma-delimited list of keywords that you can use to search the Amazon catalog. **Note:** You cannot include &#x60;keywords&#x60; and &#x60;identifiers&#x60; in the same request. (optional)
-    * @param string[]|null $brand_names  A comma-delimited list of brand names that you can use to limit the search in queries based on &#x60;keywords&#x60;. **Note:** Cannot be used with &#x60;identifiers&#x60;. (optional)
-    * @param string[]|null $classification_ids  A comma-delimited list of classification identifiers that you can use to limit the search in queries based on &#x60;keywords&#x60;. **Note:** Cannot be used with &#x60;identifiers&#x60;. (optional)
-    * @param int $page_size  The number of results to include on each page. (optional, default to 10)
-    * @param string|null $page_token  A token that you can use to fetch a specific page when there are multiple pages of results. (optional)
-    * @param string|null $keywords_locale  The language of the keywords that are included in queries based on &#x60;keywords&#x60;. Defaults to the primary locale of the marketplace. **Note:** Cannot be used with &#x60;identifiers&#x60;. (optional)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\CatalogItem\ItemSearchResults
-    */
+     * Operation searchCatalogItems
+     *
+     * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string[]|null $identifiers  A comma-delimited list of product identifiers that you can use to search the Amazon catalog. **Note:** You cannot include &#x60;identifiers&#x60; and &#x60;keywords&#x60; in the same request. (optional)
+     * @param string|null $identifiers_type  The type of product identifiers that you can use to search the Amazon catalog. **Note:** &#x60;identifiersType&#x60; is required when &#x60;identifiers&#x60; is in the request. (optional)
+     * @param string[]|null $included_data  A comma-delimited list of datasets to include in the response. (optional)
+     * @param string|null $locale  The locale for which you want to retrieve localized summaries. Defaults to the primary locale of the marketplace. (optional)
+     * @param string|null $seller_id  A selling partner identifier, such as a seller account or vendor code. **Note:** Required when &#x60;identifiersType&#x60; is &#x60;SKU&#x60;. (optional)
+     * @param string[]|null $keywords  A comma-delimited list of keywords that you can use to search the Amazon catalog. **Note:** You cannot include &#x60;keywords&#x60; and &#x60;identifiers&#x60; in the same request. (optional)
+     * @param string[]|null $brand_names  A comma-delimited list of brand names that you can use to limit the search in queries based on &#x60;keywords&#x60;. **Note:** Cannot be used with &#x60;identifiers&#x60;. (optional)
+     * @param string[]|null $classification_ids  A comma-delimited list of classification identifiers that you can use to limit the search in queries based on &#x60;keywords&#x60;. **Note:** Cannot be used with &#x60;identifiers&#x60;. (optional)
+     * @param int $page_size  The number of results to include on each page. (optional, default to 10)
+     * @param string|null $page_token  A token that you can use to fetch a specific page when there are multiple pages of results. (optional)
+     * @param string|null $keywords_locale  The language of the keywords that are included in queries based on &#x60;keywords&#x60;. Defaults to the primary locale of the marketplace. **Note:** Cannot be used with &#x60;identifiers&#x60;. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\CatalogItem\ItemSearchResults
+     */
     public function searchCatalogItems(AccessToken $accessToken, string $region, $marketplace_ids, $identifiers = null, $identifiers_type = null, $included_data = null, $locale = null, $seller_id = null, $keywords = null, $brand_names = null, $classification_ids = null, $page_size = 10, $page_token = null, $keywords_locale = null);
 }

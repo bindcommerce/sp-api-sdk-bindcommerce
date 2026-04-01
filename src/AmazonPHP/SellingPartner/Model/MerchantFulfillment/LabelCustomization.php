@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializable
+class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -175,7 +163,7 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
-        if (!is_null($this->container['custom_text_for_label']) && (mb_strlen($this->container['custom_text_for_label']) > 14)) {
+        if (!is_null($this->container['custom_text_for_label']) && (mb_strlen((string) $this->container['custom_text_for_label']) > 14)) {
             throw new AssertionException("invalid value for 'custom_text_for_label', the character length must be smaller than or equal to 14.");
         }
 
@@ -196,8 +184,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets custom_text_for_label
      *
      * @param string|null $custom_text_for_label Custom text to print on the label. Note: Custom text is only included on labels that are in ZPL format (ZPL203). FedEx does not support `CustomTextForLabel`.
-     *
-     * @return self
      */
     public function setCustomTextForLabel($custom_text_for_label) : self
     {
@@ -220,8 +206,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets standard_id_for_label
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\StandardIdForLabel|null $standard_id_for_label standard_id_for_label
-     *
-     * @return self
      */
     public function setStandardIdForLabel($standard_id_for_label) : self
     {
@@ -231,8 +215,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -252,8 +234,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -266,8 +246,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -289,12 +267,10 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -302,8 +278,6 @@ class LabelCustomization implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

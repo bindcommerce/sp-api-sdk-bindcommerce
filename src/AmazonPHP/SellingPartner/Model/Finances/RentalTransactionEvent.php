@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -74,8 +74,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -84,8 +82,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -150,8 +146,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -160,8 +154,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -170,8 +162,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -180,8 +170,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -248,8 +236,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets amazon_order_id
      *
      * @param string|null $amazon_order_id An Amazon-defined identifier for an order.
-     *
-     * @return self
      */
     public function setAmazonOrderId($amazon_order_id) : self
     {
@@ -272,8 +258,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets rental_event_type
      *
      * @param string|null $rental_event_type The type of rental event.  Possible values:  * `RentalCustomerPayment-Buyout`: A transaction type that represents when the customer wants to buy out a rented item.  * `RentalCustomerPayment-Extension`: A transaction type that represents when the customer wants to extend the rental period.  * `RentalCustomerRefund-Buyout`: A transaction type that represents when the customer requests a refund for the buyout of the rented item.  * `RentalCustomerRefund-Extension`: A transaction type that represents when the customer requests a refund over the extension on the rented item.  * `RentalHandlingFee`: A transaction type that represents the fee that Amazon charges sellers who rent through Amazon.  * `RentalChargeFailureReimbursement`: A transaction type that represents when Amazon sends money to the seller to compensate for a failed charge.  * `RentalLostItemReimbursement`: A transaction type that represents when Amazon sends money to the seller to compensate for a lost item.
-     *
-     * @return self
      */
     public function setRentalEventType($rental_event_type) : self
     {
@@ -296,8 +280,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets extension_length
      *
      * @param int|null $extension_length The number of days that the buyer extended an already rented item. This value is only returned for `RentalCustomerPayment-Extension` and `RentalCustomerRefund-Extension` events.
-     *
-     * @return self
      */
     public function setExtensionLength($extension_length) : self
     {
@@ -320,8 +302,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -344,8 +324,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets rental_charge_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\ChargeComponent[]|null $rental_charge_list A list of charge information on the seller's account.
-     *
-     * @return self
      */
     public function setRentalChargeList($rental_charge_list) : self
     {
@@ -368,8 +346,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets rental_fee_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\FeeComponent[]|null $rental_fee_list A list of fee component information.
-     *
-     * @return self
      */
     public function setRentalFeeList($rental_fee_list) : self
     {
@@ -392,8 +368,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets marketplace_name
      *
      * @param string|null $marketplace_name The name of the marketplace.
-     *
-     * @return self
      */
     public function setMarketplaceName($marketplace_name) : self
     {
@@ -416,8 +390,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets rental_initial_value
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $rental_initial_value rental_initial_value
-     *
-     * @return self
      */
     public function setRentalInitialValue($rental_initial_value) : self
     {
@@ -440,8 +412,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets rental_reimbursement
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $rental_reimbursement rental_reimbursement
-     *
-     * @return self
      */
     public function setRentalReimbursement($rental_reimbursement) : self
     {
@@ -464,8 +434,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets rental_tax_withheld_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\TaxWithheldComponent[]|null $rental_tax_withheld_list A list of information about taxes withheld.
-     *
-     * @return self
      */
     public function setRentalTaxWithheldList($rental_tax_withheld_list) : self
     {
@@ -475,8 +443,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -496,8 +462,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -510,8 +474,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -533,12 +495,10 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -546,8 +506,6 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

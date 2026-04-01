@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
+class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -74,8 +74,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -84,8 +82,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -150,8 +146,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -160,8 +154,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -170,8 +162,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -180,8 +170,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -274,8 +262,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets access_point_id
      *
      * @param string|null $access_point_id Unique identifier for the access point
-     *
-     * @return self
      */
     public function setAccessPointId($access_point_id) : self
     {
@@ -298,8 +284,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets name
      *
      * @param string|null $name Name of entity (store/hub etc) where this access point is located
-     *
-     * @return self
      */
     public function setName($name) : self
     {
@@ -322,8 +306,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets timezone
      *
      * @param string|null $timezone Timezone of access point
-     *
-     * @return self
      */
     public function setTimezone($timezone) : self
     {
@@ -346,8 +328,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets type
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\AccessPointType|null $type type
-     *
-     * @return self
      */
     public function setType($type) : self
     {
@@ -370,8 +350,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets accessibility_attributes
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\AccessibilityAttributes|null $accessibility_attributes accessibility_attributes
-     *
-     * @return self
      */
     public function setAccessibilityAttributes($accessibility_attributes) : self
     {
@@ -394,8 +372,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets address
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Address|null $address address
-     *
-     * @return self
      */
     public function setAddress($address) : self
     {
@@ -418,8 +394,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets exception_operating_hours
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ExceptionOperatingHours[]|null $exception_operating_hours Exception operating hours for Access Point
-     *
-     * @return self
      */
     public function setExceptionOperatingHours($exception_operating_hours) : self
     {
@@ -442,8 +416,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets assistance_type
      *
      * @param string|null $assistance_type Assistance type enum for Access point i.e. STAFF_ASSISTED or SELF_ASSISTED
-     *
-     * @return self
      */
     public function setAssistanceType($assistance_type) : self
     {
@@ -466,8 +438,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets score
      *
      * @param string|null $score The score of access point, based on proximity to postal code and sorting preference. This can be used to sort access point results on shipper's end.
-     *
-     * @return self
      */
     public function setScore($score) : self
     {
@@ -490,8 +460,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets standard_operating_hours
      *
      * @param array<string,\AmazonPHP\SellingPartner\Model\ShippingV2\OperatingHours>|null $standard_operating_hours Map of day of the week to operating hours of that day
-     *
-     * @return self
      */
     public function setStandardOperatingHours($standard_operating_hours) : self
     {
@@ -501,8 +469,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -522,8 +488,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -536,8 +500,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -559,12 +521,10 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -572,8 +532,6 @@ class AccessPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

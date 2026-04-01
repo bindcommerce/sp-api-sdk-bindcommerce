@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
+class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -84,8 +84,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -94,8 +92,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -175,8 +171,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -185,8 +179,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -195,8 +187,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -205,8 +195,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -261,7 +249,7 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'amazon_order_id' can't be null");
         }
 
-        if (!is_null($this->container['seller_order_id']) && (mb_strlen($this->container['seller_order_id']) > 64)) {
+        if (!is_null($this->container['seller_order_id']) && (mb_strlen((string) $this->container['seller_order_id']) > 64)) {
             throw new AssertionException("invalid value for 'seller_order_id', the character length must be smaller than or equal to 64.");
         }
 
@@ -336,8 +324,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipment_id
      *
      * @param string $shipment_id An Amazon-defined shipment identifier.
-     *
-     * @return self
      */
     public function setShipmentId($shipment_id) : self
     {
@@ -360,8 +346,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets amazon_order_id
      *
      * @param string $amazon_order_id An Amazon-defined order identifier, in 3-7-7 format.
-     *
-     * @return self
      */
     public function setAmazonOrderId($amazon_order_id) : self
     {
@@ -384,8 +368,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets seller_order_id
      *
      * @param string|null $seller_order_id A seller-defined order identifier.
-     *
-     * @return self
      */
     public function setSellerOrderId($seller_order_id) : self
     {
@@ -408,8 +390,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_list
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Item[] $item_list The list of items you want to include in a shipment.
-     *
-     * @return self
      */
     public function setItemList($item_list) : self
     {
@@ -432,8 +412,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_from_address
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Address $ship_from_address ship_from_address
-     *
-     * @return self
      */
     public function setShipFromAddress($ship_from_address) : self
     {
@@ -456,8 +434,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_to_address
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Address $ship_to_address ship_to_address
-     *
-     * @return self
      */
     public function setShipToAddress($ship_to_address) : self
     {
@@ -480,8 +456,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets package_dimensions
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\PackageDimensions $package_dimensions package_dimensions
-     *
-     * @return self
      */
     public function setPackageDimensions($package_dimensions) : self
     {
@@ -504,8 +478,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets weight
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Weight $weight weight
-     *
-     * @return self
      */
     public function setWeight($weight) : self
     {
@@ -528,8 +500,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets insurance
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount $insurance insurance
-     *
-     * @return self
      */
     public function setInsurance($insurance) : self
     {
@@ -552,8 +522,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_service
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\ShippingService $shipping_service shipping_service
-     *
-     * @return self
      */
     public function setShippingService($shipping_service) : self
     {
@@ -576,8 +544,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets label
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Label $label label
-     *
-     * @return self
      */
     public function setLabel($label) : self
     {
@@ -600,8 +566,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets status
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\ShipmentStatus $status status
-     *
-     * @return self
      */
     public function setStatus($status) : self
     {
@@ -624,8 +588,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets tracking_id
      *
      * @param string|null $tracking_id The shipment tracking identifier provided by the carrier.
-     *
-     * @return self
      */
     public function setTrackingId($tracking_id) : self
     {
@@ -648,8 +610,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets created_date
      *
      * @param \DateTimeInterface $created_date Date-time formatted timestamp.
-     *
-     * @return self
      */
     public function setCreatedDate($created_date) : self
     {
@@ -672,8 +632,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets last_updated_date
      *
      * @param \DateTimeInterface|null $last_updated_date Date-time formatted timestamp.
-     *
-     * @return self
      */
     public function setLastUpdatedDate($last_updated_date) : self
     {
@@ -683,8 +641,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -704,8 +660,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -718,8 +672,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -741,12 +693,10 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -754,8 +704,6 @@ class Shipment implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -212,8 +200,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -236,8 +222,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets original_removal_order_id
      *
      * @param string|null $original_removal_order_id The identifier for the original removal order.
-     *
-     * @return self
      */
     public function setOriginalRemovalOrderId($original_removal_order_id) : self
     {
@@ -260,8 +244,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets liquidation_proceeds_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $liquidation_proceeds_amount liquidation_proceeds_amount
-     *
-     * @return self
      */
     public function setLiquidationProceedsAmount($liquidation_proceeds_amount) : self
     {
@@ -284,8 +266,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets liquidation_fee_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $liquidation_fee_amount liquidation_fee_amount
-     *
-     * @return self
      */
     public function setLiquidationFeeAmount($liquidation_fee_amount) : self
     {
@@ -295,8 +275,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -316,8 +294,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -330,8 +306,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -353,12 +327,10 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -366,8 +338,6 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
+class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,8 +70,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,8 +78,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -140,8 +136,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -150,8 +144,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -160,8 +152,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -170,8 +160,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -236,8 +224,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets quantity
      *
      * @param string|null $quantity Represents the number of units in the seller's inventory when the `AdjustmentType` is `FBAInventoryReimbursement`.
-     *
-     * @return self
      */
     public function setQuantity($quantity) : self
     {
@@ -260,8 +246,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets per_unit_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $per_unit_amount per_unit_amount
-     *
-     * @return self
      */
     public function setPerUnitAmount($per_unit_amount) : self
     {
@@ -284,8 +268,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets total_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $total_amount total_amount
-     *
-     * @return self
      */
     public function setTotalAmount($total_amount) : self
     {
@@ -308,8 +290,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets seller_sku
      *
      * @param string|null $seller_sku The seller SKU of the item. The seller SKU is qualified by the seller's seller ID, which is included with every call to the Selling Partner API.
-     *
-     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -332,8 +312,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fn_sku
      *
      * @param string|null $fn_sku A unique identifier assigned to products stored in and fulfilled from a fulfillment center.
-     *
-     * @return self
      */
     public function setFnSku($fn_sku) : self
     {
@@ -356,8 +334,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets product_description
      *
      * @param string|null $product_description A short description of the item.
-     *
-     * @return self
      */
     public function setProductDescription($product_description) : self
     {
@@ -380,8 +356,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the item.
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -404,8 +378,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets transaction_number
      *
      * @param string|null $transaction_number The transaction number that is related to the adjustment.
-     *
-     * @return self
      */
     public function setTransactionNumber($transaction_number) : self
     {
@@ -415,8 +387,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -436,8 +406,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -450,8 +418,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -473,12 +439,10 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -486,8 +450,6 @@ class AdjustmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

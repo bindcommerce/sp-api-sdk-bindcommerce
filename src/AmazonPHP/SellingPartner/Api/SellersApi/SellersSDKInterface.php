@@ -28,25 +28,21 @@ interface SellersSDKInterface
     public const OPERATION_GETMARKETPLACEPARTICIPATIONS_PATH = '/sellers/v1/marketplaceParticipations';
 
     /**
-    * Operation getAccount
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Sellers\GetAccountResponse
-    */
+     * Operation getAccount
+     *
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Sellers\GetAccountResponse
+     */
     public function getAccount(AccessToken $accessToken, string $region);
     /**
-    * Operation getMarketplaceParticipations
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Sellers\GetMarketplaceParticipationsResponse
-    */
+     * Operation getMarketplaceParticipations
+     *
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Sellers\GetMarketplaceParticipationsResponse
+     */
     public function getMarketplaceParticipations(AccessToken $accessToken, string $region);
 }

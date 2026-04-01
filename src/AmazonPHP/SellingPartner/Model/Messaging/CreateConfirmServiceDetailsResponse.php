@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,8 +56,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,8 +64,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -105,8 +101,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -115,8 +109,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -125,8 +117,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -135,8 +125,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -186,8 +174,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
      * Sets errors
      *
      * @param \AmazonPHP\SellingPartner\Model\Messaging\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
-     *
-     * @return self
      */
     public function setErrors($errors) : self
     {
@@ -197,8 +183,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -218,8 +202,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -232,8 +214,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -255,12 +235,10 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -268,8 +246,6 @@ class CreateConfirmServiceDetailsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class FBAInventorySDK implements FBAInventorySDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation addInventory
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $x_amzn_idempotency_token  A unique token/requestId provided with each call to ensure idempotency. (required)
      * @param \AmazonPHP\SellingPartner\Model\FBAInventory\AddInventoryRequest $add_inventory_request_body  List of items to add to Sandbox inventory. (required)
      *
@@ -147,13 +133,10 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
     /**
      * Create request for operation 'addInventory'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $x_amzn_idempotency_token  A unique token/requestId provided with each call to ensure idempotency. (required)
      * @param \AmazonPHP\SellingPartner\Model\FBAInventory\AddInventoryRequest $add_inventory_request_body  List of items to add to Sandbox inventory. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function addInventoryRequest(AccessToken $accessToken, string $region, $x_amzn_idempotency_token, $add_inventory_request_body) : RequestInterface
     {
@@ -255,8 +238,6 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
     /**
      * Operation createInventoryItem
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\FBAInventory\CreateInventoryItemRequest $create_inventory_item_request_body  CreateInventoryItem Request Body Parameter. (required)
      *
      * @throws ApiException on non-2xx response
@@ -355,12 +336,9 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
     /**
      * Create request for operation 'createInventoryItem'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\FBAInventory\CreateInventoryItemRequest $create_inventory_item_request_body  CreateInventoryItem Request Body Parameter. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function createInventoryItemRequest(AccessToken $accessToken, string $region, $create_inventory_item_request_body) : RequestInterface
     {
@@ -452,8 +430,6 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
     /**
      * Operation deleteInventoryItem
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_sku  A single seller SKU used for querying the specified seller SKU inventory summaries. (required)
      * @param string $marketplace_id  The marketplace ID for the marketplace for which the sellerSku is to be deleted. (required)
      *
@@ -553,13 +529,10 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
     /**
      * Create request for operation 'deleteInventoryItem'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_sku  A single seller SKU used for querying the specified seller SKU inventory summaries. (required)
      * @param string $marketplace_id  The marketplace ID for the marketplace for which the sellerSku is to be deleted. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function deleteInventoryItemRequest(AccessToken $accessToken, string $region, $seller_sku, $marketplace_id) : RequestInterface
     {
@@ -664,8 +637,6 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
     /**
      * Operation getInventorySummaries
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $granularity_type  The granularity type for the inventory aggregation level. (required)
      * @param string $granularity_id  The granularity ID for the inventory aggregation level. (required)
      * @param string[] $marketplace_ids  The marketplace ID for the marketplace for which to return inventory summaries. (required)
@@ -771,8 +742,6 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
     /**
      * Create request for operation 'getInventorySummaries'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $granularity_type  The granularity type for the inventory aggregation level. (required)
      * @param string $granularity_id  The granularity ID for the inventory aggregation level. (required)
      * @param string[] $marketplace_ids  The marketplace ID for the marketplace for which to return inventory summaries. (required)
@@ -783,7 +752,6 @@ final class FBAInventorySDK implements FBAInventorySDKInterface
      * @param string|null $next_token  String token returned in the response of your previous request. The string token will expire 30 seconds after being created. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getInventorySummariesRequest(AccessToken $accessToken, string $region, $granularity_type, $granularity_id, $marketplace_ids, $details = false, $start_date_time = null, $seller_skus = null, $seller_sku = null, $next_token = null) : RequestInterface
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -224,8 +212,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets substitution_type
      *
      * @param string $substitution_type The type of substitution that these preferences represent.
-     *
-     * @return self
      */
     public function setSubstitutionType($substitution_type) : self
     {
@@ -248,8 +234,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets substitution_options
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\SubstitutionOption[]|null $substitution_options A collection of substitution options.
-     *
-     * @return self
      */
     public function setSubstitutionOptions($substitution_options) : self
     {
@@ -259,8 +243,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -280,8 +262,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -294,8 +274,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -317,12 +295,10 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -330,8 +306,6 @@ class SubstitutionPreferences implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

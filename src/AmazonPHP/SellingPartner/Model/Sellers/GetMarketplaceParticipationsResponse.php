@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -192,8 +180,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
      * Sets payload
      *
      * @param \AmazonPHP\SellingPartner\Model\Sellers\MarketplaceParticipation[]|null $payload List of marketplace participations.
-     *
-     * @return self
      */
     public function setPayload($payload) : self
     {
@@ -216,8 +202,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
      * Sets errors
      *
      * @param \AmazonPHP\SellingPartner\Model\Sellers\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
-     *
-     * @return self
      */
     public function setErrors($errors) : self
     {
@@ -227,8 +211,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -248,8 +230,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -262,8 +242,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -285,12 +263,10 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -298,8 +274,6 @@ class GetMarketplaceParticipationsResponse implements ModelInterface, ArrayAcces
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
+class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -197,11 +185,11 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'name' can't be null");
         }
 
-        if ((mb_strlen($this->container['name']) > 100)) {
+        if ((mb_strlen((string) $this->container['name']) > 100)) {
             throw new AssertionException("invalid value for 'name', the character length must be smaller than or equal to 100.");
         }
 
-        if ((mb_strlen($this->container['name']) < 1)) {
+        if ((mb_strlen((string) $this->container['name']) < 1)) {
             throw new AssertionException("invalid value for 'name', the character length must be bigger than or equal to 1.");
         }
 
@@ -209,7 +197,7 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'content_type' can't be null");
         }
 
-        if (!is_null($this->container['content_sub_type']) && (mb_strlen($this->container['content_sub_type']) < 1)) {
+        if (!is_null($this->container['content_sub_type']) && (mb_strlen((string) $this->container['content_sub_type']) < 1)) {
             throw new AssertionException("invalid value for 'content_sub_type', the character length must be bigger than or equal to 1.");
         }
 
@@ -217,7 +205,7 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'locale' can't be null");
         }
 
-        if ((mb_strlen($this->container['locale']) < 5)) {
+        if ((mb_strlen((string) $this->container['locale']) < 5)) {
             throw new AssertionException("invalid value for 'locale', the character length must be bigger than or equal to 5.");
         }
 
@@ -250,8 +238,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets name
      *
      * @param string $name The A+ Content document name.
-     *
-     * @return self
      */
     public function setName($name) : self
     {
@@ -274,8 +260,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets content_type
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ContentType $content_type content_type
-     *
-     * @return self
      */
     public function setContentType($content_type) : self
     {
@@ -298,8 +282,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets content_sub_type
      *
      * @param string|null $content_sub_type The A+ Content document subtype. This represents a special-purpose type of an A+ Content document. Not every A+ Content document type has a subtype, and subtypes can change at any time.
-     *
-     * @return self
      */
     public function setContentSubType($content_sub_type) : self
     {
@@ -322,8 +304,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets locale
      *
      * @param string $locale The IETF language tag, which supports the primary language subtag and one secondary language subtag. The secondary language subtag is usually a regional designation. This doesn't support subtags other than the primary and secondary subtags. **Pattern:** ^[a-z]{2,}-[A-Z0-9]{2,}$
-     *
-     * @return self
      */
     public function setLocale($locale) : self
     {
@@ -346,8 +326,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets content_module_list
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ContentModule[] $content_module_list A list of A+ Content modules.
-     *
-     * @return self
      */
     public function setContentModuleList($content_module_list) : self
     {
@@ -357,8 +335,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -378,8 +354,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -392,8 +366,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -415,12 +387,10 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -428,8 +398,6 @@ class ContentDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

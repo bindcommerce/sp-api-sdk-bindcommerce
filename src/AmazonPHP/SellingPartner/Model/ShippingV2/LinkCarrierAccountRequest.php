@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -212,8 +200,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
      * Sets client_reference_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ClientReferenceDetail[]|null $client_reference_details Object to pass additional information about the MCI Integrator shipperType: List of ClientReferenceDetail
-     *
-     * @return self
      */
     public function setClientReferenceDetails($client_reference_details) : self
     {
@@ -236,8 +222,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
      * Sets carrier_account_type
      *
      * @param string $carrier_account_type CarrierAccountType  associated with account.
-     *
-     * @return self
      */
     public function setCarrierAccountType($carrier_account_type) : self
     {
@@ -260,8 +244,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
      * Sets carrier_account_attributes
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\CarrierAccountAttribute[] $carrier_account_attributes A list of all attributes required by the carrier in order to successfully link the merchant's account
-     *
-     * @return self
      */
     public function setCarrierAccountAttributes($carrier_account_attributes) : self
     {
@@ -284,8 +266,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
      * Sets encrypted_carrier_account_attributes
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\CarrierAccountAttribute[]|null $encrypted_carrier_account_attributes A list of all attributes required by the carrier in order to successfully link the merchant's account
-     *
-     * @return self
      */
     public function setEncryptedCarrierAccountAttributes($encrypted_carrier_account_attributes) : self
     {
@@ -295,8 +275,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -316,8 +294,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -330,8 +306,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -353,12 +327,10 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -366,8 +338,6 @@ class LinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

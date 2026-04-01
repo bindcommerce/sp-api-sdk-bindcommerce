@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,8 +70,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,8 +78,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -140,8 +136,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -150,8 +144,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -160,8 +152,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -170,8 +160,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -228,8 +216,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets amazon_order_id
      *
      * @param string|null $amazon_order_id An Amazon-defined identifier for an order.
-     *
-     * @return self
      */
     public function setAmazonOrderId($amazon_order_id) : self
     {
@@ -252,8 +238,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fee_reason
      *
      * @param string|null $fee_reason A short description of the service fee reason.
-     *
-     * @return self
      */
     public function setFeeReason($fee_reason) : self
     {
@@ -276,8 +260,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fee_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\FeeComponent[]|null $fee_list A list of fee component information.
-     *
-     * @return self
      */
     public function setFeeList($fee_list) : self
     {
@@ -300,8 +282,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets seller_sku
      *
      * @param string|null $seller_sku The seller SKU of the item. The seller SKU is qualified by the seller's seller ID, which is included with every call to the Selling Partner API.
-     *
-     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -324,8 +304,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fn_sku
      *
      * @param string|null $fn_sku A unique identifier assigned by Amazon to products stored in and fulfilled from an Amazon fulfillment center.
-     *
-     * @return self
      */
     public function setFnSku($fn_sku) : self
     {
@@ -348,8 +326,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fee_description
      *
      * @param string|null $fee_description A short description of the service fee event.
-     *
-     * @return self
      */
     public function setFeeDescription($fee_description) : self
     {
@@ -372,8 +348,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the item.
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -396,8 +370,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets store_name
      *
      * @param string|null $store_name The name of the store where the event occurred.
-     *
-     * @return self
      */
     public function setStoreName($store_name) : self
     {
@@ -407,8 +379,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -428,8 +398,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -442,8 +410,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -465,12 +431,10 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -478,8 +442,6 @@ class ServiceFeeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

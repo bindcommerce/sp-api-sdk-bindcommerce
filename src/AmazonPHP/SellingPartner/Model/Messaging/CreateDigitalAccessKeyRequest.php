@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -175,11 +163,11 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
      */
     public function validate() : void
     {
-        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) > 400)) {
+        if (!is_null($this->container['text']) && (mb_strlen((string) $this->container['text']) > 400)) {
             throw new AssertionException("invalid value for 'text', the character length must be smaller than or equal to 400.");
         }
 
-        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) < 1)) {
+        if (!is_null($this->container['text']) && (mb_strlen((string) $this->container['text']) < 1)) {
             throw new AssertionException("invalid value for 'text', the character length must be bigger than or equal to 1.");
         }
 
@@ -200,8 +188,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets text
      *
      * @param string|null $text The text that is sent to the buyer. Only links that are related to the digital access key are allowed. Do not include HTML or email addresses. The text must be written in the buyer's preferred language, which you can retrieve from the `GetAttributes` operation.
-     *
-     * @return self
      */
     public function setText($text) : self
     {
@@ -224,8 +210,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets attachments
      *
      * @param \AmazonPHP\SellingPartner\Model\Messaging\Attachment[]|null $attachments Attachments that you want to include in the message to the buyer.
-     *
-     * @return self
      */
     public function setAttachments($attachments) : self
     {
@@ -235,8 +219,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -256,8 +238,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -270,8 +250,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -293,12 +271,10 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,8 +282,6 @@ class CreateDigitalAccessKeyRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

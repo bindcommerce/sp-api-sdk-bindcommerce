@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSerializable
+class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -230,8 +218,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets scheduling_type
      *
      * @param string|null $scheduling_type Defines the type of slots.
-     *
-     * @return self
      */
     public function setSchedulingType($scheduling_type) : self
     {
@@ -254,8 +240,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets start_time
      *
      * @param \DateTimeInterface|null $start_time Start Time from which the appointment slots are generated in ISO 8601 format.
-     *
-     * @return self
      */
     public function setStartTime($start_time) : self
     {
@@ -278,8 +262,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets end_time
      *
      * @param \DateTimeInterface|null $end_time End Time up to which the appointment slots are generated in ISO 8601 format.
-     *
-     * @return self
      */
     public function setEndTime($end_time) : self
     {
@@ -302,8 +284,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets appointment_slots
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\AppointmentSlot[]|null $appointment_slots A list of time windows along with associated capacity in which the service can be performed.
-     *
-     * @return self
      */
     public function setAppointmentSlots($appointment_slots) : self
     {
@@ -313,8 +293,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -334,8 +312,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -348,8 +324,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -371,12 +345,10 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -384,8 +356,6 @@ class AppointmentSlotReport implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

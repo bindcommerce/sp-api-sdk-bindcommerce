@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \JsonSerializable
+class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -238,8 +226,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets status
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\VerificationStatus $status status
-     *
-     * @return self
      */
     public function setStatus($status) : self
     {
@@ -262,8 +248,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets requires_merchant_action
      *
      * @param bool $requires_merchant_action When true, the regulated information provided in the order requires a review by the merchant.
-     *
-     * @return self
      */
     public function setRequiresMerchantAction($requires_merchant_action) : self
     {
@@ -286,8 +270,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets valid_rejection_reasons
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\RejectionReason[] $valid_rejection_reasons A list of valid rejection reasons that may be used to reject the order's regulated information.
-     *
-     * @return self
      */
     public function setValidRejectionReasons($valid_rejection_reasons) : self
     {
@@ -310,8 +292,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets rejection_reason
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\RejectionReason|null $rejection_reason rejection_reason
-     *
-     * @return self
      */
     public function setRejectionReason($rejection_reason) : self
     {
@@ -334,8 +314,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets review_date
      *
      * @param string|null $review_date The date the order was reviewed. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.
-     *
-     * @return self
      */
     public function setReviewDate($review_date) : self
     {
@@ -358,8 +336,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets external_reviewer_id
      *
      * @param string|null $external_reviewer_id The identifier for the order's regulated information reviewer.
-     *
-     * @return self
      */
     public function setExternalReviewerId($external_reviewer_id) : self
     {
@@ -382,8 +358,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets valid_verification_details
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\ValidVerificationDetail[]|null $valid_verification_details A list of valid verification details that may be provided and the criteria required for when the verification detail can be provided.
-     *
-     * @return self
      */
     public function setValidVerificationDetails($valid_verification_details) : self
     {
@@ -393,8 +367,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -414,8 +386,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -428,8 +398,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -451,12 +419,10 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -464,8 +430,6 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

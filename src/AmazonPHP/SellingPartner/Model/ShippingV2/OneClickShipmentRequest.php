@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -80,8 +80,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -90,8 +88,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -165,8 +161,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -175,8 +169,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -185,8 +177,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -195,8 +185,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -306,8 +294,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets ship_to
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Address|null $ship_to ship_to
-     *
-     * @return self
      */
     public function setShipTo($ship_to) : self
     {
@@ -330,8 +316,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets ship_from
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Address $ship_from ship_from
-     *
-     * @return self
      */
     public function setShipFrom($ship_from) : self
     {
@@ -354,8 +338,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets return_to
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Address|null $return_to return_to
-     *
-     * @return self
      */
     public function setReturnTo($return_to) : self
     {
@@ -378,8 +360,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets ship_date
      *
      * @param \DateTimeInterface|null $ship_date The ship date and time (the requested pickup). This defaults to the current date and time.
-     *
-     * @return self
      */
     public function setShipDate($ship_date) : self
     {
@@ -402,8 +382,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets goods_owner
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\GoodsOwner|null $goods_owner goods_owner
-     *
-     * @return self
      */
     public function setGoodsOwner($goods_owner) : self
     {
@@ -426,8 +404,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets packages
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Package[] $packages A list of packages to be shipped through a shipping service offering.
-     *
-     * @return self
      */
     public function setPackages($packages) : self
     {
@@ -450,8 +426,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets value_added_services_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\OneClickShipmentValueAddedService[]|null $value_added_services_details The value-added services to be added to a shipping service purchase.
-     *
-     * @return self
      */
     public function setValueAddedServicesDetails($value_added_services_details) : self
     {
@@ -474,8 +448,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets tax_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\TaxDetail[]|null $tax_details A list of tax detail information.
-     *
-     * @return self
      */
     public function setTaxDetails($tax_details) : self
     {
@@ -498,8 +470,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets channel_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ChannelDetails $channel_details channel_details
-     *
-     * @return self
      */
     public function setChannelDetails($channel_details) : self
     {
@@ -522,8 +492,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets label_specifications
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\RequestedDocumentSpecification $label_specifications label_specifications
-     *
-     * @return self
      */
     public function setLabelSpecifications($label_specifications) : self
     {
@@ -546,8 +514,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets service_selection
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ServiceSelection $service_selection service_selection
-     *
-     * @return self
      */
     public function setServiceSelection($service_selection) : self
     {
@@ -570,8 +536,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets shipper_instruction
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ShipperInstruction|null $shipper_instruction shipper_instruction
-     *
-     * @return self
      */
     public function setShipperInstruction($shipper_instruction) : self
     {
@@ -594,8 +558,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets destination_access_point_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\AccessPointDetails|null $destination_access_point_details destination_access_point_details
-     *
-     * @return self
      */
     public function setDestinationAccessPointDetails($destination_access_point_details) : self
     {
@@ -605,8 +567,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -626,8 +586,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -640,8 +598,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -663,12 +619,10 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -676,8 +630,6 @@ class OneClickShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

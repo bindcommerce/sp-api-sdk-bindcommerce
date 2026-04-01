@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -234,8 +222,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets fulfillment_order
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentOrder $fulfillment_order fulfillment_order
-     *
-     * @return self
      */
     public function setFulfillmentOrder($fulfillment_order) : self
     {
@@ -258,8 +244,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets fulfillment_order_items
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentOrderItem[] $fulfillment_order_items An array of fulfillment order item information.
-     *
-     * @return self
      */
     public function setFulfillmentOrderItems($fulfillment_order_items) : self
     {
@@ -282,8 +266,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets fulfillment_shipments
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentShipment[]|null $fulfillment_shipments An array of fulfillment shipment information.
-     *
-     * @return self
      */
     public function setFulfillmentShipments($fulfillment_shipments) : self
     {
@@ -306,8 +288,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets return_items
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ReturnItem[] $return_items An array of items that Amazon accepted for return. Returns empty if no items were accepted for return.
-     *
-     * @return self
      */
     public function setReturnItems($return_items) : self
     {
@@ -330,8 +310,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets return_authorizations
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ReturnAuthorization[] $return_authorizations An array of return authorization information.
-     *
-     * @return self
      */
     public function setReturnAuthorizations($return_authorizations) : self
     {
@@ -354,8 +332,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets payment_information
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\PaymentInformation[]|null $payment_information An array of various payment attributes related to this fulfillment order.
-     *
-     * @return self
      */
     public function setPaymentInformation($payment_information) : self
     {
@@ -365,8 +341,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -386,8 +360,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -400,8 +372,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -423,12 +393,10 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -436,8 +404,6 @@ class GetFulfillmentOrderResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

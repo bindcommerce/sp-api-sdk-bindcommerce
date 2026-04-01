@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,8 +56,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,8 +64,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -105,8 +101,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -115,8 +109,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -125,8 +117,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -135,8 +125,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -190,8 +178,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CreateReturnItem[] $items An array of items to be returned.
-     *
-     * @return self
      */
     public function setItems($items) : self
     {
@@ -201,8 +187,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -222,8 +206,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -236,8 +218,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -259,12 +239,10 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -272,8 +250,6 @@ class CreateFulfillmentReturnRequest implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

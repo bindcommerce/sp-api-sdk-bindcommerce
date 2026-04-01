@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -210,8 +198,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
      * Sets payload_version
      *
      * @param string $payload_version The version of the payload object to be used in the notification.
-     *
-     * @return self
      */
     public function setPayloadVersion($payload_version) : self
     {
@@ -234,8 +220,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
      * Sets destination_id
      *
      * @param string $destination_id The identifier for the destination where notifications will be delivered.
-     *
-     * @return self
      */
     public function setDestinationId($destination_id) : self
     {
@@ -258,8 +242,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
      * Sets processing_directive
      *
      * @param \AmazonPHP\SellingPartner\Model\Notifications\ProcessingDirective|null $processing_directive processing_directive
-     *
-     * @return self
      */
     public function setProcessingDirective($processing_directive) : self
     {
@@ -269,8 +251,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -290,8 +270,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -304,8 +282,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -327,12 +303,10 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -340,8 +314,6 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

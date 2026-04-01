@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \JsonSerializable
+class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -200,8 +188,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
      * Sets sqs
      *
      * @param \AmazonPHP\SellingPartner\Model\Notifications\SqsResource|null $sqs sqs
-     *
-     * @return self
      */
     public function setSqs($sqs) : self
     {
@@ -224,8 +210,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
      * Sets event_bridge
      *
      * @param \AmazonPHP\SellingPartner\Model\Notifications\EventBridgeResourceSpecification|null $event_bridge event_bridge
-     *
-     * @return self
      */
     public function setEventBridge($event_bridge) : self
     {
@@ -235,8 +219,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -256,8 +238,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -270,8 +250,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -293,12 +271,10 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,8 +282,6 @@ class DestinationResourceSpecification implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

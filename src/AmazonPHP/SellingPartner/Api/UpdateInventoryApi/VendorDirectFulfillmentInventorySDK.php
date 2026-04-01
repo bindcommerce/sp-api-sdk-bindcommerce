@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorDirectFulfillmentInventorySDK implements VendorDirectFulfillmentInventorySDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation submitInventoryUpdate
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $warehouse_id  Identifier for the warehouse for which to update inventory. (required)
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentInventory\SubmitInventoryUpdateRequest $body  The request body containing the inventory update data to submit. (required)
      *
@@ -147,13 +133,10 @@ final class VendorDirectFulfillmentInventorySDK implements VendorDirectFulfillme
     /**
      * Create request for operation 'submitInventoryUpdate'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $warehouse_id  Identifier for the warehouse for which to update inventory. (required)
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentInventory\SubmitInventoryUpdateRequest $body  The request body containing the inventory update data to submit. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function submitInventoryUpdateRequest(AccessToken $accessToken, string $region, $warehouse_id, $body) : RequestInterface
     {

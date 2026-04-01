@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
+class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -185,7 +173,7 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'upload_destination_id' can't be null");
         }
 
-        if ((mb_strlen($this->container['upload_destination_id']) < 1)) {
+        if ((mb_strlen((string) $this->container['upload_destination_id']) < 1)) {
             throw new AssertionException("invalid value for 'upload_destination_id', the character length must be bigger than or equal to 1.");
         }
 
@@ -199,11 +187,11 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'alt_text' can't be null");
         }
 
-        if ((mb_strlen($this->container['alt_text']) > 100)) {
+        if ((mb_strlen((string) $this->container['alt_text']) > 100)) {
             throw new AssertionException("invalid value for 'alt_text', the character length must be smaller than or equal to 100.");
         }
 
-        if ((mb_strlen($this->container['alt_text']) < 1)) {
+        if ((mb_strlen((string) $this->container['alt_text']) < 1)) {
             throw new AssertionException("invalid value for 'alt_text', the character length must be bigger than or equal to 1.");
         }
 
@@ -224,8 +212,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets upload_destination_id
      *
      * @param string $upload_destination_id This identifier is provided by the [Uploads API](https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references).
-     *
-     * @return self
      */
     public function setUploadDestinationId($upload_destination_id) : self
     {
@@ -248,8 +234,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets image_crop_specification
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ImageCropSpecification $image_crop_specification image_crop_specification
-     *
-     * @return self
      */
     public function setImageCropSpecification($image_crop_specification) : self
     {
@@ -272,8 +256,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets alt_text
      *
      * @param string $alt_text The alternative text for the image.
-     *
-     * @return self
      */
     public function setAltText($alt_text) : self
     {
@@ -283,8 +265,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -304,8 +284,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -318,8 +296,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -341,12 +317,10 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -354,8 +328,6 @@ class ImageComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

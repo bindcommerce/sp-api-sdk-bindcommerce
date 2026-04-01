@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -204,8 +192,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -228,8 +214,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets reason_code
      *
      * @param string|null $reason_code The reason given for a charge refund. For example, `SubscriptionFeeCorrection`.
-     *
-     * @return self
      */
     public function setReasonCode($reason_code) : self
     {
@@ -252,8 +236,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets reason_code_description
      *
      * @param string|null $reason_code_description A description of the Reason Code. For example, `SubscriptionFeeCorrection`.
-     *
-     * @return self
      */
     public function setReasonCodeDescription($reason_code_description) : self
     {
@@ -276,8 +258,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets charge_refund_transactions
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\ChargeRefundTransaction[]|null $charge_refund_transactions A list of `ChargeRefund` transactions
-     *
-     * @return self
      */
     public function setChargeRefundTransactions($charge_refund_transactions) : self
     {
@@ -287,8 +267,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -308,8 +286,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -322,8 +298,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -345,12 +319,10 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -358,8 +330,6 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \JsonSerializable
+class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -198,8 +186,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
      * Sets carrier_id
      *
      * @param string|null $carrier_id The carrier identifier for the offering, provided by the carrier.
-     *
-     * @return self
      */
     public function setCarrierId($carrier_id) : self
     {
@@ -222,8 +208,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
      * Sets carrier_name
      *
      * @param string|null $carrier_name The carrier name for the offering.
-     *
-     * @return self
      */
     public function setCarrierName($carrier_name) : self
     {
@@ -246,8 +230,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
      * Sets unmanifested_shipment_location_list
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\UnmanifestedShipmentLocation[]|null $unmanifested_shipment_location_list A list of UnmanifestedShipmentLocation
-     *
-     * @return self
      */
     public function setUnmanifestedShipmentLocationList($unmanifested_shipment_location_list) : self
     {
@@ -257,8 +239,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -278,8 +258,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -292,8 +270,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -315,12 +291,10 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -328,8 +302,6 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

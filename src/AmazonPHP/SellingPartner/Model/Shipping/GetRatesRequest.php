@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -230,8 +218,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_to
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_to ship_to
-     *
-     * @return self
      */
     public function setShipTo($ship_to) : self
     {
@@ -254,8 +240,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_from
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_from ship_from
-     *
-     * @return self
      */
     public function setShipFrom($ship_from) : self
     {
@@ -278,8 +262,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets service_types
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\ServiceType[] $service_types A list of service types that can be used to send the shipment.
-     *
-     * @return self
      */
     public function setServiceTypes($service_types) : self
     {
@@ -302,8 +284,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ship_date
      *
      * @param \DateTimeInterface|null $ship_date The start date and time. This defaults to the current date and time.
-     *
-     * @return self
      */
     public function setShipDate($ship_date) : self
     {
@@ -326,8 +306,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets container_specifications
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\ContainerSpecification[] $container_specifications A list of container specifications.
-     *
-     * @return self
      */
     public function setContainerSpecifications($container_specifications) : self
     {
@@ -337,8 +315,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -358,8 +334,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -372,8 +346,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -395,12 +367,10 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -408,8 +378,6 @@ class GetRatesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

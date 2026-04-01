@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -234,8 +222,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN), which uniquely identifies a product (catalog item).
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -258,8 +244,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets title
      *
      * @param string|null $title The product name or title as displayed to customers in the marketplace.
-     *
-     * @return self
      */
     public function setTitle($title) : self
     {
@@ -282,8 +266,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets seller_sku
      *
      * @param string|null $seller_sku The seller SKU of a product (catalog item). This is a unique number assigned by the seller when listing an item.
-     *
-     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -306,8 +288,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets condition
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemCondition|null $condition condition
-     *
-     * @return self
      */
     public function setCondition($condition) : self
     {
@@ -330,8 +310,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets price
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemPrice|null $price price
-     *
-     * @return self
      */
     public function setPrice($price) : self
     {
@@ -354,8 +332,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets serial_numbers
      *
      * @param string[]|null $serial_numbers Unique serial numbers for products that require individual tracking, typically provided for FBA orders.
-     *
-     * @return self
      */
     public function setSerialNumbers($serial_numbers) : self
     {
@@ -378,8 +354,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets customization
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemCustomization|null $customization customization
-     *
-     * @return self
      */
     public function setCustomization($customization) : self
     {
@@ -389,8 +363,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -410,8 +382,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -424,8 +394,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -447,12 +415,10 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -460,8 +426,6 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

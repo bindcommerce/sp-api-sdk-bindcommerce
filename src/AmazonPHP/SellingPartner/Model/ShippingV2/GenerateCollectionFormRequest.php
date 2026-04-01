@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -206,8 +194,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets client_reference_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ClientReferenceDetail[]|null $client_reference_details Object to pass additional information about the MCI Integrator shipperType: List of ClientReferenceDetail
-     *
-     * @return self
      */
     public function setClientReferenceDetails($client_reference_details) : self
     {
@@ -230,8 +216,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets carrier_id
      *
      * @param string $carrier_id The carrier identifier for the offering, provided by the carrier.
-     *
-     * @return self
      */
     public function setCarrierId($carrier_id) : self
     {
@@ -254,8 +238,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets ship_from_address
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Address|null $ship_from_address ship_from_address
-     *
-     * @return self
      */
     public function setShipFromAddress($ship_from_address) : self
     {
@@ -265,8 +247,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,8 +266,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -300,8 +278,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,12 +299,10 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -336,8 +310,6 @@ class GenerateCollectionFormRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

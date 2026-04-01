@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Container implements ModelInterface, ArrayAccess, \JsonSerializable
+class Container implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -227,7 +215,7 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'container_reference_id' can't be null");
         }
 
-        if ((mb_strlen($this->container['container_reference_id']) > 40)) {
+        if ((mb_strlen((string) $this->container['container_reference_id']) > 40)) {
             throw new AssertionException("invalid value for 'container_reference_id', the character length must be smaller than or equal to 40.");
         }
 
@@ -270,8 +258,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets container_type
      *
      * @param string|null $container_type The type of physical container being used. (always 'PACKAGE')
-     *
-     * @return self
      */
     public function setContainerType($container_type) : self
     {
@@ -294,8 +280,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets container_reference_id
      *
      * @param string $container_reference_id An identifier for the container. This must be unique within all the containers in the same shipment.
-     *
-     * @return self
      */
     public function setContainerReferenceId($container_reference_id) : self
     {
@@ -318,8 +302,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets value
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Currency $value value
-     *
-     * @return self
      */
     public function setValue($value) : self
     {
@@ -342,8 +324,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets dimensions
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Dimensions $dimensions dimensions
-     *
-     * @return self
      */
     public function setDimensions($dimensions) : self
     {
@@ -366,8 +346,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\ContainerItem[] $items A list of the items in the container.
-     *
-     * @return self
      */
     public function setItems($items) : self
     {
@@ -390,8 +368,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets weight
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Weight $weight weight
-     *
-     * @return self
      */
     public function setWeight($weight) : self
     {
@@ -401,8 +377,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -422,8 +396,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -436,8 +408,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -459,12 +429,10 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -472,8 +440,6 @@ class Container implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializable
+class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -175,7 +163,7 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
-        if (!is_null($this->container['delivery_instructions']) && (mb_strlen($this->container['delivery_instructions']) > 250)) {
+        if (!is_null($this->container['delivery_instructions']) && (mb_strlen((string) $this->container['delivery_instructions']) > 250)) {
             throw new AssertionException("invalid value for 'delivery_instructions', the character length must be smaller than or equal to 250.");
         }
 
@@ -200,8 +188,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets delivery_instructions
      *
      * @param string|null $delivery_instructions Additional delivery instructions. For example, this could be instructions on how to enter a building, nearby landmark or navigation instructions, or `Beware of dogs`.
-     *
-     * @return self
      */
     public function setDeliveryInstructions($delivery_instructions) : self
     {
@@ -224,8 +210,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets drop_off_location
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\DropOffLocation|null $drop_off_location drop_off_location
-     *
-     * @return self
      */
     public function setDropOffLocation($drop_off_location) : self
     {
@@ -235,8 +219,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -256,8 +238,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -270,8 +250,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -293,12 +271,10 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,8 +282,6 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

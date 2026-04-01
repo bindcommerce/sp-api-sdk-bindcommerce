@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -228,8 +216,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -252,8 +238,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets transaction_type
      *
      * @param string|null $transaction_type Indicates if the transaction is for a charge or a refund.  Possible values:  * `charge`  * `refund`
-     *
-     * @return self
      */
     public function setTransactionType($transaction_type) : self
     {
@@ -276,8 +260,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets invoice_id
      *
      * @param string|null $invoice_id The identifier for the invoice that includes the transaction.
-     *
-     * @return self
      */
     public function setInvoiceId($invoice_id) : self
     {
@@ -300,8 +282,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets base_value
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $base_value base_value
-     *
-     * @return self
      */
     public function setBaseValue($base_value) : self
     {
@@ -324,8 +304,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets tax_value
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $tax_value tax_value
-     *
-     * @return self
      */
     public function setTaxValue($tax_value) : self
     {
@@ -348,8 +326,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets transaction_value
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $transaction_value transaction_value
-     *
-     * @return self
      */
     public function setTransactionValue($transaction_value) : self
     {
@@ -359,8 +335,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -380,8 +354,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -394,8 +366,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -417,12 +387,10 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -430,8 +398,6 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Item implements ModelInterface, ArrayAccess, \JsonSerializable
+class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -214,8 +202,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_sequence_number
      *
      * @param int $item_sequence_number The sequence number of the item. The number must be the same as the order number of the item.
-     *
-     * @return self
      */
     public function setItemSequenceNumber($item_sequence_number) : self
     {
@@ -238,8 +224,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets buyer_product_identifier
      *
      * @param string|null $buyer_product_identifier The buyer's Amazon Standard Identification Number (ASIN) of an item. Either `buyerProductIdentifier` or `vendorProductIdentifier` is required.
-     *
-     * @return self
      */
     public function setBuyerProductIdentifier($buyer_product_identifier) : self
     {
@@ -262,8 +246,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets vendor_product_identifier
      *
      * @param string|null $vendor_product_identifier An item's product identifier, which the vendor selects. This identifier should be the same as the identifier, such as a SKU, in the purchase order.
-     *
-     * @return self
      */
     public function setVendorProductIdentifier($vendor_product_identifier) : self
     {
@@ -286,8 +268,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipped_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\ItemQuantity $shipped_quantity shipped_quantity
-     *
-     * @return self
      */
     public function setShippedQuantity($shipped_quantity) : self
     {
@@ -297,8 +277,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -318,8 +296,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -332,8 +308,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -355,12 +329,10 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -368,8 +340,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

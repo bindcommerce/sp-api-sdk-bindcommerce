@@ -25,15 +25,13 @@ interface VendorInvoicesSDKInterface
     public const OPERATION_SUBMITINVOICES_PATH = '/vendor/payments/v1/invoices';
 
     /**
-    * Operation submitInvoices
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\SubmitInvoicesRequest $body  The request body containing the invoice data to submit. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\VendorInvoices\SubmitInvoicesResponse
-    */
+     * Operation submitInvoices
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\SubmitInvoicesRequest $body  The request body containing the invoice data to submit. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\VendorInvoices\SubmitInvoicesResponse
+     */
     public function submitInvoices(AccessToken $accessToken, string $region, $body);
 }

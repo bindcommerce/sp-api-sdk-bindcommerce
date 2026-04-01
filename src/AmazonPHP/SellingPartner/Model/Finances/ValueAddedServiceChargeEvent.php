@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
+class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -208,8 +196,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
      * Sets transaction_type
      *
      * @param string|null $transaction_type The transaction type. For example, 'Other Support Service fees'
-     *
-     * @return self
      */
     public function setTransactionType($transaction_type) : self
     {
@@ -232,8 +218,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -256,8 +240,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
      * Sets description
      *
      * @param string|null $description A short description of the service charge event.
-     *
-     * @return self
      */
     public function setDescription($description) : self
     {
@@ -280,8 +262,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
      * Sets transaction_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $transaction_amount transaction_amount
-     *
-     * @return self
      */
     public function setTransactionAmount($transaction_amount) : self
     {
@@ -291,8 +271,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -312,8 +290,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -326,8 +302,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -349,12 +323,10 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -362,8 +334,6 @@ class ValueAddedServiceChargeEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

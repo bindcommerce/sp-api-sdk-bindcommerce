@@ -26,13 +26,11 @@ class UnitOfLength
 
     const CENTIMETERS = 'centimeters';
 
-    private string $value;
-
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
         return [
             self::INCHES,
@@ -40,9 +38,8 @@ class UnitOfLength
         ];
     }
 
-    public function __construct(string $value)
+    public function __construct(private readonly string $value)
     {
-        $this->value = $value;
     }
 
     public function toString(): string

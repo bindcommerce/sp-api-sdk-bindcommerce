@@ -25,17 +25,15 @@ interface VendorDirectFulfillmentShippingSDKInterface
     public const OPERATION_CREATECONTAINERLABEL_PATH = '/vendor/directFulfillment/shipping/2021-12-28/containerLabel';
 
     /**
-    * Operation createContainerLabel
-        *
-        * createContainerLabel
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateContainerLabelRequest $body  Request body containing the container label data. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateContainerLabelResponse
-    */
+     * Operation createContainerLabel
+     *
+     * createContainerLabel
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateContainerLabelRequest $body  Request body containing the container label data. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateContainerLabelResponse
+     */
     public function createContainerLabel(AccessToken $accessToken, string $region, $body);
 }

@@ -25,17 +25,15 @@ interface FBAInboundSDKInterface
     public const OPERATION_GETITEMELIGIBILITYPREVIEW_PATH = '/fba/inbound/v1/eligibility/itemPreview';
 
     /**
-    * Operation getItemEligibilityPreview
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $asin  The ASIN of the item for which you want an eligibility preview. (required)
-    * @param string $program  The program that you want to check eligibility against. (required)
-    * @param string[]|null $marketplace_ids  The identifier for the marketplace in which you want to determine eligibility. Required only when program&#x3D;INBOUND. (optional)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\FBAInbound\GetItemEligibilityPreviewResponse
-    */
+     * Operation getItemEligibilityPreview
+     *
+     * @param string $asin  The ASIN of the item for which you want an eligibility preview. (required)
+     * @param string $program  The program that you want to check eligibility against. (required)
+     * @param string[]|null $marketplace_ids  The identifier for the marketplace in which you want to determine eligibility. Required only when program&#x3D;INBOUND. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\FBAInbound\GetItemEligibilityPreviewResponse
+     */
     public function getItemEligibilityPreview(AccessToken $accessToken, string $region, $asin, $program, $marketplace_ids = null);
 }

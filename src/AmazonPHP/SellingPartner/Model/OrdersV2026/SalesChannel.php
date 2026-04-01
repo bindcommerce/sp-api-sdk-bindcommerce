@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
+class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -202,8 +190,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets channel_name
      *
      * @param string $channel_name The name of the sales platform or channel where the customer placed this order.  **Possible values**: `AMAZON`, `NON_AMAZON`
-     *
-     * @return self
      */
     public function setChannelName($channel_name) : self
     {
@@ -226,8 +212,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets marketplace_id
      *
      * @param string|null $marketplace_id The unique identifier for the specific marketplace within the sales channel where this order was placed.
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -250,8 +234,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets marketplace_name
      *
      * @param string|null $marketplace_name The human-readable name of the marketplace where this order was placed.
-     *
-     * @return self
      */
     public function setMarketplaceName($marketplace_name) : self
     {
@@ -261,8 +243,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -282,8 +262,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -296,8 +274,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,12 +295,10 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -332,8 +306,6 @@ class SalesChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

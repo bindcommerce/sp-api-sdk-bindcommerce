@@ -31,46 +31,40 @@ interface VendorDirectFulfillmentOrdersSDKInterface
     public const OPERATION_SUBMITACKNOWLEDGEMENT_PATH = '/vendor/directFulfillment/orders/2021-12-28/acknowledgements';
 
     /**
-    * Operation getOrder
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $purchase_order_number  The order identifier for the purchase order that you want. Formatting Notes: alpha-numeric code. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\Order
-    */
+     * Operation getOrder
+     *
+     * @param string $purchase_order_number  The order identifier for the purchase order that you want. Formatting Notes: alpha-numeric code. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\Order
+     */
     public function getOrder(AccessToken $accessToken, string $region, $purchase_order_number);
     /**
-    * Operation getOrders
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \DateTimeInterface $created_after  Purchase orders that became available after this date and time will be included in the result. Must be in ISO-8601 date/time format. (required)
-    * @param \DateTimeInterface $created_before  Purchase orders that became available before this date and time will be included in the result. Must be in ISO-8601 date/time format. (required)
-    * @param string|null $ship_from_party_id  The vendor warehouse identifier for the fulfillment warehouse. If not specified, the result will contain orders for all warehouses. (optional)
-    * @param string|null $status  Returns only the purchase orders that match the specified status. If not specified, the result will contain orders that match any status. (optional)
-    * @param int|null $limit  The limit to the number of purchase orders returned. (optional)
-    * @param string|null $sort_order  Sort the list in ascending or descending order by order creation date. (optional)
-    * @param string|null $next_token  Used for pagination when there are more orders than the specified result size limit. The token value is returned in the previous API call. (optional)
-    * @param bool $include_details  When true, returns the complete purchase order details. Otherwise, only purchase order numbers are returned. (optional, default to 'true')
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\OrderList
-    */
-    public function getOrders(AccessToken $accessToken, string $region, $created_after, $created_before, $ship_from_party_id = null, $status = null, $limit = null, $sort_order = null, $next_token = null, $include_details = 'true');
+     * Operation getOrders
+     *
+     * @param \DateTimeInterface $created_after  Purchase orders that became available after this date and time will be included in the result. Must be in ISO-8601 date/time format. (required)
+     * @param \DateTimeInterface $created_before  Purchase orders that became available before this date and time will be included in the result. Must be in ISO-8601 date/time format. (required)
+     * @param string|null $ship_from_party_id  The vendor warehouse identifier for the fulfillment warehouse. If not specified, the result will contain orders for all warehouses. (optional)
+     * @param string|null $status  Returns only the purchase orders that match the specified status. If not specified, the result will contain orders that match any status. (optional)
+     * @param int|null $limit  The limit to the number of purchase orders returned. (optional)
+     * @param string|null $sort_order  Sort the list in ascending or descending order by order creation date. (optional)
+     * @param string|null $next_token  Used for pagination when there are more orders than the specified result size limit. The token value is returned in the previous API call. (optional)
+     * @param bool $include_details  When true, returns the complete purchase order details. Otherwise, only purchase order numbers are returned. (optional, default to 'true')
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\OrderList
+     */
+    public function getOrders(AccessToken $accessToken, string $region, $created_after, $created_before, $ship_from_party_id = null, $status = null, $limit = null, $sort_order = null, $next_token = null, $include_details = true);
     /**
-    * Operation submitAcknowledgement
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\SubmitAcknowledgementRequest $body  The request body containing the acknowledgement to an order (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\TransactionId
-    */
+     * Operation submitAcknowledgement
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\SubmitAcknowledgementRequest $body  The request body containing the acknowledgement to an order (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\TransactionId
+     */
     public function submitAcknowledgement(AccessToken $accessToken, string $region, $body);
 }

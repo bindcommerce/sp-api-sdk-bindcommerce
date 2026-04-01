@@ -49,113 +49,95 @@ interface ShippingSDKInterface
     public const OPERATION_RETRIEVESHIPPINGLABEL_PATH = '/shipping/v1/shipments/{shipmentId}/containers/{trackingId}/label';
 
     /**
-    * Operation cancelShipment
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $shipment_id  Shipment Id to cancel a shipment (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Shipping\CancelShipmentResponse
-    */
+     * Operation cancelShipment
+     *
+     * @param string $shipment_id  Shipment Id to cancel a shipment (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Shipping\CancelShipmentResponse
+     */
     public function cancelShipment(AccessToken $accessToken, string $region, $shipment_id);
     /**
-    * Operation createShipment
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\Shipping\CreateShipmentRequest $body  CreateShipmentRequest Body (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Shipping\CreateShipmentResponse
-    */
+     * Operation createShipment
+     *
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\CreateShipmentRequest $body  CreateShipmentRequest Body (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Shipping\CreateShipmentResponse
+     */
     public function createShipment(AccessToken $accessToken, string $region, $body);
     /**
-    * Operation getAccount
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Shipping\GetAccountResponse
-    */
+     * Operation getAccount
+     *
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Shipping\GetAccountResponse
+     */
     public function getAccount(AccessToken $accessToken, string $region);
     /**
-    * Operation getRates
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\Shipping\GetRatesRequest $body  GetRatesRequest body (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Shipping\GetRatesResponse
-    */
+     * Operation getRates
+     *
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\GetRatesRequest $body  GetRatesRequest body (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Shipping\GetRatesResponse
+     */
     public function getRates(AccessToken $accessToken, string $region, $body);
     /**
-    * Operation getShipment
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $shipment_id  Shipment id to return the entire shipment object (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Shipping\GetShipmentResponse
-    */
+     * Operation getShipment
+     *
+     * @param string $shipment_id  Shipment id to return the entire shipment object (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Shipping\GetShipmentResponse
+     */
     public function getShipment(AccessToken $accessToken, string $region, $shipment_id);
     /**
-    * Operation getTrackingInformation
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $tracking_id  Tracking Id (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Shipping\GetTrackingInformationResponse
-    */
+     * Operation getTrackingInformation
+     *
+     * @param string $tracking_id  Tracking Id (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Shipping\GetTrackingInformationResponse
+     */
     public function getTrackingInformation(AccessToken $accessToken, string $region, $tracking_id);
     /**
-    * Operation purchaseLabels
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $shipment_id  Shipment id for purchase shipping label (required)
-    * @param \AmazonPHP\SellingPartner\Model\Shipping\PurchaseLabelsRequest $body  PurchaseShippingLabelRequest body (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Shipping\PurchaseLabelsResponse
-    */
+     * Operation purchaseLabels
+     *
+     * @param string $shipment_id  Shipment id for purchase shipping label (required)
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\PurchaseLabelsRequest $body  PurchaseShippingLabelRequest body (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Shipping\PurchaseLabelsResponse
+     */
     public function purchaseLabels(AccessToken $accessToken, string $region, $shipment_id, $body);
     /**
-    * Operation purchaseShipment
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\Shipping\PurchaseShipmentRequest $body  PurchaseShipmentRequest body (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Shipping\PurchaseShipmentResponse
-    */
+     * Operation purchaseShipment
+     *
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\PurchaseShipmentRequest $body  PurchaseShipmentRequest body (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Shipping\PurchaseShipmentResponse
+     */
     public function purchaseShipment(AccessToken $accessToken, string $region, $body);
     /**
-    * Operation retrieveShippingLabel
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $shipment_id  Shipment Id to retreive label (required)
-    * @param string $tracking_id  Tracking Id (required)
-    * @param \AmazonPHP\SellingPartner\Model\Shipping\RetrieveShippingLabelRequest $body  RetrieveShippingLabelRequest body (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Shipping\RetrieveShippingLabelResponse
-    */
+     * Operation retrieveShippingLabel
+     *
+     * @param string $shipment_id  Shipment Id to retreive label (required)
+     * @param string $tracking_id  Tracking Id (required)
+     * @param \AmazonPHP\SellingPartner\Model\Shipping\RetrieveShippingLabelRequest $body  RetrieveShippingLabelRequest body (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Shipping\RetrieveShippingLabelResponse
+     */
     public function retrieveShippingLabel(AccessToken $accessToken, string $region, $shipment_id, $tracking_id, $body);
 }

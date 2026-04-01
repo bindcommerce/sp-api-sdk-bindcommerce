@@ -25,16 +25,14 @@ interface VendorDirectFulfillmentInventorySDKInterface
     public const OPERATION_SUBMITINVENTORYUPDATE_PATH = '/vendor/directFulfillment/inventory/v1/warehouses/{warehouseId}/items';
 
     /**
-    * Operation submitInventoryUpdate
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $warehouse_id  Identifier for the warehouse for which to update inventory. (required)
-    * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentInventory\SubmitInventoryUpdateRequest $body  The request body containing the inventory update data to submit. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentInventory\SubmitInventoryUpdateResponse
-    */
+     * Operation submitInventoryUpdate
+     *
+     * @param string $warehouse_id  Identifier for the warehouse for which to update inventory. (required)
+     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentInventory\SubmitInventoryUpdateRequest $body  The request body containing the inventory update data to submit. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentInventory\SubmitInventoryUpdateResponse
+     */
     public function submitInventoryUpdate(AccessToken $accessToken, string $region, $warehouse_id, $body);
 }

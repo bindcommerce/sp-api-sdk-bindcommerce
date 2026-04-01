@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,8 +70,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,8 +78,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -140,8 +136,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -150,8 +144,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -160,8 +152,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -170,8 +160,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -252,8 +240,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_sequence_number
      *
      * @param string $item_sequence_number Numbering of the item on the purchase order. The first item will be 1, the second 2, and so on.
-     *
-     * @return self
      */
     public function setItemSequenceNumber($item_sequence_number) : self
     {
@@ -276,8 +262,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets buyer_product_identifier
      *
      * @param string|null $buyer_product_identifier Buyer's Standard Identification Number (ASIN) of an item.
-     *
-     * @return self
      */
     public function setBuyerProductIdentifier($buyer_product_identifier) : self
     {
@@ -300,8 +284,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets vendor_product_identifier
      *
      * @param string|null $vendor_product_identifier The vendor selected product identification of the item.
-     *
-     * @return self
      */
     public function setVendorProductIdentifier($vendor_product_identifier) : self
     {
@@ -324,8 +306,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets net_cost
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\Money|null $net_cost net_cost
-     *
-     * @return self
      */
     public function setNetCost($net_cost) : self
     {
@@ -348,8 +328,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets list_price
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\Money|null $list_price list_price
-     *
-     * @return self
      */
     public function setListPrice($list_price) : self
     {
@@ -372,8 +350,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets ordered_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\OrderItemStatusOrderedQuantity|null $ordered_quantity ordered_quantity
-     *
-     * @return self
      */
     public function setOrderedQuantity($ordered_quantity) : self
     {
@@ -396,8 +372,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets acknowledgement_status
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\OrderItemStatusAcknowledgementStatus|null $acknowledgement_status acknowledgement_status
-     *
-     * @return self
      */
     public function setAcknowledgementStatus($acknowledgement_status) : self
     {
@@ -420,8 +394,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets receiving_status
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\OrderItemStatusReceivingStatus|null $receiving_status receiving_status
-     *
-     * @return self
      */
     public function setReceivingStatus($receiving_status) : self
     {
@@ -431,8 +403,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -452,8 +422,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -466,8 +434,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -489,12 +455,10 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -502,8 +466,6 @@ class OrderItemStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

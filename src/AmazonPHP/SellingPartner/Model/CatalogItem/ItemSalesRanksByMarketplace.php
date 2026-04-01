@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -202,8 +190,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
      * Sets marketplace_id
      *
      * @param string $marketplace_id Amazon marketplace identifier. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -226,8 +212,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
      * Sets classification_ranks
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemClassificationSalesRank[]|null $classification_ranks Sales ranks of an Amazon catalog item for a `marketplaceId`, grouped by classification.
-     *
-     * @return self
      */
     public function setClassificationRanks($classification_ranks) : self
     {
@@ -250,8 +234,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
      * Sets display_group_ranks
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemDisplayGroupSalesRank[]|null $display_group_ranks Sales ranks of an Amazon catalog item for a `marketplaceId`, grouped by website display group.
-     *
-     * @return self
      */
     public function setDisplayGroupRanks($display_group_ranks) : self
     {
@@ -261,8 +243,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -282,8 +262,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -296,8 +274,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,12 +295,10 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -332,8 +306,6 @@ class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

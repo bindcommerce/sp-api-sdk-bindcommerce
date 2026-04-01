@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -232,8 +220,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
      * Sets marketplace_id
      *
      * @param string|null $marketplace_id The marketplace the fulfillment order is placed against.
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -256,8 +242,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
      * Sets address
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Address $address address
-     *
-     * @return self
      */
     public function setAddress($address) : self
     {
@@ -280,8 +264,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\GetFulfillmentPreviewItem[] $items An array of fulfillment preview item information.
-     *
-     * @return self
      */
     public function setItems($items) : self
     {
@@ -304,8 +286,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
      * Sets shipping_speed_categories
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ShippingSpeedCategory[]|null $shipping_speed_categories List of shipping speed categories.
-     *
-     * @return self
      */
     public function setShippingSpeedCategories($shipping_speed_categories) : self
     {
@@ -328,8 +308,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
      * Sets include_cod_fulfillment_preview
      *
      * @param bool|null $include_cod_fulfillment_preview When true, returns all fulfillment order previews both for COD and not for COD. Otherwise, returns only fulfillment order previews that are not for COD.
-     *
-     * @return self
      */
     public function setIncludeCodFulfillmentPreview($include_cod_fulfillment_preview) : self
     {
@@ -352,8 +330,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
      * Sets include_delivery_windows
      *
      * @param bool|null $include_delivery_windows When true, returns the `ScheduledDeliveryInfo` response object, which contains the available delivery windows for a Scheduled Delivery. The `ScheduledDeliveryInfo` response object can only be returned for fulfillment order previews with `ShippingSpeedCategories` equal to `ScheduledDelivery`.
-     *
-     * @return self
      */
     public function setIncludeDeliveryWindows($include_delivery_windows) : self
     {
@@ -376,8 +352,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
      * Sets feature_constraints
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FeatureSettings[]|null $feature_constraints A list of features and their fulfillment policies to apply to the order.
-     *
-     * @return self
      */
     public function setFeatureConstraints($feature_constraints) : self
     {
@@ -387,8 +361,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -408,8 +380,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -422,8 +392,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -445,12 +413,10 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -458,8 +424,6 @@ class GetFulfillmentPreviewRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -206,8 +194,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets invoice_content
      *
      * @param string $invoice_content Shipment invoice document content.
-     *
-     * @return self
      */
     public function setInvoiceContent($invoice_content) : self
     {
@@ -230,8 +216,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets marketplace_id
      *
      * @param string|null $marketplace_id An Amazon marketplace identifier.
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -254,8 +238,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets content_md5_value
      *
      * @param string $content_md5_value MD5 sum for validating the invoice data. For more information about calculating this value, see [Working with Content-MD5 Checksums](https://docs.developer.amazonservices.com/en_US/dev_guide/DG_MD5.html).
-     *
-     * @return self
      */
     public function setContentMd5Value($content_md5_value) : self
     {
@@ -265,8 +247,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,8 +266,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -300,8 +278,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,12 +299,10 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -336,8 +310,6 @@ class SubmitInvoiceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

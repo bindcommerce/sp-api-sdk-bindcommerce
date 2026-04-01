@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -208,8 +196,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
      * Sets shipping_service_list
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\ShippingService[] $shipping_service_list A list of shipping services offers.
-     *
-     * @return self
      */
     public function setShippingServiceList($shipping_service_list) : self
     {
@@ -232,8 +218,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
      * Sets rejected_shipping_service_list
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\RejectedShippingService[]|null $rejected_shipping_service_list List of services that are for some reason unavailable for this request
-     *
-     * @return self
      */
     public function setRejectedShippingServiceList($rejected_shipping_service_list) : self
     {
@@ -256,8 +240,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
      * Sets temporarily_unavailable_carrier_list
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\TemporarilyUnavailableCarrier[]|null $temporarily_unavailable_carrier_list A list of temporarily unavailable carriers.
-     *
-     * @return self
      */
     public function setTemporarilyUnavailableCarrierList($temporarily_unavailable_carrier_list) : self
     {
@@ -280,8 +262,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
      * Sets terms_and_conditions_not_accepted_carrier_list
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\TermsAndConditionsNotAcceptedCarrier[]|null $terms_and_conditions_not_accepted_carrier_list List of carriers whose terms and conditions were not accepted by the seller.
-     *
-     * @return self
      */
     public function setTermsAndConditionsNotAcceptedCarrierList($terms_and_conditions_not_accepted_carrier_list) : self
     {
@@ -291,8 +271,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -312,8 +290,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -326,8 +302,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -349,12 +323,10 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -362,8 +334,6 @@ class GetEligibleShipmentServicesResult implements ModelInterface, ArrayAccess, 
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

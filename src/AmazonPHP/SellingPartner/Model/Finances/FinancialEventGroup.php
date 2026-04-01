@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializable
+class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -76,8 +76,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -86,8 +84,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -155,8 +151,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -165,8 +159,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -175,8 +167,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -185,8 +175,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -258,8 +246,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets financial_event_group_id
      *
      * @param string|null $financial_event_group_id A unique identifier for the financial event group.
-     *
-     * @return self
      */
     public function setFinancialEventGroupId($financial_event_group_id) : self
     {
@@ -282,8 +268,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets processing_status
      *
      * @param string|null $processing_status The processing status of the financial event group indicates whether the balance of the financial event group is settled.  Possible values:  * `Open` * `Closed`
-     *
-     * @return self
      */
     public function setProcessingStatus($processing_status) : self
     {
@@ -306,8 +290,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets fund_transfer_status
      *
      * @param string|null $fund_transfer_status The status of the fund transfer.
-     *
-     * @return self
      */
     public function setFundTransferStatus($fund_transfer_status) : self
     {
@@ -330,8 +312,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets original_total
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $original_total original_total
-     *
-     * @return self
      */
     public function setOriginalTotal($original_total) : self
     {
@@ -354,8 +334,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets converted_total
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $converted_total converted_total
-     *
-     * @return self
      */
     public function setConvertedTotal($converted_total) : self
     {
@@ -378,8 +356,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets fund_transfer_date
      *
      * @param \DateTimeInterface|null $fund_transfer_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setFundTransferDate($fund_transfer_date) : self
     {
@@ -402,8 +378,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets trace_id
      *
      * @param string|null $trace_id The trace identifier used by sellers to look up transactions externally.
-     *
-     * @return self
      */
     public function setTraceId($trace_id) : self
     {
@@ -426,8 +400,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets account_tail
      *
      * @param string|null $account_tail The account tail of the payment instrument.
-     *
-     * @return self
      */
     public function setAccountTail($account_tail) : self
     {
@@ -450,8 +422,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets beginning_balance
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $beginning_balance beginning_balance
-     *
-     * @return self
      */
     public function setBeginningBalance($beginning_balance) : self
     {
@@ -474,8 +444,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets financial_event_group_start
      *
      * @param \DateTimeInterface|null $financial_event_group_start A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setFinancialEventGroupStart($financial_event_group_start) : self
     {
@@ -498,8 +466,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets financial_event_group_end
      *
      * @param \DateTimeInterface|null $financial_event_group_end A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-     *
-     * @return self
      */
     public function setFinancialEventGroupEnd($financial_event_group_end) : self
     {
@@ -509,8 +475,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -530,8 +494,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -544,8 +506,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -567,12 +527,10 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -580,8 +538,6 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

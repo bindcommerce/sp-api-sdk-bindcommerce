@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,8 +66,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,8 +74,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -130,8 +126,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -140,8 +134,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -150,8 +142,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -160,8 +150,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -248,8 +236,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets shipment_id
      *
      * @param string $shipment_id The unique shipment identifier provided by a shipping service.
-     *
-     * @return self
      */
     public function setShipmentId($shipment_id) : self
     {
@@ -272,8 +258,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets package_document_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\PackageDocumentDetail[] $package_document_details A list of post-purchase details about a package that will be shipped using a shipping service.
-     *
-     * @return self
      */
     public function setPackageDocumentDetails($package_document_details) : self
     {
@@ -296,8 +280,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets promise
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Promise $promise promise
-     *
-     * @return self
      */
     public function setPromise($promise) : self
     {
@@ -320,8 +302,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets carrier
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Carrier $carrier carrier
-     *
-     * @return self
      */
     public function setCarrier($carrier) : self
     {
@@ -344,8 +324,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets service
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Service $service service
-     *
-     * @return self
      */
     public function setService($service) : self
     {
@@ -368,8 +346,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets total_charge
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Currency $total_charge total_charge
-     *
-     * @return self
      */
     public function setTotalCharge($total_charge) : self
     {
@@ -379,8 +355,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -400,8 +374,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -414,8 +386,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -437,12 +407,10 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -450,8 +418,6 @@ class OneClickShipmentResult implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

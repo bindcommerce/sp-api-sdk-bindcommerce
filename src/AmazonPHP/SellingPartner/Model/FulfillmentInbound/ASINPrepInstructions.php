@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializable
+class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -204,8 +192,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the item.
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -228,8 +214,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets barcode_instruction
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\BarcodeInstruction|null $barcode_instruction barcode_instruction
-     *
-     * @return self
      */
     public function setBarcodeInstruction($barcode_instruction) : self
     {
@@ -252,8 +236,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets prep_guidance
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\PrepGuidance|null $prep_guidance prep_guidance
-     *
-     * @return self
      */
     public function setPrepGuidance($prep_guidance) : self
     {
@@ -276,8 +258,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets prep_instruction_list
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\PrepInstruction[]|null $prep_instruction_list A list of preparation instructions to help with item sourcing decisions.
-     *
-     * @return self
      */
     public function setPrepInstructionList($prep_instruction_list) : self
     {
@@ -287,8 +267,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -308,8 +286,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -322,8 +298,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -345,12 +319,10 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -358,8 +330,6 @@ class ASINPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

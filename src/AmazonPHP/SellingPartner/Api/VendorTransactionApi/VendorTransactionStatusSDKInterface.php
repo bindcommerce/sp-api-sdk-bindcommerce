@@ -25,15 +25,13 @@ interface VendorTransactionStatusSDKInterface
     public const OPERATION_GETTRANSACTION_PATH = '/vendor/transactions/v1/transactions/{transactionId}';
 
     /**
-    * Operation getTransaction
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param string $transaction_id  The GUID provided by Amazon in the &#39;transactionId&#39; field in response to the post request of a specific transaction. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\VendorTransactionStatus\GetTransactionResponse
-    */
+     * Operation getTransaction
+     *
+     * @param string $transaction_id  The GUID provided by Amazon in the &#39;transactionId&#39; field in response to the post request of a specific transaction. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\VendorTransactionStatus\GetTransactionResponse
+     */
     public function getTransaction(AccessToken $accessToken, string $region, $transaction_id);
 }

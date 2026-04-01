@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Report implements ModelInterface, ArrayAccess, \JsonSerializable
+class Report implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -76,8 +76,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -86,8 +84,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -155,8 +151,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -165,8 +159,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -175,8 +167,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -185,8 +175,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -294,8 +282,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets marketplace_ids
      *
      * @param string[]|null $marketplace_ids A list of marketplace identifiers for the report.
-     *
-     * @return self
      */
     public function setMarketplaceIds($marketplace_ids) : self
     {
@@ -318,8 +304,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets report_id
      *
      * @param string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID.
-     *
-     * @return self
      */
     public function setReportId($report_id) : self
     {
@@ -342,8 +326,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets report_type
      *
      * @param string $report_type The report type. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information.
-     *
-     * @return self
      */
     public function setReportType($report_type) : self
     {
@@ -366,8 +348,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets data_start_time
      *
      * @param \DateTimeInterface|null $data_start_time The start of a date and time range used for selecting the data to report.
-     *
-     * @return self
      */
     public function setDataStartTime($data_start_time) : self
     {
@@ -390,8 +370,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets data_end_time
      *
      * @param \DateTimeInterface|null $data_end_time The end of a date and time range used for selecting the data to report.
-     *
-     * @return self
      */
     public function setDataEndTime($data_end_time) : self
     {
@@ -414,8 +392,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets report_schedule_id
      *
      * @param string|null $report_schedule_id The identifier of the report schedule that created this report (if any). This identifier is unique only in combination with a seller ID.
-     *
-     * @return self
      */
     public function setReportScheduleId($report_schedule_id) : self
     {
@@ -438,8 +414,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets created_time
      *
      * @param \DateTimeInterface $created_time The date and time when the report was created.
-     *
-     * @return self
      */
     public function setCreatedTime($created_time) : self
     {
@@ -462,8 +436,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets processing_status
      *
      * @param string $processing_status The processing status of the report.
-     *
-     * @return self
      */
     public function setProcessingStatus($processing_status) : self
     {
@@ -486,8 +458,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets processing_start_time
      *
      * @param \DateTimeInterface|null $processing_start_time The date and time when the report processing started, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format.
-     *
-     * @return self
      */
     public function setProcessingStartTime($processing_start_time) : self
     {
@@ -510,8 +480,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets processing_end_time
      *
      * @param \DateTimeInterface|null $processing_end_time The date and time when the report processing completed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format.
-     *
-     * @return self
      */
     public function setProcessingEndTime($processing_end_time) : self
     {
@@ -534,8 +502,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets report_document_id
      *
      * @param string|null $report_document_id The identifier for the report document. Pass this into the `getReportDocument` operation to get the information you will need to retrieve the report document's contents.
-     *
-     * @return self
      */
     public function setReportDocumentId($report_document_id) : self
     {
@@ -545,8 +511,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -566,8 +530,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -580,8 +542,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -603,12 +563,10 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -616,8 +574,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

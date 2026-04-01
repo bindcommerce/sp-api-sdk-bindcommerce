@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -222,8 +210,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets purchase_order_number
      *
      * @param string $purchase_order_number The purchase order number. Formatting Notes: 8-character alpha-numeric code.
-     *
-     * @return self
      */
     public function setPurchaseOrderNumber($purchase_order_number) : self
     {
@@ -246,8 +232,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets selling_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification $selling_party selling_party
-     *
-     * @return self
      */
     public function setSellingParty($selling_party) : self
     {
@@ -270,8 +254,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets acknowledgement_date
      *
      * @param \DateTimeInterface $acknowledgement_date The date and time when the purchase order is acknowledged, in ISO-8601 date/time format.
-     *
-     * @return self
      */
     public function setAcknowledgementDate($acknowledgement_date) : self
     {
@@ -294,8 +276,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\OrderAcknowledgementItem[] $items A list of the items being acknowledged with associated details.
-     *
-     * @return self
      */
     public function setItems($items) : self
     {
@@ -305,8 +285,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -326,8 +304,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -340,8 +316,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -363,12 +337,10 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -376,8 +348,6 @@ class OrderAcknowledgement implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

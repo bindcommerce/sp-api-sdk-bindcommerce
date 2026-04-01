@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
+class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -238,8 +226,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets type
      *
      * @param string|null $type The payment term type for the invoice.
-     *
-     * @return self
      */
     public function setType($type) : self
     {
@@ -262,8 +248,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets discount_percent
      *
      * @param string|null $discount_percent A decimal number with no loss of precision. Useful when precision loss is unacceptable, as with currencies. Follows RFC7159 for number representation. <br>**Pattern** : `^-?(0|([1-9]\\d*))(\\.\\d+)?([eE][+-]?\\d+)?$`.
-     *
-     * @return self
      */
     public function setDiscountPercent($discount_percent) : self
     {
@@ -286,8 +270,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets discount_due_days
      *
      * @param float|null $discount_due_days The number of calendar days from the Base date (Invoice date) until the discount is no longer valid.
-     *
-     * @return self
      */
     public function setDiscountDueDays($discount_due_days) : self
     {
@@ -310,8 +292,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets net_due_days
      *
      * @param float|null $net_due_days The number of calendar days from the base date (invoice date) until the total amount on the invoice is due.
-     *
-     * @return self
      */
     public function setNetDueDays($net_due_days) : self
     {
@@ -321,8 +301,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -342,8 +320,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -356,8 +332,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -379,12 +353,10 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -392,8 +364,6 @@ class PaymentTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

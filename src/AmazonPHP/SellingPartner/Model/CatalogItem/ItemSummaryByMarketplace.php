@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -94,8 +94,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -104,8 +102,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -200,8 +196,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -210,8 +204,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -220,8 +212,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -230,8 +220,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -338,8 +326,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets marketplace_id
      *
      * @param string $marketplace_id Amazon marketplace identifier. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -362,8 +348,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets adult_product
      *
      * @param bool|null $adult_product When `true`, the Amazon catalog item is intended for an adult audience or is sexual in nature.
-     *
-     * @return self
      */
     public function setAdultProduct($adult_product) : self
     {
@@ -386,8 +370,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets autographed
      *
      * @param bool|null $autographed When `true`, the Amazon catalog item is autographed.
-     *
-     * @return self
      */
     public function setAutographed($autographed) : self
     {
@@ -410,8 +392,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets brand
      *
      * @param string|null $brand Name of the brand that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setBrand($brand) : self
     {
@@ -434,8 +414,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets browse_classification
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemBrowseClassification|null $browse_classification browse_classification
-     *
-     * @return self
      */
     public function setBrowseClassification($browse_classification) : self
     {
@@ -458,8 +436,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets color
      *
      * @param string|null $color The color that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setColor($color) : self
     {
@@ -482,8 +458,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets contributors
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemContributor[]|null $contributors Individual contributors to the creation of the item, such as the authors or actors.
-     *
-     * @return self
      */
     public function setContributors($contributors) : self
     {
@@ -506,8 +480,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets item_classification
      *
      * @param string|null $item_classification Classification type that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setItemClassification($item_classification) : self
     {
@@ -530,8 +502,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets item_name
      *
      * @param string|null $item_name The name that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setItemName($item_name) : self
     {
@@ -554,8 +524,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets manufacturer
      *
      * @param string|null $manufacturer The name of the manufacturer that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setManufacturer($manufacturer) : self
     {
@@ -578,8 +546,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets memorabilia
      *
      * @param bool|null $memorabilia When true, the item is classified as memorabilia.
-     *
-     * @return self
      */
     public function setMemorabilia($memorabilia) : self
     {
@@ -602,8 +568,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets model_number
      *
      * @param string|null $model_number The model number that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setModelNumber($model_number) : self
     {
@@ -626,8 +590,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets package_quantity
      *
      * @param int|null $package_quantity The quantity of the Amazon catalog item within one package.
-     *
-     * @return self
      */
     public function setPackageQuantity($package_quantity) : self
     {
@@ -650,8 +612,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets part_number
      *
      * @param string|null $part_number The part number that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setPartNumber($part_number) : self
     {
@@ -674,8 +634,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets release_date
      *
      * @param \DateTimeInterface|null $release_date The earliest date on which the Amazon catalog item can be shipped to customers.
-     *
-     * @return self
      */
     public function setReleaseDate($release_date) : self
     {
@@ -698,8 +656,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets size
      *
      * @param string|null $size The name of the size of the Amazon catalog item.
-     *
-     * @return self
      */
     public function setSize($size) : self
     {
@@ -722,8 +678,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets style
      *
      * @param string|null $style The name of the style that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setStyle($style) : self
     {
@@ -746,8 +700,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets trade_in_eligible
      *
      * @param bool|null $trade_in_eligible When true, the Amazon catalog item is eligible for trade-in.
-     *
-     * @return self
      */
     public function setTradeInEligible($trade_in_eligible) : self
     {
@@ -770,8 +722,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets website_display_group
      *
      * @param string|null $website_display_group The identifier of the website display group that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setWebsiteDisplayGroup($website_display_group) : self
     {
@@ -794,8 +744,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets website_display_group_name
      *
      * @param string|null $website_display_group_name The display name of the website display group that is associated with the Amazon catalog item.
-     *
-     * @return self
      */
     public function setWebsiteDisplayGroupName($website_display_group_name) : self
     {
@@ -805,8 +753,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -826,8 +772,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -840,8 +784,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -863,12 +805,10 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -876,8 +816,6 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

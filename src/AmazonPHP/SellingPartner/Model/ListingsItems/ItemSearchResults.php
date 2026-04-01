@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -210,8 +198,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets number_of_results
      *
      * @param int $number_of_results The total number of selling partner listings items found for the search criteria (only results up to the page count limit is returned per request regardless of the number found).  Note: The maximum number of items (SKUs) that can be returned and paged through is 1000.
-     *
-     * @return self
      */
     public function setNumberOfResults($number_of_results) : self
     {
@@ -234,8 +220,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets pagination
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\Pagination|null $pagination pagination
-     *
-     * @return self
      */
     public function setPagination($pagination) : self
     {
@@ -258,8 +242,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\Item[] $items A list of listings items.
-     *
-     * @return self
      */
     public function setItems($items) : self
     {
@@ -269,8 +251,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -290,8 +270,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -304,8 +282,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -327,12 +303,10 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -340,8 +314,6 @@ class ItemSearchResults implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

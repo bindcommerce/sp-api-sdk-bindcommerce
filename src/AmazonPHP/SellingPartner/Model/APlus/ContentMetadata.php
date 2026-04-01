@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
+class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,8 +64,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,8 +72,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -125,8 +121,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -135,8 +129,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -145,8 +137,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -155,8 +145,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -197,11 +185,11 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'name' can't be null");
         }
 
-        if ((mb_strlen($this->container['name']) > 100)) {
+        if ((mb_strlen((string) $this->container['name']) > 100)) {
             throw new AssertionException("invalid value for 'name', the character length must be smaller than or equal to 100.");
         }
 
-        if ((mb_strlen($this->container['name']) < 1)) {
+        if ((mb_strlen((string) $this->container['name']) < 1)) {
             throw new AssertionException("invalid value for 'name', the character length must be bigger than or equal to 1.");
         }
 
@@ -209,7 +197,7 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'marketplace_id' can't be null");
         }
 
-        if ((mb_strlen($this->container['marketplace_id']) < 1)) {
+        if ((mb_strlen((string) $this->container['marketplace_id']) < 1)) {
             throw new AssertionException("invalid value for 'marketplace_id', the character length must be bigger than or equal to 1.");
         }
 
@@ -242,8 +230,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets name
      *
      * @param string $name The A+ Content document's name.
-     *
-     * @return self
      */
     public function setName($name) : self
     {
@@ -266,8 +252,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets marketplace_id
      *
      * @param string $marketplace_id The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -290,8 +274,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets status
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ContentStatus $status status
-     *
-     * @return self
      */
     public function setStatus($status) : self
     {
@@ -314,8 +296,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets badge_set
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ContentBadge[] $badge_set The set of content badges.
-     *
-     * @return self
      */
     public function setBadgeSet($badge_set) : self
     {
@@ -338,8 +318,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets update_time
      *
      * @param \DateTimeInterface $update_time The approximate age of the A+ Content document and metadata.
-     *
-     * @return self
      */
     public function setUpdateTime($update_time) : self
     {
@@ -349,8 +327,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -370,8 +346,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -384,8 +358,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -407,12 +379,10 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -420,8 +390,6 @@ class ContentMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -26,13 +26,11 @@ class ShipmentType
 
     const RETURNS = 'RETURNS';
 
-    private string $value;
-
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
         return [
             self::FORWARD,
@@ -40,9 +38,8 @@ class ShipmentType
         ];
     }
 
-    public function __construct(string $value)
+    public function __construct(private readonly string $value)
     {
-        $this->value = $value;
     }
 
     public function toString(): string

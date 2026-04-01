@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation cancelFulfillmentOrder
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws ApiException on non-2xx response
@@ -146,12 +132,9 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'cancelFulfillmentOrder'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function cancelFulfillmentOrderRequest(AccessToken $accessToken, string $region, $seller_fulfillment_order_id) : RequestInterface
     {
@@ -247,8 +230,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation createFulfillmentOrder
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CreateFulfillmentOrderRequest $body  CreateFulfillmentOrderRequest parameter (required)
      *
      * @throws ApiException on non-2xx response
@@ -347,12 +328,9 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'createFulfillmentOrder'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CreateFulfillmentOrderRequest $body  CreateFulfillmentOrderRequest parameter (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function createFulfillmentOrderRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -444,8 +422,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation createFulfillmentReturn
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  An identifier the seller assigns to the fulfillment order at the time it was created. The seller uses their own records to find the correct &#x60;sellerFulfillmentOrderId&#x60; value based on the buyer&#39;s request to return items. (required)
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CreateFulfillmentReturnRequest $body  The request body of the &#x60;createFulfillmentReturn&#x60; operation. (required)
      *
@@ -545,13 +521,10 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'createFulfillmentReturn'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  An identifier the seller assigns to the fulfillment order at the time it was created. The seller uses their own records to find the correct &#x60;sellerFulfillmentOrderId&#x60; value based on the buyer&#39;s request to return items. (required)
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\CreateFulfillmentReturnRequest $body  The request body of the &#x60;createFulfillmentReturn&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function createFulfillmentReturnRequest(AccessToken $accessToken, string $region, $seller_fulfillment_order_id, $body) : RequestInterface
     {
@@ -657,8 +630,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation deliveryOffers
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\GetDeliveryOffersRequest $body  GetDeliveryOffersRequest parameter (required)
      *
      * @throws ApiException on non-2xx response
@@ -757,12 +728,9 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'deliveryOffers'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\GetDeliveryOffersRequest $body  GetDeliveryOffersRequest parameter (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function deliveryOffersRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -854,8 +822,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation getFeatureInventory
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace for which to return a list of the inventory that is eligible for the specified feature. (required)
      * @param string $feature_name  The name of the feature for which to return a list of eligible inventory. (required)
      * @param string|null $next_token  A string token returned in the response to your previous request that is used to return the next response page. A value of &#x60;null&#x60; will return the first page. (optional)
@@ -957,15 +923,12 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'getFeatureInventory'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace for which to return a list of the inventory that is eligible for the specified feature. (required)
      * @param string $feature_name  The name of the feature for which to return a list of eligible inventory. (required)
      * @param string|null $next_token  A string token returned in the response to your previous request that is used to return the next response page. A value of &#x60;null&#x60; will return the first page. (optional)
      * @param \DateTimeInterface|null $query_start_date  A date that you can use to select inventory that has been updated since a specified date. An update is defined as any change in feature-enabled inventory availability. The date must be in the format &#x60;yyyy-MM-ddTHH:mm:ss.sssZ&#x60; (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getFeatureInventoryRequest(AccessToken $accessToken, string $region, $marketplace_id, $feature_name, $next_token = null, $query_start_date = null) : RequestInterface
     {
@@ -1084,8 +1047,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation getFeatureSKU
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace for which to return the count. (required)
      * @param string $feature_name  The name of the feature. (required)
      * @param string $seller_sku  Used to identify an item in the given marketplace. &#x60;sellerSku&#x60; is qualified by the seller&#39;s &#x60;sellerId&#x60;, which is included with every operation that you submit. (required)
@@ -1186,14 +1147,11 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'getFeatureSKU'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace for which to return the count. (required)
      * @param string $feature_name  The name of the feature. (required)
      * @param string $seller_sku  Used to identify an item in the given marketplace. &#x60;sellerSku&#x60; is qualified by the seller&#39;s &#x60;sellerId&#x60;, which is included with every operation that you submit. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getFeatureSKURequest(AccessToken $accessToken, string $region, $marketplace_id, $feature_name, $seller_sku) : RequestInterface
     {
@@ -1312,8 +1270,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation getFeatures
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace for which to return the list of features. (required)
      *
      * @throws ApiException on non-2xx response
@@ -1412,12 +1368,9 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'getFeatures'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $marketplace_id  The marketplace for which to return the list of features. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getFeaturesRequest(AccessToken $accessToken, string $region, $marketplace_id) : RequestInterface
     {
@@ -1508,8 +1461,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation getFulfillmentOrder
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws ApiException on non-2xx response
@@ -1608,12 +1559,9 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'getFulfillmentOrder'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getFulfillmentOrderRequest(AccessToken $accessToken, string $region, $seller_fulfillment_order_id) : RequestInterface
     {
@@ -1709,8 +1657,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation getFulfillmentPreview
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\GetFulfillmentPreviewRequest $body  GetFulfillmentPreviewRequest parameter (required)
      *
      * @throws ApiException on non-2xx response
@@ -1809,12 +1755,9 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'getFulfillmentPreview'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\GetFulfillmentPreviewRequest $body  GetFulfillmentPreviewRequest parameter (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getFulfillmentPreviewRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -1906,8 +1849,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation getPackageTrackingDetails
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int $package_number  The unencrypted package identifier. You can obtain this value from the &#x60;getFulfillmentOrder&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
@@ -2006,12 +1947,9 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'getPackageTrackingDetails'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param int $package_number  The unencrypted package identifier. You can obtain this value from the &#x60;getFulfillmentOrder&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getPackageTrackingDetailsRequest(AccessToken $accessToken, string $region, $package_number) : RequestInterface
     {
@@ -2102,8 +2040,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation listAllFulfillmentOrders
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \DateTimeInterface|null $query_start_date  A date used to select fulfillment orders that were last updated after (or at) a specified time. An update is defined as any change in fulfillment order status, including the creation of a new fulfillment order. (optional)
      * @param string|null $next_token  A string token returned in the response to your previous request. (optional)
      *
@@ -2203,13 +2139,10 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'listAllFulfillmentOrders'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \DateTimeInterface|null $query_start_date  A date used to select fulfillment orders that were last updated after (or at) a specified time. An update is defined as any change in fulfillment order status, including the creation of a new fulfillment order. (optional)
      * @param string|null $next_token  A string token returned in the response to your previous request. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function listAllFulfillmentOrdersRequest(AccessToken $accessToken, string $region, $query_start_date = null, $next_token = null) : RequestInterface
     {
@@ -2301,8 +2234,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation listReturnReasonCodes
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_sku  The seller SKU for which return reason codes are required. (required)
      * @param string|null $marketplace_id  The marketplace for which the seller wants return reason codes. (optional)
      * @param string|null $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. The service uses this value to determine the marketplace for which the seller wants return reason codes. (optional)
@@ -2404,15 +2335,12 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'listReturnReasonCodes'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_sku  The seller SKU for which return reason codes are required. (required)
      * @param string|null $marketplace_id  The marketplace for which the seller wants return reason codes. (optional)
      * @param string|null $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. The service uses this value to determine the marketplace for which the seller wants return reason codes. (optional)
      * @param string|null $language  The language that the &#x60;TranslatedDescription&#x60; property of the &#x60;ReasonCodeDetails&#x60; response object should be translated into. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function listReturnReasonCodesRequest(AccessToken $accessToken, string $region, $seller_sku, $marketplace_id = null, $seller_fulfillment_order_id = null, $language = null) : RequestInterface
     {
@@ -2524,8 +2452,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation submitFulfillmentOrderStatusUpdate
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\SubmitFulfillmentOrderStatusUpdateRequest $body  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
@@ -2625,13 +2551,10 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'submitFulfillmentOrderStatusUpdate'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\SubmitFulfillmentOrderStatusUpdateRequest $body  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function submitFulfillmentOrderStatusUpdateRequest(AccessToken $accessToken, string $region, $seller_fulfillment_order_id, $body) : RequestInterface
     {
@@ -2741,8 +2664,6 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Operation updateFulfillmentOrder
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\UpdateFulfillmentOrderRequest $body  The request body of the &#x60;updateFulfillmentOrder&#x60; operation. (required)
      *
@@ -2842,13 +2763,10 @@ final class FulfillmentOutboundSDK implements FulfillmentOutboundSDKInterface
     /**
      * Create request for operation 'updateFulfillmentOrder'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $seller_fulfillment_order_id  The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\UpdateFulfillmentOrderRequest $body  The request body of the &#x60;updateFulfillmentOrder&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function updateFulfillmentOrderRequest(AccessToken $accessToken, string $region, $seller_fulfillment_order_id, $body) : RequestInterface
     {

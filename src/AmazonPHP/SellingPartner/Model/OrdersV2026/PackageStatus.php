@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
+class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,8 +58,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,8 +66,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -110,8 +106,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -120,8 +114,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -130,8 +122,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -140,8 +130,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -230,8 +218,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets status
      *
      * @param string $status Primary status classification of the package in the shipping workflow.
-     *
-     * @return self
      */
     public function setStatus($status) : self
     {
@@ -254,8 +240,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets detailed_status
      *
      * @param string|null $detailed_status Granular status information providing specific details about the package's current location and handling stage.   **Possible values:** - `PENDING_SCHEDULE` (Package awaiting pickup scheduling) - `PENDING_PICK_UP` (Package ready for carrier collection from seller) - `PENDING_DROP_OFF` (Package awaiting seller delivery to carrier) - `LABEL_CANCELLED` (Shipping label canceled by seller) - `PICKED_UP` (Package collected by carrier from seller location) - `DROPPED_OFF` (Package delivered to carrier by seller) - `AT_ORIGIN_FC` (Package at originating fulfillment center) - `AT_DESTINATION_FC` (Package at destination fulfillment center) - `DELIVERED` (Package successfully delivered to recipient) - `REJECTED_BY_BUYER` (Package refused by intended recipient) - `UNDELIVERABLE` (Package cannot be delivered due to address or access issues) - `RETURNING_TO_SELLER` (Package in transit back to seller) - `RETURNED_TO_SELLER` (Package successfully returned to seller) - `LOST` (Package location unknown or confirmed lost) - `OUT_FOR_DELIVERY` (Package on delivery vehicle for final delivery) - `DAMAGED` (Package damaged during transit)
-     *
-     * @return self
      */
     public function setDetailedStatus($detailed_status) : self
     {
@@ -265,8 +249,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,8 +268,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -300,8 +280,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,12 +301,10 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -336,8 +312,6 @@ class PackageStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

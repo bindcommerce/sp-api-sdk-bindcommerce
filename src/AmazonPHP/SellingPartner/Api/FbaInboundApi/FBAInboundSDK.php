@@ -27,27 +27,13 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class FBAInboundSDK implements FBAInboundSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
      * Operation getItemEligibilityPreview
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $asin  The ASIN of the item for which you want an eligibility preview. (required)
      * @param string $program  The program that you want to check eligibility against. (required)
      * @param string[]|null $marketplace_ids  The identifier for the marketplace in which you want to determine eligibility. Required only when program&#x3D;INBOUND. (optional)
@@ -148,14 +134,11 @@ final class FBAInboundSDK implements FBAInboundSDKInterface
     /**
      * Create request for operation 'getItemEligibilityPreview'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $asin  The ASIN of the item for which you want an eligibility preview. (required)
      * @param string $program  The program that you want to check eligibility against. (required)
      * @param string[]|null $marketplace_ids  The identifier for the marketplace in which you want to determine eligibility. Required only when program&#x3D;INBOUND. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getItemEligibilityPreviewRequest(AccessToken $accessToken, string $region, $asin, $program, $marketplace_ids = null) : RequestInterface
     {

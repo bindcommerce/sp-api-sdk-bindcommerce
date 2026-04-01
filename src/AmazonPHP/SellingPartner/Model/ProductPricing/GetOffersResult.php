@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,8 +70,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,8 +78,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -140,8 +136,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -150,8 +144,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -160,8 +152,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -170,8 +160,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -251,7 +239,7 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getMarketplaceId()
+    public function getMarketplaceId(): ?string
     {
         return $this->container['marketplace_id'];
     }
@@ -260,8 +248,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets marketplace_id
      *
      * @param string $marketplace_id A marketplace identifier.
-     *
-     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -284,8 +270,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the item.
-     *
-     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -308,8 +292,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets sku
      *
      * @param string|null $sku The stock keeping unit (SKU) of the item.
-     *
-     * @return self
      */
     public function setSku($sku) : self
     {
@@ -332,8 +314,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets item_condition
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ConditionType $item_condition item_condition
-     *
-     * @return self
      */
     public function setItemCondition($item_condition) : self
     {
@@ -356,8 +336,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets status
      *
      * @param string $status The status of the operation.
-     *
-     * @return self
      */
     public function setStatus($status) : self
     {
@@ -380,8 +358,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets identifier
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ItemIdentifier $identifier identifier
-     *
-     * @return self
      */
     public function setIdentifier($identifier) : self
     {
@@ -404,8 +380,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets summary
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\Summary $summary summary
-     *
-     * @return self
      */
     public function setSummary($summary) : self
     {
@@ -428,8 +402,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets offers
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\OfferDetail[] $offers A list of offer details. The list is the same length as the TotalOfferCount in the Summary or 20, whichever is less.
-     *
-     * @return self
      */
     public function setOffers($offers) : self
     {
@@ -439,8 +411,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -460,8 +430,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -474,8 +442,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -497,12 +463,10 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -510,8 +474,6 @@ class GetOffersResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

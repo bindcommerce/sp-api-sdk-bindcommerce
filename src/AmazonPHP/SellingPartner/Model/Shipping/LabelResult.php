@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -181,7 +169,7 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
-        if (!is_null($this->container['container_reference_id']) && (mb_strlen($this->container['container_reference_id']) > 40)) {
+        if (!is_null($this->container['container_reference_id']) && (mb_strlen((string) $this->container['container_reference_id']) > 40)) {
             throw new AssertionException("invalid value for 'container_reference_id', the character length must be smaller than or equal to 40.");
         }
 
@@ -206,8 +194,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets container_reference_id
      *
      * @param string|null $container_reference_id An identifier for the container. This must be unique within all the containers in the same shipment.
-     *
-     * @return self
      */
     public function setContainerReferenceId($container_reference_id) : self
     {
@@ -230,8 +216,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets tracking_id
      *
      * @param string|null $tracking_id The tracking identifier assigned to the container.
-     *
-     * @return self
      */
     public function setTrackingId($tracking_id) : self
     {
@@ -254,8 +238,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets label
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Label|null $label label
-     *
-     * @return self
      */
     public function setLabel($label) : self
     {
@@ -265,8 +247,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,8 +266,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -300,8 +278,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,12 +299,10 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -336,8 +310,6 @@ class LabelResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

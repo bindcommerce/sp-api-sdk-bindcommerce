@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSerializable
+class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -222,8 +210,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets headline
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\TextComponent|null $headline headline
-     *
-     * @return self
      */
     public function setHeadline($headline) : self
     {
@@ -246,8 +232,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets specification_list
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextPairBlock[] $specification_list The specification list.
-     *
-     * @return self
      */
     public function setSpecificationList($specification_list) : self
     {
@@ -270,8 +254,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets table_count
      *
      * @param int|null $table_count The number of tables you want present. Features are evenly divided between the tables.
-     *
-     * @return self
      */
     public function setTableCount($table_count) : self
     {
@@ -281,8 +263,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -302,8 +282,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -316,8 +294,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -339,12 +315,10 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -352,8 +326,6 @@ class StandardTechSpecsModule implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -210,8 +198,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets fees_estimate_request
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\FeesEstimateRequest|null $fees_estimate_request fees_estimate_request
-     *
-     * @return self
      */
     public function setFeesEstimateRequest($fees_estimate_request) : self
     {
@@ -234,8 +220,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets id_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\IdType $id_type id_type
-     *
-     * @return self
      */
     public function setIdType($id_type) : self
     {
@@ -258,8 +242,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets id_value
      *
      * @param string $id_value The item identifier.
-     *
-     * @return self
      */
     public function setIdValue($id_value) : self
     {
@@ -269,8 +251,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -290,8 +270,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -304,8 +282,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -327,12 +303,10 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -340,8 +314,6 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

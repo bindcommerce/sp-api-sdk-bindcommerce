@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
+class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,8 +68,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,8 +76,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -135,8 +131,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -145,8 +139,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -155,8 +147,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -165,8 +155,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -244,8 +232,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets is_required
      *
      * @param bool $is_required When true, the additional input field is required.
-     *
-     * @return self
      */
     public function setIsRequired($is_required) : self
     {
@@ -268,8 +254,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets data_type
      *
      * @param string $data_type The data type of the additional input field.
-     *
-     * @return self
      */
     public function setDataType($data_type) : self
     {
@@ -292,8 +276,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets constraints
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Constraint[] $constraints List of constraints.
-     *
-     * @return self
      */
     public function setConstraints($constraints) : self
     {
@@ -316,8 +298,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets input_display_text
      *
      * @param string $input_display_text The display text for the additional input field.
-     *
-     * @return self
      */
     public function setInputDisplayText($input_display_text) : self
     {
@@ -340,8 +320,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets input_target
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\InputTargetType|null $input_target input_target
-     *
-     * @return self
      */
     public function setInputTarget($input_target) : self
     {
@@ -364,8 +342,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets stored_value
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\AdditionalSellerInput $stored_value stored_value
-     *
-     * @return self
      */
     public function setStoredValue($stored_value) : self
     {
@@ -388,8 +364,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets restricted_set_values
      *
      * @param string[]|null $restricted_set_values The set of fixed values in an additional seller input.
-     *
-     * @return self
      */
     public function setRestrictedSetValues($restricted_set_values) : self
     {
@@ -399,8 +373,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -420,8 +392,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -434,8 +404,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -457,12 +425,10 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -470,8 +436,6 @@ class SellerInputDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

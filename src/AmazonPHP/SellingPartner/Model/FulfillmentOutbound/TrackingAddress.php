@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
+class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -185,7 +173,7 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'city' can't be null");
         }
 
-        if ((mb_strlen($this->container['city']) > 150)) {
+        if ((mb_strlen((string) $this->container['city']) > 150)) {
             throw new AssertionException("invalid value for 'city', the character length must be smaller than or equal to 150.");
         }
 
@@ -193,7 +181,7 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'state' can't be null");
         }
 
-        if ((mb_strlen($this->container['state']) > 150)) {
+        if ((mb_strlen((string) $this->container['state']) > 150)) {
             throw new AssertionException("invalid value for 'state', the character length must be smaller than or equal to 150.");
         }
 
@@ -201,7 +189,7 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new AssertionException("'country' can't be null");
         }
 
-        if ((mb_strlen($this->container['country']) > 6)) {
+        if ((mb_strlen((string) $this->container['country']) > 6)) {
             throw new AssertionException("invalid value for 'country', the character length must be smaller than or equal to 6.");
         }
 
@@ -222,8 +210,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets city
      *
      * @param string $city The city.
-     *
-     * @return self
      */
     public function setCity($city) : self
     {
@@ -246,8 +232,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets state
      *
      * @param string $state The state.
-     *
-     * @return self
      */
     public function setState($state) : self
     {
@@ -270,8 +254,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets country
      *
      * @param string $country The country.
-     *
-     * @return self
      */
     public function setCountry($country) : self
     {
@@ -281,8 +263,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -302,8 +282,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -316,8 +294,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -339,12 +315,10 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -352,8 +326,6 @@ class TrackingAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

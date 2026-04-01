@@ -25,15 +25,13 @@ interface TokensSDKInterface
     public const OPERATION_CREATERESTRICTEDDATATOKEN_PATH = '/tokens/2021-03-01/restrictedDataToken';
 
     /**
-    * Operation createRestrictedDataToken
-    *
-    * @param AccessToken $accessToken
-    * @param string $region
-    * @param \AmazonPHP\SellingPartner\Model\Tokens\CreateRestrictedDataTokenRequest $body  The restricted data token request details. (required)
-    *
-    * @throws ApiException on non-2xx response
-    * @throws InvalidArgumentException
-    * @return \AmazonPHP\SellingPartner\Model\Tokens\CreateRestrictedDataTokenResponse
-    */
+     * Operation createRestrictedDataToken
+     *
+     * @param \AmazonPHP\SellingPartner\Model\Tokens\CreateRestrictedDataTokenRequest $body  The restricted data token request details. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Tokens\CreateRestrictedDataTokenResponse
+     */
     public function createRestrictedDataToken(AccessToken $accessToken, string $region, $body);
 }

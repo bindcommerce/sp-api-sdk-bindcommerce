@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,8 +62,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,8 +70,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -120,8 +116,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -130,8 +124,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -140,8 +132,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -150,8 +140,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -224,8 +212,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets feed_type
      *
      * @param string $feed_type The feed type.
-     *
-     * @return self
      */
     public function setFeedType($feed_type) : self
     {
@@ -248,8 +234,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets marketplace_ids
      *
      * @param string[] $marketplace_ids A list of identifiers for marketplaces that you want the feed to be applied to.
-     *
-     * @return self
      */
     public function setMarketplaceIds($marketplace_ids) : self
     {
@@ -272,8 +256,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets input_feed_document_id
      *
      * @param string $input_feed_document_id The document identifier returned by the createFeedDocument operation. Upload the feed document contents before calling the createFeed operation.
-     *
-     * @return self
      */
     public function setInputFeedDocumentId($input_feed_document_id) : self
     {
@@ -296,8 +278,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets feed_options
      *
      * @param array<string,string>|null $feed_options Additional options to control the feed. These vary by feed type.
-     *
-     * @return self
      */
     public function setFeedOptions($feed_options) : self
     {
@@ -307,8 +287,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -328,8 +306,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -342,8 +318,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -365,12 +339,10 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -378,8 +350,6 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

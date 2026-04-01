@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,8 +56,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,8 +64,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -105,8 +101,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -115,8 +109,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -125,8 +117,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -135,8 +125,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -194,8 +182,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
      * Sets responses
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ItemOffersResponse[]|null $responses A list of `getItemOffers` batched responses.
-     *
-     * @return self
      */
     public function setResponses($responses) : self
     {
@@ -205,8 +191,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -226,8 +210,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -240,8 +222,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -263,12 +243,10 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -276,8 +254,6 @@ class GetItemOffersBatchResponse implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {

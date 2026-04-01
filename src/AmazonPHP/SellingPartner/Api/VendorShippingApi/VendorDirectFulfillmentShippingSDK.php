@@ -27,20 +27,8 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmentShippingSDKInterface
 {
-    private ClientInterface $client;
-
-    private HttpFactory $httpFactory;
-
-    private Configuration $configuration;
-
-    private LoggerInterface $logger;
-
-    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
+    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
     {
-        $this->client = $client;
-        $this->httpFactory = $requestFactory;
-        $this->configuration = $configuration;
-        $this->logger = $logger;
     }
 
     /**
@@ -48,8 +36,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * getPackingSlip
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $purchase_order_number  The &#x60;purchaseOrderNumber&#x60; for the packing slip that you want. (required)
      *
      * @throws ApiException on non-2xx response
@@ -148,12 +134,9 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'getPackingSlip'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param string $purchase_order_number  The &#x60;purchaseOrderNumber&#x60; for the packing slip that you want. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getPackingSlipRequest(AccessToken $accessToken, string $region, $purchase_order_number) : RequestInterface
     {
@@ -251,8 +234,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * getPackingSlips
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \DateTimeInterface $created_after  Packing slips that become available after this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param \DateTimeInterface $created_before  Packing slips that became available before this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param string|null $ship_from_party_id  The vendor &#x60;warehouseId&#x60; for order fulfillment. If not specified, the result contains orders for all warehouses. (optional)
@@ -356,8 +337,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'getPackingSlips'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \DateTimeInterface $created_after  Packing slips that become available after this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param \DateTimeInterface $created_before  Packing slips that became available before this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param string|null $ship_from_party_id  The vendor &#x60;warehouseId&#x60; for order fulfillment. If not specified, the result contains orders for all warehouses. (optional)
@@ -366,7 +345,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      * @param string|null $next_token  Used for pagination when there are more packing slips than the specified result size limit. The token value is returned in the previous API call. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function getPackingSlipsRequest(AccessToken $accessToken, string $region, $created_after, $created_before, $ship_from_party_id = null, $limit = null, $sort_order = 'ASC', $next_token = null) : RequestInterface
     {
@@ -507,8 +485,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * submitShipmentConfirmations
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\SubmitShipmentConfirmationsRequest $body  Request body containing the shipment confirmations data. (required)
      *
      * @throws ApiException on non-2xx response
@@ -607,12 +583,9 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'submitShipmentConfirmations'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\SubmitShipmentConfirmationsRequest $body  Request body containing the shipment confirmations data. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function submitShipmentConfirmationsRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -706,8 +679,6 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * submitShipmentStatusUpdates
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\SubmitShipmentStatusUpdatesRequest $body  Request body containing the shipment status update data. (required)
      *
      * @throws ApiException on non-2xx response
@@ -806,12 +777,9 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'submitShipmentStatusUpdates'
      *
-     * @param AccessToken $accessToken
-     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\SubmitShipmentStatusUpdatesRequest $body  Request body containing the shipment status update data. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
-     * @return \Psr\Http\Message\RequestInterface
      */
     public function submitShipmentStatusUpdatesRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {

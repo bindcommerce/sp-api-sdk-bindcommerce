@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,8 +60,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,8 +68,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -115,8 +111,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
-     * @return array
      */
     public static function attributeMap() : array
     {
@@ -125,8 +119,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
      */
     public static function setters() : array
     {
@@ -135,8 +127,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
      */
     public static function getters() : array
     {
@@ -145,8 +135,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
-     * @return string
      */
     public function getModelName() : string
     {
@@ -181,7 +169,7 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
      */
     public function validate() : void
     {
-        if (!is_null($this->container['next_page_token']) && (mb_strlen($this->container['next_page_token']) < 1)) {
+        if (!is_null($this->container['next_page_token']) && (mb_strlen((string) $this->container['next_page_token']) < 1)) {
             throw new AssertionException("invalid value for 'next_page_token', the character length must be bigger than or equal to 1.");
         }
 
@@ -206,8 +194,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
      * Sets warnings
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\Error[]|null $warnings A set of messages to the user, such as warnings or comments.
-     *
-     * @return self
      */
     public function setWarnings($warnings) : self
     {
@@ -230,8 +216,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
      * Sets next_page_token
      *
      * @param string|null $next_page_token A token that you use to fetch a specific page when there are multiple pages of results.
-     *
-     * @return self
      */
     public function setNextPageToken($next_page_token) : self
     {
@@ -254,8 +238,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
      * Sets publish_record_list
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\PublishRecord[] $publish_record_list A list of A+ Content publishing records.
-     *
-     * @return self
      */
     public function setPublishRecordList($publish_record_list) : self
     {
@@ -265,8 +247,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
     }
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,8 +266,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -300,8 +278,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,12 +299,10 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
-     * @return string
      */
     public function __toString() : string
     {
-        return json_encode(
+        return (string) json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -336,8 +310,6 @@ class SearchContentPublishRecordsResponse implements ModelInterface, ArrayAccess
 
     /**
      * Gets a header-safe presentation of the object
-     *
-     * @return string
      */
     public function toHeaderValue() : string
     {
