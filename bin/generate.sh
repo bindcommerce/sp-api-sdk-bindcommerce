@@ -102,8 +102,19 @@ step_listings_items() {
 }
 
 step_merchant_fulfillment() {
+    /usr/bin/curl -s https://raw.githubusercontent.com/amzn/selling-partner-api-models/main/models/merchant-fulfillment-api-model/merchantFulfillmentV0.json \
+        | jq '(.definitions.ShippingService.required) |= map(select(. != "RequiresAdditionalSellerInputs"))' \
+        > "${PWD}/json_specs/merchantFulfillmentV0.json"
+
+    local curl_rc=${PIPESTATUS[0]}
+    if [[ ${curl_rc} -ne 0 ]]; then
+        echo ":::: FAILED: merchant-fulfillment spec download (curl exit code ${curl_rc})"
+        FAILURES+=("merchant-fulfillment spec download (curl exit code ${curl_rc})")
+        return "${curl_rc}"
+    fi
+
     run_generator "merchant-fulfillment" \
-        -i https://raw.githubusercontent.com/amzn/selling-partner-api-models/main/models/merchant-fulfillment-api-model/merchantFulfillmentV0.json \
+        -i /sp-api/json_specs/merchantFulfillmentV0.json \
         -c /sp-api/config/generator-merchant-fulfillment.yaml \
         --skip-validate-spec
 }
@@ -182,7 +193,16 @@ step_shipping() {
 }
 
 step_shippingV2() {
-    /usr/bin/curl https://raw.githubusercontent.com/amzn/selling-partner-api-models/main/models/shipping-api-model/shippingV2.json | jq '(.definitions.GetTrackingResult.required) |= map(select(. != "alternateLegTrackingId"))' > "${PWD}/json_specs/shippingV2.json"
+    /usr/bin/curl -sS https://raw.githubusercontent.com/amzn/selling-partner-api-models/main/models/shipping-api-model/shippingV2.json \
+        | jq '(.definitions.GetTrackingResult.required) |= map(select(. != "alternateLegTrackingId"))' \
+        > "${PWD}/json_specs/shippingV2.json"
+
+    local curl_rc=${PIPESTATUS[0]}
+    if [[ ${curl_rc} -ne 0 ]]; then
+        echo ":::: FAILED: shippingV2 spec download (curl exit code ${curl_rc})"
+        FAILURES+=("shippingV2 spec download (curl exit code ${curl_rc})")
+        return "${curl_rc}"
+    fi
 
     run_generator "shippingV2" \
         -i /sp-api/json_specs/shippingV2.json \
