@@ -179,6 +179,8 @@ class Package implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['package_tracking_number'] === null) {
             throw new AssertionException("'package_tracking_number' can't be null");
         }

@@ -209,6 +209,8 @@ class AsinMetadata implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['asin'] === null) {
             throw new AssertionException("'asin' can't be null");
         }

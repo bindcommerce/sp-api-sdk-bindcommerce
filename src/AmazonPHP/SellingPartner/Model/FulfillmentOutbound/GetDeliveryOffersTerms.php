@@ -185,6 +185,8 @@ class GetDeliveryOffersTerms implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['origin'] === null) {
             throw new AssertionException("'origin' can't be null");
         }

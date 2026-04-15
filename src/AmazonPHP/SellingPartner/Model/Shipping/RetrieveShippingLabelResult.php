@@ -185,6 +185,8 @@ class RetrieveShippingLabelResult implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['label_stream'] === null) {
             throw new AssertionException("'label_stream' can't be null");
         }

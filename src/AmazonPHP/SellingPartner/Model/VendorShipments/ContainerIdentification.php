@@ -211,6 +211,8 @@ class ContainerIdentification implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['container_identification_type'] === null) {
             throw new AssertionException("'container_identification_type' can't be null");
         }

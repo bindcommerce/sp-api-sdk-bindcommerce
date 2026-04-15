@@ -179,6 +179,8 @@ class Party implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['account_id'] && (\mb_strlen((string) $this->container['account_id']) > 10)) {
             throw new AssertionException("invalid value for 'account_id', the character length must be smaller than or equal to 10.");
         }

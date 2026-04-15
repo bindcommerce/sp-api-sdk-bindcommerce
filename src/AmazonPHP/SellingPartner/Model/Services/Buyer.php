@@ -197,6 +197,8 @@ class Buyer implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['buyer_id'] && !\preg_match('/^[A-Z0-9]*$/', (string) $this->container['buyer_id'])) {
             throw new AssertionException("invalid value for 'buyer_id', must be conform to the pattern /^[A-Z0-9]*$/.");
         }

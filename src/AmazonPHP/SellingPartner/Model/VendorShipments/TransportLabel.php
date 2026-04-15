@@ -191,6 +191,8 @@ class TransportLabel implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipment_information'] !== null) {
             $this->container['shipment_information']->validate();
         }

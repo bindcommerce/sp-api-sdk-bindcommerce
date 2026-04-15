@@ -179,6 +179,8 @@ class CollectOnDelivery implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['amount'] === null) {
             throw new AssertionException("'amount' can't be null");
         }

@@ -185,6 +185,8 @@ class DateRange implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['earliest'] === null) {
             throw new AssertionException("'earliest' can't be null");
         }

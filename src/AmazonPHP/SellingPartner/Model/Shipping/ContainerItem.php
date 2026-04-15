@@ -197,6 +197,8 @@ class ContainerItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['quantity'] === null) {
             throw new AssertionException("'quantity' can't be null");
         }

@@ -203,6 +203,7 @@ class TrialShipmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+
     }
 
     /**

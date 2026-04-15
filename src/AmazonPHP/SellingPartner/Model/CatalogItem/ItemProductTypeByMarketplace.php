@@ -185,6 +185,7 @@ class ItemProductTypeByMarketplace implements \ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+
     }
 
     /**

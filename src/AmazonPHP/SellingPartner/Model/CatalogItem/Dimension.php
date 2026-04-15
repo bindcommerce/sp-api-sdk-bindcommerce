@@ -185,6 +185,7 @@ class Dimension implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+
     }
 
     /**

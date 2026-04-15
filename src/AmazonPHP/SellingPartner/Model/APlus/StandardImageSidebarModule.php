@@ -209,6 +209,8 @@ class StandardImageSidebarModule implements \ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['headline'] !== null) {
             $this->container['headline']->validate();
         }

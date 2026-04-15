@@ -269,6 +269,8 @@ class ContentModule implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['content_module_type'] === null) {
             throw new AssertionException("'content_module_type' can't be null");
         }

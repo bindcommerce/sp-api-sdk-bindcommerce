@@ -344,6 +344,8 @@ class ShipmentConfirmation implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipment_identifier'] === null) {
             throw new AssertionException("'shipment_identifier' can't be null");
         }

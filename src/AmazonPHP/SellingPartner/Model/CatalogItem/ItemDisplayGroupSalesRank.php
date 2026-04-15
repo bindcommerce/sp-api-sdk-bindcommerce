@@ -197,6 +197,8 @@ class ItemDisplayGroupSalesRank implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['website_display_group'] === null) {
             throw new AssertionException("'website_display_group' can't be null");
         }

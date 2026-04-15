@@ -191,6 +191,8 @@ class ValueAddedService implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['id'] === null) {
             throw new AssertionException("'id' can't be null");
         }

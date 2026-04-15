@@ -185,6 +185,7 @@ class GetShipmentItemsResult implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+
     }
 
     /**

@@ -215,6 +215,8 @@ class RegulatedOrderVerificationStatus implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['status'] === null) {
             throw new AssertionException("'status' can't be null");
         }

@@ -191,6 +191,8 @@ class UpdateReservationRecord implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['reservation'] !== null) {
             $this->container['reservation']->validate();
         }

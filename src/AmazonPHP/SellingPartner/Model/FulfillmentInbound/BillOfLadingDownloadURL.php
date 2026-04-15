@@ -179,6 +179,7 @@ class BillOfLadingDownloadURL implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+
     }
 
     /**

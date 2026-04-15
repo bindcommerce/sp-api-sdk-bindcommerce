@@ -179,6 +179,7 @@ class CreateLegalDisclosureResponse implements \ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+
     }
 
     /**

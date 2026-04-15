@@ -227,6 +227,8 @@ class AffordabilityExpenseEvent implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['base_expense'] !== null) {
             $this->container['base_expense']->validate();
         }

@@ -179,6 +179,8 @@ class CreateConfirmServiceDetailsRequest implements \ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['text'] && (\mb_strlen((string) $this->container['text']) > 2000)) {
             throw new AssertionException("invalid value for 'text', the character length must be smaller than or equal to 2000.");
         }

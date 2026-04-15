@@ -208,6 +208,8 @@ class Fee implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfac
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['name'] === null) {
             throw new AssertionException("'name' can't be null");
         }

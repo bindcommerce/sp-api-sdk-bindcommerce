@@ -179,6 +179,7 @@ class CreateDigitalAccessKeyResponse implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+
     }
 
     /**

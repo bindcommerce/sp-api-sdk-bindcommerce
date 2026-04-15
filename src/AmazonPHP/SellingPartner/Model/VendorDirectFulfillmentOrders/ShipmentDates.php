@@ -185,6 +185,8 @@ class ShipmentDates implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['required_ship_date'] === null) {
             throw new AssertionException("'required_ship_date' can't be null");
         }

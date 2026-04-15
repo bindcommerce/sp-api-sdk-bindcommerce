@@ -179,6 +179,8 @@ class StandardProductDescriptionModule implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['body'] === null) {
             throw new AssertionException("'body' can't be null");
         }

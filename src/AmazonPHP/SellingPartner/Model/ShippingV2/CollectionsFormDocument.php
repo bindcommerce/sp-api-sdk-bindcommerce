@@ -185,6 +185,7 @@ class CollectionsFormDocument implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+
     }
 
     /**

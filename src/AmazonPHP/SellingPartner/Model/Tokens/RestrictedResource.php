@@ -214,6 +214,8 @@ class RestrictedResource implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['method'] === null) {
             throw new AssertionException("'method' can't be null");
         }

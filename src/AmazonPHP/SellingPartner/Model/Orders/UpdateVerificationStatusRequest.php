@@ -179,6 +179,8 @@ class UpdateVerificationStatusRequest implements \ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['regulated_order_verification_status'] === null) {
             throw new AssertionException("'regulated_order_verification_status' can't be null");
         }

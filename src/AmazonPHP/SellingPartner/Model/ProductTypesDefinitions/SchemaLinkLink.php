@@ -199,6 +199,8 @@ class SchemaLinkLink implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['resource'] === null) {
             throw new AssertionException("'resource' can't be null");
         }

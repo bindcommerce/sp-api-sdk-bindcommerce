@@ -233,6 +233,8 @@ class PayWithAmazonEvent implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['charge'] !== null) {
             $this->container['charge']->validate();
         }

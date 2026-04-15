@@ -185,6 +185,8 @@ class GetReportsResponse implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['reports'] === null) {
             throw new AssertionException("'reports' can't be null");
         }

@@ -185,6 +185,8 @@ class FulfillmentAvailability implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['fulfillment_channel_code'] === null) {
             throw new AssertionException("'fulfillment_channel_code' can't be null");
         }

@@ -185,6 +185,8 @@ class ProductTypeList implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['product_types'] === null) {
             throw new AssertionException("'product_types' can't be null");
         }

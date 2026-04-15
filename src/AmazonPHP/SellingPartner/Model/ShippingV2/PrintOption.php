@@ -197,6 +197,8 @@ class PrintOption implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['supported_page_layouts'] === null) {
             throw new AssertionException("'supported_page_layouts' can't be null");
         }

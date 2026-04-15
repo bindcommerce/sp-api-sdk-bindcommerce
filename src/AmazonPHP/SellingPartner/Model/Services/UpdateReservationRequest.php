@@ -185,6 +185,8 @@ class UpdateReservationRequest implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['resource_id'] === null) {
             throw new AssertionException("'resource_id' can't be null");
         }

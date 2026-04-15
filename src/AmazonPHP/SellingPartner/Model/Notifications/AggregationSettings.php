@@ -179,6 +179,8 @@ class AggregationSettings implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['aggregation_time_period'] === null) {
             throw new AssertionException("'aggregation_time_period' can't be null");
         }

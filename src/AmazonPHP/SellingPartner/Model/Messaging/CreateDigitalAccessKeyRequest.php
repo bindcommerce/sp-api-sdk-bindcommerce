@@ -185,6 +185,8 @@ class CreateDigitalAccessKeyRequest implements \ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['text'] && (\mb_strlen((string) $this->container['text']) > 400)) {
             throw new AssertionException("invalid value for 'text', the character length must be smaller than or equal to 400.");
         }

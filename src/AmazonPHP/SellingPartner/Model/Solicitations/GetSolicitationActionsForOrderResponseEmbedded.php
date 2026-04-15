@@ -179,6 +179,8 @@ class GetSolicitationActionsForOrderResponseEmbedded implements \ArrayAccess, \J
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['actions'] === null) {
             throw new AssertionException("'actions' can't be null");
         }

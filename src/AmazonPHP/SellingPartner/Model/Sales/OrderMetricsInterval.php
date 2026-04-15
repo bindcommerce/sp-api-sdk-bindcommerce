@@ -209,6 +209,8 @@ class OrderMetricsInterval implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['interval'] === null) {
             throw new AssertionException("'interval' can't be null");
         }

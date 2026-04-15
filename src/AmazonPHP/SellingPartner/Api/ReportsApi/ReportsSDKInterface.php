@@ -116,13 +116,14 @@ interface ReportsSDKInterface
      * Operation getReportDocument.
      *
      * @param string $report_document_id The identifier for the report document. (required)
+     * @param null|bool $enable_content_encoding_url_header When &#x60;true&#x60;, the Content-Encoding header on the returned URL is set to &#x60;gzip&#x60; instead of the default &#x60;identity&#x60; when &#x60;compressionAlgorithm&#x60; is &#x60;GZIP&#x60;. This allows automatic decompression by HTTP clients. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      *
      * @return \AmazonPHP\SellingPartner\Model\Reports\ReportDocument
      */
-    public function getReportDocument(AccessToken $accessToken, string $region, string $report_document_id) : \AmazonPHP\SellingPartner\Model\Reports\ReportDocument;
+    public function getReportDocument(AccessToken $accessToken, string $region, string $report_document_id, ?bool $enable_content_encoding_url_header = null) : \AmazonPHP\SellingPartner\Model\Reports\ReportDocument;
 
     /**
      * Operation getReportSchedule.

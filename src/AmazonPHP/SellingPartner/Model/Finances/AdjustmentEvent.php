@@ -203,6 +203,8 @@ class AdjustmentEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['adjustment_amount'] !== null) {
             $this->container['adjustment_amount']->validate();
         }

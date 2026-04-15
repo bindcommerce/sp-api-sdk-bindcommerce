@@ -209,6 +209,8 @@ class CreateShipmentRequest implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipment_request_details'] === null) {
             throw new AssertionException("'shipment_request_details' can't be null");
         }

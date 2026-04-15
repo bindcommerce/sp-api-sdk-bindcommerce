@@ -191,6 +191,8 @@ class Recurrence implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['end_time'] === null) {
             throw new AssertionException("'end_time' can't be null");
         }

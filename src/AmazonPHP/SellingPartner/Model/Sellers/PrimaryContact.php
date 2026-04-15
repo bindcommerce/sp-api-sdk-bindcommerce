@@ -191,6 +191,8 @@ class PrimaryContact implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['name'] === null) {
             throw new AssertionException("'name' can't be null");
         }

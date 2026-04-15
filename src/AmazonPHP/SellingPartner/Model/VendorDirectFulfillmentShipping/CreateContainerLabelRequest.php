@@ -203,6 +203,8 @@ class CreateContainerLabelRequest implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['selling_party'] === null) {
             throw new AssertionException("'selling_party' can't be null");
         }

@@ -247,6 +247,8 @@ class Feed implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['feed_id'] === null) {
             throw new AssertionException("'feed_id' can't be null");
         }

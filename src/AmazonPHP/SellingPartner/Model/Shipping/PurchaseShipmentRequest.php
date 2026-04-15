@@ -215,6 +215,8 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['client_reference_id'] === null) {
             throw new AssertionException("'client_reference_id' can't be null");
         }

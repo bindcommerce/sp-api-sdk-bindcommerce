@@ -179,6 +179,7 @@ class CreateConfirmServiceDetailsResponse implements \ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+
     }
 
     /**

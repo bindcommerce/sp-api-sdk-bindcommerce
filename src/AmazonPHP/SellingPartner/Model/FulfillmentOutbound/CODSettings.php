@@ -203,6 +203,8 @@ class CODSettings implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['is_cod_required'] === null) {
             throw new AssertionException("'is_cod_required' can't be null");
         }

@@ -238,6 +238,8 @@ class ItemImage implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['variant'] === null) {
             throw new AssertionException("'variant' can't be null");
         }

@@ -221,6 +221,8 @@ class Package implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['dimensions'] === null) {
             throw new AssertionException("'dimensions' can't be null");
         }

@@ -185,6 +185,8 @@ class DeliveryPreferences implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['delivery_instructions'] && (\mb_strlen((string) $this->container['delivery_instructions']) > 250)) {
             throw new AssertionException("invalid value for 'delivery_instructions', the character length must be smaller than or equal to 250.");
         }

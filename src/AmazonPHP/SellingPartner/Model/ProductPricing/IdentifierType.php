@@ -185,6 +185,8 @@ class IdentifierType implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace_asin'] === null) {
             throw new AssertionException("'marketplace_asin' can't be null");
         }

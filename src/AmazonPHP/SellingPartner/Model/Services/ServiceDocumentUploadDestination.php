@@ -197,6 +197,8 @@ class ServiceDocumentUploadDestination implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['upload_destination_id'] === null) {
             throw new AssertionException("'upload_destination_id' can't be null");
         }

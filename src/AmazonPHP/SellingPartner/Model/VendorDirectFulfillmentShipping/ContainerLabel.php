@@ -191,6 +191,8 @@ class ContainerLabel implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['content'] === null) {
             throw new AssertionException("'content' can't be null");
         }

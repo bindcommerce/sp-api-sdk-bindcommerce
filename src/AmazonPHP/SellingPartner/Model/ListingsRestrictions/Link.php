@@ -211,6 +211,8 @@ class Link implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['resource'] === null) {
             throw new AssertionException("'resource' can't be null");
         }

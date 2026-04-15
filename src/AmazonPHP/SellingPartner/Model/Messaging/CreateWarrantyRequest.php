@@ -191,6 +191,7 @@ class CreateWarrantyRequest implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+
     }
 
     /**

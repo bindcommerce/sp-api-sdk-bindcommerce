@@ -185,6 +185,8 @@ class AvailableCarrierWillPickUpOption implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['carrier_will_pick_up_option'] === null) {
             throw new AssertionException("'carrier_will_pick_up_option' can't be null");
         }

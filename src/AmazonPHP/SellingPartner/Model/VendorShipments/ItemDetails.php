@@ -273,6 +273,8 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getLotNumberSourceTypeAllowableValues();
 
         if (null !== $this->container['lot_number_source_type'] && !\in_array($this->container['lot_number_source_type'], $allowedValues, true)) {

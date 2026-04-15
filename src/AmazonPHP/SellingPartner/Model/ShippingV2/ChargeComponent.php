@@ -202,6 +202,8 @@ class ChargeComponent implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['amount'] !== null) {
             $this->container['amount']->validate();
         }

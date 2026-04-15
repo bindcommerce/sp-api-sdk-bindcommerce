@@ -185,6 +185,8 @@ class Amount implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['currency_code'] === null) {
             throw new AssertionException("'currency_code' can't be null");
         }

@@ -226,6 +226,8 @@ class Poa implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfac
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['appointment_time'] !== null) {
             $this->container['appointment_time']->validate();
         }

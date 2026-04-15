@@ -179,6 +179,7 @@ class CreateWarrantyResponse implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+
     }
 
     /**

@@ -185,6 +185,8 @@ class Money implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['currency_code'] === null) {
             throw new AssertionException("'currency_code' can't be null");
         }

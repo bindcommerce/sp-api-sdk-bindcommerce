@@ -209,6 +209,8 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['total_charge'] !== null) {
             $this->container['total_charge']->validate();
         }

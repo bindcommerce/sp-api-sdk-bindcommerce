@@ -179,6 +179,7 @@ class GetAttributesResponseBuyer implements \ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+
     }
 
     /**

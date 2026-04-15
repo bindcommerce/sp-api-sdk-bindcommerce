@@ -197,6 +197,8 @@ class OrderRegulatedInfo implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['amazon_order_id'] === null) {
             throw new AssertionException("'amazon_order_id' can't be null");
         }

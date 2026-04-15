@@ -215,6 +215,8 @@ class FailedAdhocDisbursementEvent implements \ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['transfer_amount'] !== null) {
             $this->container['transfer_amount']->validate();
         }

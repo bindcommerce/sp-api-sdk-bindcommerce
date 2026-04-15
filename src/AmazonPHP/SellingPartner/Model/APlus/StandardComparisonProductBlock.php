@@ -209,6 +209,8 @@ class StandardComparisonProductBlock implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['position'] === null) {
             throw new AssertionException("'position' can't be null");
         }

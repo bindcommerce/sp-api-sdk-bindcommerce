@@ -185,6 +185,7 @@ class GetMarketplaceParticipationsResponse implements \ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+
     }
 
     /**

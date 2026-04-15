@@ -179,6 +179,8 @@ class GetRatesResult implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['service_rates'] === null) {
             throw new AssertionException("'service_rates' can't be null");
         }

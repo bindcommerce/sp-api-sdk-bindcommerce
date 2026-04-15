@@ -191,6 +191,8 @@ class ChannelDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['channel_type'] === null) {
             throw new AssertionException("'channel_type' can't be null");
         }

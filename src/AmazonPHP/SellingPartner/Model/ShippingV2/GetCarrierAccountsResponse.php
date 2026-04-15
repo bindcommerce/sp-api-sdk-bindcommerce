@@ -179,6 +179,8 @@ class GetCarrierAccountsResponse implements \ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['active_accounts'] === null) {
             throw new AssertionException("'active_accounts' can't be null");
         }

@@ -185,6 +185,8 @@ class DirectFulfillmentItemIdentifiers implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['line_item_id'] === null) {
             throw new AssertionException("'line_item_id' can't be null");
         }

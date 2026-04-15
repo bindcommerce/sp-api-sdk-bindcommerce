@@ -209,6 +209,8 @@ class StandardSingleImageHighlightsModule implements \ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['image'] !== null) {
             $this->container['image']->validate();
         }

@@ -179,6 +179,7 @@ class CancelReservationResponse implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+
     }
 
     /**

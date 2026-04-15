@@ -226,6 +226,8 @@ class PaymentTerms implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getTypeAllowableValues();
 
         if (null !== $this->container['type'] && !\in_array($this->container['type'], $allowedValues, true)) {

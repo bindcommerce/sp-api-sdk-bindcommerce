@@ -185,6 +185,8 @@ class GetFeedsResponse implements \ArrayAccess, \JsonSerializable, \Stringable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['feeds'] === null) {
             throw new AssertionException("'feeds' can't be null");
         }

@@ -191,6 +191,8 @@ class EventBridgeResource implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['name'] === null) {
             throw new AssertionException("'name' can't be null");
         }

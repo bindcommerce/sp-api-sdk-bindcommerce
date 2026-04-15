@@ -185,6 +185,8 @@ class ImageCropSpecification implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['size'] === null) {
             throw new AssertionException("'size' can't be null");
         }

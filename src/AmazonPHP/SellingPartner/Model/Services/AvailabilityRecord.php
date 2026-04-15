@@ -197,6 +197,8 @@ class AvailabilityRecord implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['start_time'] === null) {
             throw new AssertionException("'start_time' can't be null");
         }

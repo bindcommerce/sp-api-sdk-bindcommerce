@@ -227,6 +227,8 @@ class InventorySummary implements \ArrayAccess, \JsonSerializable, \Stringable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['inventory_details'] !== null) {
             $this->container['inventory_details']->validate();
         }

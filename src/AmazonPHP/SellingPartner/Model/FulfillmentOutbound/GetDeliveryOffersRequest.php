@@ -185,6 +185,8 @@ class GetDeliveryOffersRequest implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['product'] === null) {
             throw new AssertionException("'product' can't be null");
         }

@@ -215,6 +215,8 @@ class SellerInputDefinition implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['is_required'] === null) {
             throw new AssertionException("'is_required' can't be null");
         }

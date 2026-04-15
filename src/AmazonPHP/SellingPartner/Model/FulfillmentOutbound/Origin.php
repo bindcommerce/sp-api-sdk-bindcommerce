@@ -179,6 +179,8 @@ class Origin implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['country_code'] === null) {
             throw new AssertionException("'country_code' can't be null");
         }

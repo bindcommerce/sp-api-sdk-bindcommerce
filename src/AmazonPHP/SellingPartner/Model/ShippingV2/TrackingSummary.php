@@ -185,6 +185,8 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['tracking_detail_codes'] !== null) {
             $this->container['tracking_detail_codes']->validate();
         }

@@ -208,6 +208,8 @@ class DocumentSize implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['width'] === null) {
             throw new AssertionException("'width' can't be null");
         }

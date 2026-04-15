@@ -179,6 +179,7 @@ class UpdateShipmentStatusErrorResponse implements \ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+
     }
 
     /**

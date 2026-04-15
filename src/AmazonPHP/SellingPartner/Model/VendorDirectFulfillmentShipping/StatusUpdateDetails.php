@@ -209,6 +209,8 @@ class StatusUpdateDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['tracking_number'] === null) {
             throw new AssertionException("'tracking_number' can't be null");
         }

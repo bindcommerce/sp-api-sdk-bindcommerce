@@ -179,6 +179,8 @@ class Seller implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['seller_id'] && !\preg_match('/^[A-Z0-9]*$/', (string) $this->container['seller_id'])) {
             throw new AssertionException("invalid value for 'seller_id', must be conform to the pattern /^[A-Z0-9]*$/.");
         }

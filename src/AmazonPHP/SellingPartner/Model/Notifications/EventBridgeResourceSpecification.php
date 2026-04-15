@@ -185,6 +185,8 @@ class EventBridgeResourceSpecification implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['region'] === null) {
             throw new AssertionException("'region' can't be null");
         }

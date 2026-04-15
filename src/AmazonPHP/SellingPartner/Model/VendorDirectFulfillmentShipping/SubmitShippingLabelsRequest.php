@@ -179,6 +179,7 @@ class SubmitShippingLabelsRequest implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+
     }
 
     /**

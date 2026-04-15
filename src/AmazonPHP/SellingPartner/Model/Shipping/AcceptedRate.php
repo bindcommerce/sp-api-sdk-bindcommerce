@@ -197,6 +197,8 @@ class AcceptedRate implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['total_charge'] !== null) {
             $this->container['total_charge']->validate();
         }

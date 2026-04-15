@@ -185,6 +185,8 @@ class RejectionReason implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['rejection_reason_id'] === null) {
             throw new AssertionException("'rejection_reason_id' can't be null");
         }

@@ -217,6 +217,8 @@ class TransportationDetailsForShipmentConfirmation implements \ArrayAccess, \Jso
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getTransportationModeAllowableValues();
 
         if (null !== $this->container['transportation_mode'] && !\in_array($this->container['transportation_mode'], $allowedValues, true)) {

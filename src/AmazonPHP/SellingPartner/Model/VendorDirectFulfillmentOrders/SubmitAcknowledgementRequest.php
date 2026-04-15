@@ -179,6 +179,7 @@ class SubmitAcknowledgementRequest implements \ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+
     }
 
     /**

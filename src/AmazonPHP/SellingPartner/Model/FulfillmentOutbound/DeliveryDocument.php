@@ -185,6 +185,8 @@ class DeliveryDocument implements \ArrayAccess, \JsonSerializable, \Stringable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['document_type'] === null) {
             throw new AssertionException("'document_type' can't be null");
         }

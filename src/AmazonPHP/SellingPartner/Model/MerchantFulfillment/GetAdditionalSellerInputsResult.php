@@ -185,6 +185,7 @@ class GetAdditionalSellerInputsResult implements \ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
+
     }
 
     /**

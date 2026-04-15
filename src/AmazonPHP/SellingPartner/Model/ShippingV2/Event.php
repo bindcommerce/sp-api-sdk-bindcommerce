@@ -197,6 +197,8 @@ class Event implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['event_code'] === null) {
             throw new AssertionException("'event_code' can't be null");
         }

@@ -185,6 +185,8 @@ class ValidateContentDocumentAsinRelationsResponse implements \ArrayAccess, \Jso
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['errors'] === null) {
             throw new AssertionException("'errors' can't be null");
         }

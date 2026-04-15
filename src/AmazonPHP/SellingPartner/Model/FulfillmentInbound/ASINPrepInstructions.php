@@ -197,6 +197,7 @@ class ASINPrepInstructions implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+
     }
 
     /**

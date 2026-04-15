@@ -179,6 +179,7 @@ class SubmitFulfillmentOrderStatusUpdateRequest implements \ArrayAccess, \JsonSe
      */
     public function validate() : void
     {
+
     }
 
     /**

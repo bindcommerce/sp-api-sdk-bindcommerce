@@ -185,6 +185,7 @@ class ItemVendorDetailsCategory implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+
     }
 
     /**

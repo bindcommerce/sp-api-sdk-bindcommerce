@@ -191,6 +191,8 @@ class QuantityDiscountPriceType implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['quantity_tier'] === null) {
             throw new AssertionException("'quantity_tier' can't be null");
         }

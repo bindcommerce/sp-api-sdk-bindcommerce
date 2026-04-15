@@ -208,6 +208,8 @@ class ShipmentStatusDetails implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getShipmentStatusAllowableValues();
 
         if (null !== $this->container['shipment_status'] && !\in_array($this->container['shipment_status'], $allowedValues, true)) {

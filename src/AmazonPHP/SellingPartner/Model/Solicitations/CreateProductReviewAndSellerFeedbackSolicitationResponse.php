@@ -179,6 +179,7 @@ class CreateProductReviewAndSellerFeedbackSolicitationResponse implements \Array
      */
     public function validate() : void
     {
+
     }
 
     /**

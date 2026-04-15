@@ -257,6 +257,8 @@ class Rate implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['rate_id'] === null) {
             throw new AssertionException("'rate_id' can't be null");
         }

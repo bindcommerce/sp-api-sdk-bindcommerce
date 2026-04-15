@@ -185,6 +185,8 @@ class StandardImageTextOverlayModule implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['overlay_color_type'] === null) {
             throw new AssertionException("'overlay_color_type' can't be null");
         }

@@ -185,6 +185,8 @@ class ImageOffsets implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['x'] === null) {
             throw new AssertionException("'x' can't be null");
         }

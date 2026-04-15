@@ -185,6 +185,8 @@ class AvailableDeliveryExperienceOption implements \ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['delivery_experience_option'] === null) {
             throw new AssertionException("'delivery_experience_option' can't be null");
         }

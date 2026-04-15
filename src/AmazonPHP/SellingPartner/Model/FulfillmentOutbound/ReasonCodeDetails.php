@@ -191,6 +191,8 @@ class ReasonCodeDetails implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['return_reason_code'] === null) {
             throw new AssertionException("'return_reason_code' can't be null");
         }

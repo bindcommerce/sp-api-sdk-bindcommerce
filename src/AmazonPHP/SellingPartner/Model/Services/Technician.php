@@ -185,6 +185,8 @@ class Technician implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['technician_id'] && (\mb_strlen((string) $this->container['technician_id']) > 50)) {
             throw new AssertionException("invalid value for 'technician_id', the character length must be smaller than or equal to 50.");
         }

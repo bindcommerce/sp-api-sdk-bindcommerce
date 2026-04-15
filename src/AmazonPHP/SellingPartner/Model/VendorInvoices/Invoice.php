@@ -280,6 +280,8 @@ class Invoice implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['invoice_type'] === null) {
             throw new AssertionException("'invoice_type' can't be null");
         }

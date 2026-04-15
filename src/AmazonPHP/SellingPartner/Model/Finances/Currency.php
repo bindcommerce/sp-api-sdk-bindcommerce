@@ -185,6 +185,7 @@ class Currency implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
      */
     public function validate() : void
     {
+
     }
 
     /**

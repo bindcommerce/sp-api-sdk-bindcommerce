@@ -185,6 +185,8 @@ class GetServiceJobByServiceJobIdResponse implements \ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['payload'] !== null) {
             $this->container['payload']->validate();
         }

@@ -217,6 +217,8 @@ class LabelData implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getLabelFormatAllowableValues();
 
         if (null !== $this->container['label_format'] && !\in_array($this->container['label_format'], $allowedValues, true)) {

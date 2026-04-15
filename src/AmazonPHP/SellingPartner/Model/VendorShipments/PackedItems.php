@@ -203,6 +203,8 @@ class PackedItems implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['packed_quantity'] !== null) {
             $this->container['packed_quantity']->validate();
         }

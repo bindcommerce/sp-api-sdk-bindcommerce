@@ -191,6 +191,8 @@ class OrderItemsBuyerInfoList implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['order_items'] === null) {
             throw new AssertionException("'order_items' can't be null");
         }

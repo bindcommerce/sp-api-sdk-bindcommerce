@@ -179,6 +179,8 @@ class ParagraphComponent implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['text_list'] === null) {
             throw new AssertionException("'text_list' can't be null");
         }

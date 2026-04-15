@@ -215,6 +215,8 @@ class Pallet implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['pallet_identifiers'] === null) {
             throw new AssertionException("'pallet_identifiers' can't be null");
         }

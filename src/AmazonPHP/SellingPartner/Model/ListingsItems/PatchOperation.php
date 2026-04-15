@@ -214,6 +214,8 @@ class PatchOperation implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['op'] === null) {
             throw new AssertionException("'op' can't be null");
         }

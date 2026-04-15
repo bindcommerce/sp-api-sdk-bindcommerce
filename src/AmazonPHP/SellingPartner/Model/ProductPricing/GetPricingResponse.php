@@ -185,6 +185,8 @@ class GetPricingResponse implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['payload'] && (\count($this->container['payload']) > 20)) {
             throw new AssertionException("invalid value for 'payload', number of items must be less than or equal to 20.");
         }

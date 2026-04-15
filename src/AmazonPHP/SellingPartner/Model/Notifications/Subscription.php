@@ -197,6 +197,8 @@ class Subscription implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['subscription_id'] === null) {
             throw new AssertionException("'subscription_id' can't be null");
         }

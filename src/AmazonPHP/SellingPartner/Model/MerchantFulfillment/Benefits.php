@@ -185,6 +185,7 @@ class Benefits implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
      */
     public function validate() : void
     {
+
     }
 
     /**

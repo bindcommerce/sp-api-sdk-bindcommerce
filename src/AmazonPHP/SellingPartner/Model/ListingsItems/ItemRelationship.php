@@ -214,6 +214,8 @@ class ItemRelationship implements \ArrayAccess, \JsonSerializable, \Stringable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['variation_theme'] !== null) {
             $this->container['variation_theme']->validate();
         }

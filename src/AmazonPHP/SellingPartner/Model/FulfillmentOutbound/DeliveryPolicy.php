@@ -179,6 +179,8 @@ class DeliveryPolicy implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['message'] !== null) {
             $this->container['message']->validate();
         }

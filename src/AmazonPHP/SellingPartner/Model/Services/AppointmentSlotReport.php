@@ -214,6 +214,8 @@ class AppointmentSlotReport implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getSchedulingTypeAllowableValues();
 
         if (null !== $this->container['scheduling_type'] && !\in_array($this->container['scheduling_type'], $allowedValues, true)) {

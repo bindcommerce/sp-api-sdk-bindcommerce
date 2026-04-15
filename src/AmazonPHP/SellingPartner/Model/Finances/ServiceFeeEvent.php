@@ -221,6 +221,7 @@ class ServiceFeeEvent implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+
     }
 
     /**

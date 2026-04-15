@@ -185,6 +185,8 @@ class CreateShipmentResult implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipment_id'] === null) {
             throw new AssertionException("'shipment_id' can't be null");
         }

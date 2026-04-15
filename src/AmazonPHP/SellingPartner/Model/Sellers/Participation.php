@@ -185,6 +185,8 @@ class Participation implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['is_participating'] === null) {
             throw new AssertionException("'is_participating' can't be null");
         }

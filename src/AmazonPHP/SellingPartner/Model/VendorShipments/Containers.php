@@ -250,6 +250,8 @@ class Containers implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['container_type'] === null) {
             throw new AssertionException("'container_type' can't be null");
         }

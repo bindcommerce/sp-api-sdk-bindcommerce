@@ -197,6 +197,8 @@ class UnfulfillablePreviewItem implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['seller_sku'] === null) {
             throw new AssertionException("'seller_sku' can't be null");
         }

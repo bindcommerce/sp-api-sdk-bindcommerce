@@ -202,6 +202,8 @@ class ClientReferenceDetail implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['client_reference_type'] === null) {
             throw new AssertionException("'client_reference_type' can't be null");
         }

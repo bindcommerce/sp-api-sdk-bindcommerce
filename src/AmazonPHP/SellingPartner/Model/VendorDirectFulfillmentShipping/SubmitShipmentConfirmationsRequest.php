@@ -179,6 +179,7 @@ class SubmitShipmentConfirmationsRequest implements \ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+
     }
 
     /**

@@ -185,6 +185,7 @@ class GetCollectionFormHistoryResponse implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+
     }
 
     /**

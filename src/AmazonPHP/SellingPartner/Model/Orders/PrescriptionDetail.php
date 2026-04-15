@@ -215,6 +215,8 @@ class PrescriptionDetail implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['prescription_id'] === null) {
             throw new AssertionException("'prescription_id' can't be null");
         }

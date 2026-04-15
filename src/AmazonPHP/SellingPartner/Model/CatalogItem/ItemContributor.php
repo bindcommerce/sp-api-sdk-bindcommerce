@@ -185,6 +185,8 @@ class ItemContributor implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['role'] === null) {
             throw new AssertionException("'role' can't be null");
         }

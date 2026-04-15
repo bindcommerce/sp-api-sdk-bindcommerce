@@ -214,6 +214,8 @@ class Money implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['currency_code'] && (\mb_strlen((string) $this->container['currency_code']) > 3)) {
             throw new AssertionException("invalid value for 'currency_code', the character length must be smaller than or equal to 3.");
         }

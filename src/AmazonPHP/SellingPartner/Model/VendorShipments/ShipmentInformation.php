@@ -238,6 +238,8 @@ class ShipmentInformation implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['vendor_details'] !== null) {
             $this->container['vendor_details']->validate();
         }

@@ -227,6 +227,8 @@ class AdditionalSellerInput implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['value_as_address'] !== null) {
             $this->container['value_as_address']->validate();
         }

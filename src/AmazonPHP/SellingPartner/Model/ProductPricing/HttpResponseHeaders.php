@@ -185,6 +185,7 @@ class HttpResponseHeaders implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+
     }
 
     /**

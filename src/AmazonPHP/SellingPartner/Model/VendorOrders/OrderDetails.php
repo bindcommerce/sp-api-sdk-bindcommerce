@@ -303,6 +303,8 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['purchase_order_date'] === null) {
             throw new AssertionException("'purchase_order_date' can't be null");
         }

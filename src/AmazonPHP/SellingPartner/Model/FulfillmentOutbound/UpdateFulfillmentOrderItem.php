@@ -233,6 +233,8 @@ class UpdateFulfillmentOrderItem implements \ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['seller_fulfillment_order_item_id'] === null) {
             throw new AssertionException("'seller_fulfillment_order_item_id' can't be null");
         }

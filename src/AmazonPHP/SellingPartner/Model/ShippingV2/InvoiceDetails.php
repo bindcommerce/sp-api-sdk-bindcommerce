@@ -185,6 +185,7 @@ class InvoiceDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+
     }
 
     /**

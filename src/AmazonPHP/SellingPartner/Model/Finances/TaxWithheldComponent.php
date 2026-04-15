@@ -185,6 +185,7 @@ class TaxWithheldComponent implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+
     }
 
     /**

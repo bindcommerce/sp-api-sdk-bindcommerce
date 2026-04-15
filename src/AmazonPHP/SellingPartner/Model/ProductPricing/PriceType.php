@@ -197,6 +197,8 @@ class PriceType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['landed_price'] !== null) {
             $this->container['landed_price']->validate();
         }

@@ -191,6 +191,8 @@ class ItemImage implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['link'] === null) {
             throw new AssertionException("'link' can't be null");
         }

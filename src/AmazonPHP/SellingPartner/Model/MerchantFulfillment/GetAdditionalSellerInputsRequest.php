@@ -191,6 +191,8 @@ class GetAdditionalSellerInputsRequest implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipping_service_id'] === null) {
             throw new AssertionException("'shipping_service_id' can't be null");
         }

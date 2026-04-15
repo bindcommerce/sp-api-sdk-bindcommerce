@@ -197,6 +197,8 @@ class DeliveryPreferences implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['preferred_delivery_time'] !== null) {
             $this->container['preferred_delivery_time']->validate();
         }

@@ -179,6 +179,7 @@ class ConfirmShipmentErrorResponse implements \ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+
     }
 
     /**

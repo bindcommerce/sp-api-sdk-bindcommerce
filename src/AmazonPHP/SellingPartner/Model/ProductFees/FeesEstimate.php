@@ -191,6 +191,8 @@ class FeesEstimate implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['time_of_fees_estimation'] === null) {
             throw new AssertionException("'time_of_fees_estimation' can't be null");
         }

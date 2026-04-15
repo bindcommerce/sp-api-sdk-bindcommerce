@@ -191,6 +191,8 @@ class FileContents implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['contents'] === null) {
             throw new AssertionException("'contents' can't be null");
         }

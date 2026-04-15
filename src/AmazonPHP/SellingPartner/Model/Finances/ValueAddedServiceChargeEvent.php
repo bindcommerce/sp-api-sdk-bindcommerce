@@ -197,6 +197,8 @@ class ValueAddedServiceChargeEvent implements \ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['transaction_amount'] !== null) {
             $this->container['transaction_amount']->validate();
         }

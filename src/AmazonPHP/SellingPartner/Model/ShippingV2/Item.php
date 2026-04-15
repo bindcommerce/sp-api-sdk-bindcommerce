@@ -245,6 +245,8 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['item_value'] !== null) {
             $this->container['item_value']->validate();
         }

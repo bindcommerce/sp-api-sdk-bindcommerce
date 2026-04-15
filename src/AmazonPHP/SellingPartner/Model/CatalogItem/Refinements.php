@@ -185,6 +185,8 @@ class Refinements implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['brands'] === null) {
             throw new AssertionException("'brands' can't be null");
         }

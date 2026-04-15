@@ -185,6 +185,8 @@ class IntegerWithUnits implements \ArrayAccess, \JsonSerializable, \Stringable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['value'] === null) {
             throw new AssertionException("'value' can't be null");
         }

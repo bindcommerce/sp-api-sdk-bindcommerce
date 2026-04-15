@@ -197,6 +197,7 @@ class FixedSlotCapacity implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+
     }
 
     /**

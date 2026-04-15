@@ -203,6 +203,8 @@ class SubstitutionOption implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['measurement'] !== null) {
             $this->container['measurement']->validate();
         }

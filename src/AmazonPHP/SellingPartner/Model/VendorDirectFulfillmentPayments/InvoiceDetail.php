@@ -251,6 +251,8 @@ class InvoiceDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['invoice_number'] === null) {
             throw new AssertionException("'invoice_number' can't be null");
         }

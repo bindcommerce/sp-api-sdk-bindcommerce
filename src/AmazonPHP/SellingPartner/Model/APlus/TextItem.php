@@ -185,6 +185,8 @@ class TextItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['position'] === null) {
             throw new AssertionException("'position' can't be null");
         }

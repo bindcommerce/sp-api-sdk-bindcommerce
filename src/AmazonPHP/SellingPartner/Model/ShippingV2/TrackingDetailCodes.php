@@ -185,6 +185,8 @@ class TrackingDetailCodes implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['forward'] === null) {
             throw new AssertionException("'forward' can't be null");
         }

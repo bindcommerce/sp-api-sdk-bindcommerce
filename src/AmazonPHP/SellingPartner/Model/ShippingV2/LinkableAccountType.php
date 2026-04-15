@@ -185,6 +185,7 @@ class LinkableAccountType implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+
     }
 
     /**

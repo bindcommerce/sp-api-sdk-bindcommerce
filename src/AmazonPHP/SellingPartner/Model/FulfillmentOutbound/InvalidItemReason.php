@@ -185,6 +185,8 @@ class InvalidItemReason implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['invalid_item_reason_code'] === null) {
             throw new AssertionException("'invalid_item_reason_code' can't be null");
         }

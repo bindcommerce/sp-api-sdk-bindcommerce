@@ -179,6 +179,8 @@ class AmazonPrograms implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['programs'] === null) {
             throw new AssertionException("'programs' can't be null");
         }

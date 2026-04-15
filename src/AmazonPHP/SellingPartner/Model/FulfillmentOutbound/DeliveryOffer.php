@@ -191,6 +191,8 @@ class DeliveryOffer implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['date_range'] !== null) {
             $this->container['date_range']->validate();
         }

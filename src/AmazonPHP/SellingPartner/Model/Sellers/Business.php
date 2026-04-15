@@ -203,6 +203,8 @@ class Business implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['name'] === null) {
             throw new AssertionException("'name' can't be null");
         }

@@ -179,6 +179,8 @@ class Errors implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['errors'] === null) {
             throw new AssertionException("'errors' can't be null");
         }

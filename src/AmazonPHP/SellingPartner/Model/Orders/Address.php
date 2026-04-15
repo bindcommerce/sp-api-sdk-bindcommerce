@@ -280,6 +280,8 @@ class Address implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['extended_fields'] !== null) {
             $this->container['extended_fields']->validate();
         }

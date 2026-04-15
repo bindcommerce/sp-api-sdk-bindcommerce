@@ -227,6 +227,8 @@ class OfferType implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['buying_price'] === null) {
             throw new AssertionException("'buying_price' can't be null");
         }

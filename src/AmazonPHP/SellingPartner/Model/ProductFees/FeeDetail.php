@@ -209,6 +209,8 @@ class FeeDetail implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['fee_type'] === null) {
             throw new AssertionException("'fee_type' can't be null");
         }

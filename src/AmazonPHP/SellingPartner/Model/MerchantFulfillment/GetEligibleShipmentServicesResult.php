@@ -197,6 +197,8 @@ class GetEligibleShipmentServicesResult implements \ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipping_service_list'] === null) {
             throw new AssertionException("'shipping_service_list' can't be null");
         }

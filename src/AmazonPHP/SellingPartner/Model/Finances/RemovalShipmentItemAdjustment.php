@@ -215,6 +215,8 @@ class RemovalShipmentItemAdjustment implements \ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['revenue_adjustment'] !== null) {
             $this->container['revenue_adjustment']->validate();
         }

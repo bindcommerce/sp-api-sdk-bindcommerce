@@ -213,6 +213,8 @@ class TaxCollection implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getModelAllowableValues();
 
         if (null !== $this->container['model'] && !\in_array($this->container['model'], $allowedValues, true)) {

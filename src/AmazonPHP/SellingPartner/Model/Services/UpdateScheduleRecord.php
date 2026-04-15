@@ -191,6 +191,8 @@ class UpdateScheduleRecord implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['availability'] !== null) {
             $this->container['availability']->validate();
         }

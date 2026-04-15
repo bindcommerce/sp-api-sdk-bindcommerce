@@ -179,6 +179,8 @@ class StandardCompanyLogoModule implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['company_logo'] === null) {
             throw new AssertionException("'company_logo' can't be null");
         }

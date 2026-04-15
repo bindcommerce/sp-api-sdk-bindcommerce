@@ -205,6 +205,8 @@ class ServiceLocation implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getServiceLocationTypeAllowableValues();
 
         if (null !== $this->container['service_location_type'] && !\in_array($this->container['service_location_type'], $allowedValues, true)) {

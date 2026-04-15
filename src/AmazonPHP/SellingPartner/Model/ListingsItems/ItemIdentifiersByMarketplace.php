@@ -185,6 +185,7 @@ class ItemIdentifiersByMarketplace implements \ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+
     }
 
     /**

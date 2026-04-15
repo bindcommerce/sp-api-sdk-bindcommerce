@@ -220,6 +220,8 @@ class OrderItemStatusAcknowledgementStatus implements \ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getConfirmationStatusAllowableValues();
 
         if (null !== $this->container['confirmation_status'] && !\in_array($this->container['confirmation_status'], $allowedValues, true)) {

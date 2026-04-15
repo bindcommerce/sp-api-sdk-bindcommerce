@@ -203,6 +203,8 @@ class GetCollectionFormHistoryRequest implements \ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['ship_from_address'] !== null) {
             $this->container['ship_from_address']->validate();
         }

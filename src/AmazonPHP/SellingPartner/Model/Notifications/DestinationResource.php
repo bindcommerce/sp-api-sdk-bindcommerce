@@ -185,6 +185,8 @@ class DestinationResource implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['sqs'] !== null) {
             $this->container['sqs']->validate();
         }

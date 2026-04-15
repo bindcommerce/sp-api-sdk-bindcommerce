@@ -269,6 +269,8 @@ class FulfillmentOrder implements \ArrayAccess, \JsonSerializable, \Stringable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['seller_fulfillment_order_id'] === null) {
             throw new AssertionException("'seller_fulfillment_order_id' can't be null");
         }

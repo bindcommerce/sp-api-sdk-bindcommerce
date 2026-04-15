@@ -191,6 +191,7 @@ class CollectFreightPickupDetails implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+
     }
 
     /**

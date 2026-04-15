@@ -197,6 +197,8 @@ class LinkCarrierAccountRequest implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['carrier_account_type'] === null) {
             throw new AssertionException("'carrier_account_type' can't be null");
         }

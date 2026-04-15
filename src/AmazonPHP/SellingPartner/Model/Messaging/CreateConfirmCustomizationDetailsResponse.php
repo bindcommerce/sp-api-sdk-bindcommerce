@@ -179,6 +179,7 @@ class CreateConfirmCustomizationDetailsResponse implements \ArrayAccess, \JsonSe
      */
     public function validate() : void
     {
+
     }
 
     /**

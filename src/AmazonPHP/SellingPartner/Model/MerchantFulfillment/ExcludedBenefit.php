@@ -185,6 +185,7 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+
     }
 
     /**

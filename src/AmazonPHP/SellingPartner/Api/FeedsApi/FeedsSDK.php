@@ -777,13 +777,14 @@ final class FeedsSDK implements FeedsSDKInterface
      * Operation getFeedDocument.
      *
      * @param string $feed_document_id The identifier of the feed document. (required)
+     * @param null|bool $enable_content_encoding_url_header When &#x60;true&#x60;, the Content-Encoding header on the returned URL is set to &#x60;gzip&#x60; instead of the default &#x60;identity&#x60; when &#x60;compressionAlgorithm&#x60; is &#x60;GZIP&#x60;. This allows automatic decompression by HTTP clients. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      */
-    public function getFeedDocument(AccessToken $accessToken, string $region, string $feed_document_id) : \AmazonPHP\SellingPartner\Model\Feeds\FeedDocument
+    public function getFeedDocument(AccessToken $accessToken, string $region, string $feed_document_id, ?bool $enable_content_encoding_url_header = null) : \AmazonPHP\SellingPartner\Model\Feeds\FeedDocument
     {
-        $request = $this->getFeedDocumentRequest($accessToken, $region, $feed_document_id);
+        $request = $this->getFeedDocumentRequest($accessToken, $region, $feed_document_id, $enable_content_encoding_url_header);
 
         $this->configuration->extensions()->preRequest('Feeds', 'getFeedDocument', $request);
 
@@ -873,10 +874,11 @@ final class FeedsSDK implements FeedsSDKInterface
      * Create request for operation 'getFeedDocument'.
      *
      * @param string $feed_document_id The identifier of the feed document. (required)
+     * @param null|bool $enable_content_encoding_url_header When &#x60;true&#x60;, the Content-Encoding header on the returned URL is set to &#x60;gzip&#x60; instead of the default &#x60;identity&#x60; when &#x60;compressionAlgorithm&#x60; is &#x60;GZIP&#x60;. This allows automatic decompression by HTTP clients. (optional)
      *
      * @throws InvalidArgumentException
      */
-    public function getFeedDocumentRequest(AccessToken $accessToken, string $region, string $feed_document_id) : RequestInterface
+    public function getFeedDocumentRequest(AccessToken $accessToken, string $region, string $feed_document_id, ?bool $enable_content_encoding_url_header = null) : RequestInterface
     {
         // verify the required parameter 'feed_document_id' is set
         if ($feed_document_id === null || (\is_array($feed_document_id) && \count($feed_document_id) === 0)) {
@@ -891,6 +893,15 @@ final class FeedsSDK implements FeedsSDKInterface
         $headerParams = [];
         $multipart = false;
         $query = '';
+
+        // query params
+        if (\is_array($enable_content_encoding_url_header)) {
+            $enable_content_encoding_url_header = ObjectSerializer::serializeCollection($enable_content_encoding_url_header, '', true);
+        }
+
+        if ($enable_content_encoding_url_header !== null) {
+            $queryParams['enableContentEncodingUrlHeader'] = ObjectSerializer::toString($enable_content_encoding_url_header);
+        }
 
         if (\count($queryParams)) {
             $query = \http_build_query($queryParams);

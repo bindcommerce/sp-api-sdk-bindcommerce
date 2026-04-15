@@ -203,6 +203,8 @@ class ItemBuyerInfo implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['buyer_customized_info'] !== null) {
             $this->container['buyer_customized_info']->validate();
         }

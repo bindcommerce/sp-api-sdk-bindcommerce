@@ -250,6 +250,8 @@ class AccessPoint implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['accessibility_attributes'] !== null) {
             $this->container['accessibility_attributes']->validate();
         }

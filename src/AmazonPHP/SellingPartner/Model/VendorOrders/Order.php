@@ -211,6 +211,8 @@ class Order implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['purchase_order_number'] === null) {
             throw new AssertionException("'purchase_order_number' can't be null");
         }

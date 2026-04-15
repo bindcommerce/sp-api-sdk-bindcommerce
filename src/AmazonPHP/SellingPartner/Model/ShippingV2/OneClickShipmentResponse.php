@@ -179,6 +179,8 @@ class OneClickShipmentResponse implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['payload'] !== null) {
             $this->container['payload']->validate();
         }

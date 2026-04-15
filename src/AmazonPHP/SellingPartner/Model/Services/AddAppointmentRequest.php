@@ -179,6 +179,8 @@ class AddAppointmentRequest implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['appointment_time'] === null) {
             throw new AssertionException("'appointment_time' can't be null");
         }

@@ -185,6 +185,7 @@ class Granularity implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+
     }
 
     /**

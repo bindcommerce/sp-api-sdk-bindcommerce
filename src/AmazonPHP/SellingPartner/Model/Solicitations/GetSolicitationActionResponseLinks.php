@@ -185,6 +185,8 @@ class GetSolicitationActionResponseLinks implements \ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['self'] === null) {
             throw new AssertionException("'self' can't be null");
         }

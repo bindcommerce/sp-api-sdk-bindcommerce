@@ -179,6 +179,7 @@ class GetUnmanifestedShipmentsResponse implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+
     }
 
     /**

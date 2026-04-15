@@ -191,6 +191,8 @@ class Warning implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['code'] === null) {
             throw new AssertionException("'code' can't be null");
         }

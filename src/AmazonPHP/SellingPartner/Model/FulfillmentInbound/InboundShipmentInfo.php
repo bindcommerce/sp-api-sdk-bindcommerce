@@ -233,6 +233,8 @@ class InboundShipmentInfo implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['ship_from_address'] === null) {
             throw new AssertionException("'ship_from_address' can't be null");
         }

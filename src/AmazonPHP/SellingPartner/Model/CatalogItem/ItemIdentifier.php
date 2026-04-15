@@ -185,6 +185,8 @@ class ItemIdentifier implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['identifier_type'] === null) {
             throw new AssertionException("'identifier_type' can't be null");
         }

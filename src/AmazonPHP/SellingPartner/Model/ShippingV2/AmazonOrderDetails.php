@@ -179,6 +179,8 @@ class AmazonOrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['order_id'] === null) {
             throw new AssertionException("'order_id' can't be null");
         }

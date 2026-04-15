@@ -203,6 +203,8 @@ class GetRatesRequest implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['ship_to'] === null) {
             throw new AssertionException("'ship_to' can't be null");
         }

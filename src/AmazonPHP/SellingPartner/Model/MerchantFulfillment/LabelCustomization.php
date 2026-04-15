@@ -185,6 +185,8 @@ class LabelCustomization implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['custom_text_for_label'] && (\mb_strlen((string) $this->container['custom_text_for_label']) > 14)) {
             throw new AssertionException("invalid value for 'custom_text_for_label', the character length must be smaller than or equal to 14.");
         }

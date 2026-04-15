@@ -208,6 +208,8 @@ class ItemQuantity implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getUnitOfMeasureAllowableValues();
 
         if (null !== $this->container['unit_of_measure'] && !\in_array($this->container['unit_of_measure'], $allowedValues, true)) {

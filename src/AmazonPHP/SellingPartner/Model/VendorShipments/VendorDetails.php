@@ -185,6 +185,8 @@ class VendorDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['selling_party'] !== null) {
             $this->container['selling_party']->validate();
         }

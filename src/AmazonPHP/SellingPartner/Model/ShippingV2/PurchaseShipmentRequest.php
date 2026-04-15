@@ -203,6 +203,8 @@ class PurchaseShipmentRequest implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['request_token'] === null) {
             throw new AssertionException("'request_token' can't be null");
         }

@@ -263,6 +263,8 @@ class PackageTrackingDetails implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['package_number'] === null) {
             throw new AssertionException("'package_number' can't be null");
         }

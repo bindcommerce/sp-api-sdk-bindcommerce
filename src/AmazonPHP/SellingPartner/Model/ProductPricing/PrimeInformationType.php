@@ -185,6 +185,8 @@ class PrimeInformationType implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['is_prime'] === null) {
             throw new AssertionException("'is_prime' can't be null");
         }

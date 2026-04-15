@@ -185,6 +185,7 @@ class ResearchingQuantity implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+
     }
 
     /**

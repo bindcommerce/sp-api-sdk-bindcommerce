@@ -185,6 +185,8 @@ class SalesRankType implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['product_category_id'] === null) {
             throw new AssertionException("'product_category_id' can't be null");
         }

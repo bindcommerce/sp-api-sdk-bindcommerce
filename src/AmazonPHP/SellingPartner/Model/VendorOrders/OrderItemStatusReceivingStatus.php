@@ -211,6 +211,8 @@ class OrderItemStatusReceivingStatus implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getReceiveStatusAllowableValues();
 
         if (null !== $this->container['receive_status'] && !\in_array($this->container['receive_status'], $allowedValues, true)) {

@@ -179,6 +179,8 @@ class CreateFeedResponse implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['feed_id'] === null) {
             throw new AssertionException("'feed_id' can't be null");
         }

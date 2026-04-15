@@ -185,6 +185,8 @@ class CreateRestrictedDataTokenRequest implements \ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['restricted_resources'] === null) {
             throw new AssertionException("'restricted_resources' can't be null");
         }

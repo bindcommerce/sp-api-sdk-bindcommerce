@@ -249,7 +249,7 @@ final class ServicesSDK implements ServicesSDKInterface
      *
      * @param string $service_job_id An Amazon-defined service job identifier. Get this value by calling the &#x60;getServiceJobs&#x60; operation of the Services API. (required)
      * @param string $appointment_id An Amazon-defined identifier of active service job appointment. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Services\AssignAppointmentResourcesRequest $body body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Services\AssignAppointmentResourcesRequest $body Input containing the resource details to be assigned to the appointment. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -347,7 +347,7 @@ final class ServicesSDK implements ServicesSDKInterface
      *
      * @param string $service_job_id An Amazon-defined service job identifier. Get this value by calling the &#x60;getServiceJobs&#x60; operation of the Services API. (required)
      * @param string $appointment_id An Amazon-defined identifier of active service job appointment. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Services\AssignAppointmentResourcesRequest $body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Services\AssignAppointmentResourcesRequest $body Input containing the resource details to be assigned to the appointment. (required)
      *
      * @throws InvalidArgumentException
      */

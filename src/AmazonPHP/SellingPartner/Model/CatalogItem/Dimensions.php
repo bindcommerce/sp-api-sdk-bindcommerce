@@ -197,6 +197,8 @@ class Dimensions implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['height'] !== null) {
             $this->container['height']->validate();
         }

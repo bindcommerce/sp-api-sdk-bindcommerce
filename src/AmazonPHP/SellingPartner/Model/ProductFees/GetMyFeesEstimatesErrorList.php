@@ -179,6 +179,8 @@ class GetMyFeesEstimatesErrorList implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['errors'] === null) {
             throw new AssertionException("'errors' can't be null");
         }

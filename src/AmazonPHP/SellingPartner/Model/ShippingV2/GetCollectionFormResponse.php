@@ -179,6 +179,8 @@ class GetCollectionFormResponse implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['collections_form_document'] !== null) {
             $this->container['collections_form_document']->validate();
         }

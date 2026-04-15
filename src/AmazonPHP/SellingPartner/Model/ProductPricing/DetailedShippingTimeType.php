@@ -217,6 +217,8 @@ class DetailedShippingTimeType implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getAvailabilityTypeAllowableValues();
 
         if (null !== $this->container['availability_type'] && !\in_array($this->container['availability_type'], $allowedValues, true)) {

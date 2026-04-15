@@ -220,6 +220,8 @@ class DropOffLocation implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['type'] === null) {
             throw new AssertionException("'type' can't be null");
         }

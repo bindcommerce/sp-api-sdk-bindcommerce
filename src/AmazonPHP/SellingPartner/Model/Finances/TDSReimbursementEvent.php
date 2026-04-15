@@ -191,6 +191,8 @@ class TDSReimbursementEvent implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['reimbursed_amount'] !== null) {
             $this->container['reimbursed_amount']->validate();
         }

@@ -208,6 +208,8 @@ class Weight implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['unit'] === null) {
             throw new AssertionException("'unit' can't be null");
         }

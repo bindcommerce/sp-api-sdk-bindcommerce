@@ -185,6 +185,7 @@ class ListFinancialEventGroupsPayload implements \ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
+
     }
 
     /**

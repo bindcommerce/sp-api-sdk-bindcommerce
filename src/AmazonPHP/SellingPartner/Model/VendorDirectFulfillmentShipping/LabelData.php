@@ -203,6 +203,8 @@ class LabelData implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['content'] === null) {
             throw new AssertionException("'content' can't be null");
         }

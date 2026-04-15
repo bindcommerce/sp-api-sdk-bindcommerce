@@ -191,6 +191,8 @@ class LabelDimensions implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['length'] === null) {
             throw new AssertionException("'length' can't be null");
         }

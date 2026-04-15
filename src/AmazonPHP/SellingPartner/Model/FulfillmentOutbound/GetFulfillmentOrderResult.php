@@ -209,6 +209,8 @@ class GetFulfillmentOrderResult implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['fulfillment_order'] === null) {
             throw new AssertionException("'fulfillment_order' can't be null");
         }

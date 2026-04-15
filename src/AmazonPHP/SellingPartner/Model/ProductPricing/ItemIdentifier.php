@@ -197,6 +197,8 @@ class ItemIdentifier implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace_id'] === null) {
             throw new AssertionException("'marketplace_id' can't be null");
         }

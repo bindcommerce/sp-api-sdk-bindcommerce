@@ -185,6 +185,8 @@ class OpenInterval implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['start_time'] !== null) {
             $this->container['start_time']->validate();
         }

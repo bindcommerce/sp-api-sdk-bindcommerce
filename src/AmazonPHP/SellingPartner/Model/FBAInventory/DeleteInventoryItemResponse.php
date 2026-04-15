@@ -179,6 +179,7 @@ class DeleteInventoryItemResponse implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+
     }
 
     /**

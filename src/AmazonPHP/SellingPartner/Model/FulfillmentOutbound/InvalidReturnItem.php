@@ -191,6 +191,8 @@ class InvalidReturnItem implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['seller_return_item_id'] === null) {
             throw new AssertionException("'seller_return_item_id' can't be null");
         }

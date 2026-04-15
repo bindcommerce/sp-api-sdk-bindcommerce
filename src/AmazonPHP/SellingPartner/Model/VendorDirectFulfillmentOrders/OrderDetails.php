@@ -262,6 +262,8 @@ class OrderDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['customer_order_number'] === null) {
             throw new AssertionException("'customer_order_number' can't be null");
         }

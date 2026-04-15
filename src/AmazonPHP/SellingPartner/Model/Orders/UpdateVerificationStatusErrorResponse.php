@@ -179,6 +179,7 @@ class UpdateVerificationStatusErrorResponse implements \ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+
     }
 
     /**

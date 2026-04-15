@@ -185,6 +185,7 @@ class Money implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function validate() : void
     {
+
     }
 
     /**

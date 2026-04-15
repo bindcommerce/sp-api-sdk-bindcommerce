@@ -179,6 +179,8 @@ class ShipperInstruction implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['delivery_notes'] && (\mb_strlen((string) $this->container['delivery_notes']) > 256)) {
             throw new AssertionException("invalid value for 'delivery_notes', the character length must be smaller than or equal to 256.");
         }

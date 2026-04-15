@@ -179,6 +179,7 @@ class PostContentDocumentSuspendSubmissionResponse implements \ArrayAccess, \Jso
      */
     public function validate() : void
     {
+
     }
 
     /**

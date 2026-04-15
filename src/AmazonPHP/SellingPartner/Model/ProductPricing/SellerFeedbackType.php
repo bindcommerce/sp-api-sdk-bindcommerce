@@ -185,6 +185,8 @@ class SellerFeedbackType implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['feedback_count'] === null) {
             throw new AssertionException("'feedback_count' can't be null");
         }

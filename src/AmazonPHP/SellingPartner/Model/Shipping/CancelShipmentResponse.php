@@ -179,6 +179,7 @@ class CancelShipmentResponse implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+
     }
 
     /**

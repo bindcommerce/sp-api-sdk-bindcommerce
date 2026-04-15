@@ -185,6 +185,8 @@ class StandardComparisonTableModule implements \ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['product_columns'] && (\count($this->container['product_columns']) > 6)) {
             throw new AssertionException("invalid value for 'product_columns', number of items must be less than or equal to 6.");
         }

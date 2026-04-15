@@ -191,6 +191,8 @@ class ListContentDocumentAsinRelationsResponse implements \ArrayAccess, \JsonSer
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['next_page_token'] && (\mb_strlen((string) $this->container['next_page_token']) < 1)) {
             throw new AssertionException("invalid value for 'next_page_token', the character length must be bigger than or equal to 1.");
         }

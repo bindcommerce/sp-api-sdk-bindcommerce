@@ -185,6 +185,7 @@ class InvalidSKU implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+
     }
 
     /**

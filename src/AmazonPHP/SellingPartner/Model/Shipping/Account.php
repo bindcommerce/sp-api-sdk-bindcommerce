@@ -179,6 +179,8 @@ class Account implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['account_id'] === null) {
             throw new AssertionException("'account_id' can't be null");
         }

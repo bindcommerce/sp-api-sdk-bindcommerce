@@ -179,6 +179,7 @@ class RequestedLabelCustomization implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+
     }
 
     /**

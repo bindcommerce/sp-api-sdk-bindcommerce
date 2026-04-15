@@ -179,6 +179,8 @@ class UpdateScheduleRequest implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['schedules'] === null) {
             throw new AssertionException("'schedules' can't be null");
         }

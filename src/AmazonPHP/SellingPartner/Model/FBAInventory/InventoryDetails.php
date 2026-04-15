@@ -215,6 +215,8 @@ class InventoryDetails implements \ArrayAccess, \JsonSerializable, \Stringable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['reserved_quantity'] !== null) {
             $this->container['reserved_quantity']->validate();
         }

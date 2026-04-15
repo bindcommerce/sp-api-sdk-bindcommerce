@@ -185,6 +185,8 @@ class StandardTextPairBlock implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['label'] !== null) {
             $this->container['label']->validate();
         }

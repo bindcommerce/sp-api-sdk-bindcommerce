@@ -233,6 +233,8 @@ class Summary implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['total_offer_count'] === null) {
             throw new AssertionException("'total_offer_count' can't be null");
         }

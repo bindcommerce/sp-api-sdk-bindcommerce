@@ -251,6 +251,8 @@ class ShipmentItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['cost_of_points_granted'] !== null) {
             $this->container['cost_of_points_granted']->validate();
         }

@@ -270,6 +270,8 @@ class ProductTypeDefinition implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['meta_schema'] !== null) {
             $this->container['meta_schema']->validate();
         }

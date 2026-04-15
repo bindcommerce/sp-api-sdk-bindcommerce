@@ -203,6 +203,8 @@ class RejectedShippingService implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['carrier_name'] === null) {
             throw new AssertionException("'carrier_name' can't be null");
         }

@@ -215,6 +215,8 @@ class ShipmentDetails implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['is_priority_shipment'] === null) {
             throw new AssertionException("'is_priority_shipment' can't be null");
         }

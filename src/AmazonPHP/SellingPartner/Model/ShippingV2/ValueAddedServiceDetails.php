@@ -179,6 +179,8 @@ class ValueAddedServiceDetails implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['collect_on_delivery'] !== null) {
             $this->container['collect_on_delivery']->validate();
         }

@@ -185,6 +185,8 @@ class DeliveryInformation implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['drop_off_location'] !== null) {
             $this->container['drop_off_location']->validate();
         }

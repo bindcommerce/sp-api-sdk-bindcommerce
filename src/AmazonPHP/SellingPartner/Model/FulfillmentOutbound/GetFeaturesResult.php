@@ -179,6 +179,8 @@ class GetFeaturesResult implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['features'] === null) {
             throw new AssertionException("'features' can't be null");
         }

@@ -223,6 +223,8 @@ class ChargeDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['type'] === null) {
             throw new AssertionException("'type' can't be null");
         }

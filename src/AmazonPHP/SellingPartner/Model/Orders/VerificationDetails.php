@@ -179,6 +179,8 @@ class VerificationDetails implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['prescription_detail'] !== null) {
             $this->container['prescription_detail']->validate();
         }

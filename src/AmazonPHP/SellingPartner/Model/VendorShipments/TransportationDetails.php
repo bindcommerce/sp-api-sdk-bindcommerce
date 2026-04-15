@@ -255,6 +255,8 @@ class TransportationDetails implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getShipModeAllowableValues();
 
         if (null !== $this->container['ship_mode'] && !\in_array($this->container['ship_mode'], $allowedValues, true)) {

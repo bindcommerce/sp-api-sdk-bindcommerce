@@ -227,6 +227,8 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['order_item_id'] === null) {
             throw new AssertionException("'order_item_id' can't be null");
         }

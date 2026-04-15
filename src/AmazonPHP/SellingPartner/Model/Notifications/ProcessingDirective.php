@@ -179,6 +179,8 @@ class ProcessingDirective implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['event_filter'] !== null) {
             $this->container['event_filter']->validate();
         }

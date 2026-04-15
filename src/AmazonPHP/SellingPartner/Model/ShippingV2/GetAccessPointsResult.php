@@ -179,6 +179,8 @@ class GetAccessPointsResult implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['access_points_map'] === null) {
             throw new AssertionException("'access_points_map' can't be null");
         }

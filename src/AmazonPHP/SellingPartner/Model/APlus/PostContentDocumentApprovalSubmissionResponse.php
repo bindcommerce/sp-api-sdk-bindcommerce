@@ -179,6 +179,7 @@ class PostContentDocumentApprovalSubmissionResponse implements \ArrayAccess, \Js
      */
     public function validate() : void
     {
+
     }
 
     /**

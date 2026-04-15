@@ -185,6 +185,7 @@ class InvalidASIN implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+
     }
 
     /**

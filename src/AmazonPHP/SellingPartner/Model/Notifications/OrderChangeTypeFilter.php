@@ -179,6 +179,7 @@ class OrderChangeTypeFilter implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+
     }
 
     /**

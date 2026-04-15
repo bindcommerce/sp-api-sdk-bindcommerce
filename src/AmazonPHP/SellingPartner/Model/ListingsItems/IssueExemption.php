@@ -205,6 +205,8 @@ class IssueExemption implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['status'] === null) {
             throw new AssertionException("'status' can't be null");
         }

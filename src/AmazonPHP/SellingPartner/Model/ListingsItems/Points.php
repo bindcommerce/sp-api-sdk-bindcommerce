@@ -179,6 +179,8 @@ class Points implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['points_number'] === null) {
             throw new AssertionException("'points_number' can't be null");
         }

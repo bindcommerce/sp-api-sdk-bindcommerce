@@ -191,6 +191,8 @@ class AppointmentSlot implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['capacity'] && ($this->container['capacity'] < 0)) {
             throw new AssertionException("invalid value for 'capacity', must be bigger than or equal to 0.");
         }

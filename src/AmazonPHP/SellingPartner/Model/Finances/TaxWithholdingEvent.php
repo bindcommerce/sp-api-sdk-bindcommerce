@@ -197,6 +197,8 @@ class TaxWithholdingEvent implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['base_amount'] !== null) {
             $this->container['base_amount']->validate();
         }

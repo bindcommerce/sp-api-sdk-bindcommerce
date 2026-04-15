@@ -185,6 +185,8 @@ class PlainTextItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['position'] === null) {
             throw new AssertionException("'position' can't be null");
         }

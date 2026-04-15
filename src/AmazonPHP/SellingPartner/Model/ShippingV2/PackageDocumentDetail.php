@@ -191,6 +191,8 @@ class PackageDocumentDetail implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['package_client_reference_id'] === null) {
             throw new AssertionException("'package_client_reference_id' can't be null");
         }

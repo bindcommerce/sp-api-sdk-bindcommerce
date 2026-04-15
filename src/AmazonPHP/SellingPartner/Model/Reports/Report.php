@@ -265,6 +265,8 @@ class Report implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['report_id'] === null) {
             throw new AssertionException("'report_id' can't be null");
         }

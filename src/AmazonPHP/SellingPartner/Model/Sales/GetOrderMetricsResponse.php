@@ -185,6 +185,7 @@ class GetOrderMetricsResponse implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+
     }
 
     /**

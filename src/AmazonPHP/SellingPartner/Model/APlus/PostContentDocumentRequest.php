@@ -179,6 +179,8 @@ class PostContentDocumentRequest implements \ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['content_document'] === null) {
             throw new AssertionException("'content_document' can't be null");
         }

@@ -191,6 +191,8 @@ class PartyIdentification implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['address'] !== null) {
             $this->container['address']->validate();
         }

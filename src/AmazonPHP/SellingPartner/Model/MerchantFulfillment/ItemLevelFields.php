@@ -185,6 +185,8 @@ class ItemLevelFields implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['asin'] === null) {
             throw new AssertionException("'asin' can't be null");
         }

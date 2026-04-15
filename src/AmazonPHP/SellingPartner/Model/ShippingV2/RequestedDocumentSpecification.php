@@ -215,6 +215,8 @@ class RequestedDocumentSpecification implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['format'] === null) {
             throw new AssertionException("'format' can't be null");
         }

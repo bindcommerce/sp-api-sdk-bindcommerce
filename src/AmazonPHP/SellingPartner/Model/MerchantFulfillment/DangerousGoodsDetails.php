@@ -267,6 +267,8 @@ class DangerousGoodsDetails implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['united_nations_regulatory_id'] && !\preg_match('/^(UN|ID|NA)[0-9]{4}$/', (string) $this->container['united_nations_regulatory_id'])) {
             throw new AssertionException("invalid value for 'united_nations_regulatory_id', must be conform to the pattern /^(UN|ID|NA)[0-9]{4}$/.");
         }

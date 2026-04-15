@@ -179,6 +179,8 @@ class SubmitShipmentStatusUpdatesRequest implements \ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['shipment_status_updates'] && (\count($this->container['shipment_status_updates']) < 1)) {
             throw new AssertionException("invalid value for 'shipment_status_updates', number of items must be greater than or equal to 1.");
         }

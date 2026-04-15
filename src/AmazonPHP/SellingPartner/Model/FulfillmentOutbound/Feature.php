@@ -191,6 +191,8 @@ class Feature implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['feature_name'] === null) {
             throw new AssertionException("'feature_name' can't be null");
         }

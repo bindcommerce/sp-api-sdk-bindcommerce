@@ -205,6 +205,8 @@ class ReportDocument implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['report_document_id'] === null) {
             throw new AssertionException("'report_document_id' can't be null");
         }

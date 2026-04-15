@@ -203,6 +203,7 @@ class PackageDimensions implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+
     }
 
     /**

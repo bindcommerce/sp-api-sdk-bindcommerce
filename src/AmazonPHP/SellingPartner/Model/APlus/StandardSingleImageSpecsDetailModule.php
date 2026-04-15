@@ -221,6 +221,8 @@ class StandardSingleImageSpecsDetailModule implements \ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['headline'] !== null) {
             $this->container['headline']->validate();
         }

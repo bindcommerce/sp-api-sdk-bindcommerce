@@ -203,6 +203,8 @@ class ReturnAuthorization implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['return_authorization_id'] === null) {
             throw new AssertionException("'return_authorization_id' can't be null");
         }

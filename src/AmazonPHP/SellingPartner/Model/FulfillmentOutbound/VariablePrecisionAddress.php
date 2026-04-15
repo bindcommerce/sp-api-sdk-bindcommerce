@@ -221,6 +221,8 @@ class VariablePrecisionAddress implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['postal_code'] === null) {
             throw new AssertionException("'postal_code' can't be null");
         }

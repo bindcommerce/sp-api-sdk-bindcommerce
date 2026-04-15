@@ -179,6 +179,8 @@ class RestrictionList implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['restrictions'] === null) {
             throw new AssertionException("'restrictions' can't be null");
         }

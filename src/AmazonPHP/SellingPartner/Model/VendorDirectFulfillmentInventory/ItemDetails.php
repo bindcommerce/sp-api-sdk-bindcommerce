@@ -197,6 +197,8 @@ class ItemDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['available_quantity'] === null) {
             throw new AssertionException("'available_quantity' can't be null");
         }

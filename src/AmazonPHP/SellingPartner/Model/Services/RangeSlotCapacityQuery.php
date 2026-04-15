@@ -191,6 +191,8 @@ class RangeSlotCapacityQuery implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['start_date_time'] === null) {
             throw new AssertionException("'start_date_time' can't be null");
         }

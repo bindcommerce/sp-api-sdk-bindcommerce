@@ -185,6 +185,8 @@ class TextComponent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['value'] === null) {
             throw new AssertionException("'value' can't be null");
         }

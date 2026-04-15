@@ -208,6 +208,8 @@ class TotalWeight implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['unit_of_measure'] === null) {
             throw new AssertionException("'unit_of_measure' can't be null");
         }

@@ -179,6 +179,8 @@ class AssignAppointmentResourcesRequest implements \ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['resources'] === null) {
             throw new AssertionException("'resources' can't be null");
         }

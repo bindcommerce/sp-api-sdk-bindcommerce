@@ -179,6 +179,7 @@ class TransactionReference implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+
     }
 
     /**

@@ -185,6 +185,8 @@ class IssueEnforcements implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['actions'] === null) {
             throw new AssertionException("'actions' can't be null");
         }

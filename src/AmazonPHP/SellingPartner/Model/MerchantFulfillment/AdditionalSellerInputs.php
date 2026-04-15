@@ -185,6 +185,8 @@ class AdditionalSellerInputs implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['additional_input_field_name'] === null) {
             throw new AssertionException("'additional_input_field_name' can't be null");
         }

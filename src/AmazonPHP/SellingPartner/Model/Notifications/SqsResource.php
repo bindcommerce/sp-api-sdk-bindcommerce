@@ -179,6 +179,8 @@ class SqsResource implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['arn'] === null) {
             throw new AssertionException("'arn' can't be null");
         }

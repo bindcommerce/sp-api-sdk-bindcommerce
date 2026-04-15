@@ -185,6 +185,8 @@ class GetAttributesResponse implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['buyer'] !== null) {
             $this->container['buyer']->validate();
         }

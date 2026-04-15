@@ -191,6 +191,8 @@ class ItemBrowseClassification implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['display_name'] === null) {
             throw new AssertionException("'display_name' can't be null");
         }

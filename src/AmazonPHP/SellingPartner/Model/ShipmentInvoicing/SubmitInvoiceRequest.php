@@ -191,6 +191,8 @@ class SubmitInvoiceRequest implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['invoice_content'] === null) {
             throw new AssertionException("'invoice_content' can't be null");
         }

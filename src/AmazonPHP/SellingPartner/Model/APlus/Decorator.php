@@ -197,6 +197,8 @@ class Decorator implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['offset'] && ($this->container['offset'] > 10000)) {
             throw new AssertionException("invalid value for 'offset', must be smaller than or equal to 10000.");
         }

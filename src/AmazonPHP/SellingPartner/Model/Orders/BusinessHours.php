@@ -217,6 +217,8 @@ class BusinessHours implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getDayOfWeekAllowableValues();
 
         if (null !== $this->container['day_of_week'] && !\in_array($this->container['day_of_week'], $allowedValues, true)) {

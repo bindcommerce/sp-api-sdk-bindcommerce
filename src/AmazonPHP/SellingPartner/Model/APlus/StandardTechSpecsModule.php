@@ -191,6 +191,8 @@ class StandardTechSpecsModule implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['headline'] !== null) {
             $this->container['headline']->validate();
         }

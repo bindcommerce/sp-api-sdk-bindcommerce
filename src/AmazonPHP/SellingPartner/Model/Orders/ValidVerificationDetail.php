@@ -185,6 +185,8 @@ class ValidVerificationDetail implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['verification_detail_type'] === null) {
             throw new AssertionException("'verification_detail_type' can't be null");
         }

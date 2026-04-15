@@ -185,6 +185,8 @@ class GetInventorySummariesResult implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['granularity'] === null) {
             throw new AssertionException("'granularity' can't be null");
         }

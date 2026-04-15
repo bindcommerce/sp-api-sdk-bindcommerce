@@ -197,6 +197,8 @@ class AvailableValueAddedServiceGroup implements \ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['group_id'] === null) {
             throw new AssertionException("'group_id' can't be null");
         }

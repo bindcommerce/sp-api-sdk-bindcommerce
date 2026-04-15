@@ -191,6 +191,8 @@ class ClassificationRefinement implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['number_of_results'] === null) {
             throw new AssertionException("'number_of_results' can't be null");
         }

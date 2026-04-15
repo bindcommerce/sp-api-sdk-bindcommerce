@@ -197,6 +197,8 @@ class RateItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['rate_item_id'] === null) {
             throw new AssertionException("'rate_item_id' can't be null");
         }

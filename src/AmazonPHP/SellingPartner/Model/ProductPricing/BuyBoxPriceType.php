@@ -227,6 +227,8 @@ class BuyBoxPriceType implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['condition'] === null) {
             throw new AssertionException("'condition' can't be null");
         }

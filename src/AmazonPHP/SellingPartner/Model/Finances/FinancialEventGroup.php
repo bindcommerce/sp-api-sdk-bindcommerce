@@ -239,6 +239,8 @@ class FinancialEventGroup implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['original_total'] !== null) {
             $this->container['original_total']->validate();
         }

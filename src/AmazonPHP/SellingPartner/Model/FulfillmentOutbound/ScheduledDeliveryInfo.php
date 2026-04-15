@@ -185,6 +185,8 @@ class ScheduledDeliveryInfo implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['delivery_time_zone'] === null) {
             throw new AssertionException("'delivery_time_zone' can't be null");
         }

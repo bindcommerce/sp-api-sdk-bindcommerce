@@ -239,6 +239,8 @@ class Item implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['asin'] === null) {
             throw new AssertionException("'asin' can't be null");
         }

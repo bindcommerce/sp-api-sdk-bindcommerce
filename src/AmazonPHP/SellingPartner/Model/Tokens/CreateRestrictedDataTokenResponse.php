@@ -185,6 +185,7 @@ class CreateRestrictedDataTokenResponse implements \ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+
     }
 
     /**

@@ -185,6 +185,7 @@ class BuyerRequestedCancel implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+
     }
 
     /**

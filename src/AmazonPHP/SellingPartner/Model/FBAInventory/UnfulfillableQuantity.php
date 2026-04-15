@@ -215,6 +215,7 @@ class UnfulfillableQuantity implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+
     }
 
     /**

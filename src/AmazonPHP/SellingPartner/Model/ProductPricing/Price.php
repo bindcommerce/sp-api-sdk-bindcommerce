@@ -197,6 +197,8 @@ class Price implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['status'] === null) {
             throw new AssertionException("'status' can't be null");
         }

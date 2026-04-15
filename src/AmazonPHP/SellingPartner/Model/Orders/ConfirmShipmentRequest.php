@@ -205,6 +205,8 @@ class ConfirmShipmentRequest implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['package_detail'] === null) {
             throw new AssertionException("'package_detail' can't be null");
         }

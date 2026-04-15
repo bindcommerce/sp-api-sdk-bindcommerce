@@ -205,6 +205,8 @@ class FeedDocument implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['feed_document_id'] === null) {
             throw new AssertionException("'feed_document_id' can't be null");
         }

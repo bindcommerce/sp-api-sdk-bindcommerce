@@ -185,6 +185,8 @@ class PointsGrantedDetail implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['points_monetary_value'] !== null) {
             $this->container['points_monetary_value']->validate();
         }

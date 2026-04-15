@@ -185,6 +185,8 @@ class PurchaseLabelsRequest implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['rate_id'] === null) {
             throw new AssertionException("'rate_id' can't be null");
         }

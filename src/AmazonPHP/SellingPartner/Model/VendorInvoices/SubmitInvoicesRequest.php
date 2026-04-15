@@ -179,6 +179,7 @@ class SubmitInvoicesRequest implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+
     }
 
     /**

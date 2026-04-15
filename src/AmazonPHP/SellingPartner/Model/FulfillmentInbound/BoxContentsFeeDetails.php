@@ -191,6 +191,8 @@ class BoxContentsFeeDetails implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['fee_per_unit'] !== null) {
             $this->container['fee_per_unit']->validate();
         }

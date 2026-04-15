@@ -179,6 +179,7 @@ class AssignAppointmentResourcesResponsePayload implements \ArrayAccess, \JsonSe
      */
     public function validate() : void
     {
+
     }
 
     /**

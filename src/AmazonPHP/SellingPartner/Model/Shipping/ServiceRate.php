@@ -197,6 +197,8 @@ class ServiceRate implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['total_charge'] === null) {
             throw new AssertionException("'total_charge' can't be null");
         }

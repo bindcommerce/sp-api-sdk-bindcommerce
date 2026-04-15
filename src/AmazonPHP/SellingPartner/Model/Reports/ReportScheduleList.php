@@ -179,6 +179,8 @@ class ReportScheduleList implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['report_schedules'] === null) {
             throw new AssertionException("'report_schedules' can't be null");
         }

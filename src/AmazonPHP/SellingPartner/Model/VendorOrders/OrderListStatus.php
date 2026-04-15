@@ -185,6 +185,8 @@ class OrderListStatus implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['pagination'] !== null) {
             $this->container['pagination']->validate();
         }

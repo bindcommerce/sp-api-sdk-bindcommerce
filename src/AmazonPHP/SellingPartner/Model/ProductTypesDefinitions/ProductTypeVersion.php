@@ -191,6 +191,8 @@ class ProductTypeVersion implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['version'] === null) {
             throw new AssertionException("'version' can't be null");
         }

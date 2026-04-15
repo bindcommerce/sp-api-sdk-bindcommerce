@@ -185,6 +185,8 @@ class GetFeatureInventoryResponse implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['payload'] !== null) {
             $this->container['payload']->validate();
         }

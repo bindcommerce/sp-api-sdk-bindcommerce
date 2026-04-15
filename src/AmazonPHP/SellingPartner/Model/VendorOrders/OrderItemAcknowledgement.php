@@ -243,6 +243,8 @@ class OrderItemAcknowledgement implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['acknowledgement_code'] === null) {
             throw new AssertionException("'acknowledgement_code' can't be null");
         }

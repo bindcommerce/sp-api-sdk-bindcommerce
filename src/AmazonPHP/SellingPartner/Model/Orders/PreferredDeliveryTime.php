@@ -185,6 +185,7 @@ class PreferredDeliveryTime implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+
     }
 
     /**

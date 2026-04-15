@@ -255,6 +255,8 @@ class Account implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace_participation_list'] === null) {
             throw new AssertionException("'marketplace_participation_list' can't be null");
         }

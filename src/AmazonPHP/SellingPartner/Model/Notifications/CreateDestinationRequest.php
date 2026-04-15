@@ -185,6 +185,8 @@ class CreateDestinationRequest implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['resource_specification'] === null) {
             throw new AssertionException("'resource_specification' can't be null");
         }

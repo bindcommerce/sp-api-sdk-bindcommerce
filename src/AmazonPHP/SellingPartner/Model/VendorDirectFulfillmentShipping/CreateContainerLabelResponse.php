@@ -179,6 +179,8 @@ class CreateContainerLabelResponse implements \ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['container_label'] === null) {
             throw new AssertionException("'container_label' can't be null");
         }

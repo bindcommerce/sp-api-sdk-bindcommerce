@@ -269,6 +269,8 @@ class OfferDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['sub_condition'] === null) {
             throw new AssertionException("'sub_condition' can't be null");
         }

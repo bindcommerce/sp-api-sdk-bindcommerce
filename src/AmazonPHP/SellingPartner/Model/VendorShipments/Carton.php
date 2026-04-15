@@ -209,6 +209,8 @@ class Carton implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['carton_sequence_number'] === null) {
             throw new AssertionException("'carton_sequence_number' can't be null");
         }

@@ -185,6 +185,8 @@ class ExcludedBenefit implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['benefit'] === null) {
             throw new AssertionException("'benefit' can't be null");
         }

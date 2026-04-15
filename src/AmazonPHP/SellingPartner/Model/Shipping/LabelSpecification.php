@@ -213,6 +213,8 @@ class LabelSpecification implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['label_format'] === null) {
             throw new AssertionException("'label_format' can't be null");
         }

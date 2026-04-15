@@ -185,6 +185,7 @@ class Geocode implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+
     }
 
     /**

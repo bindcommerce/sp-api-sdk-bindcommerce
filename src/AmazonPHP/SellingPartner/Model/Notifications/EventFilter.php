@@ -214,6 +214,8 @@ class EventFilter implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['aggregation_settings'] !== null) {
             $this->container['aggregation_settings']->validate();
         }

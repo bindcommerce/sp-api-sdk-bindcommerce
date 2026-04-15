@@ -203,6 +203,8 @@ class FeesEstimateRequest implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace_id'] === null) {
             throw new AssertionException("'marketplace_id' can't be null");
         }

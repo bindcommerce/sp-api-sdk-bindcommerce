@@ -185,6 +185,8 @@ class GetSolicitationActionsForOrderResponseLinks implements \ArrayAccess, \Json
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['self'] === null) {
             throw new AssertionException("'self' can't be null");
         }

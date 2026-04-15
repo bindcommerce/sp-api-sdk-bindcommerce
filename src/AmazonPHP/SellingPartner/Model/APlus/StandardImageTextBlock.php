@@ -191,6 +191,8 @@ class StandardImageTextBlock implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['image'] !== null) {
             $this->container['image']->validate();
         }

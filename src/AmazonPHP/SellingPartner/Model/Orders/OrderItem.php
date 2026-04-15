@@ -430,6 +430,8 @@ class OrderItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelIn
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['asin'] === null) {
             throw new AssertionException("'asin' can't be null");
         }

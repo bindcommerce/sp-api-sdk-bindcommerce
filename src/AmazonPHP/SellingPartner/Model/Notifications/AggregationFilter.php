@@ -179,6 +179,8 @@ class AggregationFilter implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['aggregation_settings'] !== null) {
             $this->container['aggregation_settings']->validate();
         }

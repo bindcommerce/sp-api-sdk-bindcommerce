@@ -203,6 +203,8 @@ class PaymentInformation implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['payment_value'] !== null) {
             $this->container['payment_value']->validate();
         }

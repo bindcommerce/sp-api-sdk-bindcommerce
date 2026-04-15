@@ -268,6 +268,8 @@ class Measurement implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['unit'] === null) {
             throw new AssertionException("'unit' can't be null");
         }

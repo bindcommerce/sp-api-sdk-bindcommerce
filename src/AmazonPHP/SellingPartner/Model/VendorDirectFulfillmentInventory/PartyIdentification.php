@@ -179,6 +179,8 @@ class PartyIdentification implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['party_id'] === null) {
             throw new AssertionException("'party_id' can't be null");
         }

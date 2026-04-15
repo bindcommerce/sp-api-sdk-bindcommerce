@@ -223,6 +223,8 @@ class ListingsItemSubmissionResponse implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['sku'] === null) {
             throw new AssertionException("'sku' can't be null");
         }

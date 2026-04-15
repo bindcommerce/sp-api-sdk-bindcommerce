@@ -203,6 +203,8 @@ class PaymentExecutionDetailItem implements \ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['payment'] === null) {
             throw new AssertionException("'payment' can't be null");
         }

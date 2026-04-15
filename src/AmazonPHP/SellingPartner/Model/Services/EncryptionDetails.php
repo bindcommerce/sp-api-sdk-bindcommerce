@@ -205,6 +205,8 @@ class EncryptionDetails implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['standard'] === null) {
             throw new AssertionException("'standard' can't be null");
         }

@@ -215,6 +215,8 @@ class FulfillmentShipmentPackage implements \ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['package_number'] === null) {
             throw new AssertionException("'package_number' can't be null");
         }

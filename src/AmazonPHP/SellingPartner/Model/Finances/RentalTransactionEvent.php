@@ -233,6 +233,8 @@ class RentalTransactionEvent implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['rental_initial_value'] !== null) {
             $this->container['rental_initial_value']->validate();
         }

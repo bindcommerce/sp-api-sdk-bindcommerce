@@ -209,6 +209,7 @@ class RemovalShipmentAdjustmentEvent implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+
     }
 
     /**

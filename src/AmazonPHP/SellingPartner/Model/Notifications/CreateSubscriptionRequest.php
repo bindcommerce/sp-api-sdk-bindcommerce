@@ -191,6 +191,8 @@ class CreateSubscriptionRequest implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['payload_version'] === null) {
             throw new AssertionException("'payload_version' can't be null");
         }

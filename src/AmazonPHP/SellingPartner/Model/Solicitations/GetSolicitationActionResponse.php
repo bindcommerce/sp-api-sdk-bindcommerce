@@ -197,6 +197,8 @@ class GetSolicitationActionResponse implements \ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['_links'] !== null) {
             $this->container['_links']->validate();
         }

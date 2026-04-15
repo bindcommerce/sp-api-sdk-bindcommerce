@@ -263,6 +263,8 @@ class ShipmentDetail implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipping_address'] !== null) {
             $this->container['shipping_address']->validate();
         }

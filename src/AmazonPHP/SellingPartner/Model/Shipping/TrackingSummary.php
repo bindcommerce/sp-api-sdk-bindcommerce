@@ -179,6 +179,8 @@ class TrackingSummary implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['status'] && (\mb_strlen((string) $this->container['status']) > 60)) {
             throw new AssertionException("invalid value for 'status', the character length must be smaller than or equal to 60.");
         }

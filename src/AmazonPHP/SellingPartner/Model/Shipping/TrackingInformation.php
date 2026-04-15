@@ -197,6 +197,8 @@ class TrackingInformation implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['tracking_id'] === null) {
             throw new AssertionException("'tracking_id' can't be null");
         }

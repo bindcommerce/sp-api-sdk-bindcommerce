@@ -191,6 +191,7 @@ class AutomatedShippingSettings implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+
     }
 
     /**

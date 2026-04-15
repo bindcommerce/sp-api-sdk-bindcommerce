@@ -191,6 +191,8 @@ class PriceToEstimateFees implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['listing_price'] === null) {
             throw new AssertionException("'listing_price' can't be null");
         }

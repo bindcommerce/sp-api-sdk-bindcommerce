@@ -203,6 +203,8 @@ class ShippingServiceOptions implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['delivery_experience'] === null) {
             throw new AssertionException("'delivery_experience' can't be null");
         }

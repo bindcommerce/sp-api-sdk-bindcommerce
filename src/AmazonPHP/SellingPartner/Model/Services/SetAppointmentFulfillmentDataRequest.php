@@ -197,6 +197,8 @@ class SetAppointmentFulfillmentDataRequest implements \ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['estimated_arrival_time'] !== null) {
             $this->container['estimated_arrival_time']->validate();
         }

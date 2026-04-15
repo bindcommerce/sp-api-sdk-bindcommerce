@@ -185,6 +185,7 @@ class ListAllFulfillmentOrdersResult implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+
     }
 
     /**

@@ -185,6 +185,7 @@ class TaxWithholdingPeriod implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+
     }
 
     /**

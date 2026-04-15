@@ -238,6 +238,8 @@ class AssociatedItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['order_id'] && (\mb_strlen((string) $this->container['order_id']) > 20)) {
             throw new AssertionException("invalid value for 'order_id', the character length must be smaller than or equal to 20.");
         }

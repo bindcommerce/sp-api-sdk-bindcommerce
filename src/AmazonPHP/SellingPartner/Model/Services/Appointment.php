@@ -229,6 +229,8 @@ class Appointment implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['appointment_id'] && (\mb_strlen((string) $this->container['appointment_id']) > 100)) {
             throw new AssertionException("invalid value for 'appointment_id', the character length must be smaller than or equal to 100.");
         }

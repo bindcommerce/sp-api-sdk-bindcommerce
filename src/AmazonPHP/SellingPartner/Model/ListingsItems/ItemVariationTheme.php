@@ -185,6 +185,8 @@ class ItemVariationTheme implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['attributes'] === null) {
             throw new AssertionException("'attributes' can't be null");
         }

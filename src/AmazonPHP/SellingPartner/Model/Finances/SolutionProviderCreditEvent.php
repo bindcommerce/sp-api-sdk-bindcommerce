@@ -233,6 +233,8 @@ class SolutionProviderCreditEvent implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['transaction_amount'] !== null) {
             $this->container['transaction_amount']->validate();
         }

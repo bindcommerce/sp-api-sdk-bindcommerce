@@ -191,6 +191,7 @@ class CreateFulfillmentReturnResult implements \ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+
     }
 
     /**

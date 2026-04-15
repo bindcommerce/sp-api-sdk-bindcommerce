@@ -179,6 +179,7 @@ class CreateConfirmDeliveryDetailsResponse implements \ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+
     }
 
     /**

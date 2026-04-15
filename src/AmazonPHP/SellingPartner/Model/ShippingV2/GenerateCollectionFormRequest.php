@@ -191,6 +191,8 @@ class GenerateCollectionFormRequest implements \ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['carrier_id'] === null) {
             throw new AssertionException("'carrier_id' can't be null");
         }

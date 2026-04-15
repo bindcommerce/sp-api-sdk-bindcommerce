@@ -185,6 +185,8 @@ class OfferListingCountType implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['count'] === null) {
             throw new AssertionException("'count' can't be null");
         }

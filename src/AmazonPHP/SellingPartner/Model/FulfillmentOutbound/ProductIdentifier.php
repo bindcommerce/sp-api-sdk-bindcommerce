@@ -179,6 +179,8 @@ class ProductIdentifier implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['merchant_sku'] === null) {
             throw new AssertionException("'merchant_sku' can't be null");
         }

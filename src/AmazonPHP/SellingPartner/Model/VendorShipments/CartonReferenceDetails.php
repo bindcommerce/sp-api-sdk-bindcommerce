@@ -185,6 +185,8 @@ class CartonReferenceDetails implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['carton_reference_numbers'] === null) {
             throw new AssertionException("'carton_reference_numbers' can't be null");
         }

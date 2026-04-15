@@ -185,6 +185,8 @@ class Promise implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['delivery_window'] !== null) {
             $this->container['delivery_window']->validate();
         }

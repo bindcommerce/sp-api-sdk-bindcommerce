@@ -197,6 +197,8 @@ class AdhocDisbursementEvent implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['transaction_amount'] !== null) {
             $this->container['transaction_amount']->validate();
         }

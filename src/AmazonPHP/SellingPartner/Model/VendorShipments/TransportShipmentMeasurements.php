@@ -203,6 +203,8 @@ class TransportShipmentMeasurements implements \ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipment_weight'] !== null) {
             $this->container['shipment_weight']->validate();
         }

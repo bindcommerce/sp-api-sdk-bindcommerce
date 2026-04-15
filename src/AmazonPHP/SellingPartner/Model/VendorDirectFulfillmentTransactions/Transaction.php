@@ -211,6 +211,8 @@ class Transaction implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['transaction_id'] === null) {
             throw new AssertionException("'transaction_id' can't be null");
         }

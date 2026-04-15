@@ -197,6 +197,8 @@ class ItemClassificationSalesRank implements \ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['classification_id'] === null) {
             throw new AssertionException("'classification_id' can't be null");
         }

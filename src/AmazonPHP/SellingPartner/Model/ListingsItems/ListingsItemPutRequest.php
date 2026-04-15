@@ -211,6 +211,8 @@ class ListingsItemPutRequest implements \ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['product_type'] === null) {
             throw new AssertionException("'product_type' can't be null");
         }

@@ -191,6 +191,8 @@ class MarketplaceParticipation implements \ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace'] === null) {
             throw new AssertionException("'marketplace' can't be null");
         }

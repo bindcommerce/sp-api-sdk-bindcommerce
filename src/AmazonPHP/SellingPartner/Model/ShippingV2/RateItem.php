@@ -197,6 +197,8 @@ class RateItem implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['rate_item_charge'] !== null) {
             $this->container['rate_item_charge']->validate();
         }

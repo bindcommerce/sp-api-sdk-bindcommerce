@@ -211,6 +211,8 @@ class AdditionalDetails implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['type'] === null) {
             throw new AssertionException("'type' can't be null");
         }

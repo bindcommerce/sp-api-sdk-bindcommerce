@@ -197,6 +197,8 @@ class OrdersList implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['orders'] === null) {
             throw new AssertionException("'orders' can't be null");
         }

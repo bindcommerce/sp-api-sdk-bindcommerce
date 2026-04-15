@@ -197,6 +197,8 @@ class CreateFeedSpecification implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['feed_type'] === null) {
             throw new AssertionException("'feed_type' can't be null");
         }

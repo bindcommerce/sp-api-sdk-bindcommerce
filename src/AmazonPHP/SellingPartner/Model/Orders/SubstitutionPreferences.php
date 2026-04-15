@@ -205,6 +205,8 @@ class SubstitutionPreferences implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['substitution_type'] === null) {
             throw new AssertionException("'substitution_type' can't be null");
         }

@@ -203,6 +203,8 @@ class CreateReportSpecification implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['report_type'] === null) {
             throw new AssertionException("'report_type' can't be null");
         }

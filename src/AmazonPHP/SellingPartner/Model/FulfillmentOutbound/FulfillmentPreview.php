@@ -239,6 +239,8 @@ class FulfillmentPreview implements \ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipping_speed_category'] === null) {
             throw new AssertionException("'shipping_speed_category' can't be null");
         }

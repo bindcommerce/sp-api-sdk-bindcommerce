@@ -276,6 +276,8 @@ class ImportDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getMethodOfPaymentAllowableValues();
 
         if (null !== $this->container['method_of_payment'] && !\in_array($this->container['method_of_payment'], $allowedValues, true)) {

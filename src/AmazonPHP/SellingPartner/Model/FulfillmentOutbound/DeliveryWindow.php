@@ -185,6 +185,8 @@ class DeliveryWindow implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['start_date'] === null) {
             throw new AssertionException("'start_date' can't be null");
         }

@@ -179,6 +179,8 @@ class GoodsOwner implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['merchant_id'] === null) {
             throw new AssertionException("'merchant_id' can't be null");
         }

@@ -179,6 +179,7 @@ class UpdateFulfillmentOrderResponse implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+
     }
 
     /**

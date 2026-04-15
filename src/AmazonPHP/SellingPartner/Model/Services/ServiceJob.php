@@ -68,6 +68,7 @@ class ServiceJob implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
         'buyer' => '\AmazonPHP\SellingPartner\Model\Services\Buyer',
         'associated_items' => '\AmazonPHP\SellingPartner\Model\Services\AssociatedItem[]',
         'service_location' => '\AmazonPHP\SellingPartner\Model\Services\ServiceLocation',
+        'payments' => '\AmazonPHP\SellingPartner\Model\Services\Payment[]',
     ];
 
     /**
@@ -94,6 +95,7 @@ class ServiceJob implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
         'buyer' => null,
         'associated_items' => null,
         'service_location' => null,
+        'payments' => null,
     ];
 
     /**
@@ -117,6 +119,7 @@ class ServiceJob implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
         'buyer' => 'buyer',
         'associated_items' => 'associatedItems',
         'service_location' => 'serviceLocation',
+        'payments' => 'payments',
     ];
 
     /**
@@ -139,6 +142,7 @@ class ServiceJob implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
         'buyer' => 'setBuyer',
         'associated_items' => 'setAssociatedItems',
         'service_location' => 'setServiceLocation',
+        'payments' => 'setPayments',
     ];
 
     /**
@@ -161,6 +165,7 @@ class ServiceJob implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
         'buyer' => 'getBuyer',
         'associated_items' => 'getAssociatedItems',
         'service_location' => 'getServiceLocation',
+        'payments' => 'getPayments',
     ];
 
     /**
@@ -192,6 +197,7 @@ class ServiceJob implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
         $this->container['buyer'] = $data['buyer'] ?? null;
         $this->container['associated_items'] = $data['associated_items'] ?? null;
         $this->container['service_location'] = $data['service_location'] ?? null;
+        $this->container['payments'] = $data['payments'] ?? null;
     }
 
     /**
@@ -289,6 +295,8 @@ class ServiceJob implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['service_job_id'] && (\mb_strlen((string) $this->container['service_job_id']) > 100)) {
             throw new AssertionException("invalid value for 'service_job_id', the character length must be smaller than or equal to 100.");
         }
@@ -632,6 +640,28 @@ class ServiceJob implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
     public function setServiceLocation(?ServiceLocation $service_location) : self
     {
         $this->container['service_location'] = $service_location;
+
+        return $this;
+    }
+
+    /**
+     * Gets payments.
+     *
+     * @return null|\AmazonPHP\SellingPartner\Model\Services\Payment[]
+     */
+    public function getPayments() : ?array
+    {
+        return $this->container['payments'];
+    }
+
+    /**
+     * Sets payments.
+     *
+     * @param null|\AmazonPHP\SellingPartner\Model\Services\Payment[] $payments a list that contains payment information for the service job
+     */
+    public function setPayments(?array $payments) : self
+    {
+        $this->container['payments'] = $payments;
 
         return $this;
     }

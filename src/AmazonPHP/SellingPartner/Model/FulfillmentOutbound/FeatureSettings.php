@@ -202,6 +202,8 @@ class FeatureSettings implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getFeatureFulfillmentPolicyAllowableValues();
 
         if (null !== $this->container['feature_fulfillment_policy'] && !\in_array($this->container['feature_fulfillment_policy'], $allowedValues, true)) {

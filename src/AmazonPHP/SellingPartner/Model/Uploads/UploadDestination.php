@@ -191,6 +191,7 @@ class UploadDestination implements \ArrayAccess, \JsonSerializable, \Stringable,
      */
     public function validate() : void
     {
+
     }
 
     /**

@@ -209,6 +209,8 @@ class ListingOffersRequest implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['uri'] === null) {
             throw new AssertionException("'uri' can't be null");
         }

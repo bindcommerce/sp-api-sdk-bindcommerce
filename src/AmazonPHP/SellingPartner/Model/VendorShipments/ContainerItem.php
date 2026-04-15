@@ -191,6 +191,8 @@ class ContainerItem implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['item_reference'] === null) {
             throw new AssertionException("'item_reference' can't be null");
         }

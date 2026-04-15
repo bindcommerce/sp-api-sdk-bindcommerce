@@ -185,6 +185,8 @@ class GetOffersHttpStatusLine implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['status_code'] && ($this->container['status_code'] > 599)) {
             throw new AssertionException("invalid value for 'status_code', must be smaller than or equal to 599.");
         }

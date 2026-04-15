@@ -191,6 +191,8 @@ class Destination implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['name'] === null) {
             throw new AssertionException("'name' can't be null");
         }

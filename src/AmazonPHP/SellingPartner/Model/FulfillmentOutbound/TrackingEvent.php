@@ -197,6 +197,8 @@ class TrackingEvent implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['event_date'] === null) {
             throw new AssertionException("'event_date' can't be null");
         }

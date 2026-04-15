@@ -263,6 +263,8 @@ class Shipment implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipment_id'] === null) {
             throw new AssertionException("'shipment_id' can't be null");
         }

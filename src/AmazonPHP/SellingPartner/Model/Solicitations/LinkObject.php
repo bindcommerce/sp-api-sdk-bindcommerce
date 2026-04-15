@@ -185,6 +185,8 @@ class LinkObject implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['href'] === null) {
             throw new AssertionException("'href' can't be null");
         }

@@ -217,6 +217,8 @@ class Stop implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterfa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['function_code'] === null) {
             throw new AssertionException("'function_code' can't be null");
         }

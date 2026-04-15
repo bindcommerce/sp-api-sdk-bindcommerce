@@ -203,6 +203,8 @@ class IneligibleRate implements \ArrayAccess, \JsonSerializable, \Stringable, Mo
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['service_id'] === null) {
             throw new AssertionException("'service_id' can't be null");
         }

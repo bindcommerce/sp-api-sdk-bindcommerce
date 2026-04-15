@@ -214,6 +214,8 @@ class RegulatedInformationField implements \ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['field_id'] === null) {
             throw new AssertionException("'field_id' can't be null");
         }

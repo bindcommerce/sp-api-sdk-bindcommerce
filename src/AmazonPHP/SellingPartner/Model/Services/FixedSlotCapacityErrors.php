@@ -179,6 +179,7 @@ class FixedSlotCapacityErrors implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+
     }
 
     /**

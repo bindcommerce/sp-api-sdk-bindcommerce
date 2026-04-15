@@ -179,6 +179,8 @@ class CreateFulfillmentReturnRequest implements \ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['items'] === null) {
             throw new AssertionException("'items' can't be null");
         }

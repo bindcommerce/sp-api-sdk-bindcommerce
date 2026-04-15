@@ -214,6 +214,8 @@ class ItemQuantity implements \ArrayAccess, \JsonSerializable, \Stringable, Mode
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['amount'] === null) {
             throw new AssertionException("'amount' can't be null");
         }

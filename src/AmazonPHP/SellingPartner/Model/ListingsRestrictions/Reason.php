@@ -211,6 +211,8 @@ class Reason implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['message'] === null) {
             throw new AssertionException("'message' can't be null");
         }

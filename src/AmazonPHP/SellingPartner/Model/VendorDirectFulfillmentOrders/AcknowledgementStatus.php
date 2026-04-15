@@ -185,6 +185,7 @@ class AcknowledgementStatus implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+
     }
 
     /**

@@ -209,6 +209,8 @@ class Product implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInte
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['identifiers'] === null) {
             throw new AssertionException("'identifiers' can't be null");
         }

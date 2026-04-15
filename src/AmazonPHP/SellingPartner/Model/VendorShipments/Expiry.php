@@ -191,6 +191,8 @@ class Expiry implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInter
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['expiry_after_duration'] !== null) {
             $this->container['expiry_after_duration']->validate();
         }

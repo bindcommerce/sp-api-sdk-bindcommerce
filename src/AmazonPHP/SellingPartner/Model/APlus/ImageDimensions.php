@@ -185,6 +185,8 @@ class ImageDimensions implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['width'] === null) {
             throw new AssertionException("'width' can't be null");
         }

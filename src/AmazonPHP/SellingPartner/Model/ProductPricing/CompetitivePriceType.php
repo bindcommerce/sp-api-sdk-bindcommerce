@@ -227,6 +227,8 @@ class CompetitivePriceType implements \ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['competitive_price_id'] === null) {
             throw new AssertionException("'competitive_price_id' can't be null");
         }

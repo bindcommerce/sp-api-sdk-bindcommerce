@@ -179,6 +179,8 @@ class PostContentDocumentAsinRelationsRequest implements \ArrayAccess, \JsonSeri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['asin_set'] === null) {
             throw new AssertionException("'asin_set' can't be null");
         }

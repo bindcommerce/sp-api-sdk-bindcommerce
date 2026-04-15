@@ -209,6 +209,8 @@ class DirectPurchaseRequest implements \ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['ship_to'] !== null) {
             $this->container['ship_to']->validate();
         }

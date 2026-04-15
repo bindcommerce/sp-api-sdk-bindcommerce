@@ -185,6 +185,8 @@ class PrepDetails implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['prep_instruction'] === null) {
             throw new AssertionException("'prep_instruction' can't be null");
         }

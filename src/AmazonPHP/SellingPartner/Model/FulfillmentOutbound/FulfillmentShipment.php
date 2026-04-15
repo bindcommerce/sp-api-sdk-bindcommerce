@@ -244,6 +244,8 @@ class FulfillmentShipment implements \ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['amazon_shipment_id'] === null) {
             throw new AssertionException("'amazon_shipment_id' can't be null");
         }

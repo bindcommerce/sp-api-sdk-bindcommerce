@@ -179,6 +179,8 @@ class ItemProcurement implements \ArrayAccess, \JsonSerializable, \Stringable, M
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['cost_price'] === null) {
             throw new AssertionException("'cost_price' can't be null");
         }

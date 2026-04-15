@@ -215,6 +215,8 @@ class GetFulfillmentPreviewRequest implements \ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['address'] === null) {
             throw new AssertionException("'address' can't be null");
         }

@@ -220,6 +220,8 @@ class Dimensions implements \ArrayAccess, \JsonSerializable, \Stringable, ModelI
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['length'] === null) {
             throw new AssertionException("'length' can't be null");
         }

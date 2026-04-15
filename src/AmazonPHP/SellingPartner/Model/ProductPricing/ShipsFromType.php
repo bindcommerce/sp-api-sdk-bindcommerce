@@ -185,6 +185,7 @@ class ShipsFromType implements \ArrayAccess, \JsonSerializable, \Stringable, Mod
      */
     public function validate() : void
     {
+
     }
 
     /**

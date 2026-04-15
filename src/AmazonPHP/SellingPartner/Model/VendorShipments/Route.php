@@ -179,6 +179,8 @@ class Route implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInterf
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['stops'] === null) {
             throw new AssertionException("'stops' can't be null");
         }

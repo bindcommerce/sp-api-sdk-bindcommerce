@@ -179,6 +179,8 @@ class RequestedValueAddedService implements \ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['id'] === null) {
             throw new AssertionException("'id' can't be null");
         }

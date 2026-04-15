@@ -197,6 +197,8 @@ class Location implements \ArrayAccess, \JsonSerializable, \Stringable, ModelInt
      */
     public function validate() : void
     {
+        return;
+
         if (null !== $this->container['city'] && (\mb_strlen((string) $this->container['city']) > 50)) {
             throw new AssertionException("invalid value for 'city', the character length must be smaller than or equal to 50.");
         }

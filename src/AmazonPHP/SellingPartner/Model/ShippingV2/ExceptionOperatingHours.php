@@ -185,6 +185,8 @@ class ExceptionOperatingHours implements \ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['date_range'] !== null) {
             $this->container['date_range']->validate();
         }

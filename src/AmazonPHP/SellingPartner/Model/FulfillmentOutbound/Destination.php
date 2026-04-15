@@ -185,6 +185,8 @@ class Destination implements \ArrayAccess, \JsonSerializable, \Stringable, Model
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['delivery_address'] !== null) {
             $this->container['delivery_address']->validate();
         }

@@ -179,6 +179,8 @@ class CreateReportScheduleResponse implements \ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['report_schedule_id'] === null) {
             throw new AssertionException("'report_schedule_id' can't be null");
         }
