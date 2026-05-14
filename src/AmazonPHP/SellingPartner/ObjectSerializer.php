@@ -394,16 +394,24 @@ final class ObjectSerializer
         foreach ($instance::openAPITypes() as $property => $type) {
             $propertySetter = $instance::setters()[$property];
 
-            if (!isset($propertySetter) || !isset($data->{$instance::attributeMap()[$property]})) {
+            if (!isset($propertySetter)) {
                 continue;
             }
 
-            if (isset($data->{$instance::attributeMap()[$property]})) {
-                $propertyValue = self::castEmptyStringToNull($data->{$instance::attributeMap()[$property]}, $type);
-                $propertyValue = self::filterEmptyCollectionElement($propertyValue, $type);
+            if (!isset($data->{$instance::attributeMap()[$property]})) {
+                $default = self::getDefaultForPrimitiveType($type);
 
-                $instance->{$propertySetter}(self::deserialize($configuration, $propertyValue, $type, null));
+                if ($default !== null) {
+                    $instance->{$propertySetter}($default);
+                }
+
+                continue;
             }
+
+            $propertyValue = self::castEmptyStringToNull($data->{$instance::attributeMap()[$property]}, $type);
+            $propertyValue = self::filterEmptyCollectionElement($propertyValue, $type);
+
+            $instance->{$propertySetter}(self::deserialize($configuration, $propertyValue, $type, null));
         }
 
         return $instance;
@@ -438,6 +446,21 @@ final class ObjectSerializer
             \ltrim(SellerFreightClass::class, '\\'),
             \ltrim(OrderItem::class, '\\'),
         ];
+    }
+
+    /**
+     * Returns a safe default value for primitive PHP types.
+     * This prevents TypeErrors when Amazon omits required primitive fields from API responses.
+     */
+    private static function getDefaultForPrimitiveType(string $type): mixed
+    {
+        return match ($type) {
+            'bool', 'boolean' => false,
+            'int', 'integer' => 0,
+            'float', 'double', 'number' => 0.0,
+            'string' => '',
+            default => null,
+        };
     }
 
     /**
