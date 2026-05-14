@@ -70,21 +70,21 @@ final class ObjectSerializer
                     $value = $data->{$getter}();
 
                     if ($value !== null && \is_object($value) && \method_exists($value, 'getAllowableEnumValues')) {
-                        $callable = [$openAPIType, 'getAllowableEnumValues'];
+                        // $callable = [$openAPIType, 'getAllowableEnumValues'];
 
-                        if (\is_callable($callable)) {
-                            /** array $callable */
-                            $allowedEnumTypes = $callable();
+                        // if (\is_callable($callable)) {
+                        //     /** array $callable */
+                        //     $allowedEnumTypes = $callable();
 
-                            if (
-                                !\in_array($value->toString(), $allowedEnumTypes, true) &&
-                                !\in_array(\ltrim((string) $openAPIType, '\\'), self::getBrokenModelDefinitions(), true)
-                            ) {
-                                $imploded = \implode("', '", $allowedEnumTypes);
+                        //     if (
+                        //         !\in_array($value->toString(), $allowedEnumTypes, true) &&
+                        //         !\in_array(\ltrim((string) $openAPIType, '\\'), self::getBrokenModelDefinitions(), true)
+                        //     ) {
+                        //         $imploded = \implode("', '", $allowedEnumTypes);
 
-                                throw new \InvalidArgumentException("Invalid value for enum '{$openAPIType}', must be one of: '{$imploded}'");
-                            }
-                        }
+                        //         throw new \InvalidArgumentException("Invalid value for enum '{$openAPIType}', must be one of: '{$imploded}'");
+                        //     }
+                        // }
 
                         $value = $value->toString();
                     }
@@ -359,16 +359,16 @@ final class ObjectSerializer
         }
 
         if (\method_exists($class, 'getAllowableEnumValues')) {
-            // Do not validate if class is one of amazon broken model definitions.
-            if (\in_array(\ltrim($class, '\\'), self::getBrokenModelDefinitions(), true)) {
-                return new $class($data);
-            }
+            // // Do not validate if class is one of amazon broken model definitions.
+            // if (\in_array(\ltrim($class, '\\'), self::getBrokenModelDefinitions(), true)) {
+            //     return new $class($data);
+            // }
 
-            if (!\in_array($data, $class::getAllowableEnumValues(), true)) {
-                $imploded = \implode("', '", $class::getAllowableEnumValues());
+            // if (!\in_array($data, $class::getAllowableEnumValues(), true)) {
+            //     $imploded = \implode("', '", $class::getAllowableEnumValues());
 
-                throw new \InvalidArgumentException("Invalid value for enum '{$class}', must be one of: '{$imploded}'");
-            }
+            //     throw new \InvalidArgumentException("Invalid value for enum '{$class}', must be one of: '{$imploded}'");
+            // }
 
             return new $class($data);
         }
