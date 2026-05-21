@@ -67,7 +67,8 @@ final class ObjectSerializer
 
                 foreach ($data::openAPITypes() as $property => $openAPIType) {
                     $getter = $data::getters()[$property];
-                    $value = $data->{$getter}();
+                    // $value = $data->{$getter}();
+                    $value = $data[$property];
 
                     if ($value !== null && \is_object($value) && \method_exists($value, 'getAllowableEnumValues')) {
                         // $callable = [$openAPIType, 'getAllowableEnumValues'];

@@ -4,7 +4,7 @@ namespace AmazonPHP\SellingPartner;
 
 use AmazonPHP\SellingPartner\Exception\AssertionException;
 
-interface ModelInterface
+interface ModelInterface extends \ArrayAccess
 {
     /**
      * @return mixed[]

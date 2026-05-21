@@ -48,8 +48,7 @@
         "generate": [
             "Composer\\Config::disableProcessTimeout",
             "@clean",
-            "bin/generate.sh",
-            "@rector:process:force:php"
+            "bin/generate.sh"
         ],
         "wasgenerate": [
             "Composer\\Config::disableProcessTimeout",
