@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['availability'] !== null) {
             $this->container['availability']->validate();
             }
@@ -190,6 +204,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets availability
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\AvailabilityRecord|null $availability availability
+     *
+     * @return self
      */
     public function setAvailability($availability) : self
     {
@@ -212,6 +228,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets warnings
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\Warning[]|null $warnings A list of warnings returned in the sucessful execution response of an API request.
+     *
+     * @return self
      */
     public function setWarnings($warnings) : self
     {
@@ -234,6 +252,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets errors
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
+     *
+     * @return self
      */
     public function setErrors($errors) : self
     {
@@ -243,6 +263,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -262,6 +284,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -274,6 +298,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -295,10 +321,12 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,6 +334,8 @@ class UpdateScheduleRecord implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

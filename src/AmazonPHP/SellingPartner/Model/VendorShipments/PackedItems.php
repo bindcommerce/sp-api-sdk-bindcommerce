@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['packed_quantity'] !== null) {
             $this->container['packed_quantity']->validate();
             }
@@ -206,6 +220,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets item_sequence_number
      *
      * @param string|null $item_sequence_number Item sequence number for the item. The first item will be 001, the second 002, and so on. This number is used as a reference to refer to this item from the carton or pallet level.
+     *
+     * @return self
      */
     public function setItemSequenceNumber($item_sequence_number) : self
     {
@@ -228,6 +244,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets buyer_product_identifier
      *
      * @param string|null $buyer_product_identifier Buyer Standard Identification Number (ASIN) of an item.
+     *
+     * @return self
      */
     public function setBuyerProductIdentifier($buyer_product_identifier) : self
     {
@@ -250,6 +268,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets vendor_product_identifier
      *
      * @param string|null $vendor_product_identifier The vendor selected product identification of the item. Should be the same as was sent in the purchase order.
+     *
+     * @return self
      */
     public function setVendorProductIdentifier($vendor_product_identifier) : self
     {
@@ -272,6 +292,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets packed_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\ItemQuantity|null $packed_quantity packed_quantity
+     *
+     * @return self
      */
     public function setPackedQuantity($packed_quantity) : self
     {
@@ -294,6 +316,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets item_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\PackageItemDetails|null $item_details item_details
+     *
+     * @return self
      */
     public function setItemDetails($item_details) : self
     {
@@ -303,6 +327,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -322,6 +348,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -334,6 +362,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -355,10 +385,12 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -366,6 +398,8 @@ class PackedItems implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

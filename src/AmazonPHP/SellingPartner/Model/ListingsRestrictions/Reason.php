@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Reason implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -186,6 +198,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['message'] === null) {
             throw new AssertionException("'message' can't be null");
         }
@@ -218,6 +232,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets message
      *
      * @param string $message A message describing the reason for the restriction.
+     *
+     * @return self
      */
     public function setMessage($message) : self
     {
@@ -240,6 +256,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets reason_code
      *
      * @param string|null $reason_code A code indicating why the listing is restricted.
+     *
+     * @return self
      */
     public function setReasonCode($reason_code) : self
     {
@@ -262,6 +280,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets links
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsRestrictions\Link[]|null $links A list of path forward links that may allow Selling Partners to remove the restriction.
+     *
+     * @return self
      */
     public function setLinks($links) : self
     {
@@ -271,6 +291,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -290,6 +312,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -302,6 +326,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,10 +349,12 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -334,6 +362,8 @@ class Reason implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

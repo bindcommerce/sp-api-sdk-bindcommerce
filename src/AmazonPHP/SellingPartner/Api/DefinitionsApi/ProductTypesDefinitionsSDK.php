@@ -27,28 +27,43 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInterface
 {
-    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
+    private ClientInterface $client;
+
+    private HttpFactory $httpFactory;
+
+    private Configuration $configuration;
+
+    private LoggerInterface $logger;
+
+    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
     {
+        $this->client = $client;
+        $this->httpFactory = $requestFactory;
+        $this->configuration = $configuration;
+        $this->logger = $logger;
     }
 
     /**
      * Operation getDefinitionsProductType
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $product_type  The Amazon product type name. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. Note: This parameter is limited to one marketplaceId at this time. (required)
      * @param string|null $seller_id  A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
-     * @param string|null $product_type_version  The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;,. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
+     * @param string|null $product_type_version  The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
      * @param string|null $requirements  The name of the requirements set to retrieve requirements for. (optional, default to 'LISTING')
      * @param string|null $requirements_enforced  Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
      * @param string|null $locale  Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
+     * @param string|null $parentage_level  The parentage level of the listing to retrieve a schema for. When provided, the schema is simplified by resolving all conditional logic related to the specified parentage level, resulting in a smaller schema with fewer conditions. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return \AmazonPHP\SellingPartner\Model\ProductTypesDefinitions\ProductTypeDefinition
      */
-    public function getDefinitionsProductType(AccessToken $accessToken, string $region, $product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT')
+    public function getDefinitionsProductType(AccessToken $accessToken, string $region, $product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT', $parentage_level = null)
     {
-        $request = $this->getDefinitionsProductTypeRequest($accessToken, $region, $product_type, $marketplace_ids, $seller_id, $product_type_version, $requirements, $requirements_enforced, $locale);
+        $request = $this->getDefinitionsProductTypeRequest($accessToken, $region, $product_type, $marketplace_ids, $seller_id, $product_type_version, $requirements, $requirements_enforced, $locale, $parentage_level);
 
         $this->configuration->extensions()->preRequest('ProductTypesDefinitions', 'getDefinitionsProductType', $request);
 
@@ -138,17 +153,21 @@ final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInte
     /**
      * Create request for operation 'getDefinitionsProductType'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $product_type  The Amazon product type name. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. Note: This parameter is limited to one marketplaceId at this time. (required)
      * @param string|null $seller_id  A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
-     * @param string $product_type_version  The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;,. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
+     * @param string $product_type_version  The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
      * @param string $requirements  The name of the requirements set to retrieve requirements for. (optional, default to 'LISTING')
      * @param string $requirements_enforced  Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
      * @param string $locale  Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
+     * @param string|null $parentage_level  The parentage level of the listing to retrieve a schema for. When provided, the schema is simplified by resolving all conditional logic related to the specified parentage level, resulting in a smaller schema with fewer conditions. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
-    public function getDefinitionsProductTypeRequest(AccessToken $accessToken, string $region, $product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT') : RequestInterface
+    public function getDefinitionsProductTypeRequest(AccessToken $accessToken, string $region, $product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT', $parentage_level = null) : RequestInterface
     {
         // verify the required parameter 'product_type' is set
         if ($product_type === null || (is_array($product_type) && count($product_type) === 0)) {
@@ -211,6 +230,13 @@ final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInte
         }
         if ($locale !== null) {
             $queryParams['locale'] = ObjectSerializer::toString($locale);
+        }
+        // query params
+        if (is_array($parentage_level)) {
+            $parentage_level = ObjectSerializer::serializeCollection($parentage_level, '', true);
+        }
+        if ($parentage_level !== null) {
+            $queryParams['parentageLevel'] = ObjectSerializer::toString($parentage_level);
         }
 
         if (\count($queryParams)) {
@@ -286,11 +312,13 @@ final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInte
     /**
      * Operation searchDefinitionsProductTypes
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param string[]|null $keywords  A comma-delimited list of keywords to search product types. **Note:** Cannot be used with &#x60;itemName&#x60;. (optional)
-     * @param string|null $item_name  The title of the ASIN to get the product type recommendation. **Note:** Cannot be used with &#x60;keywords&#x60;. (optional)
-     * @param string|null $locale  The locale for the display names in the response. Defaults to the primary locale of the marketplace. (optional)
-     * @param string|null $search_locale  The locale used for the &#x60;keywords&#x60; and &#x60;itemName&#x60; parameters. Defaults to the primary locale of the marketplace. (optional)
+     * @param string|null $item_name  Title of ASIN to get product type recommendation. **Note:** Cannot be used with &#x60;keywords&#x60;. (optional)
+     * @param string|null $locale  Locale for display names in response. Defaults to primary locale of the marketplace. (optional)
+     * @param string|null $search_locale  Language used for &#x60;keywords&#x60; or &#x60;itemName&#x60; parameters. Defaults to primary locale of the marketplace. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -388,13 +416,16 @@ final class ProductTypesDefinitionsSDK implements ProductTypesDefinitionsSDKInte
     /**
      * Create request for operation 'searchDefinitionsProductTypes'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param string[]|null $keywords  A comma-delimited list of keywords to search product types. **Note:** Cannot be used with &#x60;itemName&#x60;. (optional)
-     * @param string|null $item_name  The title of the ASIN to get the product type recommendation. **Note:** Cannot be used with &#x60;keywords&#x60;. (optional)
-     * @param string|null $locale  The locale for the display names in the response. Defaults to the primary locale of the marketplace. (optional)
-     * @param string|null $search_locale  The locale used for the &#x60;keywords&#x60; and &#x60;itemName&#x60; parameters. Defaults to the primary locale of the marketplace. (optional)
+     * @param string|null $item_name  Title of ASIN to get product type recommendation. **Note:** Cannot be used with &#x60;keywords&#x60;. (optional)
+     * @param string|null $locale  Locale for display names in response. Defaults to primary locale of the marketplace. (optional)
+     * @param string|null $search_locale  Language used for &#x60;keywords&#x60; or &#x60;itemName&#x60; parameters. Defaults to primary locale of the marketplace. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function searchDefinitionsProductTypesRequest(AccessToken $accessToken, string $region, $marketplace_ids, $keywords = null, $item_name = null, $locale = null, $search_locale = null) : RequestInterface
     {

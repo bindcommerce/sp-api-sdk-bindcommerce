@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['supported_page_layouts'] === null) {
             throw new AssertionException("'supported_page_layouts' can't be null");
         }
@@ -204,6 +218,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets supported_dpis
      *
      * @param int[]|null $supported_dpis A list of the supported DPI options for a document.
+     *
+     * @return self
      */
     public function setSupportedDpis($supported_dpis) : self
     {
@@ -226,6 +242,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets supported_page_layouts
      *
      * @param string[] $supported_page_layouts A list of the supported page layout options for a document.
+     *
+     * @return self
      */
     public function setSupportedPageLayouts($supported_page_layouts) : self
     {
@@ -248,6 +266,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets supported_file_joining_options
      *
      * @param bool[] $supported_file_joining_options A list of the supported needFileJoining boolean values for a document.
+     *
+     * @return self
      */
     public function setSupportedFileJoiningOptions($supported_file_joining_options) : self
     {
@@ -270,6 +290,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets supported_document_details
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\SupportedDocumentDetail[] $supported_document_details A list of the supported documented details.
+     *
+     * @return self
      */
     public function setSupportedDocumentDetails($supported_document_details) : self
     {
@@ -279,6 +301,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -298,6 +322,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -310,6 +336,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -331,10 +359,12 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -342,6 +372,8 @@ class PrintOption implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

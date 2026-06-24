@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -193,6 +205,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['pallet_identifiers'] === null) {
             throw new AssertionException("'pallet_identifiers' can't be null");
         }
@@ -226,6 +240,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets pallet_identifiers
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\ContainerIdentification[] $pallet_identifiers A list of pallet identifiers.
+     *
+     * @return self
      */
     public function setPalletIdentifiers($pallet_identifiers) : self
     {
@@ -248,6 +264,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets tier
      *
      * @param int|null $tier Number of layers per pallet. Only applicable to container type Pallet.
+     *
+     * @return self
      */
     public function setTier($tier) : self
     {
@@ -270,6 +288,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets block
      *
      * @param int|null $block Number of cartons per layer on the pallet. Only applicable to container type Pallet.
+     *
+     * @return self
      */
     public function setBlock($block) : self
     {
@@ -292,6 +312,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets dimensions
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Dimensions|null $dimensions dimensions
+     *
+     * @return self
      */
     public function setDimensions($dimensions) : self
     {
@@ -314,6 +336,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets weight
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Weight|null $weight weight
+     *
+     * @return self
      */
     public function setWeight($weight) : self
     {
@@ -336,6 +360,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets carton_reference_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\CartonReferenceDetails|null $carton_reference_details carton_reference_details
+     *
+     * @return self
      */
     public function setCartonReferenceDetails($carton_reference_details) : self
     {
@@ -358,6 +384,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\ContainerItem[]|null $items A list of container item details.
+     *
+     * @return self
      */
     public function setItems($items) : self
     {
@@ -367,6 +395,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -386,6 +416,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -398,6 +430,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -419,10 +453,12 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -430,6 +466,8 @@ class Pallet implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

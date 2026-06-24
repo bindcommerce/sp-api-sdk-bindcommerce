@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Feature implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['feature_name'] === null) {
             throw new AssertionException("'feature_name' can't be null");
         }
@@ -194,6 +208,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets feature_name
      *
      * @param string $feature_name The feature name.
+     *
+     * @return self
      */
     public function setFeatureName($feature_name) : self
     {
@@ -216,6 +232,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets feature_description
      *
      * @param string $feature_description The feature description.
+     *
+     * @return self
      */
     public function setFeatureDescription($feature_description) : self
     {
@@ -238,6 +256,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets seller_eligible
      *
      * @param bool|null $seller_eligible When true, indicates that the seller is eligible to use the feature.
+     *
+     * @return self
      */
     public function setSellerEligible($seller_eligible) : self
     {
@@ -247,6 +267,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -266,6 +288,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -278,6 +302,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -299,10 +325,12 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -310,6 +338,8 @@ class Feature implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

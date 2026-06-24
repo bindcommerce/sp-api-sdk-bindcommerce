@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,6 +56,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +66,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -101,6 +105,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +115,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +125,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +135,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -157,11 +169,13 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
-        if (!is_null($this->container['status']) && (mb_strlen((string) $this->container['status']) > 60)) {
+        return;
+
+        if (!is_null($this->container['status']) && (mb_strlen($this->container['status']) > 60)) {
             throw new AssertionException("invalid value for 'status', the character length must be smaller than or equal to 60.");
         }
 
-        if (!is_null($this->container['status']) && (mb_strlen((string) $this->container['status']) < 1)) {
+        if (!is_null($this->container['status']) && (mb_strlen($this->container['status']) < 1)) {
             throw new AssertionException("invalid value for 'status', the character length must be bigger than or equal to 1.");
         }
 
@@ -182,6 +196,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets status
      *
      * @param string|null $status The derived status based on the events in the eventHistory.
+     *
+     * @return self
      */
     public function setStatus($status) : self
     {
@@ -191,6 +207,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -210,6 +228,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -222,6 +242,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -243,10 +265,12 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -254,6 +278,8 @@ class TrackingSummary implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,9 +50,12 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
         'buyer' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\Buyer',
         'recipient' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\Recipient',
         'proceeds' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\OrderProceeds',
+        'payment' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\OrderPayment',
+        'tax' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\OrderTax',
         'fulfillment' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\OrderFulfillment',
         'order_items' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\OrderItem[]',
-        'packages' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\OrderPackage[]'
+        'packages' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\OrderPackage[]',
+        'fulfillment_orders' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\FulfillmentOrder[]'
     ];
 
     /**
@@ -73,13 +76,18 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
         'buyer' => null,
         'recipient' => null,
         'proceeds' => null,
+        'payment' => null,
+        'tax' => null,
         'fulfillment' => null,
         'order_items' => null,
-        'packages' => null
+        'packages' => null,
+        'fulfillment_orders' => null
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -88,6 +96,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,9 +121,12 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
         'buyer' => 'buyer',
         'recipient' => 'recipient',
         'proceeds' => 'proceeds',
+        'payment' => 'payment',
+        'tax' => 'tax',
         'fulfillment' => 'fulfillment',
         'order_items' => 'orderItems',
-        'packages' => 'packages'
+        'packages' => 'packages',
+        'fulfillment_orders' => 'fulfillmentOrders'
     ];
 
     /**
@@ -132,9 +145,12 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
         'buyer' => 'setBuyer',
         'recipient' => 'setRecipient',
         'proceeds' => 'setProceeds',
+        'payment' => 'setPayment',
+        'tax' => 'setTax',
         'fulfillment' => 'setFulfillment',
         'order_items' => 'setOrderItems',
-        'packages' => 'setPackages'
+        'packages' => 'setPackages',
+        'fulfillment_orders' => 'setFulfillmentOrders'
     ];
 
     /**
@@ -153,14 +169,19 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
         'buyer' => 'getBuyer',
         'recipient' => 'getRecipient',
         'proceeds' => 'getProceeds',
+        'payment' => 'getPayment',
+        'tax' => 'getTax',
         'fulfillment' => 'getFulfillment',
         'order_items' => 'getOrderItems',
-        'packages' => 'getPackages'
+        'packages' => 'getPackages',
+        'fulfillment_orders' => 'getFulfillmentOrders'
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -169,6 +190,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -177,6 +200,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -185,6 +210,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -217,9 +244,12 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
         $this->container['buyer'] = $data['buyer'] ?? null;
         $this->container['recipient'] = $data['recipient'] ?? null;
         $this->container['proceeds'] = $data['proceeds'] ?? null;
+        $this->container['payment'] = $data['payment'] ?? null;
+        $this->container['tax'] = $data['tax'] ?? null;
         $this->container['fulfillment'] = $data['fulfillment'] ?? null;
         $this->container['order_items'] = $data['order_items'] ?? null;
         $this->container['packages'] = $data['packages'] ?? null;
+        $this->container['fulfillment_orders'] = $data['fulfillment_orders'] ?? null;
     }
 
     /**
@@ -229,6 +259,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['order_id'] === null) {
             throw new AssertionException("'order_id' can't be null");
         }
@@ -259,6 +291,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
             $this->container['proceeds']->validate();
             }
 
+            if ($this->container['payment'] !== null) {
+            $this->container['payment']->validate();
+            }
+
+            if ($this->container['tax'] !== null) {
+            $this->container['tax']->validate();
+            }
+
             if ($this->container['fulfillment'] !== null) {
             $this->container['fulfillment']->validate();
             }
@@ -284,6 +324,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets order_id
      *
      * @param string $order_id An Amazon-defined order identifier.
+     *
+     * @return self
      */
     public function setOrderId($order_id) : self
     {
@@ -306,6 +348,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets order_aliases
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Alias[]|null $order_aliases Alternative identifiers that can be used to reference this order, such as seller-defined order numbers.
+     *
+     * @return self
      */
     public function setOrderAliases($order_aliases) : self
     {
@@ -328,6 +372,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets created_time
      *
      * @param \DateTimeInterface $created_time The time when the customer placed the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
+     *
+     * @return self
      */
     public function setCreatedTime($created_time) : self
     {
@@ -350,6 +396,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets last_updated_time
      *
      * @param \DateTimeInterface $last_updated_time The most recent time when any aspect of this order was modified by Amazon or the seller. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
+     *
+     * @return self
      */
     public function setLastUpdatedTime($last_updated_time) : self
     {
@@ -371,7 +419,9 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Sets programs
      *
-     * @param string[]|null $programs Special programs associated with this order that may affect fulfillment or customer experience.   **Possible values**: `AMAZON_BAZAAR`, `AMAZON_BUSINESS`,  `AMAZON_EASY_SHIP`, `AMAZON_HAUL`, `DELIVERY_BY_AMAZON`, `FBM_SHIP_PLUS`, `IN_STORE_PICK_UP`, `PREMIUM`, `PREORDER`, `PRIME`
+     * @param string[]|null $programs Special programs associated with this order that may affect fulfillment or customer experience.   **Possible values**: `AMAZON_BAZAAR`, `AMAZON_BUSINESS`, `AMAZON_EASY_SHIP`, `AMAZON_HAUL`, `DELIVERY_BY_AMAZON`, `FBM_SHIP_PLUS`, `INVOICE_BY_AMAZON`, `IN_STORE_PICK_UP`, `PREMIUM`, `PREORDER`, `PRIME`
+     *
+     * @return self
      */
     public function setPrograms($programs) : self
     {
@@ -394,6 +444,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets associated_orders
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\AssociatedOrder[]|null $associated_orders Other orders that have a direct relationship to this order, such as replacement or exchange orders.
+     *
+     * @return self
      */
     public function setAssociatedOrders($associated_orders) : self
     {
@@ -416,6 +468,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets sales_channel
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\SalesChannel $sales_channel sales_channel
+     *
+     * @return self
      */
     public function setSalesChannel($sales_channel) : self
     {
@@ -438,6 +492,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets buyer
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Buyer|null $buyer buyer
+     *
+     * @return self
      */
     public function setBuyer($buyer) : self
     {
@@ -460,6 +516,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets recipient
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Recipient|null $recipient recipient
+     *
+     * @return self
      */
     public function setRecipient($recipient) : self
     {
@@ -482,10 +540,60 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets proceeds
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderProceeds|null $proceeds proceeds
+     *
+     * @return self
      */
     public function setProceeds($proceeds) : self
     {
         $this->container['proceeds'] = $proceeds;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment
+     *
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderPayment|null
+     */
+    public function getPayment()
+    {
+        return $this->container['payment'];
+    }
+
+    /**
+     * Sets payment
+     *
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderPayment|null $payment payment
+     *
+     * @return self
+     */
+    public function setPayment($payment) : self
+    {
+        $this->container['payment'] = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax
+     *
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderTax|null
+     */
+    public function getTax()
+    {
+        return $this->container['tax'];
+    }
+
+    /**
+     * Sets tax
+     *
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderTax|null $tax tax
+     *
+     * @return self
+     */
+    public function setTax($tax) : self
+    {
+        $this->container['tax'] = $tax;
 
         return $this;
     }
@@ -504,6 +612,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets fulfillment
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderFulfillment|null $fulfillment fulfillment
+     *
+     * @return self
      */
     public function setFulfillment($fulfillment) : self
     {
@@ -526,6 +636,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets order_items
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderItem[] $order_items The list of all order items included in this order.
+     *
+     * @return self
      */
     public function setOrderItems($order_items) : self
     {
@@ -548,6 +660,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets packages
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderPackage[]|null $packages Shipping packages created for this order, including tracking information. **Note:** Only available for merchant-fulfilled (FBM) orders.
+     *
+     * @return self
      */
     public function setPackages($packages) : self
     {
@@ -555,8 +669,34 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
         return $this;
     }
+
+    /**
+     * Gets fulfillment_orders
+     *
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\FulfillmentOrder[]|null
+     */
+    public function getFulfillmentOrders()
+    {
+        return $this->container['fulfillment_orders'];
+    }
+
+    /**
+     * Sets fulfillment_orders
+     *
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\FulfillmentOrder[]|null $fulfillment_orders The list of fulfillment orders associated with this customer order. Each entry corresponds to one fulfillment unit created by Amazon for this order. **Note:** Only available for EasyShip orders at present.
+     *
+     * @return self
+     */
+    public function setFulfillmentOrders($fulfillment_orders) : self
+    {
+        $this->container['fulfillment_orders'] = $fulfillment_orders;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -576,6 +716,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -588,6 +730,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -609,10 +753,12 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -620,6 +766,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

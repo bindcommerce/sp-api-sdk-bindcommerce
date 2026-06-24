@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -194,6 +206,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getLabelFormatAllowableValues();
         if (!is_null($this->container['label_format']) && !in_array($this->container['label_format'], $allowedValues, true)) {
             throw new AssertionException(
@@ -222,6 +236,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets label_sequence_number
      *
      * @param int|null $label_sequence_number A sequential number assigned to each label within a shipment.
+     *
+     * @return self
      */
     public function setLabelSequenceNumber($label_sequence_number) : self
     {
@@ -244,6 +260,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets label_format
      *
      * @param string|null $label_format The format of the label.
+     *
+     * @return self
      */
     public function setLabelFormat($label_format) : self
     {
@@ -266,6 +284,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets carrier_code
      *
      * @param string|null $carrier_code Unique identification of the carrier.
+     *
+     * @return self
      */
     public function setCarrierCode($carrier_code) : self
     {
@@ -288,6 +308,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets tracking_id
      *
      * @param string|null $tracking_id Tracking Id for the transportation.
+     *
+     * @return self
      */
     public function setTrackingId($tracking_id) : self
     {
@@ -310,6 +332,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets label
      *
      * @param string|null $label The base-64 encoded string that represents the shipment label.
+     *
+     * @return self
      */
     public function setLabel($label) : self
     {
@@ -319,6 +343,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -338,6 +364,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -350,6 +378,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -371,10 +401,12 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -382,6 +414,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

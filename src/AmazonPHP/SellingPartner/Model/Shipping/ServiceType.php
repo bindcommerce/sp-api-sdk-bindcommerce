@@ -28,11 +28,13 @@ class ServiceType
 
     const AMAZON_SHIPPING_PREMIUM = 'Amazon Shipping Premium';
 
+    private string $value;
+
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
             self::AMAZON_SHIPPING_GROUND,
@@ -41,8 +43,9 @@ class ServiceType
         ];
     }
 
-    public function __construct(private readonly string $value)
+    public function __construct(string $value)
     {
+        $this->value = $value;
     }
 
     public function toString(): string

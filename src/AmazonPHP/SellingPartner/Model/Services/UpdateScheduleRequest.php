@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,6 +56,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +66,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -101,6 +105,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +115,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +125,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +135,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -157,6 +169,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['schedules'] === null) {
             throw new AssertionException("'schedules' can't be null");
         }
@@ -178,6 +192,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets schedules
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\AvailabilityRecord[] $schedules List of `AvailabilityRecord`s to represent the capacity of a resource over a time range.
+     *
+     * @return self
      */
     public function setSchedules($schedules) : self
     {
@@ -187,6 +203,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -206,6 +224,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -218,6 +238,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -239,10 +261,12 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -250,6 +274,8 @@ class UpdateScheduleRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

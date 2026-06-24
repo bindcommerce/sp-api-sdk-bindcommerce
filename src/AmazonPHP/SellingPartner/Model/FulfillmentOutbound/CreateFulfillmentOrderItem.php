@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -72,6 +72,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,6 +82,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -141,6 +145,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -149,6 +155,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -157,6 +165,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -165,6 +175,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -205,11 +217,13 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['seller_sku'] === null) {
             throw new AssertionException("'seller_sku' can't be null");
         }
 
-        if ((mb_strlen((string) $this->container['seller_sku']) > 50)) {
+        if ((mb_strlen($this->container['seller_sku']) > 50)) {
             throw new AssertionException("invalid value for 'seller_sku', the character length must be smaller than or equal to 50.");
         }
 
@@ -217,7 +231,7 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
             throw new AssertionException("'seller_fulfillment_order_item_id' can't be null");
         }
 
-        if ((mb_strlen((string) $this->container['seller_fulfillment_order_item_id']) > 50)) {
+        if ((mb_strlen($this->container['seller_fulfillment_order_item_id']) > 50)) {
             throw new AssertionException("invalid value for 'seller_fulfillment_order_item_id', the character length must be smaller than or equal to 50.");
         }
 
@@ -225,11 +239,11 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
             throw new AssertionException("'quantity' can't be null");
         }
 
-        if (!is_null($this->container['gift_message']) && (mb_strlen((string) $this->container['gift_message']) > 512)) {
+        if (!is_null($this->container['gift_message']) && (mb_strlen($this->container['gift_message']) > 512)) {
             throw new AssertionException("invalid value for 'gift_message', the character length must be smaller than or equal to 512.");
         }
 
-        if (!is_null($this->container['displayable_comment']) && (mb_strlen((string) $this->container['displayable_comment']) > 250)) {
+        if (!is_null($this->container['displayable_comment']) && (mb_strlen($this->container['displayable_comment']) > 250)) {
             throw new AssertionException("invalid value for 'displayable_comment', the character length must be smaller than or equal to 250.");
         }
 
@@ -262,6 +276,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets seller_sku
      *
      * @param string $seller_sku The seller SKU of the item.
+     *
+     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -284,6 +300,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets seller_fulfillment_order_item_id
      *
      * @param string $seller_fulfillment_order_item_id A fulfillment order item identifier that the seller creates to track fulfillment order items. Used to disambiguate multiple fulfillment items that have the same `sellerSku` value. For example, the seller might assign different `sellerFulfillmentOrderItemId` values to two items in a fulfillment order that share the same `sellerSku` value but have different `giftMessage` values.
+     *
+     * @return self
      */
     public function setSellerFulfillmentOrderItemId($seller_fulfillment_order_item_id) : self
     {
@@ -306,6 +324,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets quantity
      *
      * @param int $quantity The item quantity.
+     *
+     * @return self
      */
     public function setQuantity($quantity) : self
     {
@@ -328,6 +348,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets gift_message
      *
      * @param string|null $gift_message A message to the gift recipient, if applicable.
+     *
+     * @return self
      */
     public function setGiftMessage($gift_message) : self
     {
@@ -350,6 +372,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets displayable_comment
      *
      * @param string|null $displayable_comment Item-specific text that displays in recipient-facing materials such as the outbound shipment packing slip.
+     *
+     * @return self
      */
     public function setDisplayableComment($displayable_comment) : self
     {
@@ -372,6 +396,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets fulfillment_network_sku
      *
      * @param string|null $fulfillment_network_sku Amazon's fulfillment network SKU of the item.
+     *
+     * @return self
      */
     public function setFulfillmentNetworkSku($fulfillment_network_sku) : self
     {
@@ -394,6 +420,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets per_unit_declared_value
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money|null $per_unit_declared_value per_unit_declared_value
+     *
+     * @return self
      */
     public function setPerUnitDeclaredValue($per_unit_declared_value) : self
     {
@@ -416,6 +444,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets per_unit_price
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money|null $per_unit_price per_unit_price
+     *
+     * @return self
      */
     public function setPerUnitPrice($per_unit_price) : self
     {
@@ -438,6 +468,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets per_unit_tax
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money|null $per_unit_tax per_unit_tax
+     *
+     * @return self
      */
     public function setPerUnitTax($per_unit_tax) : self
     {
@@ -447,6 +479,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -466,6 +500,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -478,6 +514,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -499,10 +537,12 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -510,6 +550,8 @@ class CreateFulfillmentOrderItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

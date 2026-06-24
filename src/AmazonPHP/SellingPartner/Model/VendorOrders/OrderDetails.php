@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -82,6 +82,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -90,6 +92,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -166,6 +170,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -174,6 +180,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -182,6 +190,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -190,6 +200,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -273,6 +285,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['purchase_order_date'] === null) {
             throw new AssertionException("'purchase_order_date' can't be null");
         }
@@ -344,6 +358,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets purchase_order_date
      *
      * @param \DateTimeInterface $purchase_order_date The date the purchase order was placed. Must be in ISO-8601 date/time format.
+     *
+     * @return self
      */
     public function setPurchaseOrderDate($purchase_order_date) : self
     {
@@ -366,6 +382,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets purchase_order_changed_date
      *
      * @param \DateTimeInterface|null $purchase_order_changed_date The date when purchase order was last changed by Amazon after the order was placed. This date will be greater than 'purchaseOrderDate'. This means the PO data was changed on that date and vendors are required to fulfill the  updated PO. The PO changes can be related to Item Quantity, Ship to Location, Ship Window etc. This field will not be present in orders that have not changed after creation. Must be in ISO-8601 date/time format.
+     *
+     * @return self
      */
     public function setPurchaseOrderChangedDate($purchase_order_changed_date) : self
     {
@@ -388,6 +406,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets purchase_order_state_changed_date
      *
      * @param \DateTimeInterface $purchase_order_state_changed_date The date when current purchase order state was changed. Current purchase order state is available in the field 'purchaseOrderState'. Must be in ISO-8601 date/time format.
+     *
+     * @return self
      */
     public function setPurchaseOrderStateChangedDate($purchase_order_state_changed_date) : self
     {
@@ -410,6 +430,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets purchase_order_type
      *
      * @param string|null $purchase_order_type Type of purchase order.
+     *
+     * @return self
      */
     public function setPurchaseOrderType($purchase_order_type) : self
     {
@@ -432,6 +454,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets import_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ImportDetails|null $import_details import_details
+     *
+     * @return self
      */
     public function setImportDetails($import_details) : self
     {
@@ -454,6 +478,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets deal_code
      *
      * @param string|null $deal_code If requested by the recipient, this field will contain a promotional/deal number. The discount code line is optional. It is used to obtain a price discount on items on the order.
+     *
+     * @return self
      */
     public function setDealCode($deal_code) : self
     {
@@ -476,6 +502,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets payment_method
      *
      * @param string|null $payment_method Payment method used.
+     *
+     * @return self
      */
     public function setPaymentMethod($payment_method) : self
     {
@@ -498,6 +526,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets buying_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification|null $buying_party buying_party
+     *
+     * @return self
      */
     public function setBuyingParty($buying_party) : self
     {
@@ -520,6 +550,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets selling_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification|null $selling_party selling_party
+     *
+     * @return self
      */
     public function setSellingParty($selling_party) : self
     {
@@ -542,6 +574,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets ship_to_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification|null $ship_to_party ship_to_party
+     *
+     * @return self
      */
     public function setShipToParty($ship_to_party) : self
     {
@@ -564,6 +598,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets bill_to_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification|null $bill_to_party bill_to_party
+     *
+     * @return self
      */
     public function setBillToParty($bill_to_party) : self
     {
@@ -586,6 +622,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets ship_window
      *
      * @param string|null $ship_window Defines a date time interval according to ISO8601. Interval is separated by double hyphen (--).
+     *
+     * @return self
      */
     public function setShipWindow($ship_window) : self
     {
@@ -608,6 +646,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets delivery_window
      *
      * @param string|null $delivery_window Defines a date time interval according to ISO8601. Interval is separated by double hyphen (--).
+     *
+     * @return self
      */
     public function setDeliveryWindow($delivery_window) : self
     {
@@ -630,6 +670,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\OrderItem[] $items A list of items in this purchase order.
+     *
+     * @return self
      */
     public function setItems($items) : self
     {
@@ -639,6 +681,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -658,6 +702,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -670,6 +716,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -691,10 +739,12 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -702,6 +752,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

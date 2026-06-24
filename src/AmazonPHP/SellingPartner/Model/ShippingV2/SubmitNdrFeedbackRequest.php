@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['tracking_id'] === null) {
             throw new AssertionException("'tracking_id' can't be null");
         }
@@ -198,6 +212,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets tracking_id
      *
      * @param string $tracking_id The carrier generated identifier for a package in a purchased shipment.
+     *
+     * @return self
      */
     public function setTrackingId($tracking_id) : self
     {
@@ -220,6 +236,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets ndr_action
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\NdrAction $ndr_action ndr_action
+     *
+     * @return self
      */
     public function setNdrAction($ndr_action) : self
     {
@@ -242,6 +260,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets ndr_request_data
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\NdrRequestData|null $ndr_request_data ndr_request_data
+     *
+     * @return self
      */
     public function setNdrRequestData($ndr_request_data) : self
     {
@@ -251,6 +271,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -270,6 +292,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -282,6 +306,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -303,10 +329,12 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -314,6 +342,8 @@ class SubmitNdrFeedbackRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

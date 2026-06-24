@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -193,6 +205,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['item_sequence_number'] === null) {
             throw new AssertionException("'item_sequence_number' can't be null");
         }
@@ -232,6 +246,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets item_sequence_number
      *
      * @param string $item_sequence_number Numbering of the item on the purchase order. The first item will be 1, the second 2, and so on.
+     *
+     * @return self
      */
     public function setItemSequenceNumber($item_sequence_number) : self
     {
@@ -254,6 +270,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets amazon_product_identifier
      *
      * @param string|null $amazon_product_identifier Amazon Standard Identification Number (ASIN) of an item.
+     *
+     * @return self
      */
     public function setAmazonProductIdentifier($amazon_product_identifier) : self
     {
@@ -276,6 +294,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets vendor_product_identifier
      *
      * @param string|null $vendor_product_identifier The vendor selected product identification of the item.
+     *
+     * @return self
      */
     public function setVendorProductIdentifier($vendor_product_identifier) : self
     {
@@ -298,6 +318,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets ordered_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity $ordered_quantity ordered_quantity
+     *
+     * @return self
      */
     public function setOrderedQuantity($ordered_quantity) : self
     {
@@ -320,6 +342,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets is_back_order_allowed
      *
      * @param bool $is_back_order_allowed When true, we will accept backorder confirmations for this item.
+     *
+     * @return self
      */
     public function setIsBackOrderAllowed($is_back_order_allowed) : self
     {
@@ -342,6 +366,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets net_cost
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\Money|null $net_cost net_cost
+     *
+     * @return self
      */
     public function setNetCost($net_cost) : self
     {
@@ -364,6 +390,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets list_price
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\Money|null $list_price list_price
+     *
+     * @return self
      */
     public function setListPrice($list_price) : self
     {
@@ -373,6 +401,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -392,6 +422,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -404,6 +436,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -425,10 +459,12 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -436,6 +472,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

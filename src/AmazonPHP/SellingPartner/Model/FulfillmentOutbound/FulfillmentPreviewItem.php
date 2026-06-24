@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -196,6 +208,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['seller_sku'] === null) {
             throw new AssertionException("'seller_sku' can't be null");
         }
@@ -240,6 +254,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets seller_sku
      *
      * @param string $seller_sku The seller SKU of the item.
+     *
+     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -262,6 +278,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets quantity
      *
      * @param int $quantity The item quantity.
+     *
+     * @return self
      */
     public function setQuantity($quantity) : self
     {
@@ -284,6 +302,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets seller_fulfillment_order_item_id
      *
      * @param string $seller_fulfillment_order_item_id A fulfillment order item identifier that the seller created with a call to the `createFulfillmentOrder` operation.
+     *
+     * @return self
      */
     public function setSellerFulfillmentOrderItemId($seller_fulfillment_order_item_id) : self
     {
@@ -306,6 +326,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets estimated_shipping_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Weight|null $estimated_shipping_weight estimated_shipping_weight
+     *
+     * @return self
      */
     public function setEstimatedShippingWeight($estimated_shipping_weight) : self
     {
@@ -328,6 +350,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets shipping_weight_calculation_method
      *
      * @param string|null $shipping_weight_calculation_method The method used to calculate the estimated shipping weight.
+     *
+     * @return self
      */
     public function setShippingWeightCalculationMethod($shipping_weight_calculation_method) : self
     {
@@ -337,6 +361,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -356,6 +382,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -368,6 +396,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -389,10 +419,12 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -400,6 +432,8 @@ class FulfillmentPreviewItem implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

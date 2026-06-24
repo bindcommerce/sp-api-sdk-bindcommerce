@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -40,7 +40,9 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static array $openAPITypes = [
-        'prescription_detail' => '\AmazonPHP\SellingPartner\Model\Orders\PrescriptionDetail'
+        'prescription_detail' => '\AmazonPHP\SellingPartner\Model\Orders\PrescriptionDetail',
+        'approved_alternative_details' => '\AmazonPHP\SellingPartner\Model\Orders\ApprovedAttribute[]',
+        'interim_status_detail' => '\AmazonPHP\SellingPartner\Model\Orders\InterimStatusDetail'
     ];
 
     /**
@@ -51,11 +53,15 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'prescription_detail' => null
+        'prescription_detail' => null,
+        'approved_alternative_details' => null,
+        'interim_status_detail' => null
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +70,8 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -77,7 +85,9 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static array $attributeMap = [
-        'prescription_detail' => 'prescriptionDetail'
+        'prescription_detail' => 'prescriptionDetail',
+        'approved_alternative_details' => 'approvedAlternativeDetails',
+        'interim_status_detail' => 'interimStatusDetail'
     ];
 
     /**
@@ -86,7 +96,9 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static array $setters = [
-        'prescription_detail' => 'setPrescriptionDetail'
+        'prescription_detail' => 'setPrescriptionDetail',
+        'approved_alternative_details' => 'setApprovedAlternativeDetails',
+        'interim_status_detail' => 'setInterimStatusDetail'
     ];
 
     /**
@@ -95,12 +107,16 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static array $getters = [
-        'prescription_detail' => 'getPrescriptionDetail'
+        'prescription_detail' => 'getPrescriptionDetail',
+        'approved_alternative_details' => 'getApprovedAlternativeDetails',
+        'interim_status_detail' => 'getInterimStatusDetail'
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +125,8 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +135,8 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +145,8 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -148,6 +170,8 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->container['prescription_detail'] = $data['prescription_detail'] ?? null;
+        $this->container['approved_alternative_details'] = $data['approved_alternative_details'] ?? null;
+        $this->container['interim_status_detail'] = $data['interim_status_detail'] ?? null;
     }
 
     /**
@@ -157,8 +181,14 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['prescription_detail'] !== null) {
             $this->container['prescription_detail']->validate();
+            }
+
+            if ($this->container['interim_status_detail'] !== null) {
+            $this->container['interim_status_detail']->validate();
             }
 
     }
@@ -178,6 +208,8 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets prescription_detail
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\PrescriptionDetail|null $prescription_detail prescription_detail
+     *
+     * @return self
      */
     public function setPrescriptionDetail($prescription_detail) : self
     {
@@ -185,8 +217,58 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
         return $this;
     }
+
+    /**
+     * Gets approved_alternative_details
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Orders\ApprovedAttribute[]|null
+     */
+    public function getApprovedAlternativeDetails()
+    {
+        return $this->container['approved_alternative_details'];
+    }
+
+    /**
+     * Sets approved_alternative_details
+     *
+     * @param \AmazonPHP\SellingPartner\Model\Orders\ApprovedAttribute[]|null $approved_alternative_details Pre-approved alternative product attributes available for a rejected order. Each element contains an attribute name, its original value from the rejected order, and the corrected value that would result in approval (for example, a substituted `asin` or adjusted `petWeight`).
+     *
+     * @return self
+     */
+    public function setApprovedAlternativeDetails($approved_alternative_details) : self
+    {
+        $this->container['approved_alternative_details'] = $approved_alternative_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets interim_status_detail
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Orders\InterimStatusDetail|null
+     */
+    public function getInterimStatusDetail()
+    {
+        return $this->container['interim_status_detail'];
+    }
+
+    /**
+     * Sets interim_status_detail
+     *
+     * @param \AmazonPHP\SellingPartner\Model\Orders\InterimStatusDetail|null $interim_status_detail interim_status_detail
+     *
+     * @return self
+     */
+    public function setInterimStatusDetail($interim_status_detail) : self
+    {
+        $this->container['interim_status_detail'] = $interim_status_detail;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -206,6 +288,8 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -218,6 +302,8 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -239,10 +325,12 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -250,6 +338,8 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

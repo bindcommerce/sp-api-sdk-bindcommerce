@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['selling_party'] === null) {
             throw new AssertionException("'selling_party' can't be null");
         }
@@ -200,6 +214,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets selling_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentInventory\PartyIdentification $selling_party selling_party
+     *
+     * @return self
      */
     public function setSellingParty($selling_party) : self
     {
@@ -222,6 +238,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets is_full_update
      *
      * @param bool $is_full_update When true, this request contains a full feed. Otherwise, this request contains a partial feed. When sending a full feed, you must send information about all items in the warehouse. Any items not in the full feed are updated as not available. When sending a partial feed, only include the items that need an update to inventory. The status of other items will remain unchanged.
+     *
+     * @return self
      */
     public function setIsFullUpdate($is_full_update) : self
     {
@@ -244,6 +262,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentInventory\ItemDetails[] $items A list of inventory items with updated details, including quantity available.
+     *
+     * @return self
      */
     public function setItems($items) : self
     {
@@ -253,6 +273,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -272,6 +294,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -284,6 +308,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -305,10 +331,12 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -316,6 +344,8 @@ class InventoryUpdate implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -74,6 +74,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -82,6 +84,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -146,6 +150,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -154,6 +160,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -162,6 +170,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -170,6 +180,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -263,6 +275,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace_id'] === null) {
             throw new AssertionException("'marketplace_id' can't be null");
         }
@@ -315,6 +329,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets marketplace_id
      *
      * @param string $marketplace_id A marketplace identifier. Identifies the Amazon marketplace for the listings item.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -337,6 +353,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets asin
      *
      * @param string|null $asin Amazon Standard Identification Number (ASIN) of the listings item.
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -359,6 +377,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets product_type
      *
      * @param string $product_type The Amazon product type of the listings item.
+     *
+     * @return self
      */
     public function setProductType($product_type) : self
     {
@@ -381,6 +401,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets condition_type
      *
      * @param string|null $condition_type Identifies the condition of the listings item.
+     *
+     * @return self
      */
     public function setConditionType($condition_type) : self
     {
@@ -403,6 +425,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets status
      *
      * @param string[] $status Statuses that apply to the listings item.
+     *
+     * @return self
      */
     public function setStatus($status) : self
     {
@@ -425,6 +449,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets fn_sku
      *
      * @param string|null $fn_sku The fulfillment network stock keeping unit is an identifier used by Amazon fulfillment centers to identify each unique item.
+     *
+     * @return self
      */
     public function setFnSku($fn_sku) : self
     {
@@ -447,6 +473,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets item_name
      *
      * @param string|null $item_name The name or title associated with an Amazon catalog item.
+     *
+     * @return self
      */
     public function setItemName($item_name) : self
     {
@@ -469,6 +497,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets created_date
      *
      * @param \DateTimeInterface $created_date The date the listings item was created in ISO 8601 format.
+     *
+     * @return self
      */
     public function setCreatedDate($created_date) : self
     {
@@ -491,6 +521,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets last_updated_date
      *
      * @param \DateTimeInterface $last_updated_date The date the listings item was last updated in ISO 8601 format.
+     *
+     * @return self
      */
     public function setLastUpdatedDate($last_updated_date) : self
     {
@@ -513,6 +545,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets main_image
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemImage|null $main_image main_image
+     *
+     * @return self
      */
     public function setMainImage($main_image) : self
     {
@@ -522,6 +556,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -541,6 +577,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -553,6 +591,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -574,10 +614,12 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -585,6 +627,8 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

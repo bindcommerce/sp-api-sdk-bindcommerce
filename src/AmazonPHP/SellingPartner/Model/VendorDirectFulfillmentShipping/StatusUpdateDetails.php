@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['tracking_number'] === null) {
             throw new AssertionException("'tracking_number' can't be null");
         }
@@ -230,6 +244,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets tracking_number
      *
      * @param string $tracking_number The shipment tracking number is required for every package and should match the `trackingNumber` sent for the shipment confirmation.
+     *
+     * @return self
      */
     public function setTrackingNumber($tracking_number) : self
     {
@@ -252,6 +268,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets status_code
      *
      * @param string $status_code Indicates the shipment status code of the package that provides transportation information for Amazon tracking systems and ultimately for the final customer. For more information, refer to the [Additional Fields Explanation](https://developer-docs.amazon.com/sp-api/docs/vendor-direct-fulfillment-shipping-api-use-case-guide#additional-fields-explanation).
+     *
+     * @return self
      */
     public function setStatusCode($status_code) : self
     {
@@ -274,6 +292,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets reason_code
      *
      * @param string $reason_code Provides a reason code for the status of the package that will provide additional information about the transportation status. For more information, refer to the [Additional Fields Explanation](https://developer-docs.amazon.com/sp-api/docs/vendor-direct-fulfillment-shipping-api-use-case-guide#additional-fields-explanation).
+     *
+     * @return self
      */
     public function setReasonCode($reason_code) : self
     {
@@ -296,6 +316,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets status_date_time
      *
      * @param \DateTimeInterface $status_date_time The date and time when the shipment status was updated. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format, with UTC time zone or UTC offset. For example, 2020-07-16T23:00:00Z or 2020-07-16T23:00:00+01:00.
+     *
+     * @return self
      */
     public function setStatusDateTime($status_date_time) : self
     {
@@ -318,6 +340,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets status_location_address
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\Address $status_location_address status_location_address
+     *
+     * @return self
      */
     public function setStatusLocationAddress($status_location_address) : self
     {
@@ -340,6 +364,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets shipment_schedule
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\ShipmentSchedule|null $shipment_schedule shipment_schedule
+     *
+     * @return self
      */
     public function setShipmentSchedule($shipment_schedule) : self
     {
@@ -349,6 +375,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -368,6 +396,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -380,6 +410,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -401,10 +433,12 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -412,6 +446,8 @@ class StatusUpdateDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

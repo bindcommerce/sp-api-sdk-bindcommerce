@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,6 +56,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +66,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -101,6 +105,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +115,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +125,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +135,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -157,6 +169,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['regulated_order_verification_status'] === null) {
             throw new AssertionException("'regulated_order_verification_status' can't be null");
         }
@@ -180,6 +194,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
      * Sets regulated_order_verification_status
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\UpdateVerificationStatusRequestBody $regulated_order_verification_status regulated_order_verification_status
+     *
+     * @return self
      */
     public function setRegulatedOrderVerificationStatus($regulated_order_verification_status) : self
     {
@@ -189,6 +205,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -208,6 +226,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -220,6 +240,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -241,10 +263,12 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -252,6 +276,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['image'] !== null) {
             $this->container['image']->validate();
             }
@@ -228,6 +242,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
      * Sets image
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ImageComponent|null $image image
+     *
+     * @return self
      */
     public function setImage($image) : self
     {
@@ -250,6 +266,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
      * Sets headline
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\TextComponent|null $headline headline
+     *
+     * @return self
      */
     public function setHeadline($headline) : self
     {
@@ -272,6 +290,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
      * Sets text_block1
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock|null $text_block1 text_block1
+     *
+     * @return self
      */
     public function setTextBlock1($text_block1) : self
     {
@@ -294,6 +314,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
      * Sets text_block2
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock|null $text_block2 text_block2
+     *
+     * @return self
      */
     public function setTextBlock2($text_block2) : self
     {
@@ -316,6 +338,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
      * Sets text_block3
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock|null $text_block3 text_block3
+     *
+     * @return self
      */
     public function setTextBlock3($text_block3) : self
     {
@@ -338,6 +362,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
      * Sets bulleted_list_block
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardHeaderTextListBlock|null $bulleted_list_block bulleted_list_block
+     *
+     * @return self
      */
     public function setBulletedListBlock($bulleted_list_block) : self
     {
@@ -347,6 +373,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -366,6 +394,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -378,6 +408,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -399,10 +431,12 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -410,6 +444,8 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

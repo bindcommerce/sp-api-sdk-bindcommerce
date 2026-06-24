@@ -27,14 +27,28 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class NotificationsSDK implements NotificationsSDKInterface
 {
-    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
+    private ClientInterface $client;
+
+    private HttpFactory $httpFactory;
+
+    private Configuration $configuration;
+
+    private LoggerInterface $logger;
+
+    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
     {
+        $this->client = $client;
+        $this->httpFactory = $requestFactory;
+        $this->configuration = $configuration;
+        $this->logger = $logger;
     }
 
     /**
      * Operation createDestination
      *
-     * @param \AmazonPHP\SellingPartner\Model\Notifications\CreateDestinationRequest $body  body (required)
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param \AmazonPHP\SellingPartner\Model\Notifications\CreateDestinationRequest $body  The request schema for the &#x60;createDestination&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -132,9 +146,12 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Create request for operation 'createDestination'
      *
-     * @param \AmazonPHP\SellingPartner\Model\Notifications\CreateDestinationRequest $body  (required)
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param \AmazonPHP\SellingPartner\Model\Notifications\CreateDestinationRequest $body  The request schema for the &#x60;createDestination&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function createDestinationRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -226,8 +243,10 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Operation createSubscription
      *
-     * @param string $notification_type  The type of notification.   For more information about notification types, refer to [Notification Type Values](https://developer-docs.amazon.com/sp-api/docs/notification-type-values). (required)
-     * @param \AmazonPHP\SellingPartner\Model\Notifications\CreateSubscriptionRequest $body  body (required)
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
+     * @param \AmazonPHP\SellingPartner\Model\Notifications\CreateSubscriptionRequest $body  The request schema for the &#x60;createSubscription&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -325,10 +344,13 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Create request for operation 'createSubscription'
      *
-     * @param string $notification_type  The type of notification.   For more information about notification types, refer to [Notification Type Values](https://developer-docs.amazon.com/sp-api/docs/notification-type-values). (required)
-     * @param \AmazonPHP\SellingPartner\Model\Notifications\CreateSubscriptionRequest $body  (required)
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
+     * @param \AmazonPHP\SellingPartner\Model\Notifications\CreateSubscriptionRequest $body  The request schema for the &#x60;createSubscription&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function createSubscriptionRequest(AccessToken $accessToken, string $region, $notification_type, $body) : RequestInterface
     {
@@ -434,6 +456,8 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Operation deleteDestination
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $destination_id  The identifier for the destination that you want to delete. (required)
      *
      * @throws ApiException on non-2xx response
@@ -532,9 +556,12 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Create request for operation 'deleteDestination'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $destination_id  The identifier for the destination that you want to delete. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function deleteDestinationRequest(AccessToken $accessToken, string $region, $destination_id) : RequestInterface
     {
@@ -626,8 +653,10 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Operation deleteSubscriptionById
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $subscription_id  The identifier for the subscription that you want to delete. (required)
-     * @param string $notification_type  The type of notification.   For more information about notification types, refer to [Notification Type Values](https://developer-docs.amazon.com/sp-api/docs/notification-type-values). (required)
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -725,10 +754,13 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Create request for operation 'deleteSubscriptionById'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $subscription_id  The identifier for the subscription that you want to delete. (required)
-     * @param string $notification_type  The type of notification.   For more information about notification types, refer to [Notification Type Values](https://developer-docs.amazon.com/sp-api/docs/notification-type-values). (required)
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function deleteSubscriptionByIdRequest(AccessToken $accessToken, string $region, $subscription_id, $notification_type) : RequestInterface
     {
@@ -834,6 +866,8 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Operation getDestination
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $destination_id  The identifier generated when you created the destination. (required)
      *
      * @throws ApiException on non-2xx response
@@ -932,9 +966,12 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Create request for operation 'getDestination'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $destination_id  The identifier generated when you created the destination. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getDestinationRequest(AccessToken $accessToken, string $region, $destination_id) : RequestInterface
     {
@@ -1026,6 +1063,8 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Operation getDestinations
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -1123,8 +1162,11 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Create request for operation 'getDestinations'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getDestinationsRequest(AccessToken $accessToken, string $region) : RequestInterface
     {
@@ -1202,7 +1244,9 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Operation getSubscription
      *
-     * @param string $notification_type  The type of notification.   For more information about notification types, refer to [Notification Type Values](https://developer-docs.amazon.com/sp-api/docs/notification-type-values). (required)
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
      * @param string|null $payload_version  The version of the payload object to be used in the notification. (optional)
      *
      * @throws ApiException on non-2xx response
@@ -1301,10 +1345,13 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Create request for operation 'getSubscription'
      *
-     * @param string $notification_type  The type of notification.   For more information about notification types, refer to [Notification Type Values](https://developer-docs.amazon.com/sp-api/docs/notification-type-values). (required)
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
      * @param string|null $payload_version  The version of the payload object to be used in the notification. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getSubscriptionRequest(AccessToken $accessToken, string $region, $notification_type, $payload_version = null) : RequestInterface
     {
@@ -1403,8 +1450,10 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Operation getSubscriptionById
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $subscription_id  The identifier for the subscription that you want to get. (required)
-     * @param string $notification_type  The type of notification.   For more information about notification types, refer to [Notification Type Values](https://developer-docs.amazon.com/sp-api/docs/notification-type-values). (required)
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -1502,10 +1551,13 @@ final class NotificationsSDK implements NotificationsSDKInterface
     /**
      * Create request for operation 'getSubscriptionById'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $subscription_id  The identifier for the subscription that you want to get. (required)
-     * @param string $notification_type  The type of notification.   For more information about notification types, refer to [Notification Type Values](https://developer-docs.amazon.com/sp-api/docs/notification-type-values). (required)
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getSubscriptionByIdRequest(AccessToken $accessToken, string $region, $subscription_id, $notification_type) : RequestInterface
     {
@@ -1575,6 +1627,219 @@ final class NotificationsSDK implements NotificationsSDKInterface
 
         // for model (json/xml)
         if (count($formParams) > 0) {
+            if ($multipart) {
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
+                    }
+                }
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
+            } elseif ($headers['content-type'] === ['application/json']) {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
+            } else {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
+            }
+        }
+
+        foreach (\array_merge($headerParams, $headers) as $name => $header) {
+            $request = $request->withHeader($name, $header);
+        }
+
+        return HttpSignatureHeaders::forConfig(
+            $this->configuration,
+            $accessToken,
+            $region,
+            $request
+        );
+    }
+
+    /**
+     * Operation sendTestNotification
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
+     * @param \AmazonPHP\SellingPartner\Model\Notifications\SendTestNotificationRequest $body  The request schema for the &#x60;sendTestNotification&#x60; operation. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Notifications\SendTestNotificationResponse
+     */
+    public function sendTestNotification(AccessToken $accessToken, string $region, $notification_type, $body)
+    {
+        $request = $this->sendTestNotificationRequest($accessToken, $region, $notification_type, $body);
+
+        $this->configuration->extensions()->preRequest('Notifications', 'sendTestNotification', $request);
+
+        try {
+            $correlationId = $this->configuration->idGenerator()->generate();
+            $sanitizedRequest = $request;
+
+            foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                $sanitizedRequest = $sanitizedRequest->withoutHeader($sensitiveHeader);
+            }
+
+            if ($this->configuration->loggingEnabled('Notifications', 'sendTestNotification')) {
+                $this->logger->log(
+                    $this->configuration->logLevel('Notifications', 'sendTestNotification'),
+                    'Amazon Selling Partner API pre request',
+                    [
+                        'api' => 'Notifications',
+                        'operation' => 'sendTestNotification',
+                        'request_correlation_id' => $correlationId,
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                        'request_headers' => $sanitizedRequest->getHeaders(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                    ]
+                );
+            }
+
+            $response = $this->client->sendRequest($request);
+
+            $this->configuration->extensions()->postRequest('Notifications', 'sendTestNotification', $request, $response);
+
+            if ($this->configuration->loggingEnabled('Notifications', 'sendTestNotification')) {
+
+                $sanitizedResponse = $response;
+
+                foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                    $sanitizedResponse = $sanitizedResponse->withoutHeader($sensitiveHeader);
+                }
+
+                $this->logger->log(
+                    $this->configuration->logLevel('Notifications', 'sendTestNotification'),
+                    'Amazon Selling Partner API post request',
+                    [
+                        'api' => 'Notifications',
+                        'operation' => 'sendTestNotification',
+                        'response_correlation_id' => $correlationId,
+                        'response_body' => (string) $sanitizedResponse->getBody(),
+                        'response_headers' => $sanitizedResponse->getHeaders(),
+                        'response_status_code' => $sanitizedResponse->getStatusCode(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                        'request_body' => (string) $sanitizedRequest->getBody()
+                    ]
+                );
+            }
+        } catch (ClientExceptionInterface $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                (int) $e->getCode(),
+                null,
+                null,
+                $e
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    (string) $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                (string) $response->getBody()
+            );
+        }
+
+        return ObjectSerializer::deserialize(
+            $this->configuration,
+            (string) $response->getBody(),
+            '\AmazonPHP\SellingPartner\Model\Notifications\SendTestNotificationResponse',
+            []
+        );
+    }
+
+    /**
+     * Create request for operation 'sendTestNotification'
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $notification_type  The type of notification.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
+     * @param \AmazonPHP\SellingPartner\Model\Notifications\SendTestNotificationRequest $body  The request schema for the &#x60;sendTestNotification&#x60; operation. (required)
+     *
+     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
+     */
+    public function sendTestNotificationRequest(AccessToken $accessToken, string $region, $notification_type, $body) : RequestInterface
+    {
+        // verify the required parameter 'notification_type' is set
+        if ($notification_type === null || (is_array($notification_type) && count($notification_type) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $notification_type when calling sendTestNotification'
+            );
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $body when calling sendTestNotification'
+            );
+        }
+
+        $resourcePath = '/notifications/v1/subscriptions/{notificationType}/testNotification';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $multipart = false;
+        $query = '';
+
+
+        if (\count($queryParams)) {
+            $query = http_build_query($queryParams);
+        }
+
+
+        // path params
+        if ($notification_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'notificationType' . '}',
+                ObjectSerializer::toPathValue($notification_type),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = [
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        } else {
+            $headers = [
+                'content-type' => ['application/json'],
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        }
+
+        $request = $this->httpFactory->createRequest(
+            'POST',
+            $this->configuration->apiURL($region) . $resourcePath . '?' . $query
+        );
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if ($headers['content-type'] === ['application/json']) {
+                $httpBody = \json_encode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+
+            $request = $request->withBody($this->httpFactory->createStreamFromString($httpBody));
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $boundary = '----' . \bin2hex(\random_bytes(16));
                 $multipartStream = '';

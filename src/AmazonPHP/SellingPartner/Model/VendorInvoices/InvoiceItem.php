@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -78,6 +78,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -86,6 +88,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -156,6 +160,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -164,6 +170,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -172,6 +180,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -180,6 +190,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -223,6 +235,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['item_sequence_number'] === null) {
             throw new AssertionException("'item_sequence_number' can't be null");
         }
@@ -260,6 +274,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets item_sequence_number
      *
      * @param int $item_sequence_number Unique number related to this line item.
+     *
+     * @return self
      */
     public function setItemSequenceNumber($item_sequence_number) : self
     {
@@ -282,6 +298,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets amazon_product_identifier
      *
      * @param string|null $amazon_product_identifier Amazon Standard Identification Number (ASIN) of an item.
+     *
+     * @return self
      */
     public function setAmazonProductIdentifier($amazon_product_identifier) : self
     {
@@ -304,6 +322,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets vendor_product_identifier
      *
      * @param string|null $vendor_product_identifier The vendor selected product identifier of the item. Should be the same as was provided in the purchase order.
+     *
+     * @return self
      */
     public function setVendorProductIdentifier($vendor_product_identifier) : self
     {
@@ -326,6 +346,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets invoiced_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\ItemQuantity $invoiced_quantity invoiced_quantity
+     *
+     * @return self
      */
     public function setInvoicedQuantity($invoiced_quantity) : self
     {
@@ -348,6 +370,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets net_cost
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\Money $net_cost net_cost
+     *
+     * @return self
      */
     public function setNetCost($net_cost) : self
     {
@@ -370,6 +394,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets net_cost_unit_of_measure
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\NetCostUnitOfMeasure|null $net_cost_unit_of_measure net_cost_unit_of_measure
+     *
+     * @return self
      */
     public function setNetCostUnitOfMeasure($net_cost_unit_of_measure) : self
     {
@@ -392,6 +418,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets purchase_order_number
      *
      * @param string|null $purchase_order_number The Amazon purchase order number for this invoiced line item. Formatting Notes: 8-character alpha-numeric code. This value is mandatory only when invoiceType is Invoice, and is not required when invoiceType is CreditNote.
+     *
+     * @return self
      */
     public function setPurchaseOrderNumber($purchase_order_number) : self
     {
@@ -414,6 +442,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets hsn_code
      *
      * @param string|null $hsn_code HSN Tax code. The HSN number cannot contain alphabets.
+     *
+     * @return self
      */
     public function setHsnCode($hsn_code) : self
     {
@@ -436,6 +466,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets credit_note_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\CreditNoteDetails|null $credit_note_details credit_note_details
+     *
+     * @return self
      */
     public function setCreditNoteDetails($credit_note_details) : self
     {
@@ -458,6 +490,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets tax_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\TaxDetails[]|null $tax_details Individual tax details per line item.
+     *
+     * @return self
      */
     public function setTaxDetails($tax_details) : self
     {
@@ -480,6 +514,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets charge_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\ChargeDetails[]|null $charge_details Individual charge details per line item.
+     *
+     * @return self
      */
     public function setChargeDetails($charge_details) : self
     {
@@ -502,6 +538,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets allowance_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\AllowanceDetails[]|null $allowance_details Individual allowance details per line item.
+     *
+     * @return self
      */
     public function setAllowanceDetails($allowance_details) : self
     {
@@ -511,6 +549,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -530,6 +570,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -542,6 +584,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -563,10 +607,12 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -574,6 +620,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

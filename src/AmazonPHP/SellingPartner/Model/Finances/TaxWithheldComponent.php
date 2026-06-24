@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -180,6 +194,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets tax_collection_model
      *
      * @param string|null $tax_collection_model The tax collection model applied to the item.  Possible values:  * `MarketplaceFacilitator`: Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller. * `Standard`: Tax is paid to the seller and not remitted to the taxing authority by Amazon.
+     *
+     * @return self
      */
     public function setTaxCollectionModel($tax_collection_model) : self
     {
@@ -202,6 +218,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets taxes_withheld
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\ChargeComponent[]|null $taxes_withheld A list of charge information on the seller's account.
+     *
+     * @return self
      */
     public function setTaxesWithheld($taxes_withheld) : self
     {
@@ -211,6 +229,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -230,6 +250,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -242,6 +264,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -263,10 +287,12 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -274,6 +300,8 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

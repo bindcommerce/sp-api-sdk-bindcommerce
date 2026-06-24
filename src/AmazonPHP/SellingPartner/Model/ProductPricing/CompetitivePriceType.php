@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -72,6 +72,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,6 +82,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -141,6 +145,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -149,6 +155,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -157,6 +165,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -165,6 +175,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -205,6 +217,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['competitive_price_id'] === null) {
             throw new AssertionException("'competitive_price_id' can't be null");
         }
@@ -232,6 +246,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets competitive_price_id
      *
      * @param string $competitive_price_id The pricing model for each price that is returned.  Possible values:  * 1 - New Buy Box Price. * 2 - Used Buy Box Price.
+     *
+     * @return self
      */
     public function setCompetitivePriceId($competitive_price_id) : self
     {
@@ -254,6 +270,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets price
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\PriceType $price price
+     *
+     * @return self
      */
     public function setPrice($price) : self
     {
@@ -276,6 +294,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets condition
      *
      * @param string|null $condition Indicates the condition of the item whose pricing information is returned. Possible values are: New, Used, Collectible, Refurbished, or Club.
+     *
+     * @return self
      */
     public function setCondition($condition) : self
     {
@@ -298,6 +318,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets subcondition
      *
      * @param string|null $subcondition Indicates the subcondition of the item whose pricing information is returned. Possible values are: New, Mint, Very Good, Good, Acceptable, Poor, Club, OEM, Warranty, Refurbished Warranty, Refurbished, Open Box, or Other.
+     *
+     * @return self
      */
     public function setSubcondition($subcondition) : self
     {
@@ -320,6 +342,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets offer_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\OfferCustomerType|null $offer_type offer_type
+     *
+     * @return self
      */
     public function setOfferType($offer_type) : self
     {
@@ -342,6 +366,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets quantity_tier
      *
      * @param int|null $quantity_tier Indicates at what quantity this price becomes active.
+     *
+     * @return self
      */
     public function setQuantityTier($quantity_tier) : self
     {
@@ -364,6 +390,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets quantity_discount_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\QuantityDiscountType|null $quantity_discount_type quantity_discount_type
+     *
+     * @return self
      */
     public function setQuantityDiscountType($quantity_discount_type) : self
     {
@@ -386,6 +414,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets seller_id
      *
      * @param string|null $seller_id The seller identifier for the offer.
+     *
+     * @return self
      */
     public function setSellerId($seller_id) : self
     {
@@ -408,6 +438,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets belongs_to_requester
      *
      * @param bool|null $belongs_to_requester Indicates whether or not the pricing information is for an offer listing that belongs to the requester. The requester is the seller associated with the SellerId that was submitted with the request. Possible values are: true and false.
+     *
+     * @return self
      */
     public function setBelongsToRequester($belongs_to_requester) : self
     {
@@ -417,6 +449,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -436,6 +470,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -448,6 +484,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -469,10 +507,12 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -480,6 +520,8 @@ class CompetitivePriceType implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Amount implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -176,6 +188,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['unit_of_measure'] === null) {
             throw new AssertionException("'unit_of_measure' can't be null");
         }
@@ -212,6 +226,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets unit_of_measure
      *
      * @param string $unit_of_measure The unit of measure for the amount.
+     *
+     * @return self
      */
     public function setUnitOfMeasure($unit_of_measure) : self
     {
@@ -234,6 +250,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets value
      *
      * @param string $value A decimal number with no loss of precision. Useful when precision loss is unacceptable, as with currencies. Follows RFC7159 for number representation.
+     *
+     * @return self
      */
     public function setValue($value) : self
     {
@@ -243,6 +261,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -262,6 +282,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -274,6 +296,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -295,10 +319,12 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,6 +332,8 @@ class Amount implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

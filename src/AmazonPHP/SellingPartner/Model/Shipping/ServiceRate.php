@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['total_charge'] === null) {
             throw new AssertionException("'total_charge' can't be null");
         }
@@ -214,6 +228,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets total_charge
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Currency $total_charge total_charge
+     *
+     * @return self
      */
     public function setTotalCharge($total_charge) : self
     {
@@ -236,6 +252,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets billable_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Weight $billable_weight billable_weight
+     *
+     * @return self
      */
     public function setBillableWeight($billable_weight) : self
     {
@@ -258,6 +276,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets service_type
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\ServiceType $service_type service_type
+     *
+     * @return self
      */
     public function setServiceType($service_type) : self
     {
@@ -280,6 +300,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets promise
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\ShippingPromiseSet $promise promise
+     *
+     * @return self
      */
     public function setPromise($promise) : self
     {
@@ -289,6 +311,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -308,6 +332,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -320,6 +346,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -341,10 +369,12 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -352,6 +382,8 @@ class ServiceRate implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

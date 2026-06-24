@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,6 +56,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +66,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -101,6 +105,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +115,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +125,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +135,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -157,6 +169,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['text_list'] === null) {
             throw new AssertionException("'text_list' can't be null");
         }
@@ -186,6 +200,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets text_list
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\TextComponent[] $text_list text_list
+     *
+     * @return self
      */
     public function setTextList($text_list) : self
     {
@@ -195,6 +211,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -214,6 +232,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -226,6 +246,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -247,10 +269,12 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -258,6 +282,8 @@ class ParagraphComponent implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -190,6 +202,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['length'] === null) {
             throw new AssertionException("'length' can't be null");
         }
@@ -234,6 +248,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets length
      *
      * @param float $length The length of the package.
+     *
+     * @return self
      */
     public function setLength($length) : self
     {
@@ -256,6 +272,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets width
      *
      * @param float $width The width of the package.
+     *
+     * @return self
      */
     public function setWidth($width) : self
     {
@@ -278,6 +296,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets height
      *
      * @param float $height The height of the package.
+     *
+     * @return self
      */
     public function setHeight($height) : self
     {
@@ -300,6 +320,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets unit
      *
      * @param string $unit The unit of measurement.
+     *
+     * @return self
      */
     public function setUnit($unit) : self
     {
@@ -309,6 +331,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -328,6 +352,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -340,6 +366,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -361,10 +389,12 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -372,6 +402,8 @@ class Dimensions implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

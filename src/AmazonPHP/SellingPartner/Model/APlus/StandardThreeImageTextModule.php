@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['headline'] !== null) {
             $this->container['headline']->validate();
             }
@@ -208,6 +222,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
      * Sets headline
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\TextComponent|null $headline headline
+     *
+     * @return self
      */
     public function setHeadline($headline) : self
     {
@@ -230,6 +246,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
      * Sets block1
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock|null $block1 block1
+     *
+     * @return self
      */
     public function setBlock1($block1) : self
     {
@@ -252,6 +270,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
      * Sets block2
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock|null $block2 block2
+     *
+     * @return self
      */
     public function setBlock2($block2) : self
     {
@@ -274,6 +294,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
      * Sets block3
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock|null $block3 block3
+     *
+     * @return self
      */
     public function setBlock3($block3) : self
     {
@@ -283,6 +305,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -302,6 +326,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -314,6 +340,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -335,10 +363,12 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -346,6 +376,8 @@ class StandardThreeImageTextModule implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -186,6 +200,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets condition_type
      *
      * @param string|null $condition_type The primary condition category that broadly describes the item's state.  **Possible values**: `NEW`, `USED`, `COLLECTIBLE`, `REFURBISHED`, `PREORDER`, `CLUB`.
+     *
+     * @return self
      */
     public function setConditionType($condition_type) : self
     {
@@ -208,6 +224,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets condition_subtype
      *
      * @param string|null $condition_subtype A more specific condition classification that provides additional detail about the item's quality within the main condition type.  **Possible values**: `NEW`, `MINT`, `VERY_GOOD`, `GOOD`, `ACCEPTABLE`, `POOR`, `CLUB`, `OEM`, `WARRANTY`, `REFURBISHED_WARRANTY`, `REFURBISHED`, `OPEN_BOX`, `ANY`, `OTHER`.
+     *
+     * @return self
      */
     public function setConditionSubtype($condition_subtype) : self
     {
@@ -230,6 +248,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets condition_note
      *
      * @param string|null $condition_note Additional details provided by the seller to describe the specific condition of this particular item.
+     *
+     * @return self
      */
     public function setConditionNote($condition_note) : self
     {
@@ -239,6 +259,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -258,6 +280,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -270,6 +294,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -291,10 +317,12 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -302,6 +330,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

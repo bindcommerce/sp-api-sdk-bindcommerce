@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipping_service_id'] === null) {
             throw new AssertionException("'shipping_service_id' can't be null");
         }
@@ -200,6 +214,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
      * Sets shipping_service_id
      *
      * @param string $shipping_service_id An Amazon-defined shipping service identifier.
+     *
+     * @return self
      */
     public function setShippingServiceId($shipping_service_id) : self
     {
@@ -222,6 +238,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
      * Sets ship_from_address
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\Address $ship_from_address ship_from_address
+     *
+     * @return self
      */
     public function setShipFromAddress($ship_from_address) : self
     {
@@ -244,6 +262,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
      * Sets order_id
      *
      * @param string $order_id An Amazon-defined order identifier, in 3-7-7 format.
+     *
+     * @return self
      */
     public function setOrderId($order_id) : self
     {
@@ -253,6 +273,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -272,6 +294,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -284,6 +308,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -305,10 +331,12 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -316,6 +344,8 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

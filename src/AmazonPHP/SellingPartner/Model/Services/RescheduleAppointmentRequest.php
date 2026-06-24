@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['appointment_time'] === null) {
             throw new AssertionException("'appointment_time' can't be null");
         }
@@ -190,6 +204,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
      * Sets appointment_time
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\AppointmentTimeInput $appointment_time appointment_time
+     *
+     * @return self
      */
     public function setAppointmentTime($appointment_time) : self
     {
@@ -212,6 +228,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
      * Sets reschedule_reason_code
      *
      * @param string $reschedule_reason_code The appointment reschedule reason code.
+     *
+     * @return self
      */
     public function setRescheduleReasonCode($reschedule_reason_code) : self
     {
@@ -221,6 +239,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -240,6 +260,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -252,6 +274,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -273,10 +297,12 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -284,6 +310,8 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

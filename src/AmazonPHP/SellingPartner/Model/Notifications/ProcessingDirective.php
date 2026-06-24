@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -40,7 +40,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static array $openAPITypes = [
-        'event_filter' => '\AmazonPHP\SellingPartner\Model\Notifications\EventFilter'
+        'event_filter' => '\AmazonPHP\SellingPartner\Model\Notifications\EventFilter',
+        'filter_expression' => 'string'
     ];
 
     /**
@@ -51,11 +52,14 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'event_filter' => null
+        'event_filter' => null,
+        'filter_expression' => null
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +68,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -77,7 +83,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static array $attributeMap = [
-        'event_filter' => 'eventFilter'
+        'event_filter' => 'eventFilter',
+        'filter_expression' => 'filterExpression'
     ];
 
     /**
@@ -86,7 +93,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static array $setters = [
-        'event_filter' => 'setEventFilter'
+        'event_filter' => 'setEventFilter',
+        'filter_expression' => 'setFilterExpression'
     ];
 
     /**
@@ -95,12 +103,15 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static array $getters = [
-        'event_filter' => 'getEventFilter'
+        'event_filter' => 'getEventFilter',
+        'filter_expression' => 'getFilterExpression'
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +120,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +130,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +140,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -148,6 +165,7 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->container['event_filter'] = $data['event_filter'] ?? null;
+        $this->container['filter_expression'] = $data['filter_expression'] ?? null;
     }
 
     /**
@@ -157,9 +175,19 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['event_filter'] !== null) {
             $this->container['event_filter']->validate();
             }
+
+        if (!is_null($this->container['filter_expression']) && (mb_strlen($this->container['filter_expression']) > 256)) {
+            throw new AssertionException("invalid value for 'filter_expression', the character length must be smaller than or equal to 256.");
+        }
+
+        if (!is_null($this->container['filter_expression']) && (mb_strlen($this->container['filter_expression']) < 1)) {
+            throw new AssertionException("invalid value for 'filter_expression', the character length must be bigger than or equal to 1.");
+        }
 
     }
 
@@ -178,6 +206,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets event_filter
      *
      * @param \AmazonPHP\SellingPartner\Model\Notifications\EventFilter|null $event_filter event_filter
+     *
+     * @return self
      */
     public function setEventFilter($event_filter) : self
     {
@@ -185,8 +215,34 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
 
         return $this;
     }
+
+    /**
+     * Gets filter_expression
+     *
+     * @return string|null
+     */
+    public function getFilterExpression()
+    {
+        return $this->container['filter_expression'];
+    }
+
+    /**
+     * Sets filter_expression
+     *
+     * @param string|null $filter_expression An expression for filtering events before delivery to destination based on the notification payload (example: FulfillmentOrderStatusNotification.FulfillmentOrderStatus == `SHIPPED` ). The `filterExpression` is a string that follows the CEL expression syntax (https://github.com/google/cel-spec) excluding arithmetic operators (+, -, *, /, %) and list/map indexing ([]). Refer to Notification Type Values to determine if filter Expression is supported for a Notification Type. Refer to CEL Operators (https://developer-docs.amazon.com/sp-api/docs/filter-notification-subscriptions) to see if a CEL operator is supported.   Note: eventFilter and filterExpression are mutually exclusive. You can use filterExpression to replace existing eventFilter configurations.
+     *
+     * @return self
+     */
+    public function setFilterExpression($filter_expression) : self
+    {
+        $this->container['filter_expression'] = $filter_expression;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -206,6 +262,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -218,6 +276,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -239,10 +299,12 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -250,6 +312,8 @@ class ProcessingDirective implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

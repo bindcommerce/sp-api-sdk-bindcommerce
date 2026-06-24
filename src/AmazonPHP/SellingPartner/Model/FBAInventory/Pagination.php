@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,6 +56,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +66,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -101,6 +105,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +115,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +125,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +135,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -157,6 +169,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -174,6 +188,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets next_token
      *
      * @param string|null $next_token A generated string used to retrieve the next page of the result. If nextToken is returned, pass the value of nextToken to the next request. If nextToken is not returned, there are no more items to return.
+     *
+     * @return self
      */
     public function setNextToken($next_token) : self
     {
@@ -183,6 +199,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -202,6 +220,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -214,6 +234,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -235,10 +257,12 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -246,6 +270,8 @@ class Pagination implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

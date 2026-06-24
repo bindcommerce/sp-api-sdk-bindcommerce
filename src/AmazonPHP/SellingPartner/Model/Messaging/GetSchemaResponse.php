@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['_links'] !== null) {
             $this->container['_links']->validate();
             }
@@ -190,6 +204,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets _links
      *
      * @param \AmazonPHP\SellingPartner\Model\Messaging\GetSchemaResponseLinks|null $_links _links
+     *
+     * @return self
      */
     public function setLinks($_links) : self
     {
@@ -203,7 +219,7 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return array<string,object>|null
      */
-    public function getPayload(): ?array
+    public function getPayload()
     {
         return $this->container['payload'];
     }
@@ -212,8 +228,10 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets payload
      *
      * @param array<string,object>|null $payload A JSON schema document describing the expected payload of the action. This object can be validated against <a href=http://json-schema.org/draft-04/schema>http://json-schema.org/draft-04/schema</a>.
+     *
+     * @return self
      */
-    public function setPayload(?array $payload) : self
+    public function setPayload($payload) : self
     {
         $this->container['payload'] = $payload;
 
@@ -234,6 +252,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets errors
      *
      * @param \AmazonPHP\SellingPartner\Model\Messaging\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
+     *
+     * @return self
      */
     public function setErrors($errors) : self
     {
@@ -243,6 +263,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -262,6 +284,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -274,6 +298,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -295,10 +321,12 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,6 +334,8 @@ class GetSchemaResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['recovery_amount'] !== null) {
             $this->container['recovery_amount']->validate();
             }
@@ -206,6 +220,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets debt_recovery_type
      *
      * @param string|null $debt_recovery_type The debt recovery type.  Possible values:  * `DebtPayment` * `DebtPaymentFailure` * `DebtAdjustment`
+     *
+     * @return self
      */
     public function setDebtRecoveryType($debt_recovery_type) : self
     {
@@ -228,6 +244,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets recovery_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $recovery_amount recovery_amount
+     *
+     * @return self
      */
     public function setRecoveryAmount($recovery_amount) : self
     {
@@ -250,6 +268,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets over_payment_credit
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $over_payment_credit over_payment_credit
+     *
+     * @return self
      */
     public function setOverPaymentCredit($over_payment_credit) : self
     {
@@ -272,6 +292,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets debt_recovery_item_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\DebtRecoveryItem[]|null $debt_recovery_item_list A list of debt recovery item information.
+     *
+     * @return self
      */
     public function setDebtRecoveryItemList($debt_recovery_item_list) : self
     {
@@ -294,6 +316,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets charge_instrument_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\ChargeInstrument[]|null $charge_instrument_list A list of payment instruments.
+     *
+     * @return self
      */
     public function setChargeInstrumentList($charge_instrument_list) : self
     {
@@ -303,6 +327,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -322,6 +348,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -334,6 +362,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -355,10 +385,12 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -366,6 +398,8 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

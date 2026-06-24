@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,11 +187,13 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['client_reference_id'] === null) {
             throw new AssertionException("'client_reference_id' can't be null");
         }
 
-        if ((mb_strlen((string) $this->container['client_reference_id']) > 40)) {
+        if ((mb_strlen($this->container['client_reference_id']) > 40)) {
             throw new AssertionException("invalid value for 'client_reference_id', the character length must be smaller than or equal to 40.");
         }
 
@@ -216,6 +230,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets client_reference_id
      *
      * @param string $client_reference_id Client reference id.
+     *
+     * @return self
      */
     public function setClientReferenceId($client_reference_id) : self
     {
@@ -238,6 +254,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets ship_to
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_to ship_to
+     *
+     * @return self
      */
     public function setShipTo($ship_to) : self
     {
@@ -260,6 +278,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets ship_from
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Address $ship_from ship_from
+     *
+     * @return self
      */
     public function setShipFrom($ship_from) : self
     {
@@ -282,6 +302,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets containers
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Container[] $containers A list of container.
+     *
+     * @return self
      */
     public function setContainers($containers) : self
     {
@@ -291,6 +313,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -310,6 +334,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -322,6 +348,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -343,10 +371,12 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -354,6 +384,8 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

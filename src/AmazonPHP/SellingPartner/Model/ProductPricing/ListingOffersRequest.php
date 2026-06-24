@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['uri'] === null) {
             throw new AssertionException("'uri' can't be null");
         }
@@ -220,6 +234,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets uri
      *
      * @param string $uri The resource path of the operation you are calling in batch without any query parameters.  If you are calling `getItemOffersBatch`, supply the path of `getItemOffers`.  **Example:** `/products/pricing/v0/items/B000P6Q7MY/offers`  If you are calling `getListingOffersBatch`, supply the path of `getListingOffers`.  **Example:** `/products/pricing/v0/listings/B000P6Q7MY/offers`
+     *
+     * @return self
      */
     public function setUri($uri) : self
     {
@@ -242,6 +258,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets method
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\HttpMethod $method method
+     *
+     * @return self
      */
     public function setMethod($method) : self
     {
@@ -264,6 +282,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets headers
      *
      * @param array<string,string>|null $headers A mapping of additional HTTP headers to send/receive for the individual batch request.
+     *
+     * @return self
      */
     public function setHeaders($headers) : self
     {
@@ -286,6 +306,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets marketplace_id
      *
      * @param string $marketplace_id A marketplace identifier. Specifies the marketplace for which prices are returned.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -308,6 +330,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets item_condition
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ItemCondition $item_condition item_condition
+     *
+     * @return self
      */
     public function setItemCondition($item_condition) : self
     {
@@ -330,6 +354,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets customer_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\CustomerType|null $customer_type customer_type
+     *
+     * @return self
      */
     public function setCustomerType($customer_type) : self
     {
@@ -339,6 +365,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -358,6 +386,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -370,6 +400,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -391,10 +423,12 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -402,6 +436,8 @@ class ListingOffersRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

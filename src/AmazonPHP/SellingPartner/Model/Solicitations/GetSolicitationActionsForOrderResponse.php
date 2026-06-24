@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['_links'] !== null) {
             $this->container['_links']->validate();
             }
@@ -194,6 +208,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
      * Sets _links
      *
      * @param \AmazonPHP\SellingPartner\Model\Solicitations\GetSolicitationActionsForOrderResponseLinks|null $_links _links
+     *
+     * @return self
      */
     public function setLinks($_links) : self
     {
@@ -216,6 +232,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
      * Sets _embedded
      *
      * @param \AmazonPHP\SellingPartner\Model\Solicitations\GetSolicitationActionsForOrderResponseEmbedded|null $_embedded _embedded
+     *
+     * @return self
      */
     public function setEmbedded($_embedded) : self
     {
@@ -238,6 +256,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
      * Sets errors
      *
      * @param \AmazonPHP\SellingPartner\Model\Solicitations\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
+     *
+     * @return self
      */
     public function setErrors($errors) : self
     {
@@ -247,6 +267,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -266,6 +288,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -278,6 +302,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -299,10 +325,12 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -310,6 +338,8 @@ class GetSolicitationActionsForOrderResponse implements ModelInterface, ArrayAcc
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

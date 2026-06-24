@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['restricted_resources'] === null) {
             throw new AssertionException("'restricted_resources' can't be null");
         }
@@ -184,6 +198,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
      * Sets target_application
      *
      * @param string|null $target_application The application ID for the target application to which access is being delegated.
+     *
+     * @return self
      */
     public function setTargetApplication($target_application) : self
     {
@@ -206,6 +222,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
      * Sets restricted_resources
      *
      * @param \AmazonPHP\SellingPartner\Model\Tokens\RestrictedResource[] $restricted_resources A list of restricted resources. Maximum: 50
+     *
+     * @return self
      */
     public function setRestrictedResources($restricted_resources) : self
     {
@@ -215,6 +233,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -234,6 +254,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -246,6 +268,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -267,10 +291,12 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -278,6 +304,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

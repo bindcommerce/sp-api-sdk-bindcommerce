@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Fee implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -182,6 +194,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['name'] === null) {
             throw new AssertionException("'name' can't be null");
         }
@@ -220,6 +234,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
      * Sets name
      *
      * @param string $name The type of fee.
+     *
+     * @return self
      */
     public function setName($name) : self
     {
@@ -242,6 +258,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
      * Sets amount
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Money $amount amount
+     *
+     * @return self
      */
     public function setAmount($amount) : self
     {
@@ -251,6 +269,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -270,6 +290,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -282,6 +304,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -303,10 +327,12 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -314,6 +340,8 @@ class Fee implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

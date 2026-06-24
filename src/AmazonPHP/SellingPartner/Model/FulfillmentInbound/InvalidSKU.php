@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -180,6 +194,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets seller_sku
      *
      * @param string|null $seller_sku The seller SKU of the item.
+     *
+     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -202,6 +218,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets error_reason
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\ErrorReason|null $error_reason error_reason
+     *
+     * @return self
      */
     public function setErrorReason($error_reason) : self
     {
@@ -211,6 +229,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -230,6 +250,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -242,6 +264,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -263,10 +287,12 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -274,6 +300,8 @@ class InvalidSKU implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

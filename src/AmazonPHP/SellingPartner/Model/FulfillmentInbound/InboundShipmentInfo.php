@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -74,6 +74,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -82,6 +84,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -146,6 +150,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -154,6 +160,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -162,6 +170,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -170,6 +180,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -211,6 +223,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['ship_from_address'] === null) {
             throw new AssertionException("'ship_from_address' can't be null");
         }
@@ -242,6 +256,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets shipment_id
      *
      * @param string|null $shipment_id The shipment identifier submitted in the request.
+     *
+     * @return self
      */
     public function setShipmentId($shipment_id) : self
     {
@@ -264,6 +280,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets shipment_name
      *
      * @param string|null $shipment_name The name for the inbound shipment.
+     *
+     * @return self
      */
     public function setShipmentName($shipment_name) : self
     {
@@ -286,6 +304,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets ship_from_address
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\Address $ship_from_address ship_from_address
+     *
+     * @return self
      */
     public function setShipFromAddress($ship_from_address) : self
     {
@@ -308,6 +328,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets destination_fulfillment_center_id
      *
      * @param string|null $destination_fulfillment_center_id An Amazon fulfillment center identifier created by Amazon.
+     *
+     * @return self
      */
     public function setDestinationFulfillmentCenterId($destination_fulfillment_center_id) : self
     {
@@ -330,6 +352,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets shipment_status
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\ShipmentStatus|null $shipment_status shipment_status
+     *
+     * @return self
      */
     public function setShipmentStatus($shipment_status) : self
     {
@@ -352,6 +376,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets label_prep_type
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\LabelPrepType|null $label_prep_type label_prep_type
+     *
+     * @return self
      */
     public function setLabelPrepType($label_prep_type) : self
     {
@@ -374,6 +400,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets are_cases_required
      *
      * @param bool $are_cases_required Indicates whether or not an inbound shipment contains case-packed boxes. When AreCasesRequired = true for an inbound shipment, all items in the inbound shipment must be case packed.
+     *
+     * @return self
      */
     public function setAreCasesRequired($are_cases_required) : self
     {
@@ -396,6 +424,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets confirmed_need_by_date
      *
      * @param \DateTimeInterface|null $confirmed_need_by_date Type containing date in string format
+     *
+     * @return self
      */
     public function setConfirmedNeedByDate($confirmed_need_by_date) : self
     {
@@ -418,6 +448,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets box_contents_source
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\BoxContentsSource|null $box_contents_source box_contents_source
+     *
+     * @return self
      */
     public function setBoxContentsSource($box_contents_source) : self
     {
@@ -440,6 +472,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets estimated_box_contents_fee
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\BoxContentsFeeDetails|null $estimated_box_contents_fee estimated_box_contents_fee
+     *
+     * @return self
      */
     public function setEstimatedBoxContentsFee($estimated_box_contents_fee) : self
     {
@@ -449,6 +483,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -468,6 +504,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -480,6 +518,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -501,10 +541,12 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -512,6 +554,8 @@ class InboundShipmentInfo implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

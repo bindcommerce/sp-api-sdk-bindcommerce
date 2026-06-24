@@ -28,11 +28,13 @@ class OptionalFulfillmentProgram
 
     const FBA_EFN = 'FBA_EFN';
 
+    private string $value;
+
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
             self::FBA_CORE,
@@ -41,8 +43,9 @@ class OptionalFulfillmentProgram
         ];
     }
 
-    public function __construct(private readonly string $value)
+    public function __construct(string $value)
     {
+        $this->value = $value;
     }
 
     public function toString(): string

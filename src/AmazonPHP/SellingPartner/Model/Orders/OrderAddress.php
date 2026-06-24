@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['amazon_order_id'] === null) {
             throw new AssertionException("'amazon_order_id' can't be null");
         }
@@ -204,6 +218,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets amazon_order_id
      *
      * @param string $amazon_order_id An Amazon-defined order identifier, in 3-7-7 format.
+     *
+     * @return self
      */
     public function setAmazonOrderId($amazon_order_id) : self
     {
@@ -226,6 +242,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets buyer_company_name
      *
      * @param string|null $buyer_company_name The company name of the contact buyer. For IBA orders, the buyer company must be Amazon entities.
+     *
+     * @return self
      */
     public function setBuyerCompanyName($buyer_company_name) : self
     {
@@ -248,6 +266,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets shipping_address
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Address|null $shipping_address shipping_address
+     *
+     * @return self
      */
     public function setShippingAddress($shipping_address) : self
     {
@@ -270,6 +290,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets delivery_preferences
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\DeliveryPreferences|null $delivery_preferences delivery_preferences
+     *
+     * @return self
      */
     public function setDeliveryPreferences($delivery_preferences) : self
     {
@@ -279,6 +301,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -298,6 +322,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -310,6 +336,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -331,10 +359,12 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -342,6 +372,8 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

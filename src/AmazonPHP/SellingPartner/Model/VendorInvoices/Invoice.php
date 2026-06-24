@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -84,6 +84,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -92,6 +94,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -171,6 +175,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -179,6 +185,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -187,6 +195,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -195,6 +205,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -256,6 +268,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['invoice_type'] === null) {
             throw new AssertionException("'invoice_type' can't be null");
         }
@@ -324,6 +338,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets invoice_type
      *
      * @param string $invoice_type Identifies the type of invoice.
+     *
+     * @return self
      */
     public function setInvoiceType($invoice_type) : self
     {
@@ -346,6 +362,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets id
      *
      * @param string $id Unique number relating to the charges defined in this document. This will be invoice number if the document type is Invoice or CreditNote number if the document type is Credit Note. Failure to provide this reference will result in a rejection.
+     *
+     * @return self
      */
     public function setId($id) : self
     {
@@ -368,6 +386,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets reference_number
      *
      * @param string|null $reference_number An additional unique reference number used for regulatory or other purposes.
+     *
+     * @return self
      */
     public function setReferenceNumber($reference_number) : self
     {
@@ -390,6 +410,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets date
      *
      * @param \DateTimeInterface $date Defines a date and time according to ISO8601.
+     *
+     * @return self
      */
     public function setDate($date) : self
     {
@@ -412,6 +434,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets remit_to_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification $remit_to_party remit_to_party
+     *
+     * @return self
      */
     public function setRemitToParty($remit_to_party) : self
     {
@@ -434,6 +458,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets ship_to_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification|null $ship_to_party ship_to_party
+     *
+     * @return self
      */
     public function setShipToParty($ship_to_party) : self
     {
@@ -456,6 +482,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets ship_from_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification|null $ship_from_party ship_from_party
+     *
+     * @return self
      */
     public function setShipFromParty($ship_from_party) : self
     {
@@ -478,6 +506,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets bill_to_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification|null $bill_to_party bill_to_party
+     *
+     * @return self
      */
     public function setBillToParty($bill_to_party) : self
     {
@@ -500,6 +530,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets payment_terms
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\PaymentTerms|null $payment_terms payment_terms
+     *
+     * @return self
      */
     public function setPaymentTerms($payment_terms) : self
     {
@@ -522,6 +554,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets invoice_total
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\Money $invoice_total invoice_total
+     *
+     * @return self
      */
     public function setInvoiceTotal($invoice_total) : self
     {
@@ -544,6 +578,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets tax_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\TaxDetails[]|null $tax_details Total tax amount details for all line items.
+     *
+     * @return self
      */
     public function setTaxDetails($tax_details) : self
     {
@@ -566,6 +602,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets additional_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\AdditionalDetails[]|null $additional_details Additional details provided by the selling party, for tax related or other purposes.
+     *
+     * @return self
      */
     public function setAdditionalDetails($additional_details) : self
     {
@@ -588,6 +626,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets charge_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\ChargeDetails[]|null $charge_details Total charge amount details for all line items.
+     *
+     * @return self
      */
     public function setChargeDetails($charge_details) : self
     {
@@ -610,6 +650,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets allowance_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\AllowanceDetails[]|null $allowance_details Total allowance amount details for all line items.
+     *
+     * @return self
      */
     public function setAllowanceDetails($allowance_details) : self
     {
@@ -632,6 +674,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\InvoiceItem[]|null $items The list of invoice items.
+     *
+     * @return self
      */
     public function setItems($items) : self
     {
@@ -641,6 +685,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -660,6 +706,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -672,6 +720,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -693,10 +743,12 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -704,6 +756,8 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Location implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -192,6 +206,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets state_or_region
      *
      * @param string|null $state_or_region The state, county or region where the person, business or institution is located.
+     *
+     * @return self
      */
     public function setStateOrRegion($state_or_region) : self
     {
@@ -214,6 +230,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets city
      *
      * @param string|null $city The city or town where the person, business or institution is located.
+     *
+     * @return self
      */
     public function setCity($city) : self
     {
@@ -236,6 +254,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets country_code
      *
      * @param string|null $country_code The two digit country code. Follows ISO 3166-1 alpha-2 format.
+     *
+     * @return self
      */
     public function setCountryCode($country_code) : self
     {
@@ -258,6 +278,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets postal_code
      *
      * @param string|null $postal_code The postal code of that address. It contains a series of letters or digits or both, sometimes including spaces or punctuation.
+     *
+     * @return self
      */
     public function setPostalCode($postal_code) : self
     {
@@ -267,6 +289,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,6 +310,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -298,6 +324,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,10 +347,12 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -330,6 +360,8 @@ class Location implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

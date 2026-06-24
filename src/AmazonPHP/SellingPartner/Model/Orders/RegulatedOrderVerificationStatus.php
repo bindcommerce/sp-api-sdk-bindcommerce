@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -46,7 +46,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
         'rejection_reason' => '\AmazonPHP\SellingPartner\Model\Orders\RejectionReason',
         'review_date' => 'string',
         'external_reviewer_id' => 'string',
-        'valid_verification_details' => '\AmazonPHP\SellingPartner\Model\Orders\ValidVerificationDetail[]'
+        'valid_verification_details' => '\AmazonPHP\SellingPartner\Model\Orders\ValidVerificationDetail[]',
+        'valid_interim_status_codes' => '\AmazonPHP\SellingPartner\Model\Orders\ValidInterimStatusCode[]'
     ];
 
     /**
@@ -63,11 +64,14 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
         'rejection_reason' => null,
         'review_date' => null,
         'external_reviewer_id' => null,
-        'valid_verification_details' => null
+        'valid_verification_details' => null,
+        'valid_interim_status_codes' => null
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +80,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -95,7 +101,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
         'rejection_reason' => 'RejectionReason',
         'review_date' => 'ReviewDate',
         'external_reviewer_id' => 'ExternalReviewerId',
-        'valid_verification_details' => 'ValidVerificationDetails'
+        'valid_verification_details' => 'ValidVerificationDetails',
+        'valid_interim_status_codes' => 'ValidInterimStatusCodes'
     ];
 
     /**
@@ -110,7 +117,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
         'rejection_reason' => 'setRejectionReason',
         'review_date' => 'setReviewDate',
         'external_reviewer_id' => 'setExternalReviewerId',
-        'valid_verification_details' => 'setValidVerificationDetails'
+        'valid_verification_details' => 'setValidVerificationDetails',
+        'valid_interim_status_codes' => 'setValidInterimStatusCodes'
     ];
 
     /**
@@ -125,12 +133,15 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
         'rejection_reason' => 'getRejectionReason',
         'review_date' => 'getReviewDate',
         'external_reviewer_id' => 'getExternalReviewerId',
-        'valid_verification_details' => 'getValidVerificationDetails'
+        'valid_verification_details' => 'getValidVerificationDetails',
+        'valid_interim_status_codes' => 'getValidInterimStatusCodes'
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +150,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +160,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +170,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -184,6 +201,7 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
         $this->container['review_date'] = $data['review_date'] ?? null;
         $this->container['external_reviewer_id'] = $data['external_reviewer_id'] ?? null;
         $this->container['valid_verification_details'] = $data['valid_verification_details'] ?? null;
+        $this->container['valid_interim_status_codes'] = $data['valid_interim_status_codes'] ?? null;
     }
 
     /**
@@ -193,6 +211,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['status'] === null) {
             throw new AssertionException("'status' can't be null");
         }
@@ -226,6 +246,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets status
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\VerificationStatus $status status
+     *
+     * @return self
      */
     public function setStatus($status) : self
     {
@@ -248,6 +270,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets requires_merchant_action
      *
      * @param bool $requires_merchant_action When true, the regulated information provided in the order requires a review by the merchant.
+     *
+     * @return self
      */
     public function setRequiresMerchantAction($requires_merchant_action) : self
     {
@@ -270,6 +294,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets valid_rejection_reasons
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\RejectionReason[] $valid_rejection_reasons A list of valid rejection reasons that may be used to reject the order's regulated information.
+     *
+     * @return self
      */
     public function setValidRejectionReasons($valid_rejection_reasons) : self
     {
@@ -292,6 +318,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets rejection_reason
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\RejectionReason|null $rejection_reason rejection_reason
+     *
+     * @return self
      */
     public function setRejectionReason($rejection_reason) : self
     {
@@ -314,6 +342,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets review_date
      *
      * @param string|null $review_date The date the order was reviewed. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.
+     *
+     * @return self
      */
     public function setReviewDate($review_date) : self
     {
@@ -336,6 +366,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets external_reviewer_id
      *
      * @param string|null $external_reviewer_id The identifier for the order's regulated information reviewer.
+     *
+     * @return self
      */
     public function setExternalReviewerId($external_reviewer_id) : self
     {
@@ -358,6 +390,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
      * Sets valid_verification_details
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\ValidVerificationDetail[]|null $valid_verification_details A list of valid verification details that may be provided and the criteria required for when the verification detail can be provided.
+     *
+     * @return self
      */
     public function setValidVerificationDetails($valid_verification_details) : self
     {
@@ -365,8 +399,34 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
         return $this;
     }
+
+    /**
+     * Gets valid_interim_status_codes
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Orders\ValidInterimStatusCode[]|null
+     */
+    public function getValidInterimStatusCodes()
+    {
+        return $this->container['valid_interim_status_codes'];
+    }
+
+    /**
+     * Sets valid_interim_status_codes
+     *
+     * @param \AmazonPHP\SellingPartner\Model\Orders\ValidInterimStatusCode[]|null $valid_interim_status_codes Valid interim status codes that may be used when populating `InterimStatusDetail`. Each element contains a `StatusCode` identifier and its customer-facing `StatusDescription`.
+     *
+     * @return self
+     */
+    public function setValidInterimStatusCodes($valid_interim_status_codes) : self
+    {
+        $this->container['valid_interim_status_codes'] = $valid_interim_status_codes;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -386,6 +446,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -398,6 +460,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -419,10 +483,12 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -430,6 +496,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,11 +181,13 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
-        if (!is_null($this->container['appointment_id']) && (mb_strlen((string) $this->container['appointment_id']) > 100)) {
+        return;
+
+        if (!is_null($this->container['appointment_id']) && (mb_strlen($this->container['appointment_id']) > 100)) {
             throw new AssertionException("invalid value for 'appointment_id', the character length must be smaller than or equal to 100.");
         }
 
-        if (!is_null($this->container['appointment_id']) && (mb_strlen((string) $this->container['appointment_id']) < 5)) {
+        if (!is_null($this->container['appointment_id']) && (mb_strlen($this->container['appointment_id']) < 5)) {
             throw new AssertionException("invalid value for 'appointment_id', the character length must be bigger than or equal to 5.");
         }
 
@@ -194,6 +208,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets appointment_id
      *
      * @param string|null $appointment_id The appointment identifier.
+     *
+     * @return self
      */
     public function setAppointmentId($appointment_id) : self
     {
@@ -216,6 +232,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets warnings
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\Warning[]|null $warnings A list of warnings returned in the sucessful execution response of an API request.
+     *
+     * @return self
      */
     public function setWarnings($warnings) : self
     {
@@ -238,6 +256,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets errors
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
+     *
+     * @return self
      */
     public function setErrors($errors) : self
     {
@@ -247,6 +267,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -266,6 +288,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -278,6 +302,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -299,10 +325,12 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -310,6 +338,8 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

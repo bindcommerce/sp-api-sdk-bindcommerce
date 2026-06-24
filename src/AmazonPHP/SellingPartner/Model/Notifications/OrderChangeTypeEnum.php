@@ -22,24 +22,30 @@ class OrderChangeTypeEnum
     /**
      * Possible values of this enum
      */
+    const BUYER_REQUESTED_CHANGE = 'BuyerRequestedChange';
+
+    const DELIVERY_TIP_CHANGE = 'DeliveryTipChange';
+
     const ORDER_STATUS_CHANGE = 'OrderStatusChange';
 
-    const BUYER_REQUESTED_CHANGE = 'BuyerRequestedChange';
+    private string $value;
 
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
-            self::ORDER_STATUS_CHANGE,
-            self::BUYER_REQUESTED_CHANGE
+            self::BUYER_REQUESTED_CHANGE,
+            self::DELIVERY_TIP_CHANGE,
+            self::ORDER_STATUS_CHANGE
         ];
     }
 
-    public function __construct(private readonly string $value)
+    public function __construct(string $value)
     {
+        $this->value = $value;
     }
 
     public function toString(): string

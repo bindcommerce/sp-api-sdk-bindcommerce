@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -204,6 +218,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets seller_sku
      *
      * @param string|null $seller_sku The seller SKU of the item.
+     *
+     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -226,6 +242,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the item.
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -248,6 +266,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets barcode_instruction
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\BarcodeInstruction|null $barcode_instruction barcode_instruction
+     *
+     * @return self
      */
     public function setBarcodeInstruction($barcode_instruction) : self
     {
@@ -270,6 +290,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets prep_guidance
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\PrepGuidance|null $prep_guidance prep_guidance
+     *
+     * @return self
      */
     public function setPrepGuidance($prep_guidance) : self
     {
@@ -292,6 +314,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets prep_instruction_list
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\PrepInstruction[]|null $prep_instruction_list A list of preparation instructions to help with item sourcing decisions.
+     *
+     * @return self
      */
     public function setPrepInstructionList($prep_instruction_list) : self
     {
@@ -314,6 +338,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets amazon_prep_fees_details_list
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\AmazonPrepFeesDetails[]|null $amazon_prep_fees_details_list A list of preparation instructions and fees for Amazon to prep goods for shipment.
+     *
+     * @return self
      */
     public function setAmazonPrepFeesDetailsList($amazon_prep_fees_details_list) : self
     {
@@ -323,6 +349,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -342,6 +370,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -354,6 +384,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -375,10 +407,12 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -386,6 +420,8 @@ class SKUPrepInstructions implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

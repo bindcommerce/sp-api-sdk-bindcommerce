@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -186,6 +198,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getReceiveStatusAllowableValues();
         if (!is_null($this->container['receive_status']) && !in_array($this->container['receive_status'], $allowedValues, true)) {
             throw new AssertionException(
@@ -218,6 +232,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
      * Sets receive_status
      *
      * @param string|null $receive_status Receive status of the line item.
+     *
+     * @return self
      */
     public function setReceiveStatus($receive_status) : self
     {
@@ -240,6 +256,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
      * Sets received_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity|null $received_quantity received_quantity
+     *
+     * @return self
      */
     public function setReceivedQuantity($received_quantity) : self
     {
@@ -262,6 +280,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
      * Sets last_receive_date
      *
      * @param \DateTimeInterface|null $last_receive_date The date when the most recent item was received at the buyer's warehouse. Must be in ISO-8601 date/time format.
+     *
+     * @return self
      */
     public function setLastReceiveDate($last_receive_date) : self
     {
@@ -271,6 +291,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -290,6 +312,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -302,6 +326,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,10 +349,12 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -334,6 +362,8 @@ class OrderItemStatusReceivingStatus implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

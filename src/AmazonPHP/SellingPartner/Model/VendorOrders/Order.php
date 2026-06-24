@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -186,6 +198,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['purchase_order_number'] === null) {
             throw new AssertionException("'purchase_order_number' can't be null");
         }
@@ -226,6 +240,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets purchase_order_number
      *
      * @param string $purchase_order_number The purchase order number for this order. Formatting Notes: 8-character alpha-numeric code.
+     *
+     * @return self
      */
     public function setPurchaseOrderNumber($purchase_order_number) : self
     {
@@ -248,6 +264,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets purchase_order_state
      *
      * @param string $purchase_order_state This field will contain the current state of the purchase order.
+     *
+     * @return self
      */
     public function setPurchaseOrderState($purchase_order_state) : self
     {
@@ -270,6 +288,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets order_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\OrderDetails|null $order_details order_details
+     *
+     * @return self
      */
     public function setOrderDetails($order_details) : self
     {
@@ -279,6 +299,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -298,6 +320,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -310,6 +334,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -331,10 +357,12 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -342,6 +370,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -182,6 +194,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['package_detail'] === null) {
             throw new AssertionException("'package_detail' can't be null");
         }
@@ -220,6 +234,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets package_detail
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\PackageDetail $package_detail package_detail
+     *
+     * @return self
      */
     public function setPackageDetail($package_detail) : self
     {
@@ -242,6 +258,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets cod_collection_method
      *
      * @param string|null $cod_collection_method The COD collection method (only supported in the JP marketplace).
+     *
+     * @return self
      */
     public function setCodCollectionMethod($cod_collection_method) : self
     {
@@ -264,6 +282,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets marketplace_id
      *
      * @param string $marketplace_id The unobfuscated marketplace identifier.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -273,6 +293,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -292,6 +314,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -304,6 +328,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -325,10 +351,12 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -336,6 +364,8 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

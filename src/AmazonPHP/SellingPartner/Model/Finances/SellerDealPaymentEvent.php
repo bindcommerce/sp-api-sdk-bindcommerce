@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,6 +70,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,6 +80,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -136,6 +140,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -144,6 +150,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -152,6 +160,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -160,6 +170,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -199,6 +211,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['fee_amount'] !== null) {
             $this->container['fee_amount']->validate();
             }
@@ -228,6 +242,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -250,6 +266,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets deal_id
      *
      * @param string|null $deal_id The unique identifier of the deal.
+     *
+     * @return self
      */
     public function setDealId($deal_id) : self
     {
@@ -272,6 +290,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets deal_description
      *
      * @param string|null $deal_description The internal description of the deal.
+     *
+     * @return self
      */
     public function setDealDescription($deal_description) : self
     {
@@ -294,6 +314,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets event_type
      *
      * @param string|null $event_type The type of event: `SellerDealComplete`.
+     *
+     * @return self
      */
     public function setEventType($event_type) : self
     {
@@ -316,6 +338,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets fee_type
      *
      * @param string|null $fee_type The type of fee: `RunLightningDealFee`.
+     *
+     * @return self
      */
     public function setFeeType($fee_type) : self
     {
@@ -338,6 +362,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets fee_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $fee_amount fee_amount
+     *
+     * @return self
      */
     public function setFeeAmount($fee_amount) : self
     {
@@ -360,6 +386,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets tax_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $tax_amount tax_amount
+     *
+     * @return self
      */
     public function setTaxAmount($tax_amount) : self
     {
@@ -382,6 +410,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets total_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $total_amount total_amount
+     *
+     * @return self
      */
     public function setTotalAmount($total_amount) : self
     {
@@ -391,6 +421,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -410,6 +442,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -422,6 +456,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -443,10 +479,12 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -454,6 +492,8 @@ class SellerDealPaymentEvent implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,6 +56,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +66,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -101,6 +105,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +115,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +125,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +135,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -157,7 +169,9 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
-        if (!is_null($this->container['service_job_provider_id']) && !preg_match("/^[A-Z0-9]*$/", (string) $this->container['service_job_provider_id'])) {
+        return;
+
+        if (!is_null($this->container['service_job_provider_id']) && !preg_match("/^[A-Z0-9]*$/", $this->container['service_job_provider_id'])) {
             throw new AssertionException("invalid value for 'service_job_provider_id', must be conform to the pattern /^[A-Z0-9]*$/.");
         }
 
@@ -178,6 +192,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets service_job_provider_id
      *
      * @param string|null $service_job_provider_id The identifier of the service job provider.
+     *
+     * @return self
      */
     public function setServiceJobProviderId($service_job_provider_id) : self
     {
@@ -187,6 +203,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -206,6 +224,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -218,6 +238,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -239,10 +261,12 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -250,6 +274,8 @@ class ServiceJobProvider implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

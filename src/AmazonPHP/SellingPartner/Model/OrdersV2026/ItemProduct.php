@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -193,6 +205,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['condition'] !== null) {
             $this->container['condition']->validate();
             }
@@ -222,6 +236,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN), which uniquely identifies a product (catalog item).
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -244,6 +260,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets title
      *
      * @param string|null $title The product name or title as displayed to customers in the marketplace.
+     *
+     * @return self
      */
     public function setTitle($title) : self
     {
@@ -266,6 +284,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets seller_sku
      *
      * @param string|null $seller_sku The seller SKU of a product (catalog item). This is a unique number assigned by the seller when listing an item.
+     *
+     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -288,6 +308,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets condition
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemCondition|null $condition condition
+     *
+     * @return self
      */
     public function setCondition($condition) : self
     {
@@ -310,6 +332,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets price
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemPrice|null $price price
+     *
+     * @return self
      */
     public function setPrice($price) : self
     {
@@ -332,6 +356,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets serial_numbers
      *
      * @param string[]|null $serial_numbers Unique serial numbers for products that require individual tracking, typically provided for FBA orders.
+     *
+     * @return self
      */
     public function setSerialNumbers($serial_numbers) : self
     {
@@ -354,6 +380,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets customization
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemCustomization|null $customization customization
+     *
+     * @return self
      */
     public function setCustomization($customization) : self
     {
@@ -363,6 +391,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -382,6 +412,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -394,6 +426,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -415,10 +449,12 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -426,6 +462,8 @@ class ItemProduct implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

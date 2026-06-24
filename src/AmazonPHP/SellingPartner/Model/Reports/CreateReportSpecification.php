@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['report_type'] === null) {
             throw new AssertionException("'report_type' can't be null");
         }
@@ -214,6 +228,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
      * Sets report_options
      *
      * @param array<string,string>|null $report_options Additional information passed to reports. This varies by report type.
+     *
+     * @return self
      */
     public function setReportOptions($report_options) : self
     {
@@ -236,6 +252,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
      * Sets report_type
      *
      * @param string $report_type The report type. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information.
+     *
+     * @return self
      */
     public function setReportType($report_type) : self
     {
@@ -258,6 +276,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
      * Sets data_start_time
      *
      * @param \DateTimeInterface|null $data_start_time The start of a date and time range, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format, used for selecting the data to report. The default is now. The value must be prior to or equal to the current date and time. Not all report types make use of this.
+     *
+     * @return self
      */
     public function setDataStartTime($data_start_time) : self
     {
@@ -280,6 +300,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
      * Sets data_end_time
      *
      * @param \DateTimeInterface|null $data_end_time The end of a date and time range, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format, used for selecting the data to report. The default is now. The value must be prior to or equal to the current date and time. Not all report types make use of this.
+     *
+     * @return self
      */
     public function setDataEndTime($data_end_time) : self
     {
@@ -302,6 +324,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
      * Sets marketplace_ids
      *
      * @param string[] $marketplace_ids A list of marketplace identifiers. The report document's contents will contain data for all of the specified marketplaces, unless the report type indicates otherwise.
+     *
+     * @return self
      */
     public function setMarketplaceIds($marketplace_ids) : self
     {
@@ -311,6 +335,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -330,6 +356,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -342,6 +370,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -363,10 +393,12 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -374,6 +406,8 @@ class CreateReportSpecification implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

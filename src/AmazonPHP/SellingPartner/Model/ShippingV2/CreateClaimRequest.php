@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['tracking_id'] === null) {
             throw new AssertionException("'tracking_id' can't be null");
         }
@@ -220,6 +234,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets tracking_id
      *
      * @param string $tracking_id The carrier generated identifier for a package in a purchased shipment.
+     *
+     * @return self
      */
     public function setTrackingId($tracking_id) : self
     {
@@ -242,6 +258,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets declared_value
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Currency|null $declared_value declared_value
+     *
+     * @return self
      */
     public function setDeclaredValue($declared_value) : self
     {
@@ -264,6 +282,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets claim_reason
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ClaimReason $claim_reason claim_reason
+     *
+     * @return self
      */
     public function setClaimReason($claim_reason) : self
     {
@@ -286,6 +306,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets is_replacement_package_sent
      *
      * @param bool|null $is_replacement_package_sent Applicable for only On Amazon shipments to identify if replacement was sent
+     *
+     * @return self
      */
     public function setIsReplacementPackageSent($is_replacement_package_sent) : self
     {
@@ -308,6 +330,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets proofs
      *
      * @param string[]|null $proofs A list of proof URLs for a claim. Basic URL validation will happen for each URLs present in the list
+     *
+     * @return self
      */
     public function setProofs($proofs) : self
     {
@@ -330,6 +354,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets settlement_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\SettlementType $settlement_type settlement_type
+     *
+     * @return self
      */
     public function setSettlementType($settlement_type) : self
     {
@@ -339,6 +365,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -358,6 +386,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -370,6 +400,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -391,10 +423,12 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -402,6 +436,8 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

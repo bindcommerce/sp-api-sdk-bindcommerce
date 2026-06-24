@@ -30,11 +30,13 @@ class DeliveryExperienceType
 
     const NO_TRACKING = 'NoTracking';
 
+    private string $value;
+
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
             self::DELIVERY_CONFIRMATION_WITH_ADULT_SIGNATURE,
@@ -44,8 +46,9 @@ class DeliveryExperienceType
         ];
     }
 
-    public function __construct(private readonly string $value)
+    public function __construct(string $value)
     {
+        $this->value = $value;
     }
 
     public function toString(): string

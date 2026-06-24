@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,15 +175,17 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['value'] === null) {
             throw new AssertionException("'value' can't be null");
         }
 
-        if ((mb_strlen((string) $this->container['value']) > 10000)) {
+        if ((mb_strlen($this->container['value']) > 10000)) {
             throw new AssertionException("invalid value for 'value', the character length must be smaller than or equal to 10000.");
         }
 
-        if ((mb_strlen((string) $this->container['value']) < 1)) {
+        if ((mb_strlen($this->container['value']) < 1)) {
             throw new AssertionException("invalid value for 'value', the character length must be bigger than or equal to 1.");
         }
 
@@ -192,6 +206,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets value
      *
      * @param string $value The actual plain text.
+     *
+     * @return self
      */
     public function setValue($value) : self
     {
@@ -214,6 +230,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets decorator_set
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\Decorator[]|null $decorator_set A set of content decorators.
+     *
+     * @return self
      */
     public function setDecoratorSet($decorator_set) : self
     {
@@ -223,6 +241,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -242,6 +262,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -254,6 +276,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -275,10 +299,12 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -286,6 +312,8 @@ class TextComponent implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

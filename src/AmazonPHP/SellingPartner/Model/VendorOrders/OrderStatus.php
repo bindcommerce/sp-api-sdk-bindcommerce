@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -208,6 +220,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['purchase_order_number'] === null) {
             throw new AssertionException("'purchase_order_number' can't be null");
         }
@@ -264,6 +278,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets purchase_order_number
      *
      * @param string $purchase_order_number The buyer's purchase order number for this order. Formatting Notes: 8-character alpha-numeric code.
+     *
+     * @return self
      */
     public function setPurchaseOrderNumber($purchase_order_number) : self
     {
@@ -286,6 +302,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets purchase_order_status
      *
      * @param string $purchase_order_status The status of the buyer's purchase order for this order.
+     *
+     * @return self
      */
     public function setPurchaseOrderStatus($purchase_order_status) : self
     {
@@ -308,6 +326,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets purchase_order_date
      *
      * @param \DateTimeInterface $purchase_order_date The date the purchase order was placed. Must be in ISO-8601 date/time format.
+     *
+     * @return self
      */
     public function setPurchaseOrderDate($purchase_order_date) : self
     {
@@ -330,6 +350,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets last_updated_date
      *
      * @param \DateTimeInterface|null $last_updated_date The date when the purchase order was last updated. Must be in ISO-8601 date/time format.
+     *
+     * @return self
      */
     public function setLastUpdatedDate($last_updated_date) : self
     {
@@ -352,6 +374,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets selling_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification $selling_party selling_party
+     *
+     * @return self
      */
     public function setSellingParty($selling_party) : self
     {
@@ -374,6 +398,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets ship_to_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\PartyIdentification $ship_to_party ship_to_party
+     *
+     * @return self
      */
     public function setShipToParty($ship_to_party) : self
     {
@@ -396,6 +422,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets item_status
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\OrderItemStatus[] $item_status Detailed description of items order status.
+     *
+     * @return self
      */
     public function setItemStatus($item_status) : self
     {
@@ -405,6 +433,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -424,6 +454,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -436,6 +468,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -457,10 +491,12 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -468,6 +504,8 @@ class OrderStatus implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

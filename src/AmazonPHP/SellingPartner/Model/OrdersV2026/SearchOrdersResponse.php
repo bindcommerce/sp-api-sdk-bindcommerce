@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['orders'] === null) {
             throw new AssertionException("'orders' can't be null");
         }
@@ -200,6 +214,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets orders
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Order[] $orders An array containing all orders that match the search criteria.
+     *
+     * @return self
      */
     public function setOrders($orders) : self
     {
@@ -222,6 +238,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets pagination
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Pagination|null $pagination pagination
+     *
+     * @return self
      */
     public function setPagination($pagination) : self
     {
@@ -243,7 +261,9 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets last_updated_before
      *
-     * @param \DateTimeInterface|null $last_updated_before Only orders updated before the specified time are returned. The date must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format.
+     * @param \DateTimeInterface|null $last_updated_before Only orders updated before the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
+     *
+     * @return self
      */
     public function setLastUpdatedBefore($last_updated_before) : self
     {
@@ -265,7 +285,9 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets created_before
      *
-     * @param \DateTimeInterface|null $created_before Only orders placed before the specified time are returned. The date must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format.
+     * @param \DateTimeInterface|null $created_before Only orders placed before the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
+     *
+     * @return self
      */
     public function setCreatedBefore($created_before) : self
     {
@@ -275,6 +297,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -294,6 +318,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -306,6 +332,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -327,10 +355,12 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -338,6 +368,8 @@ class SearchOrdersResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

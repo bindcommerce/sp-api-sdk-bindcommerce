@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['shipment_weight'] !== null) {
             $this->container['shipment_weight']->validate();
             }
@@ -206,6 +220,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
      * Sets total_carton_count
      *
      * @param int|null $total_carton_count Total number of cartons present in the shipment. Provide the cartonCount only for non-palletized shipments.
+     *
+     * @return self
      */
     public function setTotalCartonCount($total_carton_count) : self
     {
@@ -228,6 +244,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
      * Sets total_pallet_stackable
      *
      * @param int|null $total_pallet_stackable Total number of Stackable Pallets present in the shipment.
+     *
+     * @return self
      */
     public function setTotalPalletStackable($total_pallet_stackable) : self
     {
@@ -250,6 +268,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
      * Sets total_pallet_non_stackable
      *
      * @param int|null $total_pallet_non_stackable Total number of Non Stackable Pallets present in the shipment.
+     *
+     * @return self
      */
     public function setTotalPalletNonStackable($total_pallet_non_stackable) : self
     {
@@ -272,6 +292,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
      * Sets shipment_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Weight|null $shipment_weight shipment_weight
+     *
+     * @return self
      */
     public function setShipmentWeight($shipment_weight) : self
     {
@@ -294,6 +316,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
      * Sets shipment_volume
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Volume|null $shipment_volume shipment_volume
+     *
+     * @return self
      */
     public function setShipmentVolume($shipment_volume) : self
     {
@@ -303,6 +327,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -322,6 +348,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -334,6 +362,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -355,10 +385,12 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -366,6 +398,8 @@ class TransportShipmentMeasurements implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

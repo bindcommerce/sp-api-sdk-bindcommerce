@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -192,6 +204,7 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
     const INELIGIBILITY_REASON_LIST_FBA_INB_0104 = 'FBA_INB_0104';
     const INELIGIBILITY_REASON_LIST_FBA_INB_0197 = 'FBA_INB_0197';
     const INELIGIBILITY_REASON_LIST_FBA_INB_0342 = 'FBA_INB_0342';
+    const INELIGIBILITY_REASON_LIST_FBA_INB_0465 = 'FBA_INB_0465';
     const INELIGIBILITY_REASON_LIST_UNKNOWN_INB_ERROR_CODE = 'UNKNOWN_INB_ERROR_CODE';
 
     /**
@@ -254,6 +267,7 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
             self::INELIGIBILITY_REASON_LIST_FBA_INB_0104,
             self::INELIGIBILITY_REASON_LIST_FBA_INB_0197,
             self::INELIGIBILITY_REASON_LIST_FBA_INB_0342,
+            self::INELIGIBILITY_REASON_LIST_FBA_INB_0465,
             self::INELIGIBILITY_REASON_LIST_UNKNOWN_INB_ERROR_CODE,
         ];
     }
@@ -287,6 +301,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['asin'] === null) {
             throw new AssertionException("'asin' can't be null");
         }
@@ -327,6 +343,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets asin
      *
      * @param string $asin The ASIN for which eligibility was determined.
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -349,6 +367,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets marketplace_id
      *
      * @param string|null $marketplace_id The marketplace for which eligibility was determined.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -371,6 +391,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets program
      *
      * @param string $program The program for which eligibility was determined.
+     *
+     * @return self
      */
     public function setProgram($program) : self
     {
@@ -393,6 +415,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets is_eligible_for_program
      *
      * @param bool $is_eligible_for_program Indicates if the item is eligible for the program.
+     *
+     * @return self
      */
     public function setIsEligibleForProgram($is_eligible_for_program) : self
     {
@@ -415,6 +439,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets ineligibility_reason_list
      *
      * @param string[]|null $ineligibility_reason_list Potential Ineligibility Reason Codes.
+     *
+     * @return self
      */
     public function setIneligibilityReasonList($ineligibility_reason_list) : self
     {
@@ -424,6 +450,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -443,6 +471,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -455,6 +485,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -476,10 +508,12 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -487,6 +521,8 @@ class ItemEligibilityPreview implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

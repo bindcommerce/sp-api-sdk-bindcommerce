@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,6 +70,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,6 +80,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -136,6 +140,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -144,6 +150,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -152,6 +160,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -160,6 +170,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -199,6 +211,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -216,6 +230,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets description_localization_key
      *
      * @param string|null $description_localization_key descriptionLocalizationKey value .
+     *
+     * @return self
      */
     public function setDescriptionLocalizationKey($description_localization_key) : self
     {
@@ -238,6 +254,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets name
      *
      * @param string|null $name name value .
+     *
+     * @return self
      */
     public function setName($name) : self
     {
@@ -260,6 +278,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets group_name
      *
      * @param string|null $group_name groupName value .
+     *
+     * @return self
      */
     public function setGroupName($group_name) : self
     {
@@ -282,6 +302,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets input_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\InputType|null $input_type input_type
+     *
+     * @return self
      */
     public function setInputType($input_type) : self
     {
@@ -304,6 +326,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets is_mandatory
      *
      * @param bool|null $is_mandatory mandatory or not  value .
+     *
+     * @return self
      */
     public function setIsMandatory($is_mandatory) : self
     {
@@ -326,6 +350,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets is_confidential
      *
      * @param bool|null $is_confidential is value is Confidential .
+     *
+     * @return self
      */
     public function setIsConfidential($is_confidential) : self
     {
@@ -348,6 +374,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets is_hidden
      *
      * @param bool|null $is_hidden is value is hidden .
+     *
+     * @return self
      */
     public function setIsHidden($is_hidden) : self
     {
@@ -370,6 +398,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets validation_metadata
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ValidationMetadata[]|null $validation_metadata A list of ValidationMetadata
+     *
+     * @return self
      */
     public function setValidationMetadata($validation_metadata) : self
     {
@@ -379,6 +409,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -398,6 +430,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -410,6 +444,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -431,10 +467,12 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -442,6 +480,8 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

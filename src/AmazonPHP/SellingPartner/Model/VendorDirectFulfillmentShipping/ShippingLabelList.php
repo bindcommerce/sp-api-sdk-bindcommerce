@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['pagination'] !== null) {
             $this->container['pagination']->validate();
             }
@@ -184,6 +198,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets pagination
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\Pagination|null $pagination pagination
+     *
+     * @return self
      */
     public function setPagination($pagination) : self
     {
@@ -206,6 +222,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Sets shipping_labels
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\ShippingLabel[]|null $shipping_labels An array containing the details of the generated shipping labels.
+     *
+     * @return self
      */
     public function setShippingLabels($shipping_labels) : self
     {
@@ -215,6 +233,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -234,6 +254,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -246,6 +268,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -267,10 +291,12 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -278,6 +304,8 @@ class ShippingLabelList implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

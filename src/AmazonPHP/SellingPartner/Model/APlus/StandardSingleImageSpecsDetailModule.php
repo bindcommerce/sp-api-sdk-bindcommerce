@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,6 +70,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,6 +80,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -136,6 +140,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -144,6 +150,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -152,6 +160,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -160,6 +170,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -199,6 +211,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['headline'] !== null) {
             $this->container['headline']->validate();
             }
@@ -248,6 +262,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
      * Sets headline
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\TextComponent|null $headline headline
+     *
+     * @return self
      */
     public function setHeadline($headline) : self
     {
@@ -270,6 +286,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
      * Sets image
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ImageComponent|null $image image
+     *
+     * @return self
      */
     public function setImage($image) : self
     {
@@ -292,6 +310,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
      * Sets description_headline
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\TextComponent|null $description_headline description_headline
+     *
+     * @return self
      */
     public function setDescriptionHeadline($description_headline) : self
     {
@@ -314,6 +334,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
      * Sets description_block1
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock|null $description_block1 description_block1
+     *
+     * @return self
      */
     public function setDescriptionBlock1($description_block1) : self
     {
@@ -336,6 +358,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
      * Sets description_block2
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock|null $description_block2 description_block2
+     *
+     * @return self
      */
     public function setDescriptionBlock2($description_block2) : self
     {
@@ -358,6 +382,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
      * Sets specification_headline
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\TextComponent|null $specification_headline specification_headline
+     *
+     * @return self
      */
     public function setSpecificationHeadline($specification_headline) : self
     {
@@ -380,6 +406,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
      * Sets specification_list_block
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardHeaderTextListBlock|null $specification_list_block specification_list_block
+     *
+     * @return self
      */
     public function setSpecificationListBlock($specification_list_block) : self
     {
@@ -402,6 +430,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
      * Sets specification_text_block
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock|null $specification_text_block specification_text_block
+     *
+     * @return self
      */
     public function setSpecificationTextBlock($specification_text_block) : self
     {
@@ -411,6 +441,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -430,6 +462,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -442,6 +476,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -463,10 +499,12 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -474,6 +512,8 @@ class StandardSingleImageSpecsDetailModule implements ModelInterface, ArrayAcces
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

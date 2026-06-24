@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -192,6 +206,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets sku_prep_instructions_list
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\SKUPrepInstructions[]|null $sku_prep_instructions_list A list of SKU labeling requirements and item preparation instructions.
+     *
+     * @return self
      */
     public function setSkuPrepInstructionsList($sku_prep_instructions_list) : self
     {
@@ -214,6 +230,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets invalid_sku_list
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InvalidSKU[]|null $invalid_sku_list A list of invalid SKU values and the reason they are invalid.
+     *
+     * @return self
      */
     public function setInvalidSkuList($invalid_sku_list) : self
     {
@@ -236,6 +254,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets asin_prep_instructions_list
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\ASINPrepInstructions[]|null $asin_prep_instructions_list A list of item preparation instructions.
+     *
+     * @return self
      */
     public function setAsinPrepInstructionsList($asin_prep_instructions_list) : self
     {
@@ -258,6 +278,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
      * Sets invalid_asin_list
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\InvalidASIN[]|null $invalid_asin_list A list of invalid ASIN values and the reasons they are invalid.
+     *
+     * @return self
      */
     public function setInvalidAsinList($invalid_asin_list) : self
     {
@@ -267,6 +289,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,6 +310,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -298,6 +324,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,10 +347,12 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -330,6 +360,8 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

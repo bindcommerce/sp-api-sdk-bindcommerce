@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,6 +70,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,6 +80,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -136,6 +140,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -144,6 +150,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -152,6 +160,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -160,6 +170,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -199,6 +211,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['seller_sku'] === null) {
             throw new AssertionException("'seller_sku' can't be null");
         }
@@ -224,6 +238,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets shipment_id
      *
      * @param string|null $shipment_id A shipment identifier originally returned by the createInboundShipmentPlan operation.
+     *
+     * @return self
      */
     public function setShipmentId($shipment_id) : self
     {
@@ -246,6 +262,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets seller_sku
      *
      * @param string $seller_sku The seller SKU of the item.
+     *
+     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -268,6 +286,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets fulfillment_network_sku
      *
      * @param string|null $fulfillment_network_sku Amazon's fulfillment network SKU of the item.
+     *
+     * @return self
      */
     public function setFulfillmentNetworkSku($fulfillment_network_sku) : self
     {
@@ -290,6 +310,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets quantity_shipped
      *
      * @param int $quantity_shipped The item quantity.
+     *
+     * @return self
      */
     public function setQuantityShipped($quantity_shipped) : self
     {
@@ -312,6 +334,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets quantity_received
      *
      * @param int|null $quantity_received The item quantity.
+     *
+     * @return self
      */
     public function setQuantityReceived($quantity_received) : self
     {
@@ -334,6 +358,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets quantity_in_case
      *
      * @param int|null $quantity_in_case The item quantity.
+     *
+     * @return self
      */
     public function setQuantityInCase($quantity_in_case) : self
     {
@@ -356,6 +382,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets release_date
      *
      * @param \DateTimeInterface|null $release_date Type containing date in string format
+     *
+     * @return self
      */
     public function setReleaseDate($release_date) : self
     {
@@ -378,6 +406,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets prep_details_list
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentInbound\PrepDetails[]|null $prep_details_list A list of preparation instructions and who is responsible for that preparation.
+     *
+     * @return self
      */
     public function setPrepDetailsList($prep_details_list) : self
     {
@@ -387,6 +417,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -406,6 +438,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -418,6 +452,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -439,10 +475,12 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -450,6 +488,8 @@ class InboundShipmentItem implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

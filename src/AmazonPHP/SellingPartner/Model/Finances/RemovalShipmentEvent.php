@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -204,6 +218,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -226,6 +242,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets merchant_order_id
      *
      * @param string|null $merchant_order_id The merchant removal `orderId`.
+     *
+     * @return self
      */
     public function setMerchantOrderId($merchant_order_id) : self
     {
@@ -248,6 +266,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets order_id
      *
      * @param string|null $order_id The identifier for the removal shipment order.
+     *
+     * @return self
      */
     public function setOrderId($order_id) : self
     {
@@ -270,6 +290,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets transaction_type
      *
      * @param string|null $transaction_type The type of removal order.  Possible values:  * `WHOLESALE_LIQUIDATION`
+     *
+     * @return self
      */
     public function setTransactionType($transaction_type) : self
     {
@@ -292,6 +314,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets store_name
      *
      * @param string|null $store_name The name of the store where the event occurred.
+     *
+     * @return self
      */
     public function setStoreName($store_name) : self
     {
@@ -314,6 +338,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets removal_shipment_item_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\RemovalShipmentItem[]|null $removal_shipment_item_list A list of `RemovalShipmentItem`.
+     *
+     * @return self
      */
     public function setRemovalShipmentItemList($removal_shipment_item_list) : self
     {
@@ -323,6 +349,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -342,6 +370,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -354,6 +384,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -375,10 +407,12 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -386,6 +420,8 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

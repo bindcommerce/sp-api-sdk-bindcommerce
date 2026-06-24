@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['available_carrier_will_pick_up_options'] === null) {
             throw new AssertionException("'available_carrier_will_pick_up_options' can't be null");
         }
@@ -188,6 +202,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
      * Sets available_carrier_will_pick_up_options
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\AvailableCarrierWillPickUpOption[] $available_carrier_will_pick_up_options List of available carrier pickup options.
+     *
+     * @return self
      */
     public function setAvailableCarrierWillPickUpOptions($available_carrier_will_pick_up_options) : self
     {
@@ -210,6 +226,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
      * Sets available_delivery_experience_options
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\AvailableDeliveryExperienceOption[] $available_delivery_experience_options List of available delivery experience options.
+     *
+     * @return self
      */
     public function setAvailableDeliveryExperienceOptions($available_delivery_experience_options) : self
     {
@@ -219,6 +237,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -238,6 +258,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -250,6 +272,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -271,10 +295,12 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -282,6 +308,8 @@ class AvailableShippingServiceOptions implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

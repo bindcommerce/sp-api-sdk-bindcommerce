@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -229,11 +241,13 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
-        if (!is_null($this->container['united_nations_regulatory_id']) && !preg_match("/^(UN|ID|NA)[0-9]{4}$/", (string) $this->container['united_nations_regulatory_id'])) {
+        return;
+
+        if (!is_null($this->container['united_nations_regulatory_id']) && !preg_match("/^(UN|ID|NA)[0-9]{4}$/", $this->container['united_nations_regulatory_id'])) {
             throw new AssertionException("invalid value for 'united_nations_regulatory_id', must be conform to the pattern /^(UN|ID|NA)[0-9]{4}$/.");
         }
 
-        if (!is_null($this->container['transportation_regulatory_class']) && !preg_match("/^[1-9](\\.[1-9])?$/", (string) $this->container['transportation_regulatory_class'])) {
+        if (!is_null($this->container['transportation_regulatory_class']) && !preg_match("/^[1-9](\\.[1-9])?$/", $this->container['transportation_regulatory_class'])) {
             throw new AssertionException("invalid value for 'transportation_regulatory_class', must be conform to the pattern /^[1-9](\\.[1-9])?$/.");
         }
 
@@ -276,6 +290,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets united_nations_regulatory_id
      *
      * @param string|null $united_nations_regulatory_id The specific UNID of the item being shipped.
+     *
+     * @return self
      */
     public function setUnitedNationsRegulatoryId($united_nations_regulatory_id) : self
     {
@@ -298,6 +314,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets transportation_regulatory_class
      *
      * @param string|null $transportation_regulatory_class The specific regulatory class  of the item being shipped.
+     *
+     * @return self
      */
     public function setTransportationRegulatoryClass($transportation_regulatory_class) : self
     {
@@ -320,6 +338,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets packing_group
      *
      * @param string|null $packing_group The specific packaging group of the item being shipped.
+     *
+     * @return self
      */
     public function setPackingGroup($packing_group) : self
     {
@@ -342,6 +362,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets packing_instruction
      *
      * @param string|null $packing_instruction The specific packing instruction of the item being shipped.
+     *
+     * @return self
      */
     public function setPackingInstruction($packing_instruction) : self
     {
@@ -351,6 +373,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -370,6 +394,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -382,6 +408,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -403,10 +431,12 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -414,6 +444,8 @@ class DangerousGoodsDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

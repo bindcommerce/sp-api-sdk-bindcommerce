@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -78,6 +78,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -86,6 +88,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -156,6 +160,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -164,6 +170,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -172,6 +180,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -180,6 +190,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -223,11 +235,13 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      */
     public function validate() : void
     {
-        if (!is_null($this->container['displayable_order_id']) && (mb_strlen((string) $this->container['displayable_order_id']) > 40)) {
+        return;
+
+        if (!is_null($this->container['displayable_order_id']) && (mb_strlen($this->container['displayable_order_id']) > 40)) {
             throw new AssertionException("invalid value for 'displayable_order_id', the character length must be smaller than or equal to 40.");
         }
 
-        if (!is_null($this->container['displayable_order_comment']) && (mb_strlen((string) $this->container['displayable_order_comment']) > 750)) {
+        if (!is_null($this->container['displayable_order_comment']) && (mb_strlen($this->container['displayable_order_comment']) > 750)) {
             throw new AssertionException("invalid value for 'displayable_order_comment', the character length must be smaller than or equal to 750.");
         }
 
@@ -252,6 +266,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets marketplace_id
      *
      * @param string|null $marketplace_id The marketplace the fulfillment order is placed against.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -274,6 +290,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets displayable_order_id
      *
      * @param string|null $displayable_order_id A fulfillment order identifier that the seller creates. This value displays as the order identifier in recipient-facing materials such as the outbound shipment packing slip. The value of `DisplayableOrderId` should match the order identifier that the seller provides to the recipient. The seller can use the `SellerFulfillmentOrderId` for this value or they can specify an alternate value if they want the recipient to reference an alternate order identifier.
+     *
+     * @return self
      */
     public function setDisplayableOrderId($displayable_order_id) : self
     {
@@ -296,6 +314,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets displayable_order_date
      *
      * @param \DateTimeInterface|null $displayable_order_date Date timestamp
+     *
+     * @return self
      */
     public function setDisplayableOrderDate($displayable_order_date) : self
     {
@@ -318,6 +338,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets displayable_order_comment
      *
      * @param string|null $displayable_order_comment Order-specific text that appears in recipient-facing materials such as the outbound shipment packing slip.
+     *
+     * @return self
      */
     public function setDisplayableOrderComment($displayable_order_comment) : self
     {
@@ -340,6 +362,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets shipping_speed_category
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ShippingSpeedCategory|null $shipping_speed_category shipping_speed_category
+     *
+     * @return self
      */
     public function setShippingSpeedCategory($shipping_speed_category) : self
     {
@@ -362,6 +386,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets destination_address
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Address|null $destination_address destination_address
+     *
+     * @return self
      */
     public function setDestinationAddress($destination_address) : self
     {
@@ -384,6 +410,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets fulfillment_action
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentAction|null $fulfillment_action fulfillment_action
+     *
+     * @return self
      */
     public function setFulfillmentAction($fulfillment_action) : self
     {
@@ -406,6 +434,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets fulfillment_policy
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentPolicy|null $fulfillment_policy fulfillment_policy
+     *
+     * @return self
      */
     public function setFulfillmentPolicy($fulfillment_policy) : self
     {
@@ -428,6 +458,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets ship_from_country_code
      *
      * @param string|null $ship_from_country_code The two-character country code for the country from which the fulfillment order ships. Must be in ISO 3166-1 alpha-2 format.
+     *
+     * @return self
      */
     public function setShipFromCountryCode($ship_from_country_code) : self
     {
@@ -450,6 +482,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets notification_emails
      *
      * @param string[]|null $notification_emails A list of email addresses that the seller provides that are used by Amazon to send ship-complete notifications to recipients on behalf of the seller.
+     *
+     * @return self
      */
     public function setNotificationEmails($notification_emails) : self
     {
@@ -472,6 +506,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets feature_constraints
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FeatureSettings[]|null $feature_constraints A list of features and their fulfillment policies to apply to the order.
+     *
+     * @return self
      */
     public function setFeatureConstraints($feature_constraints) : self
     {
@@ -494,6 +530,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\UpdateFulfillmentOrderItem[]|null $items An array of fulfillment order item information for updating a fulfillment order.
+     *
+     * @return self
      */
     public function setItems($items) : self
     {
@@ -503,6 +541,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -522,6 +562,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -534,6 +576,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -555,10 +599,12 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -566,6 +612,8 @@ class UpdateFulfillmentOrderRequest implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

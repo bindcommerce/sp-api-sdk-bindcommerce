@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -237,6 +249,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getMethodOfPaymentAllowableValues();
         if (!is_null($this->container['method_of_payment']) && !in_array($this->container['method_of_payment'], $allowedValues, true)) {
             throw new AssertionException(
@@ -259,11 +273,11 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
             );
         }
 
-        if (!is_null($this->container['port_of_delivery']) && (mb_strlen((string) $this->container['port_of_delivery']) > 64)) {
+        if (!is_null($this->container['port_of_delivery']) && (mb_strlen($this->container['port_of_delivery']) > 64)) {
             throw new AssertionException("invalid value for 'port_of_delivery', the character length must be smaller than or equal to 64.");
         }
 
-        if (!is_null($this->container['import_containers']) && (mb_strlen((string) $this->container['import_containers']) > 64)) {
+        if (!is_null($this->container['import_containers']) && (mb_strlen($this->container['import_containers']) > 64)) {
             throw new AssertionException("invalid value for 'import_containers', the character length must be smaller than or equal to 64.");
         }
 
@@ -284,6 +298,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets method_of_payment
      *
      * @param string|null $method_of_payment If the recipient requests, contains the shipment method of payment. This is for import PO's only.
+     *
+     * @return self
      */
     public function setMethodOfPayment($method_of_payment) : self
     {
@@ -306,6 +322,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets international_commercial_terms
      *
      * @param string|null $international_commercial_terms Incoterms (International Commercial Terms) are used to divide transaction costs and responsibilities between buyer and seller and reflect state-of-the-art transportation practices. This is for import purchase orders only.
+     *
+     * @return self
      */
     public function setInternationalCommercialTerms($international_commercial_terms) : self
     {
@@ -328,6 +346,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets port_of_delivery
      *
      * @param string|null $port_of_delivery The port where goods on an import purchase order must be delivered by the vendor. This should only be specified when the internationalCommercialTerms is FOB.
+     *
+     * @return self
      */
     public function setPortOfDelivery($port_of_delivery) : self
     {
@@ -350,6 +370,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets import_containers
      *
      * @param string|null $import_containers Types and numbers of container(s) for import purchase orders. Can be a comma-separated list if the shipment has multiple containers. HC signifies a high-capacity container. Free-text field, limited to 64 characters. The format will be a comma-delimited list containing values of the type: $NUMBER_OF_CONTAINERS_OF_THIS_TYPE-$CONTAINER_TYPE. The list of values for the container type is: 40'(40-foot container), 40'HC (40-foot high-capacity container), 45', 45'HC, 30', 30'HC, 20', 20'HC.
+     *
+     * @return self
      */
     public function setImportContainers($import_containers) : self
     {
@@ -372,6 +394,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets shipping_instructions
      *
      * @param string|null $shipping_instructions Special instructions regarding the shipment. This field is for import purchase orders.
+     *
+     * @return self
      */
     public function setShippingInstructions($shipping_instructions) : self
     {
@@ -381,6 +405,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -400,6 +426,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -412,6 +440,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -433,10 +463,12 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -444,6 +476,8 @@ class ImportDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

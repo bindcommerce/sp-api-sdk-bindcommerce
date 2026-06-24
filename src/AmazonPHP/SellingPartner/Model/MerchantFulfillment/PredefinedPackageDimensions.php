@@ -122,11 +122,13 @@ class PredefinedPackageDimensions
 
     const USPS_SMALL_FLAT_RATE_ENVELOPE = 'USPS_SmallFlatRateEnvelope';
 
+    private string $value;
+
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
             self::FED_EX_BOX_10KG,
@@ -182,8 +184,9 @@ class PredefinedPackageDimensions
         ];
     }
 
-    public function __construct(private readonly string $value)
+    public function __construct(string $value)
     {
+        $this->value = $value;
     }
 
     public function toString(): string

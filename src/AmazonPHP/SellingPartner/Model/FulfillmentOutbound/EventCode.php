@@ -88,11 +88,17 @@ class EventCode
 
     const EVENT_419 = 'EVENT_419';
 
+    const EVENT_801 = 'EVENT_801';
+
+    const EVENT_804 = 'EVENT_804';
+
+    private string $value;
+
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
             self::EVENT_101,
@@ -127,12 +133,15 @@ class EventCode
             self::EVENT_416,
             self::EVENT_417,
             self::EVENT_418,
-            self::EVENT_419
+            self::EVENT_419,
+            self::EVENT_801,
+            self::EVENT_804
         ];
     }
 
-    public function __construct(private readonly string $value)
+    public function __construct(string $value)
     {
+        $this->value = $value;
     }
 
     public function toString(): string

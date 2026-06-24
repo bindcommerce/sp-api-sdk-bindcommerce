@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace'] === null) {
             throw new AssertionException("'marketplace' can't be null");
         }
@@ -202,6 +216,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets marketplace
      *
      * @param \AmazonPHP\SellingPartner\Model\Sellers\Marketplace $marketplace marketplace
+     *
+     * @return self
      */
     public function setMarketplace($marketplace) : self
     {
@@ -224,6 +240,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets participation
      *
      * @param \AmazonPHP\SellingPartner\Model\Sellers\Participation $participation participation
+     *
+     * @return self
      */
     public function setParticipation($participation) : self
     {
@@ -246,6 +264,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets store_name
      *
      * @param string $store_name The name of the seller's store as displayed in the marketplace.
+     *
+     * @return self
      */
     public function setStoreName($store_name) : self
     {
@@ -255,6 +275,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -274,6 +296,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -286,6 +310,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -307,10 +333,12 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -318,6 +346,8 @@ class MarketplaceParticipation implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

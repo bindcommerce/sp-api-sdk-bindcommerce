@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['content'] === null) {
             throw new AssertionException("'content' can't be null");
         }
@@ -202,6 +216,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets package_identifier
      *
      * @param string|null $package_identifier Identifier for the package. The first package will be 001, the second 002, and so on. This number is used as a reference to refer to this package from the pallet level.
+     *
+     * @return self
      */
     public function setPackageIdentifier($package_identifier) : self
     {
@@ -224,6 +240,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets tracking_number
      *
      * @param string|null $tracking_number Package tracking identifier from the shipping carrier.
+     *
+     * @return self
      */
     public function setTrackingNumber($tracking_number) : self
     {
@@ -246,6 +264,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets ship_method
      *
      * @param string|null $ship_method Ship method to be used for shipping the order. Amazon defines Ship Method Codes indicating shipping carrier and shipment service level. Ship Method Codes are case and format sensitive. The same ship method code should returned on the shipment confirmation. Note that the Ship Method Codes are vendor specific and will be provided to each vendor during the implementation.
+     *
+     * @return self
      */
     public function setShipMethod($ship_method) : self
     {
@@ -268,6 +288,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets ship_method_name
      *
      * @param string|null $ship_method_name Shipping method name for internal reference.
+     *
+     * @return self
      */
     public function setShipMethodName($ship_method_name) : self
     {
@@ -290,6 +312,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets content
      *
      * @param string $content This field will contain the Base64 string of the shipment label content.
+     *
+     * @return self
      */
     public function setContent($content) : self
     {
@@ -299,6 +323,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -318,6 +344,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -330,6 +358,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -351,10 +381,12 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -362,6 +394,8 @@ class LabelData implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

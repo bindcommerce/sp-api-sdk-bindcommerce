@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,6 +70,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,6 +80,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -136,6 +140,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -144,6 +150,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -152,6 +160,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -160,6 +170,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -199,6 +211,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['postal_code'] === null) {
             throw new AssertionException("'postal_code' can't be null");
         }
@@ -207,11 +221,11 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
             throw new AssertionException("'country_code' can't be null");
         }
 
-        if ((mb_strlen((string) $this->container['country_code']) > 2)) {
+        if ((mb_strlen($this->container['country_code']) > 2)) {
             throw new AssertionException("invalid value for 'country_code', the character length must be smaller than or equal to 2.");
         }
 
-        if ((mb_strlen((string) $this->container['country_code']) < 2)) {
+        if ((mb_strlen($this->container['country_code']) < 2)) {
             throw new AssertionException("invalid value for 'country_code', the character length must be bigger than or equal to 2.");
         }
 
@@ -232,6 +246,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets address_line1
      *
      * @param string|null $address_line1 The first line of the address.
+     *
+     * @return self
      */
     public function setAddressLine1($address_line1) : self
     {
@@ -254,6 +270,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets address_line2
      *
      * @param string|null $address_line2 Additional address information, if required.
+     *
+     * @return self
      */
     public function setAddressLine2($address_line2) : self
     {
@@ -276,6 +294,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets address_line3
      *
      * @param string|null $address_line3 Additional address information, if required.
+     *
+     * @return self
      */
     public function setAddressLine3($address_line3) : self
     {
@@ -298,6 +318,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets city
      *
      * @param string|null $city The city where the person, business, or institution is located. This property should not be used in Japan.
+     *
+     * @return self
      */
     public function setCity($city) : self
     {
@@ -320,6 +342,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets district_or_county
      *
      * @param string|null $district_or_county The district or county where the person, business, or institution is located.
+     *
+     * @return self
      */
     public function setDistrictOrCounty($district_or_county) : self
     {
@@ -342,6 +366,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets state_or_region
      *
      * @param string|null $state_or_region The state or region where the person, business or institution is located.
+     *
+     * @return self
      */
     public function setStateOrRegion($state_or_region) : self
     {
@@ -364,6 +390,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets postal_code
      *
      * @param string $postal_code The postal code of the address.
+     *
+     * @return self
      */
     public function setPostalCode($postal_code) : self
     {
@@ -386,6 +414,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets country_code
      *
      * @param string $country_code The two digit country code. In ISO 3166-1 alpha-2 format.
+     *
+     * @return self
      */
     public function setCountryCode($country_code) : self
     {
@@ -395,6 +425,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -414,6 +446,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -426,6 +460,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -447,10 +483,12 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -458,6 +496,8 @@ class VariablePrecisionAddress implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

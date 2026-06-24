@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -184,6 +196,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['width'] === null) {
             throw new AssertionException("'width' can't be null");
         }
@@ -224,6 +238,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets width
      *
      * @param float $width The width of the document measured in the units specified.
+     *
+     * @return self
      */
     public function setWidth($width) : self
     {
@@ -246,6 +262,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets length
      *
      * @param float $length The length of the document measured in the units specified.
+     *
+     * @return self
      */
     public function setLength($length) : self
     {
@@ -268,6 +286,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets unit
      *
      * @param string $unit The unit of measurement.
+     *
+     * @return self
      */
     public function setUnit($unit) : self
     {
@@ -277,6 +297,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -296,6 +318,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -308,6 +332,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -329,10 +355,12 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -340,6 +368,8 @@ class DocumentSize implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

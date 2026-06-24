@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['request_token'] === null) {
             throw new AssertionException("'request_token' can't be null");
         }
@@ -212,6 +226,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets request_token
      *
      * @param string $request_token A unique token generated to identify a getRates operation.
+     *
+     * @return self
      */
     public function setRequestToken($request_token) : self
     {
@@ -234,6 +250,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets rate_id
      *
      * @param string $rate_id An identifier for the rate (shipment offering) provided by a shipping service provider.
+     *
+     * @return self
      */
     public function setRateId($rate_id) : self
     {
@@ -256,6 +274,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets requested_document_specification
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\RequestedDocumentSpecification $requested_document_specification requested_document_specification
+     *
+     * @return self
      */
     public function setRequestedDocumentSpecification($requested_document_specification) : self
     {
@@ -278,6 +298,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets requested_value_added_services
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\RequestedValueAddedService[]|null $requested_value_added_services The value-added services to be added to a shipping service purchase.
+     *
+     * @return self
      */
     public function setRequestedValueAddedServices($requested_value_added_services) : self
     {
@@ -300,6 +322,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets additional_inputs
      *
      * @param array<string,object>|null $additional_inputs The additional inputs required to purchase a shipping offering, in JSON format. The JSON provided here must adhere to the JSON schema that is returned in the response to the getAdditionalInputs operation.  Additional inputs are only required when indicated by the requiresAdditionalInputs property in the response to the getRates operation.
+     *
+     * @return self
      */
     public function setAdditionalInputs($additional_inputs) : self
     {
@@ -309,6 +333,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -328,6 +354,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -340,6 +368,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -361,10 +391,12 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -372,6 +404,8 @@ class PurchaseShipmentRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

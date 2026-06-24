@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Account implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -223,6 +235,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace_participation_list'] === null) {
             throw new AssertionException("'marketplace_participation_list' can't be null");
         }
@@ -282,6 +296,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets marketplace_participation_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Sellers\MarketplaceParticipation[] $marketplace_participation_list List of marketplace participations.
+     *
+     * @return self
      */
     public function setMarketplaceParticipationList($marketplace_participation_list) : self
     {
@@ -304,6 +320,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets business_type
      *
      * @param string $business_type The type of business registered for the seller account.
+     *
+     * @return self
      */
     public function setBusinessType($business_type) : self
     {
@@ -326,6 +344,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets selling_plan
      *
      * @param string $selling_plan The selling plan details.
+     *
+     * @return self
      */
     public function setSellingPlan($selling_plan) : self
     {
@@ -348,6 +368,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets business
      *
      * @param \AmazonPHP\SellingPartner\Model\Sellers\Business|null $business business
+     *
+     * @return self
      */
     public function setBusiness($business) : self
     {
@@ -370,6 +392,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
      * Sets primary_contact
      *
      * @param \AmazonPHP\SellingPartner\Model\Sellers\PrimaryContact|null $primary_contact primary_contact
+     *
+     * @return self
      */
     public function setPrimaryContact($primary_contact) : self
     {
@@ -379,6 +403,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -398,6 +424,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -410,6 +438,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -431,10 +461,12 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -442,6 +474,8 @@ class Account implements ModelInterface, ArrayAccess, \JsonSerializable, \String
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

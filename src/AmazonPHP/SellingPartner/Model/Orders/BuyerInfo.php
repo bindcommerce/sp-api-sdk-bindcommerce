@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -40,6 +40,7 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
       * @var string[]
       */
     protected static array $openAPITypes = [
+        'buyer_email' => 'string',
         'buyer_name' => 'string',
         'buyer_county' => 'string',
         'buyer_tax_info' => '\AmazonPHP\SellingPartner\Model\Orders\BuyerTaxInfo',
@@ -54,6 +55,7 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
       * @psalm-var array<string, string|null>
       */
     protected static array $openAPIFormats = [
+        'buyer_email' => null,
         'buyer_name' => null,
         'buyer_county' => null,
         'buyer_tax_info' => null,
@@ -62,6 +64,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +74,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -83,6 +89,7 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * @var string[]
      */
     protected static array $attributeMap = [
+        'buyer_email' => 'BuyerEmail',
         'buyer_name' => 'BuyerName',
         'buyer_county' => 'BuyerCounty',
         'buyer_tax_info' => 'BuyerTaxInfo',
@@ -95,6 +102,7 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * @var string[]
      */
     protected static array $setters = [
+        'buyer_email' => 'setBuyerEmail',
         'buyer_name' => 'setBuyerName',
         'buyer_county' => 'setBuyerCounty',
         'buyer_tax_info' => 'setBuyerTaxInfo',
@@ -107,6 +115,7 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * @var string[]
      */
     protected static array $getters = [
+        'buyer_email' => 'getBuyerEmail',
         'buyer_name' => 'getBuyerName',
         'buyer_county' => 'getBuyerCounty',
         'buyer_tax_info' => 'getBuyerTaxInfo',
@@ -116,6 +125,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +135,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +145,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +155,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -162,6 +179,7 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      */
     public function __construct(array $data = null)
     {
+        $this->container['buyer_email'] = $data['buyer_email'] ?? null;
         $this->container['buyer_name'] = $data['buyer_name'] ?? null;
         $this->container['buyer_county'] = $data['buyer_county'] ?? null;
         $this->container['buyer_tax_info'] = $data['buyer_tax_info'] ?? null;
@@ -175,12 +193,38 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['buyer_tax_info'] !== null) {
             $this->container['buyer_tax_info']->validate();
             }
 
     }
 
+
+    /**
+     * Gets buyer_email
+     *
+     * @return string|null
+     */
+    public function getBuyerEmail()
+    {
+        return $this->container['buyer_email'];
+    }
+
+    /**
+     * Sets buyer_email
+     *
+     * @param string|null $buyer_email The anonymized email address of the buyer.
+     *
+     * @return self
+     */
+    public function setBuyerEmail($buyer_email) : self
+    {
+        $this->container['buyer_email'] = $buyer_email;
+
+        return $this;
+    }
 
     /**
      * Gets buyer_name
@@ -196,6 +240,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets buyer_name
      *
      * @param string|null $buyer_name The buyer name or the recipient name.
+     *
+     * @return self
      */
     public function setBuyerName($buyer_name) : self
     {
@@ -218,6 +264,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets buyer_county
      *
      * @param string|null $buyer_county The county of the buyer.  **Note**: This attribute is only available in the Brazil marketplace.
+     *
+     * @return self
      */
     public function setBuyerCounty($buyer_county) : self
     {
@@ -240,6 +288,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets buyer_tax_info
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\BuyerTaxInfo|null $buyer_tax_info buyer_tax_info
+     *
+     * @return self
      */
     public function setBuyerTaxInfo($buyer_tax_info) : self
     {
@@ -262,6 +312,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets purchase_order_number
      *
      * @param string|null $purchase_order_number The purchase order (PO) number entered by the buyer at checkout. Only returned for orders where the buyer entered a PO number at checkout.
+     *
+     * @return self
      */
     public function setPurchaseOrderNumber($purchase_order_number) : self
     {
@@ -271,6 +323,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -290,6 +344,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -302,6 +358,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,10 +381,12 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -334,6 +394,8 @@ class BuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

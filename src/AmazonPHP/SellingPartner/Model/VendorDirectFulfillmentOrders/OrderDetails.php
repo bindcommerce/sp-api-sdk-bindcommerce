@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -76,6 +76,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -84,6 +86,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -175,6 +185,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -236,6 +248,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['customer_order_number'] === null) {
             throw new AssertionException("'customer_order_number' can't be null");
         }
@@ -310,6 +324,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets customer_order_number
      *
      * @param string $customer_order_number The customer order number.
+     *
+     * @return self
      */
     public function setCustomerOrderNumber($customer_order_number) : self
     {
@@ -332,6 +348,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets order_date
      *
      * @param \DateTimeInterface $order_date The date the order was placed. This  field is expected to be in ISO-8601 date/time format, for example:2018-07-16T23:00:00Z/ 2018-07-16T23:00:00-05:00 /2018-07-16T23:00:00-08:00. If no time zone is specified, UTC should be assumed.
+     *
+     * @return self
      */
     public function setOrderDate($order_date) : self
     {
@@ -354,6 +372,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets order_status
      *
      * @param string|null $order_status Current status of the order.
+     *
+     * @return self
      */
     public function setOrderStatus($order_status) : self
     {
@@ -376,6 +396,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets shipment_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\ShipmentDetails $shipment_details shipment_details
+     *
+     * @return self
      */
     public function setShipmentDetails($shipment_details) : self
     {
@@ -398,6 +420,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets tax_total
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\TaxItemDetails|null $tax_total tax_total
+     *
+     * @return self
      */
     public function setTaxTotal($tax_total) : self
     {
@@ -420,6 +444,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets selling_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\PartyIdentification $selling_party selling_party
+     *
+     * @return self
      */
     public function setSellingParty($selling_party) : self
     {
@@ -442,6 +468,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets ship_from_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\PartyIdentification $ship_from_party ship_from_party
+     *
+     * @return self
      */
     public function setShipFromParty($ship_from_party) : self
     {
@@ -464,6 +492,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets ship_to_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\Address $ship_to_party ship_to_party
+     *
+     * @return self
      */
     public function setShipToParty($ship_to_party) : self
     {
@@ -486,6 +516,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets bill_to_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\PartyIdentification $bill_to_party bill_to_party
+     *
+     * @return self
      */
     public function setBillToParty($bill_to_party) : self
     {
@@ -508,6 +540,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets has_customizable_items
      *
      * @param bool|null $has_customizable_items When `true`, the order contains customizable items.
+     *
+     * @return self
      */
     public function setHasCustomizableItems($has_customizable_items) : self
     {
@@ -530,6 +564,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets items
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentOrders\OrderItem[] $items A list of items in this purchase order.
+     *
+     * @return self
      */
     public function setItems($items) : self
     {
@@ -539,6 +575,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -558,6 +596,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -570,6 +610,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -591,10 +633,12 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -602,6 +646,8 @@ class OrderDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['quantity_tier'] === null) {
             throw new AssertionException("'quantity_tier' can't be null");
         }
@@ -200,6 +214,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
      * Sets quantity_tier
      *
      * @param int $quantity_tier Indicates at what quantity this price becomes active.
+     *
+     * @return self
      */
     public function setQuantityTier($quantity_tier) : self
     {
@@ -222,6 +238,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
      * Sets quantity_discount_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\QuantityDiscountType $quantity_discount_type quantity_discount_type
+     *
+     * @return self
      */
     public function setQuantityDiscountType($quantity_discount_type) : self
     {
@@ -244,6 +262,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
      * Sets listing_price
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType $listing_price listing_price
+     *
+     * @return self
      */
     public function setListingPrice($listing_price) : self
     {
@@ -253,6 +273,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -272,6 +294,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -284,6 +308,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -305,10 +331,12 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -316,6 +344,8 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

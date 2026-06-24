@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Stop implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -192,6 +204,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['function_code'] === null) {
             throw new AssertionException("'function_code' can't be null");
         }
@@ -228,6 +242,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets function_code
      *
      * @param string $function_code Provide the function code.
+     *
+     * @return self
      */
     public function setFunctionCode($function_code) : self
     {
@@ -250,6 +266,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets location_identification
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Location|null $location_identification location_identification
+     *
+     * @return self
      */
     public function setLocationIdentification($location_identification) : self
     {
@@ -272,6 +290,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets arrival_time
      *
      * @param \DateTimeInterface|null $arrival_time Date and time of the arrival of the cargo.
+     *
+     * @return self
      */
     public function setArrivalTime($arrival_time) : self
     {
@@ -294,6 +314,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets departure_time
      *
      * @param \DateTimeInterface|null $departure_time Date and time of the departure of the cargo.
+     *
+     * @return self
      */
     public function setDepartureTime($departure_time) : self
     {
@@ -303,6 +325,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -322,6 +346,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -334,6 +360,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -355,10 +383,12 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -366,6 +396,8 @@ class Stop implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

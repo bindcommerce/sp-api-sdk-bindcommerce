@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TransportationDetailsForShipmentConfirmation implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class TransportationDetailsForShipmentConfirmation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -192,6 +204,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getTransportationModeAllowableValues();
         if (!is_null($this->container['transportation_mode']) && !in_array($this->container['transportation_mode'], $allowedValues, true)) {
             throw new AssertionException(
@@ -220,6 +234,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
      * Sets carrier_scac
      *
      * @param string|null $carrier_scac Code that identifies the carrier for the shipment. The Standard Carrier Alpha Code (SCAC) is a unique two to four letter code used to identify a carrier. Carrier SCAC codes are assigned and maintained by the NMFTA (National Motor Freight Association). This field is mandatory for US, CA, MX shipment confirmations.
+     *
+     * @return self
      */
     public function setCarrierScac($carrier_scac) : self
     {
@@ -242,6 +258,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
      * Sets carrier_shipment_reference_number
      *
      * @param string|null $carrier_shipment_reference_number The field also known as PRO number is a unique number assigned by the carrier. It is used to identify and track the shipment that goes out for delivery. This field is mandatory for UA, CA, MX shipment confirmations.
+     *
+     * @return self
      */
     public function setCarrierShipmentReferenceNumber($carrier_shipment_reference_number) : self
     {
@@ -264,6 +282,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
      * Sets transportation_mode
      *
      * @param string|null $transportation_mode The mode of transportation for this shipment.
+     *
+     * @return self
      */
     public function setTransportationMode($transportation_mode) : self
     {
@@ -286,6 +306,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
      * Sets bill_of_lading_number
      *
      * @param string|null $bill_of_lading_number The Bill of Lading (BOL) number is a unique number assigned to each shipment of goods by the vendor or shipper during the creation of the Bill of Lading. This number must be unique for every shipment and cannot be a date/time or single character. The BOL numer is mandatory in Shipment Confirmation message for FTL and LTL shipments, and must match the paper BOL provided with the shipment. Instead of BOL, an alternative reference number (like Delivery Note Number) for the shipment can also be sent in this field.
+     *
+     * @return self
      */
     public function setBillOfLadingNumber($bill_of_lading_number) : self
     {
@@ -295,6 +317,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -314,6 +338,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -326,6 +352,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -347,10 +375,12 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -358,6 +388,8 @@ class TransportationDetailsForShipmentConfirmation implements ModelInterface, Ar
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

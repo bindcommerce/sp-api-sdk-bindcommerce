@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -193,6 +205,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -210,6 +224,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets total_unfulfillable_quantity
      *
      * @param int|null $total_unfulfillable_quantity The total number of units in Amazon's fulfillment network in unsellable condition.
+     *
+     * @return self
      */
     public function setTotalUnfulfillableQuantity($total_unfulfillable_quantity) : self
     {
@@ -232,6 +248,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets customer_damaged_quantity
      *
      * @param int|null $customer_damaged_quantity The number of units in customer damaged disposition.
+     *
+     * @return self
      */
     public function setCustomerDamagedQuantity($customer_damaged_quantity) : self
     {
@@ -254,6 +272,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets warehouse_damaged_quantity
      *
      * @param int|null $warehouse_damaged_quantity The number of units in warehouse damaged disposition.
+     *
+     * @return self
      */
     public function setWarehouseDamagedQuantity($warehouse_damaged_quantity) : self
     {
@@ -276,6 +296,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets distributor_damaged_quantity
      *
      * @param int|null $distributor_damaged_quantity The number of units in distributor damaged disposition.
+     *
+     * @return self
      */
     public function setDistributorDamagedQuantity($distributor_damaged_quantity) : self
     {
@@ -298,6 +320,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets carrier_damaged_quantity
      *
      * @param int|null $carrier_damaged_quantity The number of units in carrier damaged disposition.
+     *
+     * @return self
      */
     public function setCarrierDamagedQuantity($carrier_damaged_quantity) : self
     {
@@ -320,6 +344,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets defective_quantity
      *
      * @param int|null $defective_quantity The number of units in defective disposition.
+     *
+     * @return self
      */
     public function setDefectiveQuantity($defective_quantity) : self
     {
@@ -342,6 +368,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets expired_quantity
      *
      * @param int|null $expired_quantity The number of units in expired disposition.
+     *
+     * @return self
      */
     public function setExpiredQuantity($expired_quantity) : self
     {
@@ -351,6 +379,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -370,6 +400,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -382,6 +414,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -403,10 +437,12 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -414,6 +450,8 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

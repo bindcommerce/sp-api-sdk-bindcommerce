@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['adjustment_amount'] !== null) {
             $this->container['adjustment_amount']->validate();
             }
@@ -202,6 +216,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets adjustment_type
      *
      * @param string|null $adjustment_type The type of adjustment.  Possible values:  * `FBAInventoryReimbursement`: An FBA inventory reimbursement to a seller's account. This occurs if a seller's inventory is damaged. * `ReserveEvent`: A reserve event that is generated at the time a settlement period closes. This occurs when some money from a seller's account is held back. * `PostageBilling`: The amount paid by a seller for shipping labels. * `PostageRefund`: The reimbursement of shipping labels purchased for orders that were canceled or refunded. * `LostOrDamagedReimbursement`: An Amazon Easy Ship reimbursement to a seller's account for a package that we lost or damaged. * `CanceledButPickedUpReimbursement`: An Amazon Easy Ship reimbursement to a seller's account. This occurs when a package is picked up and the order is subsequently canceled. This value is used only in the India marketplace. * `ReimbursementClawback`: An Amazon Easy Ship reimbursement clawback from a seller's account. This occurs when a prior reimbursement is reversed. This value is used only in the India marketplace. * `SellerRewards`: An award credited to a seller's account for their participation in an offer in the Seller Rewards program. Applies only to the India marketplace.
+     *
+     * @return self
      */
     public function setAdjustmentType($adjustment_type) : self
     {
@@ -224,6 +240,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -246,6 +264,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets store_name
      *
      * @param string|null $store_name The name of the store where the event occurred.
+     *
+     * @return self
      */
     public function setStoreName($store_name) : self
     {
@@ -268,6 +288,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets adjustment_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $adjustment_amount adjustment_amount
+     *
+     * @return self
      */
     public function setAdjustmentAmount($adjustment_amount) : self
     {
@@ -290,6 +312,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets adjustment_item_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\AdjustmentItem[]|null $adjustment_item_list A list of information about items in an adjustment to the seller's account.
+     *
+     * @return self
      */
     public function setAdjustmentItemList($adjustment_item_list) : self
     {
@@ -299,6 +323,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -318,6 +344,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -330,6 +358,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -351,10 +381,12 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -362,6 +394,8 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

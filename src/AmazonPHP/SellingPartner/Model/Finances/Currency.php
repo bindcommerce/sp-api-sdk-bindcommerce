@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Currency implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -180,6 +194,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets currency_code
      *
      * @param string|null $currency_code The three-digit currency code in ISO 4217 format.
+     *
+     * @return self
      */
     public function setCurrencyCode($currency_code) : self
     {
@@ -202,6 +218,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets currency_amount
      *
      * @param float|null $currency_amount A signed decimal number.
+     *
+     * @return self
      */
     public function setCurrencyAmount($currency_amount) : self
     {
@@ -211,6 +229,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -230,6 +250,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -242,6 +264,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -263,10 +287,12 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -274,6 +300,8 @@ class Currency implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

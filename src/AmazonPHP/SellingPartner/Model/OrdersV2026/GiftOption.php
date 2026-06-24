@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -180,6 +194,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets gift_message
      *
      * @param string|null $gift_message Personal message from the buyer to be included with the gift-wrapped item.
+     *
+     * @return self
      */
     public function setGiftMessage($gift_message) : self
     {
@@ -202,6 +218,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets gift_wrap_level
      *
      * @param string|null $gift_wrap_level Type or quality level of gift wrapping service selected by the customer.
+     *
+     * @return self
      */
     public function setGiftWrapLevel($gift_wrap_level) : self
     {
@@ -211,6 +229,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -230,6 +250,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -242,6 +264,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -263,10 +287,12 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -274,6 +300,8 @@ class GiftOption implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

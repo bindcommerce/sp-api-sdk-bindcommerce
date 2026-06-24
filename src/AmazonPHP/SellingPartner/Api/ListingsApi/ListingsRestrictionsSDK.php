@@ -27,26 +27,41 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class ListingsRestrictionsSDK implements ListingsRestrictionsSDKInterface
 {
-    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
+    private ClientInterface $client;
+
+    private HttpFactory $httpFactory;
+
+    private Configuration $configuration;
+
+    private LoggerInterface $logger;
+
+    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
     {
+        $this->client = $client;
+        $this->httpFactory = $requestFactory;
+        $this->configuration = $configuration;
+        $this->logger = $logger;
     }
 
     /**
      * Operation getListingsRestrictions
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $asin  The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param string $seller_id  A selling partner identifier, such as a merchant account. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param string|null $condition_type  The condition used to filter restrictions. (optional)
      * @param string|null $reason_locale  A locale for reason text localization. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param string|null $product_type  The product type of the item. When provided with the brand name, the API evaluates GTIN exemption restrictions in addition to brand restrictions for the specified product type. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return \AmazonPHP\SellingPartner\Model\ListingsRestrictions\RestrictionList
      */
-    public function getListingsRestrictions(AccessToken $accessToken, string $region, $asin, $seller_id, $marketplace_ids, $condition_type = null, $reason_locale = null)
+    public function getListingsRestrictions(AccessToken $accessToken, string $region, $asin, $seller_id, $marketplace_ids, $condition_type = null, $reason_locale = null, $product_type = null)
     {
-        $request = $this->getListingsRestrictionsRequest($accessToken, $region, $asin, $seller_id, $marketplace_ids, $condition_type, $reason_locale);
+        $request = $this->getListingsRestrictionsRequest($accessToken, $region, $asin, $seller_id, $marketplace_ids, $condition_type, $reason_locale, $product_type);
 
         $this->configuration->extensions()->preRequest('ListingsRestrictions', 'getListingsRestrictions', $request);
 
@@ -136,15 +151,19 @@ final class ListingsRestrictionsSDK implements ListingsRestrictionsSDKInterface
     /**
      * Create request for operation 'getListingsRestrictions'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $asin  The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param string $seller_id  A selling partner identifier, such as a merchant account. (required)
      * @param string[] $marketplace_ids  A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param string|null $condition_type  The condition used to filter restrictions. (optional)
      * @param string|null $reason_locale  A locale for reason text localization. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param string|null $product_type  The product type of the item. When provided with the brand name, the API evaluates GTIN exemption restrictions in addition to brand restrictions for the specified product type. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
-    public function getListingsRestrictionsRequest(AccessToken $accessToken, string $region, $asin, $seller_id, $marketplace_ids, $condition_type = null, $reason_locale = null) : RequestInterface
+    public function getListingsRestrictionsRequest(AccessToken $accessToken, string $region, $asin, $seller_id, $marketplace_ids, $condition_type = null, $reason_locale = null, $product_type = null) : RequestInterface
     {
         // verify the required parameter 'asin' is set
         if ($asin === null || (is_array($asin) && count($asin) === 0)) {
@@ -206,6 +225,13 @@ final class ListingsRestrictionsSDK implements ListingsRestrictionsSDKInterface
         }
         if ($reason_locale !== null) {
             $queryParams['reasonLocale'] = ObjectSerializer::toString($reason_locale);
+        }
+        // query params
+        if (is_array($product_type)) {
+            $product_type = ObjectSerializer::serializeCollection($product_type, '', true);
+        }
+        if ($product_type !== null) {
+            $queryParams['productType'] = ObjectSerializer::toString($product_type);
         }
 
         if (\count($queryParams)) {

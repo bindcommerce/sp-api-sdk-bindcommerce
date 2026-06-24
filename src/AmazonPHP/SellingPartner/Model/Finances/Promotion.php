@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['promotion_amount'] !== null) {
             $this->container['promotion_amount']->validate();
             }
@@ -190,6 +204,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets promotion_type
      *
      * @param string|null $promotion_type The type of promotion.
+     *
+     * @return self
      */
     public function setPromotionType($promotion_type) : self
     {
@@ -212,6 +228,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets promotion_id
      *
      * @param string|null $promotion_id The seller-specified identifier for the promotion.
+     *
+     * @return self
      */
     public function setPromotionId($promotion_id) : self
     {
@@ -234,6 +252,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets promotion_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $promotion_amount promotion_amount
+     *
+     * @return self
      */
     public function setPromotionAmount($promotion_amount) : self
     {
@@ -243,6 +263,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -262,6 +284,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -274,6 +298,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -295,10 +321,12 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,6 +334,8 @@ class Promotion implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

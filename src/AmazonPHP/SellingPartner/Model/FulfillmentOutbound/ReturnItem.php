@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -76,6 +76,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -84,6 +86,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -175,6 +185,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -217,6 +229,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['seller_return_item_id'] === null) {
             throw new AssertionException("'seller_return_item_id' can't be null");
         }
@@ -258,6 +272,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets seller_return_item_id
      *
      * @param string $seller_return_item_id An identifier the seller assigns to the return item.
+     *
+     * @return self
      */
     public function setSellerReturnItemId($seller_return_item_id) : self
     {
@@ -280,6 +296,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets seller_fulfillment_order_item_id
      *
      * @param string $seller_fulfillment_order_item_id The identifier assigned to the item by the seller when the fulfillment order was created.
+     *
+     * @return self
      */
     public function setSellerFulfillmentOrderItemId($seller_fulfillment_order_item_id) : self
     {
@@ -302,6 +320,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets amazon_shipment_id
      *
      * @param string $amazon_shipment_id The identifier for the shipment that is associated with the return item.
+     *
+     * @return self
      */
     public function setAmazonShipmentId($amazon_shipment_id) : self
     {
@@ -324,6 +344,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets seller_return_reason_code
      *
      * @param string $seller_return_reason_code The return reason code assigned to the return item by the seller.
+     *
+     * @return self
      */
     public function setSellerReturnReasonCode($seller_return_reason_code) : self
     {
@@ -346,6 +368,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets return_comment
      *
      * @param string|null $return_comment An optional comment about the return item.
+     *
+     * @return self
      */
     public function setReturnComment($return_comment) : self
     {
@@ -368,6 +392,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets amazon_return_reason_code
      *
      * @param string|null $amazon_return_reason_code The return reason code that the Amazon fulfillment center assigned to the return item.
+     *
+     * @return self
      */
     public function setAmazonReturnReasonCode($amazon_return_reason_code) : self
     {
@@ -390,6 +416,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets status
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentReturnItemStatus $status status
+     *
+     * @return self
      */
     public function setStatus($status) : self
     {
@@ -412,6 +440,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets status_changed_date
      *
      * @param \DateTimeInterface $status_changed_date Date timestamp
+     *
+     * @return self
      */
     public function setStatusChangedDate($status_changed_date) : self
     {
@@ -434,6 +464,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets return_authorization_id
      *
      * @param string|null $return_authorization_id Identifies the return authorization used to return this item. Refer to `ReturnAuthorization`.
+     *
+     * @return self
      */
     public function setReturnAuthorizationId($return_authorization_id) : self
     {
@@ -456,6 +488,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets return_received_condition
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ReturnItemDisposition|null $return_received_condition return_received_condition
+     *
+     * @return self
      */
     public function setReturnReceivedCondition($return_received_condition) : self
     {
@@ -478,6 +512,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets fulfillment_center_id
      *
      * @param string|null $fulfillment_center_id The identifier for the Amazon fulfillment center that processed the return item.
+     *
+     * @return self
      */
     public function setFulfillmentCenterId($fulfillment_center_id) : self
     {
@@ -487,6 +523,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -506,6 +544,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -518,6 +558,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -539,10 +581,12 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -550,6 +594,8 @@ class ReturnItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

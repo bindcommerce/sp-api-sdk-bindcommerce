@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace_id'] === null) {
             throw new AssertionException("'marketplace_id' can't be null");
         }
@@ -200,6 +214,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets marketplace_id
      *
      * @param string $marketplace_id A marketplace identifier. Specifies the marketplace for which prices are returned.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -222,6 +238,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets item_condition
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ItemCondition $item_condition item_condition
+     *
+     * @return self
      */
     public function setItemCondition($item_condition) : self
     {
@@ -244,6 +262,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets customer_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\CustomerType|null $customer_type customer_type
+     *
+     * @return self
      */
     public function setCustomerType($customer_type) : self
     {
@@ -266,6 +286,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the item. This is the same Asin passed as a request parameter.
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -275,6 +297,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -294,6 +318,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -306,6 +332,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -327,10 +355,12 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -338,6 +368,8 @@ class ItemOffersRequestParams implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

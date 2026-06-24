@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -192,6 +206,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets total_reserved_quantity
      *
      * @param int|null $total_reserved_quantity The total number of units in Amazon's fulfillment network that are currently being picked, packed, and shipped; or are sidelined for measurement, sampling, or other internal processes.
+     *
+     * @return self
      */
     public function setTotalReservedQuantity($total_reserved_quantity) : self
     {
@@ -214,6 +230,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets pending_customer_order_quantity
      *
      * @param int|null $pending_customer_order_quantity The number of units reserved for customer orders.
+     *
+     * @return self
      */
     public function setPendingCustomerOrderQuantity($pending_customer_order_quantity) : self
     {
@@ -236,6 +254,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets pending_transshipment_quantity
      *
      * @param int|null $pending_transshipment_quantity The number of units being transferred from one fulfillment center to another.
+     *
+     * @return self
      */
     public function setPendingTransshipmentQuantity($pending_transshipment_quantity) : self
     {
@@ -258,6 +278,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fc_processing_quantity
      *
      * @param int|null $fc_processing_quantity The number of units that have been sidelined at the fulfillment center for additional processing.
+     *
+     * @return self
      */
     public function setFcProcessingQuantity($fc_processing_quantity) : self
     {
@@ -267,6 +289,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,6 +310,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -298,6 +324,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,10 +347,12 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -330,6 +360,8 @@ class ReservedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

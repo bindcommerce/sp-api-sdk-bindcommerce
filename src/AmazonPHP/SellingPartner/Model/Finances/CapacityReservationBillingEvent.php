@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['transaction_amount'] !== null) {
             $this->container['transaction_amount']->validate();
             }
@@ -196,6 +210,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
      * Sets transaction_type
      *
      * @param string|null $transaction_type The transaction type. For example, FBA Inventory Fee.
+     *
+     * @return self
      */
     public function setTransactionType($transaction_type) : self
     {
@@ -218,6 +234,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -240,6 +258,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
      * Sets description
      *
      * @param string|null $description A short description of the capacity reservation billing event.
+     *
+     * @return self
      */
     public function setDescription($description) : self
     {
@@ -262,6 +282,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
      * Sets transaction_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $transaction_amount transaction_amount
+     *
+     * @return self
      */
     public function setTransactionAmount($transaction_amount) : self
     {
@@ -271,6 +293,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -290,6 +314,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -302,6 +328,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,10 +351,12 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -334,6 +364,8 @@ class CapacityReservationBillingEvent implements ModelInterface, ArrayAccess, \J
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

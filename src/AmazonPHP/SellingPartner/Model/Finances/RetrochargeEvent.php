@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -193,6 +205,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['base_tax'] !== null) {
             $this->container['base_tax']->validate();
             }
@@ -218,6 +232,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets retrocharge_event_type
      *
      * @param string|null $retrocharge_event_type The type of event.  Possible values:  * `Retrocharge`  * `RetrochargeReversal`
+     *
+     * @return self
      */
     public function setRetrochargeEventType($retrocharge_event_type) : self
     {
@@ -240,6 +256,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets amazon_order_id
      *
      * @param string|null $amazon_order_id An Amazon-defined identifier for an order.
+     *
+     * @return self
      */
     public function setAmazonOrderId($amazon_order_id) : self
     {
@@ -262,6 +280,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -284,6 +304,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets base_tax
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $base_tax base_tax
+     *
+     * @return self
      */
     public function setBaseTax($base_tax) : self
     {
@@ -306,6 +328,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets shipping_tax
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $shipping_tax shipping_tax
+     *
+     * @return self
      */
     public function setShippingTax($shipping_tax) : self
     {
@@ -328,6 +352,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets marketplace_name
      *
      * @param string|null $marketplace_name The name of the marketplace where the retrocharge event occurred.
+     *
+     * @return self
      */
     public function setMarketplaceName($marketplace_name) : self
     {
@@ -350,6 +376,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets retrocharge_tax_withheld_list
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\TaxWithheldComponent[]|null $retrocharge_tax_withheld_list A list of information about taxes withheld.
+     *
+     * @return self
      */
     public function setRetrochargeTaxWithheldList($retrocharge_tax_withheld_list) : self
     {
@@ -359,6 +387,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -378,6 +408,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -390,6 +422,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -411,10 +445,12 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -422,6 +458,8 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

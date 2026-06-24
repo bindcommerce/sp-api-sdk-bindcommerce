@@ -28,11 +28,13 @@ class PrepGuidance
 
     const SEE_PREP_INSTRUCTIONS_LIST = 'SeePrepInstructionsList';
 
+    private string $value;
+
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
             self::CONSULT_HELP_DOCUMENTS,
@@ -41,8 +43,9 @@ class PrepGuidance
         ];
     }
 
-    public function __construct(private readonly string $value)
+    public function __construct(string $value)
     {
+        $this->value = $value;
     }
 
     public function toString(): string

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -192,6 +206,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets street_name
      *
      * @param string|null $street_name The name of the street.
+     *
+     * @return self
      */
     public function setStreetName($street_name) : self
     {
@@ -214,6 +230,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets street_number
      *
      * @param string|null $street_number The house, building, or property number associated with the location's street address.
+     *
+     * @return self
      */
     public function setStreetNumber($street_number) : self
     {
@@ -236,6 +254,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets complement
      *
      * @param string|null $complement The floor number / unit number.
+     *
+     * @return self
      */
     public function setComplement($complement) : self
     {
@@ -258,6 +278,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets neighborhood
      *
      * @param string|null $neighborhood The neighborhood. This value is only used in some countries (such as Brazil).
+     *
+     * @return self
      */
     public function setNeighborhood($neighborhood) : self
     {
@@ -267,6 +289,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,6 +310,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -298,6 +324,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,10 +347,12 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -330,6 +360,8 @@ class AddressExtendedFields implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

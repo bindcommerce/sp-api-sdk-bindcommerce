@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['start_date_time'] === null) {
             throw new AssertionException("'start_date_time' can't be null");
         }
@@ -200,6 +214,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets capacity_types
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\CapacityType[]|null $capacity_types An array of capacity types which are being requested. Default value is `[SCHEDULED_CAPACITY]`.
+     *
+     * @return self
      */
     public function setCapacityTypes($capacity_types) : self
     {
@@ -222,6 +238,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets slot_duration
      *
      * @param float|null $slot_duration Size in which slots are being requested. This value should be a multiple of 5 and fall in the range: 5 <= `slotDuration` <= 360.
+     *
+     * @return self
      */
     public function setSlotDuration($slot_duration) : self
     {
@@ -244,6 +262,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets start_date_time
      *
      * @param \DateTimeInterface $start_date_time Start date time from which the capacity slots are being requested in ISO 8601 format.
+     *
+     * @return self
      */
     public function setStartDateTime($start_date_time) : self
     {
@@ -266,6 +286,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets end_date_time
      *
      * @param \DateTimeInterface $end_date_time End date time up to which the capacity slots are being requested in ISO 8601 format.
+     *
+     * @return self
      */
     public function setEndDateTime($end_date_time) : self
     {
@@ -275,6 +297,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -294,6 +318,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -306,6 +332,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -327,10 +355,12 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -338,6 +368,8 @@ class FixedSlotCapacityQuery implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

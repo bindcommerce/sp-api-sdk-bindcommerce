@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Event implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['event_code'] === null) {
             throw new AssertionException("'event_code' can't be null");
         }
@@ -204,6 +218,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets event_code
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\EventCode $event_code event_code
+     *
+     * @return self
      */
     public function setEventCode($event_code) : self
     {
@@ -226,6 +242,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets location
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\Location|null $location location
+     *
+     * @return self
      */
     public function setLocation($location) : self
     {
@@ -248,6 +266,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets event_time
      *
      * @param \DateTimeInterface $event_time The ISO 8601 formatted timestamp of the event.
+     *
+     * @return self
      */
     public function setEventTime($event_time) : self
     {
@@ -270,6 +290,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets shipment_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\ShipmentType|null $shipment_type shipment_type
+     *
+     * @return self
      */
     public function setShipmentType($shipment_type) : self
     {
@@ -279,6 +301,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -298,6 +322,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -310,6 +336,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -331,10 +359,12 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -342,6 +372,8 @@ class Event implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

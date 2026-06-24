@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -198,6 +212,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets name
      *
      * @param string|null $name The field is used to represent the carrier used for performing the shipment.
+     *
+     * @return self
      */
     public function setName($name) : self
     {
@@ -220,6 +236,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets code
      *
      * @param string|null $code Code that identifies the carrier for the shipment. The Standard Carrier Alpha Code (SCAC) is a unique two to four letter code used to identify a carrier. Carrier SCAC codes are assigned and maintained by the NMFTA (National Motor Freight Association).
+     *
+     * @return self
      */
     public function setCode($code) : self
     {
@@ -242,6 +260,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets phone
      *
      * @param string|null $phone The field is used to represent the Carrier contact number.
+     *
+     * @return self
      */
     public function setPhone($phone) : self
     {
@@ -264,6 +284,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets email
      *
      * @param string|null $email The field is used to represent the carrier Email id.
+     *
+     * @return self
      */
     public function setEmail($email) : self
     {
@@ -286,6 +308,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets shipment_reference_number
      *
      * @param string|null $shipment_reference_number The field is also known as PRO number is a unique number assigned by the carrier. It is used to identify and track the shipment that goes out for delivery. This field is mandatory for US, CA, MX shipment confirmations.
+     *
+     * @return self
      */
     public function setShipmentReferenceNumber($shipment_reference_number) : self
     {
@@ -295,6 +319,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -314,6 +340,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -326,6 +354,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -347,10 +377,12 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -358,6 +390,8 @@ class CarrierDetails implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

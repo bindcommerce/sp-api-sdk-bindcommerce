@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,6 +70,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,6 +80,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -136,6 +140,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -144,6 +150,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -152,6 +160,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -160,6 +170,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -199,6 +211,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace_id'] === null) {
             throw new AssertionException("'marketplace_id' can't be null");
         }
@@ -228,6 +242,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets marketplace_id
      *
      * @param string $marketplace_id The requested marketplace.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -250,6 +266,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets feature_name
      *
      * @param string $feature_name The name of the feature.
+     *
+     * @return self
      */
     public function setFeatureName($feature_name) : self
     {
@@ -272,6 +290,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets is_eligible
      *
      * @param bool $is_eligible When true, the seller SKU is eligible for the requested feature.
+     *
+     * @return self
      */
     public function setIsEligible($is_eligible) : self
     {
@@ -294,6 +314,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets ineligible_reasons
      *
      * @param string[]|null $ineligible_reasons A list of one or more reasons that the seller SKU is ineligible for the feature.  Possible values: * `MERCHANT_NOT_ENROLLED`: The merchant isn't enrolled for the feature. * `SKU_NOT_ELIGIBLE`: The SKU doesn't reside in a warehouse that supports the feature. * `INVALID_SKU`: There is an issue with the SKU provided.
+     *
+     * @return self
      */
     public function setIneligibleReasons($ineligible_reasons) : self
     {
@@ -316,6 +338,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets seller_sku
      *
      * @param string|null $seller_sku Used to identify an item in the given marketplace. SellerSKU is qualified by the seller's SellerId, which is included with every operation that you submit.
+     *
+     * @return self
      */
     public function setSellerSku($seller_sku) : self
     {
@@ -338,6 +362,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets fn_sku
      *
      * @param string|null $fn_sku The unique SKU used by Amazon's fulfillment network.
+     *
+     * @return self
      */
     public function setFnSku($fn_sku) : self
     {
@@ -360,6 +386,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the item.
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -382,6 +410,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets sku_count
      *
      * @param float|null $sku_count The number of SKUs available for this service.
+     *
+     * @return self
      */
     public function setSkuCount($sku_count) : self
     {
@@ -391,6 +421,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -410,6 +442,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -422,6 +456,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -443,10 +479,12 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -454,6 +492,8 @@ class GetFeatureSkuResult implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

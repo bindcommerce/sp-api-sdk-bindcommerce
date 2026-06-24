@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,6 +70,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,6 +80,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -136,6 +140,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -144,6 +150,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -152,6 +160,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -160,6 +170,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -199,6 +211,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['price_to_estimate_fees'] !== null) {
             $this->container['price_to_estimate_fees']->validate();
             }
@@ -220,6 +234,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets marketplace_id
      *
      * @param string|null $marketplace_id A marketplace identifier.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -242,6 +258,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets seller_id
      *
      * @param string|null $seller_id The seller identifier.
+     *
+     * @return self
      */
     public function setSellerId($seller_id) : self
     {
@@ -264,6 +282,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets id_type
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\IdType|null $id_type id_type
+     *
+     * @return self
      */
     public function setIdType($id_type) : self
     {
@@ -286,6 +306,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets id_value
      *
      * @param string|null $id_value The item identifier.
+     *
+     * @return self
      */
     public function setIdValue($id_value) : self
     {
@@ -308,6 +330,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets is_amazon_fulfilled
      *
      * @param bool|null $is_amazon_fulfilled When true, the offer is fulfilled by Amazon.
+     *
+     * @return self
      */
     public function setIsAmazonFulfilled($is_amazon_fulfilled) : self
     {
@@ -330,6 +354,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets price_to_estimate_fees
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\PriceToEstimateFees|null $price_to_estimate_fees price_to_estimate_fees
+     *
+     * @return self
      */
     public function setPriceToEstimateFees($price_to_estimate_fees) : self
     {
@@ -352,6 +378,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets seller_input_identifier
      *
      * @param string|null $seller_input_identifier A unique identifier provided by the caller to track this request.
+     *
+     * @return self
      */
     public function setSellerInputIdentifier($seller_input_identifier) : self
     {
@@ -374,6 +402,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets optional_fulfillment_program
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\OptionalFulfillmentProgram|null $optional_fulfillment_program optional_fulfillment_program
+     *
+     * @return self
      */
     public function setOptionalFulfillmentProgram($optional_fulfillment_program) : self
     {
@@ -383,6 +413,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -402,6 +434,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -414,6 +448,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -435,10 +471,12 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -446,6 +484,8 @@ class FeesEstimateIdentifier implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

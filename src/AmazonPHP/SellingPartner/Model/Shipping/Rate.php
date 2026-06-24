@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Rate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['total_charge'] !== null) {
             $this->container['total_charge']->validate();
             }
@@ -216,6 +230,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets rate_id
      *
      * @param string|null $rate_id An identifier for the rate.
+     *
+     * @return self
      */
     public function setRateId($rate_id) : self
     {
@@ -238,6 +254,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets total_charge
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Currency|null $total_charge total_charge
+     *
+     * @return self
      */
     public function setTotalCharge($total_charge) : self
     {
@@ -260,6 +278,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets billed_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\Weight|null $billed_weight billed_weight
+     *
+     * @return self
      */
     public function setBilledWeight($billed_weight) : self
     {
@@ -282,6 +302,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets expiration_time
      *
      * @param \DateTimeInterface|null $expiration_time The time after which the offering will expire.
+     *
+     * @return self
      */
     public function setExpirationTime($expiration_time) : self
     {
@@ -304,6 +326,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets service_type
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\ServiceType|null $service_type service_type
+     *
+     * @return self
      */
     public function setServiceType($service_type) : self
     {
@@ -326,6 +350,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets promise
      *
      * @param \AmazonPHP\SellingPartner\Model\Shipping\ShippingPromiseSet|null $promise promise
+     *
+     * @return self
      */
     public function setPromise($promise) : self
     {
@@ -335,6 +361,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -354,6 +382,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -366,6 +396,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -387,10 +419,12 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -398,6 +432,8 @@ class Rate implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['return_authorization_id'] === null) {
             throw new AssertionException("'return_authorization_id' can't be null");
         }
@@ -220,6 +234,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets return_authorization_id
      *
      * @param string $return_authorization_id An identifier for the return authorization. This identifier associates return items with the return authorization used to return them.
+     *
+     * @return self
      */
     public function setReturnAuthorizationId($return_authorization_id) : self
     {
@@ -242,6 +258,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets fulfillment_center_id
      *
      * @param string $fulfillment_center_id An identifier for the Amazon fulfillment center to which the return items should be sent.
+     *
+     * @return self
      */
     public function setFulfillmentCenterId($fulfillment_center_id) : self
     {
@@ -264,6 +282,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets return_to_address
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Address $return_to_address return_to_address
+     *
+     * @return self
      */
     public function setReturnToAddress($return_to_address) : self
     {
@@ -286,6 +306,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets amazon_rma_id
      *
      * @param string $amazon_rma_id The return merchandise authorization (RMA) that Amazon needs to process the return.
+     *
+     * @return self
      */
     public function setAmazonRmaId($amazon_rma_id) : self
     {
@@ -308,6 +330,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
      * Sets rma_page_url
      *
      * @param string $rma_page_url A URL for a web page that contains the return authorization barcode and the mailing label. This does not include pre-paid shipping.
+     *
+     * @return self
      */
     public function setRmaPageUrl($rma_page_url) : self
     {
@@ -317,6 +341,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -336,6 +362,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -348,6 +376,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -369,10 +399,12 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -380,6 +412,8 @@ class ReturnAuthorization implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

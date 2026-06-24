@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['estimated_arrival_time'] !== null) {
             $this->container['estimated_arrival_time']->validate();
             }
@@ -200,6 +214,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
      * Sets estimated_arrival_time
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\DateTimeRange|null $estimated_arrival_time estimated_arrival_time
+     *
+     * @return self
      */
     public function setEstimatedArrivalTime($estimated_arrival_time) : self
     {
@@ -222,6 +238,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
      * Sets fulfillment_time
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\FulfillmentTime|null $fulfillment_time fulfillment_time
+     *
+     * @return self
      */
     public function setFulfillmentTime($fulfillment_time) : self
     {
@@ -244,6 +262,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
      * Sets appointment_resources
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\AppointmentResource[]|null $appointment_resources List of resources that performs or performed job appointment fulfillment.
+     *
+     * @return self
      */
     public function setAppointmentResources($appointment_resources) : self
     {
@@ -266,6 +286,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
      * Sets fulfillment_documents
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\FulfillmentDocument[]|null $fulfillment_documents List of documents captured during service appointment fulfillment.
+     *
+     * @return self
      */
     public function setFulfillmentDocuments($fulfillment_documents) : self
     {
@@ -275,6 +297,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -294,6 +318,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -306,6 +332,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -327,10 +355,12 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -338,6 +368,8 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

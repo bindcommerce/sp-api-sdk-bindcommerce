@@ -27,13 +27,27 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class ServicesSDK implements ServicesSDKInterface
 {
-    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
+    private ClientInterface $client;
+
+    private HttpFactory $httpFactory;
+
+    private Configuration $configuration;
+
+    private LoggerInterface $logger;
+
+    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
     {
+        $this->client = $client;
+        $this->httpFactory = $requestFactory;
+        $this->configuration = $configuration;
+        $this->logger = $logger;
     }
 
     /**
      * Operation addAppointmentForServiceJobByServiceJobId
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon defined service job identifier. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\AddAppointmentRequest $body  Add appointment operation input details. (required)
      *
@@ -133,10 +147,13 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'addAppointmentForServiceJobByServiceJobId'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon defined service job identifier. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\AddAppointmentRequest $body  Add appointment operation input details. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function addAppointmentForServiceJobByServiceJobIdRequest(AccessToken $accessToken, string $region, $service_job_id, $body) : RequestInterface
     {
@@ -249,9 +266,11 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation assignAppointmentResources
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon-defined service job identifier. Get this value by calling the &#x60;getServiceJobs&#x60; operation of the Services API. (required)
      * @param string $appointment_id  An Amazon-defined identifier of active service job appointment. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Services\AssignAppointmentResourcesRequest $body  body (required)
+     * @param \AmazonPHP\SellingPartner\Model\Services\AssignAppointmentResourcesRequest $body  Input containing the resource details to be assigned to the appointment. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -349,11 +368,14 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'assignAppointmentResources'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon-defined service job identifier. Get this value by calling the &#x60;getServiceJobs&#x60; operation of the Services API. (required)
      * @param string $appointment_id  An Amazon-defined identifier of active service job appointment. (required)
-     * @param \AmazonPHP\SellingPartner\Model\Services\AssignAppointmentResourcesRequest $body  (required)
+     * @param \AmazonPHP\SellingPartner\Model\Services\AssignAppointmentResourcesRequest $body  Input containing the resource details to be assigned to the appointment. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function assignAppointmentResourcesRequest(AccessToken $accessToken, string $region, $service_job_id, $appointment_id, $body) : RequestInterface
     {
@@ -487,6 +509,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation cancelReservation
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $reservation_id  Reservation Identifier (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      *
@@ -586,10 +610,13 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'cancelReservation'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $reservation_id  Reservation Identifier (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function cancelReservationRequest(AccessToken $accessToken, string $region, $reservation_id, $marketplace_ids) : RequestInterface
     {
@@ -705,6 +732,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation cancelServiceJobByServiceJobId
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon defined service job identifier. (required)
      * @param string $cancellation_reason_code  A cancel reason code that specifies the reason for cancelling a service job. (required)
      *
@@ -804,10 +833,13 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'cancelServiceJobByServiceJobId'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon defined service job identifier. (required)
      * @param string $cancellation_reason_code  A cancel reason code that specifies the reason for cancelling a service job. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function cancelServiceJobByServiceJobIdRequest(AccessToken $accessToken, string $region, $service_job_id, $cancellation_reason_code) : RequestInterface
     {
@@ -929,6 +961,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation completeServiceJobByServiceJobId
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon defined service job identifier. (required)
      *
      * @throws ApiException on non-2xx response
@@ -1027,9 +1061,12 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'completeServiceJobByServiceJobId'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon defined service job identifier. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function completeServiceJobByServiceJobIdRequest(AccessToken $accessToken, string $region, $service_job_id) : RequestInterface
     {
@@ -1128,6 +1165,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation createReservation
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\CreateReservationRequest $body  Reservation details (required)
      *
@@ -1227,10 +1266,13 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'createReservation'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\CreateReservationRequest $body  Reservation details (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function createReservationRequest(AccessToken $accessToken, string $region, $marketplace_ids, $body) : RequestInterface
     {
@@ -1339,6 +1381,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation createServiceDocumentUploadDestination
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Services\ServiceUploadDocument $body  Upload document operation input details. (required)
      *
      * @throws ApiException on non-2xx response
@@ -1437,9 +1481,12 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'createServiceDocumentUploadDestination'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\Services\ServiceUploadDocument $body  Upload document operation input details. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function createServiceDocumentUploadDestinationRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -1531,6 +1578,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation getAppointmentSlots
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $asin  ASIN associated with the service. (required)
      * @param string $store_id  Store identifier defining the region scope to retrive appointment slots. (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace for which appointment slots are queried (required)
@@ -1633,6 +1682,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'getAppointmentSlots'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $asin  ASIN associated with the service. (required)
      * @param string $store_id  Store identifier defining the region scope to retrive appointment slots. (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace for which appointment slots are queried (required)
@@ -1640,6 +1691,7 @@ final class ServicesSDK implements ServicesSDKInterface
      * @param string|null $end_time  A time up to which the appointment slots will be retrieved. The specified time must be in ISO 8601 format. If &#x60;endTime&#x60; is provided, &#x60;startTime&#x60; should also be provided. Default value is as per business configuration. Maximum range of appointment slots can be 90 days. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getAppointmentSlotsRequest(AccessToken $accessToken, string $region, $asin, $store_id, $marketplace_ids, $start_time = null, $end_time = null) : RequestInterface
     {
@@ -1781,6 +1833,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation getAppointmmentSlotsByJobId
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  A service job identifier to retrive appointment slots for associated service. (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param string|null $start_time  A time from which the appointment slots will be retrieved. The specified time must be in ISO 8601 format. If &#x60;startTime&#x60; is provided, &#x60;endTime&#x60; should also be provided. Default value is as per business configuration. (optional)
@@ -1882,12 +1936,15 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'getAppointmmentSlotsByJobId'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  A service job identifier to retrive appointment slots for associated service. (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param string|null $start_time  A time from which the appointment slots will be retrieved. The specified time must be in ISO 8601 format. If &#x60;startTime&#x60; is provided, &#x60;endTime&#x60; should also be provided. Default value is as per business configuration. (optional)
      * @param string|null $end_time  A time up to which the appointment slots will be retrieved. The specified time must be in ISO 8601 format. If &#x60;endTime&#x60; is provided, &#x60;startTime&#x60; should also be provided. Default value is as per business configuration. Maximum range of appointment slots can be 90 days. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getAppointmmentSlotsByJobIdRequest(AccessToken $accessToken, string $region, $service_job_id, $marketplace_ids, $start_time = null, $end_time = null) : RequestInterface
     {
@@ -2017,6 +2074,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation getFixedSlotCapacity
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $resource_id  Resource Identifier. (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\FixedSlotCapacityQuery $body  Request body. (required)
@@ -2118,12 +2177,15 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'getFixedSlotCapacity'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $resource_id  Resource Identifier. (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\FixedSlotCapacityQuery $body  Request body. (required)
      * @param string|null $next_page_token  Next page token returned in the response of your previous request. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getFixedSlotCapacityRequest(AccessToken $accessToken, string $region, $resource_id, $marketplace_ids, $body, $next_page_token = null) : RequestInterface
     {
@@ -2260,6 +2322,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation getRangeSlotCapacity
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $resource_id  Resource Identifier. (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\RangeSlotCapacityQuery $body  Request body. (required)
@@ -2361,12 +2425,15 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'getRangeSlotCapacity'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $resource_id  Resource Identifier. (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\RangeSlotCapacityQuery $body  Request body. (required)
      * @param string|null $next_page_token  Next page token returned in the response of your previous request. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getRangeSlotCapacityRequest(AccessToken $accessToken, string $region, $resource_id, $marketplace_ids, $body, $next_page_token = null) : RequestInterface
     {
@@ -2503,6 +2570,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation getServiceJobByServiceJobId
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  A service job identifier. (required)
      *
      * @throws ApiException on non-2xx response
@@ -2601,9 +2670,12 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'getServiceJobByServiceJobId'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  A service job identifier. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getServiceJobByServiceJobIdRequest(AccessToken $accessToken, string $region, $service_job_id) : RequestInterface
     {
@@ -2702,8 +2774,12 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation getServiceJobs
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string[] $marketplace_ids  Used to select jobs that were placed in the specified marketplaces. (required)
      * @param string[]|null $service_order_ids  List of service order ids for the query you want to perform.Max values supported 20. (optional)
+     * @param string[]|null $product_order_ids  A list of up to 20 associated product order IDs. You can use these IDs to query service jobs. (optional)
+     * @param string[]|null $tracking_ids  A list of up to 20 associated product tracking IDs. You can use these IDs to query service jobs. (optional)
      * @param string[]|null $service_job_status  A list of one or more job status by which to filter the list of jobs. (optional)
      * @param string|null $page_token  String returned in the response of your previous request. (optional)
      * @param int|null $page_size  A non-negative integer that indicates the maximum number of jobs to return in the list, Value must be 1 - 20. Default 20. (optional, default to 20)
@@ -2723,9 +2799,9 @@ final class ServicesSDK implements ServicesSDKInterface
      * @throws InvalidArgumentException
      * @return \AmazonPHP\SellingPartner\Model\Services\GetServiceJobsResponse
      */
-    public function getServiceJobs(AccessToken $accessToken, string $region, $marketplace_ids, $service_order_ids = null, $service_job_status = null, $page_token = null, $page_size = 20, $sort_field = null, $sort_order = null, $created_after = null, $created_before = null, $last_updated_after = null, $last_updated_before = null, $schedule_start_date = null, $schedule_end_date = null, $asins = null, $required_skills = null, $store_ids = null)
+    public function getServiceJobs(AccessToken $accessToken, string $region, $marketplace_ids, $service_order_ids = null, $product_order_ids = null, $tracking_ids = null, $service_job_status = null, $page_token = null, $page_size = 20, $sort_field = null, $sort_order = null, $created_after = null, $created_before = null, $last_updated_after = null, $last_updated_before = null, $schedule_start_date = null, $schedule_end_date = null, $asins = null, $required_skills = null, $store_ids = null)
     {
-        $request = $this->getServiceJobsRequest($accessToken, $region, $marketplace_ids, $service_order_ids, $service_job_status, $page_token, $page_size, $sort_field, $sort_order, $created_after, $created_before, $last_updated_after, $last_updated_before, $schedule_start_date, $schedule_end_date, $asins, $required_skills, $store_ids);
+        $request = $this->getServiceJobsRequest($accessToken, $region, $marketplace_ids, $service_order_ids, $product_order_ids, $tracking_ids, $service_job_status, $page_token, $page_size, $sort_field, $sort_order, $created_after, $created_before, $last_updated_after, $last_updated_before, $schedule_start_date, $schedule_end_date, $asins, $required_skills, $store_ids);
 
         $this->configuration->extensions()->preRequest('Services', 'getServiceJobs', $request);
 
@@ -2815,8 +2891,12 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'getServiceJobs'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string[] $marketplace_ids  Used to select jobs that were placed in the specified marketplaces. (required)
      * @param string[]|null $service_order_ids  List of service order ids for the query you want to perform.Max values supported 20. (optional)
+     * @param string[]|null $product_order_ids  A list of up to 20 associated product order IDs. You can use these IDs to query service jobs. (optional)
+     * @param string[]|null $tracking_ids  A list of up to 20 associated product tracking IDs. You can use these IDs to query service jobs. (optional)
      * @param string[]|null $service_job_status  A list of one or more job status by which to filter the list of jobs. (optional)
      * @param string|null $page_token  String returned in the response of your previous request. (optional)
      * @param int $page_size  A non-negative integer that indicates the maximum number of jobs to return in the list, Value must be 1 - 20. Default 20. (optional, default to 20)
@@ -2833,8 +2913,9 @@ final class ServicesSDK implements ServicesSDKInterface
      * @param string[]|null $store_ids  List of Amazon-defined identifiers for the region scope. Max values supported is 50. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
-    public function getServiceJobsRequest(AccessToken $accessToken, string $region, $marketplace_ids, $service_order_ids = null, $service_job_status = null, $page_token = null, $page_size = 20, $sort_field = null, $sort_order = null, $created_after = null, $created_before = null, $last_updated_after = null, $last_updated_before = null, $schedule_start_date = null, $schedule_end_date = null, $asins = null, $required_skills = null, $store_ids = null) : RequestInterface
+    public function getServiceJobsRequest(AccessToken $accessToken, string $region, $marketplace_ids, $service_order_ids = null, $product_order_ids = null, $tracking_ids = null, $service_job_status = null, $page_token = null, $page_size = 20, $sort_field = null, $sort_order = null, $created_after = null, $created_before = null, $last_updated_after = null, $last_updated_before = null, $schedule_start_date = null, $schedule_end_date = null, $asins = null, $required_skills = null, $store_ids = null) : RequestInterface
     {
         // verify the required parameter 'marketplace_ids' is set
         if ($marketplace_ids === null || (is_array($marketplace_ids) && count($marketplace_ids) === 0)) {
@@ -2851,6 +2932,20 @@ final class ServicesSDK implements ServicesSDKInterface
         }
         if ($service_order_ids !== null && count($service_order_ids) < 1) {
             throw new InvalidArgumentException('invalid value for "$service_order_ids" when calling ServiceApi.getServiceJobs, number of items must be greater than or equal to 1.');
+        }
+
+        if ($product_order_ids !== null && count($product_order_ids) > 20) {
+            throw new InvalidArgumentException('invalid value for "$product_order_ids" when calling ServiceApi.getServiceJobs, number of items must be less than or equal to 20.');
+        }
+        if ($product_order_ids !== null && count($product_order_ids) < 1) {
+            throw new InvalidArgumentException('invalid value for "$product_order_ids" when calling ServiceApi.getServiceJobs, number of items must be greater than or equal to 1.');
+        }
+
+        if ($tracking_ids !== null && count($tracking_ids) > 20) {
+            throw new InvalidArgumentException('invalid value for "$tracking_ids" when calling ServiceApi.getServiceJobs, number of items must be less than or equal to 20.');
+        }
+        if ($tracking_ids !== null && count($tracking_ids) < 1) {
+            throw new InvalidArgumentException('invalid value for "$tracking_ids" when calling ServiceApi.getServiceJobs, number of items must be greater than or equal to 1.');
         }
 
         if ($page_size !== null && $page_size > 20) {
@@ -2895,6 +2990,20 @@ final class ServicesSDK implements ServicesSDKInterface
         }
         if ($service_order_ids !== null) {
             $queryParams['serviceOrderIds'] = ObjectSerializer::toString($service_order_ids);
+        }
+        // query params
+        if (is_array($product_order_ids)) {
+            $product_order_ids = ObjectSerializer::serializeCollection($product_order_ids, 'form', true);
+        }
+        if ($product_order_ids !== null) {
+            $queryParams['productOrderIds'] = ObjectSerializer::toString($product_order_ids);
+        }
+        // query params
+        if (is_array($tracking_ids)) {
+            $tracking_ids = ObjectSerializer::serializeCollection($tracking_ids, 'form', true);
+        }
+        if ($tracking_ids !== null) {
+            $queryParams['trackingIds'] = ObjectSerializer::toString($tracking_ids);
         }
         // query params
         if (is_array($service_job_status)) {
@@ -3067,6 +3176,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation rescheduleAppointmentForServiceJobByServiceJobId
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon defined service job identifier. (required)
      * @param string $appointment_id  An existing appointment identifier for the Service Job. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\RescheduleAppointmentRequest $body  Reschedule appointment operation input details. (required)
@@ -3167,11 +3278,14 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'rescheduleAppointmentForServiceJobByServiceJobId'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon defined service job identifier. (required)
      * @param string $appointment_id  An existing appointment identifier for the Service Job. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\RescheduleAppointmentRequest $body  Reschedule appointment operation input details. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function rescheduleAppointmentForServiceJobByServiceJobIdRequest(AccessToken $accessToken, string $region, $service_job_id, $appointment_id, $body) : RequestInterface
     {
@@ -3305,6 +3419,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation setAppointmentFulfillmentData
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon-defined service job identifier. Get this value by calling the &#x60;getServiceJobs&#x60; operation of the Services API. (required)
      * @param string $appointment_id  An Amazon-defined identifier of active service job appointment. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\SetAppointmentFulfillmentDataRequest $body  Appointment fulfillment data collection details. (required)
@@ -3405,11 +3521,14 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'setAppointmentFulfillmentData'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $service_job_id  An Amazon-defined service job identifier. Get this value by calling the &#x60;getServiceJobs&#x60; operation of the Services API. (required)
      * @param string $appointment_id  An Amazon-defined identifier of active service job appointment. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\SetAppointmentFulfillmentDataRequest $body  Appointment fulfillment data collection details. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function setAppointmentFulfillmentDataRequest(AccessToken $accessToken, string $region, $service_job_id, $appointment_id, $body) : RequestInterface
     {
@@ -3543,6 +3662,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation updateReservation
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $reservation_id  Reservation Identifier (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\UpdateReservationRequest $body  Reservation details (required)
@@ -3643,11 +3764,14 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'updateReservation'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $reservation_id  Reservation Identifier (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\UpdateReservationRequest $body  Reservation details (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function updateReservationRequest(AccessToken $accessToken, string $region, $reservation_id, $marketplace_ids, $body) : RequestInterface
     {
@@ -3777,6 +3901,8 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Operation updateSchedule
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $resource_id  Resource (store) Identifier (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\UpdateScheduleRequest $body  Schedule details (required)
@@ -3877,11 +4003,14 @@ final class ServicesSDK implements ServicesSDKInterface
     /**
      * Create request for operation 'updateSchedule'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $resource_id  Resource (store) Identifier (required)
      * @param string[] $marketplace_ids  An identifier for the marketplace in which the resource operates. (required)
      * @param \AmazonPHP\SellingPartner\Model\Services\UpdateScheduleRequest $body  Schedule details (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function updateScheduleRequest(AccessToken $accessToken, string $region, $resource_id, $marketplace_ids, $body) : RequestInterface
     {

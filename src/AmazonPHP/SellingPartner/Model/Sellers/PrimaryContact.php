@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['name'] === null) {
             throw new AssertionException("'name' can't be null");
         }
@@ -196,6 +210,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets name
      *
      * @param string $name The full name of the seller's primary contact.
+     *
+     * @return self
      */
     public function setName($name) : self
     {
@@ -218,6 +234,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets address
      *
      * @param \AmazonPHP\SellingPartner\Model\Sellers\Address $address address
+     *
+     * @return self
      */
     public function setAddress($address) : self
     {
@@ -240,6 +258,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets non_latin_name
      *
      * @param string|null $non_latin_name The non-Latin script version of the primary contact's name, if applicable.
+     *
+     * @return self
      */
     public function setNonLatinName($non_latin_name) : self
     {
@@ -249,6 +269,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -268,6 +290,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -280,6 +304,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -301,10 +327,12 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -312,6 +340,8 @@ class PrimaryContact implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

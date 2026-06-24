@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Alias implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['alias_id'] === null) {
             throw new AssertionException("'alias_id' can't be null");
         }
@@ -188,6 +202,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets alias_id
      *
      * @param string $alias_id The alternative identifier value that can be used to reference this order.
+     *
+     * @return self
      */
     public function setAliasId($alias_id) : self
     {
@@ -210,6 +226,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets alias_type
      *
      * @param string $alias_type The kind of alternative identifier this represents.  **Possible values**: `SELLER_ORDER_ID`
+     *
+     * @return self
      */
     public function setAliasType($alias_type) : self
     {
@@ -219,6 +237,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -238,6 +258,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -250,6 +272,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -271,10 +295,12 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -282,6 +308,8 @@ class Alias implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

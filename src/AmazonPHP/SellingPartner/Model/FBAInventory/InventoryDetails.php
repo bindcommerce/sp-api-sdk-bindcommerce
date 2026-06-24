@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -193,6 +205,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['reserved_quantity'] !== null) {
             $this->container['reserved_quantity']->validate();
             }
@@ -222,6 +236,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets fulfillable_quantity
      *
      * @param int|null $fulfillable_quantity The item quantity that can be picked, packed, and shipped.
+     *
+     * @return self
      */
     public function setFulfillableQuantity($fulfillable_quantity) : self
     {
@@ -244,6 +260,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets inbound_working_quantity
      *
      * @param int|null $inbound_working_quantity The number of units in an inbound shipment for which you have notified Amazon.
+     *
+     * @return self
      */
     public function setInboundWorkingQuantity($inbound_working_quantity) : self
     {
@@ -266,6 +284,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets inbound_shipped_quantity
      *
      * @param int|null $inbound_shipped_quantity The number of units in an inbound shipment that you have notified Amazon about and have provided a tracking number.
+     *
+     * @return self
      */
     public function setInboundShippedQuantity($inbound_shipped_quantity) : self
     {
@@ -288,6 +308,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets inbound_receiving_quantity
      *
      * @param int|null $inbound_receiving_quantity The number of units that have not yet been received at an Amazon fulfillment center for processing, but are part of an inbound shipment with some units that have already been received and processed.
+     *
+     * @return self
      */
     public function setInboundReceivingQuantity($inbound_receiving_quantity) : self
     {
@@ -310,6 +332,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets reserved_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\FBAInventory\ReservedQuantity|null $reserved_quantity reserved_quantity
+     *
+     * @return self
      */
     public function setReservedQuantity($reserved_quantity) : self
     {
@@ -332,6 +356,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets researching_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\FBAInventory\ResearchingQuantity|null $researching_quantity researching_quantity
+     *
+     * @return self
      */
     public function setResearchingQuantity($researching_quantity) : self
     {
@@ -354,6 +380,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets unfulfillable_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\FBAInventory\UnfulfillableQuantity|null $unfulfillable_quantity unfulfillable_quantity
+     *
+     * @return self
      */
     public function setUnfulfillableQuantity($unfulfillable_quantity) : self
     {
@@ -363,6 +391,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -382,6 +412,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -394,6 +426,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -415,10 +449,12 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -426,6 +462,8 @@ class InventoryDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,6 +70,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,6 +80,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -136,6 +140,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -144,6 +150,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -152,6 +160,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -160,6 +170,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -199,6 +211,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['ordered_quantity'] === null) {
             throw new AssertionException("'ordered_quantity' can't be null");
         }
@@ -234,6 +248,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets item_sequence_number
      *
      * @param string|null $item_sequence_number Line item sequence number for the item.
+     *
+     * @return self
      */
     public function setItemSequenceNumber($item_sequence_number) : self
     {
@@ -256,6 +272,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets amazon_product_identifier
      *
      * @param string|null $amazon_product_identifier Amazon Standard Identification Number (ASIN) of an item.
+     *
+     * @return self
      */
     public function setAmazonProductIdentifier($amazon_product_identifier) : self
     {
@@ -278,6 +296,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets vendor_product_identifier
      *
      * @param string|null $vendor_product_identifier The vendor selected product identification of the item. Should be the same as was sent in the purchase order.
+     *
+     * @return self
      */
     public function setVendorProductIdentifier($vendor_product_identifier) : self
     {
@@ -300,6 +320,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets ordered_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity $ordered_quantity ordered_quantity
+     *
+     * @return self
      */
     public function setOrderedQuantity($ordered_quantity) : self
     {
@@ -322,6 +344,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets net_cost
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\Money|null $net_cost net_cost
+     *
+     * @return self
      */
     public function setNetCost($net_cost) : self
     {
@@ -344,6 +368,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets list_price
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\Money|null $list_price list_price
+     *
+     * @return self
      */
     public function setListPrice($list_price) : self
     {
@@ -366,6 +392,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets discount_multiplier
      *
      * @param string|null $discount_multiplier The discount multiplier that should be applied to the price if a vendor sells books with a list price. This is a multiplier factor to arrive at a final discounted price. A multiplier of .90 would be the factor if a 10% discount is given.
+     *
+     * @return self
      */
     public function setDiscountMultiplier($discount_multiplier) : self
     {
@@ -388,6 +416,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets item_acknowledgements
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\OrderItemAcknowledgement[] $item_acknowledgements This is used to indicate acknowledged quantity.
+     *
+     * @return self
      */
     public function setItemAcknowledgements($item_acknowledgements) : self
     {
@@ -397,6 +427,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -416,6 +448,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -428,6 +462,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -449,10 +485,12 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -460,6 +498,8 @@ class OrderAcknowledgementItem implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

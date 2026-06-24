@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['fulfillment_preview_items'] === null) {
             throw new AssertionException("'fulfillment_preview_items' can't be null");
         }
@@ -208,6 +222,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
      * Sets earliest_ship_date
      *
      * @param \DateTimeInterface|null $earliest_ship_date Date timestamp
+     *
+     * @return self
      */
     public function setEarliestShipDate($earliest_ship_date) : self
     {
@@ -230,6 +246,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
      * Sets latest_ship_date
      *
      * @param \DateTimeInterface|null $latest_ship_date Date timestamp
+     *
+     * @return self
      */
     public function setLatestShipDate($latest_ship_date) : self
     {
@@ -252,6 +270,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
      * Sets earliest_arrival_date
      *
      * @param \DateTimeInterface|null $earliest_arrival_date Date timestamp
+     *
+     * @return self
      */
     public function setEarliestArrivalDate($earliest_arrival_date) : self
     {
@@ -274,6 +294,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
      * Sets latest_arrival_date
      *
      * @param \DateTimeInterface|null $latest_arrival_date Date timestamp
+     *
+     * @return self
      */
     public function setLatestArrivalDate($latest_arrival_date) : self
     {
@@ -296,6 +318,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
      * Sets shipping_notes
      *
      * @param string[]|null $shipping_notes Provides additional insight into the shipment timeline when exact delivery dates are not able to be precomputed.
+     *
+     * @return self
      */
     public function setShippingNotes($shipping_notes) : self
     {
@@ -318,6 +342,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
      * Sets fulfillment_preview_items
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentPreviewItem[] $fulfillment_preview_items An array of fulfillment preview item information.
+     *
+     * @return self
      */
     public function setFulfillmentPreviewItems($fulfillment_preview_items) : self
     {
@@ -327,6 +353,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -346,6 +374,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -358,6 +388,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -379,10 +411,12 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -390,6 +424,8 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

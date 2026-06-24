@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['fee_type'] === null) {
             throw new AssertionException("'fee_type' can't be null");
         }
@@ -228,6 +242,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets fee_type
      *
      * @param string $fee_type The type of fee charged to a seller.
+     *
+     * @return self
      */
     public function setFeeType($fee_type) : self
     {
@@ -250,6 +266,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets fee_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\MoneyType $fee_amount fee_amount
+     *
+     * @return self
      */
     public function setFeeAmount($fee_amount) : self
     {
@@ -272,6 +290,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets fee_promotion
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\MoneyType|null $fee_promotion fee_promotion
+     *
+     * @return self
      */
     public function setFeePromotion($fee_promotion) : self
     {
@@ -294,6 +314,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets tax_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\MoneyType|null $tax_amount tax_amount
+     *
+     * @return self
      */
     public function setTaxAmount($tax_amount) : self
     {
@@ -316,6 +338,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets final_fee
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\MoneyType $final_fee final_fee
+     *
+     * @return self
      */
     public function setFinalFee($final_fee) : self
     {
@@ -338,6 +362,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
      * Sets included_fee_detail_list
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\IncludedFeeDetail[]|null $included_fee_detail_list A list of other fees that contribute to a given fee.
+     *
+     * @return self
      */
     public function setIncludedFeeDetailList($included_fee_detail_list) : self
     {
@@ -347,6 +373,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -366,6 +394,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -378,6 +408,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -399,10 +431,12 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -410,6 +444,8 @@ class FeeDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

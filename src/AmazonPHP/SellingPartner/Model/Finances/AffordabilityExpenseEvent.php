@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -72,6 +72,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,6 +82,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -141,6 +145,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -149,6 +155,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -157,6 +165,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -165,6 +175,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -205,6 +217,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['base_expense'] !== null) {
             $this->container['base_expense']->validate();
             }
@@ -248,6 +262,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      * Sets amazon_order_id
      *
      * @param string|null $amazon_order_id An Amazon-defined identifier for an order.
+     *
+     * @return self
      */
     public function setAmazonOrderId($amazon_order_id) : self
     {
@@ -270,6 +286,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -292,6 +310,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      * Sets marketplace_id
      *
      * @param string|null $marketplace_id The Amazon-defined marketplace identifier.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -314,6 +334,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      * Sets transaction_type
      *
      * @param string|null $transaction_type The type of transaction.   Possible values:  * `Charge`: an affordability promotion expense. * `Refund`: an affordability promotion expense reversal.
+     *
+     * @return self
      */
     public function setTransactionType($transaction_type) : self
     {
@@ -336,6 +358,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      * Sets base_expense
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $base_expense base_expense
+     *
+     * @return self
      */
     public function setBaseExpense($base_expense) : self
     {
@@ -358,6 +382,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      * Sets tax_type_cgst
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency $tax_type_cgst tax_type_cgst
+     *
+     * @return self
      */
     public function setTaxTypeCgst($tax_type_cgst) : self
     {
@@ -380,6 +406,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      * Sets tax_type_sgst
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency $tax_type_sgst tax_type_sgst
+     *
+     * @return self
      */
     public function setTaxTypeSgst($tax_type_sgst) : self
     {
@@ -402,6 +430,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      * Sets tax_type_igst
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency $tax_type_igst tax_type_igst
+     *
+     * @return self
      */
     public function setTaxTypeIgst($tax_type_igst) : self
     {
@@ -424,6 +454,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
      * Sets total_expense
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $total_expense total_expense
+     *
+     * @return self
      */
     public function setTotalExpense($total_expense) : self
     {
@@ -433,6 +465,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -452,6 +486,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -464,6 +500,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -485,10 +523,12 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -496,6 +536,8 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

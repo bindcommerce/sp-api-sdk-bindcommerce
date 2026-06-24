@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['item_sequence_number'] === null) {
             throw new AssertionException("'item_sequence_number' can't be null");
         }
@@ -212,6 +226,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets item_sequence_number
      *
      * @param string $item_sequence_number Item sequence number for the item. The first item will be 001, the second 002, and so on. This number is used as a reference to refer to this item from the carton or pallet level.
+     *
+     * @return self
      */
     public function setItemSequenceNumber($item_sequence_number) : self
     {
@@ -234,6 +250,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets buyer_product_identifier
      *
      * @param string|null $buyer_product_identifier Amazon Standard Identification Number (ASIN) for a SKU
+     *
+     * @return self
      */
     public function setBuyerProductIdentifier($buyer_product_identifier) : self
     {
@@ -256,6 +274,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets vendor_product_identifier
      *
      * @param string|null $vendor_product_identifier The vendor selected product identification of the item. Should be the same as was sent in the purchase order.
+     *
+     * @return self
      */
     public function setVendorProductIdentifier($vendor_product_identifier) : self
     {
@@ -278,6 +298,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets shipped_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\ItemQuantity $shipped_quantity shipped_quantity
+     *
+     * @return self
      */
     public function setShippedQuantity($shipped_quantity) : self
     {
@@ -300,6 +322,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets maximum_retail_price
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Money|null $maximum_retail_price maximum_retail_price
+     *
+     * @return self
      */
     public function setMaximumRetailPrice($maximum_retail_price) : self
     {
@@ -309,6 +333,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -328,6 +354,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -340,6 +368,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -361,10 +391,12 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -372,6 +404,8 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

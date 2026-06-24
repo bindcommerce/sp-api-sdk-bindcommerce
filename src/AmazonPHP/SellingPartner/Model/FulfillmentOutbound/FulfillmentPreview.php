@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -76,6 +76,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -84,6 +86,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -151,6 +155,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -159,6 +165,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -167,6 +175,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -175,6 +185,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -217,6 +229,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['shipping_speed_category'] === null) {
             throw new AssertionException("'shipping_speed_category' can't be null");
         }
@@ -258,6 +272,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets shipping_speed_category
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ShippingSpeedCategory $shipping_speed_category shipping_speed_category
+     *
+     * @return self
      */
     public function setShippingSpeedCategory($shipping_speed_category) : self
     {
@@ -280,6 +296,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets scheduled_delivery_info
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ScheduledDeliveryInfo|null $scheduled_delivery_info scheduled_delivery_info
+     *
+     * @return self
      */
     public function setScheduledDeliveryInfo($scheduled_delivery_info) : self
     {
@@ -302,6 +320,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets is_fulfillable
      *
      * @param bool $is_fulfillable When true, this fulfillment order preview is fulfillable.
+     *
+     * @return self
      */
     public function setIsFulfillable($is_fulfillable) : self
     {
@@ -324,6 +344,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets is_cod_capable
      *
      * @param bool $is_cod_capable When true, this fulfillment order preview is for COD (Cash On Delivery).
+     *
+     * @return self
      */
     public function setIsCodCapable($is_cod_capable) : self
     {
@@ -346,6 +368,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets estimated_shipping_weight
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Weight|null $estimated_shipping_weight estimated_shipping_weight
+     *
+     * @return self
      */
     public function setEstimatedShippingWeight($estimated_shipping_weight) : self
     {
@@ -368,6 +392,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets estimated_fees
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Fee[]|null $estimated_fees An array of fee type and cost pairs.
+     *
+     * @return self
      */
     public function setEstimatedFees($estimated_fees) : self
     {
@@ -390,6 +416,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets fulfillment_preview_shipments
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FulfillmentPreviewShipment[]|null $fulfillment_preview_shipments An array of fulfillment preview shipment information.
+     *
+     * @return self
      */
     public function setFulfillmentPreviewShipments($fulfillment_preview_shipments) : self
     {
@@ -412,6 +440,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets unfulfillable_preview_items
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\UnfulfillablePreviewItem[]|null $unfulfillable_preview_items An array of unfulfillable preview item information.
+     *
+     * @return self
      */
     public function setUnfulfillablePreviewItems($unfulfillable_preview_items) : self
     {
@@ -434,6 +464,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets order_unfulfillable_reasons
      *
      * @param string[]|null $order_unfulfillable_reasons String list
+     *
+     * @return self
      */
     public function setOrderUnfulfillableReasons($order_unfulfillable_reasons) : self
     {
@@ -456,6 +488,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets marketplace_id
      *
      * @param string $marketplace_id The marketplace the fulfillment order is placed against.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -478,6 +512,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets feature_constraints
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\FeatureSettings[]|null $feature_constraints A list of features and their fulfillment policies to apply to the order.
+     *
+     * @return self
      */
     public function setFeatureConstraints($feature_constraints) : self
     {
@@ -487,6 +523,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -506,6 +544,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -518,6 +558,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -539,10 +581,12 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -550,6 +594,8 @@ class FulfillmentPreview implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

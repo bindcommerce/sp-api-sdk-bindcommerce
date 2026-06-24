@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['payment_transaction_id'] === null) {
             throw new AssertionException("'payment_transaction_id' can't be null");
         }
@@ -198,6 +212,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets payment_transaction_id
      *
      * @param string $payment_transaction_id The transaction identifier of this payment.
+     *
+     * @return self
      */
     public function setPaymentTransactionId($payment_transaction_id) : self
     {
@@ -220,6 +236,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets payment_mode
      *
      * @param string $payment_mode The transaction mode of this payment.
+     *
+     * @return self
      */
     public function setPaymentMode($payment_mode) : self
     {
@@ -242,6 +260,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets payment_date
      *
      * @param \DateTimeInterface $payment_date Date timestamp
+     *
+     * @return self
      */
     public function setPaymentDate($payment_date) : self
     {
@@ -251,6 +271,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -270,6 +292,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -282,6 +306,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -303,10 +329,12 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -314,6 +342,8 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

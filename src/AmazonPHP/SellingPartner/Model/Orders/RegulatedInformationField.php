@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -190,6 +202,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['field_id'] === null) {
             throw new AssertionException("'field_id' can't be null");
         }
@@ -234,6 +248,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
      * Sets field_id
      *
      * @param string $field_id The unique identifier of the field.
+     *
+     * @return self
      */
     public function setFieldId($field_id) : self
     {
@@ -256,6 +272,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
      * Sets field_label
      *
      * @param string $field_label The name of the field.
+     *
+     * @return self
      */
     public function setFieldLabel($field_label) : self
     {
@@ -278,6 +296,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
      * Sets field_type
      *
      * @param string $field_type The type of field.
+     *
+     * @return self
      */
     public function setFieldType($field_type) : self
     {
@@ -300,6 +320,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
      * Sets field_value
      *
      * @param string $field_value The content of the field as collected in regulatory form. Note that `FileAttachment` type fields contain a URL where you can download the attachment.
+     *
+     * @return self
      */
     public function setFieldValue($field_value) : self
     {
@@ -309,6 +331,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -328,6 +352,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -340,6 +366,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -361,10 +389,12 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -372,6 +402,8 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

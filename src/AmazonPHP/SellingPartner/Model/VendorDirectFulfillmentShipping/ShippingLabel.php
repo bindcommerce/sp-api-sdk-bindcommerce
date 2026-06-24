@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -196,11 +208,13 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['purchase_order_number'] === null) {
             throw new AssertionException("'purchase_order_number' can't be null");
         }
 
-        if (!preg_match("/^[a-zA-Z0-9]+$/", (string) $this->container['purchase_order_number'])) {
+        if (!preg_match("/^[a-zA-Z0-9]+$/", $this->container['purchase_order_number'])) {
             throw new AssertionException("invalid value for 'purchase_order_number', must be conform to the pattern /^[a-zA-Z0-9]+$/.");
         }
 
@@ -252,6 +266,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets purchase_order_number
      *
      * @param string $purchase_order_number This field will contain the Purchase Order Number for this order.
+     *
+     * @return self
      */
     public function setPurchaseOrderNumber($purchase_order_number) : self
     {
@@ -274,6 +290,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets selling_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\PartyIdentification $selling_party selling_party
+     *
+     * @return self
      */
     public function setSellingParty($selling_party) : self
     {
@@ -296,6 +314,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets ship_from_party
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\PartyIdentification $ship_from_party ship_from_party
+     *
+     * @return self
      */
     public function setShipFromParty($ship_from_party) : self
     {
@@ -318,6 +338,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets label_format
      *
      * @param string $label_format Format of the label.
+     *
+     * @return self
      */
     public function setLabelFormat($label_format) : self
     {
@@ -340,6 +362,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets label_data
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\LabelData[] $label_data Provides the details of the packages in this shipment.
+     *
+     * @return self
      */
     public function setLabelData($label_data) : self
     {
@@ -349,6 +373,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -368,6 +394,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -380,6 +408,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -401,10 +431,12 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -412,6 +444,8 @@ class ShippingLabel implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

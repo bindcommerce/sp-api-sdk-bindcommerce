@@ -27,8 +27,20 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmentShippingSDKInterface
 {
-    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
+    private ClientInterface $client;
+
+    private HttpFactory $httpFactory;
+
+    private Configuration $configuration;
+
+    private LoggerInterface $logger;
+
+    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
     {
+        $this->client = $client;
+        $this->httpFactory = $requestFactory;
+        $this->configuration = $configuration;
+        $this->logger = $logger;
     }
 
     /**
@@ -36,6 +48,8 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * createShippingLabels
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $purchase_order_number  The purchase order number for which you want to return the shipping labels. It should be the same number as the &#x60;purchaseOrderNumber&#x60; in the order. (required)
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateShippingLabelsRequest $body  The request payload that contains the parameters for creating shipping labels. (required)
      *
@@ -135,10 +149,13 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'createShippingLabels'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $purchase_order_number  The purchase order number for which you want to return the shipping labels. It should be the same number as the &#x60;purchaseOrderNumber&#x60; in the order. (required)
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\CreateShippingLabelsRequest $body  The request payload that contains the parameters for creating shipping labels. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function createShippingLabelsRequest(AccessToken $accessToken, string $region, $purchase_order_number, $body) : RequestInterface
     {
@@ -250,6 +267,8 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * getShippingLabel
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $purchase_order_number  The purchase order number for which you want to return the shipping label. It should be the same &#x60;purchaseOrderNumber&#x60; that you received in the order. (required)
      *
      * @throws ApiException on non-2xx response
@@ -348,9 +367,12 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'getShippingLabel'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $purchase_order_number  The purchase order number for which you want to return the shipping label. It should be the same &#x60;purchaseOrderNumber&#x60; that you received in the order. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getShippingLabelRequest(AccessToken $accessToken, string $region, $purchase_order_number) : RequestInterface
     {
@@ -448,6 +470,8 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * getShippingLabels
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \DateTimeInterface $created_after  Shipping labels that became available after this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param \DateTimeInterface $created_before  Shipping labels that became available before this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param string|null $ship_from_party_id  The vendor &#x60;warehouseId&#x60; for order fulfillment. If not specified, the result contains orders for all warehouses. (optional)
@@ -551,6 +575,8 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'getShippingLabels'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \DateTimeInterface $created_after  Shipping labels that became available after this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param \DateTimeInterface $created_before  Shipping labels that became available before this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. (required)
      * @param string|null $ship_from_party_id  The vendor &#x60;warehouseId&#x60; for order fulfillment. If not specified, the result contains orders for all warehouses. (optional)
@@ -559,6 +585,7 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      * @param string|null $next_token  Used for pagination when there are more ship labels than the specified result size limit. The token value is returned in the previous API call. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getShippingLabelsRequest(AccessToken $accessToken, string $region, $created_after, $created_before, $ship_from_party_id = null, $limit = null, $sort_order = 'ASC', $next_token = null) : RequestInterface
     {
@@ -699,6 +726,8 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
      *
      * submitShippingLabelRequest
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\SubmitShippingLabelsRequest $body  The request body that contains the shipping labels data. (required)
      *
      * @throws ApiException on non-2xx response
@@ -797,9 +826,12 @@ final class VendorDirectFulfillmentShippingSDK implements VendorDirectFulfillmen
     /**
      * Create request for operation 'submitShippingLabelRequest'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentShipping\SubmitShippingLabelsRequest $body  The request body that contains the shipping labels data. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function submitShippingLabelRequestRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {

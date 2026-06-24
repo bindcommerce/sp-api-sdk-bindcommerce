@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['ordered_quantity'] !== null) {
             $this->container['ordered_quantity']->validate();
             }
@@ -184,6 +198,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
      * Sets ordered_quantity
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\ItemQuantity|null $ordered_quantity ordered_quantity
+     *
+     * @return self
      */
     public function setOrderedQuantity($ordered_quantity) : self
     {
@@ -206,6 +222,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
      * Sets ordered_quantity_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorOrders\OrderedQuantityDetails[]|null $ordered_quantity_details Details of item quantity ordered.
+     *
+     * @return self
      */
     public function setOrderedQuantityDetails($ordered_quantity_details) : self
     {
@@ -215,6 +233,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -234,6 +254,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -246,6 +268,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -267,10 +291,12 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -278,6 +304,8 @@ class OrderItemStatusOrderedQuantity implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

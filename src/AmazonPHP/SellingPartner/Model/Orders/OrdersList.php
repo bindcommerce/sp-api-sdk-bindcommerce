@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['orders'] === null) {
             throw new AssertionException("'orders' can't be null");
         }
@@ -196,6 +210,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets orders
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Order[] $orders A list of orders.
+     *
+     * @return self
      */
     public function setOrders($orders) : self
     {
@@ -218,6 +234,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets next_token
      *
      * @param string|null $next_token When present and not empty, pass this string token in the next request to return the next response page.
+     *
+     * @return self
      */
     public function setNextToken($next_token) : self
     {
@@ -240,6 +258,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets last_updated_before
      *
      * @param string|null $last_updated_before Use this date to select orders that were last updated before (or at) a specified time. An update is defined as any change in order status, including the creation of a new order. Includes updates made by Amazon and by the seller. Use [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format for all dates.
+     *
+     * @return self
      */
     public function setLastUpdatedBefore($last_updated_before) : self
     {
@@ -262,6 +282,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets created_before
      *
      * @param string|null $created_before Use this date to select orders created before (or at) a specified time. Only orders placed before the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
+     *
+     * @return self
      */
     public function setCreatedBefore($created_before) : self
     {
@@ -271,6 +293,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -290,6 +314,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -302,6 +328,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -323,10 +351,12 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -334,6 +364,8 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

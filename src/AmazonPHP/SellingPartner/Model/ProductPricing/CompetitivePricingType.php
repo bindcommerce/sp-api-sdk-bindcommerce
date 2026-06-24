@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['competitive_prices'] === null) {
             throw new AssertionException("'competitive_prices' can't be null");
         }
@@ -198,6 +212,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets competitive_prices
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\CompetitivePriceType[] $competitive_prices A list of competitive pricing information.
+     *
+     * @return self
      */
     public function setCompetitivePrices($competitive_prices) : self
     {
@@ -220,6 +236,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets number_of_offer_listings
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\OfferListingCountType[] $number_of_offer_listings The number of active offer listings for the item that was submitted. The listing count is returned by condition, one for each listing condition value that is returned.
+     *
+     * @return self
      */
     public function setNumberOfOfferListings($number_of_offer_listings) : self
     {
@@ -242,6 +260,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets trade_in_value
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\MoneyType|null $trade_in_value trade_in_value
+     *
+     * @return self
      */
     public function setTradeInValue($trade_in_value) : self
     {
@@ -251,6 +271,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -270,6 +292,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -282,6 +306,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -303,10 +329,12 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -314,6 +342,8 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

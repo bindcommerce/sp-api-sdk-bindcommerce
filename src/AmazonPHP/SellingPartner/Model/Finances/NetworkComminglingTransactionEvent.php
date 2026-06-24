@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -70,6 +70,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -78,6 +80,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -136,6 +140,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -144,6 +150,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -152,6 +160,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -160,6 +170,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -199,6 +211,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['tax_exclusive_amount'] !== null) {
             $this->container['tax_exclusive_amount']->validate();
             }
@@ -224,6 +238,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
      * Sets transaction_type
      *
      * @param string|null $transaction_type The type of network item swap.  Possible values:  * `NetCo`: A Fulfillment by Amazon inventory pooling transaction. Available only in the India marketplace.  * `ComminglingVAT`: A commingling VAT transaction. Available only in the Spain, UK, France, Germany, and Italy marketplaces.
+     *
+     * @return self
      */
     public function setTransactionType($transaction_type) : self
     {
@@ -246,6 +262,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -268,6 +286,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
      * Sets net_co_transaction_id
      *
      * @param string|null $net_co_transaction_id The identifier for the network item swap.
+     *
+     * @return self
      */
     public function setNetCoTransactionId($net_co_transaction_id) : self
     {
@@ -290,6 +310,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
      * Sets swap_reason
      *
      * @param string|null $swap_reason The reason for the network item swap.
+     *
+     * @return self
      */
     public function setSwapReason($swap_reason) : self
     {
@@ -312,6 +334,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the swapped item.
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -334,6 +358,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
      * Sets marketplace_id
      *
      * @param string|null $marketplace_id The marketplace in which the event took place.
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -356,6 +382,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
      * Sets tax_exclusive_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $tax_exclusive_amount tax_exclusive_amount
+     *
+     * @return self
      */
     public function setTaxExclusiveAmount($tax_exclusive_amount) : self
     {
@@ -378,6 +406,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
      * Sets tax_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $tax_amount tax_amount
+     *
+     * @return self
      */
     public function setTaxAmount($tax_amount) : self
     {
@@ -387,6 +417,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -406,6 +438,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -418,6 +452,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -439,10 +475,12 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -450,6 +488,8 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess,
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

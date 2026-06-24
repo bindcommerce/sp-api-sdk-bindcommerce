@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -46,7 +46,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
         'order_id' => 'string',
         'item_status' => 'string',
         'brand_name' => 'string',
-        'item_delivery' => '\AmazonPHP\SellingPartner\Model\Services\ItemDelivery'
+        'item_delivery' => '\AmazonPHP\SellingPartner\Model\Services\ItemDelivery',
+        'linked_assets' => '\AmazonPHP\SellingPartner\Model\Services\LinkedAsset[]'
     ];
 
     /**
@@ -63,11 +64,14 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
         'order_id' => null,
         'item_status' => null,
         'brand_name' => null,
-        'item_delivery' => null
+        'item_delivery' => null,
+        'linked_assets' => null
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +80,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -95,7 +101,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
         'order_id' => 'orderId',
         'item_status' => 'itemStatus',
         'brand_name' => 'brandName',
-        'item_delivery' => 'itemDelivery'
+        'item_delivery' => 'itemDelivery',
+        'linked_assets' => 'linkedAssets'
     ];
 
     /**
@@ -110,7 +117,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
         'order_id' => 'setOrderId',
         'item_status' => 'setItemStatus',
         'brand_name' => 'setBrandName',
-        'item_delivery' => 'setItemDelivery'
+        'item_delivery' => 'setItemDelivery',
+        'linked_assets' => 'setLinkedAssets'
     ];
 
     /**
@@ -125,12 +133,15 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
         'order_id' => 'getOrderId',
         'item_status' => 'getItemStatus',
         'brand_name' => 'getBrandName',
-        'item_delivery' => 'getItemDelivery'
+        'item_delivery' => 'getItemDelivery',
+        'linked_assets' => 'getLinkedAssets'
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +150,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +160,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +170,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -203,6 +220,7 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
         $this->container['item_status'] = $data['item_status'] ?? null;
         $this->container['brand_name'] = $data['brand_name'] ?? null;
         $this->container['item_delivery'] = $data['item_delivery'] ?? null;
+        $this->container['linked_assets'] = $data['linked_assets'] ?? null;
     }
 
     /**
@@ -212,11 +230,13 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
-        if (!is_null($this->container['order_id']) && (mb_strlen((string) $this->container['order_id']) > 20)) {
+        return;
+
+        if (!is_null($this->container['order_id']) && (mb_strlen($this->container['order_id']) > 20)) {
             throw new AssertionException("invalid value for 'order_id', the character length must be smaller than or equal to 20.");
         }
 
-        if (!is_null($this->container['order_id']) && (mb_strlen((string) $this->container['order_id']) < 5)) {
+        if (!is_null($this->container['order_id']) && (mb_strlen($this->container['order_id']) < 5)) {
             throw new AssertionException("invalid value for 'order_id', the character length must be bigger than or equal to 5.");
         }
 
@@ -252,6 +272,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the item.
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -274,6 +296,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets title
      *
      * @param string|null $title The title of the item.
+     *
+     * @return self
      */
     public function setTitle($title) : self
     {
@@ -296,6 +320,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets quantity
      *
      * @param int|null $quantity The total number of items included in the order.
+     *
+     * @return self
      */
     public function setQuantity($quantity) : self
     {
@@ -318,6 +344,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets order_id
      *
      * @param string|null $order_id The Amazon-defined identifier for an order placed by the buyer, in 3-7-7 format.
+     *
+     * @return self
      */
     public function setOrderId($order_id) : self
     {
@@ -340,6 +368,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets item_status
      *
      * @param string|null $item_status The status of the item.
+     *
+     * @return self
      */
     public function setItemStatus($item_status) : self
     {
@@ -362,6 +392,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets brand_name
      *
      * @param string|null $brand_name The brand name of the item.
+     *
+     * @return self
      */
     public function setBrandName($brand_name) : self
     {
@@ -384,6 +416,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets item_delivery
      *
      * @param \AmazonPHP\SellingPartner\Model\Services\ItemDelivery|null $item_delivery item_delivery
+     *
+     * @return self
      */
     public function setItemDelivery($item_delivery) : self
     {
@@ -391,8 +425,34 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
         return $this;
     }
+
+    /**
+     * Gets linked_assets
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Services\LinkedAsset[]|null
+     */
+    public function getLinkedAssets()
+    {
+        return $this->container['linked_assets'];
+    }
+
+    /**
+     * Sets linked_assets
+     *
+     * @param \AmazonPHP\SellingPartner\Model\Services\LinkedAsset[]|null $linked_assets A list of customer-owned assets on which the service must be performed.
+     *
+     * @return self
+     */
+    public function setLinkedAssets($linked_assets) : self
+    {
+        $this->container['linked_assets'] = $linked_assets;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -412,6 +472,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -424,6 +486,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -445,10 +509,12 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -456,6 +522,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

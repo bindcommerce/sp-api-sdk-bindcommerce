@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -193,6 +205,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['format'] === null) {
             throw new AssertionException("'format' can't be null");
         }
@@ -232,6 +246,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
      * Sets format
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DocumentFormat $format format
+     *
+     * @return self
      */
     public function setFormat($format) : self
     {
@@ -254,6 +270,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
      * Sets size
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DocumentSize $size size
+     *
+     * @return self
      */
     public function setSize($size) : self
     {
@@ -276,6 +294,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
      * Sets dpi
      *
      * @param int|null $dpi The dots per inch (DPI) value used in printing. This value represents a measure of the resolution of the document.
+     *
+     * @return self
      */
     public function setDpi($dpi) : self
     {
@@ -298,6 +318,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
      * Sets page_layout
      *
      * @param string|null $page_layout Indicates the position of the label on the paper. Should be the same value as returned in getRates response.
+     *
+     * @return self
      */
     public function setPageLayout($page_layout) : self
     {
@@ -320,6 +342,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
      * Sets need_file_joining
      *
      * @param bool $need_file_joining When true, files should be stitched together. Otherwise, files should be returned separately. Defaults to false.
+     *
+     * @return self
      */
     public function setNeedFileJoining($need_file_joining) : self
     {
@@ -342,6 +366,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
      * Sets requested_document_types
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\DocumentType[] $requested_document_types A list of the document types requested.
+     *
+     * @return self
      */
     public function setRequestedDocumentTypes($requested_document_types) : self
     {
@@ -364,6 +390,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
      * Sets requested_label_customization
      *
      * @param \AmazonPHP\SellingPartner\Model\ShippingV2\RequestedLabelCustomization|null $requested_label_customization requested_label_customization
+     *
+     * @return self
      */
     public function setRequestedLabelCustomization($requested_label_customization) : self
     {
@@ -373,6 +401,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -392,6 +422,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -404,6 +436,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -425,10 +459,12 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -436,6 +472,8 @@ class RequestedDocumentSpecification implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

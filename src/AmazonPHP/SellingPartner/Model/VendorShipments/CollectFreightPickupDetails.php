@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -186,6 +200,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
      * Sets requested_pick_up
      *
      * @param \DateTimeInterface|null $requested_pick_up Date on which the items can be picked up from vendor warehouse by Buyer used for WePay/Collect vendors.
+     *
+     * @return self
      */
     public function setRequestedPickUp($requested_pick_up) : self
     {
@@ -208,6 +224,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
      * Sets scheduled_pick_up
      *
      * @param \DateTimeInterface|null $scheduled_pick_up Date on which the items are scheduled to be picked from vendor warehouse by Buyer used for WePay/Collect vendors.
+     *
+     * @return self
      */
     public function setScheduledPickUp($scheduled_pick_up) : self
     {
@@ -230,6 +248,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
      * Sets carrier_assignment_date
      *
      * @param \DateTimeInterface|null $carrier_assignment_date Date on which the carrier is being scheduled to pickup items from vendor warehouse by Byer used for WePay/Collect vendors.
+     *
+     * @return self
      */
     public function setCarrierAssignmentDate($carrier_assignment_date) : self
     {
@@ -239,6 +259,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -258,6 +280,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -270,6 +294,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -291,10 +317,12 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -302,6 +330,8 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

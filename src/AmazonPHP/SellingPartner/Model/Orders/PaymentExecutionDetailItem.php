@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['payment'] === null) {
             throw new AssertionException("'payment' can't be null");
         }
@@ -208,6 +222,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets payment
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\Money $payment payment
+     *
+     * @return self
      */
     public function setPayment($payment) : self
     {
@@ -230,6 +246,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets payment_method
      *
      * @param string $payment_method The sub-payment method for an order.   **Possible values**: * `COD`: Cash on delivery  * `GC`: Gift card  * `PointsAccount`: Amazon Points  * `Invoice`: Invoice  * `CreditCard`: Credit card  * `Pix`: Pix  * `Other`: Other.
+     *
+     * @return self
      */
     public function setPaymentMethod($payment_method) : self
     {
@@ -252,6 +270,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets acquirer_id
      *
      * @param string|null $acquirer_id The Brazilian Taxpayer Identifier (CNPJ) of the payment processor or acquiring bank that authorizes the payment.   **Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `PaymentMethod` is `CreditCard` or `Pix`.
+     *
+     * @return self
      */
     public function setAcquirerId($acquirer_id) : self
     {
@@ -274,6 +294,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets card_brand
      *
      * @param string|null $card_brand The card network or brand used in the payment transaction (for example, Visa or Mastercard).   **Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `PaymentMethod` is `CreditCard`.
+     *
+     * @return self
      */
     public function setCardBrand($card_brand) : self
     {
@@ -296,6 +318,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
      * Sets authorization_code
      *
      * @param string|null $authorization_code The unique code that confirms the payment authorization.   **Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `PaymentMethod` is `CreditCard` or `Pix`.
+     *
+     * @return self
      */
     public function setAuthorizationCode($authorization_code) : self
     {
@@ -305,6 +329,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -324,6 +350,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -336,6 +364,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -357,10 +387,12 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -368,6 +400,8 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,6 +199,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['headline'] !== null) {
             $this->container['headline']->validate();
             }
@@ -228,6 +242,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
      * Sets headline
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\TextComponent|null $headline headline
+     *
+     * @return self
      */
     public function setHeadline($headline) : self
     {
@@ -250,6 +266,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
      * Sets image_caption_block
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageCaptionBlock|null $image_caption_block image_caption_block
+     *
+     * @return self
      */
     public function setImageCaptionBlock($image_caption_block) : self
     {
@@ -272,6 +290,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
      * Sets description_text_block
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextBlock|null $description_text_block description_text_block
+     *
+     * @return self
      */
     public function setDescriptionTextBlock($description_text_block) : self
     {
@@ -294,6 +314,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
      * Sets description_list_block
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextListBlock|null $description_list_block description_list_block
+     *
+     * @return self
      */
     public function setDescriptionListBlock($description_list_block) : self
     {
@@ -316,6 +338,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
      * Sets sidebar_image_text_block
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardImageTextBlock|null $sidebar_image_text_block sidebar_image_text_block
+     *
+     * @return self
      */
     public function setSidebarImageTextBlock($sidebar_image_text_block) : self
     {
@@ -338,6 +362,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
      * Sets sidebar_list_block
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardTextListBlock|null $sidebar_list_block sidebar_list_block
+     *
+     * @return self
      */
     public function setSidebarListBlock($sidebar_list_block) : self
     {
@@ -347,6 +373,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -366,6 +394,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -378,6 +408,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -399,10 +431,12 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -410,6 +444,8 @@ class StandardImageSidebarModule implements ModelInterface, ArrayAccess, \JsonSe
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

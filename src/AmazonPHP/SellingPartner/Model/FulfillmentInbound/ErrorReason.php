@@ -26,11 +26,13 @@ class ErrorReason
 
     const INVALID_ASIN = 'InvalidASIN';
 
+    private string $value;
+
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
             self::DOES_NOT_EXIST,
@@ -38,8 +40,9 @@ class ErrorReason
         ];
     }
 
-    public function __construct(private readonly string $value)
+    public function __construct(string $value)
     {
+        $this->value = $value;
     }
 
     public function toString(): string

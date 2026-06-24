@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,7 +181,9 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function validate() : void
     {
-        if (!is_null($this->container['next_page_token']) && (mb_strlen((string) $this->container['next_page_token']) < 1)) {
+        return;
+
+        if (!is_null($this->container['next_page_token']) && (mb_strlen($this->container['next_page_token']) < 1)) {
             throw new AssertionException("invalid value for 'next_page_token', the character length must be bigger than or equal to 1.");
         }
 
@@ -194,6 +208,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
      * Sets warnings
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\Error[]|null $warnings A set of messages to the user, such as warnings or comments.
+     *
+     * @return self
      */
     public function setWarnings($warnings) : self
     {
@@ -216,6 +232,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
      * Sets next_page_token
      *
      * @param string|null $next_page_token A token that you use to fetch a specific page when there are multiple pages of results.
+     *
+     * @return self
      */
     public function setNextPageToken($next_page_token) : self
     {
@@ -238,6 +256,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
      * Sets content_metadata_records
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ContentMetadataRecord[] $content_metadata_records A list of A+ Content metadata records.
+     *
+     * @return self
      */
     public function setContentMetadataRecords($content_metadata_records) : self
     {
@@ -247,6 +267,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -266,6 +288,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -278,6 +302,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -299,10 +325,12 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -310,6 +338,8 @@ class SearchContentDocumentsResponse implements ModelInterface, ArrayAccess, \Js
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

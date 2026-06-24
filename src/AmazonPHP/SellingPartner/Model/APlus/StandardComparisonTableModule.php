@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
      */
     public function validate() : void
     {
+        return;
+
         if (!is_null($this->container['product_columns']) && (count($this->container['product_columns']) > 6)) {
             throw new AssertionException("invalid value for 'product_columns', number of items must be less than or equal to 6.");
         }
@@ -196,6 +210,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
      * Sets product_columns
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\StandardComparisonProductBlock[]|null $product_columns product_columns
+     *
+     * @return self
      */
     public function setProductColumns($product_columns) : self
     {
@@ -218,6 +234,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
      * Sets metric_row_labels
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\PlainTextItem[]|null $metric_row_labels metric_row_labels
+     *
+     * @return self
      */
     public function setMetricRowLabels($metric_row_labels) : self
     {
@@ -227,6 +245,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -246,6 +266,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -258,6 +280,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -279,10 +303,12 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -290,6 +316,8 @@ class StandardComparisonTableModule implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

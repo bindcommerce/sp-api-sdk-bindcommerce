@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -190,6 +202,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['type'] === null) {
             throw new AssertionException("'type' can't be null");
         }
@@ -222,6 +236,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets type
      *
      * @param string $type The drop-off location type at the destination address.
+     *
+     * @return self
      */
     public function setType($type) : self
     {
@@ -244,6 +260,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets attributes
      *
      * @param array<string,string>|null $attributes Additional information about the drop-off location. This information can vary depending on the type of drop-off location specified in the `type` field.  If the `type` is set to `FALLBACK_NEIGHBOR_DELIVERY`, the `attributes` object must include the keys `neighborName` and `houseNumber` to provide the name and house number of the designated neighbor.  For `RECEPTIONIST` type, the `attributes` object may include a `recipientName` field that contains the name of the person who received or will receive the package.
+     *
+     * @return self
      */
     public function setAttributes($attributes) : self
     {
@@ -253,6 +271,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -272,6 +292,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -284,6 +306,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -305,10 +329,12 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -316,6 +342,8 @@ class DropOffLocation implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

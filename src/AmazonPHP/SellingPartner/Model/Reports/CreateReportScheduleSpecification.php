@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -228,6 +240,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['report_type'] === null) {
             throw new AssertionException("'report_type' can't be null");
         }
@@ -276,6 +290,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
      * Sets report_type
      *
      * @param string $report_type The report type. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information.
+     *
+     * @return self
      */
     public function setReportType($report_type) : self
     {
@@ -298,6 +314,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
      * Sets marketplace_ids
      *
      * @param string[] $marketplace_ids A list of marketplace identifiers for the report schedule.
+     *
+     * @return self
      */
     public function setMarketplaceIds($marketplace_ids) : self
     {
@@ -320,6 +338,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
      * Sets report_options
      *
      * @param array<string,string>|null $report_options Additional information passed to reports. This varies by report type.
+     *
+     * @return self
      */
     public function setReportOptions($report_options) : self
     {
@@ -342,6 +362,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
      * Sets period
      *
      * @param string $period One of a set of predefined <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> periods that specifies how often a report should be created.
+     *
+     * @return self
      */
     public function setPeriod($period) : self
     {
@@ -364,6 +386,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
      * Sets next_report_creation_time
      *
      * @param \DateTimeInterface|null $next_report_creation_time The date and time when the schedule will create its next report, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date time format.
+     *
+     * @return self
      */
     public function setNextReportCreationTime($next_report_creation_time) : self
     {
@@ -373,6 +397,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -392,6 +418,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -404,6 +432,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -425,10 +455,12 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -436,6 +468,8 @@ class CreateReportScheduleSpecification implements ModelInterface, ArrayAccess, 
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

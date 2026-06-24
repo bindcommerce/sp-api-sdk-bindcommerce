@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -193,6 +205,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['transfer_amount'] !== null) {
             $this->container['transfer_amount']->validate();
             }
@@ -214,6 +228,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
      * Sets funds_transfers_type
      *
      * @param string|null $funds_transfers_type The type of fund transfer. For example, `Refund`.
+     *
+     * @return self
      */
     public function setFundsTransfersType($funds_transfers_type) : self
     {
@@ -236,6 +252,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
      * Sets transfer_id
      *
      * @param string|null $transfer_id The transfer identifier.
+     *
+     * @return self
      */
     public function setTransferId($transfer_id) : self
     {
@@ -258,6 +276,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
      * Sets disbursement_id
      *
      * @param string|null $disbursement_id The disbursement identifier.
+     *
+     * @return self
      */
     public function setDisbursementId($disbursement_id) : self
     {
@@ -280,6 +300,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
      * Sets payment_disbursement_type
      *
      * @param string|null $payment_disbursement_type The type of payment for disbursement. For example, `CREDIT_CARD`.
+     *
+     * @return self
      */
     public function setPaymentDisbursementType($payment_disbursement_type) : self
     {
@@ -302,6 +324,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
      * Sets status
      *
      * @param string|null $status The status of the failed `AdhocDisbursement`. For example, `HARD_DECLINED`.
+     *
+     * @return self
      */
     public function setStatus($status) : self
     {
@@ -324,6 +348,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
      * Sets transfer_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $transfer_amount transfer_amount
+     *
+     * @return self
      */
     public function setTransferAmount($transfer_amount) : self
     {
@@ -346,6 +372,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
      * Sets posted_date
      *
      * @param \DateTimeInterface|null $posted_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setPostedDate($posted_date) : self
     {
@@ -355,6 +383,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -374,6 +404,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -386,6 +418,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -407,10 +441,12 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -418,6 +454,8 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

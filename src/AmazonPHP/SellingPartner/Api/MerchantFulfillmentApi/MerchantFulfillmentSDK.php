@@ -27,13 +27,27 @@ use Psr\Log\LoggerInterface;
 * Do not change it, it will be overwritten with next execution of /bin/generate.sh*/
 final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
 {
-    public function __construct(private readonly ClientInterface $client, private readonly HttpFactory $httpFactory, private readonly Configuration $configuration, private readonly LoggerInterface $logger)
+    private ClientInterface $client;
+
+    private HttpFactory $httpFactory;
+
+    private Configuration $configuration;
+
+    private LoggerInterface $logger;
+
+    public function __construct(ClientInterface $client, HttpFactory $requestFactory, Configuration $configuration, LoggerInterface $logger)
     {
+        $this->client = $client;
+        $this->httpFactory = $requestFactory;
+        $this->configuration = $configuration;
+        $this->logger = $logger;
     }
 
     /**
      * Operation cancelShipment
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $shipment_id  The Amazon-defined shipment identifier for the shipment to cancel. (required)
      *
      * @throws ApiException on non-2xx response
@@ -132,9 +146,12 @@ final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
     /**
      * Create request for operation 'cancelShipment'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $shipment_id  The Amazon-defined shipment identifier for the shipment to cancel. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function cancelShipmentRequest(AccessToken $accessToken, string $region, $shipment_id) : RequestInterface
     {
@@ -230,6 +247,8 @@ final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
     /**
      * Operation createShipment
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CreateShipmentRequest $body  The request schema for the &#x60;CreateShipment&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
@@ -328,9 +347,12 @@ final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
     /**
      * Create request for operation 'createShipment'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CreateShipmentRequest $body  The request schema for the &#x60;CreateShipment&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function createShipmentRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -422,6 +444,8 @@ final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
     /**
      * Operation getAdditionalSellerInputs
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest $body  The request schema for the &#x60;GetAdditionalSellerInputs&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
@@ -520,9 +544,12 @@ final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
     /**
      * Create request for operation 'getAdditionalSellerInputs'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest $body  The request schema for the &#x60;GetAdditionalSellerInputs&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getAdditionalSellerInputsRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -614,6 +641,8 @@ final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
     /**
      * Operation getEligibleShipmentServices
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest $body  The request schema for the &#x60;GetEligibleShipmentServices&#x60; operation. (required)
      *
      * @throws ApiException on non-2xx response
@@ -712,9 +741,12 @@ final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
     /**
      * Create request for operation 'getEligibleShipmentServices'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest $body  The request schema for the &#x60;GetEligibleShipmentServices&#x60; operation. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getEligibleShipmentServicesRequest(AccessToken $accessToken, string $region, $body) : RequestInterface
     {
@@ -806,6 +838,8 @@ final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
     /**
      * Operation getShipment
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $shipment_id  The Amazon-defined shipment identifier for the shipment. (required)
      *
      * @throws ApiException on non-2xx response
@@ -904,9 +938,12 @@ final class MerchantFulfillmentSDK implements MerchantFulfillmentSDKInterface
     /**
      * Create request for operation 'getShipment'
      *
+     * @param AccessToken $accessToken
+     * @param string $region
      * @param string $shipment_id  The Amazon-defined shipment identifier for the shipment. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
      */
     public function getShipmentRequest(AccessToken $accessToken, string $region, $shipment_id) : RequestInterface
     {

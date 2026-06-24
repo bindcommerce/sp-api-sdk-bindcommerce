@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['origin'] === null) {
             throw new AssertionException("'origin' can't be null");
         }
@@ -192,6 +206,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets origin
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Origin $origin origin
+     *
+     * @return self
      */
     public function setOrigin($origin) : self
     {
@@ -214,6 +230,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets destination
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\Destination $destination destination
+     *
+     * @return self
      */
     public function setDestination($destination) : self
     {
@@ -223,6 +241,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -242,6 +262,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -254,6 +276,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -275,10 +299,12 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -286,6 +312,8 @@ class GetDeliveryOffersTerms implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

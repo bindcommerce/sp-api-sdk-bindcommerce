@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function validate() : void
     {
+        return;
+
         if (!is_null($this->container['status_code']) && ($this->container['status_code'] > 599)) {
             throw new AssertionException("invalid value for 'status_code', must be smaller than or equal to 599.");
         }
@@ -188,6 +202,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets status_code
      *
      * @param int|null $status_code The HTTP response Status Code.
+     *
+     * @return self
      */
     public function setStatusCode($status_code) : self
     {
@@ -210,6 +226,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
      * Sets reason_phrase
      *
      * @param string|null $reason_phrase The HTTP response Reason-Phase.
+     *
+     * @return self
      */
     public function setReasonPhrase($reason_phrase) : self
     {
@@ -219,6 +237,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -238,6 +258,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -250,6 +272,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -271,10 +295,12 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -282,6 +308,8 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

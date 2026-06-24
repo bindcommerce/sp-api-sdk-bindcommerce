@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['expiry_after_duration'] !== null) {
             $this->container['expiry_after_duration']->validate();
             }
@@ -190,6 +204,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets manufacturer_date
      *
      * @param \DateTimeInterface|null $manufacturer_date Production, packaging or assembly date determined by the manufacturer. Its meaning is determined based on the trade item context.
+     *
+     * @return self
      */
     public function setManufacturerDate($manufacturer_date) : self
     {
@@ -212,6 +228,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets expiry_date
      *
      * @param \DateTimeInterface|null $expiry_date The date that determines the limit of consumption or use of a product. Its meaning is determined based on the trade item context.
+     *
+     * @return self
      */
     public function setExpiryDate($expiry_date) : self
     {
@@ -234,6 +252,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
      * Sets expiry_after_duration
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Duration|null $expiry_after_duration expiry_after_duration
+     *
+     * @return self
      */
     public function setExpiryAfterDuration($expiry_after_duration) : self
     {
@@ -243,6 +263,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -262,6 +284,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -274,6 +298,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -295,10 +321,12 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,6 +334,8 @@ class Expiry implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringa
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -40,7 +40,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
       * @var string[]
       */
     protected static array $openAPITypes = [
-        'grand_total' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\Money'
+        'grand_total' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\Money',
+        'breakdowns' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\OrderProceedsBreakdown[]'
     ];
 
     /**
@@ -51,11 +52,14 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
       * @psalm-var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'grand_total' => null
+        'grand_total' => null,
+        'breakdowns' => null
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +68,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -77,7 +83,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * @var string[]
      */
     protected static array $attributeMap = [
-        'grand_total' => 'grandTotal'
+        'grand_total' => 'grandTotal',
+        'breakdowns' => 'breakdowns'
     ];
 
     /**
@@ -86,7 +93,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * @var string[]
      */
     protected static array $setters = [
-        'grand_total' => 'setGrandTotal'
+        'grand_total' => 'setGrandTotal',
+        'breakdowns' => 'setBreakdowns'
     ];
 
     /**
@@ -95,12 +103,15 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * @var string[]
      */
     protected static array $getters = [
-        'grand_total' => 'getGrandTotal'
+        'grand_total' => 'getGrandTotal',
+        'breakdowns' => 'getBreakdowns'
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +120,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +130,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +140,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -148,6 +165,7 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
     public function __construct(array $data = null)
     {
         $this->container['grand_total'] = $data['grand_total'] ?? null;
+        $this->container['breakdowns'] = $data['breakdowns'] ?? null;
     }
 
     /**
@@ -157,6 +175,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['grand_total'] !== null) {
             $this->container['grand_total']->validate();
             }
@@ -178,6 +198,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets grand_total
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Money|null $grand_total grand_total
+     *
+     * @return self
      */
     public function setGrandTotal($grand_total) : self
     {
@@ -185,8 +207,34 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
         return $this;
     }
+
+    /**
+     * Gets breakdowns
+     *
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderProceedsBreakdown[]|null
+     */
+    public function getBreakdowns()
+    {
+        return $this->container['breakdowns'];
+    }
+
+    /**
+     * Sets breakdowns
+     *
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\OrderProceedsBreakdown[]|null $breakdowns Categorized proceeds for the order. Proceed categories are either aggregated across all order items (such as `ITEM`, `SHIPPING`, and `TAX`) or applied at the order level (such as `DELIVERY_TIP`).
+     *
+     * @return self
+     */
+    public function setBreakdowns($breakdowns) : self
+    {
+        $this->container['breakdowns'] = $breakdowns;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -206,6 +254,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -218,6 +268,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -239,10 +291,12 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -250,6 +304,8 @@ class OrderProceeds implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

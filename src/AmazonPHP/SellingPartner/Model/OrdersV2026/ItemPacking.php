@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -40,7 +40,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
       * @var string[]
       */
     protected static array $openAPITypes = [
-        'gift_option' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\GiftOption'
+        'gift_option' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\GiftOption',
+        'serial_number_requirement' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\SerialNumberRequirement'
     ];
 
     /**
@@ -51,11 +52,14 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
       * @psalm-var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'gift_option' => null
+        'gift_option' => null,
+        'serial_number_requirement' => null
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -64,6 +68,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -77,7 +83,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * @var string[]
      */
     protected static array $attributeMap = [
-        'gift_option' => 'giftOption'
+        'gift_option' => 'giftOption',
+        'serial_number_requirement' => 'serialNumberRequirement'
     ];
 
     /**
@@ -86,7 +93,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * @var string[]
      */
     protected static array $setters = [
-        'gift_option' => 'setGiftOption'
+        'gift_option' => 'setGiftOption',
+        'serial_number_requirement' => 'setSerialNumberRequirement'
     ];
 
     /**
@@ -95,12 +103,15 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * @var string[]
      */
     protected static array $getters = [
-        'gift_option' => 'getGiftOption'
+        'gift_option' => 'getGiftOption',
+        'serial_number_requirement' => 'getSerialNumberRequirement'
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -109,6 +120,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -117,6 +130,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -125,6 +140,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -148,6 +165,7 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     public function __construct(array $data = null)
     {
         $this->container['gift_option'] = $data['gift_option'] ?? null;
+        $this->container['serial_number_requirement'] = $data['serial_number_requirement'] ?? null;
     }
 
     /**
@@ -157,8 +175,14 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['gift_option'] !== null) {
             $this->container['gift_option']->validate();
+            }
+
+            if ($this->container['serial_number_requirement'] !== null) {
+            $this->container['serial_number_requirement']->validate();
             }
 
     }
@@ -178,6 +202,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets gift_option
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\GiftOption|null $gift_option gift_option
+     *
+     * @return self
      */
     public function setGiftOption($gift_option) : self
     {
@@ -185,8 +211,34 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
         return $this;
     }
+
+    /**
+     * Gets serial_number_requirement
+     *
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\SerialNumberRequirement|null
+     */
+    public function getSerialNumberRequirement()
+    {
+        return $this->container['serial_number_requirement'];
+    }
+
+    /**
+     * Sets serial_number_requirement
+     *
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\SerialNumberRequirement|null $serial_number_requirement serial_number_requirement
+     *
+     * @return self
+     */
+    public function setSerialNumberRequirement($serial_number_requirement) : self
+    {
+        $this->container['serial_number_requirement'] = $serial_number_requirement;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -206,6 +258,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -218,6 +272,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -239,10 +295,12 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -250,6 +308,8 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -178,6 +190,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['tax_registration_type'] === null) {
             throw new AssertionException("'tax_registration_type' can't be null");
         }
@@ -214,6 +228,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets tax_registration_type
      *
      * @param string $tax_registration_type Tax registration type for the entity.
+     *
+     * @return self
      */
     public function setTaxRegistrationType($tax_registration_type) : self
     {
@@ -236,6 +252,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * Sets tax_registration_number
      *
      * @param string $tax_registration_number Tax registration number for the entity. For example, VAT ID.
+     *
+     * @return self
      */
     public function setTaxRegistrationNumber($tax_registration_number) : self
     {
@@ -245,6 +263,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -264,6 +284,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -276,6 +298,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -297,10 +321,12 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -308,6 +334,8 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

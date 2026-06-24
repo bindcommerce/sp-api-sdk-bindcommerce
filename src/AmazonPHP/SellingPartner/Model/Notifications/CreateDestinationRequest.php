@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['resource_specification'] === null) {
             throw new AssertionException("'resource_specification' can't be null");
         }
@@ -190,6 +204,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets resource_specification
      *
      * @param \AmazonPHP\SellingPartner\Model\Notifications\DestinationResourceSpecification $resource_specification resource_specification
+     *
+     * @return self
      */
     public function setResourceSpecification($resource_specification) : self
     {
@@ -212,6 +228,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets name
      *
      * @param string $name A developer-defined name to help identify this destination.
+     *
+     * @return self
      */
     public function setName($name) : self
     {
@@ -221,6 +239,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -240,6 +260,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -252,6 +274,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -273,10 +297,12 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -284,6 +310,8 @@ class CreateDestinationRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

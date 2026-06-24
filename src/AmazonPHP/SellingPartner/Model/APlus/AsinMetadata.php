@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -66,6 +66,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -74,6 +76,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -126,6 +130,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -134,6 +140,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -142,6 +150,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -150,6 +160,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -187,23 +199,25 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['asin'] === null) {
             throw new AssertionException("'asin' can't be null");
         }
 
-        if ((mb_strlen((string) $this->container['asin']) < 10)) {
+        if ((mb_strlen($this->container['asin']) < 10)) {
             throw new AssertionException("invalid value for 'asin', the character length must be bigger than or equal to 10.");
         }
 
-        if (!is_null($this->container['parent']) && (mb_strlen((string) $this->container['parent']) < 10)) {
+        if (!is_null($this->container['parent']) && (mb_strlen($this->container['parent']) < 10)) {
             throw new AssertionException("invalid value for 'parent', the character length must be bigger than or equal to 10.");
         }
 
-        if (!is_null($this->container['title']) && (mb_strlen((string) $this->container['title']) < 1)) {
+        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) < 1)) {
             throw new AssertionException("invalid value for 'title', the character length must be bigger than or equal to 1.");
         }
 
-        if (!is_null($this->container['image_url']) && (mb_strlen((string) $this->container['image_url']) < 1)) {
+        if (!is_null($this->container['image_url']) && (mb_strlen($this->container['image_url']) < 1)) {
             throw new AssertionException("invalid value for 'image_url', the character length must be bigger than or equal to 1.");
         }
 
@@ -224,6 +238,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets asin
      *
      * @param string $asin The Amazon Standard Identification Number (ASIN).
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -246,6 +262,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets badge_set
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\AsinBadge[]|null $badge_set The set of ASIN badges.
+     *
+     * @return self
      */
     public function setBadgeSet($badge_set) : self
     {
@@ -268,6 +286,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets parent
      *
      * @param string|null $parent The Amazon Standard Identification Number (ASIN).
+     *
+     * @return self
      */
     public function setParent($parent) : self
     {
@@ -290,6 +310,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets title
      *
      * @param string|null $title The title for the ASIN in the Amazon catalog.
+     *
+     * @return self
      */
     public function setTitle($title) : self
     {
@@ -312,6 +334,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets image_url
      *
      * @param string|null $image_url The default image for the ASIN in the Amazon catalog.
+     *
+     * @return self
      */
     public function setImageUrl($image_url) : self
     {
@@ -334,6 +358,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
      * Sets content_reference_key_set
      *
      * @param string[]|null $content_reference_key_set A set of content reference keys.
+     *
+     * @return self
      */
     public function setContentReferenceKeySet($content_reference_key_set) : self
     {
@@ -343,6 +369,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -362,6 +390,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -374,6 +404,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -395,10 +427,12 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -406,6 +440,8 @@ class AsinMetadata implements ModelInterface, ArrayAccess, \JsonSerializable, \S
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

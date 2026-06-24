@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -208,6 +220,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['type'] === null) {
             throw new AssertionException("'type' can't be null");
         }
@@ -246,6 +260,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets type
      *
      * @param string $type Type of the charge applied.
+     *
+     * @return self
      */
     public function setType($type) : self
     {
@@ -268,6 +284,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets description
      *
      * @param string|null $description Description of the charge.
+     *
+     * @return self
      */
     public function setDescription($description) : self
     {
@@ -290,6 +308,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets charge_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\Money $charge_amount charge_amount
+     *
+     * @return self
      */
     public function setChargeAmount($charge_amount) : self
     {
@@ -312,6 +332,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets tax_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\TaxDetails[]|null $tax_details Tax amount details applied on this charge.
+     *
+     * @return self
      */
     public function setTaxDetails($tax_details) : self
     {
@@ -321,6 +343,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -340,6 +364,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -352,6 +378,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -373,10 +401,12 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -384,6 +414,8 @@ class ChargeDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

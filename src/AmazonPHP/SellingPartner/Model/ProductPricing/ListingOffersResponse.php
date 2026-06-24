@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['status'] !== null) {
             $this->container['status']->validate();
             }
@@ -206,6 +220,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets headers
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\HttpResponseHeaders|null $headers headers
+     *
+     * @return self
      */
     public function setHeaders($headers) : self
     {
@@ -228,6 +244,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets status
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\GetOffersHttpStatusLine|null $status status
+     *
+     * @return self
      */
     public function setStatus($status) : self
     {
@@ -250,6 +268,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets body
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\GetOffersResponse $body body
+     *
+     * @return self
      */
     public function setBody($body) : self
     {
@@ -272,6 +292,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets request
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductPricing\ListingOffersRequestParams|null $request request
+     *
+     * @return self
      */
     public function setRequest($request) : self
     {
@@ -281,6 +303,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -300,6 +324,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -312,6 +338,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -333,10 +361,12 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -344,6 +374,8 @@ class ListingOffersResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

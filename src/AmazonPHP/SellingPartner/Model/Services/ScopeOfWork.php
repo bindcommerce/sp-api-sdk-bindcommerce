@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -192,6 +206,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets asin
      *
      * @param string|null $asin The Amazon Standard Identification Number (ASIN) of the service job.
+     *
+     * @return self
      */
     public function setAsin($asin) : self
     {
@@ -214,6 +230,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets title
      *
      * @param string|null $title The title of the service job.
+     *
+     * @return self
      */
     public function setTitle($title) : self
     {
@@ -236,6 +254,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets quantity
      *
      * @param int|null $quantity The number of service jobs.
+     *
+     * @return self
      */
     public function setQuantity($quantity) : self
     {
@@ -258,6 +278,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
      * Sets required_skills
      *
      * @param string[]|null $required_skills A list of skills required to perform the job.
+     *
+     * @return self
      */
     public function setRequiredSkills($required_skills) : self
     {
@@ -267,6 +289,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,6 +310,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -298,6 +324,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,10 +347,12 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -330,6 +360,8 @@ class ScopeOfWork implements ModelInterface, ArrayAccess, \JsonSerializable, \St
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

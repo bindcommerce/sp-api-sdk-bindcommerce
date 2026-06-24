@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,9 +181,17 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
-            if ($this->container['subtotal'] !== null) {
+        return;
+
+        if ($this->container['type'] === null) {
+            throw new AssertionException("'type' can't be null");
+        }
+
+        if ($this->container['subtotal'] === null) {
+            throw new AssertionException("'subtotal' can't be null");
+        }
+
             $this->container['subtotal']->validate();
-            }
 
     }
 
@@ -179,7 +199,7 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets type
      *
-     * @return string|null
+     * @return string
      */
     public function getType()
     {
@@ -189,7 +209,9 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets type
      *
-     * @param string|null $type Category classification of the proceeds breakdown.   **Possible values**: `ITEM`, `SHIPPING`, `GIFT_WRAP`, `COD_FEE`, `OTHER`, `TAX`, `DISCOUNT`
+     * @param string $type Category classification of the proceeds breakdown.   **Possible values**: `ITEM`, `SHIPPING`, `GIFT_WRAP`, `COD_FEE`, `OTHER`, `TAX`, `DISCOUNT`
+     *
+     * @return self
      */
     public function setType($type) : self
     {
@@ -201,7 +223,7 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets subtotal
      *
-     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\Money|null
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\Money
      */
     public function getSubtotal()
     {
@@ -211,7 +233,9 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets subtotal
      *
-     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Money|null $subtotal subtotal
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Money $subtotal subtotal
+     *
+     * @return self
      */
     public function setSubtotal($subtotal) : self
     {
@@ -234,6 +258,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets detailed_breakdowns
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemProceedsDetailedBreakdown[]|null $detailed_breakdowns Further granular breakdown of the subtotal.
+     *
+     * @return self
      */
     public function setDetailedBreakdowns($detailed_breakdowns) : self
     {
@@ -243,6 +269,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -262,6 +290,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -274,6 +304,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -295,10 +327,12 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -306,6 +340,8 @@ class ItemProceedsBreakdown implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

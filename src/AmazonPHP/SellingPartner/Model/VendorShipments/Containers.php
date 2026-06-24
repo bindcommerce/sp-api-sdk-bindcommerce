@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Containers implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -74,6 +74,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -82,6 +84,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -146,6 +150,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -154,6 +160,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -162,6 +170,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -170,6 +180,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -226,6 +238,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['container_type'] === null) {
             throw new AssertionException("'container_type' can't be null");
         }
@@ -274,6 +288,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets container_type
      *
      * @param string $container_type The type of container.
+     *
+     * @return self
      */
     public function setContainerType($container_type) : self
     {
@@ -296,6 +312,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets container_sequence_number
      *
      * @param string|null $container_sequence_number An integer that must be submitted for multi-box shipments only, where one item may come in separate packages.
+     *
+     * @return self
      */
     public function setContainerSequenceNumber($container_sequence_number) : self
     {
@@ -318,6 +336,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets container_identifiers
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\ContainerIdentification[] $container_identifiers A list of carton identifiers.
+     *
+     * @return self
      */
     public function setContainerIdentifiers($container_identifiers) : self
     {
@@ -340,6 +360,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets tracking_number
      *
      * @param string|null $tracking_number The tracking number used for identifying the shipment.
+     *
+     * @return self
      */
     public function setTrackingNumber($tracking_number) : self
     {
@@ -362,6 +384,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets dimensions
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Dimensions|null $dimensions dimensions
+     *
+     * @return self
      */
     public function setDimensions($dimensions) : self
     {
@@ -384,6 +408,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets weight
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\Weight|null $weight weight
+     *
+     * @return self
      */
     public function setWeight($weight) : self
     {
@@ -406,6 +432,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets tier
      *
      * @param int|null $tier Number of layers per pallet.
+     *
+     * @return self
      */
     public function setTier($tier) : self
     {
@@ -428,6 +456,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets block
      *
      * @param int|null $block Number of cartons per layer on the pallet.
+     *
+     * @return self
      */
     public function setBlock($block) : self
     {
@@ -450,6 +480,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets inner_containers_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\InnerContainersDetails|null $inner_containers_details inner_containers_details
+     *
+     * @return self
      */
     public function setInnerContainersDetails($inner_containers_details) : self
     {
@@ -472,6 +504,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
      * Sets packed_items
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\PackedItems[]|null $packed_items A list of packed items.
+     *
+     * @return self
      */
     public function setPackedItems($packed_items) : self
     {
@@ -481,6 +515,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -500,6 +536,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -512,6 +550,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -533,10 +573,12 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -544,6 +586,8 @@ class Containers implements ModelInterface, ArrayAccess, \JsonSerializable, \Str
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -192,6 +206,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets buyer_name
      *
      * @param string|null $buyer_name The full name of the customer who placed the order.
+     *
+     * @return self
      */
     public function setBuyerName($buyer_name) : self
     {
@@ -214,6 +230,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets buyer_email
      *
      * @param string|null $buyer_email The anonymized email address of the buyer. **Note:** Only available for merchant-fulfilled (FBM) orders.
+     *
+     * @return self
      */
     public function setBuyerEmail($buyer_email) : self
     {
@@ -236,6 +254,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets buyer_company_name
      *
      * @param string|null $buyer_company_name The name of the company or organization for a business order.
+     *
+     * @return self
      */
     public function setBuyerCompanyName($buyer_company_name) : self
     {
@@ -258,6 +278,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
      * Sets buyer_purchase_order_number
      *
      * @param string|null $buyer_purchase_order_number The purchase order (PO) number entered by the buyer at checkout. Only returned for orders where the buyer entered a PO number at checkout.
+     *
+     * @return self
      */
     public function setBuyerPurchaseOrderNumber($buyer_purchase_order_number) : self
     {
@@ -267,6 +289,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,6 +310,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -298,6 +324,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,10 +347,12 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -330,6 +360,8 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

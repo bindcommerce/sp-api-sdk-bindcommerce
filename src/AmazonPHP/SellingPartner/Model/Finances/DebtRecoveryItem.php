@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['recovery_amount'] !== null) {
             $this->container['recovery_amount']->validate();
             }
@@ -200,6 +214,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets recovery_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $recovery_amount recovery_amount
+     *
+     * @return self
      */
     public function setRecoveryAmount($recovery_amount) : self
     {
@@ -222,6 +238,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets original_amount
      *
      * @param \AmazonPHP\SellingPartner\Model\Finances\Currency|null $original_amount original_amount
+     *
+     * @return self
      */
     public function setOriginalAmount($original_amount) : self
     {
@@ -244,6 +262,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets group_begin_date
      *
      * @param \DateTimeInterface|null $group_begin_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setGroupBeginDate($group_begin_date) : self
     {
@@ -266,6 +286,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets group_end_date
      *
      * @param \DateTimeInterface|null $group_end_date A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+     *
+     * @return self
      */
     public function setGroupEndDate($group_end_date) : self
     {
@@ -275,6 +297,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -294,6 +318,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -306,6 +332,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -327,10 +355,12 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -338,6 +368,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -192,6 +206,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets due_diligence_reference
      *
      * @param string|null $due_diligence_reference The reference number from the vendor's EUDR Due Diligence Statement (DDS) submitted to the EU Commission portal or provided to Amazon through ONIX feed.
+     *
+     * @return self
      */
     public function setDueDiligenceReference($due_diligence_reference) : self
     {
@@ -214,6 +230,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets due_diligence_verification
      *
      * @param string|null $due_diligence_verification The EUDR Due Diligence verification number provided by the EU Commission for the submitted DDS.
+     *
+     * @return self
      */
     public function setDueDiligenceVerification($due_diligence_verification) : self
     {
@@ -236,6 +254,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets due_diligence_information
      *
      * @param string|null $due_diligence_information The EUDR Due Diligence information pre-loaded in Vendor Central.
+     *
+     * @return self
      */
     public function setDueDiligenceInformation($due_diligence_information) : self
     {
@@ -258,6 +278,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
      * Sets due_diligence_exemption_code
      *
      * @param string|null $due_diligence_exemption_code The exemption code for EUDR products exempt from due diligence requirements.
+     *
+     * @return self
      */
     public function setDueDiligenceExemptionCode($due_diligence_exemption_code) : self
     {
@@ -267,6 +289,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -286,6 +310,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -298,6 +324,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -319,10 +347,12 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -330,6 +360,8 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['marketplace_id'] === null) {
             throw new AssertionException("'marketplace_id' can't be null");
         }
@@ -184,6 +198,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
      * Sets marketplace_id
      *
      * @param string $marketplace_id Amazon marketplace identifier. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
+     *
+     * @return self
      */
     public function setMarketplaceId($marketplace_id) : self
     {
@@ -206,6 +222,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
      * Sets classifications
      *
      * @param \AmazonPHP\SellingPartner\Model\CatalogItem\ItemBrowseClassification[]|null $classifications Classifications (browse nodes) that are associated with the item in the Amazon catalog.
+     *
+     * @return self
      */
     public function setClassifications($classifications) : self
     {
@@ -215,6 +233,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -234,6 +254,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -246,6 +268,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -267,10 +291,12 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -278,6 +304,8 @@ class ItemBrowseClassificationsByMarketplace implements ModelInterface, ArrayAcc
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

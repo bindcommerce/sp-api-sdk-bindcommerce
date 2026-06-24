@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -190,6 +202,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getTaxRegistrationTypeAllowableValues();
         if (!is_null($this->container['tax_registration_type']) && !in_array($this->container['tax_registration_type'], $allowedValues, true)) {
             throw new AssertionException(
@@ -226,6 +240,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets tax_registration_type
      *
      * @param string|null $tax_registration_type Tax registration type for the entity.
+     *
+     * @return self
      */
     public function setTaxRegistrationType($tax_registration_type) : self
     {
@@ -248,6 +264,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets tax_registration_number
      *
      * @param string $tax_registration_number Tax registration number for the entity. For example, VAT ID, Consumption Tax ID.
+     *
+     * @return self
      */
     public function setTaxRegistrationNumber($tax_registration_number) : self
     {
@@ -270,6 +288,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets tax_registration_address
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\Address|null $tax_registration_address tax_registration_address
+     *
+     * @return self
      */
     public function setTaxRegistrationAddress($tax_registration_address) : self
     {
@@ -292,6 +312,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets tax_registration_message
      *
      * @param string|null $tax_registration_message Tax registration message that can be used for additional tax related details.
+     *
+     * @return self
      */
     public function setTaxRegistrationMessage($tax_registration_message) : self
     {
@@ -301,6 +323,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -320,6 +344,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -332,6 +358,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -353,10 +381,12 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -364,6 +394,8 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

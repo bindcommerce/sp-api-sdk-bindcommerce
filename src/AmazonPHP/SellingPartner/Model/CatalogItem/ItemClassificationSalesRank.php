@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['classification_id'] === null) {
             throw new AssertionException("'classification_id' can't be null");
         }
@@ -204,6 +218,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
      * Sets classification_id
      *
      * @param string $classification_id Identifier of the classification that is associated with the sales rank.
+     *
+     * @return self
      */
     public function setClassificationId($classification_id) : self
     {
@@ -226,6 +242,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
      * Sets title
      *
      * @param string $title Name of the sales rank.
+     *
+     * @return self
      */
     public function setTitle($title) : self
     {
@@ -248,6 +266,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
      * Sets link
      *
      * @param string|null $link Corresponding Amazon retail website URL for the sales category.
+     *
+     * @return self
      */
     public function setLink($link) : self
     {
@@ -270,6 +290,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
      * Sets rank
      *
      * @param int $rank Sales rank.
+     *
+     * @return self
      */
     public function setRank($rank) : self
     {
@@ -279,6 +301,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -298,6 +322,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -310,6 +336,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -331,10 +359,12 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -342,6 +372,8 @@ class ItemClassificationSalesRank implements ModelInterface, ArrayAccess, \JsonS
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

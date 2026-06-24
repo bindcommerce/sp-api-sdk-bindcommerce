@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Item implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -72,6 +72,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -80,6 +82,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -141,6 +145,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -149,6 +155,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -157,6 +165,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -165,6 +175,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -205,6 +217,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['sku'] === null) {
             throw new AssertionException("'sku' can't be null");
         }
@@ -226,6 +240,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets sku
      *
      * @param string $sku A selling partner provided identifier for an Amazon listing.
+     *
+     * @return self
      */
     public function setSku($sku) : self
     {
@@ -248,6 +264,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets summaries
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemSummaryByMarketplace[]|null $summaries Summary details of a listings item.
+     *
+     * @return self
      */
     public function setSummaries($summaries) : self
     {
@@ -261,7 +279,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      *
      * @return array<string,mixed>|null
      */
-    public function getAttributes(): ?array
+    public function getAttributes()
     {
         return $this->container['attributes'];
     }
@@ -270,8 +288,10 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets attributes
      *
      * @param array<string,mixed>|null $attributes A JSON object containing structured listings item attribute data keyed by attribute name.
+     *
+     * @return self
      */
-    public function setAttributes(?array $attributes) : self
+    public function setAttributes($attributes) : self
     {
         $this->container['attributes'] = $attributes;
 
@@ -292,6 +312,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets issues
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\Issue[]|null $issues The issues associated with the listings item.
+     *
+     * @return self
      */
     public function setIssues($issues) : self
     {
@@ -314,6 +336,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets offers
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemOfferByMarketplace[]|null $offers Offer details for the listings item.
+     *
+     * @return self
      */
     public function setOffers($offers) : self
     {
@@ -336,6 +360,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets fulfillment_availability
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\FulfillmentAvailability[]|null $fulfillment_availability The fulfillment availability for the listings item.
+     *
+     * @return self
      */
     public function setFulfillmentAvailability($fulfillment_availability) : self
     {
@@ -358,6 +384,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets procurement
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemProcurement[]|null $procurement The vendor procurement information for the listings item.
+     *
+     * @return self
      */
     public function setProcurement($procurement) : self
     {
@@ -380,6 +408,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets relationships
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemRelationshipsByMarketplace[]|null $relationships Relationships for a listing item, by marketplace (for example, variations).
+     *
+     * @return self
      */
     public function setRelationships($relationships) : self
     {
@@ -402,6 +432,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
      * Sets product_types
      *
      * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemProductTypeByMarketplace[]|null $product_types Product types for a listing item, by marketplace.
+     *
+     * @return self
      */
     public function setProductTypes($product_types) : self
     {
@@ -411,6 +443,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -430,6 +464,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -442,6 +478,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -463,10 +501,12 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -474,6 +514,8 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringabl
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

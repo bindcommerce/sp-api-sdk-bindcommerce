@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class Audience implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -58,6 +58,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -66,6 +68,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -106,6 +110,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -114,6 +120,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -122,6 +130,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -130,6 +140,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -163,6 +175,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -180,6 +194,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets value
      *
      * @param string|null $value Name of the audience an offer is applicable to.   Common values:   * 'ALL' - Standard offer audience for buyers on Amazon retail websites.   * 'B2B' - Offer audience for Amazon Business website buyers.
+     *
+     * @return self
      */
     public function setValue($value) : self
     {
@@ -202,6 +218,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets display_name
      *
      * @param string|null $display_name Localized display name for the audience.
+     *
+     * @return self
      */
     public function setDisplayName($display_name) : self
     {
@@ -211,6 +229,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -230,6 +250,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -242,6 +264,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -263,10 +287,12 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -274,6 +300,8 @@ class Audience implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

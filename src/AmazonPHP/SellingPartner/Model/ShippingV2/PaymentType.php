@@ -26,11 +26,13 @@ class PaymentType
 
     const PAY_DIRECT_TO_CARRIER = 'PAY_DIRECT_TO_CARRIER';
 
+    private string $value;
+
     /**
      * Gets allowable values of the enum
      * @return string[]
      */
-    public static function getAllowableEnumValues(): array
+    public static function getAllowableEnumValues()
     {
         return [
             self::PAY_THROUGH_AMAZON,
@@ -38,8 +40,9 @@ class PaymentType
         ];
     }
 
-    public function __construct(private readonly string $value)
+    public function __construct(string $value)
     {
+        $this->value = $value;
     }
 
     public function toString(): string

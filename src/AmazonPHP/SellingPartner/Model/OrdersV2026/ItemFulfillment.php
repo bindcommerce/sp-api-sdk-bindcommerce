@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,6 +64,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -72,6 +74,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -121,6 +125,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -129,6 +135,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -137,6 +145,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -145,6 +155,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -181,6 +193,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['picking'] !== null) {
             $this->container['picking']->validate();
             }
@@ -210,6 +224,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets quantity_fulfilled
      *
      * @param int|null $quantity_fulfilled The number of units of this item that have been successfully processed and shipped.
+     *
+     * @return self
      */
     public function setQuantityFulfilled($quantity_fulfilled) : self
     {
@@ -232,6 +248,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets quantity_unfulfilled
      *
      * @param int|null $quantity_unfulfilled The number of units of this item that remain to be processed and shipped.
+     *
+     * @return self
      */
     public function setQuantityUnfulfilled($quantity_unfulfilled) : self
     {
@@ -254,6 +272,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets picking
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemPicking|null $picking picking
+     *
+     * @return self
      */
     public function setPicking($picking) : self
     {
@@ -276,6 +296,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets packing
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemPacking|null $packing packing
+     *
+     * @return self
      */
     public function setPacking($packing) : self
     {
@@ -298,6 +320,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
      * Sets shipping
      *
      * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemShipping|null $shipping shipping
+     *
+     * @return self
      */
     public function setShipping($shipping) : self
     {
@@ -307,6 +331,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -326,6 +352,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -338,6 +366,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -359,10 +389,12 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -370,6 +402,8 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable,
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

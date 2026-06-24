@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['rate_item_id'] === null) {
             throw new AssertionException("'rate_item_id' can't be null");
         }
@@ -200,6 +214,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets rate_item_id
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\RateItemID $rate_item_id rate_item_id
+     *
+     * @return self
      */
     public function setRateItemId($rate_item_id) : self
     {
@@ -222,6 +238,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets rate_item_type
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\RateItemType|null $rate_item_type rate_item_type
+     *
+     * @return self
      */
     public function setRateItemType($rate_item_type) : self
     {
@@ -244,6 +262,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets rate_item_charge
      *
      * @param \AmazonPHP\SellingPartner\Model\MerchantFulfillment\CurrencyAmount|null $rate_item_charge rate_item_charge
+     *
+     * @return self
      */
     public function setRateItemCharge($rate_item_charge) : self
     {
@@ -266,6 +286,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
      * Sets rate_item_name_localization
      *
      * @param string|null $rate_item_name_localization Localized name for the RateItem.
+     *
+     * @return self
      */
     public function setRateItemNameLocalization($rate_item_name_localization) : self
     {
@@ -275,6 +297,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -294,6 +318,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -306,6 +332,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -327,10 +355,12 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -338,6 +368,8 @@ class RateItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Strin
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

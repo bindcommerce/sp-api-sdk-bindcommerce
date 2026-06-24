@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -175,6 +187,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function validate() : void
     {
+        return;
+
             if ($this->container['fees_estimate_identifier'] !== null) {
             $this->container['fees_estimate_identifier']->validate();
             }
@@ -204,6 +218,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets status
      *
      * @param string|null $status The status of the fee request. Possible values: Success, ClientError, ServiceError.
+     *
+     * @return self
      */
     public function setStatus($status) : self
     {
@@ -226,6 +242,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets fees_estimate_identifier
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\FeesEstimateIdentifier|null $fees_estimate_identifier fees_estimate_identifier
+     *
+     * @return self
      */
     public function setFeesEstimateIdentifier($fees_estimate_identifier) : self
     {
@@ -248,6 +266,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets fees_estimate
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\FeesEstimate|null $fees_estimate fees_estimate
+     *
+     * @return self
      */
     public function setFeesEstimate($fees_estimate) : self
     {
@@ -270,6 +290,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
      * Sets error
      *
      * @param \AmazonPHP\SellingPartner\Model\ProductFees\FeesEstimateError|null $error error
+     *
+     * @return self
      */
     public function setError($error) : self
     {
@@ -279,6 +301,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -298,6 +322,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -310,6 +336,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -331,10 +359,12 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -342,6 +372,8 @@ class FeesEstimateResult implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

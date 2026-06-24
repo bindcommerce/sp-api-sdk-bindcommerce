@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -62,6 +62,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -70,6 +72,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -116,6 +120,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -124,6 +130,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -132,6 +140,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -140,6 +150,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -192,6 +204,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getAvailabilityTypeAllowableValues();
         if (!is_null($this->container['availability_type']) && !in_array($this->container['availability_type'], $allowedValues, true)) {
             throw new AssertionException(
@@ -220,6 +234,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets minimum_hours
      *
      * @param int|null $minimum_hours The minimum time, in hours, that the item will likely be shipped after the order has been placed.
+     *
+     * @return self
      */
     public function setMinimumHours($minimum_hours) : self
     {
@@ -242,6 +258,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets maximum_hours
      *
      * @param int|null $maximum_hours The maximum time, in hours, that the item will likely be shipped after the order has been placed.
+     *
+     * @return self
      */
     public function setMaximumHours($maximum_hours) : self
     {
@@ -264,6 +282,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets available_date
      *
      * @param string|null $available_date The date when the item will be available for shipping. Only displayed for items that are not currently available for shipping.
+     *
+     * @return self
      */
     public function setAvailableDate($available_date) : self
     {
@@ -286,6 +306,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
      * Sets availability_type
      *
      * @param string|null $availability_type Indicates whether the item is available for shipping now, or on a known or an unknown date in the future. If known, the availableDate property indicates the date that the item will be available for shipping. Possible values: NOW, FUTURE_WITHOUT_DATE, FUTURE_WITH_DATE.
+     *
+     * @return self
      */
     public function setAvailabilityType($availability_type) : self
     {
@@ -295,6 +317,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -314,6 +338,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -326,6 +352,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -347,10 +375,12 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -358,6 +388,8 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess, \JsonSeri
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

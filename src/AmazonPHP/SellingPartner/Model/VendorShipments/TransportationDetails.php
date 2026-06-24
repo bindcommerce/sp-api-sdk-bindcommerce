@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -68,6 +68,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -76,6 +78,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -131,6 +135,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -139,6 +145,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -147,6 +155,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -155,6 +165,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -227,6 +239,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function validate() : void
     {
+        return;
+
         $allowedValues = $this->getShipModeAllowableValues();
         if (!is_null($this->container['ship_mode']) && !in_array($this->container['ship_mode'], $allowedValues, true)) {
             throw new AssertionException(
@@ -270,6 +284,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets ship_mode
      *
      * @param string|null $ship_mode The type of shipment.
+     *
+     * @return self
      */
     public function setShipMode($ship_mode) : self
     {
@@ -292,6 +308,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets transportation_mode
      *
      * @param string|null $transportation_mode The mode of transportation for this shipment.
+     *
+     * @return self
      */
     public function setTransportationMode($transportation_mode) : self
     {
@@ -314,6 +332,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets shipped_date
      *
      * @param \DateTimeInterface|null $shipped_date Date when shipment is performed by the Vendor to Buyer
+     *
+     * @return self
      */
     public function setShippedDate($shipped_date) : self
     {
@@ -336,6 +356,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets estimated_delivery_date
      *
      * @param \DateTimeInterface|null $estimated_delivery_date Estimated Date on which shipment will be delivered from Vendor to Buyer
+     *
+     * @return self
      */
     public function setEstimatedDeliveryDate($estimated_delivery_date) : self
     {
@@ -358,6 +380,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets shipment_delivery_date
      *
      * @param \DateTimeInterface|null $shipment_delivery_date Date on which shipment will be delivered from Vendor to Buyer
+     *
+     * @return self
      */
     public function setShipmentDeliveryDate($shipment_delivery_date) : self
     {
@@ -380,6 +404,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets carrier_details
      *
      * @param \AmazonPHP\SellingPartner\Model\VendorShipments\CarrierDetails|null $carrier_details carrier_details
+     *
+     * @return self
      */
     public function setCarrierDetails($carrier_details) : self
     {
@@ -402,6 +428,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * Sets bill_of_lading_number
      *
      * @param string|null $bill_of_lading_number The Bill of Lading (BOL) number is a unique number assigned to each shipment of goods by the vendor or shipper during the creation of the Bill of Lading. This number must be unique for every shipment and cannot be a date/time or single character. The BOL numer is mandatory in Shipment Confirmation message for FTL and LTL shipments, and must match the paper BOL provided with the shipment. Instead of BOL, an alternative reference number (like Delivery Note Number) for the shipment can also be sent in this field.
+     *
+     * @return self
      */
     public function setBillOfLadingNumber($bill_of_lading_number) : self
     {
@@ -411,6 +439,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -430,6 +460,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -442,6 +474,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -463,10 +497,12 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -474,6 +510,8 @@ class TransportationDetails implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

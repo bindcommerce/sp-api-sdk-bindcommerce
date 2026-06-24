@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -186,6 +200,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets order_id
      *
      * @param string|null $order_id The order item's order identifier, in 3-7-7 format.
+     *
+     * @return self
      */
     public function setOrderId($order_id) : self
     {
@@ -208,6 +224,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets order_item_id
      *
      * @param string|null $order_item_id An Amazon-defined item identifier for the associated item.
+     *
+     * @return self
      */
     public function setOrderItemId($order_item_id) : self
     {
@@ -230,6 +248,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
      * Sets association_type
      *
      * @param \AmazonPHP\SellingPartner\Model\Orders\AssociationType|null $association_type association_type
+     *
+     * @return self
      */
     public function setAssociationType($association_type) : self
     {
@@ -239,6 +259,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -258,6 +280,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -270,6 +294,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -291,10 +317,12 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -302,6 +330,8 @@ class AssociatedItem implements ModelInterface, ArrayAccess, \JsonSerializable, 
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

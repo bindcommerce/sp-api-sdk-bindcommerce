@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,11 +181,13 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
      */
     public function validate() : void
     {
+        return;
+
         if ($this->container['content_reference_key'] === null) {
             throw new AssertionException("'content_reference_key' can't be null");
         }
 
-        if ((mb_strlen((string) $this->container['content_reference_key']) < 1)) {
+        if ((mb_strlen($this->container['content_reference_key']) < 1)) {
             throw new AssertionException("invalid value for 'content_reference_key', the character length must be bigger than or equal to 1.");
         }
 
@@ -202,6 +216,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets content_reference_key
      *
      * @param string $content_reference_key A unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier.
+     *
+     * @return self
      */
     public function setContentReferenceKey($content_reference_key) : self
     {
@@ -224,6 +240,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets content_metadata
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ContentMetadata|null $content_metadata content_metadata
+     *
+     * @return self
      */
     public function setContentMetadata($content_metadata) : self
     {
@@ -246,6 +264,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
      * Sets content_document
      *
      * @param \AmazonPHP\SellingPartner\Model\APlus\ContentDocument|null $content_document content_document
+     *
+     * @return self
      */
     public function setContentDocument($content_document) : self
     {
@@ -255,6 +275,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -274,6 +296,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -286,6 +310,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -307,10 +333,12 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -318,6 +346,8 @@ class ContentRecord implements ModelInterface, ArrayAccess, \JsonSerializable, \
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {

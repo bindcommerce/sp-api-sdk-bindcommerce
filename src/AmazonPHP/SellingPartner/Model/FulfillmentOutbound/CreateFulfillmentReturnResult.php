@@ -23,7 +23,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \JsonSerializable, \Stringable
+class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -60,6 +60,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPITypes() : array
     {
@@ -68,6 +70,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
      */
     public static function openAPIFormats() : array
     {
@@ -111,6 +115,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
+     *
+     * @return array
      */
     public static function attributeMap() : array
     {
@@ -119,6 +125,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
      */
     public static function setters() : array
     {
@@ -127,6 +135,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
      */
     public static function getters() : array
     {
@@ -135,6 +145,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * The original name of the model.
+     *
+     * @return string
      */
     public function getModelName() : string
     {
@@ -169,6 +181,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
      */
     public function validate() : void
     {
+        return;
+
     }
 
 
@@ -186,6 +200,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
      * Sets return_items
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ReturnItem[]|null $return_items An array of items that Amazon accepted for return. Returns empty if no items were accepted for return.
+     *
+     * @return self
      */
     public function setReturnItems($return_items) : self
     {
@@ -208,6 +224,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
      * Sets invalid_return_items
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\InvalidReturnItem[]|null $invalid_return_items An array of invalid return item information.
+     *
+     * @return self
      */
     public function setInvalidReturnItems($invalid_return_items) : self
     {
@@ -230,6 +248,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
      * Sets return_authorizations
      *
      * @param \AmazonPHP\SellingPartner\Model\FulfillmentOutbound\ReturnAuthorization[]|null $return_authorizations An array of return authorization information.
+     *
+     * @return self
      */
     public function setReturnAuthorizations($return_authorizations) : self
     {
@@ -239,6 +259,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
     }
     /**
      * Returns true if offset exists. False otherwise.
+     *
+     * @return boolean
      */
     public function offsetExists($offset) : bool
     {
@@ -258,6 +280,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Sets value based on offset.
+     *
+     * @return void
      */
     public function offsetSet($offset, $value) : void
     {
@@ -270,6 +294,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Unsets offset.
+     *
+     * @return void
      */
     public function offsetUnset($offset) : void
     {
@@ -291,10 +317,12 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets the string presentation of the object
+     *
+     * @return string
      */
     public function __toString() : string
     {
-        return (string) json_encode(
+        return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
@@ -302,6 +330,8 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets a header-safe presentation of the object
+     *
+     * @return string
      */
     public function toHeaderValue() : string
     {
