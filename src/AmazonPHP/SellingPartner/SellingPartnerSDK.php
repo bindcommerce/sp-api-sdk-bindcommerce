@@ -43,6 +43,8 @@ use AmazonPHP\SellingPartner\Api\ReportsApi\ReportsSDK;
 use AmazonPHP\SellingPartner\Api\ReportsApi\ReportsSDKInterface;
 use AmazonPHP\SellingPartner\Api\SalesApi\SalesSDK;
 use AmazonPHP\SellingPartner\Api\SalesApi\SalesSDKInterface;
+use AmazonPHP\SellingPartner\Api\SearchOrdersApi\OrdersV2026SDK as SearchOrdersV2026SDK;
+use AmazonPHP\SellingPartner\Api\GetOrderApi\OrdersV2026SDK as GetOrderV2026SDK;
 use AmazonPHP\SellingPartner\Api\SellersApi\SellersSDK;
 use AmazonPHP\SellingPartner\Api\SellersApi\SellersSDKInterface;
 use AmazonPHP\SellingPartner\Api\ServiceApi\ServicesSDK;
@@ -248,6 +250,14 @@ final class SellingPartnerSDK
     public function vendor() : VendorSDK
     {
         return $this->instantiateSDK(VendorSDK::class);
+    }
+
+    public function searchOrdersV2026() : SearchOrdersV2026SDK {
+        return $this->instantiateSDK(SearchOrdersV2026SDK::class);
+    }
+
+    public function getOrderV2026SDK() : GetOrderV2026SDK {
+        return $this->instantiateSDK(GetOrderV2026SDK::class);
     }
 
     /**
