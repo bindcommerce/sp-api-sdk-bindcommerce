@@ -112,7 +112,7 @@ final class SellingPartnerSDK
         return $this->instantiateSDK(APlusSDK::class);
     }
 
-    public function catalogItem() : CatalogItemSDKInterface
+    public function catalogItem() : CatalogItemSDK
     {
         return $this->instantiateSDK(CatalogItemSDK::class);
     }
