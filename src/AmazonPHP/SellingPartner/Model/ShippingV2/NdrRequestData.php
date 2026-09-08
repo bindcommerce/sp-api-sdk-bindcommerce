@@ -162,7 +162,7 @@ class NdrRequestData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['reschedule_date'] = $data['reschedule_date'] ?? null;
         $this->container['additional_address_notes'] = $data['additional_address_notes'] ?? null;

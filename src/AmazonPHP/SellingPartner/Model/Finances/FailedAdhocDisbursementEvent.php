@@ -187,7 +187,7 @@ class FailedAdhocDisbursementEvent implements ModelInterface, ArrayAccess, \Json
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['funds_transfers_type'] = $data['funds_transfers_type'] ?? null;
         $this->container['transfer_id'] = $data['transfer_id'] ?? null;

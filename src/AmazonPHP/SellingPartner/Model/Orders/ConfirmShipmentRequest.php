@@ -180,7 +180,7 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['package_detail'] = $data['package_detail'] ?? null;
         $this->container['cod_collection_method'] = $data['cod_collection_method'] ?? null;

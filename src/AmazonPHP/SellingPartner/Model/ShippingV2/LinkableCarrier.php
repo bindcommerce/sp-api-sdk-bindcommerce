@@ -162,7 +162,7 @@ class LinkableCarrier implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['carrier_id'] = $data['carrier_id'] ?? null;
         $this->container['linkable_account_types'] = $data['linkable_account_types'] ?? null;

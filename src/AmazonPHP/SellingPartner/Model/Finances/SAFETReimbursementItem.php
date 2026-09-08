@@ -167,7 +167,7 @@ class SAFETReimbursementItem implements ModelInterface, ArrayAccess, \JsonSerial
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['item_charge_list'] = $data['item_charge_list'] ?? null;
         $this->container['product_description'] = $data['product_description'] ?? null;

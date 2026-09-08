@@ -44,6 +44,9 @@ interface NotificationsSDKInterface
     public const OPERATION_GETSUBSCRIPTIONBYID = 'getSubscriptionById';
 
     public const OPERATION_GETSUBSCRIPTIONBYID_PATH = '/notifications/v1/subscriptions/{notificationType}/{subscriptionId}';
+    public const OPERATION_GETSUBSCRIPTIONS = 'getSubscriptions';
+
+    public const OPERATION_GETSUBSCRIPTIONS_PATH = '/notifications/v1/subscriptions';
     public const OPERATION_SENDTESTNOTIFICATION = 'sendTestNotification';
 
     public const OPERATION_SENDTESTNOTIFICATION_PATH = '/notifications/v1/subscriptions/{notificationType}/testNotification';
@@ -147,6 +150,21 @@ interface NotificationsSDKInterface
     * @return \AmazonPHP\SellingPartner\Model\Notifications\GetSubscriptionByIdResponse
     */
     public function getSubscriptionById(AccessToken $accessToken, string $region, $subscription_id, $notification_type);
+    /**
+    * Operation getSubscriptions
+    *
+    * @param AccessToken $accessToken
+    * @param string $region
+    * @param string[] $notification_types  A list of notification types to retrieve subscriptions for. Currently limited to a single notification type per request.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
+    * @param string|null $payload_version  The version of the payload object to be used in the notification. (optional)
+    * @param int $page_size  The maximum number of subscriptions to return per page. Minimum value is 30. Maximum value is 100. Default is 30. (optional, default to 30)
+    * @param string|null $next_token  A token to retrieve the next page of results. If this field is not empty in a response, pass its value in the next request to retrieve the next page. (optional)
+    *
+    * @throws ApiException on non-2xx response
+    * @throws InvalidArgumentException
+    * @return \AmazonPHP\SellingPartner\Model\Notifications\GetSubscriptionsResponse
+    */
+    public function getSubscriptions(AccessToken $accessToken, string $region, $notification_types, $payload_version = null, $page_size = 30, $next_token = null);
     /**
     * Operation sendTestNotification
     *

@@ -162,7 +162,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['product_types'] = $data['product_types'] ?? null;
         $this->container['product_type_version'] = $data['product_type_version'] ?? null;

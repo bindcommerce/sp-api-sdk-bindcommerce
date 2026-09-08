@@ -177,7 +177,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['item_sequence_number'] = $data['item_sequence_number'] ?? null;
         $this->container['amazon_product_identifier'] = $data['amazon_product_identifier'] ?? null;

@@ -167,7 +167,7 @@ class VerificationDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['prescription_detail'] = $data['prescription_detail'] ?? null;
         $this->container['approved_alternative_details'] = $data['approved_alternative_details'] ?? null;

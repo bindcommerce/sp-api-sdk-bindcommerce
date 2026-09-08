@@ -162,7 +162,7 @@ class TaxDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['tax_type'] = $data['tax_type'] ?? null;
         $this->container['tax_registration_number'] = $data['tax_registration_number'] ?? null;

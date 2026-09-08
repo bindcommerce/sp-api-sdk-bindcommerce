@@ -162,7 +162,7 @@ class PrepDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['prep_instruction'] = $data['prep_instruction'] ?? null;
         $this->container['prep_owner'] = $data['prep_owner'] ?? null;

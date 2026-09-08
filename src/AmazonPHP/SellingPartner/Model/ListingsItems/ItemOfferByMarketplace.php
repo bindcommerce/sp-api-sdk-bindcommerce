@@ -13,7 +13,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
 /**
 * Selling Partner API for Listings Items
 *
-* The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, see the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).
+* The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you can use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, refer to the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).
 *
 * The version of the OpenAPI document: 2021-08-01
 *
@@ -192,7 +192,7 @@ class ItemOfferByMarketplace implements ModelInterface, ArrayAccess, \JsonSerial
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['marketplace_id'] = $data['marketplace_id'] ?? null;
         $this->container['offer_type'] = $data['offer_type'] ?? null;
@@ -259,7 +259,7 @@ class ItemOfferByMarketplace implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets marketplace_id
      *
-     * @param string $marketplace_id The Amazon marketplace identifier.
+     * @param string $marketplace_id Amazon store identifier.
      *
      * @return self
      */
@@ -283,7 +283,7 @@ class ItemOfferByMarketplace implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets offer_type
      *
-     * @param string $offer_type Type of offer for the listings item.
+     * @param string $offer_type The listings item's offer type.
      *
      * @return self
      */

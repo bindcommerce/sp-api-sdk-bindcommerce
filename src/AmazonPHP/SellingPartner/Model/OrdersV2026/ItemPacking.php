@@ -162,7 +162,7 @@ class ItemPacking implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['gift_option'] = $data['gift_option'] ?? null;
         $this->container['serial_number_requirement'] = $data['serial_number_requirement'] ?? null;

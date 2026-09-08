@@ -162,7 +162,7 @@ class ItemDelivery implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['estimated_delivery_date'] = $data['estimated_delivery_date'] ?? null;
         $this->container['item_delivery_promise'] = $data['item_delivery_promise'] ?? null;

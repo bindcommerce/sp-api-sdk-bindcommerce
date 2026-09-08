@@ -167,7 +167,7 @@ class CompetitivePricingType implements ModelInterface, ArrayAccess, \JsonSerial
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['competitive_prices'] = $data['competitive_prices'] ?? null;
         $this->container['number_of_offer_listings'] = $data['number_of_offer_listings'] ?? null;

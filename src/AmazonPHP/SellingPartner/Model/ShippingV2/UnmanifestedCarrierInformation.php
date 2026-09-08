@@ -167,7 +167,7 @@ class UnmanifestedCarrierInformation implements ModelInterface, ArrayAccess, \Js
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['carrier_id'] = $data['carrier_id'] ?? null;
         $this->container['carrier_name'] = $data['carrier_name'] ?? null;

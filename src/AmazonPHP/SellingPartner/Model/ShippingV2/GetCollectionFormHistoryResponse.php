@@ -162,7 +162,7 @@ class GetCollectionFormHistoryResponse implements ModelInterface, ArrayAccess, \
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['collection_forms_history_record_list'] = $data['collection_forms_history_record_list'] ?? null;
         $this->container['last_refreshed_date'] = $data['last_refreshed_date'] ?? null;

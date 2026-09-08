@@ -182,7 +182,7 @@ class DirectPurchaseRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ship_to'] = $data['ship_to'] ?? null;
         $this->container['ship_from'] = $data['ship_from'] ?? null;

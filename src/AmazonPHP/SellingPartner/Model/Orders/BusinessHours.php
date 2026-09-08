@@ -187,7 +187,7 @@ class BusinessHours implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['day_of_week'] = $data['day_of_week'] ?? null;
         $this->container['open_intervals'] = $data['open_intervals'] ?? null;

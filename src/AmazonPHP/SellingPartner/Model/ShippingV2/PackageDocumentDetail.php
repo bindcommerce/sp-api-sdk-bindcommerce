@@ -167,7 +167,7 @@ class PackageDocumentDetail implements ModelInterface, ArrayAccess, \JsonSeriali
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['package_client_reference_id'] = $data['package_client_reference_id'] ?? null;
         $this->container['package_documents'] = $data['package_documents'] ?? null;

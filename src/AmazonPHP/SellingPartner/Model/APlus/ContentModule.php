@@ -232,7 +232,7 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['content_module_type'] = $data['content_module_type'] ?? null;
         $this->container['standard_company_logo'] = $data['standard_company_logo'] ?? null;

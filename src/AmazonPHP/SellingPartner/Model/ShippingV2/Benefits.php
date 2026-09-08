@@ -162,7 +162,7 @@ class Benefits implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['included_benefits'] = $data['included_benefits'] ?? null;
         $this->container['excluded_benefits'] = $data['excluded_benefits'] ?? null;

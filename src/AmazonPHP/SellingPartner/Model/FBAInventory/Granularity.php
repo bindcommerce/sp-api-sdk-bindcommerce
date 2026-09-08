@@ -162,7 +162,7 @@ class Granularity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['granularity_type'] = $data['granularity_type'] ?? null;
         $this->container['granularity_id'] = $data['granularity_id'] ?? null;

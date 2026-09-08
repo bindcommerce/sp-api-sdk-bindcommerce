@@ -162,7 +162,7 @@ class CollectionsFormDocument implements ModelInterface, ArrayAccess, \JsonSeria
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['base64_encoded_content'] = $data['base64_encoded_content'] ?? null;
         $this->container['document_format'] = $data['document_format'] ?? null;

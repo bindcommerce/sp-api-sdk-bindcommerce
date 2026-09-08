@@ -172,7 +172,7 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['buyer_name'] = $data['buyer_name'] ?? null;
         $this->container['buyer_email'] = $data['buyer_email'] ?? null;

@@ -322,7 +322,7 @@ class FinancialEvents implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['shipment_event_list'] = $data['shipment_event_list'] ?? null;
         $this->container['shipment_settle_event_list'] = $data['shipment_settle_event_list'] ?? null;

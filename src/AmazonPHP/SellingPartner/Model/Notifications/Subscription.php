@@ -172,7 +172,7 @@ class Subscription implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['subscription_id'] = $data['subscription_id'] ?? null;
         $this->container['payload_version'] = $data['payload_version'] ?? null;

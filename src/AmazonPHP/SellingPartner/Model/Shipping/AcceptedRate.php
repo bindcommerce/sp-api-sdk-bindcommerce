@@ -172,7 +172,7 @@ class AcceptedRate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['total_charge'] = $data['total_charge'] ?? null;
         $this->container['billed_weight'] = $data['billed_weight'] ?? null;

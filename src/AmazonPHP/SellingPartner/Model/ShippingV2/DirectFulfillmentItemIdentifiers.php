@@ -162,7 +162,7 @@ class DirectFulfillmentItemIdentifiers implements ModelInterface, ArrayAccess, \
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['line_item_id'] = $data['line_item_id'] ?? null;
         $this->container['piece_number'] = $data['piece_number'] ?? null;

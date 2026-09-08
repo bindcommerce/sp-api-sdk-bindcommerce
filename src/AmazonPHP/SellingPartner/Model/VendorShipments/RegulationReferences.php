@@ -172,7 +172,7 @@ class RegulationReferences implements ModelInterface, ArrayAccess, \JsonSerializ
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['due_diligence_reference'] = $data['due_diligence_reference'] ?? null;
         $this->container['due_diligence_verification'] = $data['due_diligence_verification'] ?? null;

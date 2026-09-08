@@ -167,7 +167,7 @@ class PackageItemDetails implements ModelInterface, ArrayAccess, \JsonSerializab
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['purchase_order_number'] = $data['purchase_order_number'] ?? null;
         $this->container['lot_number'] = $data['lot_number'] ?? null;

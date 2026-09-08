@@ -167,7 +167,7 @@ class CreateFulfillmentReturnResult implements ModelInterface, ArrayAccess, \Jso
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['return_items'] = $data['return_items'] ?? null;
         $this->container['invalid_return_items'] = $data['invalid_return_items'] ?? null;

@@ -167,7 +167,7 @@ class GetShipmentDocumentsResult implements ModelInterface, ArrayAccess, \JsonSe
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['shipment_id'] = $data['shipment_id'] ?? null;
         $this->container['package_document_detail'] = $data['package_document_detail'] ?? null;

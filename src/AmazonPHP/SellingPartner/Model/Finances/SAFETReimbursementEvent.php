@@ -177,7 +177,7 @@ class SAFETReimbursementEvent implements ModelInterface, ArrayAccess, \JsonSeria
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['posted_date'] = $data['posted_date'] ?? null;
         $this->container['safet_claim_id'] = $data['safet_claim_id'] ?? null;

@@ -162,7 +162,7 @@ class Promise implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['delivery_window'] = $data['delivery_window'] ?? null;
         $this->container['pickup_window'] = $data['pickup_window'] ?? null;

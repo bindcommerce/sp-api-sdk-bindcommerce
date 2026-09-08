@@ -162,7 +162,7 @@ class CartonReferenceDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['carton_count'] = $data['carton_count'] ?? null;
         $this->container['carton_reference_numbers'] = $data['carton_reference_numbers'] ?? null;

@@ -177,7 +177,7 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['debt_recovery_type'] = $data['debt_recovery_type'] ?? null;
         $this->container['recovery_amount'] = $data['recovery_amount'] ?? null;

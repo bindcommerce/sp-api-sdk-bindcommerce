@@ -162,7 +162,7 @@ class ShipmentDates implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['required_ship_date'] = $data['required_ship_date'] ?? null;
         $this->container['promised_delivery_date'] = $data['promised_delivery_date'] ?? null;

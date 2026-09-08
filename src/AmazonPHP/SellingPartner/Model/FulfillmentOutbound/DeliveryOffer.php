@@ -167,7 +167,7 @@ class DeliveryOffer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['expires_at'] = $data['expires_at'] ?? null;
         $this->container['date_range'] = $data['date_range'] ?? null;

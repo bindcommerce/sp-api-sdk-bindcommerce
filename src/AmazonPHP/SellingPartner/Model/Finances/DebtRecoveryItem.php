@@ -172,7 +172,7 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['recovery_amount'] = $data['recovery_amount'] ?? null;
         $this->container['original_amount'] = $data['original_amount'] ?? null;

@@ -162,7 +162,7 @@ class AccessibilityAttributes implements ModelInterface, ArrayAccess, \JsonSeria
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['distance'] = $data['distance'] ?? null;
         $this->container['drive_time'] = $data['drive_time'] ?? null;

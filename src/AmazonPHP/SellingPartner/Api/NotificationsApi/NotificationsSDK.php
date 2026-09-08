@@ -1661,6 +1661,243 @@ final class NotificationsSDK implements NotificationsSDKInterface
     }
 
     /**
+     * Operation getSubscriptions
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string[] $notification_types  A list of notification types to retrieve subscriptions for. Currently limited to a single notification type per request.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
+     * @param string|null $payload_version  The version of the payload object to be used in the notification. (optional)
+     * @param int|null $page_size  The maximum number of subscriptions to return per page. Minimum value is 30. Maximum value is 100. Default is 30. (optional, default to 30)
+     * @param string|null $next_token  A token to retrieve the next page of results. If this field is not empty in a response, pass its value in the next request to retrieve the next page. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\Notifications\GetSubscriptionsResponse
+     */
+    public function getSubscriptions(AccessToken $accessToken, string $region, $notification_types, $payload_version = null, $page_size = 30, $next_token = null)
+    {
+        $request = $this->getSubscriptionsRequest($accessToken, $region, $notification_types, $payload_version, $page_size, $next_token);
+
+        $this->configuration->extensions()->preRequest('Notifications', 'getSubscriptions', $request);
+
+        try {
+            $correlationId = $this->configuration->idGenerator()->generate();
+            $sanitizedRequest = $request;
+
+            foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                $sanitizedRequest = $sanitizedRequest->withoutHeader($sensitiveHeader);
+            }
+
+            if ($this->configuration->loggingEnabled('Notifications', 'getSubscriptions')) {
+                $this->logger->log(
+                    $this->configuration->logLevel('Notifications', 'getSubscriptions'),
+                    'Amazon Selling Partner API pre request',
+                    [
+                        'api' => 'Notifications',
+                        'operation' => 'getSubscriptions',
+                        'request_correlation_id' => $correlationId,
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                        'request_headers' => $sanitizedRequest->getHeaders(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                    ]
+                );
+            }
+
+            $response = $this->client->sendRequest($request);
+
+            $this->configuration->extensions()->postRequest('Notifications', 'getSubscriptions', $request, $response);
+
+            if ($this->configuration->loggingEnabled('Notifications', 'getSubscriptions')) {
+
+                $sanitizedResponse = $response;
+
+                foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                    $sanitizedResponse = $sanitizedResponse->withoutHeader($sensitiveHeader);
+                }
+
+                $this->logger->log(
+                    $this->configuration->logLevel('Notifications', 'getSubscriptions'),
+                    'Amazon Selling Partner API post request',
+                    [
+                        'api' => 'Notifications',
+                        'operation' => 'getSubscriptions',
+                        'response_correlation_id' => $correlationId,
+                        'response_body' => (string) $sanitizedResponse->getBody(),
+                        'response_headers' => $sanitizedResponse->getHeaders(),
+                        'response_status_code' => $sanitizedResponse->getStatusCode(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                        'request_body' => (string) $sanitizedRequest->getBody()
+                    ]
+                );
+            }
+        } catch (ClientExceptionInterface $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                (int) $e->getCode(),
+                null,
+                null,
+                $e
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    (string) $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                (string) $response->getBody()
+            );
+        }
+
+        return ObjectSerializer::deserialize(
+            $this->configuration,
+            (string) $response->getBody(),
+            '\AmazonPHP\SellingPartner\Model\Notifications\GetSubscriptionsResponse',
+            []
+        );
+    }
+
+    /**
+     * Create request for operation 'getSubscriptions'
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string[] $notification_types  A list of notification types to retrieve subscriptions for. Currently limited to a single notification type per request.   For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). (required)
+     * @param string|null $payload_version  The version of the payload object to be used in the notification. (optional)
+     * @param int $page_size  The maximum number of subscriptions to return per page. Minimum value is 30. Maximum value is 100. Default is 30. (optional, default to 30)
+     * @param string|null $next_token  A token to retrieve the next page of results. If this field is not empty in a response, pass its value in the next request to retrieve the next page. (optional)
+     *
+     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
+     */
+    public function getSubscriptionsRequest(AccessToken $accessToken, string $region, $notification_types, $payload_version = null, $page_size = 30, $next_token = null) : RequestInterface
+    {
+        // verify the required parameter 'notification_types' is set
+        if ($notification_types === null || (is_array($notification_types) && count($notification_types) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $notification_types when calling getSubscriptions'
+            );
+        }
+        if (count($notification_types) > 1) {
+            throw new InvalidArgumentException('invalid value for "$notification_types" when calling NotificationsApi.getSubscriptions, number of items must be less than or equal to 1.');
+        }
+        if (count($notification_types) < 1) {
+            throw new InvalidArgumentException('invalid value for "$notification_types" when calling NotificationsApi.getSubscriptions, number of items must be greater than or equal to 1.');
+        }
+
+        if ($page_size !== null && $page_size > 100) {
+            throw new InvalidArgumentException('invalid value for "$page_size" when calling NotificationsApi.getSubscriptions, must be smaller than or equal to 100.');
+        }
+        if ($page_size !== null && $page_size < 30) {
+            throw new InvalidArgumentException('invalid value for "$page_size" when calling NotificationsApi.getSubscriptions, must be bigger than or equal to 30.');
+        }
+
+
+        $resourcePath = '/notifications/v1/subscriptions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $multipart = false;
+        $query = '';
+
+        // query params
+        if (is_array($notification_types)) {
+            $notification_types = ObjectSerializer::serializeCollection($notification_types, 'form', true);
+        }
+        if ($notification_types !== null) {
+            $queryParams['notificationTypes'] = ObjectSerializer::toString($notification_types);
+        }
+        // query params
+        if (is_array($payload_version)) {
+            $payload_version = ObjectSerializer::serializeCollection($payload_version, '', true);
+        }
+        if ($payload_version !== null) {
+            $queryParams['payloadVersion'] = ObjectSerializer::toString($payload_version);
+        }
+        // query params
+        if (is_array($page_size)) {
+            $page_size = ObjectSerializer::serializeCollection($page_size, '', true);
+        }
+        if ($page_size !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toString($page_size);
+        }
+        // query params
+        if (is_array($next_token)) {
+            $next_token = ObjectSerializer::serializeCollection($next_token, '', true);
+        }
+        if ($next_token !== null) {
+            $queryParams['nextToken'] = ObjectSerializer::toString($next_token);
+        }
+
+        if (\count($queryParams)) {
+            $query = http_build_query($queryParams);
+        }
+
+
+
+
+        if ($multipart) {
+            $headers = [
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        } else {
+            $headers = [
+                'content-type' => ['application/json'],
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        }
+
+        $request = $this->httpFactory->createRequest(
+            'GET',
+            $this->configuration->apiURL($region) . $resourcePath . '?' . $query
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
+                    }
+                }
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
+            } elseif ($headers['content-type'] === ['application/json']) {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
+            } else {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
+            }
+        }
+
+        foreach (\array_merge($headerParams, $headers) as $name => $header) {
+            $request = $request->withHeader($name, $header);
+        }
+
+        return HttpSignatureHeaders::forConfig(
+            $this->configuration,
+            $accessToken,
+            $region,
+            $request
+        );
+    }
+
+    /**
      * Operation sendTestNotification
      *
      * @param AccessToken $accessToken

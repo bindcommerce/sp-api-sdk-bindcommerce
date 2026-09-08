@@ -177,7 +177,7 @@ class Label implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['custom_text_for_label'] = $data['custom_text_for_label'] ?? null;
         $this->container['dimensions'] = $data['dimensions'] ?? null;

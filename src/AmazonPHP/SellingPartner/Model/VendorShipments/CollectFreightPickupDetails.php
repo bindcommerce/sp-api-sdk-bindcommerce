@@ -167,7 +167,7 @@ class CollectFreightPickupDetails implements ModelInterface, ArrayAccess, \JsonS
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['requested_pick_up'] = $data['requested_pick_up'] ?? null;
         $this->container['scheduled_pick_up'] = $data['scheduled_pick_up'] ?? null;

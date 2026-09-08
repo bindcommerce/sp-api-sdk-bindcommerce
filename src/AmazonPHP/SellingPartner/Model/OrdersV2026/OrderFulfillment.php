@@ -44,7 +44,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfilled_by' => 'string',
         'fulfillment_service_level' => 'string',
         'ship_by_window' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange',
-        'deliver_by_window' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange'
+        'deliver_by_window' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange',
+        'label_printing_window' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange'
     ];
 
     /**
@@ -59,7 +60,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfilled_by' => null,
         'fulfillment_service_level' => null,
         'ship_by_window' => null,
-        'deliver_by_window' => null
+        'deliver_by_window' => null,
+        'label_printing_window' => null
     ];
 
     /**
@@ -93,7 +95,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfilled_by' => 'fulfilledBy',
         'fulfillment_service_level' => 'fulfillmentServiceLevel',
         'ship_by_window' => 'shipByWindow',
-        'deliver_by_window' => 'deliverByWindow'
+        'deliver_by_window' => 'deliverByWindow',
+        'label_printing_window' => 'labelPrintingWindow'
     ];
 
     /**
@@ -106,7 +109,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfilled_by' => 'setFulfilledBy',
         'fulfillment_service_level' => 'setFulfillmentServiceLevel',
         'ship_by_window' => 'setShipByWindow',
-        'deliver_by_window' => 'setDeliverByWindow'
+        'deliver_by_window' => 'setDeliverByWindow',
+        'label_printing_window' => 'setLabelPrintingWindow'
     ];
 
     /**
@@ -119,7 +123,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfilled_by' => 'getFulfilledBy',
         'fulfillment_service_level' => 'getFulfillmentServiceLevel',
         'ship_by_window' => 'getShipByWindow',
-        'deliver_by_window' => 'getDeliverByWindow'
+        'deliver_by_window' => 'getDeliverByWindow',
+        'label_printing_window' => 'getLabelPrintingWindow'
     ];
 
     /**
@@ -177,13 +182,14 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['fulfillment_status'] = $data['fulfillment_status'] ?? null;
         $this->container['fulfilled_by'] = $data['fulfilled_by'] ?? null;
         $this->container['fulfillment_service_level'] = $data['fulfillment_service_level'] ?? null;
         $this->container['ship_by_window'] = $data['ship_by_window'] ?? null;
         $this->container['deliver_by_window'] = $data['deliver_by_window'] ?? null;
+        $this->container['label_printing_window'] = $data['label_printing_window'] ?? null;
     }
 
     /**
@@ -205,6 +211,10 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
 
             if ($this->container['deliver_by_window'] !== null) {
             $this->container['deliver_by_window']->validate();
+            }
+
+            if ($this->container['label_printing_window'] !== null) {
+            $this->container['label_printing_window']->validate();
             }
 
     }
@@ -326,6 +336,30 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDeliverByWindow($deliver_by_window) : self
     {
         $this->container['deliver_by_window'] = $deliver_by_window;
+
+        return $this;
+    }
+
+    /**
+     * Gets label_printing_window
+     *
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange|null
+     */
+    public function getLabelPrintingWindow()
+    {
+        return $this->container['label_printing_window'];
+    }
+
+    /**
+     * Sets label_printing_window
+     *
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange|null $label_printing_window label_printing_window
+     *
+     * @return self
+     */
+    public function setLabelPrintingWindow($label_printing_window) : self
+    {
+        $this->container['label_printing_window'] = $label_printing_window;
 
         return $this;
     }

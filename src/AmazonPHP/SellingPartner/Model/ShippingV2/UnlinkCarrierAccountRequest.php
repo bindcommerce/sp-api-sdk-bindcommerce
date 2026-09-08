@@ -162,7 +162,7 @@ class UnlinkCarrierAccountRequest implements ModelInterface, ArrayAccess, \JsonS
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['client_reference_details'] = $data['client_reference_details'] ?? null;
         $this->container['account_id'] = $data['account_id'] ?? null;

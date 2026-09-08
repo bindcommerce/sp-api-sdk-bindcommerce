@@ -167,7 +167,7 @@ class AutomatedShippingSettings implements ModelInterface, ArrayAccess, \JsonSer
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['has_automated_shipping_settings'] = $data['has_automated_shipping_settings'] ?? null;
         $this->container['automated_carrier'] = $data['automated_carrier'] ?? null;

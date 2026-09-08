@@ -167,7 +167,7 @@ class ScheduledDeliveryShipment implements ModelInterface, ArrayAccess, \JsonSer
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['scheduled_delivery_service_type'] = $data['scheduled_delivery_service_type'] ?? null;
         $this->container['earliest_nominated_delivery_date'] = $data['earliest_nominated_delivery_date'] ?? null;

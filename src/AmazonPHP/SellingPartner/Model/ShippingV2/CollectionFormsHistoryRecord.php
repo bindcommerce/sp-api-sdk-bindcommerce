@@ -177,7 +177,7 @@ class CollectionFormsHistoryRecord implements ModelInterface, ArrayAccess, \Json
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['carrier_name'] = $data['carrier_name'] ?? null;
         $this->container['creation_date'] = $data['creation_date'] ?? null;

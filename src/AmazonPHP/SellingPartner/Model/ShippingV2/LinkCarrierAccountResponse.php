@@ -162,7 +162,7 @@ class LinkCarrierAccountResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['registration_status'] = $data['registration_status'] ?? null;
         $this->container['account_id'] = $data['account_id'] ?? null;

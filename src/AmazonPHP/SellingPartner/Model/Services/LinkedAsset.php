@@ -167,7 +167,7 @@ class LinkedAsset implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['asset_type'] = $data['asset_type'] ?? null;
         $this->container['asset_name'] = $data['asset_name'] ?? null;

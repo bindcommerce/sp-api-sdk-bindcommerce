@@ -13,7 +13,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
 /**
 * Selling Partner API for Listings Items
 *
-* The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, see the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).
+* The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you can use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, refer to the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).
 *
 * The version of the OpenAPI document: 2021-08-01
 *
@@ -45,7 +45,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'severity' => 'string',
         'attribute_names' => 'string[]',
         'categories' => 'string[]',
-        'enforcements' => '\AmazonPHP\SellingPartner\Model\ListingsItems\IssueEnforcements'
+        'enforcements' => '\AmazonPHP\SellingPartner\Model\ListingsItems\IssueEnforcements',
+        'marketplace_ids' => 'string[]'
     ];
 
     /**
@@ -61,7 +62,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'severity' => null,
         'attribute_names' => null,
         'categories' => null,
-        'enforcements' => null
+        'enforcements' => null,
+        'marketplace_ids' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'severity' => 'severity',
         'attribute_names' => 'attributeNames',
         'categories' => 'categories',
-        'enforcements' => 'enforcements'
+        'enforcements' => 'enforcements',
+        'marketplace_ids' => 'marketplaceIds'
     ];
 
     /**
@@ -110,7 +113,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'severity' => 'setSeverity',
         'attribute_names' => 'setAttributeNames',
         'categories' => 'setCategories',
-        'enforcements' => 'setEnforcements'
+        'enforcements' => 'setEnforcements',
+        'marketplace_ids' => 'setMarketplaceIds'
     ];
 
     /**
@@ -124,7 +128,8 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         'severity' => 'getSeverity',
         'attribute_names' => 'getAttributeNames',
         'categories' => 'getCategories',
-        'enforcements' => 'getEnforcements'
+        'enforcements' => 'getEnforcements',
+        'marketplace_ids' => 'getMarketplaceIds'
     ];
 
     /**
@@ -199,7 +204,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['code'] = $data['code'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
@@ -207,6 +212,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['attribute_names'] = $data['attribute_names'] ?? null;
         $this->container['categories'] = $data['categories'] ?? null;
         $this->container['enforcements'] = $data['enforcements'] ?? null;
+        $this->container['marketplace_ids'] = $data['marketplace_ids'] ?? null;
     }
 
     /**
@@ -337,7 +343,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attribute_names
      *
-     * @param string[]|null $attribute_names The names of the attributes associated with the issue, if applicable.
+     * @param string[]|null $attribute_names Names of the attributes that are associated with the issue, if applicable.
      *
      * @return self
      */
@@ -361,7 +367,7 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets categories
      *
-     * @param string[] $categories List of issue categories.   Possible values:   * 'INVALID_ATTRIBUTE' - Indicating an invalid attribute in the listing.   * 'MISSING_ATTRIBUTE' - Highlighting a missing attribute in the listing.   * 'INVALID_IMAGE' - Signifying an invalid image in the listing.   * 'MISSING_IMAGE' - Noting the absence of an image in the listing.   * 'INVALID_PRICE' - Pertaining to issues with the listing's price-related attributes.   * 'MISSING_PRICE' - Pointing out the absence of a price attribute in the listing.   * 'DUPLICATE' - Identifying listings with potential duplicate problems, such as this ASIN potentially being a duplicate of another ASIN.   * 'QUALIFICATION_REQUIRED' - Indicating that the listing requires qualification-related approval.
+     * @param string[] $categories List of issue categories.
      *
      * @return self
      */
@@ -392,6 +398,30 @@ class Issue implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEnforcements($enforcements) : self
     {
         $this->container['enforcements'] = $enforcements;
+
+        return $this;
+    }
+
+    /**
+     * Gets marketplace_ids
+     *
+     * @return string[]|null
+     */
+    public function getMarketplaceIds()
+    {
+        return $this->container['marketplace_ids'];
+    }
+
+    /**
+     * Sets marketplace_ids
+     *
+     * @param string[]|null $marketplace_ids List of Amazon store identifiers.
+     *
+     * @return self
+     */
+    public function setMarketplaceIds($marketplace_ids) : self
+    {
+        $this->container['marketplace_ids'] = $marketplace_ids;
 
         return $this;
     }

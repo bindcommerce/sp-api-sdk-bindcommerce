@@ -182,7 +182,7 @@ class FulfillmentPreviewShipment implements ModelInterface, ArrayAccess, \JsonSe
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['earliest_ship_date'] = $data['earliest_ship_date'] ?? null;
         $this->container['latest_ship_date'] = $data['latest_ship_date'] ?? null;

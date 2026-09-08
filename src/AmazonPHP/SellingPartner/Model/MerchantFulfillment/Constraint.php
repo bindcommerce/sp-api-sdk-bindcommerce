@@ -162,7 +162,7 @@ class Constraint implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['validation_reg_ex'] = $data['validation_reg_ex'] ?? null;
         $this->container['validation_string'] = $data['validation_string'] ?? null;

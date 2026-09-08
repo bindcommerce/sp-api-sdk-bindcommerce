@@ -13,7 +13,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
 /**
 * Selling Partner API for Listings Items
 *
-* The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, see the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).
+* The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you can use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, refer to the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).
 *
 * The version of the OpenAPI document: 2021-08-01
 *
@@ -254,7 +254,7 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['marketplace_id'] = $data['marketplace_id'] ?? null;
         $this->container['asin'] = $data['asin'] ?? null;
@@ -328,7 +328,7 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets marketplace_id
      *
-     * @param string $marketplace_id A marketplace identifier. Identifies the Amazon marketplace for the listings item.
+     * @param string $marketplace_id A marketplace identifier. Identifies the listings item's Amazon store.
      *
      * @return self
      */
@@ -352,7 +352,7 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets asin
      *
-     * @param string|null $asin Amazon Standard Identification Number (ASIN) of the listings item.
+     * @param string|null $asin The ASIN of the listings item.
      *
      * @return self
      */
@@ -376,7 +376,7 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets product_type
      *
-     * @param string $product_type The Amazon product type of the listings item.
+     * @param string $product_type The listings item's Amazon product type.
      *
      * @return self
      */
@@ -448,7 +448,7 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets fn_sku
      *
-     * @param string|null $fn_sku The fulfillment network stock keeping unit is an identifier used by Amazon fulfillment centers to identify each unique item.
+     * @param string|null $fn_sku Fulfillment network stock keeping unit is an identifier used by Amazon fulfillment centers to identify each unique item.
      *
      * @return self
      */
@@ -472,7 +472,7 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets item_name
      *
-     * @param string|null $item_name The name or title associated with an Amazon catalog item.
+     * @param string|null $item_name Name, or title, associated with an Amazon catalog item.
      *
      * @return self
      */
@@ -496,7 +496,7 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets created_date
      *
-     * @param \DateTimeInterface $created_date The date the listings item was created in ISO 8601 format.
+     * @param \DateTimeInterface $created_date Date the listings item was created, in ISO 8601 format.
      *
      * @return self
      */
@@ -520,7 +520,7 @@ class ItemSummaryByMarketplace implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets last_updated_date
      *
-     * @param \DateTimeInterface $last_updated_date The date the listings item was last updated in ISO 8601 format.
+     * @param \DateTimeInterface $last_updated_date Date the listings item was last updated, in ISO 8601 format.
      *
      * @return self
      */

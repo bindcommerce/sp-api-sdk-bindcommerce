@@ -172,7 +172,7 @@ class JobListing implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['total_result_size'] = $data['total_result_size'] ?? null;
         $this->container['next_page_token'] = $data['next_page_token'] ?? null;

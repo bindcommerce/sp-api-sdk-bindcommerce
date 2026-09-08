@@ -162,7 +162,7 @@ class StandardSingleSideImageModule implements ModelInterface, ArrayAccess, \Jso
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['image_position_type'] = $data['image_position_type'] ?? null;
         $this->container['block'] = $data['block'] ?? null;

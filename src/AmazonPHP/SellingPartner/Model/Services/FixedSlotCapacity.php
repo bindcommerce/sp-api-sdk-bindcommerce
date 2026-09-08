@@ -172,7 +172,7 @@ class FixedSlotCapacity implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['resource_id'] = $data['resource_id'] ?? null;
         $this->container['slot_duration'] = $data['slot_duration'] ?? null;

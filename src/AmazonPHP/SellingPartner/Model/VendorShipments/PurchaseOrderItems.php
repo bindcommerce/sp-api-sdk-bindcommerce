@@ -177,7 +177,7 @@ class PurchaseOrderItems implements ModelInterface, ArrayAccess, \JsonSerializab
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['item_sequence_number'] = $data['item_sequence_number'] ?? null;
         $this->container['buyer_product_identifier'] = $data['buyer_product_identifier'] ?? null;

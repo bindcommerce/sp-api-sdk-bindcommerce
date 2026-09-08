@@ -162,7 +162,7 @@ class PackingSlipList implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['pagination'] = $data['pagination'] ?? null;
         $this->container['packing_slips'] = $data['packing_slips'] ?? null;

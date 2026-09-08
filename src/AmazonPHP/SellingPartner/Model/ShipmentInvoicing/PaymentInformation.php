@@ -177,7 +177,7 @@ class PaymentInformation implements ModelInterface, ArrayAccess, \JsonSerializab
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['payment_method'] = $data['payment_method'] ?? null;
         $this->container['acquirer_id'] = $data['acquirer_id'] ?? null;

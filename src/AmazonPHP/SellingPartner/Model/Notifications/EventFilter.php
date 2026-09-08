@@ -43,6 +43,7 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregation_settings' => '\AmazonPHP\SellingPartner\Model\Notifications\AggregationSettings',
         'marketplace_ids' => 'string[]',
         'order_change_types' => '\AmazonPHP\SellingPartner\Model\Notifications\OrderChangeTypeEnum[]',
+        'tracking_identifier' => '\AmazonPHP\SellingPartner\Model\Notifications\TrackingIdentifier',
         'event_filter_type' => 'string'
     ];
 
@@ -57,6 +58,7 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregation_settings' => null,
         'marketplace_ids' => null,
         'order_change_types' => null,
+        'tracking_identifier' => null,
         'event_filter_type' => null
     ];
 
@@ -90,6 +92,7 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregation_settings' => 'aggregationSettings',
         'marketplace_ids' => 'marketplaceIds',
         'order_change_types' => 'orderChangeTypes',
+        'tracking_identifier' => 'trackingIdentifier',
         'event_filter_type' => 'eventFilterType'
     ];
 
@@ -102,6 +105,7 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregation_settings' => 'setAggregationSettings',
         'marketplace_ids' => 'setMarketplaceIds',
         'order_change_types' => 'setOrderChangeTypes',
+        'tracking_identifier' => 'setTrackingIdentifier',
         'event_filter_type' => 'setEventFilterType'
     ];
 
@@ -114,6 +118,7 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregation_settings' => 'getAggregationSettings',
         'marketplace_ids' => 'getMarketplaceIds',
         'order_change_types' => 'getOrderChangeTypes',
+        'tracking_identifier' => 'getTrackingIdentifier',
         'event_filter_type' => 'getEventFilterType'
     ];
 
@@ -160,6 +165,7 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
 
     const EVENT_FILTER_TYPE_ANY_OFFER_CHANGED = 'ANY_OFFER_CHANGED';
     const EVENT_FILTER_TYPE_ORDER_CHANGE = 'ORDER_CHANGE';
+    const EVENT_FILTER_TYPE_SHIPMENT_TRACKING_MILESTONE_CHANGED = 'SHIPMENT_TRACKING_MILESTONE_CHANGED';
 
     /**
      * Gets allowable values of the enum
@@ -171,6 +177,7 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::EVENT_FILTER_TYPE_ANY_OFFER_CHANGED,
             self::EVENT_FILTER_TYPE_ORDER_CHANGE,
+            self::EVENT_FILTER_TYPE_SHIPMENT_TRACKING_MILESTONE_CHANGED,
         ];
     }
 
@@ -187,11 +194,12 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['aggregation_settings'] = $data['aggregation_settings'] ?? null;
         $this->container['marketplace_ids'] = $data['marketplace_ids'] ?? null;
         $this->container['order_change_types'] = $data['order_change_types'] ?? null;
+        $this->container['tracking_identifier'] = $data['tracking_identifier'] ?? null;
         $this->container['event_filter_type'] = $data['event_filter_type'] ?? null;
     }
 
@@ -206,6 +214,10 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
 
             if ($this->container['aggregation_settings'] !== null) {
             $this->container['aggregation_settings']->validate();
+            }
+
+            if ($this->container['tracking_identifier'] !== null) {
+            $this->container['tracking_identifier']->validate();
             }
 
         if ($this->container['event_filter_type'] === null) {
@@ -294,6 +306,30 @@ class EventFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOrderChangeTypes($order_change_types) : self
     {
         $this->container['order_change_types'] = $order_change_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_identifier
+     *
+     * @return \AmazonPHP\SellingPartner\Model\Notifications\TrackingIdentifier|null
+     */
+    public function getTrackingIdentifier()
+    {
+        return $this->container['tracking_identifier'];
+    }
+
+    /**
+     * Sets tracking_identifier
+     *
+     * @param \AmazonPHP\SellingPartner\Model\Notifications\TrackingIdentifier|null $tracking_identifier tracking_identifier
+     *
+     * @return self
+     */
+    public function setTrackingIdentifier($tracking_identifier) : self
+    {
+        $this->container['tracking_identifier'] = $tracking_identifier;
 
         return $this;
     }

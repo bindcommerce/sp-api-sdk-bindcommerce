@@ -167,7 +167,7 @@ class GetAdditionalSellerInputsRequest implements ModelInterface, ArrayAccess, \
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['shipping_service_id'] = $data['shipping_service_id'] ?? null;
         $this->container['ship_from_address'] = $data['ship_from_address'] ?? null;

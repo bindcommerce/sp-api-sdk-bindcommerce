@@ -157,7 +157,7 @@ class SubmitFulfillmentOrderStatusUpdateRequest implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['fulfillment_order_status'] = $data['fulfillment_order_status'] ?? null;
     }

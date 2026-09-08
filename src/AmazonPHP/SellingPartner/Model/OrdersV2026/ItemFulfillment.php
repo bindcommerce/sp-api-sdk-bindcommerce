@@ -177,7 +177,7 @@ class ItemFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['quantity_fulfilled'] = $data['quantity_fulfilled'] ?? null;
         $this->container['quantity_unfulfilled'] = $data['quantity_unfulfilled'] ?? null;

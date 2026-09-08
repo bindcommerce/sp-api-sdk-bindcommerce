@@ -187,7 +187,7 @@ class RemovalShipmentItemAdjustment implements ModelInterface, ArrayAccess, \Jso
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['removal_shipment_item_id'] = $data['removal_shipment_item_id'] ?? null;
         $this->container['tax_collection_model'] = $data['tax_collection_model'] ?? null;

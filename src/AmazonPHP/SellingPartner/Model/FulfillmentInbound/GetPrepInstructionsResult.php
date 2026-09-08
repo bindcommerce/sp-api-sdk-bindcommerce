@@ -172,7 +172,7 @@ class GetPrepInstructionsResult implements ModelInterface, ArrayAccess, \JsonSer
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['sku_prep_instructions_list'] = $data['sku_prep_instructions_list'] ?? null;
         $this->container['invalid_sku_list'] = $data['invalid_sku_list'] ?? null;

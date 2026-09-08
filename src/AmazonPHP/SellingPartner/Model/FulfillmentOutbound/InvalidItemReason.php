@@ -162,7 +162,7 @@ class InvalidItemReason implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['invalid_item_reason_code'] = $data['invalid_item_reason_code'] ?? null;
         $this->container['description'] = $data['description'] ?? null;

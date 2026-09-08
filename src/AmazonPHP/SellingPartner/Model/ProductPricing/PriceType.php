@@ -172,7 +172,7 @@ class PriceType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['landed_price'] = $data['landed_price'] ?? null;
         $this->container['listing_price'] = $data['listing_price'] ?? null;

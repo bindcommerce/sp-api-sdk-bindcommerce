@@ -177,7 +177,7 @@ class ShippingServiceOptions implements ModelInterface, ArrayAccess, \JsonSerial
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['delivery_experience'] = $data['delivery_experience'] ?? null;
         $this->container['declared_value'] = $data['declared_value'] ?? null;

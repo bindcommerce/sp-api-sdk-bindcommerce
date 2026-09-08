@@ -192,7 +192,7 @@ class CarrierAccountInput implements ModelInterface, ArrayAccess, \JsonSerializa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['description_localization_key'] = $data['description_localization_key'] ?? null;
         $this->container['name'] = $data['name'] ?? null;

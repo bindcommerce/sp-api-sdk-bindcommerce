@@ -182,7 +182,7 @@ class CreateClaimRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['tracking_id'] = $data['tracking_id'] ?? null;
         $this->container['declared_value'] = $data['declared_value'] ?? null;

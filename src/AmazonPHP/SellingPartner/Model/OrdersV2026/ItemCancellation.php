@@ -40,7 +40,8 @@ class ItemCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static array $openAPITypes = [
-        'cancellation_request' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\ItemCancellationRequest'
+        'cancellation_request' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\ItemCancellationRequest',
+        'cancellation_execution' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\ItemCancellationExecution'
     ];
 
     /**
@@ -51,7 +52,8 @@ class ItemCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'cancellation_request' => null
+        'cancellation_request' => null,
+        'cancellation_execution' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class ItemCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static array $attributeMap = [
-        'cancellation_request' => 'cancellationRequest'
+        'cancellation_request' => 'cancellationRequest',
+        'cancellation_execution' => 'cancellationExecution'
     ];
 
     /**
@@ -90,7 +93,8 @@ class ItemCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static array $setters = [
-        'cancellation_request' => 'setCancellationRequest'
+        'cancellation_request' => 'setCancellationRequest',
+        'cancellation_execution' => 'setCancellationExecution'
     ];
 
     /**
@@ -99,7 +103,8 @@ class ItemCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static array $getters = [
-        'cancellation_request' => 'getCancellationRequest'
+        'cancellation_request' => 'getCancellationRequest',
+        'cancellation_execution' => 'getCancellationExecution'
     ];
 
     /**
@@ -157,9 +162,10 @@ class ItemCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['cancellation_request'] = $data['cancellation_request'] ?? null;
+        $this->container['cancellation_execution'] = $data['cancellation_execution'] ?? null;
     }
 
     /**
@@ -173,6 +179,10 @@ class ItemCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
 
             if ($this->container['cancellation_request'] !== null) {
             $this->container['cancellation_request']->validate();
+            }
+
+            if ($this->container['cancellation_execution'] !== null) {
+            $this->container['cancellation_execution']->validate();
             }
 
     }
@@ -198,6 +208,30 @@ class ItemCancellation implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCancellationRequest($cancellation_request) : self
     {
         $this->container['cancellation_request'] = $cancellation_request;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancellation_execution
+     *
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemCancellationExecution|null
+     */
+    public function getCancellationExecution()
+    {
+        return $this->container['cancellation_execution'];
+    }
+
+    /**
+     * Sets cancellation_execution
+     *
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\ItemCancellationExecution|null $cancellation_execution cancellation_execution
+     *
+     * @return self
+     */
+    public function setCancellationExecution($cancellation_execution) : self
+    {
+        $this->container['cancellation_execution'] = $cancellation_execution;
 
         return $this;
     }

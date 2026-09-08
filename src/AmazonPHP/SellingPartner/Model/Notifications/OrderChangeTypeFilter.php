@@ -157,7 +157,7 @@ class OrderChangeTypeFilter implements ModelInterface, ArrayAccess, \JsonSeriali
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['order_change_types'] = $data['order_change_types'] ?? null;
     }

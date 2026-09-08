@@ -167,7 +167,7 @@ class AssociatedOrderItem implements ModelInterface, ArrayAccess, \JsonSerializa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['order_id'] = $data['order_id'] ?? null;
         $this->container['order_item_id'] = $data['order_item_id'] ?? null;

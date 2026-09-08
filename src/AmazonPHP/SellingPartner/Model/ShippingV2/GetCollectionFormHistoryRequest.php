@@ -177,7 +177,7 @@ class GetCollectionFormHistoryRequest implements ModelInterface, ArrayAccess, \J
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['client_reference_details'] = $data['client_reference_details'] ?? null;
         $this->container['max_results'] = $data['max_results'] ?? null;

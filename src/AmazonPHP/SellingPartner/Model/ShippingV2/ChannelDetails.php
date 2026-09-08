@@ -167,7 +167,7 @@ class ChannelDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['channel_type'] = $data['channel_type'] ?? null;
         $this->container['amazon_order_details'] = $data['amazon_order_details'] ?? null;

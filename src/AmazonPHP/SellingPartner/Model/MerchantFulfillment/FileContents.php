@@ -167,7 +167,7 @@ class FileContents implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['contents'] = $data['contents'] ?? null;
         $this->container['file_type'] = $data['file_type'] ?? null;

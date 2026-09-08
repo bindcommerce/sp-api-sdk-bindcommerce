@@ -162,7 +162,7 @@ class UnmanifestedShipmentLocation implements ModelInterface, ArrayAccess, \Json
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['address'] = $data['address'] ?? null;
         $this->container['last_manifest_date'] = $data['last_manifest_date'] ?? null;

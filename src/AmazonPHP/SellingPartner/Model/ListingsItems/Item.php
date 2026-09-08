@@ -13,7 +13,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
 /**
 * Selling Partner API for Listings Items
 *
-* The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, see the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).
+* The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you can use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, refer to the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).
 *
 * The version of the OpenAPI document: 2021-08-01
 *
@@ -197,7 +197,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['sku'] = $data['sku'] ?? null;
         $this->container['summaries'] = $data['summaries'] ?? null;
@@ -239,7 +239,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sku
      *
-     * @param string $sku A selling partner provided identifier for an Amazon listing.
+     * @param string $sku A selling partner-provided identifier for an Amazon listing.
      *
      * @return self
      */
@@ -263,7 +263,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets summaries
      *
-     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemSummaryByMarketplace[]|null $summaries Summary details of a listings item.
+     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemSummaryByMarketplace[]|null $summaries Summary details for a listings item.
      *
      * @return self
      */
@@ -287,7 +287,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attributes
      *
-     * @param array<string,mixed>|null $attributes A JSON object containing structured listings item attribute data keyed by attribute name.
+     * @param array<string,mixed>|null $attributes JSON object containing structured listings item attribute data keyed by attribute name.
      *
      * @return self
      */
@@ -311,7 +311,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets issues
      *
-     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\Issue[]|null $issues The issues associated with the listings item.
+     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\Issue[]|null $issues Issues associated with the listings item.
      *
      * @return self
      */
@@ -335,7 +335,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets offers
      *
-     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemOfferByMarketplace[]|null $offers Offer details for the listings item.
+     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemOfferByMarketplace[]|null $offers The listings item's offer details.
      *
      * @return self
      */
@@ -359,7 +359,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fulfillment_availability
      *
-     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\FulfillmentAvailability[]|null $fulfillment_availability The fulfillment availability for the listings item.
+     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\FulfillmentAvailability[]|null $fulfillment_availability The listings item's fulfillment availability.
      *
      * @return self
      */
@@ -383,7 +383,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets procurement
      *
-     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemProcurement[]|null $procurement The vendor procurement information for the listings item.
+     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemProcurement[]|null $procurement The listings item's vendor procurement information.
      *
      * @return self
      */
@@ -407,7 +407,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets relationships
      *
-     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemRelationshipsByMarketplace[]|null $relationships Relationships for a listing item, by marketplace (for example, variations).
+     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemRelationshipsByMarketplace[]|null $relationships Relationships for a listing item, by Amazon store (for example, variations).
      *
      * @return self
      */
@@ -431,7 +431,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets product_types
      *
-     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemProductTypeByMarketplace[]|null $product_types Product types for a listing item, by marketplace.
+     * @param \AmazonPHP\SellingPartner\Model\ListingsItems\ItemProductTypeByMarketplace[]|null $product_types Product types for a listing item, by Amazon store.
      *
      * @return self
      */

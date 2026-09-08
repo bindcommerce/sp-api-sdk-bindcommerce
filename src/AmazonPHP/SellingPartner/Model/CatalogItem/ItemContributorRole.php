@@ -162,7 +162,7 @@ class ItemContributorRole implements ModelInterface, ArrayAccess, \JsonSerializa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['display_name'] = $data['display_name'] ?? null;
         $this->container['value'] = $data['value'] ?? null;

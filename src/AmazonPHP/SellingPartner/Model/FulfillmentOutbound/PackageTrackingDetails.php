@@ -227,7 +227,7 @@ class PackageTrackingDetails implements ModelInterface, ArrayAccess, \JsonSerial
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['package_number'] = $data['package_number'] ?? null;
         $this->container['tracking_number'] = $data['tracking_number'] ?? null;

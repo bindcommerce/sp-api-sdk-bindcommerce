@@ -191,7 +191,7 @@ class OrderItemStatusAcknowledgementStatus implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['confirmation_status'] = $data['confirmation_status'] ?? null;
         $this->container['accepted_quantity'] = $data['accepted_quantity'] ?? null;

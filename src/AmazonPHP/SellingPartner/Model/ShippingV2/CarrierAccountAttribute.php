@@ -167,7 +167,7 @@ class CarrierAccountAttribute implements ModelInterface, ArrayAccess, \JsonSeria
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['attribute_name'] = $data['attribute_name'] ?? null;
         $this->container['property_group'] = $data['property_group'] ?? null;

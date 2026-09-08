@@ -202,7 +202,7 @@ class Summary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['total_offer_count'] = $data['total_offer_count'] ?? null;
         $this->container['number_of_offers'] = $data['number_of_offers'] ?? null;

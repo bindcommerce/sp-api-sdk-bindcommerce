@@ -167,7 +167,7 @@ class BoxContentsFeeDetails implements ModelInterface, ArrayAccess, \JsonSeriali
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['total_units'] = $data['total_units'] ?? null;
         $this->container['fee_per_unit'] = $data['fee_per_unit'] ?? null;

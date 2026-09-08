@@ -162,7 +162,7 @@ class DateTimeRange implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['earliest_date_time'] = $data['earliest_date_time'] ?? null;
         $this->container['latest_date_time'] = $data['latest_date_time'] ?? null;

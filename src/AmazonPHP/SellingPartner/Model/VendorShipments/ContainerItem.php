@@ -167,7 +167,7 @@ class ContainerItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['item_reference'] = $data['item_reference'] ?? null;
         $this->container['shipped_quantity'] = $data['shipped_quantity'] ?? null;

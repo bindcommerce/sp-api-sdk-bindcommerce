@@ -167,7 +167,7 @@ class FeesEstimateByIdRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['fees_estimate_request'] = $data['fees_estimate_request'] ?? null;
         $this->container['id_type'] = $data['id_type'] ?? null;

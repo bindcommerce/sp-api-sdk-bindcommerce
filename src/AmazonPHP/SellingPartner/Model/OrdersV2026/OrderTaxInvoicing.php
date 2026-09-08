@@ -162,7 +162,7 @@ class OrderTaxInvoicing implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['buyer_invoice_preference'] = $data['buyer_invoice_preference'] ?? null;
         $this->container['invoice_status'] = $data['invoice_status'] ?? null;
