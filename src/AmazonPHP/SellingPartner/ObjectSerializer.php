@@ -41,7 +41,7 @@ final class ObjectSerializer
      *
      * @return null|array|object|scalar serialized form of $data
      */
-    public static function sanitizeForSerialization(mixed $data, string $type = null, string $format = null)
+    public static function sanitizeForSerialization(mixed $data, ?string $type = null, ?string $format = null)
     {
         if (\is_scalar($data) || null === $data) {
             return $data;
@@ -252,7 +252,7 @@ final class ObjectSerializer
      *
      * @psalm-return T
      */
-    public static function deserialize(Configuration $configuration, mixed $data, string $class, array $httpHeaders = null)
+    public static function deserialize(Configuration $configuration, mixed $data, string $class, ?array $httpHeaders = null)
     {
         if (null === $data) {
             return null;
