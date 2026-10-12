@@ -82,6 +82,12 @@ step_finances() {
         -c /sp-api/config/generator-finances.yaml
 }
 
+step_finances_2024() {
+    run_generator "finances-2024" \
+        -i https://raw.githubusercontent.com/amzn/selling-partner-api-models/main/models/finances-api-model/finances_2024-06-19.json \
+        -c /sp-api/config/generator-finances-2024.yaml
+}
+
 step_fulfillment_inbound() {
     run_generator "fulfillment-inbound" \
         -i https://raw.githubusercontent.com/amzn/selling-partner-api-models/main/models/fulfillment-inbound-api-model/fulfillmentInboundV0.json \
@@ -307,6 +313,7 @@ ALL_STEPS=(
     fba-inventory
     feeds
     finances
+    finances-2024
     fulfillment-inbound
     fulfillment-outbound
     listings-items
