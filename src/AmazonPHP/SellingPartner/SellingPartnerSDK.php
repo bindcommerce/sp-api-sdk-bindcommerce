@@ -12,6 +12,8 @@ use AmazonPHP\SellingPartner\Api\CreateContainerLabelApi\VendorDirectFulfillment
 use AmazonPHP\SellingPartner\Api\CreateContainerLabelApi\VendorDirectFulfillmentShippingSDKInterface;
 use AmazonPHP\SellingPartner\Api\DefaultApi\FinancesSDK;
 use AmazonPHP\SellingPartner\Api\DefaultApi\FinancesSDKInterface;
+use AmazonPHP\SellingPartner\Api\DefaultApi\Finances2024SDK;
+use AmazonPHP\SellingPartner\Api\DefaultApi\Finances2024SDKInterface;
 use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDK;
 use AmazonPHP\SellingPartner\Api\DefinitionsApi\ProductTypesDefinitionsSDKInterface;
 use AmazonPHP\SellingPartner\Api\FbaInboundApi\FBAInboundSDK;
@@ -135,6 +137,11 @@ final class SellingPartnerSDK
     public function finances() : FinancesSDKInterface
     {
         return $this->instantiateSDK(FinancesSDK::class);
+    }
+    
+    public function finances2024() : Finances2024SDKInterface
+    {
+        return $this->instantiateSDK(Finances2024SDK::class);
     }
 
     public function fulfillmentInbound() : FulfillmentInboundSDKInterface
