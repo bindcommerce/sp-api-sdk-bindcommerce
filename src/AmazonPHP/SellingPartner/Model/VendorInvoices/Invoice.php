@@ -48,8 +48,13 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'ship_to_party' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification',
         'ship_from_party' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification',
         'bill_to_party' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification',
+        'bill_from_party' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification',
+        'vat_group_party' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification',
+        'tax_representative_party' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification',
         'payment_terms' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\PaymentTerms',
         'invoice_total' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\Money',
+        'invoice_base_amount' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\Money',
+        'tax_point_date' => '\DateTimeInterface',
         'tax_details' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\TaxDetails[]',
         'additional_details' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\AdditionalDetails[]',
         'charge_details' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\ChargeDetails[]',
@@ -73,8 +78,13 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'ship_to_party' => null,
         'ship_from_party' => null,
         'bill_to_party' => null,
+        'bill_from_party' => null,
+        'vat_group_party' => null,
+        'tax_representative_party' => null,
         'payment_terms' => null,
         'invoice_total' => null,
+        'invoice_base_amount' => null,
+        'tax_point_date' => 'date-time',
         'tax_details' => null,
         'additional_details' => null,
         'charge_details' => null,
@@ -117,8 +127,13 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'ship_to_party' => 'shipToParty',
         'ship_from_party' => 'shipFromParty',
         'bill_to_party' => 'billToParty',
+        'bill_from_party' => 'billFromParty',
+        'vat_group_party' => 'vatGroupParty',
+        'tax_representative_party' => 'taxRepresentativeParty',
         'payment_terms' => 'paymentTerms',
         'invoice_total' => 'invoiceTotal',
+        'invoice_base_amount' => 'invoiceBaseAmount',
+        'tax_point_date' => 'taxPointDate',
         'tax_details' => 'taxDetails',
         'additional_details' => 'additionalDetails',
         'charge_details' => 'chargeDetails',
@@ -140,8 +155,13 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'ship_to_party' => 'setShipToParty',
         'ship_from_party' => 'setShipFromParty',
         'bill_to_party' => 'setBillToParty',
+        'bill_from_party' => 'setBillFromParty',
+        'vat_group_party' => 'setVatGroupParty',
+        'tax_representative_party' => 'setTaxRepresentativeParty',
         'payment_terms' => 'setPaymentTerms',
         'invoice_total' => 'setInvoiceTotal',
+        'invoice_base_amount' => 'setInvoiceBaseAmount',
+        'tax_point_date' => 'setTaxPointDate',
         'tax_details' => 'setTaxDetails',
         'additional_details' => 'setAdditionalDetails',
         'charge_details' => 'setChargeDetails',
@@ -163,8 +183,13 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
         'ship_to_party' => 'getShipToParty',
         'ship_from_party' => 'getShipFromParty',
         'bill_to_party' => 'getBillToParty',
+        'bill_from_party' => 'getBillFromParty',
+        'vat_group_party' => 'getVatGroupParty',
+        'tax_representative_party' => 'getTaxRepresentativeParty',
         'payment_terms' => 'getPaymentTerms',
         'invoice_total' => 'getInvoiceTotal',
+        'invoice_base_amount' => 'getInvoiceBaseAmount',
+        'tax_point_date' => 'getTaxPointDate',
         'tax_details' => 'getTaxDetails',
         'additional_details' => 'getAdditionalDetails',
         'charge_details' => 'getChargeDetails',
@@ -252,8 +277,13 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['ship_to_party'] = $data['ship_to_party'] ?? null;
         $this->container['ship_from_party'] = $data['ship_from_party'] ?? null;
         $this->container['bill_to_party'] = $data['bill_to_party'] ?? null;
+        $this->container['bill_from_party'] = $data['bill_from_party'] ?? null;
+        $this->container['vat_group_party'] = $data['vat_group_party'] ?? null;
+        $this->container['tax_representative_party'] = $data['tax_representative_party'] ?? null;
         $this->container['payment_terms'] = $data['payment_terms'] ?? null;
         $this->container['invoice_total'] = $data['invoice_total'] ?? null;
+        $this->container['invoice_base_amount'] = $data['invoice_base_amount'] ?? null;
+        $this->container['tax_point_date'] = $data['tax_point_date'] ?? null;
         $this->container['tax_details'] = $data['tax_details'] ?? null;
         $this->container['additional_details'] = $data['additional_details'] ?? null;
         $this->container['charge_details'] = $data['charge_details'] ?? null;
@@ -311,6 +341,18 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
             $this->container['bill_to_party']->validate();
             }
 
+            if ($this->container['bill_from_party'] !== null) {
+            $this->container['bill_from_party']->validate();
+            }
+
+            if ($this->container['vat_group_party'] !== null) {
+            $this->container['vat_group_party']->validate();
+            }
+
+            if ($this->container['tax_representative_party'] !== null) {
+            $this->container['tax_representative_party']->validate();
+            }
+
             if ($this->container['payment_terms'] !== null) {
             $this->container['payment_terms']->validate();
             }
@@ -320,6 +362,10 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
             $this->container['invoice_total']->validate();
+
+            if ($this->container['invoice_base_amount'] !== null) {
+            $this->container['invoice_base_amount']->validate();
+            }
 
     }
 
@@ -517,6 +563,78 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets bill_from_party
+     *
+     * @return \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification|null
+     */
+    public function getBillFromParty()
+    {
+        return $this->container['bill_from_party'];
+    }
+
+    /**
+     * Sets bill_from_party
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification|null $bill_from_party bill_from_party
+     *
+     * @return self
+     */
+    public function setBillFromParty($bill_from_party) : self
+    {
+        $this->container['bill_from_party'] = $bill_from_party;
+
+        return $this;
+    }
+
+    /**
+     * Gets vat_group_party
+     *
+     * @return \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification|null
+     */
+    public function getVatGroupParty()
+    {
+        return $this->container['vat_group_party'];
+    }
+
+    /**
+     * Sets vat_group_party
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification|null $vat_group_party vat_group_party
+     *
+     * @return self
+     */
+    public function setVatGroupParty($vat_group_party) : self
+    {
+        $this->container['vat_group_party'] = $vat_group_party;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_representative_party
+     *
+     * @return \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification|null
+     */
+    public function getTaxRepresentativeParty()
+    {
+        return $this->container['tax_representative_party'];
+    }
+
+    /**
+     * Sets tax_representative_party
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\PartyIdentification|null $tax_representative_party tax_representative_party
+     *
+     * @return self
+     */
+    public function setTaxRepresentativeParty($tax_representative_party) : self
+    {
+        $this->container['tax_representative_party'] = $tax_representative_party;
+
+        return $this;
+    }
+
+    /**
      * Gets payment_terms
      *
      * @return \AmazonPHP\SellingPartner\Model\VendorInvoices\PaymentTerms|null
@@ -560,6 +678,54 @@ class Invoice implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setInvoiceTotal($invoice_total) : self
     {
         $this->container['invoice_total'] = $invoice_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_base_amount
+     *
+     * @return \AmazonPHP\SellingPartner\Model\VendorInvoices\Money|null
+     */
+    public function getInvoiceBaseAmount()
+    {
+        return $this->container['invoice_base_amount'];
+    }
+
+    /**
+     * Sets invoice_base_amount
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\Money|null $invoice_base_amount invoice_base_amount
+     *
+     * @return self
+     */
+    public function setInvoiceBaseAmount($invoice_base_amount) : self
+    {
+        $this->container['invoice_base_amount'] = $invoice_base_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_point_date
+     *
+     * @return \DateTimeInterface|null
+     */
+    public function getTaxPointDate()
+    {
+        return $this->container['tax_point_date'];
+    }
+
+    /**
+     * Sets tax_point_date
+     *
+     * @param \DateTimeInterface|null $tax_point_date Defines a date and time according to ISO8601.
+     *
+     * @return self
+     */
+    public function setTaxPointDate($tax_point_date) : self
+    {
+        $this->container['tax_point_date'] = $tax_point_date;
 
         return $this;
     }

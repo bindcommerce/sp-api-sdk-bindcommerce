@@ -150,6 +150,7 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
 
     const TAX_REGISTRATION_TYPE_VAT = 'VAT';
     const TAX_REGISTRATION_TYPE_GST = 'GST';
+    const TAX_REGISTRATION_TYPE_LOCAL_TAX_NUMBER = 'LocalTaxNumber';
 
     /**
      * Gets allowable values of the enum
@@ -161,6 +162,7 @@ class TaxRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerial
         return [
             self::TAX_REGISTRATION_TYPE_VAT,
             self::TAX_REGISTRATION_TYPE_GST,
+            self::TAX_REGISTRATION_TYPE_LOCAL_TAX_NUMBER,
         ];
     }
 

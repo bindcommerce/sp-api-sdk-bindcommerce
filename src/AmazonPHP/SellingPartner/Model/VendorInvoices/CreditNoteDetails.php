@@ -41,6 +41,7 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPITypes = [
         'reference_invoice_number' => 'string',
+        'original_invoice_date' => '\DateTimeInterface',
         'debit_note_number' => 'string',
         'returns_reference_number' => 'string',
         'goods_return_date' => '\DateTimeInterface',
@@ -58,6 +59,7 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPIFormats = [
         'reference_invoice_number' => null,
+        'original_invoice_date' => 'date-time',
         'debit_note_number' => null,
         'returns_reference_number' => null,
         'goods_return_date' => 'date-time',
@@ -94,6 +96,7 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static array $attributeMap = [
         'reference_invoice_number' => 'referenceInvoiceNumber',
+        'original_invoice_date' => 'originalInvoiceDate',
         'debit_note_number' => 'debitNoteNumber',
         'returns_reference_number' => 'returnsReferenceNumber',
         'goods_return_date' => 'goodsReturnDate',
@@ -109,6 +112,7 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static array $setters = [
         'reference_invoice_number' => 'setReferenceInvoiceNumber',
+        'original_invoice_date' => 'setOriginalInvoiceDate',
         'debit_note_number' => 'setDebitNoteNumber',
         'returns_reference_number' => 'setReturnsReferenceNumber',
         'goods_return_date' => 'setGoodsReturnDate',
@@ -124,6 +128,7 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static array $getters = [
         'reference_invoice_number' => 'getReferenceInvoiceNumber',
+        'original_invoice_date' => 'getOriginalInvoiceDate',
         'debit_note_number' => 'getDebitNoteNumber',
         'returns_reference_number' => 'getReturnsReferenceNumber',
         'goods_return_date' => 'getGoodsReturnDate',
@@ -190,6 +195,7 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(?array $data = null)
     {
         $this->container['reference_invoice_number'] = $data['reference_invoice_number'] ?? null;
+        $this->container['original_invoice_date'] = $data['original_invoice_date'] ?? null;
         $this->container['debit_note_number'] = $data['debit_note_number'] ?? null;
         $this->container['returns_reference_number'] = $data['returns_reference_number'] ?? null;
         $this->container['goods_return_date'] = $data['goods_return_date'] ?? null;
@@ -230,6 +236,30 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setReferenceInvoiceNumber($reference_invoice_number) : self
     {
         $this->container['reference_invoice_number'] = $reference_invoice_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_invoice_date
+     *
+     * @return \DateTimeInterface|null
+     */
+    public function getOriginalInvoiceDate()
+    {
+        return $this->container['original_invoice_date'];
+    }
+
+    /**
+     * Sets original_invoice_date
+     *
+     * @param \DateTimeInterface|null $original_invoice_date Defines a date and time according to ISO8601.
+     *
+     * @return self
+     */
+    public function setOriginalInvoiceDate($original_invoice_date) : self
+    {
+        $this->container['original_invoice_date'] = $original_invoice_date;
 
         return $this;
     }

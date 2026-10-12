@@ -42,7 +42,9 @@ class AssociatedOrderItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPITypes = [
         'order_id' => 'string',
         'order_item_id' => 'string',
-        'association_type' => 'string'
+        'association_type' => 'string',
+        'asin' => 'string',
+        'purchase_price' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\Money'
     ];
 
     /**
@@ -55,7 +57,9 @@ class AssociatedOrderItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPIFormats = [
         'order_id' => null,
         'order_item_id' => null,
-        'association_type' => null
+        'association_type' => null,
+        'asin' => null,
+        'purchase_price' => null
     ];
 
     /**
@@ -87,7 +91,9 @@ class AssociatedOrderItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $attributeMap = [
         'order_id' => 'orderId',
         'order_item_id' => 'orderItemId',
-        'association_type' => 'associationType'
+        'association_type' => 'associationType',
+        'asin' => 'asin',
+        'purchase_price' => 'purchasePrice'
     ];
 
     /**
@@ -98,7 +104,9 @@ class AssociatedOrderItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $setters = [
         'order_id' => 'setOrderId',
         'order_item_id' => 'setOrderItemId',
-        'association_type' => 'setAssociationType'
+        'association_type' => 'setAssociationType',
+        'asin' => 'setAsin',
+        'purchase_price' => 'setPurchasePrice'
     ];
 
     /**
@@ -109,7 +117,9 @@ class AssociatedOrderItem implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $getters = [
         'order_id' => 'getOrderId',
         'order_item_id' => 'getOrderItemId',
-        'association_type' => 'getAssociationType'
+        'association_type' => 'getAssociationType',
+        'asin' => 'getAsin',
+        'purchase_price' => 'getPurchasePrice'
     ];
 
     /**
@@ -172,6 +182,8 @@ class AssociatedOrderItem implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['order_id'] = $data['order_id'] ?? null;
         $this->container['order_item_id'] = $data['order_item_id'] ?? null;
         $this->container['association_type'] = $data['association_type'] ?? null;
+        $this->container['asin'] = $data['asin'] ?? null;
+        $this->container['purchase_price'] = $data['purchase_price'] ?? null;
     }
 
     /**
@@ -182,6 +194,10 @@ class AssociatedOrderItem implements ModelInterface, ArrayAccess, \JsonSerializa
     public function validate() : void
     {
         return;
+
+            if ($this->container['purchase_price'] !== null) {
+            $this->container['purchase_price']->validate();
+            }
 
     }
 
@@ -247,13 +263,61 @@ class AssociatedOrderItem implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets association_type
      *
-     * @param string|null $association_type The type of association between the order items.  **Possible values**: - `VALUE_ADD_SERVICE` (The associated item is a service order)
+     * @param string|null $association_type The type of association between the order items.  **Possible values**: - `VALUE_ADD_SERVICE` (The associated item is a service order) - `WARRANTY` (The associated item is a product covered by a warranty or protection plan)
      *
      * @return self
      */
     public function setAssociationType($association_type) : self
     {
         $this->container['association_type'] = $association_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets asin
+     *
+     * @return string|null
+     */
+    public function getAsin()
+    {
+        return $this->container['asin'];
+    }
+
+    /**
+     * Sets asin
+     *
+     * @param string|null $asin The ASIN of the associated order item.
+     *
+     * @return self
+     */
+    public function setAsin($asin) : self
+    {
+        $this->container['asin'] = $asin;
+
+        return $this;
+    }
+
+    /**
+     * Gets purchase_price
+     *
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\Money|null
+     */
+    public function getPurchasePrice()
+    {
+        return $this->container['purchase_price'];
+    }
+
+    /**
+     * Sets purchase_price
+     *
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\Money|null $purchase_price purchase_price
+     *
+     * @return self
+     */
+    public function setPurchasePrice($purchase_price) : self
+    {
+        $this->container['purchase_price'] = $purchase_price;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
 /**
 * Selling Partner API for A+ Content Management
 *
-* Use the A+ Content API to build applications that help selling partners add rich marketing content to their Amazon product detail pages. Selling partners can use A+ content to share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners use content modules to add images and text.
+* With the A+ Content API, you can build applications that help selling partners add rich marketing content to their Amazon product detail pages. A+ Content helps selling partners share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners assemble content by choosing from content modules and adding images and text.
 *
 * The version of the OpenAPI document: 2020-11-01
 *
@@ -52,6 +52,54 @@ class ContentModuleType
 
     const STANDARD_THREE_IMAGE_TEXT = 'STANDARD_THREE_IMAGE_TEXT';
 
+    const PREMIUM_IMAGE_TEXT = 'PREMIUM_IMAGE_TEXT';
+
+    const PREMIUM_TEXT = 'PREMIUM_TEXT';
+
+    const PREMIUM_FULL_BACKGROUND_TEXT = 'PREMIUM_FULL_BACKGROUND_TEXT';
+
+    const PREMIUM_FULL_BACKGROUND_IMAGE = 'PREMIUM_FULL_BACKGROUND_IMAGE';
+
+    const PREMIUM_FOUR_COLUMN_IMAGES = 'PREMIUM_FOUR_COLUMN_IMAGES';
+
+    const PREMIUM_DUAL_IMAGE_TEXT = 'PREMIUM_DUAL_IMAGE_TEXT';
+
+    const PREMIUM_IMAGE_CAROUSEL = 'PREMIUM_IMAGE_CAROUSEL';
+
+    const PREMIUM_NAVIGATION_CAROUSEL = 'PREMIUM_NAVIGATION_CAROUSEL';
+
+    const PREMIUM_REGIMEN_CAROUSEL = 'PREMIUM_REGIMEN_CAROUSEL';
+
+    const PREMIUM_THREE_COLUMN_COMPARISON = 'PREMIUM_THREE_COLUMN_COMPARISON';
+
+    const PREMIUM_COMPARISON_CAROUSEL = 'PREMIUM_COMPARISON_CAROUSEL';
+
+    const PREMIUM_COMPARISON_SCROLLER = 'PREMIUM_COMPARISON_SCROLLER';
+
+    const PREMIUM_HOTSPOT_IMAGE = 'PREMIUM_HOTSPOT_IMAGE';
+
+    const PREMIUM_HOTSPOT_IMAGE_TEXT = 'PREMIUM_HOTSPOT_IMAGE_TEXT';
+
+    const PREMIUM_FAQ = 'PREMIUM_FAQ';
+
+    const PREMIUM_TECH_SPECS = 'PREMIUM_TECH_SPECS';
+
+    const PREMIUM_VIDEO_TEXT = 'PREMIUM_VIDEO_TEXT';
+
+    const PREMIUM_HERO_VIDEO = 'PREMIUM_HERO_VIDEO';
+
+    const PREMIUM_VIDEO_IMAGE_CAROUSEL = 'PREMIUM_VIDEO_IMAGE_CAROUSEL';
+
+    const BRAND_STORY_IMAGE_WITH_LOGO = 'BRAND_STORY_IMAGE_WITH_LOGO';
+
+    const BRAND_STORY_FOUR_ASIN = 'BRAND_STORY_FOUR_ASIN';
+
+    const BRAND_STORY_MEDIA_ASSET = 'BRAND_STORY_MEDIA_ASSET';
+
+    const BRAND_STORY_ABOUT = 'BRAND_STORY_ABOUT';
+
+    const BRAND_STORY_QUESTIONS = 'BRAND_STORY_QUESTIONS';
+
     private string $value;
 
     /**
@@ -75,7 +123,31 @@ class ContentModuleType
             self::STANDARD_SINGLE_SIDE_IMAGE,
             self::STANDARD_TECH_SPECS,
             self::STANDARD_TEXT,
-            self::STANDARD_THREE_IMAGE_TEXT
+            self::STANDARD_THREE_IMAGE_TEXT,
+            self::PREMIUM_IMAGE_TEXT,
+            self::PREMIUM_TEXT,
+            self::PREMIUM_FULL_BACKGROUND_TEXT,
+            self::PREMIUM_FULL_BACKGROUND_IMAGE,
+            self::PREMIUM_FOUR_COLUMN_IMAGES,
+            self::PREMIUM_DUAL_IMAGE_TEXT,
+            self::PREMIUM_IMAGE_CAROUSEL,
+            self::PREMIUM_NAVIGATION_CAROUSEL,
+            self::PREMIUM_REGIMEN_CAROUSEL,
+            self::PREMIUM_THREE_COLUMN_COMPARISON,
+            self::PREMIUM_COMPARISON_CAROUSEL,
+            self::PREMIUM_COMPARISON_SCROLLER,
+            self::PREMIUM_HOTSPOT_IMAGE,
+            self::PREMIUM_HOTSPOT_IMAGE_TEXT,
+            self::PREMIUM_FAQ,
+            self::PREMIUM_TECH_SPECS,
+            self::PREMIUM_VIDEO_TEXT,
+            self::PREMIUM_HERO_VIDEO,
+            self::PREMIUM_VIDEO_IMAGE_CAROUSEL,
+            self::BRAND_STORY_IMAGE_WITH_LOGO,
+            self::BRAND_STORY_FOUR_ASIN,
+            self::BRAND_STORY_MEDIA_ASSET,
+            self::BRAND_STORY_ABOUT,
+            self::BRAND_STORY_QUESTIONS
         ];
     }
 

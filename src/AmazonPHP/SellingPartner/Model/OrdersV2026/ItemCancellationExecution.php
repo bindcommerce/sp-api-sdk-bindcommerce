@@ -193,7 +193,7 @@ class ItemCancellationExecution implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets cancelled_by
      *
-     * @param string|null $cancelled_by Entity that executed the cancellation for this item.   **Possible values**: `BUYER`, `MERCHANT`, `AMAZON`
+     * @param string|null $cancelled_by The entity that executed the cancellation for this item.   **Possible values**: `BUYER`, `MERCHANT`, `AMAZON`.
      *
      * @return self
      */
@@ -217,7 +217,7 @@ class ItemCancellationExecution implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets cancel_reason
      *
-     * @param string|null $cancel_reason Explanation provided for why the cancellation was executed.
+     * @param string|null $cancel_reason The provided explanation for why the cancellation occurred.
      *
      * @return self
      */

@@ -19,7 +19,7 @@ use Psr\Log\LoggerInterface;
 /**
 * Selling Partner API for A+ Content Management
 *
-* Use the A+ Content API to build applications that help selling partners add rich marketing content to their Amazon product detail pages. Selling partners can use A+ content to share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners use content modules to add images and text.
+* With the A+ Content API, you can build applications that help selling partners add rich marketing content to their Amazon product detail pages. A+ Content helps selling partners share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners assemble content by choosing from content modules and adding images and text.
 *
 * The version of the OpenAPI document: 2020-11-01
 *
@@ -48,7 +48,7 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      *
      * @throws ApiException on non-2xx response
@@ -149,7 +149,7 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
@@ -260,12 +260,209 @@ final class APlusSDK implements APlusSDKInterface
     }
 
     /**
+     * Operation createMedia
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param \AmazonPHP\SellingPartner\Model\APlus\CreateMediaRequest $create_media_request  The media creation request details. (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\APlus\CreateMediaResponse
+     */
+    public function createMedia(AccessToken $accessToken, string $region, $create_media_request)
+    {
+        $request = $this->createMediaRequest($accessToken, $region, $create_media_request);
+
+        $this->configuration->extensions()->preRequest('APlus', 'createMedia', $request);
+
+        try {
+            $correlationId = $this->configuration->idGenerator()->generate();
+            $sanitizedRequest = $request;
+
+            foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                $sanitizedRequest = $sanitizedRequest->withoutHeader($sensitiveHeader);
+            }
+
+            if ($this->configuration->loggingEnabled('APlus', 'createMedia')) {
+                $this->logger->log(
+                    $this->configuration->logLevel('APlus', 'createMedia'),
+                    'Amazon Selling Partner API pre request',
+                    [
+                        'api' => 'APlus',
+                        'operation' => 'createMedia',
+                        'request_correlation_id' => $correlationId,
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                        'request_headers' => $sanitizedRequest->getHeaders(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                    ]
+                );
+            }
+
+            $response = $this->client->sendRequest($request);
+
+            $this->configuration->extensions()->postRequest('APlus', 'createMedia', $request, $response);
+
+            if ($this->configuration->loggingEnabled('APlus', 'createMedia')) {
+
+                $sanitizedResponse = $response;
+
+                foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                    $sanitizedResponse = $sanitizedResponse->withoutHeader($sensitiveHeader);
+                }
+
+                $this->logger->log(
+                    $this->configuration->logLevel('APlus', 'createMedia'),
+                    'Amazon Selling Partner API post request',
+                    [
+                        'api' => 'APlus',
+                        'operation' => 'createMedia',
+                        'response_correlation_id' => $correlationId,
+                        'response_body' => (string) $sanitizedResponse->getBody(),
+                        'response_headers' => $sanitizedResponse->getHeaders(),
+                        'response_status_code' => $sanitizedResponse->getStatusCode(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                        'request_body' => (string) $sanitizedRequest->getBody()
+                    ]
+                );
+            }
+        } catch (ClientExceptionInterface $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                (int) $e->getCode(),
+                null,
+                null,
+                $e
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    (string) $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                (string) $response->getBody()
+            );
+        }
+
+        return ObjectSerializer::deserialize(
+            $this->configuration,
+            (string) $response->getBody(),
+            '\AmazonPHP\SellingPartner\Model\APlus\CreateMediaResponse',
+            []
+        );
+    }
+
+    /**
+     * Create request for operation 'createMedia'
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param \AmazonPHP\SellingPartner\Model\APlus\CreateMediaRequest $create_media_request  The media creation request details. (required)
+     *
+     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
+     */
+    public function createMediaRequest(AccessToken $accessToken, string $region, $create_media_request) : RequestInterface
+    {
+        // verify the required parameter 'create_media_request' is set
+        if ($create_media_request === null || (is_array($create_media_request) && count($create_media_request) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $create_media_request when calling createMedia'
+            );
+        }
+
+        $resourcePath = '/aplus/2020-11-01/media';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $multipart = false;
+        $query = '';
+
+
+        if (\count($queryParams)) {
+            $query = http_build_query($queryParams);
+        }
+
+
+
+
+        if ($multipart) {
+            $headers = [
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        } else {
+            $headers = [
+                'content-type' => ['application/json'],
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        }
+
+        $request = $this->httpFactory->createRequest(
+            'POST',
+            $this->configuration->apiURL($region) . $resourcePath . '?' . $query
+        );
+
+        // for model (json/xml)
+        if (isset($create_media_request)) {
+            if ($headers['content-type'] === ['application/json']) {
+                $httpBody = \json_encode(ObjectSerializer::sanitizeForSerialization($create_media_request));
+            } else {
+                $httpBody = $create_media_request;
+            }
+
+            $request = $request->withBody($this->httpFactory->createStreamFromString($httpBody));
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
+                    }
+                }
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
+            } elseif ($headers['content-type'] === ['application/json']) {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
+            } else {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
+            }
+        }
+
+        foreach (\array_merge($headerParams, $headers) as $name => $header) {
+            $request = $request->withHeader($name, $header);
+        }
+
+        return HttpSignatureHeaders::forConfig(
+            $this->configuration,
+            $accessToken,
+            $region,
+            $request
+        );
+    }
+
+    /**
      * Operation getContentDocument
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      * @param string[] $included_data_set  The set of A+ Content data types to include in the response. (required)
      *
      * @throws ApiException on non-2xx response
@@ -366,8 +563,8 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      * @param string[] $included_data_set  The set of A+ Content data types to include in the response. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
@@ -499,15 +696,221 @@ final class APlusSDK implements APlusSDKInterface
     }
 
     /**
+     * Operation getMedia
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $media_id  The unique identifier for the media asset. (required)
+     * @param string|null $associated_media_id  When provided, returns only the specific association. When omitted, returns all associated media. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\APlus\GetMediaResponse
+     */
+    public function getMedia(AccessToken $accessToken, string $region, $media_id, $associated_media_id = null)
+    {
+        $request = $this->getMediaRequest($accessToken, $region, $media_id, $associated_media_id);
+
+        $this->configuration->extensions()->preRequest('APlus', 'getMedia', $request);
+
+        try {
+            $correlationId = $this->configuration->idGenerator()->generate();
+            $sanitizedRequest = $request;
+
+            foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                $sanitizedRequest = $sanitizedRequest->withoutHeader($sensitiveHeader);
+            }
+
+            if ($this->configuration->loggingEnabled('APlus', 'getMedia')) {
+                $this->logger->log(
+                    $this->configuration->logLevel('APlus', 'getMedia'),
+                    'Amazon Selling Partner API pre request',
+                    [
+                        'api' => 'APlus',
+                        'operation' => 'getMedia',
+                        'request_correlation_id' => $correlationId,
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                        'request_headers' => $sanitizedRequest->getHeaders(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                    ]
+                );
+            }
+
+            $response = $this->client->sendRequest($request);
+
+            $this->configuration->extensions()->postRequest('APlus', 'getMedia', $request, $response);
+
+            if ($this->configuration->loggingEnabled('APlus', 'getMedia')) {
+
+                $sanitizedResponse = $response;
+
+                foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                    $sanitizedResponse = $sanitizedResponse->withoutHeader($sensitiveHeader);
+                }
+
+                $this->logger->log(
+                    $this->configuration->logLevel('APlus', 'getMedia'),
+                    'Amazon Selling Partner API post request',
+                    [
+                        'api' => 'APlus',
+                        'operation' => 'getMedia',
+                        'response_correlation_id' => $correlationId,
+                        'response_body' => (string) $sanitizedResponse->getBody(),
+                        'response_headers' => $sanitizedResponse->getHeaders(),
+                        'response_status_code' => $sanitizedResponse->getStatusCode(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                        'request_body' => (string) $sanitizedRequest->getBody()
+                    ]
+                );
+            }
+        } catch (ClientExceptionInterface $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                (int) $e->getCode(),
+                null,
+                null,
+                $e
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    (string) $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                (string) $response->getBody()
+            );
+        }
+
+        return ObjectSerializer::deserialize(
+            $this->configuration,
+            (string) $response->getBody(),
+            '\AmazonPHP\SellingPartner\Model\APlus\GetMediaResponse',
+            []
+        );
+    }
+
+    /**
+     * Create request for operation 'getMedia'
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $media_id  The unique identifier for the media asset. (required)
+     * @param string|null $associated_media_id  When provided, returns only the specific association. When omitted, returns all associated media. (optional)
+     *
+     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
+     */
+    public function getMediaRequest(AccessToken $accessToken, string $region, $media_id, $associated_media_id = null) : RequestInterface
+    {
+        // verify the required parameter 'media_id' is set
+        if ($media_id === null || (is_array($media_id) && count($media_id) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $media_id when calling getMedia'
+            );
+        }
+
+        $resourcePath = '/aplus/2020-11-01/media/{mediaId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $multipart = false;
+        $query = '';
+
+        // query params
+        if (is_array($associated_media_id)) {
+            $associated_media_id = ObjectSerializer::serializeCollection($associated_media_id, '', true);
+        }
+        if ($associated_media_id !== null) {
+            $queryParams['associatedMediaId'] = ObjectSerializer::toString($associated_media_id);
+        }
+
+        if (\count($queryParams)) {
+            $query = http_build_query($queryParams);
+        }
+
+
+        // path params
+        if ($media_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'mediaId' . '}',
+                ObjectSerializer::toPathValue($media_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = [
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        } else {
+            $headers = [
+                'content-type' => ['application/json'],
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        }
+
+        $request = $this->httpFactory->createRequest(
+            'GET',
+            $this->configuration->apiURL($region) . $resourcePath . '?' . $query
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
+                    }
+                }
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
+            } elseif ($headers['content-type'] === ['application/json']) {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
+            } else {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
+            }
+        }
+
+        foreach (\array_merge($headerParams, $headers) as $name => $header) {
+            $request = $request->withHeader($name, $header);
+        }
+
+        return HttpSignatureHeaders::forConfig(
+            $this->configuration,
+            $accessToken,
+            $region,
+            $request
+        );
+    }
+
+    /**
      * Operation listContentDocumentAsinRelations
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-     * @param string[]|null $included_data_set  The set of A+ Content data types to include in the response. If you don&#39;t include this parameter, the operation returns the related ASINs without metadata. (optional)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
+     * @param string[]|null $included_data_set  The set of A+ Content data types to include in the response. If you do not include this parameter, the operation returns the related ASINs without metadata. (optional)
      * @param string[]|null $asin_set  The set of ASINs. (optional)
-     * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
+     * @param string|null $page_token  A page token from the &#x60;nextPageToken&#x60; response element returned by your previous call to this operation. &#x60;nextPageToken&#x60; is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include &#x60;pageToken&#x60; as the only parameter. Specifying &#x60;pageToken&#x60; with any other parameter will cause the request to fail. When no &#x60;nextPageToken&#x60; value is returned there are no more pages to return. A &#x60;pageToken&#x60; value is not usable across different operations. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -607,11 +1010,11 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-     * @param string[]|null $included_data_set  The set of A+ Content data types to include in the response. If you don&#39;t include this parameter, the operation returns the related ASINs without metadata. (optional)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
+     * @param string[]|null $included_data_set  The set of A+ Content data types to include in the response. If you do not include this parameter, the operation returns the related ASINs without metadata. (optional)
      * @param string[]|null $asin_set  The set of ASINs. (optional)
-     * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
+     * @param string|null $page_token  A page token from the &#x60;nextPageToken&#x60; response element returned by your previous call to this operation. &#x60;nextPageToken&#x60; is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include &#x60;pageToken&#x60; as the only parameter. Specifying &#x60;pageToken&#x60; with any other parameter will cause the request to fail. When no &#x60;nextPageToken&#x60; value is returned there are no more pages to return. A &#x60;pageToken&#x60; value is not usable across different operations. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
      * @return \Psr\Http\Message\RequestInterface
@@ -759,8 +1162,8 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -860,8 +1263,8 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
      * @return \Psr\Http\Message\RequestInterface
@@ -979,9 +1382,9 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-     * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentAsinRelationsRequest $post_content_document_asin_relations_request  The request details for the content document ASIN relations. (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentAsinRelationsRequest $post_content_document_asin_relations_request  The content document ASIN relations request details. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -1081,9 +1484,9 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-     * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentAsinRelationsRequest $post_content_document_asin_relations_request  The request details for the content document ASIN relations. (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentAsinRelationsRequest $post_content_document_asin_relations_request  The content document ASIN relations request details. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
      * @return \Psr\Http\Message\RequestInterface
@@ -1215,8 +1618,8 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -1316,8 +1719,8 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
      * @return \Psr\Http\Message\RequestInterface
@@ -1435,8 +1838,8 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-     * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
+     * @param string|null $page_token  A page token from the &#x60;nextPageToken&#x60; response element returned by your previous call to this operation. &#x60;nextPageToken&#x60; is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include &#x60;pageToken&#x60; as the only parameter. Specifying &#x60;pageToken&#x60; with any other parameter will cause the request to fail. When no &#x60;nextPageToken&#x60; value is returned there are no more pages to return. A &#x60;pageToken&#x60; value is not usable across different operations. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -1536,8 +1939,8 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-     * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
+     * @param string|null $page_token  A page token from the &#x60;nextPageToken&#x60; response element returned by your previous call to this operation. &#x60;nextPageToken&#x60; is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include &#x60;pageToken&#x60; as the only parameter. Specifying &#x60;pageToken&#x60; with any other parameter will cause the request to fail. When no &#x60;nextPageToken&#x60; value is returned there are no more pages to return. A &#x60;pageToken&#x60; value is not usable across different operations. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
      * @return \Psr\Http\Message\RequestInterface
@@ -1648,9 +2051,9 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-     * @param string $asin  The Amazon Standard Identification Number (ASIN) is the unique identifier of a product within a marketplace. (required)
-     * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
+     * @param string $asin  The Amazon Standard Identification Number (ASIN). (required)
+     * @param string|null $page_token  A page token from the &#x60;nextPageToken&#x60; response element returned by your previous call to this operation. &#x60;nextPageToken&#x60; is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include &#x60;pageToken&#x60; as the only parameter. Specifying &#x60;pageToken&#x60; with any other parameter will cause the request to fail. When no &#x60;nextPageToken&#x60; value is returned there are no more pages to return. A &#x60;pageToken&#x60; value is not usable across different operations. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -1750,9 +2153,9 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
-     * @param string $asin  The Amazon Standard Identification Number (ASIN) is the unique identifier of a product within a marketplace. (required)
-     * @param string|null $page_token  A token that you use to fetch a specific page when there are multiple pages of results. (optional)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
+     * @param string $asin  The Amazon Standard Identification Number (ASIN). (required)
+     * @param string|null $page_token  A page token from the &#x60;nextPageToken&#x60; response element returned by your previous call to this operation. &#x60;nextPageToken&#x60; is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include &#x60;pageToken&#x60; as the only parameter. Specifying &#x60;pageToken&#x60; with any other parameter will cause the request to fail. When no &#x60;nextPageToken&#x60; value is returned there are no more pages to return. A &#x60;pageToken&#x60; value is not usable across different operations. (optional)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
      * @return \Psr\Http\Message\RequestInterface
@@ -1880,8 +2283,8 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      *
      * @throws ApiException on non-2xx response
@@ -1982,8 +2385,8 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $content_reference_key  The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      *
      * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
@@ -2112,11 +2515,233 @@ final class APlusSDK implements APlusSDKInterface
     }
 
     /**
+     * Operation updateMedia
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $media_id  The unique identifier for the media asset to update. (required)
+     * @param \AmazonPHP\SellingPartner\Model\APlus\UpdateMediaRequest $update_media_request  The media update request details. (required)
+     * @param string|null $associated_media_id  When provided, identifies the specific video-image pairing for title updates. Required when updating a pairing title. (optional)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return \AmazonPHP\SellingPartner\Model\APlus\UpdateMediaResponse
+     */
+    public function updateMedia(AccessToken $accessToken, string $region, $media_id, $update_media_request, $associated_media_id = null)
+    {
+        $request = $this->updateMediaRequest($accessToken, $region, $media_id, $update_media_request, $associated_media_id);
+
+        $this->configuration->extensions()->preRequest('APlus', 'updateMedia', $request);
+
+        try {
+            $correlationId = $this->configuration->idGenerator()->generate();
+            $sanitizedRequest = $request;
+
+            foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                $sanitizedRequest = $sanitizedRequest->withoutHeader($sensitiveHeader);
+            }
+
+            if ($this->configuration->loggingEnabled('APlus', 'updateMedia')) {
+                $this->logger->log(
+                    $this->configuration->logLevel('APlus', 'updateMedia'),
+                    'Amazon Selling Partner API pre request',
+                    [
+                        'api' => 'APlus',
+                        'operation' => 'updateMedia',
+                        'request_correlation_id' => $correlationId,
+                        'request_body' => (string) $sanitizedRequest->getBody(),
+                        'request_headers' => $sanitizedRequest->getHeaders(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                    ]
+                );
+            }
+
+            $response = $this->client->sendRequest($request);
+
+            $this->configuration->extensions()->postRequest('APlus', 'updateMedia', $request, $response);
+
+            if ($this->configuration->loggingEnabled('APlus', 'updateMedia')) {
+
+                $sanitizedResponse = $response;
+
+                foreach ($this->configuration->loggingSkipHeaders() as $sensitiveHeader) {
+                    $sanitizedResponse = $sanitizedResponse->withoutHeader($sensitiveHeader);
+                }
+
+                $this->logger->log(
+                    $this->configuration->logLevel('APlus', 'updateMedia'),
+                    'Amazon Selling Partner API post request',
+                    [
+                        'api' => 'APlus',
+                        'operation' => 'updateMedia',
+                        'response_correlation_id' => $correlationId,
+                        'response_body' => (string) $sanitizedResponse->getBody(),
+                        'response_headers' => $sanitizedResponse->getHeaders(),
+                        'response_status_code' => $sanitizedResponse->getStatusCode(),
+                        'request_uri' => (string) $sanitizedRequest->getUri(),
+                        'request_body' => (string) $sanitizedRequest->getBody()
+                    ]
+                );
+            }
+        } catch (ClientExceptionInterface $e) {
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                (int) $e->getCode(),
+                null,
+                null,
+                $e
+            );
+        }
+
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode < 200 || $statusCode > 299) {
+            throw new ApiException(
+                sprintf(
+                    '[%d] Error connecting to the API (%s)',
+                    $statusCode,
+                    (string) $request->getUri()
+                ),
+                $statusCode,
+                $response->getHeaders(),
+                (string) $response->getBody()
+            );
+        }
+
+        return ObjectSerializer::deserialize(
+            $this->configuration,
+            (string) $response->getBody(),
+            '\AmazonPHP\SellingPartner\Model\APlus\UpdateMediaResponse',
+            []
+        );
+    }
+
+    /**
+     * Create request for operation 'updateMedia'
+     *
+     * @param AccessToken $accessToken
+     * @param string $region
+     * @param string $media_id  The unique identifier for the media asset to update. (required)
+     * @param \AmazonPHP\SellingPartner\Model\APlus\UpdateMediaRequest $update_media_request  The media update request details. (required)
+     * @param string|null $associated_media_id  When provided, identifies the specific video-image pairing for title updates. Required when updating a pairing title. (optional)
+     *
+     * @throws \AmazonPHP\SellingPartner\Exception\InvalidArgumentException
+     * @return \Psr\Http\Message\RequestInterface
+     */
+    public function updateMediaRequest(AccessToken $accessToken, string $region, $media_id, $update_media_request, $associated_media_id = null) : RequestInterface
+    {
+        // verify the required parameter 'media_id' is set
+        if ($media_id === null || (is_array($media_id) && count($media_id) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $media_id when calling updateMedia'
+            );
+        }
+        // verify the required parameter 'update_media_request' is set
+        if ($update_media_request === null || (is_array($update_media_request) && count($update_media_request) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $update_media_request when calling updateMedia'
+            );
+        }
+
+        $resourcePath = '/aplus/2020-11-01/media/{mediaId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $multipart = false;
+        $query = '';
+
+        // query params
+        if (is_array($associated_media_id)) {
+            $associated_media_id = ObjectSerializer::serializeCollection($associated_media_id, '', true);
+        }
+        if ($associated_media_id !== null) {
+            $queryParams['associatedMediaId'] = ObjectSerializer::toString($associated_media_id);
+        }
+
+        if (\count($queryParams)) {
+            $query = http_build_query($queryParams);
+        }
+
+
+        // path params
+        if ($media_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'mediaId' . '}',
+                ObjectSerializer::toPathValue($media_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = [
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        } else {
+            $headers = [
+                'content-type' => ['application/json'],
+                'accept' => ['application/json'],
+                'host' => [$this->configuration->apiHost($region)],
+                'user-agent' => [$this->configuration->userAgent()],
+            ];
+        }
+
+        $request = $this->httpFactory->createRequest(
+            'PATCH',
+            $this->configuration->apiURL($region) . $resourcePath . '?' . $query
+        );
+
+        // for model (json/xml)
+        if (isset($update_media_request)) {
+            if ($headers['content-type'] === ['application/json']) {
+                $httpBody = \json_encode(ObjectSerializer::sanitizeForSerialization($update_media_request));
+            } else {
+                $httpBody = $update_media_request;
+            }
+
+            $request = $request->withBody($this->httpFactory->createStreamFromString($httpBody));
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $boundary = '----' . \bin2hex(\random_bytes(16));
+                $multipartStream = '';
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartStream .= "--{$boundary}\r\n";
+                        $multipartStream .= "Content-Disposition: form-data; name=\"{$formParamName}\"\r\n\r\n";
+                        $multipartStream .= "{$formParamValueItem}\r\n";
+                    }
+                }
+                $multipartStream .= "--{$boundary}--\r\n";
+                $request = $request->withBody($this->httpFactory->createStreamFromString($multipartStream));
+                $headers['content-type'] = ['multipart/form-data; boundary=' . $boundary];
+            } elseif ($headers['content-type'] === ['application/json']) {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\json_encode($formParams)));
+            } else {
+                $request = $request->withBody($this->httpFactory->createStreamFromString(\http_build_query($formParams)));
+            }
+        }
+
+        foreach (\array_merge($headerParams, $headers) as $name => $header) {
+            $request = $request->withHeader($name, $header);
+        }
+
+        return HttpSignatureHeaders::forConfig(
+            $this->configuration,
+            $accessToken,
+            $region,
+            $request
+        );
+    }
+
+    /**
      * Operation validateContentDocumentAsinRelations
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      * @param string[]|null $asin_set  The set of ASINs. (optional)
      *
@@ -2218,7 +2843,7 @@ final class APlusSDK implements APlusSDKInterface
      *
      * @param AccessToken $accessToken
      * @param string $region
-     * @param string $marketplace_id  The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). (required)
+     * @param string $marketplace_id  The identifier for the Amazon store where the A+ Content is published. (required)
      * @param \AmazonPHP\SellingPartner\Model\APlus\PostContentDocumentRequest $post_content_document_request  The content document request details. (required)
      * @param string[]|null $asin_set  The set of ASINs. (optional)
      *

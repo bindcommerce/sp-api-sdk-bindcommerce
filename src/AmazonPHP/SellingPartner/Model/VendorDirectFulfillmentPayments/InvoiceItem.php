@@ -43,13 +43,16 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_sequence_number' => 'string',
         'buyer_product_identifier' => 'string',
         'vendor_product_identifier' => 'string',
+        'item_description' => 'string',
         'invoiced_quantity' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\ItemQuantity',
         'net_cost' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\Money',
         'purchase_order_number' => 'string',
         'vendor_order_number' => 'string',
         'hsn_code' => 'string',
         'tax_details' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\TaxDetail[]',
-        'charge_details' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\ChargeDetails[]'
+        'additional_details' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\AdditionalDetails[]',
+        'charge_details' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\ChargeDetails[]',
+        'allowance_details' => '\AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\AllowanceDetails[]'
     ];
 
     /**
@@ -63,13 +66,16 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_sequence_number' => null,
         'buyer_product_identifier' => null,
         'vendor_product_identifier' => null,
+        'item_description' => null,
         'invoiced_quantity' => null,
         'net_cost' => null,
         'purchase_order_number' => null,
         'vendor_order_number' => null,
         'hsn_code' => null,
         'tax_details' => null,
-        'charge_details' => null
+        'additional_details' => null,
+        'charge_details' => null,
+        'allowance_details' => null
     ];
 
     /**
@@ -102,13 +108,16 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_sequence_number' => 'itemSequenceNumber',
         'buyer_product_identifier' => 'buyerProductIdentifier',
         'vendor_product_identifier' => 'vendorProductIdentifier',
+        'item_description' => 'itemDescription',
         'invoiced_quantity' => 'invoicedQuantity',
         'net_cost' => 'netCost',
         'purchase_order_number' => 'purchaseOrderNumber',
         'vendor_order_number' => 'vendorOrderNumber',
         'hsn_code' => 'hsnCode',
         'tax_details' => 'taxDetails',
-        'charge_details' => 'chargeDetails'
+        'additional_details' => 'additionalDetails',
+        'charge_details' => 'chargeDetails',
+        'allowance_details' => 'allowanceDetails'
     ];
 
     /**
@@ -120,13 +129,16 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_sequence_number' => 'setItemSequenceNumber',
         'buyer_product_identifier' => 'setBuyerProductIdentifier',
         'vendor_product_identifier' => 'setVendorProductIdentifier',
+        'item_description' => 'setItemDescription',
         'invoiced_quantity' => 'setInvoicedQuantity',
         'net_cost' => 'setNetCost',
         'purchase_order_number' => 'setPurchaseOrderNumber',
         'vendor_order_number' => 'setVendorOrderNumber',
         'hsn_code' => 'setHsnCode',
         'tax_details' => 'setTaxDetails',
-        'charge_details' => 'setChargeDetails'
+        'additional_details' => 'setAdditionalDetails',
+        'charge_details' => 'setChargeDetails',
+        'allowance_details' => 'setAllowanceDetails'
     ];
 
     /**
@@ -138,13 +150,16 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_sequence_number' => 'getItemSequenceNumber',
         'buyer_product_identifier' => 'getBuyerProductIdentifier',
         'vendor_product_identifier' => 'getVendorProductIdentifier',
+        'item_description' => 'getItemDescription',
         'invoiced_quantity' => 'getInvoicedQuantity',
         'net_cost' => 'getNetCost',
         'purchase_order_number' => 'getPurchaseOrderNumber',
         'vendor_order_number' => 'getVendorOrderNumber',
         'hsn_code' => 'getHsnCode',
         'tax_details' => 'getTaxDetails',
-        'charge_details' => 'getChargeDetails'
+        'additional_details' => 'getAdditionalDetails',
+        'charge_details' => 'getChargeDetails',
+        'allowance_details' => 'getAllowanceDetails'
     ];
 
     /**
@@ -207,13 +222,16 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['item_sequence_number'] = $data['item_sequence_number'] ?? null;
         $this->container['buyer_product_identifier'] = $data['buyer_product_identifier'] ?? null;
         $this->container['vendor_product_identifier'] = $data['vendor_product_identifier'] ?? null;
+        $this->container['item_description'] = $data['item_description'] ?? null;
         $this->container['invoiced_quantity'] = $data['invoiced_quantity'] ?? null;
         $this->container['net_cost'] = $data['net_cost'] ?? null;
         $this->container['purchase_order_number'] = $data['purchase_order_number'] ?? null;
         $this->container['vendor_order_number'] = $data['vendor_order_number'] ?? null;
         $this->container['hsn_code'] = $data['hsn_code'] ?? null;
         $this->container['tax_details'] = $data['tax_details'] ?? null;
+        $this->container['additional_details'] = $data['additional_details'] ?? null;
         $this->container['charge_details'] = $data['charge_details'] ?? null;
+        $this->container['allowance_details'] = $data['allowance_details'] ?? null;
     }
 
     /**
@@ -316,6 +334,30 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setVendorProductIdentifier($vendor_product_identifier) : self
     {
         $this->container['vendor_product_identifier'] = $vendor_product_identifier;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_description
+     *
+     * @return string|null
+     */
+    public function getItemDescription()
+    {
+        return $this->container['item_description'];
+    }
+
+    /**
+     * Sets item_description
+     *
+     * @param string|null $item_description Product or service description for the invoiced line item.
+     *
+     * @return self
+     */
+    public function setItemDescription($item_description) : self
+    {
+        $this->container['item_description'] = $item_description;
 
         return $this;
     }
@@ -465,6 +507,30 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets additional_details
+     *
+     * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\AdditionalDetails[]|null
+     */
+    public function getAdditionalDetails()
+    {
+        return $this->container['additional_details'];
+    }
+
+    /**
+     * Sets additional_details
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\AdditionalDetails[]|null $additional_details Line-level additional details provided by the selling party, e.g. tax exemption reason code and text.
+     *
+     * @return self
+     */
+    public function setAdditionalDetails($additional_details) : self
+    {
+        $this->container['additional_details'] = $additional_details;
+
+        return $this;
+    }
+
+    /**
      * Gets charge_details
      *
      * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\ChargeDetails[]|null
@@ -484,6 +550,30 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setChargeDetails($charge_details) : self
     {
         $this->container['charge_details'] = $charge_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets allowance_details
+     *
+     * @return \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\AllowanceDetails[]|null
+     */
+    public function getAllowanceDetails()
+    {
+        return $this->container['allowance_details'];
+    }
+
+    /**
+     * Sets allowance_details
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorDirectFulfillmentPayments\AllowanceDetails[]|null $allowance_details Individual allowance details per line item.
+     *
+     * @return self
+     */
+    public function setAllowanceDetails($allowance_details) : self
+    {
+        $this->container['allowance_details'] = $allowance_details;
 
         return $this;
     }

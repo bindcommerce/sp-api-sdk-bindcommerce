@@ -48,6 +48,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'net_cost_unit_of_measure' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\NetCostUnitOfMeasure',
         'purchase_order_number' => 'string',
         'hsn_code' => 'string',
+        'item_description' => 'string',
+        'additional_details' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\AdditionalDetails[]',
         'credit_note_details' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\CreditNoteDetails',
         'tax_details' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\TaxDetails[]',
         'charge_details' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\ChargeDetails[]',
@@ -70,6 +72,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'net_cost_unit_of_measure' => null,
         'purchase_order_number' => null,
         'hsn_code' => null,
+        'item_description' => null,
+        'additional_details' => null,
         'credit_note_details' => null,
         'tax_details' => null,
         'charge_details' => null,
@@ -111,6 +115,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'net_cost_unit_of_measure' => 'netCostUnitOfMeasure',
         'purchase_order_number' => 'purchaseOrderNumber',
         'hsn_code' => 'hsnCode',
+        'item_description' => 'itemDescription',
+        'additional_details' => 'additionalDetails',
         'credit_note_details' => 'creditNoteDetails',
         'tax_details' => 'taxDetails',
         'charge_details' => 'chargeDetails',
@@ -131,6 +137,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'net_cost_unit_of_measure' => 'setNetCostUnitOfMeasure',
         'purchase_order_number' => 'setPurchaseOrderNumber',
         'hsn_code' => 'setHsnCode',
+        'item_description' => 'setItemDescription',
+        'additional_details' => 'setAdditionalDetails',
         'credit_note_details' => 'setCreditNoteDetails',
         'tax_details' => 'setTaxDetails',
         'charge_details' => 'setChargeDetails',
@@ -151,6 +159,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'net_cost_unit_of_measure' => 'getNetCostUnitOfMeasure',
         'purchase_order_number' => 'getPurchaseOrderNumber',
         'hsn_code' => 'getHsnCode',
+        'item_description' => 'getItemDescription',
+        'additional_details' => 'getAdditionalDetails',
         'credit_note_details' => 'getCreditNoteDetails',
         'tax_details' => 'getTaxDetails',
         'charge_details' => 'getChargeDetails',
@@ -222,6 +232,8 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['net_cost_unit_of_measure'] = $data['net_cost_unit_of_measure'] ?? null;
         $this->container['purchase_order_number'] = $data['purchase_order_number'] ?? null;
         $this->container['hsn_code'] = $data['hsn_code'] ?? null;
+        $this->container['item_description'] = $data['item_description'] ?? null;
+        $this->container['additional_details'] = $data['additional_details'] ?? null;
         $this->container['credit_note_details'] = $data['credit_note_details'] ?? null;
         $this->container['tax_details'] = $data['tax_details'] ?? null;
         $this->container['charge_details'] = $data['charge_details'] ?? null;
@@ -448,6 +460,54 @@ class InvoiceItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setHsnCode($hsn_code) : self
     {
         $this->container['hsn_code'] = $hsn_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_description
+     *
+     * @return string|null
+     */
+    public function getItemDescription()
+    {
+        return $this->container['item_description'];
+    }
+
+    /**
+     * Sets item_description
+     *
+     * @param string|null $item_description Product or service description for the invoiced line item.
+     *
+     * @return self
+     */
+    public function setItemDescription($item_description) : self
+    {
+        $this->container['item_description'] = $item_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_details
+     *
+     * @return \AmazonPHP\SellingPartner\Model\VendorInvoices\AdditionalDetails[]|null
+     */
+    public function getAdditionalDetails()
+    {
+        return $this->container['additional_details'];
+    }
+
+    /**
+     * Sets additional_details
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\AdditionalDetails[]|null $additional_details Line-level additional details provided by the selling party, e.g. tax exemption reason code and text.
+     *
+     * @return self
+     */
+    public function setAdditionalDetails($additional_details) : self
+    {
+        $this->container['additional_details'] = $additional_details;
 
         return $this;
     }

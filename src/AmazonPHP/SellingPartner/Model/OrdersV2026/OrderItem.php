@@ -367,7 +367,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets associated_order_items
      *
-     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\AssociatedOrderItem[]|null $associated_order_items A list of order items associated with this item. For example, a value-add service purchased with the product.
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\AssociatedOrderItem[]|null $associated_order_items A list of order items associated with this item. For example, a value-add service purchased with the product, or a product covered by a warranty protection plan.
      *
      * @return self
      */

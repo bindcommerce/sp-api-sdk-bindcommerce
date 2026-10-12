@@ -156,6 +156,9 @@ class AdditionalDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     const TYPE_SUR = 'SUR';
     const TYPE_OCR = 'OCR';
     const TYPE_CARTON_COUNT = 'CartonCount';
+    const TYPE_TAX_EXEMPT_REASON = 'TaxExemptReason';
+    const TYPE_LEGAL_TERMS = 'LegalTerms';
+    const TYPE_REGULATORY_NOTE = 'RegulatoryNote';
 
     /**
      * Gets allowable values of the enum
@@ -168,6 +171,9 @@ class AdditionalDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::TYPE_SUR,
             self::TYPE_OCR,
             self::TYPE_CARTON_COUNT,
+            self::TYPE_TAX_EXEMPT_REASON,
+            self::TYPE_LEGAL_TERMS,
+            self::TYPE_REGULATORY_NOTE,
         ];
     }
 

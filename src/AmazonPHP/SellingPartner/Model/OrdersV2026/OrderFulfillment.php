@@ -45,7 +45,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfillment_service_level' => 'string',
         'ship_by_window' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange',
         'deliver_by_window' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange',
-        'label_printing_window' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange'
+        'label_printing_window' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\DateTimeRange',
+        'promise_calculation_inputs' => '\AmazonPHP\SellingPartner\Model\OrdersV2026\PromiseCalculationInputs'
     ];
 
     /**
@@ -61,7 +62,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfillment_service_level' => null,
         'ship_by_window' => null,
         'deliver_by_window' => null,
-        'label_printing_window' => null
+        'label_printing_window' => null,
+        'promise_calculation_inputs' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfillment_service_level' => 'fulfillmentServiceLevel',
         'ship_by_window' => 'shipByWindow',
         'deliver_by_window' => 'deliverByWindow',
-        'label_printing_window' => 'labelPrintingWindow'
+        'label_printing_window' => 'labelPrintingWindow',
+        'promise_calculation_inputs' => 'promiseCalculationInputs'
     ];
 
     /**
@@ -110,7 +113,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfillment_service_level' => 'setFulfillmentServiceLevel',
         'ship_by_window' => 'setShipByWindow',
         'deliver_by_window' => 'setDeliverByWindow',
-        'label_printing_window' => 'setLabelPrintingWindow'
+        'label_printing_window' => 'setLabelPrintingWindow',
+        'promise_calculation_inputs' => 'setPromiseCalculationInputs'
     ];
 
     /**
@@ -124,7 +128,8 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         'fulfillment_service_level' => 'getFulfillmentServiceLevel',
         'ship_by_window' => 'getShipByWindow',
         'deliver_by_window' => 'getDeliverByWindow',
-        'label_printing_window' => 'getLabelPrintingWindow'
+        'label_printing_window' => 'getLabelPrintingWindow',
+        'promise_calculation_inputs' => 'getPromiseCalculationInputs'
     ];
 
     /**
@@ -190,6 +195,7 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['ship_by_window'] = $data['ship_by_window'] ?? null;
         $this->container['deliver_by_window'] = $data['deliver_by_window'] ?? null;
         $this->container['label_printing_window'] = $data['label_printing_window'] ?? null;
+        $this->container['promise_calculation_inputs'] = $data['promise_calculation_inputs'] ?? null;
     }
 
     /**
@@ -215,6 +221,10 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
 
             if ($this->container['label_printing_window'] !== null) {
             $this->container['label_printing_window']->validate();
+            }
+
+            if ($this->container['promise_calculation_inputs'] !== null) {
+            $this->container['promise_calculation_inputs']->validate();
             }
 
     }
@@ -360,6 +370,30 @@ class OrderFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLabelPrintingWindow($label_printing_window) : self
     {
         $this->container['label_printing_window'] = $label_printing_window;
+
+        return $this;
+    }
+
+    /**
+     * Gets promise_calculation_inputs
+     *
+     * @return \AmazonPHP\SellingPartner\Model\OrdersV2026\PromiseCalculationInputs|null
+     */
+    public function getPromiseCalculationInputs()
+    {
+        return $this->container['promise_calculation_inputs'];
+    }
+
+    /**
+     * Sets promise_calculation_inputs
+     *
+     * @param \AmazonPHP\SellingPartner\Model\OrdersV2026\PromiseCalculationInputs|null $promise_calculation_inputs promise_calculation_inputs
+     *
+     * @return self
+     */
+    public function setPromiseCalculationInputs($promise_calculation_inputs) : self
+    {
+        $this->container['promise_calculation_inputs'] = $promise_calculation_inputs;
 
         return $this;
     }

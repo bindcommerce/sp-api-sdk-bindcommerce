@@ -42,7 +42,8 @@ class PartyIdentification implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPITypes = [
         'party_id' => 'string',
         'address' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\Address',
-        'tax_registration_details' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\TaxRegistrationDetails[]'
+        'tax_registration_details' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\TaxRegistrationDetails[]',
+        'additional_party_identifications' => '\AmazonPHP\SellingPartner\Model\VendorInvoices\AdditionalPartyIdentification[]'
     ];
 
     /**
@@ -55,7 +56,8 @@ class PartyIdentification implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPIFormats = [
         'party_id' => null,
         'address' => null,
-        'tax_registration_details' => null
+        'tax_registration_details' => null,
+        'additional_party_identifications' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class PartyIdentification implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $attributeMap = [
         'party_id' => 'partyId',
         'address' => 'address',
-        'tax_registration_details' => 'taxRegistrationDetails'
+        'tax_registration_details' => 'taxRegistrationDetails',
+        'additional_party_identifications' => 'additionalPartyIdentifications'
     ];
 
     /**
@@ -98,7 +101,8 @@ class PartyIdentification implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $setters = [
         'party_id' => 'setPartyId',
         'address' => 'setAddress',
-        'tax_registration_details' => 'setTaxRegistrationDetails'
+        'tax_registration_details' => 'setTaxRegistrationDetails',
+        'additional_party_identifications' => 'setAdditionalPartyIdentifications'
     ];
 
     /**
@@ -109,7 +113,8 @@ class PartyIdentification implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $getters = [
         'party_id' => 'getPartyId',
         'address' => 'getAddress',
-        'tax_registration_details' => 'getTaxRegistrationDetails'
+        'tax_registration_details' => 'getTaxRegistrationDetails',
+        'additional_party_identifications' => 'getAdditionalPartyIdentifications'
     ];
 
     /**
@@ -172,6 +177,7 @@ class PartyIdentification implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['party_id'] = $data['party_id'] ?? null;
         $this->container['address'] = $data['address'] ?? null;
         $this->container['tax_registration_details'] = $data['tax_registration_details'] ?? null;
+        $this->container['additional_party_identifications'] = $data['additional_party_identifications'] ?? null;
     }
 
     /**
@@ -262,6 +268,30 @@ class PartyIdentification implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setTaxRegistrationDetails($tax_registration_details) : self
     {
         $this->container['tax_registration_details'] = $tax_registration_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_party_identifications
+     *
+     * @return \AmazonPHP\SellingPartner\Model\VendorInvoices\AdditionalPartyIdentification[]|null
+     */
+    public function getAdditionalPartyIdentifications()
+    {
+        return $this->container['additional_party_identifications'];
+    }
+
+    /**
+     * Sets additional_party_identifications
+     *
+     * @param \AmazonPHP\SellingPartner\Model\VendorInvoices\AdditionalPartyIdentification[]|null $additional_party_identifications Additional corporate or fiscal registration identifiers for the party that are not VAT/GST registrations (e.g. FR SIREN, or DE W-IdNr.).
+     *
+     * @return self
+     */
+    public function setAdditionalPartyIdentifications($additional_party_identifications) : self
+    {
+        $this->container['additional_party_identifications'] = $additional_party_identifications;
 
         return $this;
     }

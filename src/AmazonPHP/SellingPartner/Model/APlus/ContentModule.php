@@ -13,7 +13,7 @@ use \AmazonPHP\SellingPartner\Exception\AssertionException;
 /**
 * Selling Partner API for A+ Content Management
 *
-* Use the A+ Content API to build applications that help selling partners add rich marketing content to their Amazon product detail pages. Selling partners can use A+ content to share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners use content modules to add images and text.
+* With the A+ Content API, you can build applications that help selling partners add rich marketing content to their Amazon product detail pages. A+ Content helps selling partners share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners assemble content by choosing from content modules and adding images and text.
 *
 * The version of the OpenAPI document: 2020-11-01
 *
@@ -55,7 +55,31 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
         'standard_single_side_image' => '\AmazonPHP\SellingPartner\Model\APlus\StandardSingleSideImageModule',
         'standard_tech_specs' => '\AmazonPHP\SellingPartner\Model\APlus\StandardTechSpecsModule',
         'standard_text' => '\AmazonPHP\SellingPartner\Model\APlus\StandardTextModule',
-        'standard_three_image_text' => '\AmazonPHP\SellingPartner\Model\APlus\StandardThreeImageTextModule'
+        'standard_three_image_text' => '\AmazonPHP\SellingPartner\Model\APlus\StandardThreeImageTextModule',
+        'premium_image_text' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumImageTextModule',
+        'premium_text' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumTextModule',
+        'premium_full_background_text' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumFullBackgroundTextModule',
+        'premium_full_background_image' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumFullBackgroundImageModule',
+        'premium_four_column_images' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumFourColumnImagesModule',
+        'premium_dual_image_text' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumDualImageTextModule',
+        'premium_image_carousel' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumImageCarouselModule',
+        'premium_navigation_carousel' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumNavigationCarouselModule',
+        'premium_regimen_carousel' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumRegimenCarouselModule',
+        'premium_three_column_comparison' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumThreeColumnComparisonModule',
+        'premium_comparison_carousel' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumComparisonCarouselModule',
+        'premium_comparison_scroller' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumComparisonScrollerModule',
+        'premium_hotspot_image' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumHotspotImageModule',
+        'premium_hotspot_image_text' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumHotspotImageTextModule',
+        'premium_faq' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumFaqModule',
+        'premium_tech_specs' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumTechSpecsModule',
+        'premium_video_text' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumVideoTextModule',
+        'premium_hero_video' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumHeroVideoModule',
+        'premium_video_image_carousel' => '\AmazonPHP\SellingPartner\Model\APlus\PremiumVideoImageCarouselModule',
+        'brand_story_image_with_logo' => '\AmazonPHP\SellingPartner\Model\APlus\BrandStoryImageWithLogoModule',
+        'brand_story_four_asin' => '\AmazonPHP\SellingPartner\Model\APlus\BrandStoryFourAsinModule',
+        'brand_story_media_asset' => '\AmazonPHP\SellingPartner\Model\APlus\BrandStoryMediaAssetModule',
+        'brand_story_about' => '\AmazonPHP\SellingPartner\Model\APlus\BrandStoryAboutModule',
+        'brand_story_questions' => '\AmazonPHP\SellingPartner\Model\APlus\BrandStoryQuestionsModule'
     ];
 
     /**
@@ -81,7 +105,31 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
         'standard_single_side_image' => null,
         'standard_tech_specs' => null,
         'standard_text' => null,
-        'standard_three_image_text' => null
+        'standard_three_image_text' => null,
+        'premium_image_text' => null,
+        'premium_text' => null,
+        'premium_full_background_text' => null,
+        'premium_full_background_image' => null,
+        'premium_four_column_images' => null,
+        'premium_dual_image_text' => null,
+        'premium_image_carousel' => null,
+        'premium_navigation_carousel' => null,
+        'premium_regimen_carousel' => null,
+        'premium_three_column_comparison' => null,
+        'premium_comparison_carousel' => null,
+        'premium_comparison_scroller' => null,
+        'premium_hotspot_image' => null,
+        'premium_hotspot_image_text' => null,
+        'premium_faq' => null,
+        'premium_tech_specs' => null,
+        'premium_video_text' => null,
+        'premium_hero_video' => null,
+        'premium_video_image_carousel' => null,
+        'brand_story_image_with_logo' => null,
+        'brand_story_four_asin' => null,
+        'brand_story_media_asset' => null,
+        'brand_story_about' => null,
+        'brand_story_questions' => null
     ];
 
     /**
@@ -126,7 +174,31 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
         'standard_single_side_image' => 'standardSingleSideImage',
         'standard_tech_specs' => 'standardTechSpecs',
         'standard_text' => 'standardText',
-        'standard_three_image_text' => 'standardThreeImageText'
+        'standard_three_image_text' => 'standardThreeImageText',
+        'premium_image_text' => 'premiumImageText',
+        'premium_text' => 'premiumText',
+        'premium_full_background_text' => 'premiumFullBackgroundText',
+        'premium_full_background_image' => 'premiumFullBackgroundImage',
+        'premium_four_column_images' => 'premiumFourColumnImages',
+        'premium_dual_image_text' => 'premiumDualImageText',
+        'premium_image_carousel' => 'premiumImageCarousel',
+        'premium_navigation_carousel' => 'premiumNavigationCarousel',
+        'premium_regimen_carousel' => 'premiumRegimenCarousel',
+        'premium_three_column_comparison' => 'premiumThreeColumnComparison',
+        'premium_comparison_carousel' => 'premiumComparisonCarousel',
+        'premium_comparison_scroller' => 'premiumComparisonScroller',
+        'premium_hotspot_image' => 'premiumHotspotImage',
+        'premium_hotspot_image_text' => 'premiumHotspotImageText',
+        'premium_faq' => 'premiumFaq',
+        'premium_tech_specs' => 'premiumTechSpecs',
+        'premium_video_text' => 'premiumVideoText',
+        'premium_hero_video' => 'premiumHeroVideo',
+        'premium_video_image_carousel' => 'premiumVideoImageCarousel',
+        'brand_story_image_with_logo' => 'brandStoryImageWithLogo',
+        'brand_story_four_asin' => 'brandStoryFourAsin',
+        'brand_story_media_asset' => 'brandStoryMediaAsset',
+        'brand_story_about' => 'brandStoryAbout',
+        'brand_story_questions' => 'brandStoryQuestions'
     ];
 
     /**
@@ -150,7 +222,31 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
         'standard_single_side_image' => 'setStandardSingleSideImage',
         'standard_tech_specs' => 'setStandardTechSpecs',
         'standard_text' => 'setStandardText',
-        'standard_three_image_text' => 'setStandardThreeImageText'
+        'standard_three_image_text' => 'setStandardThreeImageText',
+        'premium_image_text' => 'setPremiumImageText',
+        'premium_text' => 'setPremiumText',
+        'premium_full_background_text' => 'setPremiumFullBackgroundText',
+        'premium_full_background_image' => 'setPremiumFullBackgroundImage',
+        'premium_four_column_images' => 'setPremiumFourColumnImages',
+        'premium_dual_image_text' => 'setPremiumDualImageText',
+        'premium_image_carousel' => 'setPremiumImageCarousel',
+        'premium_navigation_carousel' => 'setPremiumNavigationCarousel',
+        'premium_regimen_carousel' => 'setPremiumRegimenCarousel',
+        'premium_three_column_comparison' => 'setPremiumThreeColumnComparison',
+        'premium_comparison_carousel' => 'setPremiumComparisonCarousel',
+        'premium_comparison_scroller' => 'setPremiumComparisonScroller',
+        'premium_hotspot_image' => 'setPremiumHotspotImage',
+        'premium_hotspot_image_text' => 'setPremiumHotspotImageText',
+        'premium_faq' => 'setPremiumFaq',
+        'premium_tech_specs' => 'setPremiumTechSpecs',
+        'premium_video_text' => 'setPremiumVideoText',
+        'premium_hero_video' => 'setPremiumHeroVideo',
+        'premium_video_image_carousel' => 'setPremiumVideoImageCarousel',
+        'brand_story_image_with_logo' => 'setBrandStoryImageWithLogo',
+        'brand_story_four_asin' => 'setBrandStoryFourAsin',
+        'brand_story_media_asset' => 'setBrandStoryMediaAsset',
+        'brand_story_about' => 'setBrandStoryAbout',
+        'brand_story_questions' => 'setBrandStoryQuestions'
     ];
 
     /**
@@ -174,7 +270,31 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
         'standard_single_side_image' => 'getStandardSingleSideImage',
         'standard_tech_specs' => 'getStandardTechSpecs',
         'standard_text' => 'getStandardText',
-        'standard_three_image_text' => 'getStandardThreeImageText'
+        'standard_three_image_text' => 'getStandardThreeImageText',
+        'premium_image_text' => 'getPremiumImageText',
+        'premium_text' => 'getPremiumText',
+        'premium_full_background_text' => 'getPremiumFullBackgroundText',
+        'premium_full_background_image' => 'getPremiumFullBackgroundImage',
+        'premium_four_column_images' => 'getPremiumFourColumnImages',
+        'premium_dual_image_text' => 'getPremiumDualImageText',
+        'premium_image_carousel' => 'getPremiumImageCarousel',
+        'premium_navigation_carousel' => 'getPremiumNavigationCarousel',
+        'premium_regimen_carousel' => 'getPremiumRegimenCarousel',
+        'premium_three_column_comparison' => 'getPremiumThreeColumnComparison',
+        'premium_comparison_carousel' => 'getPremiumComparisonCarousel',
+        'premium_comparison_scroller' => 'getPremiumComparisonScroller',
+        'premium_hotspot_image' => 'getPremiumHotspotImage',
+        'premium_hotspot_image_text' => 'getPremiumHotspotImageText',
+        'premium_faq' => 'getPremiumFaq',
+        'premium_tech_specs' => 'getPremiumTechSpecs',
+        'premium_video_text' => 'getPremiumVideoText',
+        'premium_hero_video' => 'getPremiumHeroVideo',
+        'premium_video_image_carousel' => 'getPremiumVideoImageCarousel',
+        'brand_story_image_with_logo' => 'getBrandStoryImageWithLogo',
+        'brand_story_four_asin' => 'getBrandStoryFourAsin',
+        'brand_story_media_asset' => 'getBrandStoryMediaAsset',
+        'brand_story_about' => 'getBrandStoryAbout',
+        'brand_story_questions' => 'getBrandStoryQuestions'
     ];
 
     /**
@@ -250,6 +370,30 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['standard_tech_specs'] = $data['standard_tech_specs'] ?? null;
         $this->container['standard_text'] = $data['standard_text'] ?? null;
         $this->container['standard_three_image_text'] = $data['standard_three_image_text'] ?? null;
+        $this->container['premium_image_text'] = $data['premium_image_text'] ?? null;
+        $this->container['premium_text'] = $data['premium_text'] ?? null;
+        $this->container['premium_full_background_text'] = $data['premium_full_background_text'] ?? null;
+        $this->container['premium_full_background_image'] = $data['premium_full_background_image'] ?? null;
+        $this->container['premium_four_column_images'] = $data['premium_four_column_images'] ?? null;
+        $this->container['premium_dual_image_text'] = $data['premium_dual_image_text'] ?? null;
+        $this->container['premium_image_carousel'] = $data['premium_image_carousel'] ?? null;
+        $this->container['premium_navigation_carousel'] = $data['premium_navigation_carousel'] ?? null;
+        $this->container['premium_regimen_carousel'] = $data['premium_regimen_carousel'] ?? null;
+        $this->container['premium_three_column_comparison'] = $data['premium_three_column_comparison'] ?? null;
+        $this->container['premium_comparison_carousel'] = $data['premium_comparison_carousel'] ?? null;
+        $this->container['premium_comparison_scroller'] = $data['premium_comparison_scroller'] ?? null;
+        $this->container['premium_hotspot_image'] = $data['premium_hotspot_image'] ?? null;
+        $this->container['premium_hotspot_image_text'] = $data['premium_hotspot_image_text'] ?? null;
+        $this->container['premium_faq'] = $data['premium_faq'] ?? null;
+        $this->container['premium_tech_specs'] = $data['premium_tech_specs'] ?? null;
+        $this->container['premium_video_text'] = $data['premium_video_text'] ?? null;
+        $this->container['premium_hero_video'] = $data['premium_hero_video'] ?? null;
+        $this->container['premium_video_image_carousel'] = $data['premium_video_image_carousel'] ?? null;
+        $this->container['brand_story_image_with_logo'] = $data['brand_story_image_with_logo'] ?? null;
+        $this->container['brand_story_four_asin'] = $data['brand_story_four_asin'] ?? null;
+        $this->container['brand_story_media_asset'] = $data['brand_story_media_asset'] ?? null;
+        $this->container['brand_story_about'] = $data['brand_story_about'] ?? null;
+        $this->container['brand_story_questions'] = $data['brand_story_questions'] ?? null;
     }
 
     /**
@@ -323,6 +467,102 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
 
             if ($this->container['standard_three_image_text'] !== null) {
             $this->container['standard_three_image_text']->validate();
+            }
+
+            if ($this->container['premium_image_text'] !== null) {
+            $this->container['premium_image_text']->validate();
+            }
+
+            if ($this->container['premium_text'] !== null) {
+            $this->container['premium_text']->validate();
+            }
+
+            if ($this->container['premium_full_background_text'] !== null) {
+            $this->container['premium_full_background_text']->validate();
+            }
+
+            if ($this->container['premium_full_background_image'] !== null) {
+            $this->container['premium_full_background_image']->validate();
+            }
+
+            if ($this->container['premium_four_column_images'] !== null) {
+            $this->container['premium_four_column_images']->validate();
+            }
+
+            if ($this->container['premium_dual_image_text'] !== null) {
+            $this->container['premium_dual_image_text']->validate();
+            }
+
+            if ($this->container['premium_image_carousel'] !== null) {
+            $this->container['premium_image_carousel']->validate();
+            }
+
+            if ($this->container['premium_navigation_carousel'] !== null) {
+            $this->container['premium_navigation_carousel']->validate();
+            }
+
+            if ($this->container['premium_regimen_carousel'] !== null) {
+            $this->container['premium_regimen_carousel']->validate();
+            }
+
+            if ($this->container['premium_three_column_comparison'] !== null) {
+            $this->container['premium_three_column_comparison']->validate();
+            }
+
+            if ($this->container['premium_comparison_carousel'] !== null) {
+            $this->container['premium_comparison_carousel']->validate();
+            }
+
+            if ($this->container['premium_comparison_scroller'] !== null) {
+            $this->container['premium_comparison_scroller']->validate();
+            }
+
+            if ($this->container['premium_hotspot_image'] !== null) {
+            $this->container['premium_hotspot_image']->validate();
+            }
+
+            if ($this->container['premium_hotspot_image_text'] !== null) {
+            $this->container['premium_hotspot_image_text']->validate();
+            }
+
+            if ($this->container['premium_faq'] !== null) {
+            $this->container['premium_faq']->validate();
+            }
+
+            if ($this->container['premium_tech_specs'] !== null) {
+            $this->container['premium_tech_specs']->validate();
+            }
+
+            if ($this->container['premium_video_text'] !== null) {
+            $this->container['premium_video_text']->validate();
+            }
+
+            if ($this->container['premium_hero_video'] !== null) {
+            $this->container['premium_hero_video']->validate();
+            }
+
+            if ($this->container['premium_video_image_carousel'] !== null) {
+            $this->container['premium_video_image_carousel']->validate();
+            }
+
+            if ($this->container['brand_story_image_with_logo'] !== null) {
+            $this->container['brand_story_image_with_logo']->validate();
+            }
+
+            if ($this->container['brand_story_four_asin'] !== null) {
+            $this->container['brand_story_four_asin']->validate();
+            }
+
+            if ($this->container['brand_story_media_asset'] !== null) {
+            $this->container['brand_story_media_asset']->validate();
+            }
+
+            if ($this->container['brand_story_about'] !== null) {
+            $this->container['brand_story_about']->validate();
+            }
+
+            if ($this->container['brand_story_questions'] !== null) {
+            $this->container['brand_story_questions']->validate();
             }
 
     }
@@ -708,6 +948,582 @@ class ContentModule implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStandardThreeImageText($standard_three_image_text) : self
     {
         $this->container['standard_three_image_text'] = $standard_three_image_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_image_text
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumImageTextModule|null
+     */
+    public function getPremiumImageText()
+    {
+        return $this->container['premium_image_text'];
+    }
+
+    /**
+     * Sets premium_image_text
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumImageTextModule|null $premium_image_text premium_image_text
+     *
+     * @return self
+     */
+    public function setPremiumImageText($premium_image_text) : self
+    {
+        $this->container['premium_image_text'] = $premium_image_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_text
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumTextModule|null
+     */
+    public function getPremiumText()
+    {
+        return $this->container['premium_text'];
+    }
+
+    /**
+     * Sets premium_text
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumTextModule|null $premium_text premium_text
+     *
+     * @return self
+     */
+    public function setPremiumText($premium_text) : self
+    {
+        $this->container['premium_text'] = $premium_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_full_background_text
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumFullBackgroundTextModule|null
+     */
+    public function getPremiumFullBackgroundText()
+    {
+        return $this->container['premium_full_background_text'];
+    }
+
+    /**
+     * Sets premium_full_background_text
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumFullBackgroundTextModule|null $premium_full_background_text premium_full_background_text
+     *
+     * @return self
+     */
+    public function setPremiumFullBackgroundText($premium_full_background_text) : self
+    {
+        $this->container['premium_full_background_text'] = $premium_full_background_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_full_background_image
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumFullBackgroundImageModule|null
+     */
+    public function getPremiumFullBackgroundImage()
+    {
+        return $this->container['premium_full_background_image'];
+    }
+
+    /**
+     * Sets premium_full_background_image
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumFullBackgroundImageModule|null $premium_full_background_image premium_full_background_image
+     *
+     * @return self
+     */
+    public function setPremiumFullBackgroundImage($premium_full_background_image) : self
+    {
+        $this->container['premium_full_background_image'] = $premium_full_background_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_four_column_images
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumFourColumnImagesModule|null
+     */
+    public function getPremiumFourColumnImages()
+    {
+        return $this->container['premium_four_column_images'];
+    }
+
+    /**
+     * Sets premium_four_column_images
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumFourColumnImagesModule|null $premium_four_column_images premium_four_column_images
+     *
+     * @return self
+     */
+    public function setPremiumFourColumnImages($premium_four_column_images) : self
+    {
+        $this->container['premium_four_column_images'] = $premium_four_column_images;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_dual_image_text
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumDualImageTextModule|null
+     */
+    public function getPremiumDualImageText()
+    {
+        return $this->container['premium_dual_image_text'];
+    }
+
+    /**
+     * Sets premium_dual_image_text
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumDualImageTextModule|null $premium_dual_image_text premium_dual_image_text
+     *
+     * @return self
+     */
+    public function setPremiumDualImageText($premium_dual_image_text) : self
+    {
+        $this->container['premium_dual_image_text'] = $premium_dual_image_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_image_carousel
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumImageCarouselModule|null
+     */
+    public function getPremiumImageCarousel()
+    {
+        return $this->container['premium_image_carousel'];
+    }
+
+    /**
+     * Sets premium_image_carousel
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumImageCarouselModule|null $premium_image_carousel premium_image_carousel
+     *
+     * @return self
+     */
+    public function setPremiumImageCarousel($premium_image_carousel) : self
+    {
+        $this->container['premium_image_carousel'] = $premium_image_carousel;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_navigation_carousel
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumNavigationCarouselModule|null
+     */
+    public function getPremiumNavigationCarousel()
+    {
+        return $this->container['premium_navigation_carousel'];
+    }
+
+    /**
+     * Sets premium_navigation_carousel
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumNavigationCarouselModule|null $premium_navigation_carousel premium_navigation_carousel
+     *
+     * @return self
+     */
+    public function setPremiumNavigationCarousel($premium_navigation_carousel) : self
+    {
+        $this->container['premium_navigation_carousel'] = $premium_navigation_carousel;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_regimen_carousel
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumRegimenCarouselModule|null
+     */
+    public function getPremiumRegimenCarousel()
+    {
+        return $this->container['premium_regimen_carousel'];
+    }
+
+    /**
+     * Sets premium_regimen_carousel
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumRegimenCarouselModule|null $premium_regimen_carousel premium_regimen_carousel
+     *
+     * @return self
+     */
+    public function setPremiumRegimenCarousel($premium_regimen_carousel) : self
+    {
+        $this->container['premium_regimen_carousel'] = $premium_regimen_carousel;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_three_column_comparison
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumThreeColumnComparisonModule|null
+     */
+    public function getPremiumThreeColumnComparison()
+    {
+        return $this->container['premium_three_column_comparison'];
+    }
+
+    /**
+     * Sets premium_three_column_comparison
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumThreeColumnComparisonModule|null $premium_three_column_comparison premium_three_column_comparison
+     *
+     * @return self
+     */
+    public function setPremiumThreeColumnComparison($premium_three_column_comparison) : self
+    {
+        $this->container['premium_three_column_comparison'] = $premium_three_column_comparison;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_comparison_carousel
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumComparisonCarouselModule|null
+     */
+    public function getPremiumComparisonCarousel()
+    {
+        return $this->container['premium_comparison_carousel'];
+    }
+
+    /**
+     * Sets premium_comparison_carousel
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumComparisonCarouselModule|null $premium_comparison_carousel premium_comparison_carousel
+     *
+     * @return self
+     */
+    public function setPremiumComparisonCarousel($premium_comparison_carousel) : self
+    {
+        $this->container['premium_comparison_carousel'] = $premium_comparison_carousel;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_comparison_scroller
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumComparisonScrollerModule|null
+     */
+    public function getPremiumComparisonScroller()
+    {
+        return $this->container['premium_comparison_scroller'];
+    }
+
+    /**
+     * Sets premium_comparison_scroller
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumComparisonScrollerModule|null $premium_comparison_scroller premium_comparison_scroller
+     *
+     * @return self
+     */
+    public function setPremiumComparisonScroller($premium_comparison_scroller) : self
+    {
+        $this->container['premium_comparison_scroller'] = $premium_comparison_scroller;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_hotspot_image
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumHotspotImageModule|null
+     */
+    public function getPremiumHotspotImage()
+    {
+        return $this->container['premium_hotspot_image'];
+    }
+
+    /**
+     * Sets premium_hotspot_image
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumHotspotImageModule|null $premium_hotspot_image premium_hotspot_image
+     *
+     * @return self
+     */
+    public function setPremiumHotspotImage($premium_hotspot_image) : self
+    {
+        $this->container['premium_hotspot_image'] = $premium_hotspot_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_hotspot_image_text
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumHotspotImageTextModule|null
+     */
+    public function getPremiumHotspotImageText()
+    {
+        return $this->container['premium_hotspot_image_text'];
+    }
+
+    /**
+     * Sets premium_hotspot_image_text
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumHotspotImageTextModule|null $premium_hotspot_image_text premium_hotspot_image_text
+     *
+     * @return self
+     */
+    public function setPremiumHotspotImageText($premium_hotspot_image_text) : self
+    {
+        $this->container['premium_hotspot_image_text'] = $premium_hotspot_image_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_faq
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumFaqModule|null
+     */
+    public function getPremiumFaq()
+    {
+        return $this->container['premium_faq'];
+    }
+
+    /**
+     * Sets premium_faq
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumFaqModule|null $premium_faq premium_faq
+     *
+     * @return self
+     */
+    public function setPremiumFaq($premium_faq) : self
+    {
+        $this->container['premium_faq'] = $premium_faq;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_tech_specs
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumTechSpecsModule|null
+     */
+    public function getPremiumTechSpecs()
+    {
+        return $this->container['premium_tech_specs'];
+    }
+
+    /**
+     * Sets premium_tech_specs
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumTechSpecsModule|null $premium_tech_specs premium_tech_specs
+     *
+     * @return self
+     */
+    public function setPremiumTechSpecs($premium_tech_specs) : self
+    {
+        $this->container['premium_tech_specs'] = $premium_tech_specs;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_video_text
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumVideoTextModule|null
+     */
+    public function getPremiumVideoText()
+    {
+        return $this->container['premium_video_text'];
+    }
+
+    /**
+     * Sets premium_video_text
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumVideoTextModule|null $premium_video_text premium_video_text
+     *
+     * @return self
+     */
+    public function setPremiumVideoText($premium_video_text) : self
+    {
+        $this->container['premium_video_text'] = $premium_video_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_hero_video
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumHeroVideoModule|null
+     */
+    public function getPremiumHeroVideo()
+    {
+        return $this->container['premium_hero_video'];
+    }
+
+    /**
+     * Sets premium_hero_video
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumHeroVideoModule|null $premium_hero_video premium_hero_video
+     *
+     * @return self
+     */
+    public function setPremiumHeroVideo($premium_hero_video) : self
+    {
+        $this->container['premium_hero_video'] = $premium_hero_video;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium_video_image_carousel
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\PremiumVideoImageCarouselModule|null
+     */
+    public function getPremiumVideoImageCarousel()
+    {
+        return $this->container['premium_video_image_carousel'];
+    }
+
+    /**
+     * Sets premium_video_image_carousel
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\PremiumVideoImageCarouselModule|null $premium_video_image_carousel premium_video_image_carousel
+     *
+     * @return self
+     */
+    public function setPremiumVideoImageCarousel($premium_video_image_carousel) : self
+    {
+        $this->container['premium_video_image_carousel'] = $premium_video_image_carousel;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand_story_image_with_logo
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\BrandStoryImageWithLogoModule|null
+     */
+    public function getBrandStoryImageWithLogo()
+    {
+        return $this->container['brand_story_image_with_logo'];
+    }
+
+    /**
+     * Sets brand_story_image_with_logo
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\BrandStoryImageWithLogoModule|null $brand_story_image_with_logo brand_story_image_with_logo
+     *
+     * @return self
+     */
+    public function setBrandStoryImageWithLogo($brand_story_image_with_logo) : self
+    {
+        $this->container['brand_story_image_with_logo'] = $brand_story_image_with_logo;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand_story_four_asin
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\BrandStoryFourAsinModule|null
+     */
+    public function getBrandStoryFourAsin()
+    {
+        return $this->container['brand_story_four_asin'];
+    }
+
+    /**
+     * Sets brand_story_four_asin
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\BrandStoryFourAsinModule|null $brand_story_four_asin brand_story_four_asin
+     *
+     * @return self
+     */
+    public function setBrandStoryFourAsin($brand_story_four_asin) : self
+    {
+        $this->container['brand_story_four_asin'] = $brand_story_four_asin;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand_story_media_asset
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\BrandStoryMediaAssetModule|null
+     */
+    public function getBrandStoryMediaAsset()
+    {
+        return $this->container['brand_story_media_asset'];
+    }
+
+    /**
+     * Sets brand_story_media_asset
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\BrandStoryMediaAssetModule|null $brand_story_media_asset brand_story_media_asset
+     *
+     * @return self
+     */
+    public function setBrandStoryMediaAsset($brand_story_media_asset) : self
+    {
+        $this->container['brand_story_media_asset'] = $brand_story_media_asset;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand_story_about
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\BrandStoryAboutModule|null
+     */
+    public function getBrandStoryAbout()
+    {
+        return $this->container['brand_story_about'];
+    }
+
+    /**
+     * Sets brand_story_about
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\BrandStoryAboutModule|null $brand_story_about brand_story_about
+     *
+     * @return self
+     */
+    public function setBrandStoryAbout($brand_story_about) : self
+    {
+        $this->container['brand_story_about'] = $brand_story_about;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand_story_questions
+     *
+     * @return \AmazonPHP\SellingPartner\Model\APlus\BrandStoryQuestionsModule|null
+     */
+    public function getBrandStoryQuestions()
+    {
+        return $this->container['brand_story_questions'];
+    }
+
+    /**
+     * Sets brand_story_questions
+     *
+     * @param \AmazonPHP\SellingPartner\Model\APlus\BrandStoryQuestionsModule|null $brand_story_questions brand_story_questions
+     *
+     * @return self
+     */
+    public function setBrandStoryQuestions($brand_story_questions) : self
+    {
+        $this->container['brand_story_questions'] = $brand_story_questions;
 
         return $this;
     }
